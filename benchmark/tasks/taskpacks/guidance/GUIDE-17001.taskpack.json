@@ -1,0 +1,5048 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-17001",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "mug",
+          "target": "clean_table"
+        },
+        {
+          "pred": "on",
+          "subject": "water_bottle",
+          "target": "clean_table"
+        },
+        {
+          "pred": "on",
+          "subject": "oil_bottle",
+          "target": "clean_table"
+        },
+        {
+          "pred": "on",
+          "subject": "camera",
+          "target": "clean_table"
+        },
+        {
+          "pred": "on",
+          "subject": "phone",
+          "target": "clean_table"
+        },
+        {
+          "pred": "inside",
+          "subject": "form",
+          "target": "file_shelf"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "mug",
+          "target": "clean_table"
+        },
+        {
+          "pred": "on",
+          "subject": "water_bottle",
+          "target": "clean_table"
+        },
+        {
+          "pred": "on",
+          "subject": "oil_bottle",
+          "target": "clean_table"
+        },
+        {
+          "pred": "on",
+          "subject": "camera",
+          "target": "clean_table"
+        },
+        {
+          "pred": "on",
+          "subject": "phone",
+          "target": "clean_table"
+        },
+        {
+          "pred": "inside",
+          "subject": "form",
+          "target": "file_shelf"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "file_shelf"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "blue_sponge",
+          "camera",
+          "cleaning_matrix",
+          "form",
+          "microfiber",
+          "mug",
+          "oil_bottle",
+          "phone",
+          "water_bottle"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "Use the blue sponge on the mug, water bottle, and olive-oil bottle. Then use the yellow microfiber cloth on the camera and phone. Do not wipe the paper form. Move all five cleaned objects to the return table and file the dry form on the shelf.",
+        "cue": "Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.",
+        "premise": "A smart-glasses wearer enters the utility room and reads a detailed cleaning sheet clipped to a board on its own reference counter. They then approach a workbench with six mixed objects and two visibly distinct cleaning tools. The assistant must apply the tool-specific and do-not-wipe rules, then route the processed objects to the stated destinations."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [
+        "The shampoo dispenser starts on the floor instead of the table due to surface capacity limits."
+      ],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.",
+        "kind": "authored",
+        "ref": "data_generate:GUIDE-17001"
+      },
+      "rule_table": "on(mug, clean_table); on(water_bottle, clean_table); on(oil_bottle, clean_table); on(camera, clean_table); on(phone, clean_table); inside(form, file_shelf)",
+      "scene": "house_single_floor",
+      "template": "the grounded house_single_floor scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 44,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 44,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "cleaning_matrix"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "cleaning_matrix"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "workbench"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "mug"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "water_bottle"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "oil_bottle"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "camera"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "form"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "blue_sponge"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "microfiber"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "blue_sponge"
+          ]
+        },
+        {
+          "verb": "Wipe",
+          "args": [
+            "blue_sponge",
+            "mug"
+          ]
+        },
+        {
+          "verb": "Wipe",
+          "args": [
+            "blue_sponge",
+            "water_bottle"
+          ]
+        },
+        {
+          "verb": "Wipe",
+          "args": [
+            "blue_sponge",
+            "oil_bottle"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "blue_sponge",
+            "workbench"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "microfiber"
+          ]
+        },
+        {
+          "verb": "Wipe",
+          "args": [
+            "microfiber",
+            "camera"
+          ]
+        },
+        {
+          "verb": "Wipe",
+          "args": [
+            "microfiber",
+            "phone"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "microfiber",
+            "workbench"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "clean_table"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "mug",
+            "clean_table"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "workbench"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "water_bottle"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "clean_table"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "water_bottle",
+            "clean_table"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "workbench"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "oil_bottle"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "clean_table"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "oil_bottle",
+            "clean_table"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "workbench"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "camera"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "clean_table"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "camera",
+            "clean_table"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "workbench"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "clean_table"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "clean_table"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "workbench"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "form"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "file_shelf"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "form",
+            "file_shelf"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Grab] <blue_sponge> (1), [Wipe] <blue_sponge> (1) <mug> (1), [Wipe] <blue_sponge> (1) <water_bottle> (1), [Wipe] <blue_sponge> (1) <oil_bottle> (1), [PutOn] <blue_sponge> (1) <workbench> (1), [Grab] <microfiber> (1), [Wipe] <microfiber> (1) <camera> (1), [Wipe] <microfiber> (1) <phone> (1), [PutOn] <microfiber> (1) <workbench> (1), [Grab] <mug> (1), [Walk] <clean_table> (1), [PutOn] <mug> (1) <clean_table> (1), [Walk] <workbench> (1), [Grab] <water_bottle> (1), [Walk] <clean_table> (1), [PutOn] <water_bottle> (1) <clean_table> (1), [Walk] <workbench> (1), [Grab] <oil_bottle> (1), [Walk] <clean_table> (1), [PutOn] <oil_bottle> (1) <clean_table> (1), [Walk] <workbench> (1), [Grab] <camera> (1), [Walk] <clean_table> (1), [PutOn] <camera> (1) <clean_table> (1), [Walk] <workbench> (1), [Grab] <phone> (1), [Walk] <clean_table> (1), [PutOn] <phone> (1) <clean_table> (1), [Walk] <workbench> (1), [Grab] <form> (1), [Walk] <file_shelf> (1), [PutInside] <form> (1) <file_shelf> (1)",
+      "seed": 340303099,
+      "source_task_id": "GUIDE-17001"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "mug",
+          "target": "clean_table"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "water_bottle",
+          "target": "clean_table"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "oil_bottle",
+          "target": "clean_table"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "camera",
+          "target": "clean_table"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 4,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "phone",
+          "target": "clean_table"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 5,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "form",
+          "target": "file_shelf"
+        }
+      ],
+      "sub_steps": [
+        "on(mug, clean_table)",
+        "on(water_bottle, clean_table)",
+        "on(oil_bottle, clean_table)",
+        "on(camera, clean_table)",
+        "on(phone, clean_table)",
+        "inside(form, file_shelf)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-17001",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 340303099,
+      "containers": {
+        "file_shelf": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "shelf",
+            "model": "yursyw",
+            "source": "import"
+          },
+          "door": {
+            "required": false
+          },
+          "kind": "open_bin",
+          "role": "scored",
+          "room": "utility_room_0"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "rules_counter": {
+          "bind": {
+            "cat": "countertop",
+            "source": "scene"
+          },
+          "room": "utility_room_0",
+          "seatable": false
+        },
+        "workbench": {
+          "bind": {
+            "cat": "countertop",
+            "source": "scene"
+          },
+          "room": "utility_room_0",
+          "seatable": false
+        },
+        "clean_table": {
+          "bind": {
+            "cat": "countertop",
+            "source": "scene"
+          },
+          "room": "utility_room_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_cleaning_matrix": {
+          "content": {
+            "args": {
+              "renderer": "instruction_sheet",
+              "rows": [
+                "BLUE SPONGE: MUG / WATER BOTTLE / OIL BOTTLE / LUNCH BOX",
+                "YELLOW MICROFIBER: CAMERA / GLASSES / PHONE / GLASS",
+                "DO NOT WIPE: PAPER / CARDBOARD / OPEN FOOD / FABRIC",
+                "AFTER: CLEAN ITEMS TO EMPTY RETURN TABLE; PAPER TO FILE SHELF"
+              ],
+              "sub": "",
+              "title": "CLEANING MATRIX"
+            },
+            "lines": [
+              "BLUE SPONGE: MUG / WATER BOTTLE / OIL BOTTLE / LUNCH BOX",
+              "YELLOW MICROFIBER: CAMERA / GLASSES / PHONE / GLASS",
+              "DO NOT WIPE: PAPER / CARDBOARD / OPEN FOOD / FABRIC",
+              "AFTER: CLEAN ITEMS TO EMPTY RETURN TABLE; PAPER TO FILE SHELF"
+            ],
+            "text": "CLEANING MATRIX"
+          },
+          "kind": "range_card",
+          "mount": {
+            "on": "cleaning_matrix",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_17001_guide26_story_refine_20260910t_cleaning_matrix_107487ae78bb"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "cleaning_matrix": {
+          "cat": "clipboard",
+          "model": "gmxyfo",
+          "needs_lookat": true,
+          "place": "on:rules_counter",
+          "room": "utility_room_0",
+          "scored": false,
+          "spot": [
+            0.0,
+            0.5
+          ],
+          "decal": "CLEANING MATRIX"
+        },
+        "mug": {
+          "cat": "mug",
+          "model": "dhnxww",
+          "needs_lookat": false,
+          "place": "on:workbench",
+          "room": "utility_room_0",
+          "scored": true,
+          "spot": [
+            -0.8,
+            0.25
+          ]
+        },
+        "water_bottle": {
+          "cat": "bottle_of_water",
+          "model": "atvnqy",
+          "needs_lookat": false,
+          "place": "on:workbench",
+          "room": "utility_room_0",
+          "scored": true,
+          "spot": [
+            -0.45,
+            0.7
+          ]
+        },
+        "camera": {
+          "cat": "digital_camera",
+          "model": "wbzzjl",
+          "needs_lookat": false,
+          "place": "on:workbench",
+          "room": "utility_room_0",
+          "scored": true,
+          "spot": [
+            -0.1,
+            0.25
+          ]
+        },
+        "oil_bottle": {
+          "cat": "bottle_of_olive_oil",
+          "model": "ajswsh",
+          "needs_lookat": false,
+          "place": "on:workbench",
+          "room": "utility_room_0",
+          "scored": true,
+          "spot": [
+            -0.3,
+            -0.6
+          ]
+        },
+        "phone": {
+          "cat": "cell_phone",
+          "model": "dbhfuh",
+          "needs_lookat": false,
+          "place": "on:workbench",
+          "room": "utility_room_0",
+          "scored": true,
+          "spot": [
+            0.7,
+            -0.55
+          ]
+        },
+        "form": {
+          "cat": "paper_sheet",
+          "model": "uqbipw",
+          "needs_lookat": false,
+          "place": "on:workbench",
+          "room": "utility_room_0",
+          "scored": true,
+          "spot": [
+            0.25,
+            0.7
+          ]
+        },
+        "blue_sponge": {
+          "cat": "sponge",
+          "model": "aewrov",
+          "needs_lookat": false,
+          "place": "on:workbench",
+          "room": "utility_room_0",
+          "scored": false,
+          "spot": [
+            0.55,
+            0.25
+          ],
+          "tint": "blue"
+        },
+        "microfiber": {
+          "cat": "microfiber_cloth",
+          "model": "zpllxb",
+          "needs_lookat": false,
+          "place": "on:workbench",
+          "room": "utility_room_0",
+          "scored": false,
+          "spot": [
+            0.85,
+            0.7
+          ],
+          "tint": "yellow"
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "utility_room_0"
+      ],
+      "scene": "house_single_floor",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "A smart-glasses wearer enters the utility room and reads a detailed cleaning sheet clipped to a board on its own reference counter. They then approach a workbench with six mixed objects and two visibly distinct cleaning tools. The assistant must apply the tool-specific and do-not-wipe rules, then route the processed objects to the stated destinations.",
+    "assistant_goal": "Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+      "assigned_scene": "house_single_floor",
+      "core_question": "Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "A smart-glasses wearer enters the utility room and reads a detailed cleaning sheet clipped to a board on its own reference counter. They then approach a workbench with six mixed objects and two visibly distinct cleaning tools. The assistant must apply the tool-specific and do-not-wipe rules, then route the processed objects to the stated destinations."
+      ],
+      "required_evidence": [
+        "Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.",
+        "The printed clipboard on the reference counter visibly assigns tools, forbidden targets, and final destinations.",
+        "The workbench contains six target objects and two differently colored cleaning tools.",
+        "The blue sponge has been used on all three items assigned to it.",
+        "The camera and phone have been wiped with the microfiber cloth.",
+        "All five wipe-safe objects are together on the clean return table.",
+        "The dry paper form has been filed without being wiped.",
+        "Use the blue sponge on the mug, water bottle, and olive-oil bottle. Then use the yellow microfiber cloth on the camera and phone. Do not wipe the paper form. Move all five cleaned objects to the return table and file the dry form on the shelf."
+      ],
+      "required_final_predicates": [
+        "on",
+        "on",
+        "on",
+        "on",
+        "on",
+        "inside"
+      ],
+      "success_condition": "on(mug, clean_table); on(water_bottle, clean_table); on(oil_bottle, clean_table); on(camera, clean_table); on(phone, clean_table); inside(form, file_shelf)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-17001",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "assigned_scene": "house_single_floor",
+        "core_question": "Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "A smart-glasses wearer enters the utility room and reads a detailed cleaning sheet clipped to a board on its own reference counter. They then approach a workbench with six mixed objects and two visibly distinct cleaning tools. The assistant must apply the tool-specific and do-not-wipe rules, then route the processed objects to the stated destinations."
+        ],
+        "required_evidence": [
+          "Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.",
+          "The printed clipboard on the reference counter visibly assigns tools, forbidden targets, and final destinations.",
+          "The workbench contains six target objects and two differently colored cleaning tools.",
+          "The blue sponge has been used on all three items assigned to it.",
+          "The camera and phone have been wiped with the microfiber cloth.",
+          "All five wipe-safe objects are together on the clean return table.",
+          "The dry paper form has been filed without being wiped.",
+          "Use the blue sponge on the mug, water bottle, and olive-oil bottle. Then use the yellow microfiber cloth on the camera and phone. Do not wipe the paper form. Move all five cleaned objects to the return table and file the dry form on the shelf."
+        ],
+        "required_final_predicates": [
+          "on",
+          "on",
+          "on",
+          "on",
+          "on",
+          "inside"
+        ],
+        "success_condition": "on(mug, clean_table); on(water_bottle, clean_table); on(oil_bottle, clean_table); on(camera, clean_table); on(phone, clean_table); inside(form, file_shelf)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "baseball",
+          "birdcage",
+          "bottle_of_gin",
+          "bottle_of_olive_oil",
+          "bottle_of_paint",
+          "bottle_of_solvent",
+          "bottle_of_supplements",
+          "bottle_of_water",
+          "cell_phone",
+          "chicken_breast",
+          "clipboard",
+          "clout_nail",
+          "cookie_stick",
+          "cucumber",
+          "digital_camera",
+          "gift_box",
+          "half_bacon",
+          "half_bok_choy",
+          "half_brussels_sprouts",
+          "half_kiwi",
+          "half_shiitake",
+          "hand_towel",
+          "hingeless_jar",
+          "jar_of_orange_sauce",
+          "jar_of_tumeric",
+          "lampshade",
+          "lime",
+          "lint_screen",
+          "maillot",
+          "microfiber_cloth",
+          "modem",
+          "mug",
+          "nativity_figurine",
+          "orange_juice_carton",
+          "outline_vase",
+          "paper_sheet",
+          "pattypan_squash",
+          "peach",
+          "pen",
+          "postcard",
+          "pottable_beefsteak_tomato",
+          "reed_diffuser",
+          "roasting_pan",
+          "seashell",
+          "shampoo_dispenser",
+          "softball",
+          "sponge",
+          "squeeze_bottle",
+          "thermostat",
+          "tube_of_toothpaste"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "bottom_cabinet_no_top",
+          "breakfast_table",
+          "countertop"
+        ],
+        "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "coverage_categories": [
+          "softball",
+          "half_bacon",
+          "tube_of_toothpaste",
+          "reed_diffuser",
+          "baseball",
+          "squeeze_bottle",
+          "seashell",
+          "jar_of_orange_sauce",
+          "half_brussels_sprouts",
+          "pen",
+          "thermostat",
+          "cookie_stick",
+          "bottle_of_supplements",
+          "bottle_of_gin",
+          "digital_camera",
+          "lime",
+          "bottle_of_paint",
+          "hingeless_jar",
+          "shampoo_dispenser",
+          "nativity_figurine"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 4,
+          "required_semantic_turns": 4,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 48,
+          "max_document_characters": 234,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 9,
+          "max_objects_per_container": 9,
+          "max_objects_per_surface": 9,
+          "max_prologue_actions": 12,
+          "max_small_label_characters": 40,
+          "max_task_actions": 32,
+          "max_meaningful_steps": 44,
+          "min_intervening_meaningful_actions": 8
+        },
+        "preferred_story_categories": [
+          "softball",
+          "half_bacon",
+          "tube_of_toothpaste",
+          "reed_diffuser",
+          "baseball",
+          "squeeze_bottle",
+          "seashell",
+          "jar_of_orange_sauce"
+        ],
+        "preferred_story_category_glosses": {
+          "baseball": "",
+          "half_bacon": "",
+          "jar_of_orange_sauce": "",
+          "reed_diffuser": "",
+          "seashell": "the shell of a marine organism",
+          "softball": "",
+          "squeeze_bottle": "",
+          "tube_of_toothpaste": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 23.8,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "bottom_cabinet": 1,
+              "dishwasher": 1,
+              "fridge": 1
+            },
+            "scene_surfaces": {
+              "bar": 1,
+              "bottom_cabinet_no_top": 2,
+              "countertop": 2
+            },
+            "surface_max_area_m2": {
+              "bar": 0.864,
+              "bottom_cabinet_no_top": 0.533,
+              "countertop": 1.116
+            },
+            "surface_reference_capacity": {
+              "bar": 3,
+              "bottom_cabinet_no_top": 3,
+              "countertop": 3
+            }
+          }
+        ],
+        "scene": "house_single_floor",
+        "task_id": "GUIDE-17001",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "clipboard",
+            "changed": false,
+            "costs": null,
+            "label": "CLEANING MATRIX",
+            "tint": null,
+            "what": "printed cleaning-matrix clipboard"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "mug",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "ceramic mug"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_water",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "plastic water bottle"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "digital_camera",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "digital camera"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_olive_oil",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "bottle of olive oil"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "cell_phone",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "mobile phone"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "paper_sheet",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "paper form A"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "sponge",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": "blue",
+            "what": "blue cleaning sponge"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "microfiber_cloth",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": "yellow",
+            "what": "yellow microfiber cloth"
+          },
+          {
+            "affordances": [
+              "container"
+            ],
+            "category": "shelf",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "plain file shelf"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "countertop",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "reference counter by the utility-room entrance"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "countertop",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "cleaning workbench"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "countertop",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "clean-item return table"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "printed cleaning-matrix clipboard",
+            "text": "CLEANING MATRIX",
+            "what": "document",
+            "which": null
+          }
+        ],
+        "restaged_story": "A smart-glasses wearer enters the utility room and reads a detailed cleaning sheet clipped to a board on its own reference counter. They then approach a workbench with six mixed objects and two visibly distinct cleaning tools. The assistant must apply the tool-specific and do-not-wipe rules, then route the processed objects to the stated destinations.",
+        "scene": "house_single_floor",
+        "why_scene": "house_single_floor supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "file_shelf": {
+            "cat": "shelf",
+            "initially_open": false,
+            "label": null,
+            "preload": [],
+            "role": "scored",
+            "room": "utility_room_0"
+          }
+        },
+        "items": {
+          "cleaning_matrix": {
+            "affordances": [],
+            "cat": "clipboard",
+            "initial_space": null,
+            "label": "CLEANING MATRIX",
+            "place": "on:rules_counter",
+            "scored": false,
+            "spot": [
+              0.0,
+              0.5
+            ],
+            "tint": null
+          },
+          "mug": {
+            "affordances": [],
+            "cat": "mug",
+            "initial_space": null,
+            "label": null,
+            "place": "on:workbench",
+            "scored": true,
+            "spot": [
+              -0.8,
+              0.25
+            ],
+            "tint": null
+          },
+          "water_bottle": {
+            "affordances": [],
+            "cat": "bottle_of_water",
+            "initial_space": null,
+            "label": null,
+            "place": "on:workbench",
+            "scored": true,
+            "spot": [
+              -0.45,
+              0.7
+            ],
+            "tint": null
+          },
+          "camera": {
+            "affordances": [],
+            "cat": "digital_camera",
+            "initial_space": null,
+            "label": null,
+            "place": "on:workbench",
+            "scored": true,
+            "spot": [
+              -0.1,
+              0.25
+            ],
+            "tint": null
+          },
+          "oil_bottle": {
+            "affordances": [],
+            "cat": "bottle_of_olive_oil",
+            "initial_space": null,
+            "label": null,
+            "place": "on:workbench",
+            "scored": true,
+            "spot": [
+              -0.3,
+              -0.6
+            ],
+            "tint": null
+          },
+          "phone": {
+            "affordances": [],
+            "cat": "cell_phone",
+            "initial_space": null,
+            "label": null,
+            "place": "on:workbench",
+            "scored": true,
+            "spot": [
+              0.7,
+              -0.55
+            ],
+            "tint": null
+          },
+          "form": {
+            "affordances": [],
+            "cat": "paper_sheet",
+            "initial_space": null,
+            "label": null,
+            "place": "on:workbench",
+            "scored": true,
+            "spot": [
+              0.25,
+              0.7
+            ],
+            "tint": null
+          },
+          "blue_sponge": {
+            "affordances": [],
+            "cat": "sponge",
+            "initial_space": null,
+            "label": null,
+            "place": "on:workbench",
+            "scored": false,
+            "spot": [
+              0.55,
+              0.25
+            ],
+            "tint": "blue"
+          },
+          "microfiber": {
+            "affordances": [],
+            "cat": "microfiber_cloth",
+            "initial_space": null,
+            "label": null,
+            "place": "on:workbench",
+            "scored": false,
+            "spot": [
+              0.85,
+              0.7
+            ],
+            "tint": "yellow"
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <cleaning_matrix> (1)",
+          "[LookAt] <cleaning_matrix> (1)",
+          "[Walk] <workbench> (1)",
+          "[LookAt] <mug> (1)",
+          "[LookAt] <water_bottle> (1)",
+          "[LookAt] <oil_bottle> (1)",
+          "[LookAt] <camera> (1)",
+          "[LookAt] <phone> (1)",
+          "[LookAt] <form> (1)",
+          "[LookAt] <blue_sponge> (1)",
+          "[LookAt] <microfiber> (1)",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "utility_room_0"
+        ],
+        "scene": "house_single_floor",
+        "staging": {
+          "groups": "A smart-glasses wearer enters the utility room and reads a detailed cleaning sheet clipped to a board on its own reference counter. They then approach a workbench with six mixed objects and two visibly distinct cleaning tools. The assistant must apply the tool-specific and do-not-wipe rules, then route the processed objects to the stated destinations.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "rules_counter": {
+            "cat": "countertop",
+            "label": null,
+            "room": "utility_room_0"
+          },
+          "workbench": {
+            "cat": "countertop",
+            "label": null,
+            "room": "utility_room_0"
+          },
+          "clean_table": {
+            "cat": "countertop",
+            "label": null,
+            "room": "utility_room_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The printed clipboard on the reference counter visibly assigns tools, forbidden targets, and final destinations.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The workbench contains six target objects and two differently colored cleaning tools.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 10,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The blue sponge has been used on all three items assigned to it.",
+            "from": "live",
+            "id": "fact_004",
+            "source_index": 3,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The camera and phone have been wiped with the microfiber cloth.",
+            "from": "live",
+            "id": "fact_005",
+            "source_index": 7,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "All five wipe-safe objects are together on the clean return table.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 27,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The dry paper form has been filed without being wiped.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 31,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007"
+            ],
+            "fact": "Use the blue sponge on the mug, water bottle, and olive-oil bottle. Then use the yellow microfiber cloth on the camera and phone. Do not wipe the paper form. Move all five cleaned objects to the return table and file the dry form on the shelf.",
+            "from": "derived",
+            "id": "fact_008",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "mug",
+            "target": "clean_table"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "water_bottle",
+            "target": "clean_table"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "oil_bottle",
+            "target": "clean_table"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "camera",
+            "target": "clean_table"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "phone",
+            "target": "clean_table"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "form",
+            "target": "file_shelf"
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "The matrix assigns the mug, water bottle, and oil bottle to the BLUE sponge. Wipe those three, and do not use that sponge on the electronics or paper.",
+            "referents": [
+              "mug",
+              "water_bottle",
+              "oil_bottle",
+              "blue_sponge",
+              "cleaning_matrix"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 5,
+            "say": "The blue-sponge group is complete. Switch to the YELLOW microfiber cloth for the camera and phone.",
+            "referents": [
+              "camera",
+              "phone",
+              "microfiber"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_004"
+            ]
+          },
+          {
+            "before_index": 9,
+            "say": "The prescribed wiping is complete. Move the mug, both bottles, camera, and phone to the empty clean-item return table.",
+            "referents": [
+              "mug",
+              "water_bottle",
+              "oil_bottle",
+              "camera",
+              "phone",
+              "clean_table"
+            ],
+            "fact_ids": [
+              "fact_004",
+              "fact_005"
+            ]
+          },
+          {
+            "before_index": 28,
+            "say": "The form is in the DO NOT WIPE class. Keep it dry and place it directly on the file shelf.",
+            "referents": [
+              "form",
+              "file_shelf"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_006"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Grab] <blue_sponge> (1), [Wipe] <blue_sponge> (1) <camera> (1), [Wipe] <blue_sponge> (1) <form> (1), [PutOn] <blue_sponge> (1) <workbench> (1), [Grab] <form> (1), [PutOn] <form> (1) <clean_table> (1)",
+        "mates": [],
+        "oracle_program": "[Grab] <blue_sponge> (1), [Wipe] <blue_sponge> (1) <mug> (1), [Wipe] <blue_sponge> (1) <water_bottle> (1), [Wipe] <blue_sponge> (1) <oil_bottle> (1), [PutOn] <blue_sponge> (1) <workbench> (1), [Grab] <microfiber> (1), [Wipe] <microfiber> (1) <camera> (1), [Wipe] <microfiber> (1) <phone> (1), [PutOn] <microfiber> (1) <workbench> (1), [Grab] <mug> (1), [Walk] <clean_table> (1), [PutOn] <mug> (1) <clean_table> (1), [Walk] <workbench> (1), [Grab] <water_bottle> (1), [Walk] <clean_table> (1), [PutOn] <water_bottle> (1) <clean_table> (1), [Walk] <workbench> (1), [Grab] <oil_bottle> (1), [Walk] <clean_table> (1), [PutOn] <oil_bottle> (1) <clean_table> (1), [Walk] <workbench> (1), [Grab] <camera> (1), [Walk] <clean_table> (1), [PutOn] <camera> (1) <clean_table> (1), [Walk] <workbench> (1), [Grab] <phone> (1), [Walk] <clean_table> (1), [PutOn] <phone> (1) <clean_table> (1), [Walk] <workbench> (1), [Grab] <form> (1), [Walk] <file_shelf> (1), [PutInside] <form> (1) <file_shelf> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "A smart-glasses wearer enters the utility room and reads a detailed cleaning sheet clipped to a board on its own reference counter. They then approach a workbench with six mixed objects and two visibly distinct cleaning tools. The assistant must apply the tool-specific and do-not-wipe rules, then route the processed objects to the stated destinations.",
+        "utterance": "Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <cleaning_matrix> (1)",
+        "[LookAt] <cleaning_matrix> (1)",
+        "[Walk] <workbench> (1)",
+        "[LookAt] <mug> (1)",
+        "[LookAt] <water_bottle> (1)",
+        "[LookAt] <oil_bottle> (1)",
+        "[LookAt] <camera> (1)",
+        "[LookAt] <phone> (1)",
+        "[LookAt] <form> (1)",
+        "[LookAt] <blue_sponge> (1)",
+        "[LookAt] <microfiber> (1)",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "cleaning_matrix"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "cleaning_matrix"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "cleaning_matrix"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The printed clipboard on the reference counter visibly assigns tools, forbidden targets, and final destinations.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Use the blue sponge on the mug, water bottle, and olive-oil bottle. Then use the yellow microfiber cloth on the camera and phone. Do not wipe the paper form. Move all five cleaned objects to the return table and file the dry form on the shelf.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "workbench"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "workbench"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "mug"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "water_bottle"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "oil_bottle"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "camera"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "form"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "blue_sponge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "microfiber"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The workbench contains six target objects and two differently colored cleaning tools.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Use the blue sponge on the mug, water bottle, and olive-oil bottle. Then use the yellow microfiber cloth on the camera and phone. Do not wipe the paper form. Move all five cleaned objects to the return table and file the dry form on the shelf.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p011",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Use the blue sponge on the mug, water bottle, and olive-oil bottle. Then use the yellow microfiber cloth on the camera and phone. Do not wipe the paper form. Move all five cleaned objects to the return table and file the dry form on the shelf.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The matrix assigns the mug, water bottle, and oil bottle to the BLUE sponge. Wipe those three, and do not use that sponge on the electronics or paper.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The blue-sponge group is complete. Switch to the YELLOW microfiber cloth for the camera and phone.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The prescribed wiping is complete. Move the mug, both bottles, camera, and phone to the empty clean-item return table.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_003",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The form is in the DO NOT WIPE class. Keep it dry and place it directly on the file shelf.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "blue_sponge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "blue_sponge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wipe",
+          "args": [
+            "blue_sponge",
+            "camera"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wipe",
+          "args": [
+            "blue_sponge",
+            "form"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "blue_sponge",
+            "workbench"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "form"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "form"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "form",
+            "clean_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "blue_sponge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "blue_sponge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wipe",
+          "args": [
+            "blue_sponge",
+            "mug"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wipe",
+          "args": [
+            "blue_sponge",
+            "water_bottle"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wipe",
+          "args": [
+            "blue_sponge",
+            "oil_bottle"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The blue sponge has been used on all three items assigned to it.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Use the blue sponge on the mug, water bottle, and olive-oil bottle. Then use the yellow microfiber cloth on the camera and phone. Do not wipe the paper form. Move all five cleaned objects to the return table and file the dry form on the shelf.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "blue_sponge",
+            "workbench"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "microfiber"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "microfiber"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wipe",
+          "args": [
+            "microfiber",
+            "camera"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wipe",
+          "args": [
+            "microfiber",
+            "phone"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The camera and phone have been wiped with the microfiber cloth.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Use the blue sponge on the mug, water bottle, and olive-oil bottle. Then use the yellow microfiber cloth on the camera and phone. Do not wipe the paper form. Move all five cleaned objects to the return table and file the dry form on the shelf.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "microfiber",
+            "workbench"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "mug"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o010",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "clean_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "clean_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o011",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "mug",
+            "clean_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o012",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "workbench"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "workbench"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o013",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "water_bottle"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "water_bottle"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o014",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "clean_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "clean_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o015",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "water_bottle",
+            "clean_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o016",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "workbench"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "workbench"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o017",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "oil_bottle"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "oil_bottle"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o018",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "clean_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "clean_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o019",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "oil_bottle",
+            "clean_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o020",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "workbench"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "workbench"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o021",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "camera"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "camera"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o022",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "clean_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "clean_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o023",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "camera",
+            "clean_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o024",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "workbench"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "workbench"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o025",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "phone"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o026",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "clean_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "clean_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o027",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "clean_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "All five wipe-safe objects are together on the clean return table.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Use the blue sponge on the mug, water bottle, and olive-oil bottle. Then use the yellow microfiber cloth on the camera and phone. Do not wipe the paper form. Move all five cleaned objects to the return table and file the dry form on the shelf.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o028",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "workbench"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "workbench"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o029",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "form"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "form"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o030",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "file_shelf"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "file_shelf"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o031",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "form",
+            "file_shelf"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "form",
+            "target": "file_shelf"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The dry paper form has been filed without being wiped.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Use the blue sponge on the mug, water bottle, and olive-oil bottle. Then use the yellow microfiber cloth on the camera and phone. Do not wipe the paper form. Move all five cleaned objects to the return table and file the dry form on the shelf.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The printed clipboard on the reference counter visibly assigns tools, forbidden targets, and final destinations.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "The workbench contains six target objects and two differently colored cleaning tools.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p010"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 10
+      },
+      {
+        "id": "fact_004",
+        "statement": "The blue sponge has been used on all three items assigned to it.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o003"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 3
+      },
+      {
+        "id": "fact_005",
+        "statement": "The camera and phone have been wiped with the microfiber cloth.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o007"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 7
+      },
+      {
+        "id": "fact_006",
+        "statement": "All five wipe-safe objects are together on the clean return table.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o027"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 27
+      },
+      {
+        "id": "fact_007",
+        "statement": "The dry paper form has been filed without being wiped.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o031"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 31
+      },
+      {
+        "id": "fact_008",
+        "statement": "Use the blue sponge on the mug, water bottle, and olive-oil bottle. Then use the yellow microfiber cloth on the camera and phone. Do not wipe the paper form. Move all five cleaned objects to the return table and file the dry form on the shelf.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "p010",
+          "o003",
+          "o007",
+          "o027",
+          "o031"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the printed cleaning sheet and visible batch to guide the person through every remaining item one step at a time.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <cleaning_matrix> (1)",
+          "[LookAt] <cleaning_matrix> (1)",
+          "[Walk] <workbench> (1)",
+          "[LookAt] <mug> (1)",
+          "[LookAt] <water_bottle> (1)",
+          "[LookAt] <oil_bottle> (1)",
+          "[LookAt] <camera> (1)",
+          "[LookAt] <phone> (1)",
+          "[LookAt] <form> (1)",
+          "[LookAt] <blue_sponge> (1)",
+          "[LookAt] <microfiber> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 11,
+            "say": "Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time."
+          }
+        ],
+        "handoff_say": "Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "cleaning_sheet_request",
+            "required_phrases": [
+              "printed cleaning sheet",
+              "which tool is safe",
+              "this batch",
+              "one step at a time"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [],
+        "required_command_sequences": [],
+        "verification_points": [
+          {
+            "id": "mug_on_clean_table",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "mug",
+            "target": "clean_table"
+          },
+          {
+            "id": "water_bottle_on_clean_table",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "water_bottle",
+            "target": "clean_table"
+          },
+          {
+            "id": "oil_bottle_on_clean_table",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "oil_bottle",
+            "target": "clean_table"
+          },
+          {
+            "id": "camera_on_clean_table",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "camera",
+            "target": "clean_table"
+          },
+          {
+            "id": "phone_on_clean_table",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "phone",
+            "target": "clean_table"
+          },
+          {
+            "id": "form_in_file_shelf",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "form",
+            "target": "file_shelf"
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 80,
+    "dialogue_budget": 4,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "microfiber",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "mug",
+              "water_bottle",
+              "oil_bottle",
+              "blue_sponge",
+              "cleaning_matrix"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "mug",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "blue_sponge",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "camera",
+              "phone",
+              "microfiber"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "mug",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "microfiber",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "mug",
+              "water_bottle",
+              "oil_bottle",
+              "camera",
+              "phone",
+              "clean_table"
+            ],
+            "required_fact_ids": [
+              "fact_004",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "mug",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o009"
+        },
+        {
+          "after_beat": "o009",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "mug",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o010"
+        },
+        {
+          "after_beat": "o010",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "clean_table",
+            "truth": true
+          },
+          "next_beat": "o011"
+        },
+        {
+          "after_beat": "o011",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o012"
+        },
+        {
+          "after_beat": "o012",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "workbench",
+            "truth": true
+          },
+          "next_beat": "o013"
+        },
+        {
+          "after_beat": "o013",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "water_bottle",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o014"
+        },
+        {
+          "after_beat": "o014",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "clean_table",
+            "truth": true
+          },
+          "next_beat": "o015"
+        },
+        {
+          "after_beat": "o015",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o016"
+        },
+        {
+          "after_beat": "o016",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "workbench",
+            "truth": true
+          },
+          "next_beat": "o017"
+        },
+        {
+          "after_beat": "o017",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "oil_bottle",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o018"
+        },
+        {
+          "after_beat": "o018",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "clean_table",
+            "truth": true
+          },
+          "next_beat": "o019"
+        },
+        {
+          "after_beat": "o019",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o020"
+        },
+        {
+          "after_beat": "o020",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "workbench",
+            "truth": true
+          },
+          "next_beat": "o021"
+        },
+        {
+          "after_beat": "o021",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "camera",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o022"
+        },
+        {
+          "after_beat": "o022",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "clean_table",
+            "truth": true
+          },
+          "next_beat": "o023"
+        },
+        {
+          "after_beat": "o023",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o024"
+        },
+        {
+          "after_beat": "o024",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "workbench",
+            "truth": true
+          },
+          "next_beat": "o025"
+        },
+        {
+          "after_beat": "o025",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "phone",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o026"
+        },
+        {
+          "after_beat": "o026",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "clean_table",
+            "truth": true
+          },
+          "next_beat": "o027"
+        },
+        {
+          "after_beat": "o027",
+          "intervention_beat": "assistant_003",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "form",
+              "file_shelf"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "mug",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o028"
+        },
+        {
+          "after_beat": "o028",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "workbench",
+            "truth": true
+          },
+          "next_beat": "o029"
+        },
+        {
+          "after_beat": "o029",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "form",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o030"
+        },
+        {
+          "after_beat": "o030",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "file_shelf",
+            "truth": true
+          },
+          "next_beat": "o031"
+        }
+      ],
+      "terminal_beats": [
+        "h005",
+        "o031"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "blue_sponge"
+        ]
+      },
+      {
+        "verb": "Wipe",
+        "args": [
+          "blue_sponge",
+          "mug"
+        ]
+      },
+      {
+        "verb": "Wipe",
+        "args": [
+          "blue_sponge",
+          "water_bottle"
+        ]
+      },
+      {
+        "verb": "Wipe",
+        "args": [
+          "blue_sponge",
+          "oil_bottle"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "blue_sponge",
+          "workbench"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "microfiber"
+        ]
+      },
+      {
+        "verb": "Wipe",
+        "args": [
+          "microfiber",
+          "camera"
+        ]
+      },
+      {
+        "verb": "Wipe",
+        "args": [
+          "microfiber",
+          "phone"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "microfiber",
+          "workbench"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "mug"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "clean_table"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "mug",
+          "clean_table"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "workbench"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "water_bottle"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "clean_table"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "water_bottle",
+          "clean_table"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "workbench"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "oil_bottle"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "clean_table"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "oil_bottle",
+          "clean_table"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "workbench"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "camera"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "clean_table"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "camera",
+          "clean_table"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "workbench"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "phone"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "clean_table"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "phone",
+          "clean_table"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "workbench"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "form"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "file_shelf"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "form",
+          "file_shelf"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "blue_sponge"
+        ]
+      },
+      {
+        "verb": "Wipe",
+        "args": [
+          "blue_sponge",
+          "camera"
+        ]
+      },
+      {
+        "verb": "Wipe",
+        "args": [
+          "blue_sponge",
+          "form"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "blue_sponge",
+          "workbench"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "form"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "form",
+          "clean_table"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "The matrix assigns the mug, water bottle, and oil bottle to the BLUE sponge. Wipe those three, and do not use that sponge on the electronics or paper.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The blue-sponge group is complete. Switch to the YELLOW microfiber cloth for the camera and phone.",
+        "relation": "before",
+        "anchor_beat_id": "o005",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "The prescribed wiping is complete. Move the mug, both bottles, camera, and phone to the empty clean-item return table.",
+        "relation": "before",
+        "anchor_beat_id": "o009",
+        "source": "guidance",
+        "source_index": 2
+      },
+      {
+        "id": "assistant_003",
+        "say": "The form is in the DO NOT WIPE class. Keep it dry and place it directly on the file shelf.",
+        "relation": "before",
+        "anchor_beat_id": "o028",
+        "source": "guidance",
+        "source_index": 3
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "source": "guide26_missing4_interaction_assembly",
+    "compile_input_digest": "sha256:38ec19984dae9b496c46b58b5037ed1fbb668b2e084e4e54b7faebffea1e653a",
+    "source_contract_digest": "sha256:c83bd010cbb007cba2ae0404c7cdb6258fc2d29023a4a4f7c880adb417266ec0",
+    "executable_spec_digest": "sha256:f88bd3507a5f65213ae1a8f7a83a23eb949ae674ed1319aa08224e8085af17be",
+    "invention": {
+      "attempt": 3,
+      "author_prose": "The wearer is executing a strict hygiene protocol in a bathroom to sanitize items after a minor contamination. The checklist requires wiping three items—a bottle of supplements, a tube of toothpaste, and a shampoo dispenser—with a sponge before transferring them from the breakfast table to a bottom cabinet. Finally, the contaminated sponge must be discarded in a trash can.\n\nIn the prologue, the wearer begins the protocol. They grab the sponge from the breakfast table, wipe the bottle of supplements, and then wipe the tube of toothpaste. Before they can finish, a phone alarm sounds. The wearer places the sponge back on the breakfast table and leaves the room to handle the interruption.\n\nTen minutes later, the wearer returns to the bathroom. Because the sanitizing solution evaporates instantly, the wiped items look identical to the unwiped ones. The wearer asks the smart glasses, \"I lost track of my progress on the sanitization checklist. Which items do I still need to wipe?\"\n\nA weak assistant relies solely on the current visual state. Unable to see any wetness or visual indicators of cleanliness, it either guesses incorrectly or instructs the wearer to wipe all three items again to be safe, resulting in a redundant physical chore that violates the ordered command trace.\n\nA strong assistant accesses the egocentric action history from the prologue. It reconstructs the exact sequence of events, recognizing that the supplements and toothpaste have already been treated. The assistant replies, \"You already wiped the bottle of supplements and the tube of toothpaste. You only need to wipe the shampoo dispenser. After that, you can move all three items to the bottom cabinet and throw the sponge in the trash can.\"\n\nFollowing the strong assistant's guidance, the wearer grabs the sponge, wipes the shampoo dispenser, and places the sponge inside an imported trash can. They then sequentially grab and place the bottle of supplements, the tube of toothpaste, and the shampoo dispenser onto the bottom cabinet. The episode succeeds when the ordered command trace shows no redundant wiping actions, the sponge is confirmed inside the trash can, and all three sanitized items rest safely on the bottom cabinet.",
+      "author_prose_sha256": "sha256:bdd4154e0d397bb89bf71d7edfe03a49a7f6332b8d36b97ec80c9c2066b63393",
+      "capability": {
+        "boundary": "The procedural instructions may be known, but the hard question is current progress after interruption.",
+        "few_shot": "A first-time builder follows a bookcase manual, attaches the two side panels to the base, and then leaves for ten minutes to answer a delivery. On returning, the parts are spread across the floor and the wearer asks where they stopped. The assistant reconstructs progress from the observed opening actions, confirms the base-and-sides subassembly is already complete, and starts with the unattached back panel rather than repeating the first steps or jumping to the top. The frozen opening trace establishes completed work, the oracle contains only the remaining attachments, and the finished bookcase has every supported panel attached to its fixed mate. A weak guide that restarts from page one conflicts with the established state and cannot follow the executable remaining plan.",
+        "id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "name_zh": "进度重建与断点续做",
+        "target": "Infer completed, omitted, and next steps from the observed action history, then resume without repeating work or skipping a prerequisite."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "evaluation_mode": "TRACE_AND_OUTCOME",
+        "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": true,
+        "owner": "SIMULATOR_EVALUATION",
+        "reason": "Opening state and remaining actions run, but redundant repetition and skipped completed work lack a dedicated metric.",
+        "reason_code": "PROGRESS_EFFICIENCY_EVALUATOR",
+        "recommended_work": "Add progress reconstruction and unnecessary-repeat scoring.",
+        "version": "capability-support/1.0",
+        "workstream": "EVALUATOR"
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "cell_phone",
+          "sponge",
+          "mug",
+          "gift_box",
+          "softball",
+          "half_bacon",
+          "tube_of_toothpaste",
+          "reed_diffuser",
+          "baseball",
+          "squeeze_bottle",
+          "seashell",
+          "jar_of_orange_sauce",
+          "half_brussels_sprouts",
+          "pen",
+          "thermostat",
+          "cookie_stick",
+          "bottle_of_supplements",
+          "bottle_of_gin",
+          "digital_camera",
+          "lime",
+          "bottle_of_paint",
+          "hingeless_jar",
+          "shampoo_dispenser",
+          "nativity_figurine"
+        ],
+        "allowed_surface_categories": [
+          "bottom_cabinet_no_top",
+          "breakfast_table"
+        ],
+        "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "coverage_categories": [
+          "softball",
+          "half_bacon",
+          "tube_of_toothpaste",
+          "reed_diffuser",
+          "baseball",
+          "squeeze_bottle",
+          "seashell",
+          "jar_of_orange_sauce",
+          "half_brussels_sprouts",
+          "pen",
+          "thermostat",
+          "cookie_stick",
+          "bottle_of_supplements",
+          "bottle_of_gin",
+          "digital_camera",
+          "lime",
+          "bottle_of_paint",
+          "hingeless_jar",
+          "shampoo_dispenser",
+          "nativity_figurine"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "softball",
+          "half_bacon",
+          "tube_of_toothpaste",
+          "reed_diffuser",
+          "baseball",
+          "squeeze_bottle",
+          "seashell",
+          "jar_of_orange_sauce"
+        ],
+        "preferred_story_category_glosses": {
+          "baseball": "",
+          "half_bacon": "",
+          "jar_of_orange_sauce": "",
+          "reed_diffuser": "",
+          "seashell": "the shell of a marine organism",
+          "softball": "",
+          "squeeze_bottle": "",
+          "tube_of_toothpaste": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 15.1,
+            "name": "bathroom_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "bottom_cabinet_no_top": 2,
+              "breakfast_table": 2
+            },
+            "surface_max_area_m2": {
+              "bottom_cabinet_no_top": 0.069,
+              "breakfast_table": 0.121
+            },
+            "surface_reference_capacity": {
+              "bottom_cabinet_no_top": 3,
+              "breakfast_table": 3
+            }
+          }
+        ],
+        "scene": "Pomaria_2_int",
+        "task_id": "GUIDE-17001",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "prompt_sha": "18c6cdad1634",
+      "prompt_sha256": "sha256:18c6cdad16343036e9a45b8f640ab15818ce0fb68155e0173847bd05e1ea9dc3",
+      "prompt_version": "capability-v19-grounded-physics-20260829",
+      "prose_sha256": "sha256:32ba0c88180ab21763c98ab8bed7a5e0c3ef08b2ef5aa1a13c5a5efc64296084",
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "The exact sequence of items wiped before the interruption.",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "semantic_turns": 1,
+          "strong_weak_distinct": true,
+          "ungrounded_physical_nouns": [],
+          "uses_only_grounded_assets": true,
+          "why_utterance_alone_fails": "The wearer explicitly states they lost track of their progress, and the visual state of the items does not indicate whether they have been wiped."
+        },
+        "capability_fit": "The assistant infers completed and omitted steps from the observed action history to resume a task without repeating work.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "sponge",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "cleaning tool"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "bottle_of_supplements",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "target item 1"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "tube_of_toothpaste",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "target item 2"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "shampoo_dispenser",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "target item 3"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "breakfast_table",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "starting surface"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "bottom_cabinet_no_top",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "destination surface"
+              },
+              {
+                "affordances": [
+                  "container"
+                ],
+                "category": "trash_can",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "disposal container"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "The wearer is in bathroom_0. The sponge, bottle_of_supplements, tube_of_toothpaste, and shampoo_dispenser start on the breakfast_table. A trash_can is imported into the room. In the prologue, the wearer grabs the sponge, executes a Wipe action on the bottle_of_supplements, executes a Wipe action on the tube_of_toothpaste, and puts the sponge back on the breakfast_table. At action zero, the wearer asks the assistant which items still need to be wiped. The assistant reconstructs the progress from the action history, confirms the bottle_of_supplements and tube_of_toothpaste were already wiped, and instructs the wearer to wipe the shampoo_dispenser, then move all three items to the bottom_cabinet_no_top and discard the sponge in the trash_can. In the main actions, the wearer grabs the sponge, executes a Wipe action on the shampoo_dispenser, and puts the sponge into the trash_can. The wearer then grabs the bottle_of_supplements and puts it on the bottom_cabinet_no_top. The wearer grabs the tube_of_toothpaste and puts it on the bottom_cabinet_no_top. Finally, the wearer grabs the shampoo_dispenser and puts it on the bottom_cabinet_no_top.",
+            "scene": "Pomaria_2_int",
+            "why_scene": "Provides a bathroom with suitable surfaces for a hygiene protocol."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "GUIDE.PROGRESS_RECONSTRUCTION",
+              "counterfactual_failure": "The weak assistant instructs the wearer to wipe all three items again, resulting in redundant actions.",
+              "forbidden_changes": [
+                "redundant Wipe actions on the already wiped items"
+              ],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "action history of Wipe actions"
+              ],
+              "required_final_predicates": [
+                "inside",
+                "on"
+              ],
+              "success_condition": "The shampoo dispenser is wiped, the sponge is in the trash can, and all three items are on the bottom cabinet no top.",
+              "temporal_constraints": []
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "used to wipe items and then discarded",
+                "what": "cleaning tool",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "wiped in prologue, moved in main",
+                "what": "target item 1",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "wiped in prologue, moved in main",
+                "what": "target item 2",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "wiped in main, moved in main",
+                "what": "target item 3",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "holds items initially",
+                "what": "starting surface",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "final resting place for sanitized items",
+                "what": "destination surface",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container"
+                ],
+                "role_in_story": "final resting place for the sponge",
+                "what": "disposal container",
+                "when": "main"
+              }
+            ],
+            "hinges_on": "remembering which specific items were already wiped before the interruption",
+            "look_alike": [],
+            "opening": "wearer wipes two of the three items and puts the sponge down",
+            "outcome": "The remaining item is wiped, the sponge is discarded, and all three items are moved to the destination surface.",
+            "place": "bathroom_0",
+            "printed": [],
+            "tests_what": "progress reconstruction"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The candidate successfully tests the assigned capability by requiring the assistant to reconstruct progress from the egocentric action history. The wearer completes part of a multi-step wiping task before an interruption, and the assistant must correctly identify which items remain unwiped to prevent redundant work. The physical actions and final state are fully supported by the simulator.",
+        "requirements": [
+          "Bind the destination 'bottom cabinet' to the scene's existing 'bottom_cabinet_no_top' surface to support the 'onto' placement."
+        ],
+        "runtime_requirements": {
+          "actions": [
+            "Grab",
+            "Wipe",
+            "Put",
+            "Putin"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 13,
+          "estimated_prologue_actions": 4,
+          "estimated_task_actions": 9,
+          "events": [],
+          "final_predicates": [
+            "inside",
+            "on"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 46.2,
+        "structural_signature": {
+          "evaluation": "ordered command trace and final placement",
+          "evidence": "action history of wipe events",
+          "failure": "redundant wiping",
+          "operation": "progress reconstruction",
+          "response": "identify remaining target and next steps",
+          "temporal": "post-interruption"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The exact sequence of items wiped before the interruption.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The wearer explicitly states they lost track of their progress, and the visual state of the items does not indicate whether they have been wiped."
+          },
+          "capability_fit": "The assistant infers completed and omitted steps from the observed action history to resume a task without repeating work.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "sponge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "cleaning tool"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "bottle_of_supplements",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target item 1"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "tube_of_toothpaste",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target item 2"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "shampoo_dispenser",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target item 3"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "breakfast_table",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "starting surface"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bottom_cabinet_no_top",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "destination surface"
+                },
+                {
+                  "affordances": [
+                    "container"
+                  ],
+                  "category": "trash_can",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "disposal container"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "The wearer is in bathroom_0. The sponge, bottle_of_supplements, tube_of_toothpaste, and shampoo_dispenser start on the breakfast_table. A trash_can is imported into the room. In the prologue, the wearer grabs the sponge, executes a Wipe action on the bottle_of_supplements, executes a Wipe action on the tube_of_toothpaste, and puts the sponge back on the breakfast_table. At action zero, the wearer asks the assistant which items still need to be wiped. The assistant reconstructs the progress from the action history, confirms the bottle_of_supplements and tube_of_toothpaste were already wiped, and instructs the wearer to wipe the shampoo_dispenser, then move all three items to the bottom_cabinet_no_top and discard the sponge in the trash_can. In the main actions, the wearer grabs the sponge, executes a Wipe action on the shampoo_dispenser, and puts the sponge into the trash_can. The wearer then grabs the bottle_of_supplements and puts it on the bottom_cabinet_no_top. The wearer grabs the tube_of_toothpaste and puts it on the bottom_cabinet_no_top. Finally, the wearer grabs the shampoo_dispenser and puts it on the bottom_cabinet_no_top.",
+              "scene": "Pomaria_2_int",
+              "why_scene": "Provides a bathroom with suitable surfaces for a hygiene protocol."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "GUIDE.PROGRESS_RECONSTRUCTION",
+                "counterfactual_failure": "The weak assistant instructs the wearer to wipe all three items again, resulting in redundant actions.",
+                "forbidden_changes": [
+                  "redundant Wipe actions on the already wiped items"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "action history of Wipe actions"
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "on"
+                ],
+                "success_condition": "The shampoo dispenser is wiped, the sponge is in the trash can, and all three items are on the bottom cabinet no top.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "used to wipe items and then discarded",
+                  "what": "cleaning tool",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "wiped in prologue, moved in main",
+                  "what": "target item 1",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "wiped in prologue, moved in main",
+                  "what": "target item 2",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "wiped in main, moved in main",
+                  "what": "target item 3",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "holds items initially",
+                  "what": "starting surface",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "final resting place for sanitized items",
+                  "what": "destination surface",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container"
+                  ],
+                  "role_in_story": "final resting place for the sponge",
+                  "what": "disposal container",
+                  "when": "main"
+                }
+              ],
+              "hinges_on": "remembering which specific items were already wiped before the interruption",
+              "look_alike": [],
+              "opening": "wearer wipes two of the three items and puts the sponge down",
+              "outcome": "The remaining item is wiped, the sponge is discarded, and all three items are moved to the destination surface.",
+              "place": "bathroom_0",
+              "printed": [],
+              "tests_what": "progress reconstruction"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate successfully tests the assigned capability by requiring the assistant to reconstruct progress from the egocentric action history. The wearer completes part of a multi-step wiping task before an interruption, and the assistant must correctly identify which items remain unwiped to prevent redundant work. The physical actions and final state are fully supported by the simulator.",
+          "requirements": [
+            "Bind the destination 'bottom cabinet' to the scene's existing 'bottom_cabinet_no_top' surface to support the 'onto' placement."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "Wipe",
+              "Put",
+              "Putin"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 13,
+            "estimated_prologue_actions": 4,
+            "estimated_task_actions": 9,
+            "events": [],
+            "final_predicates": [
+              "inside",
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 46.2,
+          "structural_signature": {
+            "evaluation": "ordered command trace and final placement",
+            "evidence": "action history of wipe events",
+            "failure": "redundant wiping",
+            "operation": "progress reconstruction",
+            "response": "identify remaining target and next steps",
+            "temporal": "post-interruption"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "Pomaria_2_int",
+      "sha": "32ba0c88180a",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_prod120_parallel_20260830h/rounds/round_001/compile_input/GUIDE/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gemini-3-1-pro-preview-tbd",
+      "judge_model": "gemini-3-1-pro-preview-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260829j"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_grounded_prod120_parallel_20260830h-r001",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v19-grounded-physics-20260829",
+      "release_id": "sha256:beba46856db6f609d2b53a039d46ea24f08ee1aa4bb11e5fca6d8554bef8df57",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "result": "guide26-story-refine-20260910t",
+        "source": "GUIDE-17001"
+      },
+      {
+        "kind": "canonicalize_required_evidence",
+        "source": "[\"Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.\", \"The printed clipboard on the reference counter visibly assigns tools, forbidden targets, and final destinations.\", \"The workbench contains six target objects and two differently colored cleaning tools.\", \"The blue sponge has been used on all three items assigned to it.\", \"The camera and phone have been wiped with the microfiber cloth.\", \"All five wipe-safe objects are together on the clean return table.\", \"The dry paper form has been filed without being wiped.\"]",
+        "result": "[\"Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.\", \"The printed clipboard on the reference counter visibly assigns tools, forbidden targets, and final destinations.\", \"The workbench contains six target objects and two differently colored cleaning tools.\", \"The blue sponge has been used on all three items assigned to it.\", \"The camera and phone have been wiped with the microfiber cloth.\", \"All five wipe-safe objects are together on the clean return table.\", \"The dry paper form has been filed without being wiped.\", \"Use the blue sponge on the mug, water bottle, and olive-oil bottle. Then use the yellow microfiber cloth on the camera and phone. Do not wipe the paper form. Move all five cleaned objects to the return table and file the dry form on the shelf.\"]"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "GUIDE-17001",
+    "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+    "capability_notes": [
+      "This user-directed rewrite changes the original task from pure progress reconstruction to document-grounded rule execution.",
+      "Wipe renders the correct tool motion but does not create a persistent clean predicate; automatic tool-target scoring remains an evaluator gap."
+    ],
+    "revision": "guide26-missing4-interaction-20260915",
+    "benchmark_split": "production",
+    "physical_revision": "guide26-first-round-passed-20260910",
+    "physical_taskpack_sha256": "sha256:fa478e1ee131e09eeba21fb5fde96f66c565aa623e63320180ad68d1b70d61d7",
+    "parent_lineage": {
+      "source": "manual_story_revision",
+      "compile_input_digest": "sha256:38ec19984dae9b496c46b58b5037ed1fbb668b2e084e4e54b7faebffea1e653a",
+      "source_contract_digest": "sha256:c83bd010cbb007cba2ae0404c7cdb6258fc2d29023a4a4f7c880adb417266ec0",
+      "executable_spec_digest": "sha256:f88bd3507a5f65213ae1a8f7a83a23eb949ae674ed1319aa08224e8085af17be",
+      "invention": {
+        "attempt": 3,
+        "author_prose": "The wearer is executing a strict hygiene protocol in a bathroom to sanitize items after a minor contamination. The checklist requires wiping three items—a bottle of supplements, a tube of toothpaste, and a shampoo dispenser—with a sponge before transferring them from the breakfast table to a bottom cabinet. Finally, the contaminated sponge must be discarded in a trash can.\n\nIn the prologue, the wearer begins the protocol. They grab the sponge from the breakfast table, wipe the bottle of supplements, and then wipe the tube of toothpaste. Before they can finish, a phone alarm sounds. The wearer places the sponge back on the breakfast table and leaves the room to handle the interruption.\n\nTen minutes later, the wearer returns to the bathroom. Because the sanitizing solution evaporates instantly, the wiped items look identical to the unwiped ones. The wearer asks the smart glasses, \"I lost track of my progress on the sanitization checklist. Which items do I still need to wipe?\"\n\nA weak assistant relies solely on the current visual state. Unable to see any wetness or visual indicators of cleanliness, it either guesses incorrectly or instructs the wearer to wipe all three items again to be safe, resulting in a redundant physical chore that violates the ordered command trace.\n\nA strong assistant accesses the egocentric action history from the prologue. It reconstructs the exact sequence of events, recognizing that the supplements and toothpaste have already been treated. The assistant replies, \"You already wiped the bottle of supplements and the tube of toothpaste. You only need to wipe the shampoo dispenser. After that, you can move all three items to the bottom cabinet and throw the sponge in the trash can.\"\n\nFollowing the strong assistant's guidance, the wearer grabs the sponge, wipes the shampoo dispenser, and places the sponge inside an imported trash can. They then sequentially grab and place the bottle of supplements, the tube of toothpaste, and the shampoo dispenser onto the bottom cabinet. The episode succeeds when the ordered command trace shows no redundant wiping actions, the sponge is confirmed inside the trash can, and all three sanitized items rest safely on the bottom cabinet.",
+        "author_prose_sha256": "sha256:bdd4154e0d397bb89bf71d7edfe03a49a7f6332b8d36b97ec80c9c2066b63393",
+        "capability": {
+          "boundary": "The procedural instructions may be known, but the hard question is current progress after interruption.",
+          "few_shot": "A first-time builder follows a bookcase manual, attaches the two side panels to the base, and then leaves for ten minutes to answer a delivery. On returning, the parts are spread across the floor and the wearer asks where they stopped. The assistant reconstructs progress from the observed opening actions, confirms the base-and-sides subassembly is already complete, and starts with the unattached back panel rather than repeating the first steps or jumping to the top. The frozen opening trace establishes completed work, the oracle contains only the remaining attachments, and the finished bookcase has every supported panel attached to its fixed mate. A weak guide that restarts from page one conflicts with the established state and cannot follow the executable remaining plan.",
+          "id": "GUIDE.PROGRESS_RECONSTRUCTION",
+          "name_zh": "进度重建与断点续做",
+          "target": "Infer completed, omitted, and next steps from the observed action history, then resume without repeating work or skipping a prerequisite."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+          "evaluation_mode": "TRACE_AND_OUTCOME",
+          "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": true,
+          "owner": "SIMULATOR_EVALUATION",
+          "reason": "Opening state and remaining actions run, but redundant repetition and skipped completed work lack a dedicated metric.",
+          "reason_code": "PROGRESS_EFFICIENCY_EVALUATOR",
+          "recommended_work": "Add progress reconstruction and unnecessary-repeat scoring.",
+          "version": "capability-support/1.0",
+          "workstream": "EVALUATOR"
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "candy_dispenser_shelf",
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "compost_bin",
+            "dessert_stand",
+            "dish_rack_cart",
+            "dishwasher",
+            "display_case",
+            "display_fridge",
+            "dry_food_dispenser_shelf",
+            "free_weight_rack",
+            "freezer",
+            "fridge",
+            "grocery_fridge",
+            "grocery_shelf",
+            "locker",
+            "magazine_stand",
+            "metal_bottom_cabinet",
+            "oven",
+            "public_trash_can",
+            "recycling_bin",
+            "serving_cart",
+            "shelf",
+            "shopping_cart",
+            "snack_rack",
+            "top_cabinet",
+            "trash_can",
+            "umbrella_rack",
+            "vending_machine",
+            "wardrobe",
+            "washer",
+            "wine_fridge"
+          ],
+          "allowed_loose_categories": [
+            "cell_phone",
+            "sponge",
+            "mug",
+            "gift_box",
+            "softball",
+            "half_bacon",
+            "tube_of_toothpaste",
+            "reed_diffuser",
+            "baseball",
+            "squeeze_bottle",
+            "seashell",
+            "jar_of_orange_sauce",
+            "half_brussels_sprouts",
+            "pen",
+            "thermostat",
+            "cookie_stick",
+            "bottle_of_supplements",
+            "bottle_of_gin",
+            "digital_camera",
+            "lime",
+            "bottle_of_paint",
+            "hingeless_jar",
+            "shampoo_dispenser",
+            "nativity_figurine"
+          ],
+          "allowed_surface_categories": [
+            "bottom_cabinet_no_top",
+            "breakfast_table"
+          ],
+          "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+          "coverage_categories": [
+            "softball",
+            "half_bacon",
+            "tube_of_toothpaste",
+            "reed_diffuser",
+            "baseball",
+            "squeeze_bottle",
+            "seashell",
+            "jar_of_orange_sauce",
+            "half_brussels_sprouts",
+            "pen",
+            "thermostat",
+            "cookie_stick",
+            "bottle_of_supplements",
+            "bottle_of_gin",
+            "digital_camera",
+            "lime",
+            "bottle_of_paint",
+            "hingeless_jar",
+            "shampoo_dispenser",
+            "nativity_figurine"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 1,
+            "required_semantic_turns": 1,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": false,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_reselection": false,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "GUIDE",
+          "limits": {
+            "max_authored_actions": 18,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 10,
+            "max_small_label_characters": 8,
+            "max_task_actions": 10
+          },
+          "preferred_story_categories": [
+            "softball",
+            "half_bacon",
+            "tube_of_toothpaste",
+            "reed_diffuser",
+            "baseball",
+            "squeeze_bottle",
+            "seashell",
+            "jar_of_orange_sauce"
+          ],
+          "preferred_story_category_glosses": {
+            "baseball": "",
+            "half_bacon": "",
+            "jar_of_orange_sauce": "",
+            "reed_diffuser": "",
+            "seashell": "the shell of a marine organism",
+            "softball": "",
+            "squeeze_bottle": "",
+            "tube_of_toothpaste": ""
+          },
+          "rooms": [
+            {
+              "area_m2": 15.1,
+              "name": "bathroom_0",
+              "scene_containers": {},
+              "scene_surfaces": {
+                "bottom_cabinet_no_top": 2,
+                "breakfast_table": 2
+              },
+              "surface_max_area_m2": {
+                "bottom_cabinet_no_top": 0.069,
+                "breakfast_table": 0.121
+              },
+              "surface_reference_capacity": {
+                "bottom_cabinet_no_top": 3,
+                "breakfast_table": 3
+              }
+            }
+          ],
+          "scene": "Pomaria_2_int",
+          "task_id": "GUIDE-17001",
+          "version": "grounded-authoring/2.5-20260829"
+        },
+        "prompt_sha": "18c6cdad1634",
+        "prompt_sha256": "sha256:18c6cdad16343036e9a45b8f640ab15818ce0fb68155e0173847bd05e1ea9dc3",
+        "prompt_version": "capability-v19-grounded-physics-20260829",
+        "prose_sha256": "sha256:32ba0c88180ab21763c98ab8bed7a5e0c3ef08b2ef5aa1a13c5a5efc64296084",
+        "review": {
+          "benchmark_check": {
+            "egocentric_evidence": "The exact sequence of items wiped before the interruption.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The wearer explicitly states they lost track of their progress, and the visual state of the items does not indicate whether they have been wiped."
+          },
+          "capability_fit": "The assistant infers completed and omitted steps from the observed action history to resume a task without repeating work.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "sponge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "cleaning tool"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "bottle_of_supplements",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target item 1"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "tube_of_toothpaste",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target item 2"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "shampoo_dispenser",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target item 3"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "breakfast_table",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "starting surface"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bottom_cabinet_no_top",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "destination surface"
+                },
+                {
+                  "affordances": [
+                    "container"
+                  ],
+                  "category": "trash_can",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "disposal container"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "The wearer is in bathroom_0. The sponge, bottle_of_supplements, tube_of_toothpaste, and shampoo_dispenser start on the breakfast_table. A trash_can is imported into the room. In the prologue, the wearer grabs the sponge, executes a Wipe action on the bottle_of_supplements, executes a Wipe action on the tube_of_toothpaste, and puts the sponge back on the breakfast_table. At action zero, the wearer asks the assistant which items still need to be wiped. The assistant reconstructs the progress from the action history, confirms the bottle_of_supplements and tube_of_toothpaste were already wiped, and instructs the wearer to wipe the shampoo_dispenser, then move all three items to the bottom_cabinet_no_top and discard the sponge in the trash_can. In the main actions, the wearer grabs the sponge, executes a Wipe action on the shampoo_dispenser, and puts the sponge into the trash_can. The wearer then grabs the bottle_of_supplements and puts it on the bottom_cabinet_no_top. The wearer grabs the tube_of_toothpaste and puts it on the bottom_cabinet_no_top. Finally, the wearer grabs the shampoo_dispenser and puts it on the bottom_cabinet_no_top.",
+              "scene": "Pomaria_2_int",
+              "why_scene": "Provides a bathroom with suitable surfaces for a hygiene protocol."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "GUIDE.PROGRESS_RECONSTRUCTION",
+                "counterfactual_failure": "The weak assistant instructs the wearer to wipe all three items again, resulting in redundant actions.",
+                "forbidden_changes": [
+                  "redundant Wipe actions on the already wiped items"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "action history of Wipe actions"
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "on"
+                ],
+                "success_condition": "The shampoo dispenser is wiped, the sponge is in the trash can, and all three items are on the bottom cabinet no top.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "used to wipe items and then discarded",
+                  "what": "cleaning tool",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "wiped in prologue, moved in main",
+                  "what": "target item 1",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "wiped in prologue, moved in main",
+                  "what": "target item 2",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "wiped in main, moved in main",
+                  "what": "target item 3",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "holds items initially",
+                  "what": "starting surface",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "final resting place for sanitized items",
+                  "what": "destination surface",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container"
+                  ],
+                  "role_in_story": "final resting place for the sponge",
+                  "what": "disposal container",
+                  "when": "main"
+                }
+              ],
+              "hinges_on": "remembering which specific items were already wiped before the interruption",
+              "look_alike": [],
+              "opening": "wearer wipes two of the three items and puts the sponge down",
+              "outcome": "The remaining item is wiped, the sponge is discarded, and all three items are moved to the destination surface.",
+              "place": "bathroom_0",
+              "printed": [],
+              "tests_what": "progress reconstruction"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate successfully tests the assigned capability by requiring the assistant to reconstruct progress from the egocentric action history. The wearer completes part of a multi-step wiping task before an interruption, and the assistant must correctly identify which items remain unwiped to prevent redundant work. The physical actions and final state are fully supported by the simulator.",
+          "requirements": [
+            "Bind the destination 'bottom cabinet' to the scene's existing 'bottom_cabinet_no_top' surface to support the 'onto' placement."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "Wipe",
+              "Put",
+              "Putin"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 13,
+            "estimated_prologue_actions": 4,
+            "estimated_task_actions": 9,
+            "events": [],
+            "final_predicates": [
+              "inside",
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 46.2,
+          "structural_signature": {
+            "evaluation": "ordered command trace and final placement",
+            "evidence": "action history of wipe events",
+            "failure": "redundant wiping",
+            "operation": "progress reconstruction",
+            "response": "identify remaining target and next steps",
+            "temporal": "post-interruption"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "The exact sequence of items wiped before the interruption.",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "semantic_turns": 1,
+              "strong_weak_distinct": true,
+              "ungrounded_physical_nouns": [],
+              "uses_only_grounded_assets": true,
+              "why_utterance_alone_fails": "The wearer explicitly states they lost track of their progress, and the visual state of the items does not indicate whether they have been wiped."
+            },
+            "capability_fit": "The assistant infers completed and omitted steps from the observed action history to resume a task without repeating work.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "sponge",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "cleaning tool"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "bottle_of_supplements",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "target item 1"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "tube_of_toothpaste",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "target item 2"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "shampoo_dispenser",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "target item 3"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "breakfast_table",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "starting surface"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "bottom_cabinet_no_top",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "destination surface"
+                  },
+                  {
+                    "affordances": [
+                      "container"
+                    ],
+                    "category": "trash_can",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "disposal container"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "The wearer is in bathroom_0. The sponge, bottle_of_supplements, tube_of_toothpaste, and shampoo_dispenser start on the breakfast_table. A trash_can is imported into the room. In the prologue, the wearer grabs the sponge, executes a Wipe action on the bottle_of_supplements, executes a Wipe action on the tube_of_toothpaste, and puts the sponge back on the breakfast_table. At action zero, the wearer asks the assistant which items still need to be wiped. The assistant reconstructs the progress from the action history, confirms the bottle_of_supplements and tube_of_toothpaste were already wiped, and instructs the wearer to wipe the shampoo_dispenser, then move all three items to the bottom_cabinet_no_top and discard the sponge in the trash_can. In the main actions, the wearer grabs the sponge, executes a Wipe action on the shampoo_dispenser, and puts the sponge into the trash_can. The wearer then grabs the bottle_of_supplements and puts it on the bottom_cabinet_no_top. The wearer grabs the tube_of_toothpaste and puts it on the bottom_cabinet_no_top. Finally, the wearer grabs the shampoo_dispenser and puts it on the bottom_cabinet_no_top.",
+                "scene": "Pomaria_2_int",
+                "why_scene": "Provides a bathroom with suitable surfaces for a hygiene protocol."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "GUIDE.PROGRESS_RECONSTRUCTION",
+                  "counterfactual_failure": "The weak assistant instructs the wearer to wipe all three items again, resulting in redundant actions.",
+                  "forbidden_changes": [
+                    "redundant Wipe actions on the already wiped items"
+                  ],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "action history of Wipe actions"
+                  ],
+                  "required_final_predicates": [
+                    "inside",
+                    "on"
+                  ],
+                  "success_condition": "The shampoo dispenser is wiped, the sponge is in the trash can, and all three items are on the bottom cabinet no top.",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "used to wipe items and then discarded",
+                    "what": "cleaning tool",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "wiped in prologue, moved in main",
+                    "what": "target item 1",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "wiped in prologue, moved in main",
+                    "what": "target item 2",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "wiped in main, moved in main",
+                    "what": "target item 3",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "holds items initially",
+                    "what": "starting surface",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "final resting place for sanitized items",
+                    "what": "destination surface",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "container"
+                    ],
+                    "role_in_story": "final resting place for the sponge",
+                    "what": "disposal container",
+                    "when": "main"
+                  }
+                ],
+                "hinges_on": "remembering which specific items were already wiped before the interruption",
+                "look_alike": [],
+                "opening": "wearer wipes two of the three items and puts the sponge down",
+                "outcome": "The remaining item is wiped, the sponge is discarded, and all three items are moved to the destination surface.",
+                "place": "bathroom_0",
+                "printed": [],
+                "tests_what": "progress reconstruction"
+              }
+            },
+            "duplicate_of": null,
+            "reason": "The candidate successfully tests the assigned capability by requiring the assistant to reconstruct progress from the egocentric action history. The wearer completes part of a multi-step wiping task before an interruption, and the assistant must correctly identify which items remain unwiped to prevent redundant work. The physical actions and final state are fully supported by the simulator.",
+            "requirements": [
+              "Bind the destination 'bottom cabinet' to the scene's existing 'bottom_cabinet_no_top' surface to support the 'onto' placement."
+            ],
+            "runtime_requirements": {
+              "actions": [
+                "Grab",
+                "Wipe",
+                "Put",
+                "Putin"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 13,
+              "estimated_prologue_actions": 4,
+              "estimated_task_actions": 9,
+              "events": [],
+              "final_predicates": [
+                "inside",
+                "on"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 46.2,
+            "structural_signature": {
+              "evaluation": "ordered command trace and final placement",
+              "evidence": "action history of wipe events",
+              "failure": "redundant wiping",
+              "operation": "progress reconstruction",
+              "response": "identify remaining target and next steps",
+              "temporal": "post-interruption"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "Pomaria_2_int",
+        "sha": "32ba0c88180a",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_prod120_parallel_20260830h/rounds/round_001/compile_input/GUIDE/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gemini-3-1-pro-preview-tbd",
+        "judge_model": "gemini-3-1-pro-preview-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260829j"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_grounded_prod120_parallel_20260830h-r001",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v19-grounded-physics-20260829",
+        "release_id": "sha256:beba46856db6f609d2b53a039d46ea24f08ee1aa4bb11e5fca6d8554bef8df57",
+        "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "normalizations": [
+        {
+          "kind": "manual_story_revision",
+          "result": "guide26-story-refine-20260910t",
+          "source": "GUIDE-17001"
+        },
+        {
+          "kind": "canonicalize_required_evidence",
+          "source": "[\"Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.\", \"The printed clipboard on the reference counter visibly assigns tools, forbidden targets, and final destinations.\", \"The workbench contains six target objects and two differently colored cleaning tools.\", \"The blue sponge has been used on all three items assigned to it.\", \"The camera and phone have been wiped with the microfiber cloth.\", \"All five wipe-safe objects are together on the clean return table.\", \"The dry paper form has been filed without being wiped.\"]",
+          "result": "[\"Through my smart glasses I can see this printed cleaning sheet, but I don't know which tool is safe for each item. Please use it to guide me through this batch one step at a time.\", \"The printed clipboard on the reference counter visibly assigns tools, forbidden targets, and final destinations.\", \"The workbench contains six target objects and two differently colored cleaning tools.\", \"The blue sponge has been used on all three items assigned to it.\", \"The camera and phone have been wiped with the microfiber cloth.\", \"All five wipe-safe objects are together on the clean return table.\", \"The dry paper form has been filed without being wiped.\", \"Use the blue sponge on the mug, water bottle, and olive-oil bottle. Then use the yellow microfiber cloth on the camera and phone. Do not wipe the paper form. Move all five cleaned objects to the return table and file the dry form on the shelf.\"]"
+        }
+      ],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "GUIDE-17001",
+      "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+      "capability_notes": [
+        "This user-directed rewrite changes the original task from pure progress reconstruction to document-grounded rule execution.",
+        "Wipe renders the correct tool motion but does not create a persistent clean predicate; automatic tool-target scoring remains an evaluator gap."
+      ],
+      "revision": "guide26-story-refine-20260910t"
+    }
+  }
+}

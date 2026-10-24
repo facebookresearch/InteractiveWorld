@@ -1,0 +1,3796 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-40003",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "inside",
+          "subject": "scone",
+          "target": "oven"
+        },
+        {
+          "pred": "closed",
+          "subject": "oven",
+          "target": "oven"
+        },
+        {
+          "pred": "cooked",
+          "subject": "scone",
+          "target": "scone"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "inside",
+          "subject": "scone",
+          "target": "oven"
+        },
+        {
+          "pred": "closed",
+          "subject": "oven",
+          "target": "oven"
+        },
+        {
+          "pred": "cooked",
+          "subject": "scone",
+          "target": "scone"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "oven"
+        ],
+        "nested_containers": [
+          "pan"
+        ],
+        "objects": [
+          "cooked_ham",
+          "ham",
+          "pan",
+          "phone",
+          "plan",
+          "scone"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it.",
+        "cue": "That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest.",
+        "premise": "The wearer reads a visible breakfast plan, puts the ham in a real frying pan, places the pan on the burner, switches the burner on, cooks the ham, turns it off, then walks away for a real mobile-phone call. On returning, the assistant must reconstruct that the ham step is complete and resume at the untouched scone."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest.",
+        "kind": "authored",
+        "ref": "data_generate:GUIDE-40003"
+      },
+      "rule_table": "inside(scone, oven); closed(oven); cooked(scone)",
+      "scene": "house_double_floor_lower",
+      "template": "the grounded house_double_floor_lower scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 24,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 24,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "plan"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "plan"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "plan"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "breakfast_bar"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "ham"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "ham",
+            "pan"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "pan"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "pan",
+            "burner"
+          ]
+        },
+        {
+          "verb": "TurnOn",
+          "args": [
+            "burner"
+          ]
+        },
+        {
+          "verb": "Cook",
+          "args": [
+            "ham"
+          ]
+        },
+        {
+          "verb": "TurnOff",
+          "args": [
+            "burner"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "phone_table"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "AnswerPhone",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "phone_table"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "plan_table"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "scone"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "oven"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "oven"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "scone",
+            "oven"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "oven"
+          ]
+        },
+        {
+          "verb": "Cook",
+          "args": [
+            "scone"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Grab] <scone> (1), [Walk] <oven> (1), [Open] <oven> (1), [PutInside] <scone> (1) <oven> (1), [Close] <oven> (1), [Cook] <scone> (1)",
+      "seed": 787913684,
+      "source_task_id": "GUIDE-40003"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "scone",
+          "target": "oven"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "oven",
+          "target": "oven"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "cooked",
+          "label": null,
+          "neg_kind": null,
+          "subject": "scone",
+          "target": "scone"
+        }
+      ],
+      "sub_steps": [
+        "inside(scone, oven)",
+        "closed(oven)",
+        "cooked(scone)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-40003",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 787913684,
+      "containers": {
+        "oven": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "oven",
+            "model": "amblrk",
+            "source": "import"
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "kitchen_0"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "breakfast_bar": {
+          "bind": {
+            "cat": "bar",
+            "source": "scene",
+            "pick": {
+              "name": "bar_egwapq_0",
+              "stage_prim_path": "/World/b_bar_egwapq_0",
+              "asset_sha256": "sha256:708dd8ab8eae0c015cee9af8e2caf55eac6154bd3ded36a9a9178948efc1c044",
+              "instance_digest": "sha256:0c245c4d0ff5d8eccaab4b4a8064d4792b0ed2fd576c8484495d5faed10653f9",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "plan_table": {
+          "bind": {
+            "cat": "bar",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "burner": {
+          "bind": {
+            "cat": "burner",
+            "source": "scene",
+            "pick": {
+              "name": "burner_mdanhg_0",
+              "stage_prim_path": "/World/b_burner_mdanhg_0",
+              "asset_sha256": "sha256:5016b5387e431ccdfc073f0d38c3a6792e0ab26826f8fece5946649be5d92bd0",
+              "instance_digest": "sha256:58cec64fa98353ceb475db21c2d6fea1d5671d4b9dcb1754e2777c2291ef3a53",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "phone_table": {
+          "bind": {
+            "cat": "breakfast_table",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_plan": {
+          "content": {
+            "args": {
+              "renderer": "recipe_card",
+              "rows": [
+                "1|PLACE HAM IN PAN",
+                "2|PUT PAN ON BURNER; TURN ON",
+                "3|COOK HAM; TURN BURNER OFF",
+                "4|BAKE SCONE"
+              ],
+              "sub": "",
+              "title": "BREAKFAST PLAN"
+            },
+            "lines": [
+              "1|PLACE HAM IN PAN",
+              "2|PUT PAN ON BURNER; TURN ON",
+              "3|COOK HAM; TURN BURNER OFF",
+              "4|BAKE SCONE"
+            ],
+            "text": "BREAKFAST PLAN"
+          },
+          "kind": "range_card",
+          "mount": {
+            "on": "plan",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_40003_guide26_story_refine_r2_20260912zl_plan_a8c0eacb2b28"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "plan": {
+          "cat": "paper_sheet",
+          "model": "afdjfk",
+          "needs_lookat": true,
+          "place": "on:plan_table",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.0,
+            0.5
+          ],
+          "decal": "BREAKFAST PLAN"
+        },
+        "ham": {
+          "cat": "half_ham_hock",
+          "model": "bbthbd",
+          "needs_lookat": false,
+          "place": "on:breakfast_bar",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            -0.55,
+            0.45
+          ]
+        },
+        "cooked_ham": {
+          "cat": "half_ham_hock",
+          "model": "bbthbd",
+          "needs_lookat": false,
+          "place": "on:phone_table",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            -0.65,
+            0.55
+          ],
+          "tint": "brown"
+        },
+        "pan": {
+          "cat": "griddle_pan",
+          "model": "ryvqep",
+          "needs_lookat": false,
+          "place": "on:breakfast_bar",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.0,
+            0.45
+          ],
+          "affordances": [
+            "surface",
+            "container"
+          ]
+        },
+        "scone": {
+          "cat": "scone",
+          "model": "gwdhyj",
+          "needs_lookat": false,
+          "place": "on:plan_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.65,
+            0.5
+          ]
+        },
+        "phone": {
+          "cat": "cell_phone",
+          "model": "dbhfuh",
+          "needs_lookat": false,
+          "place": "on:phone_table",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.65,
+            0.55
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "kitchen_0"
+      ],
+      "scene": "house_double_floor_lower",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "The wearer reads a visible breakfast plan, puts the ham in a real frying pan, places the pan on the burner, switches the burner on, cooks the ham, turns it off, then walks away for a real mobile-phone call. On returning, the assistant must reconstruct that the ham step is complete and resume at the untouched scone.",
+    "assistant_goal": "That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+      "assigned_scene": "house_double_floor_lower",
+      "core_question": "That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "The wearer reads a visible breakfast plan, puts the ham in a real frying pan, places the pan on the burner, switches the burner on, cooks the ham, turns it off, then walks away for a real mobile-phone call. On returning, the assistant must reconstruct that the ham step is complete and resume at the untouched scone."
+      ],
+      "required_evidence": [
+        "That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest.",
+        "The breakfast card visibly establishes ham first and scone second.",
+        "The raw ham was placed in the frying pan before the pan went onto the burner.",
+        "The ham visibly browned after it was cooked in the pan on the lit burner.",
+        "The burner was turned off after the ham finished.",
+        "A real phone-to-ear call interrupted the breakfast task.",
+        "The wearer returned to the plan table while the scone remained untouched.",
+        "The scone has been loaded into the oven.",
+        "The oven door has been closed around the scone.",
+        "The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it."
+      ],
+      "required_final_predicates": [
+        "inside",
+        "closed",
+        "cooked"
+      ],
+      "success_condition": "inside(scone, oven); closed(oven); cooked(scone)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-40003",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "assigned_scene": "house_double_floor_lower",
+        "core_question": "That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "The wearer reads a visible breakfast plan, puts the ham in a real frying pan, places the pan on the burner, switches the burner on, cooks the ham, turns it off, then walks away for a real mobile-phone call. On returning, the assistant must reconstruct that the ham step is complete and resume at the untouched scone."
+        ],
+        "required_evidence": [
+          "That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest.",
+          "The breakfast card visibly establishes ham first and scone second.",
+          "The raw ham was placed in the frying pan before the pan went onto the burner.",
+          "The ham visibly browned after it was cooked in the pan on the lit burner.",
+          "The burner was turned off after the ham finished.",
+          "A real phone-to-ear call interrupted the breakfast task.",
+          "The wearer returned to the plan table while the scone remained untouched.",
+          "The scone has been loaded into the oven.",
+          "The oven door has been closed around the scone.",
+          "The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it."
+        ],
+        "required_final_predicates": [
+          "inside",
+          "closed",
+          "cooked"
+        ],
+        "success_condition": "inside(scone, oven); closed(oven); cooked(scone)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "bottle_of_barbecue_sauce",
+          "bottle_of_water",
+          "can_of_sardines",
+          "can_of_tomatoes",
+          "cell_phone",
+          "chocolate_cookie_dough",
+          "gingerbread",
+          "griddle_pan",
+          "half_bell_pepper",
+          "half_ham_hock",
+          "ham_hock",
+          "hand_dryer",
+          "jade",
+          "kitchen_analog_scale",
+          "mac_and_cheese",
+          "maple_syrup_jar",
+          "nectarine",
+          "paper_sheet",
+          "scone",
+          "sponge",
+          "sugar_syrup_bottle",
+          "vodka_bottle",
+          "walker",
+          "water_atomizer",
+          "work_helmet"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "breakfast_table",
+          "burner"
+        ],
+        "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "coverage_categories": [
+          "chocolate_cookie_dough",
+          "can_of_tomatoes",
+          "half_ham_hock",
+          "nectarine",
+          "water_atomizer",
+          "scone",
+          "work_helmet",
+          "sugar_syrup_bottle",
+          "can_of_sardines",
+          "maple_syrup_jar",
+          "ham_hock",
+          "bottle_of_barbecue_sauce",
+          "mac_and_cheese",
+          "jade",
+          "walker",
+          "vodka_bottle",
+          "hand_dryer",
+          "half_bell_pepper",
+          "kitchen_analog_scale",
+          "gingerbread"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 3,
+          "required_semantic_turns": 3,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 28,
+          "max_document_characters": 99,
+          "max_fixed_destinations": 5,
+          "max_movable_objects": 6,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 18,
+          "max_small_label_characters": 40,
+          "max_task_actions": 6,
+          "max_meaningful_steps": 24,
+          "min_intervening_meaningful_actions": 8
+        },
+        "preferred_story_categories": [
+          "cell_phone",
+          "sponge",
+          "bottle_of_water",
+          "paper_sheet"
+        ],
+        "preferred_story_category_glosses": {
+          "bottle_of_water": "",
+          "cell_phone": "",
+          "paper_sheet": "",
+          "sponge": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 36.8,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "dishwasher": 1,
+              "fridge": 1,
+              "microwave": 1
+            },
+            "scene_surfaces": {
+              "bar": 2,
+              "breakfast_table": 1,
+              "burner": 1
+            },
+            "surface_max_area_m2": {
+              "bar": 0.379,
+              "breakfast_table": 0.347,
+              "burner": 0.102
+            },
+            "surface_reference_capacity": {
+              "bar": 3,
+              "breakfast_table": 3,
+              "burner": 3
+            }
+          }
+        ],
+        "scene": "house_double_floor_lower",
+        "task_id": "GUIDE-40003",
+        "version": "grounded-authoring/2.7-safe-preference-20260831"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "paper_sheet",
+            "changed": false,
+            "costs": null,
+            "label": "BREAKFAST PLAN",
+            "tint": null,
+            "what": "breakfast plan card"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "half_ham_hock",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "raw ham hock"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "half_ham_hock",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": "brown",
+            "what": "browned cooked ham hock"
+          },
+          {
+            "affordances": [
+              "graspable",
+              "surface",
+              "container"
+            ],
+            "category": "griddle_pan",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "compact griddle pan"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "scone",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "unbaked scone"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "cell_phone",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "ringing mobile phone"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "oven",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "oven"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "bar",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "breakfast preparation bar"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "bar",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "breakfast plan stand"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "burner",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "scene-native five-zone stove burner"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "breakfast_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "phone table"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "breakfast plan card",
+            "text": "BREAKFAST PLAN",
+            "what": "document",
+            "which": null
+          }
+        ],
+        "restaged_story": "The wearer reads a visible breakfast plan, puts the ham in a real frying pan, places the pan on the burner, switches the burner on, cooks the ham, turns it off, then walks away for a real mobile-phone call. On returning, the assistant must reconstruct that the ham step is complete and resume at the untouched scone.",
+        "scene": "house_double_floor_lower",
+        "why_scene": "house_double_floor_lower supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "oven": {
+            "cat": "oven",
+            "initially_open": false,
+            "label": null,
+            "preload": [],
+            "role": "scored",
+            "room": "kitchen_0"
+          }
+        },
+        "items": {
+          "plan": {
+            "affordances": [],
+            "cat": "paper_sheet",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "BREAKFAST PLAN",
+            "place": "on:plan_table",
+            "scored": false,
+            "spot": [
+              0.0,
+              0.5
+            ],
+            "tint": null
+          },
+          "ham": {
+            "affordances": [],
+            "cat": "half_ham_hock",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:breakfast_bar",
+            "scored": false,
+            "spot": [
+              -0.55,
+              0.45
+            ],
+            "tint": null
+          },
+          "cooked_ham": {
+            "affordances": [],
+            "cat": "half_ham_hock",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:phone_table",
+            "scored": false,
+            "spot": [
+              -0.65,
+              0.55
+            ],
+            "tint": "brown"
+          },
+          "pan": {
+            "affordances": [
+              "surface",
+              "container"
+            ],
+            "cat": "griddle_pan",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:breakfast_bar",
+            "scored": false,
+            "spot": [
+              0.0,
+              0.45
+            ],
+            "tint": null
+          },
+          "scone": {
+            "affordances": [],
+            "cat": "scone",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:plan_table",
+            "scored": true,
+            "spot": [
+              0.65,
+              0.5
+            ],
+            "tint": null
+          },
+          "phone": {
+            "affordances": [],
+            "cat": "cell_phone",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:phone_table",
+            "scored": false,
+            "spot": [
+              0.65,
+              0.55
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <plan> (1)",
+          "[Grab] <plan> (1)",
+          "[LookAt] <plan> (1)",
+          "[Walk] <breakfast_bar> (1)",
+          "[Grab] <ham> (1)",
+          "[PutOn] <ham> (1) <pan> (1)",
+          "[Grab] <pan> (1)",
+          "[PutOn] <pan> (1) <burner> (1)",
+          "[TurnOn] <burner> (1)",
+          "[Cook] <ham> (1)",
+          "[TurnOff] <burner> (1)",
+          "[Walk] <phone_table> (1)",
+          "[Grab] <phone> (1)",
+          "[AnswerPhone] <phone> (1)",
+          "[Wait]",
+          "[PutOn] <phone> (1) <phone_table> (1)",
+          "[Walk] <plan_table> (1)",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0"
+        ],
+        "scene": "house_double_floor_lower",
+        "staging": {
+          "groups": "The wearer reads a visible breakfast plan, puts the ham in a real frying pan, places the pan on the burner, switches the burner on, cooks the ham, turns it off, then walks away for a real mobile-phone call. On returning, the assistant must reconstruct that the ham step is complete and resume at the untouched scone.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "breakfast_bar": {
+            "cat": "bar",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "plan_table": {
+            "cat": "bar",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "burner": {
+            "cat": "burner",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "phone_table": {
+            "cat": "breakfast_table",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The breakfast card visibly establishes ham first and scone second.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 2,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The raw ham was placed in the frying pan before the pan went onto the burner.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 5,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The ham visibly browned after it was cooked in the pan on the lit burner.",
+            "from": "prologue",
+            "id": "fact_004",
+            "source_index": 9,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The burner was turned off after the ham finished.",
+            "from": "prologue",
+            "id": "fact_005",
+            "source_index": 10,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "A real phone-to-ear call interrupted the breakfast task.",
+            "from": "prologue",
+            "id": "fact_006",
+            "source_index": 13,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The wearer returned to the plan table while the scone remained untouched.",
+            "from": "prologue",
+            "id": "fact_007",
+            "source_index": 17,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The scone has been loaded into the oven.",
+            "from": "live",
+            "id": "fact_008",
+            "source_index": 3,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The oven door has been closed around the scone.",
+            "from": "live",
+            "id": "fact_009",
+            "source_index": 4,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007",
+              "fact_008",
+              "fact_009"
+            ],
+            "fact": "The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it.",
+            "from": "derived",
+            "id": "fact_010",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "scone",
+            "target": "oven"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "oven",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "cooked",
+            "scorable": true,
+            "subject": "scone",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "You finished the ham and turned the burner off before the call. The scone on the breakfast-plan table is next; pick it up there and carry it to the built-in oven.",
+            "referents": [
+              "plan",
+              "ham",
+              "pan",
+              "burner",
+              "scone",
+              "oven"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ]
+          },
+          {
+            "before_index": 2,
+            "say": "You are at the built-in oven with the scone. Open the oven, put the scone inside, and close the door.",
+            "referents": [
+              "scone",
+              "oven"
+            ],
+            "fact_ids": [
+              "fact_002"
+            ]
+          },
+          {
+            "before_index": 5,
+            "say": "The oven is already closed. Now use `[Cook] <scone> (1)` on the scone itself inside it until it is baked; the food, not the oven, is the Cook target.",
+            "referents": [
+              "scone",
+              "oven",
+              "plan"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_007",
+              "fact_008"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Walk] <burner> (1), [Cook] <ham> (1)",
+        "mates": [],
+        "oracle_program": "[Grab] <scone> (1), [Walk] <oven> (1), [Open] <oven> (1), [PutInside] <scone> (1) <oven> (1), [Close] <oven> (1), [Cook] <scone> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "The wearer reads a visible breakfast plan, puts the ham in a real frying pan, places the pan on the burner, switches the burner on, cooks the ham, turns it off, then walks away for a real mobile-phone call. On returning, the assistant must reconstruct that the ham step is complete and resume at the untouched scone.",
+        "utterance": "That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <plan> (1)",
+        "[Grab] <plan> (1)",
+        "[LookAt] <plan> (1)",
+        "[Walk] <breakfast_bar> (1)",
+        "[Grab] <ham> (1)",
+        "[PutOn] <ham> (1) <pan> (1)",
+        "[Grab] <pan> (1)",
+        "[PutOn] <pan> (1) <burner> (1)",
+        "[TurnOn] <burner> (1)",
+        "[Cook] <ham> (1)",
+        "[TurnOff] <burner> (1)",
+        "[Walk] <phone_table> (1)",
+        "[Grab] <phone> (1)",
+        "[AnswerPhone] <phone> (1)",
+        "[Wait]",
+        "[PutOn] <phone> (1) <phone_table> (1)",
+        "[Walk] <plan_table> (1)",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "plan"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "plan"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "plan"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "plan"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "plan"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The breakfast card visibly establishes ham first and scone second.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "breakfast_bar"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "breakfast_bar"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "ham"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "ham"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "ham",
+            "pan"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The raw ham was placed in the frying pan before the pan went onto the burner.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "pan"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "pan"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "pan",
+            "burner"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "TurnOn",
+          "args": [
+            "burner"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Cook",
+          "args": [
+            "ham"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The ham visibly browned after it was cooked in the pan on the lit burner.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "TurnOff",
+          "args": [
+            "burner"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The burner was turned off after the ham finished.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p011",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "phone_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "phone_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p012",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "phone"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p013",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "AnswerPhone",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "A real phone-to-ear call interrupted the breakfast task.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p014",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p015",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "phone_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p016",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "plan_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "plan_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p017",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The wearer returned to the plan table while the scone remained untouched.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "You finished the ham and turned the burner off before the call. The scone on the breakfast-plan table is next; pick it up there and carry it to the built-in oven.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "You are at the built-in oven with the scone. Open the oven, put the scone inside, and close the door.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The oven is already closed. Now use `[Cook] <scone> (1)` on the scone itself inside it until it is baked; the food, not the oven, is the Cook target.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "burner"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "burner"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Cook",
+          "args": [
+            "ham"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "scone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "scone"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "oven"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "oven"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "oven"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "scone",
+            "oven"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "scone",
+            "target": "oven"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The scone has been loaded into the oven.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "oven"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The oven door has been closed around the scone.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Cook",
+          "args": [
+            "scone"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The breakfast card visibly establishes ham first and scone second.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p002"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 2
+      },
+      {
+        "id": "fact_003",
+        "statement": "The raw ham was placed in the frying pan before the pan went onto the burner.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p005"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 5
+      },
+      {
+        "id": "fact_004",
+        "statement": "The ham visibly browned after it was cooked in the pan on the lit burner.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p009"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 9
+      },
+      {
+        "id": "fact_005",
+        "statement": "The burner was turned off after the ham finished.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p010"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 10
+      },
+      {
+        "id": "fact_006",
+        "statement": "A real phone-to-ear call interrupted the breakfast task.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p013"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 13
+      },
+      {
+        "id": "fact_007",
+        "statement": "The wearer returned to the plan table while the scone remained untouched.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p017"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 17
+      },
+      {
+        "id": "fact_008",
+        "statement": "The scone has been loaded into the oven.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o003"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 3
+      },
+      {
+        "id": "fact_009",
+        "statement": "The oven door has been closed around the scone.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o004"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 4
+      },
+      {
+        "id": "fact_010",
+        "statement": "The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p002",
+          "p005",
+          "p009",
+          "p010",
+          "p013",
+          "p017",
+          "o003",
+          "o004"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007",
+          "fact_008",
+          "fact_009"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Recover the person's progress in the interrupted breakfast plan from the preceding video and guide the remaining work.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <plan> (1)",
+          "[Grab] <plan> (1)",
+          "[LookAt] <plan> (1)",
+          "[Walk] <breakfast_bar> (1)",
+          "[Grab] <ham> (1)",
+          "[PutOn] <ham> (1) <pan> (1)",
+          "[Grab] <pan> (1)",
+          "[PutOn] <pan> (1) <burner> (1)",
+          "[TurnOn] <burner> (1)",
+          "[Cook] <ham> (1)",
+          "[TurnOff] <burner> (1)",
+          "[Walk] <phone_table> (1)",
+          "[Grab] <phone> (1)",
+          "[AnswerPhone] <phone> (1)",
+          "[Wait]",
+          "[PutOn] <phone> (1) <phone_table> (1)",
+          "[Walk] <plan_table> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 17,
+            "say": "Hey, Assistant, that call threw me off. Can you tell me where I was in the breakfast plan and walk me through the rest?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, that call threw me off. Can you tell me where I was in the breakfast plan and walk me through the rest?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "breakfast_recovery_request",
+            "required_phrases": [
+              "that call threw me off",
+              "where I was in the breakfast plan",
+              "walk me through the rest"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutInside] <scone> (1) <oven> (1)",
+          "[Close] <oven> (1)",
+          "[Cook] <scone> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[Grab] <cooked_ham> (1)",
+          "[Cook] <cooked_ham> (1)",
+          "[TurnOn] <burner> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[PutInside] <scone> (1) <oven> (1)",
+            "[Close] <oven> (1)",
+            "[Cook] <scone> (1)"
+          ]
+        ],
+        "verification_points": [
+          {
+            "id": "scone_in_oven",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "scone",
+            "target": "oven"
+          },
+          {
+            "id": "oven_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "oven",
+            "target": "oven"
+          },
+          {
+            "id": "scone_cooked",
+            "kind": "world_state",
+            "pred": "cooked",
+            "subject": "scone",
+            "target": "scone"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "plan": [
+          "breakfast plan sheet"
+        ],
+        "scone": [
+          "scone on the breakfast-plan table"
+        ],
+        "breakfast_bar": [
+          "breakfast bar"
+        ],
+        "plan_table": [
+          "breakfast-plan table"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 20,
+    "dialogue_budget": 3,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "plan_table",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "plan",
+              "ham",
+              "pan",
+              "burner",
+              "scone",
+              "oven"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "scone",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "scone",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "scone",
+              "oven"
+            ],
+            "required_fact_ids": [
+              "fact_002"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "scone",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "scone",
+            "target": "oven",
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "scone",
+              "oven",
+              "plan"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_007",
+              "fact_008"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "scone",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o005"
+        }
+      ],
+      "terminal_beats": [
+        "h001",
+        "o005"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "scone"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "oven"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "oven"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "scone",
+          "oven"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "oven"
+        ]
+      },
+      {
+        "verb": "Cook",
+        "args": [
+          "scone"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "burner"
+        ]
+      },
+      {
+        "verb": "Cook",
+        "args": [
+          "ham"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "You finished the ham and turned the burner off before the call. The scone on the breakfast-plan table is next; pick it up there and carry it to the built-in oven.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "You are at the built-in oven with the scone. Open the oven, put the scone inside, and close the door.",
+        "relation": "before",
+        "anchor_beat_id": "o002",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "The oven is already closed. Now use `[Cook] <scone> (1)` on the scone itself inside it until it is baked; the food, not the oven, is the Cook target.",
+        "relation": "before",
+        "anchor_beat_id": "o005",
+        "source": "guidance",
+        "source_index": 2
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": [
+      {
+        "type": "entity_visibility",
+        "entities": [
+          "ham"
+        ],
+        "visible": false,
+        "initially_visible": true,
+        "after_command": "[Cook] <ham> (1)",
+        "occurrence": 1,
+        "require_offscreen": false
+      },
+      {
+        "type": "entity_visibility",
+        "entities": [
+          "cooked_ham"
+        ],
+        "pose_from": [
+          "ham"
+        ],
+        "visible": true,
+        "initially_visible": false,
+        "after_command": "[Cook] <ham> (1)",
+        "occurrence": 1,
+        "require_offscreen": false
+      }
+    ]
+  },
+  "lineage": {
+    "source": "guide22_interaction_assembly",
+    "compile_input_digest": "sha256:21a82cf3b97bf7c6296ef151248d16d6f63e77884cbc07d7fa1b670281c5971e",
+    "source_contract_digest": "sha256:8f30f2d27e2428dda96c51ce1f65ea7a41a2863def4f70c2e262f77c563c7041",
+    "executable_spec_digest": "sha256:3fc75854922222e7bb3c3741722bf3e497599a5bd478411d4da544f8ff74ecd7",
+    "invention": {
+      "attempt": 2,
+      "author_prose": "The wearer is preparing a two-part hot breakfast in the kitchen, starting with a half ham hock and a scone staged on the bar. Their implicit plan is to cook the ham hock on the stovetop and bake the scone in the oven.\n\nIn the opening action sequence, the wearer grabs the half ham hock, walks to the burner, places it on the surface, and cooks it. Moving on to the second part of the meal, they walk over to the oven and open the door to prepare for baking. Before they can walk back to the bar to retrieve the scone, they are interrupted by a knock at the front door and walk out to the corridor to receive a delivery.\n\nUpon returning to the kitchen, the wearer asks the smart glasses, \"I was in the middle of making breakfast—cooking the ham hock on the stove and baking the scone. I had to step away for a delivery and completely lost my train of thought. What did I already finish, and what exactly is my next step?\"\n\nTo succeed, the assistant must reconstruct the wearer's progress by comparing the stated goal against the egocentric action history and the current visual state. It must recognize that the stovetop sequence is fully complete, while the baking sequence was interrupted mid-step. The visual evidence confirms the oven is already open, and the action history confirms the scone was never moved from the bar. A strong assistant accurately summarizes this specific progress and provides the exact remaining steps: \"You already finished cooking the ham hock on the burner. You opened the oven, but the scone is still sitting on the bar. Your next step is to place the scone inside the oven, close the door, and cook it.\"\n\nA weak assistant fails to correctly map the action history to the implicit dependent steps. It might instruct the wearer to start over and cook the already-cooked ham hock, tell them to open the oven door that is visibly hanging open, or skip a physical prerequisite by telling them to cook the scone while it remains out on the bar.\n\nSuccess is strictly evaluated by the final physical state of the interrupted baking subtask: the scone must be inside the oven, the oven must be closed, and the scone must be cooked. These specific predicates are all false after the opening interruption and become true only if the wearer follows the correctly reconstructed guidance.",
+      "author_prose_sha256": "sha256:23dfe27c479124b6fc7a079fb902f5a7ce815591876f8dc399d8c799bbe9ee8c",
+      "capability": {
+        "boundary": "The procedural instructions may be known, but the hard question is current progress after interruption.",
+        "few_shot": "A first-time builder follows a bookcase manual, attaches the two side panels to the base, and then leaves for ten minutes to answer a delivery. On returning, the parts are spread across the floor and the wearer asks where they stopped. The assistant reconstructs progress from the observed opening actions, confirms the base-and-sides subassembly is already complete, and starts with the unattached back panel rather than repeating the first steps or jumping to the top. The frozen opening trace establishes completed work, the oracle contains only the remaining attachments, and the finished bookcase has every supported panel attached to its fixed mate. A weak guide that restarts from page one conflicts with the established state and cannot follow the executable remaining plan.",
+        "id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "name_zh": "进度重建与断点续做",
+        "target": "Infer completed, omitted, and next steps from the observed action history, then resume without repeating work or skipping a prerequisite."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "evaluation_mode": "TRACE_AND_OUTCOME",
+        "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": true,
+        "owner": "SIMULATOR_EVALUATION",
+        "reason": "Opening state and remaining actions run, but redundant repetition and skipped completed work lack a dedicated metric.",
+        "reason_code": "PROGRESS_EFFICIENCY_EVALUATOR",
+        "recommended_work": "Add progress reconstruction and unnecessary-repeat scoring.",
+        "version": "capability-support/1.0",
+        "workstream": "EVALUATOR"
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "cell_phone",
+          "sponge",
+          "bottle_of_water",
+          "paper_sheet",
+          "chocolate_cookie_dough",
+          "can_of_tomatoes",
+          "half_ham_hock",
+          "nectarine",
+          "water_atomizer",
+          "scone",
+          "work_helmet",
+          "sugar_syrup_bottle",
+          "can_of_sardines",
+          "maple_syrup_jar",
+          "ham_hock",
+          "bottle_of_barbecue_sauce",
+          "mac_and_cheese",
+          "jade",
+          "walker",
+          "vodka_bottle",
+          "hand_dryer",
+          "half_bell_pepper",
+          "kitchen_analog_scale",
+          "gingerbread"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "breakfast_table",
+          "burner"
+        ],
+        "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "coverage_categories": [
+          "chocolate_cookie_dough",
+          "can_of_tomatoes",
+          "half_ham_hock",
+          "nectarine",
+          "water_atomizer",
+          "scone",
+          "work_helmet",
+          "sugar_syrup_bottle",
+          "can_of_sardines",
+          "maple_syrup_jar",
+          "ham_hock",
+          "bottle_of_barbecue_sauce",
+          "mac_and_cheese",
+          "jade",
+          "walker",
+          "vodka_bottle",
+          "hand_dryer",
+          "half_bell_pepper",
+          "kitchen_analog_scale",
+          "gingerbread"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "cell_phone",
+          "sponge",
+          "bottle_of_water",
+          "paper_sheet"
+        ],
+        "preferred_story_category_glosses": {
+          "bottle_of_water": "",
+          "cell_phone": "",
+          "paper_sheet": "",
+          "sponge": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 36.8,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "dishwasher": 1,
+              "fridge": 1,
+              "microwave": 1
+            },
+            "scene_surfaces": {
+              "bar": 2,
+              "breakfast_table": 1,
+              "burner": 1
+            },
+            "surface_max_area_m2": {
+              "bar": 0.379,
+              "breakfast_table": 0.347,
+              "burner": 0.102
+            },
+            "surface_reference_capacity": {
+              "bar": 3,
+              "breakfast_table": 3,
+              "burner": 3
+            }
+          }
+        ],
+        "scene": "house_double_floor_lower",
+        "task_id": "GUIDE-40003",
+        "version": "grounded-authoring/2.7-safe-preference-20260831"
+      },
+      "prompt_sha": "c0ae0be63b42",
+      "prompt_sha256": "sha256:c0ae0be63b4216f3cf8f070ffd0674759bfdff6ed654205b80d78785bd937355",
+      "prompt_version": "capability-v25-safe-asset-preference-20260831",
+      "prose_sha256": "sha256:f5414c25302e1ac8c0ad50cfaf17e083675d654d76c8370c9e57fed753b1eda9",
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "The action history showing the ham hock was cooked and the oven was opened, and the visual state showing the scone is still on the bar.",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "semantic_turns": 1,
+          "strong_weak_distinct": true,
+          "ungrounded_physical_nouns": [],
+          "uses_only_grounded_assets": true,
+          "why_utterance_alone_fails": "The utterance only states the overall goal and that an interruption occurred; it does not specify which steps were completed before the interruption."
+        },
+        "capability_fit": "The assistant must reconstruct the wearer's progress from the action history and visual state to provide the exact remaining steps without repeating work or skipping prerequisites.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "half_ham_hock",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "first breakfast item"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "scone",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "second breakfast item"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "bar",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "staging surface"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "burner",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "cooking surface"
+              },
+              {
+                "affordances": [
+                  "container",
+                  "openable"
+                ],
+                "category": "oven",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "baking container"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "The half_ham_hock and scone are initially on the bar in kitchen_0. The wearer walks to the bar, grabs the half_ham_hock, walks to the burner, puts the half_ham_hock on the burner, and cooks it. The wearer then walks to the oven and opens it. At this point, they are interrupted, walk to corridor_0, and then walk back to kitchen_0. At turn 0, the wearer asks, 'I was in the middle of making breakfast—cooking the ham hock on the stove and baking the scone. I had to step away for a delivery and completely lost my train of thought. What did I already finish, and what exactly is my next step?' The assistant observes the action history and visual state, noting the ham hock is cooked, the oven is open, and the scone is still on the bar. The assistant replies, 'You already finished cooking the ham hock on the burner. You opened the oven, but the scone is still sitting on the bar. Your next step is to place the scone inside the oven, close the door, and cook it.' The wearer then walks to the bar, grabs the scone, walks to the oven, puts the scone in the oven, closes the oven, and cooks the scone.",
+            "scene": "house_double_floor_lower",
+            "why_scene": "provides kitchen_0 with bar, burner, and oven, plus corridor_0 for the interruption"
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "GUIDE.PROGRESS_RECONSTRUCTION",
+              "counterfactual_failure": "weak assistant tells wearer to cook ham hock again, open the already open oven, or cook scone without putting it in oven",
+              "forbidden_changes": [
+                "changing the interruption point to before the oven is opened or after the scone is moved"
+              ],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "action history showing ham hock cooked and oven opened",
+                "visual state showing scone on bar"
+              ],
+              "required_final_predicates": [
+                "inside",
+                "closed",
+                "cooked"
+              ],
+              "success_condition": "scone is cooked inside the closed oven",
+              "temporal_constraints": []
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item cooked before interruption",
+                "what": "first breakfast item",
+                "when": "opening"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item to be cooked after interruption",
+                "what": "second breakfast item",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "initial location of both items",
+                "what": "staging surface",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "location where first item is cooked",
+                "what": "cooking surface",
+                "when": "opening"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container",
+                  "openable"
+                ],
+                "role_in_story": "location where second item is cooked",
+                "what": "baking container",
+                "when": "both"
+              }
+            ],
+            "hinges_on": "recognizing that the ham hock is already cooked and the oven is already open, so the next step is to put the scone in the oven and cook it",
+            "look_alike": [],
+            "opening": "wearer grabs half_ham_hock from bar, puts it on burner, cooks it, opens oven, walks to corridor_0, walks back to kitchen_0",
+            "outcome": "scone is inside oven, oven is closed, scone is cooked",
+            "place": "kitchen_0 and corridor_0",
+            "printed": [],
+            "tests_what": "GUIDE.PROGRESS_RECONSTRUCTION"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The candidate perfectly captures the PROGRESS_RECONSTRUCTION capability by interrupting a multi-step, multi-object task midway through the setup of the second object. The egocentric action history and visual state provide the necessary evidence to determine exactly which steps are complete (ham hock cooked, oven opened) and which are pending (scone moved, oven closed, scone cooked). The physical actions and predicates are fully supported by the simulator.",
+        "requirements": [],
+        "runtime_requirements": {
+          "actions": [
+            "Walk",
+            "Grab",
+            "Put",
+            "Cook",
+            "Open",
+            "Putin",
+            "Close"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 16,
+          "estimated_prologue_actions": 10,
+          "estimated_task_actions": 6,
+          "events": [],
+          "final_predicates": [
+            "inside",
+            "closed",
+            "cooked"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 33.2,
+        "structural_signature": {
+          "evaluation": "final physical state of the second item",
+          "evidence": "action history and visual state",
+          "failure": "repeating completed steps or skipping prerequisites",
+          "operation": "progress reconstruction",
+          "response": "remaining steps instruction",
+          "temporal": "interrupted task resumption"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The action history showing the ham hock was cooked and the oven was opened, and the visual state showing the scone is still on the bar.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The utterance only states the overall goal and that an interruption occurred; it does not specify which steps were completed before the interruption."
+          },
+          "capability_fit": "The assistant must reconstruct the wearer's progress from the action history and visual state to provide the exact remaining steps without repeating work or skipping prerequisites.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "half_ham_hock",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "first breakfast item"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "scone",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "second breakfast item"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bar",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "staging surface"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "burner",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "cooking surface"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "oven",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "baking container"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "The half_ham_hock and scone are initially on the bar in kitchen_0. The wearer walks to the bar, grabs the half_ham_hock, walks to the burner, puts the half_ham_hock on the burner, and cooks it. The wearer then walks to the oven and opens it. At this point, they are interrupted, walk to corridor_0, and then walk back to kitchen_0. At turn 0, the wearer asks, 'I was in the middle of making breakfast—cooking the ham hock on the stove and baking the scone. I had to step away for a delivery and completely lost my train of thought. What did I already finish, and what exactly is my next step?' The assistant observes the action history and visual state, noting the ham hock is cooked, the oven is open, and the scone is still on the bar. The assistant replies, 'You already finished cooking the ham hock on the burner. You opened the oven, but the scone is still sitting on the bar. Your next step is to place the scone inside the oven, close the door, and cook it.' The wearer then walks to the bar, grabs the scone, walks to the oven, puts the scone in the oven, closes the oven, and cooks the scone.",
+              "scene": "house_double_floor_lower",
+              "why_scene": "provides kitchen_0 with bar, burner, and oven, plus corridor_0 for the interruption"
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "GUIDE.PROGRESS_RECONSTRUCTION",
+                "counterfactual_failure": "weak assistant tells wearer to cook ham hock again, open the already open oven, or cook scone without putting it in oven",
+                "forbidden_changes": [
+                  "changing the interruption point to before the oven is opened or after the scone is moved"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "action history showing ham hock cooked and oven opened",
+                  "visual state showing scone on bar"
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "closed",
+                  "cooked"
+                ],
+                "success_condition": "scone is cooked inside the closed oven",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item cooked before interruption",
+                  "what": "first breakfast item",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be cooked after interruption",
+                  "what": "second breakfast item",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "initial location of both items",
+                  "what": "staging surface",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "location where first item is cooked",
+                  "what": "cooking surface",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "location where second item is cooked",
+                  "what": "baking container",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "recognizing that the ham hock is already cooked and the oven is already open, so the next step is to put the scone in the oven and cook it",
+              "look_alike": [],
+              "opening": "wearer grabs half_ham_hock from bar, puts it on burner, cooks it, opens oven, walks to corridor_0, walks back to kitchen_0",
+              "outcome": "scone is inside oven, oven is closed, scone is cooked",
+              "place": "kitchen_0 and corridor_0",
+              "printed": [],
+              "tests_what": "GUIDE.PROGRESS_RECONSTRUCTION"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate perfectly captures the PROGRESS_RECONSTRUCTION capability by interrupting a multi-step, multi-object task midway through the setup of the second object. The egocentric action history and visual state provide the necessary evidence to determine exactly which steps are complete (ham hock cooked, oven opened) and which are pending (scone moved, oven closed, scone cooked). The physical actions and predicates are fully supported by the simulator.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Walk",
+              "Grab",
+              "Put",
+              "Cook",
+              "Open",
+              "Putin",
+              "Close"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 16,
+            "estimated_prologue_actions": 10,
+            "estimated_task_actions": 6,
+            "events": [],
+            "final_predicates": [
+              "inside",
+              "closed",
+              "cooked"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 33.2,
+          "structural_signature": {
+            "evaluation": "final physical state of the second item",
+            "evidence": "action history and visual state",
+            "failure": "repeating completed steps or skipping prerequisites",
+            "operation": "progress reconstruction",
+            "response": "remaining steps instruction",
+            "temporal": "interrupted task resumption"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "house_double_floor_lower",
+      "sha": "f5414c25302e",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_manual_remaining_20260831y/compile_input/GUIDE/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gemini-3-1-pro-preview-tbd",
+      "judge_model": "gemini-3-1-pro-preview-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260831m"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_grounded_manual_remaining_20260831y",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v25-safe-asset-preference-20260831",
+      "release_id": "sha256:f1d8807e8cd27d40aa3a9b522d582d96eaf79377b81bb5520f50b7786115071b",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "result": "guide26-story-refine-r2-20260912zl",
+        "source": "GUIDE-40003"
+      },
+      {
+        "kind": "canonicalize_required_evidence",
+        "source": "[\"That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest.\", \"The breakfast card visibly establishes ham first and scone second.\", \"The raw ham was placed in the frying pan before the pan went onto the burner.\", \"The ham visibly browned after it was cooked in the pan on the lit burner.\", \"The burner was turned off after the ham finished.\", \"A real phone-to-ear call interrupted the breakfast task.\", \"The wearer returned to the plan table while the scone remained untouched.\", \"The scone has been loaded into the oven.\", \"The oven door has been closed around the scone.\"]",
+        "result": "[\"That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest.\", \"The breakfast card visibly establishes ham first and scone second.\", \"The raw ham was placed in the frying pan before the pan went onto the burner.\", \"The ham visibly browned after it was cooked in the pan on the lit burner.\", \"The burner was turned off after the ham finished.\", \"A real phone-to-ear call interrupted the breakfast task.\", \"The wearer returned to the plan table while the scone remained untouched.\", \"The scone has been loaded into the oven.\", \"The oven door has been closed around the scone.\", \"The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it.\"]"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "GUIDE-40003",
+    "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+    "capability_notes": [
+      "The current renderer has one turn-zero human request, not a separate pre-prologue human speech turn; the visible breakfast-plan card supplies the original plan without new runtime code.",
+      "The compact griddle_pan/ryvqep is both a surface and a container and fits one cooking zone on the exact scene-native burner_mdanhg_0, whose authored heat-source and toggle controls visibly distinguish on from off.",
+      "The hidden brown duplicate is parked off the cooktop and inherits the raw ham's in-pan center and base only when Cook completes, so it does not consume a second planned burner placement."
+    ],
+    "revision": "guide22-interaction-20260913",
+    "benchmark_split": "production",
+    "physical_revision": "guide26-story-refine-r2-20260912zl",
+    "physical_taskpack_sha256": "sha256:badc217a2089317b80bc9277f57d595f4cb753fe5256b87fe69c0da4d82a33ca",
+    "parent_lineage": {
+      "source": "manual_story_revision",
+      "compile_input_digest": "sha256:21a82cf3b97bf7c6296ef151248d16d6f63e77884cbc07d7fa1b670281c5971e",
+      "source_contract_digest": "sha256:f56e1bfbbb1f783cc138a702af7b554bf453b01b42e212ac1363254d59567a0b",
+      "executable_spec_digest": "sha256:3fc75854922222e7bb3c3741722bf3e497599a5bd478411d4da544f8ff74ecd7",
+      "invention": {
+        "attempt": 2,
+        "author_prose": "The wearer is preparing a two-part hot breakfast in the kitchen, starting with a half ham hock and a scone staged on the bar. Their implicit plan is to cook the ham hock on the stovetop and bake the scone in the oven.\n\nIn the opening action sequence, the wearer grabs the half ham hock, walks to the burner, places it on the surface, and cooks it. Moving on to the second part of the meal, they walk over to the oven and open the door to prepare for baking. Before they can walk back to the bar to retrieve the scone, they are interrupted by a knock at the front door and walk out to the corridor to receive a delivery.\n\nUpon returning to the kitchen, the wearer asks the smart glasses, \"I was in the middle of making breakfast—cooking the ham hock on the stove and baking the scone. I had to step away for a delivery and completely lost my train of thought. What did I already finish, and what exactly is my next step?\"\n\nTo succeed, the assistant must reconstruct the wearer's progress by comparing the stated goal against the egocentric action history and the current visual state. It must recognize that the stovetop sequence is fully complete, while the baking sequence was interrupted mid-step. The visual evidence confirms the oven is already open, and the action history confirms the scone was never moved from the bar. A strong assistant accurately summarizes this specific progress and provides the exact remaining steps: \"You already finished cooking the ham hock on the burner. You opened the oven, but the scone is still sitting on the bar. Your next step is to place the scone inside the oven, close the door, and cook it.\"\n\nA weak assistant fails to correctly map the action history to the implicit dependent steps. It might instruct the wearer to start over and cook the already-cooked ham hock, tell them to open the oven door that is visibly hanging open, or skip a physical prerequisite by telling them to cook the scone while it remains out on the bar.\n\nSuccess is strictly evaluated by the final physical state of the interrupted baking subtask: the scone must be inside the oven, the oven must be closed, and the scone must be cooked. These specific predicates are all false after the opening interruption and become true only if the wearer follows the correctly reconstructed guidance.",
+        "author_prose_sha256": "sha256:23dfe27c479124b6fc7a079fb902f5a7ce815591876f8dc399d8c799bbe9ee8c",
+        "capability": {
+          "boundary": "The procedural instructions may be known, but the hard question is current progress after interruption.",
+          "few_shot": "A first-time builder follows a bookcase manual, attaches the two side panels to the base, and then leaves for ten minutes to answer a delivery. On returning, the parts are spread across the floor and the wearer asks where they stopped. The assistant reconstructs progress from the observed opening actions, confirms the base-and-sides subassembly is already complete, and starts with the unattached back panel rather than repeating the first steps or jumping to the top. The frozen opening trace establishes completed work, the oracle contains only the remaining attachments, and the finished bookcase has every supported panel attached to its fixed mate. A weak guide that restarts from page one conflicts with the established state and cannot follow the executable remaining plan.",
+          "id": "GUIDE.PROGRESS_RECONSTRUCTION",
+          "name_zh": "进度重建与断点续做",
+          "target": "Infer completed, omitted, and next steps from the observed action history, then resume without repeating work or skipping a prerequisite."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+          "evaluation_mode": "TRACE_AND_OUTCOME",
+          "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": true,
+          "owner": "SIMULATOR_EVALUATION",
+          "reason": "Opening state and remaining actions run, but redundant repetition and skipped completed work lack a dedicated metric.",
+          "reason_code": "PROGRESS_EFFICIENCY_EVALUATOR",
+          "recommended_work": "Add progress reconstruction and unnecessary-repeat scoring.",
+          "version": "capability-support/1.0",
+          "workstream": "EVALUATOR"
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "candy_dispenser_shelf",
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "compost_bin",
+            "dessert_stand",
+            "dish_rack_cart",
+            "dishwasher",
+            "display_case",
+            "display_fridge",
+            "dry_food_dispenser_shelf",
+            "free_weight_rack",
+            "freezer",
+            "fridge",
+            "grocery_fridge",
+            "grocery_shelf",
+            "locker",
+            "magazine_stand",
+            "metal_bottom_cabinet",
+            "oven",
+            "public_trash_can",
+            "recycling_bin",
+            "serving_cart",
+            "shelf",
+            "shopping_cart",
+            "snack_rack",
+            "top_cabinet",
+            "trash_can",
+            "umbrella_rack",
+            "vending_machine",
+            "wardrobe",
+            "washer",
+            "wine_fridge"
+          ],
+          "allowed_loose_categories": [
+            "cell_phone",
+            "sponge",
+            "bottle_of_water",
+            "paper_sheet",
+            "chocolate_cookie_dough",
+            "can_of_tomatoes",
+            "half_ham_hock",
+            "nectarine",
+            "water_atomizer",
+            "scone",
+            "work_helmet",
+            "sugar_syrup_bottle",
+            "can_of_sardines",
+            "maple_syrup_jar",
+            "ham_hock",
+            "bottle_of_barbecue_sauce",
+            "mac_and_cheese",
+            "jade",
+            "walker",
+            "vodka_bottle",
+            "hand_dryer",
+            "half_bell_pepper",
+            "kitchen_analog_scale",
+            "gingerbread"
+          ],
+          "allowed_surface_categories": [
+            "bar",
+            "breakfast_table",
+            "burner"
+          ],
+          "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+          "coverage_categories": [
+            "chocolate_cookie_dough",
+            "can_of_tomatoes",
+            "half_ham_hock",
+            "nectarine",
+            "water_atomizer",
+            "scone",
+            "work_helmet",
+            "sugar_syrup_bottle",
+            "can_of_sardines",
+            "maple_syrup_jar",
+            "ham_hock",
+            "bottle_of_barbecue_sauce",
+            "mac_and_cheese",
+            "jade",
+            "walker",
+            "vodka_bottle",
+            "hand_dryer",
+            "half_bell_pepper",
+            "kitchen_analog_scale",
+            "gingerbread"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 1,
+            "required_semantic_turns": 1,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": false,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_reselection": false,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "GUIDE",
+          "limits": {
+            "max_authored_actions": 18,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 10,
+            "max_small_label_characters": 8,
+            "max_task_actions": 10
+          },
+          "preferred_story_categories": [
+            "cell_phone",
+            "sponge",
+            "bottle_of_water",
+            "paper_sheet"
+          ],
+          "preferred_story_category_glosses": {
+            "bottle_of_water": "",
+            "cell_phone": "",
+            "paper_sheet": "",
+            "sponge": ""
+          },
+          "rooms": [
+            {
+              "area_m2": 36.8,
+              "name": "kitchen_0",
+              "scene_containers": {
+                "dishwasher": 1,
+                "fridge": 1,
+                "microwave": 1
+              },
+              "scene_surfaces": {
+                "bar": 2,
+                "breakfast_table": 1,
+                "burner": 1
+              },
+              "surface_max_area_m2": {
+                "bar": 0.379,
+                "breakfast_table": 0.347,
+                "burner": 0.102
+              },
+              "surface_reference_capacity": {
+                "bar": 3,
+                "breakfast_table": 3,
+                "burner": 3
+              }
+            }
+          ],
+          "scene": "house_double_floor_lower",
+          "task_id": "GUIDE-40003",
+          "version": "grounded-authoring/2.7-safe-preference-20260831"
+        },
+        "prompt_sha": "c0ae0be63b42",
+        "prompt_sha256": "sha256:c0ae0be63b4216f3cf8f070ffd0674759bfdff6ed654205b80d78785bd937355",
+        "prompt_version": "capability-v25-safe-asset-preference-20260831",
+        "prose_sha256": "sha256:f5414c25302e1ac8c0ad50cfaf17e083675d654d76c8370c9e57fed753b1eda9",
+        "review": {
+          "benchmark_check": {
+            "egocentric_evidence": "The action history showing the ham hock was cooked and the oven was opened, and the visual state showing the scone is still on the bar.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The utterance only states the overall goal and that an interruption occurred; it does not specify which steps were completed before the interruption."
+          },
+          "capability_fit": "The assistant must reconstruct the wearer's progress from the action history and visual state to provide the exact remaining steps without repeating work or skipping prerequisites.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "half_ham_hock",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "first breakfast item"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "scone",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "second breakfast item"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bar",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "staging surface"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "burner",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "cooking surface"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "oven",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "baking container"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "The half_ham_hock and scone are initially on the bar in kitchen_0. The wearer walks to the bar, grabs the half_ham_hock, walks to the burner, puts the half_ham_hock on the burner, and cooks it. The wearer then walks to the oven and opens it. At this point, they are interrupted, walk to corridor_0, and then walk back to kitchen_0. At turn 0, the wearer asks, 'I was in the middle of making breakfast—cooking the ham hock on the stove and baking the scone. I had to step away for a delivery and completely lost my train of thought. What did I already finish, and what exactly is my next step?' The assistant observes the action history and visual state, noting the ham hock is cooked, the oven is open, and the scone is still on the bar. The assistant replies, 'You already finished cooking the ham hock on the burner. You opened the oven, but the scone is still sitting on the bar. Your next step is to place the scone inside the oven, close the door, and cook it.' The wearer then walks to the bar, grabs the scone, walks to the oven, puts the scone in the oven, closes the oven, and cooks the scone.",
+              "scene": "house_double_floor_lower",
+              "why_scene": "provides kitchen_0 with bar, burner, and oven, plus corridor_0 for the interruption"
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "GUIDE.PROGRESS_RECONSTRUCTION",
+                "counterfactual_failure": "weak assistant tells wearer to cook ham hock again, open the already open oven, or cook scone without putting it in oven",
+                "forbidden_changes": [
+                  "changing the interruption point to before the oven is opened or after the scone is moved"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "action history showing ham hock cooked and oven opened",
+                  "visual state showing scone on bar"
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "closed",
+                  "cooked"
+                ],
+                "success_condition": "scone is cooked inside the closed oven",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item cooked before interruption",
+                  "what": "first breakfast item",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be cooked after interruption",
+                  "what": "second breakfast item",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "initial location of both items",
+                  "what": "staging surface",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "location where first item is cooked",
+                  "what": "cooking surface",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "location where second item is cooked",
+                  "what": "baking container",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "recognizing that the ham hock is already cooked and the oven is already open, so the next step is to put the scone in the oven and cook it",
+              "look_alike": [],
+              "opening": "wearer grabs half_ham_hock from bar, puts it on burner, cooks it, opens oven, walks to corridor_0, walks back to kitchen_0",
+              "outcome": "scone is inside oven, oven is closed, scone is cooked",
+              "place": "kitchen_0 and corridor_0",
+              "printed": [],
+              "tests_what": "GUIDE.PROGRESS_RECONSTRUCTION"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate perfectly captures the PROGRESS_RECONSTRUCTION capability by interrupting a multi-step, multi-object task midway through the setup of the second object. The egocentric action history and visual state provide the necessary evidence to determine exactly which steps are complete (ham hock cooked, oven opened) and which are pending (scone moved, oven closed, scone cooked). The physical actions and predicates are fully supported by the simulator.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Walk",
+              "Grab",
+              "Put",
+              "Cook",
+              "Open",
+              "Putin",
+              "Close"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 16,
+            "estimated_prologue_actions": 10,
+            "estimated_task_actions": 6,
+            "events": [],
+            "final_predicates": [
+              "inside",
+              "closed",
+              "cooked"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 33.2,
+          "structural_signature": {
+            "evaluation": "final physical state of the second item",
+            "evidence": "action history and visual state",
+            "failure": "repeating completed steps or skipping prerequisites",
+            "operation": "progress reconstruction",
+            "response": "remaining steps instruction",
+            "temporal": "interrupted task resumption"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "The action history showing the ham hock was cooked and the oven was opened, and the visual state showing the scone is still on the bar.",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "semantic_turns": 1,
+              "strong_weak_distinct": true,
+              "ungrounded_physical_nouns": [],
+              "uses_only_grounded_assets": true,
+              "why_utterance_alone_fails": "The utterance only states the overall goal and that an interruption occurred; it does not specify which steps were completed before the interruption."
+            },
+            "capability_fit": "The assistant must reconstruct the wearer's progress from the action history and visual state to provide the exact remaining steps without repeating work or skipping prerequisites.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "half_ham_hock",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "first breakfast item"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "scone",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "second breakfast item"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "bar",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "staging surface"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "burner",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "cooking surface"
+                  },
+                  {
+                    "affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "category": "oven",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "baking container"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "The half_ham_hock and scone are initially on the bar in kitchen_0. The wearer walks to the bar, grabs the half_ham_hock, walks to the burner, puts the half_ham_hock on the burner, and cooks it. The wearer then walks to the oven and opens it. At this point, they are interrupted, walk to corridor_0, and then walk back to kitchen_0. At turn 0, the wearer asks, 'I was in the middle of making breakfast—cooking the ham hock on the stove and baking the scone. I had to step away for a delivery and completely lost my train of thought. What did I already finish, and what exactly is my next step?' The assistant observes the action history and visual state, noting the ham hock is cooked, the oven is open, and the scone is still on the bar. The assistant replies, 'You already finished cooking the ham hock on the burner. You opened the oven, but the scone is still sitting on the bar. Your next step is to place the scone inside the oven, close the door, and cook it.' The wearer then walks to the bar, grabs the scone, walks to the oven, puts the scone in the oven, closes the oven, and cooks the scone.",
+                "scene": "house_double_floor_lower",
+                "why_scene": "provides kitchen_0 with bar, burner, and oven, plus corridor_0 for the interruption"
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "GUIDE.PROGRESS_RECONSTRUCTION",
+                  "counterfactual_failure": "weak assistant tells wearer to cook ham hock again, open the already open oven, or cook scone without putting it in oven",
+                  "forbidden_changes": [
+                    "changing the interruption point to before the oven is opened or after the scone is moved"
+                  ],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "action history showing ham hock cooked and oven opened",
+                    "visual state showing scone on bar"
+                  ],
+                  "required_final_predicates": [
+                    "inside",
+                    "closed",
+                    "cooked"
+                  ],
+                  "success_condition": "scone is cooked inside the closed oven",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item cooked before interruption",
+                    "what": "first breakfast item",
+                    "when": "opening"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item to be cooked after interruption",
+                    "what": "second breakfast item",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "initial location of both items",
+                    "what": "staging surface",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "location where first item is cooked",
+                    "what": "cooking surface",
+                    "when": "opening"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "role_in_story": "location where second item is cooked",
+                    "what": "baking container",
+                    "when": "both"
+                  }
+                ],
+                "hinges_on": "recognizing that the ham hock is already cooked and the oven is already open, so the next step is to put the scone in the oven and cook it",
+                "look_alike": [],
+                "opening": "wearer grabs half_ham_hock from bar, puts it on burner, cooks it, opens oven, walks to corridor_0, walks back to kitchen_0",
+                "outcome": "scone is inside oven, oven is closed, scone is cooked",
+                "place": "kitchen_0 and corridor_0",
+                "printed": [],
+                "tests_what": "GUIDE.PROGRESS_RECONSTRUCTION"
+              }
+            },
+            "duplicate_of": null,
+            "reason": "The candidate perfectly captures the PROGRESS_RECONSTRUCTION capability by interrupting a multi-step, multi-object task midway through the setup of the second object. The egocentric action history and visual state provide the necessary evidence to determine exactly which steps are complete (ham hock cooked, oven opened) and which are pending (scone moved, oven closed, scone cooked). The physical actions and predicates are fully supported by the simulator.",
+            "requirements": [],
+            "runtime_requirements": {
+              "actions": [
+                "Walk",
+                "Grab",
+                "Put",
+                "Cook",
+                "Open",
+                "Putin",
+                "Close"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 16,
+              "estimated_prologue_actions": 10,
+              "estimated_task_actions": 6,
+              "events": [],
+              "final_predicates": [
+                "inside",
+                "closed",
+                "cooked"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 33.2,
+            "structural_signature": {
+              "evaluation": "final physical state of the second item",
+              "evidence": "action history and visual state",
+              "failure": "repeating completed steps or skipping prerequisites",
+              "operation": "progress reconstruction",
+              "response": "remaining steps instruction",
+              "temporal": "interrupted task resumption"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "house_double_floor_lower",
+        "sha": "f5414c25302e",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_manual_remaining_20260831y/compile_input/GUIDE/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gemini-3-1-pro-preview-tbd",
+        "judge_model": "gemini-3-1-pro-preview-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260831m"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_grounded_manual_remaining_20260831y",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v25-safe-asset-preference-20260831",
+        "release_id": "sha256:f1d8807e8cd27d40aa3a9b522d582d96eaf79377b81bb5520f50b7786115071b",
+        "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "normalizations": [
+        {
+          "kind": "manual_story_revision",
+          "result": "guide26-story-refine-r2-20260912zl",
+          "source": "GUIDE-40003"
+        },
+        {
+          "kind": "canonicalize_required_evidence",
+          "source": "[\"That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest.\", \"The breakfast card visibly establishes ham first and scone second.\", \"The raw ham was placed in the frying pan before the pan went onto the burner.\", \"The ham visibly browned after it was cooked in the pan on the lit burner.\", \"The burner was turned off after the ham finished.\", \"A real phone-to-ear call interrupted the breakfast task.\", \"The wearer returned to the plan table while the scone remained untouched.\", \"The scone has been loaded into the oven.\", \"The oven door has been closed around the scone.\"]",
+          "result": "[\"That phone call broke my concentration. Please use the breakfast plan and what you saw to tell me where I left off, then guide me through the rest.\", \"The breakfast card visibly establishes ham first and scone second.\", \"The raw ham was placed in the frying pan before the pan went onto the burner.\", \"The ham visibly browned after it was cooked in the pan on the lit burner.\", \"The burner was turned off after the ham finished.\", \"A real phone-to-ear call interrupted the breakfast task.\", \"The wearer returned to the plan table while the scone remained untouched.\", \"The scone has been loaded into the oven.\", \"The oven door has been closed around the scone.\", \"The browned ham is already cooked in its pan and the burner is off. The scone has not been started, so take it to the oven, open the door, load it, close the door, and bake it.\"]"
+        }
+      ],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "GUIDE-40003",
+      "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+      "capability_notes": [
+        "The current renderer has one turn-zero human request, not a separate pre-prologue human speech turn; the visible breakfast-plan card supplies the original plan without new runtime code.",
+        "The compact griddle_pan/ryvqep is both a surface and a container and fits one cooking zone on the exact scene-native burner_mdanhg_0, whose authored heat-source and toggle controls visibly distinguish on from off.",
+        "The hidden brown duplicate is parked off the cooktop and inherits the raw ham's in-pan center and base only when Cook completes, so it does not consume a second planned burner placement."
+      ],
+      "revision": "guide26-story-refine-r2-20260912zl"
+    },
+    "oracle_dialogue_override_ids": [
+      "guide40003_scone_locator",
+      "guide40003_oven_locator",
+      "guide40003_bake_locator"
+    ]
+  }
+}

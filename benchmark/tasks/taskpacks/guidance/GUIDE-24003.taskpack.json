@@ -1,0 +1,4239 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-24003",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "juice_1",
+          "target": "drink_shelf"
+        },
+        {
+          "pred": "on",
+          "subject": "juice_2",
+          "target": "drink_shelf"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "juice_3",
+          "target": "juice_3"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "juice_1",
+          "target": "drink_shelf"
+        },
+        {
+          "pred": "on",
+          "subject": "juice_2",
+          "target": "drink_shelf"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "juice_3",
+          "target": "juice_3"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [],
+        "nested_containers": [],
+        "objects": [
+          "juice_1",
+          "juice_2",
+          "juice_3",
+          "stock_milk",
+          "stock_orange"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third.",
+        "cue": "I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton.",
+        "premise": "A formal capacity instruction is mounted on the wall immediately left of the exact drink shelf and states only its 5.0-liter maximum. The assistant must inspect the two separate upright existing-stock volume signs and the labels on the incoming cartons, add 1.8 and 1.6 liters, derive the 1.6-liter remaining capacity, convert 800 milliliters, and control a repeated stocking action so the wearer stops after exactly two new cartons."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton.",
+        "kind": "authored",
+        "ref": "data_generate:GUIDE-24003"
+      },
+      "rule_table": "on(juice_1, drink_shelf); on(juice_2, drink_shelf); unmoved(juice_3)",
+      "scene": "grocery_store_asian",
+      "template": "the grounded grocery_store_asian scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 25,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 25,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "drink_shelf"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "drink_shelf"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "milk_volume_card"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "milk_volume_card"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "orange_volume_card"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "orange_volume_card"
+          ]
+        },
+        {
+          "verb": "LookAround",
+          "args": []
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "juice_1"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "juice_1"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "juice_2"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "juice_2"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "juice_3"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "juice_3"
+          ]
+        },
+        {
+          "verb": "LookAround",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "juice_1"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "drink_shelf"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "juice_1",
+            "drink_shelf"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "source_shelf"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "juice_2"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "drink_shelf"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "juice_2",
+            "drink_shelf"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "source_shelf"
+          ]
+        },
+        {
+          "verb": "LookAround",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Grab] <juice_1> (1), [Walk] <drink_shelf> (1), [PutOn] <juice_1> (1) <drink_shelf> (1), [Walk] <source_shelf> (1), [Grab] <juice_2> (1), [Walk] <drink_shelf> (1), [PutOn] <juice_2> (1) <drink_shelf> (1), [Walk] <source_shelf> (1), [LookAround], [Wait]",
+      "seed": 2887661669,
+      "source_task_id": "GUIDE-24003"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "juice_1",
+          "target": "drink_shelf"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "juice_2",
+          "target": "drink_shelf"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "juice_3",
+          "target": "juice_3"
+        }
+      ],
+      "sub_steps": [
+        "on(juice_1, drink_shelf)",
+        "on(juice_2, drink_shelf)",
+        "unmoved(juice_3)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-24003",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 2887661669,
+      "containers": {},
+      "decor": [],
+      "fixtures": {
+        "source_shelf": {
+          "bind": {
+            "cat": "grocery_shelf",
+            "source": "scene",
+            "pick": {
+              "name": "grocery_shelf_ihopug_0",
+              "stage_prim_path": "/World/b_grocery_shelf_ihopug_0",
+              "asset_sha256": "sha256:affaafc38d0c439f0b0cc9385a5513355dcc17edbff2a5ac1180c2596e86fa95",
+              "instance_digest": "sha256:e861e7f1e259987c198949997ed02c4f599dab225d3a689526b74ea4aeefdf8b",
+              "by": "scene_instance",
+              "rank": 24
+            }
+          },
+          "room": "grocery_store_0",
+          "seatable": false
+        },
+        "drink_shelf": {
+          "bind": {
+            "cat": "grocery_shelf",
+            "source": "scene",
+            "pick": {
+              "name": "grocery_shelf_vhnlno_0",
+              "stage_prim_path": "/World/b_grocery_shelf_vhnlno_0",
+              "asset_sha256": "sha256:1fbcb58d84072c4d03126cc75269c02f4e1742f0ebe681768ed29fad07800bc1",
+              "instance_digest": "sha256:62c32d3085f92e3c1a14c3d2679de37dda09bfc116516037022cb116c37c4151",
+              "by": "scene_instance",
+              "rank": 31
+            }
+          },
+          "room": "grocery_store_0",
+          "seatable": false
+        },
+        "milk_volume_card": {
+          "bind": {
+            "cat": "grocery_sign",
+            "source": "scene",
+            "pick": {
+              "name": "grocery_sign_kyyjer_24",
+              "stage_prim_path": "/World/b_grocery_sign_kyyjer_24",
+              "asset_sha256": "sha256:1da4fdfd9f82f20958cb6cc4b4368432e580b1d5d5cdecfb91ae7e1e08c5dafd",
+              "instance_digest": "sha256:37520d30bffc4fd49916d1d4a0c002966050cd1798cf6f8fb60afe6ddc2c71e3",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "grocery_store_0",
+          "seatable": false,
+          "approach_yaw_deg": -90.0,
+          "operator_stand_xy": [
+            -6.23,
+            -4.1156
+          ]
+        },
+        "orange_volume_card": {
+          "bind": {
+            "cat": "grocery_sign",
+            "source": "scene",
+            "pick": {
+              "name": "grocery_sign_kyyjer_25",
+              "stage_prim_path": "/World/b_grocery_sign_kyyjer_25",
+              "asset_sha256": "sha256:1da4fdfd9f82f20958cb6cc4b4368432e580b1d5d5cdecfb91ae7e1e08c5dafd",
+              "instance_digest": "sha256:270c468544d23e105c476e91537176093748eddc1588dc47d4212028d0a6a5b7",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "grocery_store_0",
+          "seatable": false,
+          "approach_yaw_deg": -90.0,
+          "operator_stand_xy": [
+            -6.23,
+            -3.1736
+          ]
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_juice_1": {
+          "content": {
+            "args": {
+              "renderer": "short_string",
+              "sub": "",
+              "title": ""
+            },
+            "text": "800 ml"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "juice_1",
+            "surface": "item_decal",
+            "face": "top"
+          },
+          "per_seed": false,
+          "png": "guide_24003_guide26_story_refine_r2_20260912zl_juice_1_9a8e2306ddfb"
+        },
+        "label_juice_2": {
+          "content": {
+            "args": {
+              "renderer": "short_string",
+              "sub": "",
+              "title": ""
+            },
+            "text": "800 ml"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "juice_2",
+            "surface": "item_decal",
+            "face": "top"
+          },
+          "per_seed": false,
+          "png": "guide_24003_guide26_story_refine_r2_20260912zl_juice_2_9a8e2306ddfb"
+        },
+        "label_juice_3": {
+          "content": {
+            "args": {
+              "renderer": "short_string",
+              "sub": "",
+              "title": ""
+            },
+            "text": "800 ml"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "juice_3",
+            "surface": "item_decal",
+            "face": "top"
+          },
+          "per_seed": false,
+          "png": "guide_24003_guide26_story_refine_r2_20260912zl_juice_3_9a8e2306ddfb"
+        },
+        "label_drink_shelf": {
+          "content": {
+            "args": {
+              "renderer": "instruction_sheet",
+              "rows": [
+                "MAXIMUM TOTAL|5.0 L"
+              ],
+              "sub": "",
+              "title": "DRINK SHELF CAPACITY"
+            },
+            "lines": [
+              "MAXIMUM TOTAL|5.0 L"
+            ],
+            "text": "DRINK SHELF CAPACITY"
+          },
+          "kind": "range_card",
+          "mount": {
+            "on": "drink_shelf",
+            "side": "left",
+            "surface": "wall"
+          },
+          "per_seed": false,
+          "png": "guide_24003_guide26_story_refine_r2_20260912zl_drink_shelf_d7e593900f6a"
+        },
+        "label_milk_volume_card": {
+          "content": {
+            "args": {
+              "renderer": "short_string",
+              "sub": "",
+              "title": ""
+            },
+            "text": "1.8 L"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "milk_volume_card",
+            "side": "front",
+            "surface": "wall"
+          },
+          "per_seed": false,
+          "png": "guide_24003_guide26_story_refine_r2_20260912zl_milk_volume_card_dd91921709bc"
+        },
+        "label_orange_volume_card": {
+          "content": {
+            "args": {
+              "renderer": "short_string",
+              "sub": "",
+              "title": ""
+            },
+            "text": "1.6 L"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "orange_volume_card",
+            "side": "front",
+            "surface": "wall"
+          },
+          "per_seed": false,
+          "png": "guide_24003_guide26_story_refine_r2_20260912zl_orange_volume_card_f09d5489297c"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "stock_milk": {
+          "cat": "carton_of_milk",
+          "model": "xmugpm",
+          "needs_lookat": false,
+          "place": "on:drink_shelf",
+          "room": "grocery_store_0",
+          "scored": false,
+          "spot": [
+            0.48,
+            0.4
+          ]
+        },
+        "stock_orange": {
+          "cat": "bottle_of_orange_juice",
+          "model": "edltwh",
+          "needs_lookat": false,
+          "place": "on:drink_shelf",
+          "room": "grocery_store_0",
+          "scored": false,
+          "spot": [
+            -0.48,
+            0.4
+          ]
+        },
+        "juice_1": {
+          "cat": "pineapple_juice_carton",
+          "model": "barzwx",
+          "needs_lookat": true,
+          "place": "on:source_shelf",
+          "room": "grocery_store_0",
+          "scored": true,
+          "spot": [
+            -0.55,
+            0.75
+          ],
+          "decal": "800 ml"
+        },
+        "juice_2": {
+          "cat": "pineapple_juice_carton",
+          "model": "barzwx",
+          "needs_lookat": true,
+          "place": "on:source_shelf",
+          "room": "grocery_store_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            0.75
+          ],
+          "decal": "800 ml"
+        },
+        "juice_3": {
+          "cat": "pineapple_juice_carton",
+          "model": "barzwx",
+          "needs_lookat": true,
+          "place": "on:source_shelf",
+          "room": "grocery_store_0",
+          "scored": true,
+          "spot": [
+            0.55,
+            0.75
+          ],
+          "decal": "800 ml"
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "grocery_store_0"
+      ],
+      "scene": "grocery_store_asian",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "A formal capacity instruction is mounted on the wall immediately left of the exact drink shelf and states only its 5.0-liter maximum. The assistant must inspect the two separate upright existing-stock volume signs and the labels on the incoming cartons, add 1.8 and 1.6 liters, derive the 1.6-liter remaining capacity, convert 800 milliliters, and control a repeated stocking action so the wearer stops after exactly two new cartons.",
+    "assistant_goal": "I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.NUMERIC_CONVERSION_AND_COUNT_CONTROL",
+      "assigned_scene": "grocery_store_asian",
+      "core_question": "I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "A formal capacity instruction is mounted on the wall immediately left of the exact drink shelf and states only its 5.0-liter maximum. The assistant must inspect the two separate upright existing-stock volume signs and the labels on the incoming cartons, add 1.8 and 1.6 liters, derive the 1.6-liter remaining capacity, convert 800 milliliters, and control a repeated stocking action so the wearer stops after exactly two new cartons."
+      ],
+      "required_evidence": [
+        "I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton.",
+        "The formal instruction mounted immediately beside the drink shelf visibly states a maximum total of 5.0 L.",
+        "The shelf card beside the milk jug identifies its volume as 1.8 L.",
+        "The shelf card beside the orange-juice carton identifies its volume as 1.6 L.",
+        "From beside the drink shelf, the broad view visibly confirms both existing stock items on it.",
+        "Three consecutive close views show 800 ml printed directly on each matching carton.",
+        "After one carton, the shelf total is 4.2 liters.",
+        "After two cartons, the shelf total is exactly 5.0 liters.",
+        "The third carton remains on the incoming shelf after the stop instruction.",
+        "Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third."
+      ],
+      "required_final_predicates": [
+        "on",
+        "on",
+        "unmoved"
+      ],
+      "success_condition": "on(juice_1, drink_shelf); on(juice_2, drink_shelf); unmoved(juice_3)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-24003",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.NUMERIC_CONVERSION_AND_COUNT_CONTROL",
+        "assigned_scene": "grocery_store_asian",
+        "core_question": "I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "A formal capacity instruction is mounted on the wall immediately left of the exact drink shelf and states only its 5.0-liter maximum. The assistant must inspect the two separate upright existing-stock volume signs and the labels on the incoming cartons, add 1.8 and 1.6 liters, derive the 1.6-liter remaining capacity, convert 800 milliliters, and control a repeated stocking action so the wearer stops after exactly two new cartons."
+        ],
+        "required_evidence": [
+          "I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton.",
+          "The formal instruction mounted immediately beside the drink shelf visibly states a maximum total of 5.0 L.",
+          "The shelf card beside the milk jug identifies its volume as 1.8 L.",
+          "The shelf card beside the orange-juice carton identifies its volume as 1.6 L.",
+          "From beside the drink shelf, the broad view visibly confirms both existing stock items on it.",
+          "Three consecutive close views show 800 ml printed directly on each matching carton.",
+          "After one carton, the shelf total is 4.2 liters.",
+          "After two cartons, the shelf total is exactly 5.0 liters.",
+          "The third carton remains on the incoming shelf after the stop instruction.",
+          "Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third."
+        ],
+        "required_final_predicates": [
+          "on",
+          "on",
+          "unmoved"
+        ],
+        "success_condition": "on(juice_1, drink_shelf); on(juice_2, drink_shelf); unmoved(juice_3)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "arugula",
+          "barbecue_sauce_bottle",
+          "bottle_of_deicer",
+          "bottle_of_orange_juice",
+          "bottle_of_rum",
+          "bottle_of_vodka",
+          "bottle_of_water",
+          "briefcase",
+          "can_of_corn",
+          "candied_yam",
+          "carton_of_milk",
+          "cell_phone",
+          "china",
+          "cinnamon_stick",
+          "clipboard",
+          "cotton_thread",
+          "drumstick",
+          "electric_fan",
+          "flashlight",
+          "folder",
+          "french_press",
+          "french_toast",
+          "gift_box",
+          "half_biscuit_dough",
+          "half_butternut_squash",
+          "half_kielbasa",
+          "half_lamb",
+          "ham_hock",
+          "hamster_wheel",
+          "hook",
+          "menu",
+          "oyster",
+          "packing_box",
+          "paper_sheet",
+          "paperback_book",
+          "pillowcase",
+          "pineapple_juice_carton",
+          "platter",
+          "plier",
+          "pumpkin_seed_bag",
+          "putty_knife",
+          "storage_box",
+          "sugar_syrup_bottle",
+          "syringe",
+          "tablefork",
+          "test_tube_clamp",
+          "trowel",
+          "vinegar_atomizer",
+          "water_atomizer"
+        ],
+        "allowed_surface_categories": [
+          "breakfast_table",
+          "checkout_counter",
+          "countertop",
+          "freezer",
+          "grocery_shelf",
+          "grocery_sign",
+          "reception_desk"
+        ],
+        "capability_id": "GUIDE.NUMERIC_CONVERSION_AND_COUNT_CONTROL",
+        "coverage_categories": [
+          "paperback_book",
+          "half_lamb",
+          "can_of_corn",
+          "half_butternut_squash",
+          "bottle_of_deicer",
+          "candied_yam",
+          "hook",
+          "cinnamon_stick",
+          "cotton_thread",
+          "ham_hock",
+          "electric_fan",
+          "syringe",
+          "half_biscuit_dough",
+          "sugar_syrup_bottle",
+          "putty_knife",
+          "pineapple_juice_carton",
+          "pumpkin_seed_bag",
+          "plier",
+          "briefcase",
+          "vinegar_atomizer"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 3,
+          "required_semantic_turns": 3,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 30,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 5,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 15,
+          "max_small_label_characters": 40,
+          "max_task_actions": 11,
+          "max_meaningful_steps": 25,
+          "min_intervening_meaningful_actions": 8
+        },
+        "preferred_story_categories": [
+          "paperback_book",
+          "half_lamb",
+          "can_of_corn",
+          "half_butternut_squash",
+          "bottle_of_deicer",
+          "candied_yam",
+          "hook",
+          "cinnamon_stick"
+        ],
+        "preferred_story_category_glosses": {
+          "bottle_of_deicer": "",
+          "can_of_corn": "",
+          "candied_yam": "",
+          "cinnamon_stick": "",
+          "half_butternut_squash": "",
+          "half_lamb": "",
+          "hook": "a curved or bent implement for suspending or pulling something",
+          "paperback_book": "a book with paper covers"
+        },
+        "rooms": [
+          {
+            "area_m2": 193.6,
+            "name": "grocery_store_0",
+            "scene_containers": {
+              "fridge": 1
+            },
+            "scene_surfaces": {
+              "checkout_counter": 1,
+              "freezer": 2,
+              "grocery_shelf": 20
+            },
+            "surface_max_area_m2": {
+              "checkout_counter": 0.539,
+              "freezer": 0.664,
+              "grocery_shelf": 0.831
+            },
+            "surface_reference_capacity": {
+              "checkout_counter": 3,
+              "freezer": 3,
+              "grocery_shelf": 3
+            }
+          },
+          {
+            "area_m2": 35.4,
+            "name": "bathroom_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "countertop": 1
+            },
+            "surface_max_area_m2": {
+              "countertop": 0.587
+            },
+            "surface_reference_capacity": {
+              "countertop": 3
+            }
+          }
+        ],
+        "scene": "grocery_store_asian",
+        "task_id": "GUIDE-24003",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "carton_of_milk",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "blue-and-white milk carton directly below its 1.8-liter sign"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_orange_juice",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "orange-juice bottle directly below its 1.6-liter sign"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "pineapple_juice_carton",
+            "changed": false,
+            "costs": null,
+            "label": "800 ml",
+            "tint": null,
+            "what": "first 800-milliliter juice carton"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "pineapple_juice_carton",
+            "changed": false,
+            "costs": null,
+            "label": "800 ml",
+            "tint": null,
+            "what": "second 800-milliliter juice carton"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "pineapple_juice_carton",
+            "changed": false,
+            "costs": null,
+            "label": "800 ml",
+            "tint": null,
+            "what": "third 800-milliliter juice carton"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "grocery_shelf",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "waist-high incoming-juice display island"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "grocery_shelf",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "waist-high drink display shelf"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "grocery_sign",
+            "changed": false,
+            "costs": null,
+            "label": "1.8 L",
+            "tint": null,
+            "what": "large-text upright 1.8 L sign above the milk carton"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "grocery_sign",
+            "changed": false,
+            "costs": null,
+            "label": "1.6 L",
+            "tint": null,
+            "what": "large-text upright 1.6 L sign above the orange-juice bottle"
+          }
+        ],
+        "distinct_by": [
+          "persistent object identity while counting each moved carton"
+        ],
+        "identical_groups": [
+          [
+            "juice_1",
+            "juice_2",
+            "juice_3"
+          ]
+        ],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "first 800-milliliter juice carton",
+            "text": "800 ml",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "second 800-milliliter juice carton",
+            "text": "800 ml",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "third 800-milliliter juice carton",
+            "text": "800 ml",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "waist-high drink display shelf",
+            "text": "DRINK SHELF CAPACITY",
+            "what": "document",
+            "which": null
+          },
+          {
+            "rides": "large-text upright 1.8 L sign above the milk carton",
+            "text": "1.8 L",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "large-text upright 1.6 L sign above the orange-juice bottle",
+            "text": "1.6 L",
+            "what": "label",
+            "which": null
+          }
+        ],
+        "restaged_story": "A formal capacity instruction is mounted on the wall immediately left of the exact drink shelf and states only its 5.0-liter maximum. The assistant must inspect the two separate upright existing-stock volume signs and the labels on the incoming cartons, add 1.8 and 1.6 liters, derive the 1.6-liter remaining capacity, convert 800 milliliters, and control a repeated stocking action so the wearer stops after exactly two new cartons.",
+        "scene": "grocery_store_asian",
+        "why_scene": "grocery_store_asian supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {},
+        "items": {
+          "stock_milk": {
+            "affordances": [],
+            "cat": "carton_of_milk",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:drink_shelf",
+            "scored": false,
+            "spot": [
+              0.48,
+              0.4
+            ],
+            "tint": null
+          },
+          "stock_orange": {
+            "affordances": [],
+            "cat": "bottle_of_orange_juice",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:drink_shelf",
+            "scored": false,
+            "spot": [
+              -0.48,
+              0.4
+            ],
+            "tint": null
+          },
+          "juice_1": {
+            "affordances": [],
+            "cat": "pineapple_juice_carton",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "800 ml",
+            "place": "on:source_shelf",
+            "scored": true,
+            "spot": [
+              -0.55,
+              0.75
+            ],
+            "tint": null
+          },
+          "juice_2": {
+            "affordances": [],
+            "cat": "pineapple_juice_carton",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "800 ml",
+            "place": "on:source_shelf",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.75
+            ],
+            "tint": null
+          },
+          "juice_3": {
+            "affordances": [],
+            "cat": "pineapple_juice_carton",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "800 ml",
+            "place": "on:source_shelf",
+            "scored": true,
+            "spot": [
+              0.55,
+              0.75
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <drink_shelf> (1)",
+          "[LookAt] <drink_shelf> (1)",
+          "[Walk] <milk_volume_card> (1)",
+          "[LookAt] <milk_volume_card> (1)",
+          "[Walk] <orange_volume_card> (1)",
+          "[LookAt] <orange_volume_card> (1)",
+          "[LookAround]",
+          "[Walk] <juice_1> (1)",
+          "[LookAt] <juice_1> (1)",
+          "[Walk] <juice_2> (1)",
+          "[LookAt] <juice_2> (1)",
+          "[Walk] <juice_3> (1)",
+          "[LookAt] <juice_3> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "grocery_store_0"
+        ],
+        "scene": "grocery_store_asian",
+        "staging": {
+          "groups": "A formal capacity instruction is mounted on the wall immediately left of the exact drink shelf and states only its 5.0-liter maximum. The assistant must inspect the two separate upright existing-stock volume signs and the labels on the incoming cartons, add 1.8 and 1.6 liters, derive the 1.6-liter remaining capacity, convert 800 milliliters, and control a repeated stocking action so the wearer stops after exactly two new cartons.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "source_shelf": {
+            "cat": "grocery_shelf",
+            "label": null,
+            "room": "grocery_store_0"
+          },
+          "drink_shelf": {
+            "cat": "grocery_shelf",
+            "label": null,
+            "room": "grocery_store_0"
+          },
+          "milk_volume_card": {
+            "cat": "grocery_sign",
+            "label": "1.8 L",
+            "room": "grocery_store_0"
+          },
+          "orange_volume_card": {
+            "cat": "grocery_sign",
+            "label": "1.6 L",
+            "room": "grocery_store_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The formal instruction mounted immediately beside the drink shelf visibly states a maximum total of 5.0 L.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The shelf card beside the milk jug identifies its volume as 1.8 L.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 3,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The shelf card beside the orange-juice carton identifies its volume as 1.6 L.",
+            "from": "prologue",
+            "id": "fact_004",
+            "source_index": 5,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "From beside the drink shelf, the broad view visibly confirms both existing stock items on it.",
+            "from": "prologue",
+            "id": "fact_005",
+            "source_index": 6,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Three consecutive close views show 800 ml printed directly on each matching carton.",
+            "from": "prologue",
+            "id": "fact_006",
+            "source_index": 12,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "After one carton, the shelf total is 4.2 liters.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 2,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "After two cartons, the shelf total is exactly 5.0 liters.",
+            "from": "live",
+            "id": "fact_008",
+            "source_index": 6,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The third carton remains on the incoming shelf after the stop instruction.",
+            "from": "live",
+            "id": "fact_009",
+            "source_index": 8,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007",
+              "fact_008",
+              "fact_009"
+            ],
+            "fact": "Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third.",
+            "from": "derived",
+            "id": "fact_010",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "juice_1",
+            "target": "drink_shelf"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "juice_2",
+            "target": "drink_shelf"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "juice_3",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "The shelf already has 3.4 liters, so exactly two 800-milliliter cartons fit. Start with the leftmost 800-milliliter carton on the incoming-juice display island and put it on the drink shelf.",
+            "referents": [
+              "drink_shelf",
+              "stock_milk",
+              "stock_orange",
+              "milk_volume_card",
+              "orange_volume_card",
+              "juice_1",
+              "juice_2",
+              "juice_3"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ]
+          },
+          {
+            "before_index": 3,
+            "say": "That brings the total to 4.2 liters. Return to the incoming-juice display island, take the center 800-milliliter carton, and put it on the drink shelf.",
+            "referents": [
+              "juice_1",
+              "juice_2",
+              "drink_shelf"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_007"
+            ]
+          },
+          {
+            "before_index": 7,
+            "say": "Those two cartons bring the shelf to exactly 5.0 liters. Return to the incoming-juice display island, look around to confirm that the rightmost 800-milliliter carton is still there, then stop and leave it untouched.",
+            "referents": [
+              "juice_3",
+              "source_shelf",
+              "drink_shelf"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_008"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Grab] <juice_1> (1), [Walk] <drink_shelf> (1), [PutOn] <juice_1> (1) <drink_shelf> (1), [Walk] <source_shelf> (1), [Grab] <juice_2> (1), [Walk] <drink_shelf> (1), [PutOn] <juice_2> (1) <drink_shelf> (1), [Walk] <source_shelf> (1), [Grab] <juice_3> (1), [Walk] <drink_shelf> (1), [PutOn] <juice_3> (1) <drink_shelf> (1)",
+        "mates": [],
+        "oracle_program": "[Grab] <juice_1> (1), [Walk] <drink_shelf> (1), [PutOn] <juice_1> (1) <drink_shelf> (1), [Walk] <source_shelf> (1), [Grab] <juice_2> (1), [Walk] <drink_shelf> (1), [PutOn] <juice_2> (1) <drink_shelf> (1), [Walk] <source_shelf> (1), [LookAround], [Wait]",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "A formal capacity instruction is mounted on the wall immediately left of the exact drink shelf and states only its 5.0-liter maximum. The assistant must inspect the two separate upright existing-stock volume signs and the labels on the incoming cartons, add 1.8 and 1.6 liters, derive the 1.6-liter remaining capacity, convert 800 milliliters, and control a repeated stocking action so the wearer stops after exactly two new cartons.",
+        "utterance": "I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <drink_shelf> (1)",
+        "[LookAt] <drink_shelf> (1)",
+        "[Walk] <milk_volume_card> (1)",
+        "[LookAt] <milk_volume_card> (1)",
+        "[Walk] <orange_volume_card> (1)",
+        "[LookAt] <orange_volume_card> (1)",
+        "[LookAround]",
+        "[Walk] <juice_1> (1)",
+        "[LookAt] <juice_1> (1)",
+        "[Walk] <juice_2> (1)",
+        "[LookAt] <juice_2> (1)",
+        "[Walk] <juice_3> (1)",
+        "[LookAt] <juice_3> (1)",
+        "[LookAround]",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "drink_shelf"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "drink_shelf"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "drink_shelf"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The formal instruction mounted immediately beside the drink shelf visibly states a maximum total of 5.0 L.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "milk_volume_card"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "milk_volume_card"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "milk_volume_card"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The shelf card beside the milk jug identifies its volume as 1.8 L.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "orange_volume_card"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "orange_volume_card"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "orange_volume_card"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The shelf card beside the orange-juice carton identifies its volume as 1.6 L.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "From beside the drink shelf, the broad view visibly confirms both existing stock items on it.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "juice_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "juice_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "juice_1"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "juice_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "juice_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "juice_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p011",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "juice_3"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "juice_3"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p012",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "juice_3"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "Three consecutive close views show 800 ml printed directly on each matching carton.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p013",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p014",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The shelf already has 3.4 liters, so exactly two 800-milliliter cartons fit. Start with the leftmost 800-milliliter carton on the incoming-juice display island and put it on the drink shelf.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "That brings the total to 4.2 liters. Return to the incoming-juice display island, take the center 800-milliliter carton, and put it on the drink shelf.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Those two cartons bring the shelf to exactly 5.0 liters. Return to the incoming-juice display island, look around to confirm that the rightmost 800-milliliter carton is still there, then stop and leave it untouched.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "juice_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "juice_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "drink_shelf"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "drink_shelf"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "juice_1",
+            "drink_shelf"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "source_shelf"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "source_shelf"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "juice_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "juice_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "drink_shelf"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "drink_shelf"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "juice_2",
+            "drink_shelf"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "source_shelf"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "source_shelf"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "juice_3"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "juice_3"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "drink_shelf"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "drink_shelf"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h010",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "juice_3",
+            "drink_shelf"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "juice_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "juice_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "drink_shelf"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "drink_shelf"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "juice_1",
+            "drink_shelf"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "After one carton, the shelf total is 4.2 liters.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "source_shelf"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "source_shelf"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "juice_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "juice_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "drink_shelf"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "drink_shelf"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "juice_2",
+            "drink_shelf"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "After two cartons, the shelf total is exactly 5.0 liters.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "source_shelf"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "source_shelf"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The third carton remains on the incoming shelf after the stop instruction.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The formal instruction mounted immediately beside the drink shelf visibly states a maximum total of 5.0 L.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "The shelf card beside the milk jug identifies its volume as 1.8 L.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p003"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 3
+      },
+      {
+        "id": "fact_004",
+        "statement": "The shelf card beside the orange-juice carton identifies its volume as 1.6 L.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p005"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 5
+      },
+      {
+        "id": "fact_005",
+        "statement": "From beside the drink shelf, the broad view visibly confirms both existing stock items on it.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p006"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 6
+      },
+      {
+        "id": "fact_006",
+        "statement": "Three consecutive close views show 800 ml printed directly on each matching carton.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p012"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 12
+      },
+      {
+        "id": "fact_007",
+        "statement": "After one carton, the shelf total is 4.2 liters.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o002"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 2
+      },
+      {
+        "id": "fact_008",
+        "statement": "After two cartons, the shelf total is exactly 5.0 liters.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o006"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 6
+      },
+      {
+        "id": "fact_009",
+        "statement": "The third carton remains on the incoming shelf after the stop instruction.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o008"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 8
+      },
+      {
+        "id": "fact_010",
+        "statement": "Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "p003",
+          "p005",
+          "p006",
+          "p012",
+          "o002",
+          "o006",
+          "o008"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007",
+          "fact_008",
+          "fact_009"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the posted capacity, existing stock, and inspected carton labels to guide stocking without exceeding the limit.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <drink_shelf> (1)",
+          "[LookAt] <drink_shelf> (1)",
+          "[Walk] <milk_volume_card> (1)",
+          "[LookAt] <milk_volume_card> (1)",
+          "[Walk] <orange_volume_card> (1)",
+          "[LookAt] <orange_volume_card> (1)",
+          "[LookAround]",
+          "[Walk] <juice_1> (1)",
+          "[LookAt] <juice_1> (1)",
+          "[Walk] <juice_2> (1)",
+          "[LookAt] <juice_2> (1)",
+          "[Walk] <juice_3> (1)",
+          "[LookAt] <juice_3> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 14,
+            "say": "Hey, Assistant, I need to finish stocking this shelf without going over the posted limit. Can you guide me one carton at a time?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, I need to finish stocking this shelf without going over the posted limit. Can you guide me one carton at a time?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "shelf_capacity_request",
+            "required_phrases": [
+              "without going over the posted limit",
+              "one carton at a time"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutOn] <juice_1> (1) <drink_shelf> (1)",
+          "[PutOn] <juice_2> (1) <drink_shelf> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[Grab] <juice_3> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[PutOn] <juice_1> (1) <drink_shelf> (1)",
+            "[PutOn] <juice_2> (1) <drink_shelf> (1)"
+          ]
+        ],
+        "verification_points": [
+          {
+            "id": "first_carton_stocked",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "juice_1",
+            "target": "drink_shelf"
+          },
+          {
+            "id": "second_carton_stocked",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "juice_2",
+            "target": "drink_shelf"
+          },
+          {
+            "id": "third_carton_untouched",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "juice_3",
+            "target": "juice_3"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "juice_1": [
+          "leftmost 800-milliliter carton"
+        ],
+        "juice_2": [
+          "center 800-milliliter carton"
+        ],
+        "juice_3": [
+          "rightmost 800-milliliter carton"
+        ],
+        "source_shelf": [
+          "incoming-juice display island"
+        ],
+        "drink_shelf": [
+          "drink shelf"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 46,
+    "dialogue_budget": 3,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "juice_3",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005",
+        "h006",
+        "h007",
+        "h008",
+        "h009",
+        "h010"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "drink_shelf",
+              "stock_milk",
+              "stock_orange",
+              "milk_volume_card",
+              "orange_volume_card",
+              "juice_1",
+              "juice_2",
+              "juice_3"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "juice_1",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "juice_1",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "drink_shelf",
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "juice_1",
+              "juice_2",
+              "drink_shelf"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_007"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "juice_1",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "source_shelf",
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "juice_2",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "drink_shelf",
+            "truth": true
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "juice_3",
+              "source_shelf",
+              "drink_shelf"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_008"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "juice_1",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "source_shelf",
+            "truth": true
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o009"
+        }
+      ],
+      "terminal_beats": [
+        "h010",
+        "o009"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "juice_1"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "drink_shelf"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "juice_1",
+          "drink_shelf"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "source_shelf"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "juice_2"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "drink_shelf"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "juice_2",
+          "drink_shelf"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "source_shelf"
+        ]
+      },
+      {
+        "verb": "LookAround",
+        "args": []
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "juice_1"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "drink_shelf"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "juice_1",
+          "drink_shelf"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "source_shelf"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "juice_2"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "drink_shelf"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "juice_2",
+          "drink_shelf"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "source_shelf"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "juice_3"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "drink_shelf"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "juice_3",
+          "drink_shelf"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "The shelf already has 3.4 liters, so exactly two 800-milliliter cartons fit. Start with the leftmost 800-milliliter carton on the incoming-juice display island and put it on the drink shelf.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "That brings the total to 4.2 liters. Return to the incoming-juice display island, take the center 800-milliliter carton, and put it on the drink shelf.",
+        "relation": "before",
+        "anchor_beat_id": "o003",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "Those two cartons bring the shelf to exactly 5.0 liters. Return to the incoming-juice display island, look around to confirm that the rightmost 800-milliliter carton is still there, then stop and leave it untouched.",
+        "relation": "before",
+        "anchor_beat_id": "o007",
+        "source": "guidance",
+        "source_index": 2
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "source": "guide22_interaction_assembly",
+    "compile_input_digest": "sha256:ac28b7b5352c4c4d06f17339b59c5fdf0f66258c7e55f47fcc8b7daf9de51882",
+    "source_contract_digest": "sha256:2fe2853405fd91ffb309e4d01c918851a8515fed5e695a4b26aadf8d233a76ca",
+    "executable_spec_digest": "sha256:62d18c38d59b2644453cf5095e9bdc9fef4ff73d4daccb08cdb76e396684fff9",
+    "invention": {
+      "attempt": 2,
+      "author_prose": "A grocery store employee is preparing a new promotional `display_case` in the main shopping area. Resting on the nearby `checkout_counter` are three identical `pineapple_juice_carton`s and a `paper_sheet` detailing the corporate layout rules. The employee looks closely at the `paper_sheet`, which explicitly states that the display capacity for this specific beverage shelf is limited to 1.6 liters. They then inspect the front of one of the cartons, which features a prominent label reading '800 ml'. Wanting to follow the layout guidelines exactly before moving any inventory, the wearer asks the smart glasses, \"How many of these juice cartons should I load into the display case?\"\n\nIn its single turn-zero intervention, the strong assistant reads the capacity rule from the paper sheet and the individual volume from the carton label. It converts the 1.6 liters to 1600 milliliters, divides by the 800 milliliters per carton to determine the exact count, and instructs the wearer: \"Load exactly two cartons into the display case and stop after the second.\"\n\nGuided by this explicit count and stopping condition, the wearer grabs the first carton, walks over to the display case, and places it inside. They return to the checkout counter, grab the second carton, walk back to place it in the display case, and then deliberately stop. The third carton remains safely unmoved on the checkout counter, perfectly matching the computed capacity.\n\nA weak assistant fails to perform the metric volume conversion or provides a vague, unhelpful instruction such as \"Load the cartons until the display is full.\" Without an exact integer count to guide their physical actions, the wearer continues stocking and places all three cartons into the display case, violating the layout's strict capacity limit. The evaluation checks the final physical containment state: the oracle successfully leaves exactly two cartons inside the display case and the third untouched on the counter, whereas the weak branch overstocks the container.",
+      "author_prose_sha256": "sha256:2fdd72b5c5df1725efdb861c57d4d778ebaa79b0c3d2de4f4c7388fb39984591",
+      "capability": {
+        "boundary": "The computation must determine the count; it is not a memorised step order or a vague instruction such as 'add enough.' This is a single-turn capability: the only assistant response is at turn 0 and must contain the conversion, the exact integer count, and an explicit 'stop after N' condition. The story and compiler blueprint must not claim that the assistant speaks again after the Nth placement. The oracle moves exactly N individually tracked items, while the weak branch attempts N+1 or otherwise violates the computed count.",
+        "few_shot": "A worker sees a short printed rule that allows four kilograms of fuel and three individually tracked two-kilogram fuel pieces beside a fixed cabinet. Before any piece is moved, the wearer asks how many pieces to load. In its single turn-0 response, the assistant reads the visible rule, converts 4 kg to 4000 g, divides by 2000 g, and says, 'Load exactly two pieces and stop after the second.' The corrected oracle places exactly two named pieces and leaves the third decoy untouched; the weak branch continues with the third. Final containment relations and the unchanged decoy expose the count. The story never invents a later stop utterance: the initial instruction carries the calculation and stopping condition, while the action trace proves whether the wearer obeyed it.",
+        "id": "GUIDE.NUMERIC_CONVERSION_AND_COUNT_CONTROL",
+        "name_zh": "数值换算与计数控制",
+        "target": "Read a quantitative rule, perform a conversion, and guide repeated actions with an explicit stopping condition."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "GUIDE.NUMERIC_CONVERSION_AND_COUNT_CONTROL",
+        "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+        "evaluation_status": "PASS",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": false,
+        "owner": null,
+        "reason": null,
+        "reason_code": null,
+        "recommended_work": null,
+        "version": "capability-support/1.0",
+        "workstream": null
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "clipboard",
+          "packing_box",
+          "paper_sheet",
+          "cell_phone",
+          "gift_box",
+          "paperback_book",
+          "half_lamb",
+          "can_of_corn",
+          "half_butternut_squash",
+          "bottle_of_deicer",
+          "candied_yam",
+          "hook",
+          "cinnamon_stick",
+          "cotton_thread",
+          "ham_hock",
+          "electric_fan",
+          "syringe",
+          "half_biscuit_dough",
+          "sugar_syrup_bottle",
+          "putty_knife",
+          "pineapple_juice_carton",
+          "pumpkin_seed_bag",
+          "plier",
+          "briefcase",
+          "vinegar_atomizer"
+        ],
+        "allowed_surface_categories": [
+          "breakfast_table",
+          "checkout_counter",
+          "reception_desk"
+        ],
+        "capability_id": "GUIDE.NUMERIC_CONVERSION_AND_COUNT_CONTROL",
+        "coverage_categories": [
+          "paperback_book",
+          "half_lamb",
+          "can_of_corn",
+          "half_butternut_squash",
+          "bottle_of_deicer",
+          "candied_yam",
+          "hook",
+          "cinnamon_stick",
+          "cotton_thread",
+          "ham_hock",
+          "electric_fan",
+          "syringe",
+          "half_biscuit_dough",
+          "sugar_syrup_bottle",
+          "putty_knife",
+          "pineapple_juice_carton",
+          "pumpkin_seed_bag",
+          "plier",
+          "briefcase",
+          "vinegar_atomizer"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "paperback_book",
+          "half_lamb",
+          "can_of_corn",
+          "half_butternut_squash",
+          "bottle_of_deicer",
+          "candied_yam",
+          "hook",
+          "cinnamon_stick"
+        ],
+        "preferred_story_category_glosses": {
+          "bottle_of_deicer": "",
+          "can_of_corn": "",
+          "candied_yam": "",
+          "cinnamon_stick": "",
+          "half_butternut_squash": "",
+          "half_lamb": "",
+          "hook": "a curved or bent implement for suspending or pulling something",
+          "paperback_book": "a book with paper covers"
+        },
+        "rooms": [
+          {
+            "area_m2": 317.7,
+            "name": "grocery_store_0",
+            "scene_containers": {
+              "packing_box": 2,
+              "turnstile": 2
+            },
+            "scene_surfaces": {
+              "breakfast_table": 1,
+              "checkout_counter": 2,
+              "reception_desk": 1
+            },
+            "surface_max_area_m2": {
+              "breakfast_table": 0.75,
+              "checkout_counter": 0.801,
+              "reception_desk": 0.324
+            },
+            "surface_reference_capacity": {
+              "breakfast_table": 3,
+              "checkout_counter": 3,
+              "reception_desk": 3
+            }
+          }
+        ],
+        "scene": "grocery_store_cafe",
+        "task_id": "GUIDE-24003",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "prompt_sha": "8fe9cec1409d",
+      "prompt_sha256": "sha256:8fe9cec1409d2213ec8d3dcb30b77118ae763010c63c1015199d4377e30300d7",
+      "prompt_version": "capability-v21-grounded-believability-20260830",
+      "prose_sha256": "sha256:f25495cc33d1b74fb123b77fbf1fbaa943bcad869d185495242d7780389058a1",
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "The printed text on the paper sheet and the juice carton.",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "semantic_turns": 1,
+          "strong_weak_distinct": true,
+          "ungrounded_physical_nouns": [],
+          "uses_only_grounded_assets": true,
+          "why_utterance_alone_fails": "The utterance asks how many cartons to load but does not provide the capacity limit or the volume per carton."
+        },
+        "capability_fit": "The assistant reads a quantitative rule, performs a metric conversion, and guides repeated placements with an explicit stopping condition.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [],
+                "category": "paper_sheet",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "capacity rule"
+              },
+              {
+                "affordances": [
+                  "openable"
+                ],
+                "category": "display_case",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "target container"
+              },
+              {
+                "affordances": [],
+                "category": "checkout_counter",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "source surface"
+              },
+              {
+                "affordances": [],
+                "category": "pineapple_juice_carton",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "stock items"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [
+              {
+                "what": "stock items"
+              }
+            ],
+            "impossible": [],
+            "printed": [
+              {
+                "rides": "capacity rule",
+                "text": "1.6 L",
+                "what": "capacity limit",
+                "which": null
+              },
+              {
+                "rides": "stock items",
+                "text": "800 ml",
+                "what": "item volume",
+                "which": null
+              }
+            ],
+            "restaged_story": "In the prologue, the wearer executes a [LookAt] action on the paper_sheet resting on the checkout_counter, revealing the text '1.6 L'. The wearer then executes a [LookAt] action on the first pineapple_juice_carton, revealing the text '800 ml'. The wearer executes an [Open] action on the display_case. At action zero, the wearer asks the assistant to calculate how many cartons are allowed in the display case based on the rule and to tell them when to stop loading them. The assistant calculates that 1.6 L is 1600 ml, which divided by 800 ml equals exactly two cartons. It instructs the wearer to place exactly two cartons into the display case and stop after the second. The wearer executes a [Grab] action on the first pineapple_juice_carton and a [Putin] action to place it into the display_case. The wearer executes a [Grab] action on the second pineapple_juice_carton and a [Putin] action to place it into the display_case. The assistant does not speak again. The wearer halts, leaving the third pineapple_juice_carton unmoved on the checkout_counter, and executes a [Close] action on the display_case.",
+            "scene": "grocery_store_cafe",
+            "why_scene": "Provides a grocery store setting with a checkout counter."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "Can the assistant perform a unit conversion and provide an exact count to guide repeated actions?",
+              "counterfactual_failure": "The weak assistant fails to provide the exact count, leading the wearer to load all three cartons.",
+              "forbidden_changes": [
+                "changing the printed text to avoid conversion"
+              ],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "capacity limit on the paper sheet",
+                "volume on the carton"
+              ],
+              "required_final_predicates": [
+                "inside",
+                "unmoved",
+                "closed"
+              ],
+              "success_condition": "Two cartons are inside the display case, and the third is unmoved.",
+              "temporal_constraints": []
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "read",
+                "required_affordances": [
+                  "readable"
+                ],
+                "role_in_story": "provides the total allowed volume",
+                "what": "capacity rule",
+                "when": "opening"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container",
+                  "openable"
+                ],
+                "role_in_story": "destination for the cartons",
+                "what": "target container",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "holds the items initially",
+                "what": "source surface",
+                "when": "opening"
+              },
+              {
+                "count": 3,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable",
+                  "readable"
+                ],
+                "role_in_story": "items to be transferred",
+                "what": "stock items",
+                "when": "both"
+              }
+            ],
+            "hinges_on": "converting 1.6 L to 1600 ml and dividing by 800 ml to determine exactly two cartons are needed",
+            "look_alike": [
+              {
+                "must": "identical",
+                "these": [
+                  "stock items"
+                ],
+                "why": "they are identical products being stocked"
+              }
+            ],
+            "opening": "The wearer looks at the paper sheet and the first carton, then opens the display case.",
+            "outcome": "Exactly two cartons are placed in the display case, and the third remains unmoved.",
+            "place": "grocery_store_0",
+            "printed": [
+              {
+                "says": "1.6 L",
+                "what": "capacity limit",
+                "where": "capacity rule"
+              },
+              {
+                "says": "800 ml",
+                "what": "item volume",
+                "where": "stock items"
+              }
+            ],
+            "tests_what": "numeric conversion and count control"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The candidate successfully implements the numeric conversion and count control capability. It uses allowed categories, correctly stages the scene in the grocery store, and provides a clear single-turn instruction with an explicit stopping condition based on a unit conversion (1.6 L to 1600 ml, divided by 800 ml).",
+        "requirements": [],
+        "runtime_requirements": {
+          "actions": [
+            "LookAt",
+            "Open",
+            "Grab",
+            "Putin",
+            "Close"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 8,
+          "estimated_prologue_actions": 3,
+          "estimated_task_actions": 5,
+          "events": [],
+          "final_predicates": [
+            "inside",
+            "unmoved",
+            "closed"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 60.7,
+        "structural_signature": {
+          "evaluation": "final physical containment",
+          "evidence": "printed capacity and volume",
+          "failure": "overstocking container",
+          "operation": "unit conversion and division",
+          "response": "exact count and stop condition",
+          "temporal": "single-turn upfront"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The printed text on the paper sheet and the juice carton.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The utterance asks how many cartons to load but does not provide the capacity limit or the volume per carton."
+          },
+          "capability_fit": "The assistant reads a quantitative rule, performs a metric conversion, and guides repeated placements with an explicit stopping condition.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [],
+                  "category": "paper_sheet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "capacity rule"
+                },
+                {
+                  "affordances": [
+                    "openable"
+                  ],
+                  "category": "display_case",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target container"
+                },
+                {
+                  "affordances": [],
+                  "category": "checkout_counter",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "source surface"
+                },
+                {
+                  "affordances": [],
+                  "category": "pineapple_juice_carton",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "stock items"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [
+                {
+                  "what": "stock items"
+                }
+              ],
+              "impossible": [],
+              "printed": [
+                {
+                  "rides": "capacity rule",
+                  "text": "1.6 L",
+                  "what": "capacity limit",
+                  "which": null
+                },
+                {
+                  "rides": "stock items",
+                  "text": "800 ml",
+                  "what": "item volume",
+                  "which": null
+                }
+              ],
+              "restaged_story": "In the prologue, the wearer executes a [LookAt] action on the paper_sheet resting on the checkout_counter, revealing the text '1.6 L'. The wearer then executes a [LookAt] action on the first pineapple_juice_carton, revealing the text '800 ml'. The wearer executes an [Open] action on the display_case. At action zero, the wearer asks the assistant to calculate how many cartons are allowed in the display case based on the rule and to tell them when to stop loading them. The assistant calculates that 1.6 L is 1600 ml, which divided by 800 ml equals exactly two cartons. It instructs the wearer to place exactly two cartons into the display case and stop after the second. The wearer executes a [Grab] action on the first pineapple_juice_carton and a [Putin] action to place it into the display_case. The wearer executes a [Grab] action on the second pineapple_juice_carton and a [Putin] action to place it into the display_case. The assistant does not speak again. The wearer halts, leaving the third pineapple_juice_carton unmoved on the checkout_counter, and executes a [Close] action on the display_case.",
+              "scene": "grocery_store_cafe",
+              "why_scene": "Provides a grocery store setting with a checkout counter."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "Can the assistant perform a unit conversion and provide an exact count to guide repeated actions?",
+                "counterfactual_failure": "The weak assistant fails to provide the exact count, leading the wearer to load all three cartons.",
+                "forbidden_changes": [
+                  "changing the printed text to avoid conversion"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "capacity limit on the paper sheet",
+                  "volume on the carton"
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "unmoved",
+                  "closed"
+                ],
+                "success_condition": "Two cartons are inside the display case, and the third is unmoved.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "read",
+                  "required_affordances": [
+                    "readable"
+                  ],
+                  "role_in_story": "provides the total allowed volume",
+                  "what": "capacity rule",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "destination for the cartons",
+                  "what": "target container",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "holds the items initially",
+                  "what": "source surface",
+                  "when": "opening"
+                },
+                {
+                  "count": 3,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable",
+                    "readable"
+                  ],
+                  "role_in_story": "items to be transferred",
+                  "what": "stock items",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "converting 1.6 L to 1600 ml and dividing by 800 ml to determine exactly two cartons are needed",
+              "look_alike": [
+                {
+                  "must": "identical",
+                  "these": [
+                    "stock items"
+                  ],
+                  "why": "they are identical products being stocked"
+                }
+              ],
+              "opening": "The wearer looks at the paper sheet and the first carton, then opens the display case.",
+              "outcome": "Exactly two cartons are placed in the display case, and the third remains unmoved.",
+              "place": "grocery_store_0",
+              "printed": [
+                {
+                  "says": "1.6 L",
+                  "what": "capacity limit",
+                  "where": "capacity rule"
+                },
+                {
+                  "says": "800 ml",
+                  "what": "item volume",
+                  "where": "stock items"
+                }
+              ],
+              "tests_what": "numeric conversion and count control"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate successfully implements the numeric conversion and count control capability. It uses allowed categories, correctly stages the scene in the grocery store, and provides a clear single-turn instruction with an explicit stopping condition based on a unit conversion (1.6 L to 1600 ml, divided by 800 ml).",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "LookAt",
+              "Open",
+              "Grab",
+              "Putin",
+              "Close"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 8,
+            "estimated_prologue_actions": 3,
+            "estimated_task_actions": 5,
+            "events": [],
+            "final_predicates": [
+              "inside",
+              "unmoved",
+              "closed"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 60.7,
+          "structural_signature": {
+            "evaluation": "final physical containment",
+            "evidence": "printed capacity and volume",
+            "failure": "overstocking container",
+            "operation": "unit conversion and division",
+            "response": "exact count and stop condition",
+            "temporal": "single-turn upfront"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "grocery_store_cafe",
+      "sha": "f25495cc33d1",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_prod120_manual_20260830l/rounds/round_001/compile_input/GUIDE/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gemini-3-1-pro-preview-tbd",
+      "judge_model": "gemini-3-1-pro-preview-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260830l"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_grounded_prod120_manual_20260830l-r001",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v21-grounded-believability-20260830",
+      "release_id": "sha256:4d4f270e17786cb786aafd27e400be31f42f5cf6a6966af67d4eb139fac8bc4f",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "result": "guide26-story-refine-r2-20260912zl",
+        "source": "GUIDE-24003"
+      },
+      {
+        "kind": "canonicalize_required_evidence",
+        "source": "[\"I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton.\", \"The formal instruction mounted immediately beside the drink shelf visibly states a maximum total of 5.0 L.\", \"The shelf card beside the milk jug identifies its volume as 1.8 L.\", \"The shelf card beside the orange-juice carton identifies its volume as 1.6 L.\", \"From beside the drink shelf, the broad view visibly confirms both existing stock items on it.\", \"Three consecutive close views show 800 ml printed directly on each matching carton.\", \"After one carton, the shelf total is 4.2 liters.\", \"After two cartons, the shelf total is exactly 5.0 liters.\", \"The third carton remains on the incoming shelf after the stop instruction.\"]",
+        "result": "[\"I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton.\", \"The formal instruction mounted immediately beside the drink shelf visibly states a maximum total of 5.0 L.\", \"The shelf card beside the milk jug identifies its volume as 1.8 L.\", \"The shelf card beside the orange-juice carton identifies its volume as 1.6 L.\", \"From beside the drink shelf, the broad view visibly confirms both existing stock items on it.\", \"Three consecutive close views show 800 ml printed directly on each matching carton.\", \"After one carton, the shelf total is 4.2 liters.\", \"After two cartons, the shelf total is exactly 5.0 liters.\", \"The third carton remains on the incoming shelf after the stop instruction.\", \"Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third.\"]"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "GUIDE-24003",
+    "capability_id": "GUIDE.NUMERIC_CONVERSION_AND_COUNT_CONTROL",
+    "capability_notes": [
+      "Liters are treated as volume, not weight.",
+      "The destination is pinned to a broad 0.89-meter-high retail display rather than an interior shelf board, keeping both PutOn actions outside fixture geometry.",
+      "A formal capacity instruction showing only the 5.0-liter maximum is mounted by the fixture-label system on the wall just left of the exact destination shelf; its reader pose is shifted with the sign to stay outside shelf geometry, while the shelf itself remains fixed.",
+      "Only the incoming cartons occupy the separate broad 0.90-meter-high display island, so the third carton remains visibly untouched after the stop instruction.",
+      "The closing broad view shows the untouched third carton after all three direct capacity labels have been inspected; the unmoved predicate remains scorer-enforced.",
+      "Two widely separated scene-native grocery_sign/kyyjer price stands on grocery_shelf/vhnlno carry the 1.8 L and 1.6 L decals on the same front face. A compact milk carton and orange-juice bottle sit directly below their respective signs, while every incoming carton carries its own concise 800 ml top decal that stays visible above the shelf lip.",
+      "The runtime probes the broad shelf surface and selects distinct physically supported sites for the two newly stocked cartons, clear of the existing products and upright signs."
+    ],
+    "revision": "guide22-interaction-20260913",
+    "benchmark_split": "production",
+    "physical_revision": "guide26-story-refine-r2-20260912zl",
+    "physical_taskpack_sha256": "sha256:e4e95db71d13e0459099a0f17c1f49749e5e74168c2d0f84babe2a0ae41a5e28",
+    "parent_lineage": {
+      "source": "manual_story_revision",
+      "compile_input_digest": "sha256:ac28b7b5352c4c4d06f17339b59c5fdf0f66258c7e55f47fcc8b7daf9de51882",
+      "source_contract_digest": "sha256:05daa57a098ffe5b6302d2ad1c617f16ae863960142c080981cc601aa26e1b27",
+      "executable_spec_digest": "sha256:62d18c38d59b2644453cf5095e9bdc9fef4ff73d4daccb08cdb76e396684fff9",
+      "invention": {
+        "attempt": 2,
+        "author_prose": "A grocery store employee is preparing a new promotional `display_case` in the main shopping area. Resting on the nearby `checkout_counter` are three identical `pineapple_juice_carton`s and a `paper_sheet` detailing the corporate layout rules. The employee looks closely at the `paper_sheet`, which explicitly states that the display capacity for this specific beverage shelf is limited to 1.6 liters. They then inspect the front of one of the cartons, which features a prominent label reading '800 ml'. Wanting to follow the layout guidelines exactly before moving any inventory, the wearer asks the smart glasses, \"How many of these juice cartons should I load into the display case?\"\n\nIn its single turn-zero intervention, the strong assistant reads the capacity rule from the paper sheet and the individual volume from the carton label. It converts the 1.6 liters to 1600 milliliters, divides by the 800 milliliters per carton to determine the exact count, and instructs the wearer: \"Load exactly two cartons into the display case and stop after the second.\"\n\nGuided by this explicit count and stopping condition, the wearer grabs the first carton, walks over to the display case, and places it inside. They return to the checkout counter, grab the second carton, walk back to place it in the display case, and then deliberately stop. The third carton remains safely unmoved on the checkout counter, perfectly matching the computed capacity.\n\nA weak assistant fails to perform the metric volume conversion or provides a vague, unhelpful instruction such as \"Load the cartons until the display is full.\" Without an exact integer count to guide their physical actions, the wearer continues stocking and places all three cartons into the display case, violating the layout's strict capacity limit. The evaluation checks the final physical containment state: the oracle successfully leaves exactly two cartons inside the display case and the third untouched on the counter, whereas the weak branch overstocks the container.",
+        "author_prose_sha256": "sha256:2fdd72b5c5df1725efdb861c57d4d778ebaa79b0c3d2de4f4c7388fb39984591",
+        "capability": {
+          "boundary": "The computation must determine the count; it is not a memorised step order or a vague instruction such as 'add enough.' This is a single-turn capability: the only assistant response is at turn 0 and must contain the conversion, the exact integer count, and an explicit 'stop after N' condition. The story and compiler blueprint must not claim that the assistant speaks again after the Nth placement. The oracle moves exactly N individually tracked items, while the weak branch attempts N+1 or otherwise violates the computed count.",
+          "few_shot": "A worker sees a short printed rule that allows four kilograms of fuel and three individually tracked two-kilogram fuel pieces beside a fixed cabinet. Before any piece is moved, the wearer asks how many pieces to load. In its single turn-0 response, the assistant reads the visible rule, converts 4 kg to 4000 g, divides by 2000 g, and says, 'Load exactly two pieces and stop after the second.' The corrected oracle places exactly two named pieces and leaves the third decoy untouched; the weak branch continues with the third. Final containment relations and the unchanged decoy expose the count. The story never invents a later stop utterance: the initial instruction carries the calculation and stopping condition, while the action trace proves whether the wearer obeyed it.",
+          "id": "GUIDE.NUMERIC_CONVERSION_AND_COUNT_CONTROL",
+          "name_zh": "数值换算与计数控制",
+          "target": "Read a quantitative rule, perform a conversion, and guide repeated actions with an explicit stopping condition."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "GUIDE.NUMERIC_CONVERSION_AND_COUNT_CONTROL",
+          "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+          "evaluation_status": "PASS",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": false,
+          "owner": null,
+          "reason": null,
+          "reason_code": null,
+          "recommended_work": null,
+          "version": "capability-support/1.0",
+          "workstream": null
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "candy_dispenser_shelf",
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "compost_bin",
+            "dessert_stand",
+            "dish_rack_cart",
+            "dishwasher",
+            "display_case",
+            "display_fridge",
+            "dry_food_dispenser_shelf",
+            "free_weight_rack",
+            "freezer",
+            "fridge",
+            "grocery_fridge",
+            "grocery_shelf",
+            "locker",
+            "magazine_stand",
+            "metal_bottom_cabinet",
+            "oven",
+            "public_trash_can",
+            "recycling_bin",
+            "serving_cart",
+            "shelf",
+            "shopping_cart",
+            "snack_rack",
+            "top_cabinet",
+            "trash_can",
+            "umbrella_rack",
+            "vending_machine",
+            "wardrobe",
+            "washer",
+            "wine_fridge"
+          ],
+          "allowed_loose_categories": [
+            "clipboard",
+            "packing_box",
+            "paper_sheet",
+            "cell_phone",
+            "gift_box",
+            "paperback_book",
+            "half_lamb",
+            "can_of_corn",
+            "half_butternut_squash",
+            "bottle_of_deicer",
+            "candied_yam",
+            "hook",
+            "cinnamon_stick",
+            "cotton_thread",
+            "ham_hock",
+            "electric_fan",
+            "syringe",
+            "half_biscuit_dough",
+            "sugar_syrup_bottle",
+            "putty_knife",
+            "pineapple_juice_carton",
+            "pumpkin_seed_bag",
+            "plier",
+            "briefcase",
+            "vinegar_atomizer"
+          ],
+          "allowed_surface_categories": [
+            "breakfast_table",
+            "checkout_counter",
+            "reception_desk"
+          ],
+          "capability_id": "GUIDE.NUMERIC_CONVERSION_AND_COUNT_CONTROL",
+          "coverage_categories": [
+            "paperback_book",
+            "half_lamb",
+            "can_of_corn",
+            "half_butternut_squash",
+            "bottle_of_deicer",
+            "candied_yam",
+            "hook",
+            "cinnamon_stick",
+            "cotton_thread",
+            "ham_hock",
+            "electric_fan",
+            "syringe",
+            "half_biscuit_dough",
+            "sugar_syrup_bottle",
+            "putty_knife",
+            "pineapple_juice_carton",
+            "pumpkin_seed_bag",
+            "plier",
+            "briefcase",
+            "vinegar_atomizer"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 1,
+            "required_semantic_turns": 1,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": false,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_reselection": false,
+            "text_evidence_required": true,
+            "weak_branch_must_fail": true
+          },
+          "family": "GUIDE",
+          "limits": {
+            "max_authored_actions": 18,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 10,
+            "max_small_label_characters": 8,
+            "max_task_actions": 10
+          },
+          "preferred_story_categories": [
+            "paperback_book",
+            "half_lamb",
+            "can_of_corn",
+            "half_butternut_squash",
+            "bottle_of_deicer",
+            "candied_yam",
+            "hook",
+            "cinnamon_stick"
+          ],
+          "preferred_story_category_glosses": {
+            "bottle_of_deicer": "",
+            "can_of_corn": "",
+            "candied_yam": "",
+            "cinnamon_stick": "",
+            "half_butternut_squash": "",
+            "half_lamb": "",
+            "hook": "a curved or bent implement for suspending or pulling something",
+            "paperback_book": "a book with paper covers"
+          },
+          "rooms": [
+            {
+              "area_m2": 317.7,
+              "name": "grocery_store_0",
+              "scene_containers": {
+                "packing_box": 2,
+                "turnstile": 2
+              },
+              "scene_surfaces": {
+                "breakfast_table": 1,
+                "checkout_counter": 2,
+                "reception_desk": 1
+              },
+              "surface_max_area_m2": {
+                "breakfast_table": 0.75,
+                "checkout_counter": 0.801,
+                "reception_desk": 0.324
+              },
+              "surface_reference_capacity": {
+                "breakfast_table": 3,
+                "checkout_counter": 3,
+                "reception_desk": 3
+              }
+            }
+          ],
+          "scene": "grocery_store_cafe",
+          "task_id": "GUIDE-24003",
+          "version": "grounded-authoring/2.5-20260829"
+        },
+        "prompt_sha": "8fe9cec1409d",
+        "prompt_sha256": "sha256:8fe9cec1409d2213ec8d3dcb30b77118ae763010c63c1015199d4377e30300d7",
+        "prompt_version": "capability-v21-grounded-believability-20260830",
+        "prose_sha256": "sha256:f25495cc33d1b74fb123b77fbf1fbaa943bcad869d185495242d7780389058a1",
+        "review": {
+          "benchmark_check": {
+            "egocentric_evidence": "The printed text on the paper sheet and the juice carton.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The utterance asks how many cartons to load but does not provide the capacity limit or the volume per carton."
+          },
+          "capability_fit": "The assistant reads a quantitative rule, performs a metric conversion, and guides repeated placements with an explicit stopping condition.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [],
+                  "category": "paper_sheet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "capacity rule"
+                },
+                {
+                  "affordances": [
+                    "openable"
+                  ],
+                  "category": "display_case",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target container"
+                },
+                {
+                  "affordances": [],
+                  "category": "checkout_counter",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "source surface"
+                },
+                {
+                  "affordances": [],
+                  "category": "pineapple_juice_carton",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "stock items"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [
+                {
+                  "what": "stock items"
+                }
+              ],
+              "impossible": [],
+              "printed": [
+                {
+                  "rides": "capacity rule",
+                  "text": "1.6 L",
+                  "what": "capacity limit",
+                  "which": null
+                },
+                {
+                  "rides": "stock items",
+                  "text": "800 ml",
+                  "what": "item volume",
+                  "which": null
+                }
+              ],
+              "restaged_story": "In the prologue, the wearer executes a [LookAt] action on the paper_sheet resting on the checkout_counter, revealing the text '1.6 L'. The wearer then executes a [LookAt] action on the first pineapple_juice_carton, revealing the text '800 ml'. The wearer executes an [Open] action on the display_case. At action zero, the wearer asks the assistant to calculate how many cartons are allowed in the display case based on the rule and to tell them when to stop loading them. The assistant calculates that 1.6 L is 1600 ml, which divided by 800 ml equals exactly two cartons. It instructs the wearer to place exactly two cartons into the display case and stop after the second. The wearer executes a [Grab] action on the first pineapple_juice_carton and a [Putin] action to place it into the display_case. The wearer executes a [Grab] action on the second pineapple_juice_carton and a [Putin] action to place it into the display_case. The assistant does not speak again. The wearer halts, leaving the third pineapple_juice_carton unmoved on the checkout_counter, and executes a [Close] action on the display_case.",
+              "scene": "grocery_store_cafe",
+              "why_scene": "Provides a grocery store setting with a checkout counter."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "Can the assistant perform a unit conversion and provide an exact count to guide repeated actions?",
+                "counterfactual_failure": "The weak assistant fails to provide the exact count, leading the wearer to load all three cartons.",
+                "forbidden_changes": [
+                  "changing the printed text to avoid conversion"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "capacity limit on the paper sheet",
+                  "volume on the carton"
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "unmoved",
+                  "closed"
+                ],
+                "success_condition": "Two cartons are inside the display case, and the third is unmoved.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "read",
+                  "required_affordances": [
+                    "readable"
+                  ],
+                  "role_in_story": "provides the total allowed volume",
+                  "what": "capacity rule",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "destination for the cartons",
+                  "what": "target container",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "holds the items initially",
+                  "what": "source surface",
+                  "when": "opening"
+                },
+                {
+                  "count": 3,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable",
+                    "readable"
+                  ],
+                  "role_in_story": "items to be transferred",
+                  "what": "stock items",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "converting 1.6 L to 1600 ml and dividing by 800 ml to determine exactly two cartons are needed",
+              "look_alike": [
+                {
+                  "must": "identical",
+                  "these": [
+                    "stock items"
+                  ],
+                  "why": "they are identical products being stocked"
+                }
+              ],
+              "opening": "The wearer looks at the paper sheet and the first carton, then opens the display case.",
+              "outcome": "Exactly two cartons are placed in the display case, and the third remains unmoved.",
+              "place": "grocery_store_0",
+              "printed": [
+                {
+                  "says": "1.6 L",
+                  "what": "capacity limit",
+                  "where": "capacity rule"
+                },
+                {
+                  "says": "800 ml",
+                  "what": "item volume",
+                  "where": "stock items"
+                }
+              ],
+              "tests_what": "numeric conversion and count control"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate successfully implements the numeric conversion and count control capability. It uses allowed categories, correctly stages the scene in the grocery store, and provides a clear single-turn instruction with an explicit stopping condition based on a unit conversion (1.6 L to 1600 ml, divided by 800 ml).",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "LookAt",
+              "Open",
+              "Grab",
+              "Putin",
+              "Close"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 8,
+            "estimated_prologue_actions": 3,
+            "estimated_task_actions": 5,
+            "events": [],
+            "final_predicates": [
+              "inside",
+              "unmoved",
+              "closed"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 60.7,
+          "structural_signature": {
+            "evaluation": "final physical containment",
+            "evidence": "printed capacity and volume",
+            "failure": "overstocking container",
+            "operation": "unit conversion and division",
+            "response": "exact count and stop condition",
+            "temporal": "single-turn upfront"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "The printed text on the paper sheet and the juice carton.",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "semantic_turns": 1,
+              "strong_weak_distinct": true,
+              "ungrounded_physical_nouns": [],
+              "uses_only_grounded_assets": true,
+              "why_utterance_alone_fails": "The utterance asks how many cartons to load but does not provide the capacity limit or the volume per carton."
+            },
+            "capability_fit": "The assistant reads a quantitative rule, performs a metric conversion, and guides repeated placements with an explicit stopping condition.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [],
+                    "category": "paper_sheet",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "capacity rule"
+                  },
+                  {
+                    "affordances": [
+                      "openable"
+                    ],
+                    "category": "display_case",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "target container"
+                  },
+                  {
+                    "affordances": [],
+                    "category": "checkout_counter",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "source surface"
+                  },
+                  {
+                    "affordances": [],
+                    "category": "pineapple_juice_carton",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "stock items"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [
+                  {
+                    "what": "stock items"
+                  }
+                ],
+                "impossible": [],
+                "printed": [
+                  {
+                    "rides": "capacity rule",
+                    "text": "1.6 L",
+                    "what": "capacity limit",
+                    "which": null
+                  },
+                  {
+                    "rides": "stock items",
+                    "text": "800 ml",
+                    "what": "item volume",
+                    "which": null
+                  }
+                ],
+                "restaged_story": "In the prologue, the wearer executes a [LookAt] action on the paper_sheet resting on the checkout_counter, revealing the text '1.6 L'. The wearer then executes a [LookAt] action on the first pineapple_juice_carton, revealing the text '800 ml'. The wearer executes an [Open] action on the display_case. At action zero, the wearer asks the assistant to calculate how many cartons are allowed in the display case based on the rule and to tell them when to stop loading them. The assistant calculates that 1.6 L is 1600 ml, which divided by 800 ml equals exactly two cartons. It instructs the wearer to place exactly two cartons into the display case and stop after the second. The wearer executes a [Grab] action on the first pineapple_juice_carton and a [Putin] action to place it into the display_case. The wearer executes a [Grab] action on the second pineapple_juice_carton and a [Putin] action to place it into the display_case. The assistant does not speak again. The wearer halts, leaving the third pineapple_juice_carton unmoved on the checkout_counter, and executes a [Close] action on the display_case.",
+                "scene": "grocery_store_cafe",
+                "why_scene": "Provides a grocery store setting with a checkout counter."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "Can the assistant perform a unit conversion and provide an exact count to guide repeated actions?",
+                  "counterfactual_failure": "The weak assistant fails to provide the exact count, leading the wearer to load all three cartons.",
+                  "forbidden_changes": [
+                    "changing the printed text to avoid conversion"
+                  ],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "capacity limit on the paper sheet",
+                    "volume on the carton"
+                  ],
+                  "required_final_predicates": [
+                    "inside",
+                    "unmoved",
+                    "closed"
+                  ],
+                  "success_condition": "Two cartons are inside the display case, and the third is unmoved.",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "read",
+                    "required_affordances": [
+                      "readable"
+                    ],
+                    "role_in_story": "provides the total allowed volume",
+                    "what": "capacity rule",
+                    "when": "opening"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "role_in_story": "destination for the cartons",
+                    "what": "target container",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "holds the items initially",
+                    "what": "source surface",
+                    "when": "opening"
+                  },
+                  {
+                    "count": 3,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable",
+                      "readable"
+                    ],
+                    "role_in_story": "items to be transferred",
+                    "what": "stock items",
+                    "when": "both"
+                  }
+                ],
+                "hinges_on": "converting 1.6 L to 1600 ml and dividing by 800 ml to determine exactly two cartons are needed",
+                "look_alike": [
+                  {
+                    "must": "identical",
+                    "these": [
+                      "stock items"
+                    ],
+                    "why": "they are identical products being stocked"
+                  }
+                ],
+                "opening": "The wearer looks at the paper sheet and the first carton, then opens the display case.",
+                "outcome": "Exactly two cartons are placed in the display case, and the third remains unmoved.",
+                "place": "grocery_store_0",
+                "printed": [
+                  {
+                    "says": "1.6 L",
+                    "what": "capacity limit",
+                    "where": "capacity rule"
+                  },
+                  {
+                    "says": "800 ml",
+                    "what": "item volume",
+                    "where": "stock items"
+                  }
+                ],
+                "tests_what": "numeric conversion and count control"
+              }
+            },
+            "duplicate_of": null,
+            "reason": "The candidate successfully implements the numeric conversion and count control capability. It uses allowed categories, correctly stages the scene in the grocery store, and provides a clear single-turn instruction with an explicit stopping condition based on a unit conversion (1.6 L to 1600 ml, divided by 800 ml).",
+            "requirements": [],
+            "runtime_requirements": {
+              "actions": [
+                "LookAt",
+                "Open",
+                "Grab",
+                "Putin",
+                "Close"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 8,
+              "estimated_prologue_actions": 3,
+              "estimated_task_actions": 5,
+              "events": [],
+              "final_predicates": [
+                "inside",
+                "unmoved",
+                "closed"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 60.7,
+            "structural_signature": {
+              "evaluation": "final physical containment",
+              "evidence": "printed capacity and volume",
+              "failure": "overstocking container",
+              "operation": "unit conversion and division",
+              "response": "exact count and stop condition",
+              "temporal": "single-turn upfront"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "grocery_store_cafe",
+        "sha": "f25495cc33d1",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_prod120_manual_20260830l/rounds/round_001/compile_input/GUIDE/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gemini-3-1-pro-preview-tbd",
+        "judge_model": "gemini-3-1-pro-preview-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260830l"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_grounded_prod120_manual_20260830l-r001",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v21-grounded-believability-20260830",
+        "release_id": "sha256:4d4f270e17786cb786aafd27e400be31f42f5cf6a6966af67d4eb139fac8bc4f",
+        "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "normalizations": [
+        {
+          "kind": "manual_story_revision",
+          "result": "guide26-story-refine-r2-20260912zl",
+          "source": "GUIDE-24003"
+        },
+        {
+          "kind": "canonicalize_required_evidence",
+          "source": "[\"I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton.\", \"The formal instruction mounted immediately beside the drink shelf visibly states a maximum total of 5.0 L.\", \"The shelf card beside the milk jug identifies its volume as 1.8 L.\", \"The shelf card beside the orange-juice carton identifies its volume as 1.6 L.\", \"From beside the drink shelf, the broad view visibly confirms both existing stock items on it.\", \"Three consecutive close views show 800 ml printed directly on each matching carton.\", \"After one carton, the shelf total is 4.2 liters.\", \"After two cartons, the shelf total is exactly 5.0 liters.\", \"The third carton remains on the incoming shelf after the stop instruction.\"]",
+          "result": "[\"I need to finish stocking this shelf without exceeding its posted capacity. Please inspect what is already there and guide me carton by carton.\", \"The formal instruction mounted immediately beside the drink shelf visibly states a maximum total of 5.0 L.\", \"The shelf card beside the milk jug identifies its volume as 1.8 L.\", \"The shelf card beside the orange-juice carton identifies its volume as 1.6 L.\", \"From beside the drink shelf, the broad view visibly confirms both existing stock items on it.\", \"Three consecutive close views show 800 ml printed directly on each matching carton.\", \"After one carton, the shelf total is 4.2 liters.\", \"After two cartons, the shelf total is exactly 5.0 liters.\", \"The third carton remains on the incoming shelf after the stop instruction.\", \"Read the two independent shelf cards: 1.8 L plus 1.6 L is 3.4 L, which leaves 1.6 L under the posted 5.0 L maximum. Each incoming carton itself says 800 ml, so load exactly two cartons and stop before the third.\"]"
+        }
+      ],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "GUIDE-24003",
+      "capability_id": "GUIDE.NUMERIC_CONVERSION_AND_COUNT_CONTROL",
+      "capability_notes": [
+        "Liters are treated as volume, not weight.",
+        "The destination is pinned to a broad 0.89-meter-high retail display rather than an interior shelf board, keeping both PutOn actions outside fixture geometry.",
+        "A formal capacity instruction showing only the 5.0-liter maximum is mounted by the fixture-label system on the wall just left of the exact destination shelf; its reader pose is shifted with the sign to stay outside shelf geometry, while the shelf itself remains fixed.",
+        "Only the incoming cartons occupy the separate broad 0.90-meter-high display island, so the third carton remains visibly untouched after the stop instruction.",
+        "The closing broad view shows the untouched third carton after all three direct capacity labels have been inspected; the unmoved predicate remains scorer-enforced.",
+        "Two widely separated scene-native grocery_sign/kyyjer price stands on grocery_shelf/vhnlno carry the 1.8 L and 1.6 L decals on the same front face. A compact milk carton and orange-juice bottle sit directly below their respective signs, while every incoming carton carries its own concise 800 ml top decal that stays visible above the shelf lip.",
+        "The runtime probes the broad shelf surface and selects distinct physically supported sites for the two newly stocked cartons, clear of the existing products and upright signs."
+      ],
+      "revision": "guide26-story-refine-r2-20260912zl"
+    },
+    "oracle_dialogue_override_ids": [
+      "guide24003_first_carton_locator",
+      "guide24003_second_carton_locator",
+      "guide24003_stop_locator"
+    ]
+  }
+}

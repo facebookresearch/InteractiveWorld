@@ -1,0 +1,4880 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-108005",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "cooked",
+          "subject": "steak",
+          "target": "steak"
+        },
+        {
+          "pred": "cooked",
+          "subject": "broccolini",
+          "target": "broccolini"
+        },
+        {
+          "pred": "on",
+          "subject": "browned_steak",
+          "target": "plate"
+        },
+        {
+          "pred": "on",
+          "subject": "browned_broccolini",
+          "target": "plate"
+        },
+        {
+          "pred": "on",
+          "subject": "plate",
+          "target": "plating_pass"
+        },
+        {
+          "pred": "on",
+          "subject": "sauce",
+          "target": "plating_pass"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "cooked",
+          "subject": "steak",
+          "target": "steak"
+        },
+        {
+          "pred": "cooked",
+          "subject": "broccolini",
+          "target": "broccolini"
+        },
+        {
+          "pred": "on",
+          "subject": "browned_steak",
+          "target": "plate"
+        },
+        {
+          "pred": "on",
+          "subject": "browned_broccolini",
+          "target": "plate"
+        },
+        {
+          "pred": "on",
+          "subject": "plate",
+          "target": "plating_pass"
+        },
+        {
+          "pred": "on",
+          "subject": "sauce",
+          "target": "plating_pass"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [],
+        "nested_containers": [
+          "plate"
+        ],
+        "objects": [
+          "broccolini",
+          "browned_broccolini",
+          "browned_steak",
+          "plate",
+          "sauce",
+          "spatula",
+          "steak",
+          "ticket"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "Follow the ticket: turn on the flat top, place the pre-cooked schnitzel and prepared broccolini on it, stir them with the spatula, return the tool, and cook until both visibly brown. Turn the flat top off, put both browned foods on the clean plate, carry that plate onto the waist-high service pass, then place the sealed sauce bottle beside it.",
+        "cue": "I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time.",
+        "premise": "A new lunch-pass worker picks up and reads a complete schnitzel-and-broccolini ticket from the preparation table. The inspection returns the ticket to that table before the worker surveys a chilled pre-cooked schnitzel, a prepared green vegetable portion, a sealed side-condiment sauce bottle, and the required spatula. The assistant must recognize that both foods still need reheating, recognize their visible browning after Cook, and guide the full griddle-to-plate-to-service-pass chain."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time.",
+        "kind": "authored",
+        "ref": "data_generate:GUIDE-108005"
+      },
+      "rule_table": "cooked(steak); cooked(broccolini); on(browned_steak, plate); on(browned_broccolini, plate); on(plate, plating_pass); on(sauce, plating_pass)",
+      "scene": "restaurant_diner",
+      "template": "the grounded restaurant_diner scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 30,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 30,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "ticket"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "ticket"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "ticket"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "prep_table"
+          ]
+        },
+        {
+          "verb": "LookAround",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "TurnOn",
+          "args": [
+            "cooktop"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "steak"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "steak",
+            "cooktop"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "broccolini"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "broccolini",
+            "cooktop"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "spatula"
+          ]
+        },
+        {
+          "verb": "Stir",
+          "args": [
+            "cooktop",
+            "spatula"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "spatula",
+            "prep_table"
+          ]
+        },
+        {
+          "verb": "Cook",
+          "args": [
+            "steak"
+          ]
+        },
+        {
+          "verb": "Cook",
+          "args": [
+            "broccolini"
+          ]
+        },
+        {
+          "verb": "TurnOff",
+          "args": [
+            "cooktop"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "browned_steak"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "browned_steak",
+            "plate"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "browned_broccolini"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "browned_broccolini",
+            "plate"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "plate"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "plating_pass"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "plate",
+            "plating_pass"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "prep_table"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "sauce"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "plating_pass"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "sauce",
+            "plating_pass"
+          ]
+        },
+        {
+          "verb": "LookAround",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[TurnOn] <cooktop> (1), [Grab] <steak> (1), [PutOn] <steak> (1) <cooktop> (1), [Grab] <broccolini> (1), [PutOn] <broccolini> (1) <cooktop> (1), [Grab] <spatula> (1), [Stir] <cooktop> (1) <spatula> (1), [PutOn] <spatula> (1) <prep_table> (1), [Cook] <steak> (1), [Cook] <broccolini> (1), [TurnOff] <cooktop> (1), [Grab] <browned_steak> (1), [PutOn] <browned_steak> (1) <plate> (1), [Grab] <browned_broccolini> (1), [PutOn] <browned_broccolini> (1) <plate> (1), [Grab] <plate> (1), [Walk] <plating_pass> (1), [PutOn] <plate> (1) <plating_pass> (1), [Walk] <prep_table> (1), [Grab] <sauce> (1), [Walk] <plating_pass> (1), [PutOn] <sauce> (1) <plating_pass> (1), [LookAround], [Wait]",
+      "seed": 1944354894,
+      "source_task_id": "GUIDE-108005"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "cooked",
+          "label": null,
+          "neg_kind": null,
+          "subject": "steak",
+          "target": "steak"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "cooked",
+          "label": null,
+          "neg_kind": null,
+          "subject": "broccolini",
+          "target": "broccolini"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "browned_steak",
+          "target": "plate"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "browned_broccolini",
+          "target": "plate"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 4,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "plate",
+          "target": "plating_pass"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 5,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "sauce",
+          "target": "plating_pass"
+        }
+      ],
+      "sub_steps": [
+        "cooked(steak)",
+        "cooked(broccolini)",
+        "on(browned_steak, plate)",
+        "on(browned_broccolini, plate)",
+        "on(plate, plating_pass)",
+        "on(sauce, plating_pass)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-108005",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 1944354894,
+      "containers": {},
+      "decor": [],
+      "fixtures": {
+        "ticket_table": {
+          "bind": {
+            "cat": "metal_bottom_cabinet",
+            "source": "scene",
+            "pick": {
+              "name": "metal_bottom_cabinet_bbjuqu_1",
+              "stage_prim_path": "/World/b_metal_bottom_cabinet_bbjuqu_1",
+              "asset_sha256": "sha256:5a7210cb142e6509bdb498a64b25d9fe8e314e2e74916fe6dfca55ef28b4cb1f",
+              "instance_digest": "sha256:7f3e93b8eab3f4c82f737714660bf4956031472d33474c68030df57b7141c7f7",
+              "by": "scene_instance",
+              "rank": 1
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "prep_table": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene",
+            "pick": {
+              "name": "commercial_kitchen_table_vxvtec_0",
+              "stage_prim_path": "/World/b_commercial_kitchen_table_vxvtec_0",
+              "asset_sha256": "sha256:8d509b608a7979fcf7faff9aea0cc4df74003de8a02de8382ab4a3e1cedee263",
+              "instance_digest": "sha256:470ddae3339172a4b0448f8f760c15ab69a09515fb505c9be3cfe4dfaf9c929f",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "cooktop": {
+          "bind": {
+            "cat": "flat_top_grill",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "plating_pass": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene",
+            "pick": {
+              "name": "commercial_kitchen_table_nisnrl_0",
+              "stage_prim_path": "/World/b_commercial_kitchen_table_nisnrl_0",
+              "asset_sha256": "sha256:553cc146197c996e03dddb36cfd42342ba940edfe24973afe1da4b0ae9e027cb",
+              "instance_digest": "sha256:042f5949b9c2eee536cfec03690abbfcb7a16892f343a7393acbb144130a2611",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_ticket": {
+          "content": {
+            "args": {
+              "renderer": "recipe_card",
+              "rows": [
+                "1|TURN ON FLAT TOP",
+                "2|ADD SCHNITZEL, THEN BROCCOLINI",
+                "3|STIR WITH SPATULA",
+                "4|RETURN SPATULA TO PREP TABLE",
+                "5|COOK UNTIL BROWN; TURN FLAT TOP OFF",
+                "6|PLATE BOTH; SERVICE PASS; ADD SAUCE"
+              ],
+              "sub": "",
+              "title": "SCHNITZEL AND BROCCOLINI"
+            },
+            "lines": [
+              "1|TURN ON FLAT TOP",
+              "2|ADD SCHNITZEL, THEN BROCCOLINI",
+              "3|STIR WITH SPATULA",
+              "4|RETURN SPATULA TO PREP TABLE",
+              "5|COOK UNTIL BROWN; TURN FLAT TOP OFF",
+              "6|PLATE BOTH; SERVICE PASS; ADD SAUCE"
+            ],
+            "text": "SCHNITZEL AND BROCCOLINI"
+          },
+          "kind": "range_card",
+          "mount": {
+            "on": "ticket",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_108005_guide26_story_refine_r2_20260912zl_ticket_2cc9ce7db055"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "ticket": {
+          "cat": "clipboard",
+          "model": "gmxyfo",
+          "needs_lookat": true,
+          "place": "on:prep_table",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            -0.55,
+            -0.45
+          ],
+          "decal": "SCHNITZEL ORDER"
+        },
+        "steak": {
+          "cat": "schnitzel",
+          "model": "yswhcs",
+          "needs_lookat": false,
+          "place": "on:prep_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.45,
+            0.5
+          ]
+        },
+        "broccolini": {
+          "cat": "broccolini",
+          "model": "rlsytp",
+          "needs_lookat": false,
+          "place": "on:prep_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            0.5
+          ]
+        },
+        "browned_steak": {
+          "cat": "schnitzel",
+          "model": "yswhcs",
+          "needs_lookat": false,
+          "place": "on:cooktop",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.25,
+            -0.15
+          ],
+          "tint": "brown"
+        },
+        "browned_broccolini": {
+          "cat": "broccolini",
+          "model": "rlsytp",
+          "needs_lookat": false,
+          "place": "on:cooktop",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.25,
+            -0.15
+          ],
+          "tint": "brown"
+        },
+        "spatula": {
+          "cat": "spatula",
+          "model": "iktnwh",
+          "needs_lookat": false,
+          "place": "on:prep_table",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.0,
+            -0.45
+          ]
+        },
+        "sauce": {
+          "cat": "soy_sauce_bottle",
+          "model": "saujjl",
+          "needs_lookat": false,
+          "place": "on:prep_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.45,
+            0.5
+          ]
+        },
+        "plate": {
+          "cat": "plate",
+          "model": "fhdyrj",
+          "needs_lookat": false,
+          "place": "on:prep_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.5,
+            -0.45
+          ],
+          "affordances": [
+            "surface",
+            "container"
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "kitchen_0"
+      ],
+      "scene": "restaurant_diner",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "A new lunch-pass worker picks up and reads a complete schnitzel-and-broccolini ticket from the preparation table. The inspection returns the ticket to that table before the worker surveys a chilled pre-cooked schnitzel, a prepared green vegetable portion, a sealed side-condiment sauce bottle, and the required spatula. The assistant must recognize that both foods still need reheating, recognize their visible browning after Cook, and guide the full griddle-to-plate-to-service-pass chain.",
+    "assistant_goal": "I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.DEPENDENCY_GRAPH",
+      "assigned_scene": "restaurant_diner",
+      "core_question": "I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "A new lunch-pass worker picks up and reads a complete schnitzel-and-broccolini ticket from the preparation table. The inspection returns the ticket to that table before the worker surveys a chilled pre-cooked schnitzel, a prepared green vegetable portion, a sealed side-condiment sauce bottle, and the required spatula. The assistant must recognize that both foods still need reheating, recognize their visible browning after Cook, and guide the full griddle-to-plate-to-service-pass chain."
+      ],
+      "required_evidence": [
+        "I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time.",
+        "The ticket is lifted for a readable close view of the complete griddle, stir, cook, and plate sequence, then returned to the preparation table.",
+        "A level inspection shows the thin steak, prepared broccolini, sealed sauce, and compact clean spatula together along the operator side of the large preparation worktable.",
+        "The powered flat top holds both the schnitzel and broccolini.",
+        "The wearer has stirred the two ingredients with the spatula.",
+        "Both ingredients have visibly changed to their browned variants and the flat top is safely off.",
+        "The plate carrying both browned foods and the sauce are together on the waist-high finished-order service pass.",
+        "Follow the ticket: turn on the flat top, place the pre-cooked schnitzel and prepared broccolini on it, stir them with the spatula, return the tool, and cook until both visibly brown. Turn the flat top off, put both browned foods on the clean plate, carry that plate onto the waist-high service pass, then place the sealed sauce bottle beside it."
+      ],
+      "required_final_predicates": [
+        "cooked",
+        "cooked",
+        "on",
+        "on",
+        "on",
+        "on"
+      ],
+      "success_condition": "cooked(steak); cooked(broccolini); on(browned_steak, plate); on(browned_broccolini, plate); on(plate, plating_pass); on(sauce, plating_pass)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-108005",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.DEPENDENCY_GRAPH",
+        "assigned_scene": "restaurant_diner",
+        "core_question": "I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "A new lunch-pass worker picks up and reads a complete schnitzel-and-broccolini ticket from the preparation table. The inspection returns the ticket to that table before the worker surveys a chilled pre-cooked schnitzel, a prepared green vegetable portion, a sealed side-condiment sauce bottle, and the required spatula. The assistant must recognize that both foods still need reheating, recognize their visible browning after Cook, and guide the full griddle-to-plate-to-service-pass chain."
+        ],
+        "required_evidence": [
+          "I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time.",
+          "The ticket is lifted for a readable close view of the complete griddle, stir, cook, and plate sequence, then returned to the preparation table.",
+          "A level inspection shows the thin steak, prepared broccolini, sealed sauce, and compact clean spatula together along the operator side of the large preparation worktable.",
+          "The powered flat top holds both the schnitzel and broccolini.",
+          "The wearer has stirred the two ingredients with the spatula.",
+          "Both ingredients have visibly changed to their browned variants and the flat top is safely off.",
+          "The plate carrying both browned foods and the sauce are together on the waist-high finished-order service pass.",
+          "Follow the ticket: turn on the flat top, place the pre-cooked schnitzel and prepared broccolini on it, stir them with the spatula, return the tool, and cook until both visibly brown. Turn the flat top off, put both browned foods on the clean plate, carry that plate onto the waist-high service pass, then place the sealed sauce bottle beside it."
+        ],
+        "required_final_predicates": [
+          "cooked",
+          "cooked",
+          "on",
+          "on",
+          "on",
+          "on"
+        ],
+        "success_condition": "cooked(steak); cooked(broccolini); on(browned_steak, plate); on(browned_broccolini, plate); on(plate, plating_pass); on(sauce, plating_pass)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "blanket",
+          "bottle_of_lubricant",
+          "bottle_of_molasses",
+          "bottle_of_tequila",
+          "bottle_of_tomato_paste",
+          "bottle_of_water",
+          "box_of_apple_juice",
+          "broccolini",
+          "brussels_sprouts",
+          "cell_phone",
+          "chickpea_can",
+          "chives",
+          "clipboard",
+          "corkscrew",
+          "crayon",
+          "deodorant_stick",
+          "dog_food_can",
+          "gravy_boat",
+          "half_crab",
+          "half_grapefruit",
+          "half_rhubarb",
+          "half_shrimp",
+          "half_vidalia_onion",
+          "half_walnut",
+          "hand_towel",
+          "hard_candy",
+          "hitch",
+          "hotdog_bun",
+          "hummus_box",
+          "jar_of_grains",
+          "menu",
+          "mug",
+          "nativity_figurine",
+          "paper_sheet",
+          "pencil",
+          "plate",
+          "pruner",
+          "schnitzel",
+          "shears",
+          "soy_sauce_bottle",
+          "spatula",
+          "steak",
+          "table_knife",
+          "toilet_paper_holder",
+          "tray",
+          "tulip",
+          "utility_knife",
+          "whetstone",
+          "whole_fennel",
+          "wine_bottle"
+        ],
+        "allowed_surface_categories": [
+          "commercial_kitchen_table",
+          "flat_top_grill",
+          "freezer",
+          "metal_bottom_cabinet",
+          "stand"
+        ],
+        "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+        "coverage_categories": [
+          "half_walnut",
+          "whetstone",
+          "hard_candy",
+          "nativity_figurine",
+          "hitch",
+          "bottle_of_tomato_paste",
+          "tulip",
+          "half_grapefruit",
+          "pruner",
+          "table_knife",
+          "hummus_box",
+          "tray",
+          "half_shrimp",
+          "gravy_boat",
+          "corkscrew",
+          "toilet_paper_holder",
+          "paper_sheet",
+          "half_vidalia_onion",
+          "crayon",
+          "steak"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 5,
+          "required_semantic_turns": 5,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 34,
+          "max_document_characters": 197,
+          "max_fixed_destinations": 4,
+          "max_meaningful_steps": 30,
+          "max_movable_objects": 8,
+          "max_objects_per_container": 8,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 6,
+          "max_small_label_characters": 40,
+          "max_task_actions": 24,
+          "min_intervening_meaningful_actions": 6,
+          "min_meaningful_steps": 5
+        },
+        "preferred_story_categories": [
+          "mug",
+          "clipboard",
+          "paper_sheet",
+          "hand_towel"
+        ],
+        "preferred_story_category_glosses": {
+          "clipboard": "",
+          "hand_towel": "",
+          "mug": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 55.5,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "fridge": 2,
+              "metal_bottom_cabinet": 4,
+              "oven": 1
+            },
+            "scene_surfaces": {
+              "commercial_kitchen_table": 2,
+              "freezer": 1,
+              "metal_bottom_cabinet": 4
+            },
+            "surface_max_area_m2": {
+              "commercial_kitchen_table": 0.565,
+              "freezer": 0.508,
+              "metal_bottom_cabinet": 0.216
+            },
+            "surface_reference_capacity": {
+              "commercial_kitchen_table": 3,
+              "freezer": 3,
+              "metal_bottom_cabinet": 3
+            }
+          }
+        ],
+        "scene": "restaurant_diner",
+        "task_id": "GUIDE-108005",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "clipboard",
+            "changed": false,
+            "costs": null,
+            "label": "SCHNITZEL ORDER",
+            "tint": null,
+            "what": "liftable schnitzel-and-broccolini order ticket"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "schnitzel",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "chilled pre-cooked schnitzel"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "broccolini",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "prepared broccolini portion"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "schnitzel",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": "brown",
+            "what": "visibly browned reheated schnitzel"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "broccolini",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": "brown",
+            "what": "visibly browned cooked broccolini"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "spatula",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "cooking spatula"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "soy_sauce_bottle",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "soy-sauce bottle"
+          },
+          {
+            "affordances": [
+              "graspable",
+              "surface",
+              "container"
+            ],
+            "category": "plate",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "large clean serving plate"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "metal_bottom_cabinet",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "scene-native lunch ticket counter"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "large lunch-pass preparation table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "flat_top_grill",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "lunch-pass stove"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "scene-native waist-high finished-order service pass"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "liftable schnitzel-and-broccolini order ticket",
+            "text": "SCHNITZEL ORDER",
+            "what": "document",
+            "which": null
+          }
+        ],
+        "restaged_story": "A new lunch-pass worker picks up and reads a complete schnitzel-and-broccolini ticket from the preparation table. The inspection returns the ticket to that table before the worker surveys a chilled pre-cooked schnitzel, a prepared green vegetable portion, a sealed side-condiment sauce bottle, and the required spatula. The assistant must recognize that both foods still need reheating, recognize their visible browning after Cook, and guide the full griddle-to-plate-to-service-pass chain.",
+        "scene": "restaurant_diner",
+        "why_scene": "restaurant_diner supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {},
+        "items": {
+          "ticket": {
+            "affordances": [],
+            "cat": "clipboard",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "SCHNITZEL ORDER",
+            "place": "on:prep_table",
+            "scored": false,
+            "spot": [
+              -0.55,
+              -0.45
+            ],
+            "tint": null
+          },
+          "steak": {
+            "affordances": [],
+            "cat": "schnitzel",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:prep_table",
+            "scored": true,
+            "spot": [
+              -0.45,
+              0.5
+            ],
+            "tint": null
+          },
+          "broccolini": {
+            "affordances": [],
+            "cat": "broccolini",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:prep_table",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.5
+            ],
+            "tint": null
+          },
+          "browned_steak": {
+            "affordances": [],
+            "cat": "schnitzel",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:cooktop",
+            "scored": true,
+            "spot": [
+              -0.25,
+              -0.15
+            ],
+            "tint": "brown"
+          },
+          "browned_broccolini": {
+            "affordances": [],
+            "cat": "broccolini",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:cooktop",
+            "scored": true,
+            "spot": [
+              0.25,
+              -0.15
+            ],
+            "tint": "brown"
+          },
+          "spatula": {
+            "affordances": [],
+            "cat": "spatula",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:prep_table",
+            "scored": false,
+            "spot": [
+              0.0,
+              -0.45
+            ],
+            "tint": null
+          },
+          "sauce": {
+            "affordances": [],
+            "cat": "soy_sauce_bottle",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:prep_table",
+            "scored": true,
+            "spot": [
+              0.45,
+              0.5
+            ],
+            "tint": null
+          },
+          "plate": {
+            "affordances": [
+              "surface",
+              "container"
+            ],
+            "cat": "plate",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:prep_table",
+            "scored": true,
+            "spot": [
+              0.5,
+              -0.45
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <ticket> (1)",
+          "[Grab] <ticket> (1)",
+          "[LookAt] <ticket> (1)",
+          "[Walk] <prep_table> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0"
+        ],
+        "scene": "restaurant_diner",
+        "staging": {
+          "groups": "A new lunch-pass worker picks up and reads a complete schnitzel-and-broccolini ticket from the preparation table. The inspection returns the ticket to that table before the worker surveys a chilled pre-cooked schnitzel, a prepared green vegetable portion, a sealed side-condiment sauce bottle, and the required spatula. The assistant must recognize that both foods still need reheating, recognize their visible browning after Cook, and guide the full griddle-to-plate-to-service-pass chain.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "ticket_table": {
+            "cat": "metal_bottom_cabinet",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "prep_table": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "cooktop": {
+            "cat": "flat_top_grill",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "plating_pass": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The ticket is lifted for a readable close view of the complete griddle, stir, cook, and plate sequence, then returned to the preparation table.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 2,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "A level inspection shows the thin steak, prepared broccolini, sealed sauce, and compact clean spatula together along the operator side of the large preparation worktable.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 4,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The powered flat top holds both the schnitzel and broccolini.",
+            "from": "live",
+            "id": "fact_004",
+            "source_index": 4,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The wearer has stirred the two ingredients with the spatula.",
+            "from": "live",
+            "id": "fact_005",
+            "source_index": 6,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "Both ingredients have visibly changed to their browned variants and the flat top is safely off.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 10,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The plate carrying both browned foods and the sauce are together on the waist-high finished-order service pass.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 21,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007"
+            ],
+            "fact": "Follow the ticket: turn on the flat top, place the pre-cooked schnitzel and prepared broccolini on it, stir them with the spatula, return the tool, and cook until both visibly brown. Turn the flat top off, put both browned foods on the clean plate, carry that plate onto the waist-high service pass, then place the sealed sauce bottle beside it.",
+            "from": "derived",
+            "id": "fact_008",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "cooked",
+            "scorable": true,
+            "subject": "steak",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "cooked",
+            "scorable": true,
+            "subject": "broccolini",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "browned_steak",
+            "target": "plate"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "browned_broccolini",
+            "target": "plate"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "plate",
+            "target": "plating_pass"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "sauce",
+            "target": "plating_pass"
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "Turn on the flat top beside the prep table, then take the chilled pre-cooked schnitzel from that prep table and place it on the flat top.",
+            "referents": [
+              "ticket",
+              "steak",
+              "cooktop"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 3,
+            "say": "The schnitzel is on the flat top. Take the prepared broccolini from the prep table and place it beside the schnitzel.",
+            "referents": [
+              "steak",
+              "broccolini",
+              "cooktop"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 5,
+            "say": "Both ingredients are on the flat top. Take the spatula from the prep table and stir the food by acting on the flat top itself, not on either ingredient separately; then return the spatula to that table.",
+            "referents": [
+              "steak",
+              "broccolini",
+              "spatula",
+              "cooktop",
+              "prep_table"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_004"
+            ]
+          },
+          {
+            "before_index": 8,
+            "say": "Walk back to the flat top (`cooktop`). Then cook the two foods themselves: use `[Cook] <steak> (1)` for the schnitzel and `[Cook] <broccolini> (1)` for the broccolini. Do not use the flat top as the Cook target. When both foods have browned, turn off `cooktop`.",
+            "referents": [
+              "steak",
+              "broccolini",
+              "browned_steak",
+              "browned_broccolini",
+              "cooktop"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_005"
+            ]
+          },
+          {
+            "before_index": 11,
+            "say": "With the clean plate (`plate`) still on the prep table (`prep_table`), put the browned schnitzel (`browned_steak`) from `cooktop` on the left side of `plate`, then put the browned broccolini (`browned_broccolini`) from `cooktop` on the right side of `plate`. Then pick up the completed plate, carry it to the waist-high service pass (`plating_pass`), bring the sealed sauce bottle (`sauce`) from `prep_table` to `plating_pass`, and inspect the completed order.",
+            "referents": [
+              "browned_steak",
+              "browned_broccolini",
+              "plate",
+              "sauce",
+              "plating_pass"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_006"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Grab] <steak> (1), [PutOn] <steak> (1) <cooktop> (1), [Cook] <steak> (1), [Grab] <browned_steak> (1), [PutOn] <browned_steak> (1) <plate> (1), [Grab] <plate> (1), [Walk] <plating_pass> (1), [PutOn] <plate> (1) <plating_pass> (1)",
+        "mates": [],
+        "oracle_program": "[TurnOn] <cooktop> (1), [Grab] <steak> (1), [PutOn] <steak> (1) <cooktop> (1), [Grab] <broccolini> (1), [PutOn] <broccolini> (1) <cooktop> (1), [Grab] <spatula> (1), [Stir] <cooktop> (1) <spatula> (1), [PutOn] <spatula> (1) <prep_table> (1), [Cook] <steak> (1), [Cook] <broccolini> (1), [TurnOff] <cooktop> (1), [Grab] <browned_steak> (1), [PutOn] <browned_steak> (1) <plate> (1), [Grab] <browned_broccolini> (1), [PutOn] <browned_broccolini> (1) <plate> (1), [Grab] <plate> (1), [Walk] <plating_pass> (1), [PutOn] <plate> (1) <plating_pass> (1), [Walk] <prep_table> (1), [Grab] <sauce> (1), [Walk] <plating_pass> (1), [PutOn] <sauce> (1) <plating_pass> (1), [LookAround], [Wait]",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "A new lunch-pass worker picks up and reads a complete schnitzel-and-broccolini ticket from the preparation table. The inspection returns the ticket to that table before the worker surveys a chilled pre-cooked schnitzel, a prepared green vegetable portion, a sealed side-condiment sauce bottle, and the required spatula. The assistant must recognize that both foods still need reheating, recognize their visible browning after Cook, and guide the full griddle-to-plate-to-service-pass chain.",
+        "utterance": "I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <ticket> (1)",
+        "[Grab] <ticket> (1)",
+        "[LookAt] <ticket> (1)",
+        "[Walk] <prep_table> (1)",
+        "[LookAround]",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "ticket"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "ticket"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "ticket"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "ticket"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "ticket"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The ticket is lifted for a readable close view of the complete griddle, stir, cook, and plate sequence, then returned to the preparation table.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Follow the ticket: turn on the flat top, place the pre-cooked schnitzel and prepared broccolini on it, stir them with the spatula, return the tool, and cook until both visibly brown. Turn the flat top off, put both browned foods on the clean plate, carry that plate onto the waist-high service pass, then place the sealed sauce bottle beside it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "prep_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "prep_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "A level inspection shows the thin steak, prepared broccolini, sealed sauce, and compact clean spatula together along the operator side of the large preparation worktable.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Follow the ticket: turn on the flat top, place the pre-cooked schnitzel and prepared broccolini on it, stir them with the spatula, return the tool, and cook until both visibly brown. Turn the flat top off, put both browned foods on the clean plate, carry that plate onto the waist-high service pass, then place the sealed sauce bottle beside it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Follow the ticket: turn on the flat top, place the pre-cooked schnitzel and prepared broccolini on it, stir them with the spatula, return the tool, and cook until both visibly brown. Turn the flat top off, put both browned foods on the clean plate, carry that plate onto the waist-high service pass, then place the sealed sauce bottle beside it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Turn on the flat top beside the prep table, then take the chilled pre-cooked schnitzel from that prep table and place it on the flat top.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The schnitzel is on the flat top. Take the prepared broccolini from the prep table and place it beside the schnitzel.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Both ingredients are on the flat top. Take the spatula from the prep table and stir the food by acting on the flat top itself, not on either ingredient separately; then return the spatula to that table.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_003",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Walk back to the flat top (`cooktop`). Then cook the two foods themselves: use `[Cook] <steak> (1)` for the schnitzel and `[Cook] <broccolini> (1)` for the broccolini. Do not use the flat top as the Cook target. When both foods have browned, turn off `cooktop`.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_004",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "With the clean plate (`plate`) still on the prep table (`prep_table`), put the browned schnitzel (`browned_steak`) from `cooktop` on the left side of `plate`, then put the browned broccolini (`browned_broccolini`) from `cooktop` on the right side of `plate`. Then pick up the completed plate, carry it to the waist-high service pass (`plating_pass`), bring the sealed sauce bottle (`sauce`) from `prep_table` to `plating_pass`, and inspect the completed order.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "steak"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "steak"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "steak",
+            "cooktop"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Cook",
+          "args": [
+            "steak"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "browned_steak"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "browned_steak"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "browned_steak",
+            "plate"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "plate"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "plate"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "plating_pass"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "plating_pass"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "plate",
+            "plating_pass"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "TurnOn",
+          "args": [
+            "cooktop"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "steak"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "steak"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "steak",
+            "cooktop"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "broccolini"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "broccolini"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "broccolini",
+            "cooktop"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The powered flat top holds both the schnitzel and broccolini.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Follow the ticket: turn on the flat top, place the pre-cooked schnitzel and prepared broccolini on it, stir them with the spatula, return the tool, and cook until both visibly brown. Turn the flat top off, put both browned foods on the clean plate, carry that plate onto the waist-high service pass, then place the sealed sauce bottle beside it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "spatula"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "spatula"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Stir",
+          "args": [
+            "cooktop",
+            "spatula"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The wearer has stirred the two ingredients with the spatula.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Follow the ticket: turn on the flat top, place the pre-cooked schnitzel and prepared broccolini on it, stir them with the spatula, return the tool, and cook until both visibly brown. Turn the flat top off, put both browned foods on the clean plate, carry that plate onto the waist-high service pass, then place the sealed sauce bottle beside it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "spatula",
+            "prep_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Cook",
+          "args": [
+            "steak"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Cook",
+          "args": [
+            "broccolini"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o010",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "TurnOff",
+          "args": [
+            "cooktop"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "Both ingredients have visibly changed to their browned variants and the flat top is safely off.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Follow the ticket: turn on the flat top, place the pre-cooked schnitzel and prepared broccolini on it, stir them with the spatula, return the tool, and cook until both visibly brown. Turn the flat top off, put both browned foods on the clean plate, carry that plate onto the waist-high service pass, then place the sealed sauce bottle beside it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o011",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "browned_steak"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "browned_steak"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o012",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "browned_steak",
+            "plate"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o013",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "browned_broccolini"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "browned_broccolini"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o014",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "browned_broccolini",
+            "plate"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o015",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "plate"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "plate"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o016",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "plating_pass"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "plating_pass"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o017",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "plate",
+            "plating_pass"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o018",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "prep_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "prep_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o019",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "sauce"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "sauce"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o020",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "plating_pass"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "plating_pass"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o021",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "sauce",
+            "plating_pass"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The plate carrying both browned foods and the sauce are together on the waist-high finished-order service pass.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Follow the ticket: turn on the flat top, place the pre-cooked schnitzel and prepared broccolini on it, stir them with the spatula, return the tool, and cook until both visibly brown. Turn the flat top off, put both browned foods on the clean plate, carry that plate onto the waist-high service pass, then place the sealed sauce bottle beside it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o022",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o023",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The ticket is lifted for a readable close view of the complete griddle, stir, cook, and plate sequence, then returned to the preparation table.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p002"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 2
+      },
+      {
+        "id": "fact_003",
+        "statement": "A level inspection shows the thin steak, prepared broccolini, sealed sauce, and compact clean spatula together along the operator side of the large preparation worktable.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p004"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 4
+      },
+      {
+        "id": "fact_004",
+        "statement": "The powered flat top holds both the schnitzel and broccolini.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o004"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 4
+      },
+      {
+        "id": "fact_005",
+        "statement": "The wearer has stirred the two ingredients with the spatula.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o006"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 6
+      },
+      {
+        "id": "fact_006",
+        "statement": "Both ingredients have visibly changed to their browned variants and the flat top is safely off.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o010"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 10
+      },
+      {
+        "id": "fact_007",
+        "statement": "The plate carrying both browned foods and the sauce are together on the waist-high finished-order service pass.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o021"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 21
+      },
+      {
+        "id": "fact_008",
+        "statement": "Follow the ticket: turn on the flat top, place the pre-cooked schnitzel and prepared broccolini on it, stir them with the spatula, return the tool, and cook until both visibly brown. Turn the flat top off, put both browned foods on the clean plate, carry that plate onto the waist-high service pass, then place the sealed sauce bottle beside it.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p002",
+          "p004",
+          "o004",
+          "o006",
+          "o010",
+          "o021"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the ticket and inspected prep area to guide the person through preparing and serving the complete lunch order one meaningful step at a time.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <ticket> (1)",
+          "[Grab] <ticket> (1)",
+          "[LookAt] <ticket> (1)",
+          "[Walk] <prep_table> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 5,
+            "say": "Hey, Assistant, I'm new on the lunch pass. Can you use the ticket and walk me through this order one step at a time? When it's ready, please leave the sealed sauce beside the plated food on the service pass so the guest can add it themselves."
+          }
+        ],
+        "handoff_say": "Hey, Assistant, I'm new on the lunch pass. Can you use the ticket and walk me through this order one step at a time? When it's ready, please leave the sealed sauce beside the plated food on the service pass so the guest can add it themselves.",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "lunch_ticket_request",
+            "required_phrases": [
+              "new on the lunch pass",
+              "use the ticket",
+              "one step at a time",
+              "sealed sauce beside the plated food",
+              "service pass"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": false,
+        "verification_points": [
+          {
+            "id": "schnitzel_cooked",
+            "kind": "world_state",
+            "pred": "cooked",
+            "subject": "steak",
+            "target": "steak"
+          },
+          {
+            "id": "broccolini_cooked",
+            "kind": "world_state",
+            "pred": "cooked",
+            "subject": "broccolini",
+            "target": "broccolini"
+          },
+          {
+            "id": "browned_schnitzel_plated",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "browned_steak",
+            "target": "plate"
+          },
+          {
+            "id": "browned_broccolini_plated",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "browned_broccolini",
+            "target": "plate"
+          },
+          {
+            "id": "plate_on_pass",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "plate",
+            "target": "plating_pass"
+          },
+          {
+            "id": "sauce_on_pass",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "sauce",
+            "target": "plating_pass"
+          }
+        ]
+      },
+      "human_command_qualifiers": {
+        "[Put] <browned_steak> (1) <plate> (1)": {
+          "place_spot": [
+            -0.6,
+            0.5
+          ]
+        },
+        "[Put] <browned_broccolini> (1) <plate> (1)": {
+          "place_spot": [
+            0.6,
+            0.5
+          ]
+        }
+      },
+      "motor_aliases": {
+        "ticket": [
+          "schnitzel order ticket"
+        ],
+        "steak": [
+          "chilled pre-cooked schnitzel"
+        ],
+        "prep_table": [
+          "prep table"
+        ],
+        "plating_pass": [
+          "waist-high service pass"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 68,
+    "dialogue_budget": 5,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "prep_table",
+        "held": [
+          "ticket"
+        ],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005",
+        "h006",
+        "h007"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "ticket",
+              "steak",
+              "cooktop"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "ticket",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "steak",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "steak",
+              "broccolini",
+              "cooktop"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "steak",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "broccolini",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "steak",
+              "broccolini",
+              "spatula",
+              "cooktop",
+              "prep_table"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "steak",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "spatula",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "intervention_beat": "assistant_003",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "steak",
+              "broccolini",
+              "browned_steak",
+              "browned_broccolini",
+              "cooktop"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "steak",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o009"
+        },
+        {
+          "after_beat": "o009",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o010"
+        },
+        {
+          "after_beat": "o010",
+          "intervention_beat": "assistant_004",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "browned_steak",
+              "browned_broccolini",
+              "plate",
+              "sauce",
+              "plating_pass"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "steak",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o011"
+        },
+        {
+          "after_beat": "o011",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "browned_steak",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o012"
+        },
+        {
+          "after_beat": "o012",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o013"
+        },
+        {
+          "after_beat": "o013",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "browned_broccolini",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o014"
+        },
+        {
+          "after_beat": "o014",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o015"
+        },
+        {
+          "after_beat": "o015",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "plate",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o016"
+        },
+        {
+          "after_beat": "o016",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "plating_pass",
+            "truth": true
+          },
+          "next_beat": "o017"
+        },
+        {
+          "after_beat": "o017",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o018"
+        },
+        {
+          "after_beat": "o018",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "prep_table",
+            "truth": true
+          },
+          "next_beat": "o019"
+        },
+        {
+          "after_beat": "o019",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "sauce",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o020"
+        },
+        {
+          "after_beat": "o020",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "plating_pass",
+            "truth": true
+          },
+          "next_beat": "o021"
+        },
+        {
+          "after_beat": "o021",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o022"
+        },
+        {
+          "after_beat": "o022",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o023"
+        }
+      ],
+      "terminal_beats": [
+        "h007",
+        "o023"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "TurnOn",
+        "args": [
+          "cooktop"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "steak"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "steak",
+          "cooktop"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "broccolini"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "broccolini",
+          "cooktop"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "spatula"
+        ]
+      },
+      {
+        "verb": "Stir",
+        "args": [
+          "cooktop",
+          "spatula"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "spatula",
+          "prep_table"
+        ]
+      },
+      {
+        "verb": "Cook",
+        "args": [
+          "steak"
+        ]
+      },
+      {
+        "verb": "Cook",
+        "args": [
+          "broccolini"
+        ]
+      },
+      {
+        "verb": "TurnOff",
+        "args": [
+          "cooktop"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "browned_steak"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "browned_steak",
+          "plate"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "browned_broccolini"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "browned_broccolini",
+          "plate"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "plate"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "plating_pass"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "plate",
+          "plating_pass"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "prep_table"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "sauce"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "plating_pass"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "sauce",
+          "plating_pass"
+        ]
+      },
+      {
+        "verb": "LookAround",
+        "args": []
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "steak"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "steak",
+          "cooktop"
+        ]
+      },
+      {
+        "verb": "Cook",
+        "args": [
+          "steak"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "browned_steak"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "browned_steak",
+          "plate"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "plate"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "plating_pass"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "plate",
+          "plating_pass"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Turn on the flat top beside the prep table, then take the chilled pre-cooked schnitzel from that prep table and place it on the flat top.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The schnitzel is on the flat top. Take the prepared broccolini from the prep table and place it beside the schnitzel.",
+        "relation": "before",
+        "anchor_beat_id": "o003",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "Both ingredients are on the flat top. Take the spatula from the prep table and stir the food by acting on the flat top itself, not on either ingredient separately; then return the spatula to that table.",
+        "relation": "before",
+        "anchor_beat_id": "o005",
+        "source": "guidance",
+        "source_index": 2
+      },
+      {
+        "id": "assistant_003",
+        "say": "Walk back to the flat top (`cooktop`). Then cook the two foods themselves: use `[Cook] <steak> (1)` for the schnitzel and `[Cook] <broccolini> (1)` for the broccolini. Do not use the flat top as the Cook target. When both foods have browned, turn off `cooktop`.",
+        "relation": "before",
+        "anchor_beat_id": "o008",
+        "source": "guidance",
+        "source_index": 3
+      },
+      {
+        "id": "assistant_004",
+        "say": "With the clean plate (`plate`) still on the prep table (`prep_table`), put the browned schnitzel (`browned_steak`) from `cooktop` on the left side of `plate`, then put the browned broccolini (`browned_broccolini`) from `cooktop` on the right side of `plate`. Then pick up the completed plate, carry it to the waist-high service pass (`plating_pass`), bring the sealed sauce bottle (`sauce`) from `prep_table` to `plating_pass`, and inspect the completed order.",
+        "relation": "before",
+        "anchor_beat_id": "o011",
+        "source": "guidance",
+        "source_index": 4
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": [
+      {
+        "type": "entity_visibility",
+        "entities": [
+          "steak"
+        ],
+        "visible": false,
+        "initially_visible": true,
+        "after_command": "[Cook] <steak> (1)",
+        "occurrence": 1,
+        "require_offscreen": false
+      },
+      {
+        "type": "entity_visibility",
+        "entities": [
+          "browned_steak"
+        ],
+        "pose_from": [
+          "steak"
+        ],
+        "visible": true,
+        "initially_visible": false,
+        "after_command": "[Cook] <steak> (1)",
+        "occurrence": 1,
+        "require_offscreen": false
+      },
+      {
+        "type": "entity_visibility",
+        "entities": [
+          "broccolini"
+        ],
+        "visible": false,
+        "initially_visible": true,
+        "after_command": "[Cook] <broccolini> (1)",
+        "occurrence": 1,
+        "require_offscreen": false
+      },
+      {
+        "type": "entity_visibility",
+        "entities": [
+          "browned_broccolini"
+        ],
+        "pose_from": [
+          "broccolini"
+        ],
+        "visible": true,
+        "initially_visible": false,
+        "after_command": "[Cook] <broccolini> (1)",
+        "occurrence": 1,
+        "require_offscreen": false
+      }
+    ]
+  },
+  "lineage": {
+    "source": "guide22_core_final_state_revision",
+    "compile_input_digest": "sha256:2c37f806e0b670b477df0f080c9aa93ce0317eaf9b20a8ab618ca80f6b239d64",
+    "source_contract_digest": "sha256:5a3d487e031c17a5e81d2397bd3b2859e5aa322755b35c4a9510ecbef7e932d3",
+    "executable_spec_digest": "sha256:3946d7353af31b99ba48cf2203501a1219dd7c843c46ef5ef614573a61eae08a",
+    "invention": {
+      "attempt": 1,
+      "author_prose": "A novice worker is covering the lunch pass in a restaurant cafeteria. An uncooked steak and an uncut half onion are on the prep table, the order ticket reading 'Steak + onion' waits on an adjacent table, and the food-safe service stand is empty. The worker asks the glasses to guide them through getting the order onto the service stand. The assistant identifies two preparation branches: cook the steak, and cut then cook the half onion. It first guides opening the oven and loading the steak. Once that placement is observed, it guides cutting the onion with the table knife, loading it beside the steak, closing the oven, and cooking both. After the cooked states are observed, it directs retrieval to the food pass and only then sends the ticket, closes the oven, and verifies the stand. A weak guide sends the ticket before either food branch is complete, even though it later performs the same physical preparation; the premature ready signal is the declared evaluation gap.",
+      "author_prose_sha256": "sha256:07347b08573993813ea97449237887b4c84673c485f81bec3e64e43206294958",
+      "capability": {
+        "boundary": "The core is dependency reasoning, not memorising one rigid total sequence and not sorting ingredients by label. Every edge in the dependency graph must come from an explicit user rule, an inspected instruction, or a represented physical precondition; never infer that every remaining object must be packed.",
+        "few_shot": "A novice is assembling a small display stand. Attaching the left foot and attaching the right foot are independent, but both must be secured before the upright can be raised. After completing only the left foot, the wearer asks whether they can raise the frame now. The assistant identifies the unmet right-foot prerequisite, directs that attachment first, and only then permits the raise. The beat-bound guidance and ordered command trace preserve the dependency decision, while the final attached and raised predicates verify the completed stand. A weak guide that merely recites a memorised total sequence either rejects a legal branch order or allows the irreversible raise too early.",
+        "id": "GUIDE.DEPENDENCY_GRAPH",
+        "name_zh": "依赖图推理与排序",
+        "target": "Guide a novice through a partial-order task graph, choosing a legal next step and refusing a requested step whose prerequisites are incomplete."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+        "evaluation_mode": "TRACE_AND_OUTCOME",
+        "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": true,
+        "owner": "SIMULATOR_EVALUATION",
+        "reason": "The chosen legal trace runs, but there is no generic scorer for alternative valid topological orders and rejected illegal steps.",
+        "reason_code": "DEPENDENCY_ORDER_EVALUATOR",
+        "recommended_work": "Add dependency-graph and legal-next-step evaluation over the command trace.",
+        "version": "capability-support/1.0",
+        "workstream": "EVALUATOR"
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "mug",
+          "clipboard",
+          "paper_sheet",
+          "hand_towel",
+          "half_walnut",
+          "whetstone",
+          "hard_candy",
+          "nativity_figurine",
+          "hitch",
+          "bottle_of_tomato_paste",
+          "tulip",
+          "half_grapefruit",
+          "pruner",
+          "table_knife",
+          "hummus_box",
+          "tray",
+          "half_shrimp",
+          "gravy_boat",
+          "corkscrew",
+          "toilet_paper_holder",
+          "paper_sheet",
+          "half_vidalia_onion",
+          "crayon",
+          "steak"
+        ],
+        "allowed_surface_categories": [
+          "commercial_kitchen_table",
+          "stand"
+        ],
+        "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+        "coverage_categories": [
+          "half_walnut",
+          "whetstone",
+          "hard_candy",
+          "nativity_figurine",
+          "hitch",
+          "bottle_of_tomato_paste",
+          "tulip",
+          "half_grapefruit",
+          "pruner",
+          "table_knife",
+          "hummus_box",
+          "tray",
+          "half_shrimp",
+          "gravy_boat",
+          "corkscrew",
+          "toilet_paper_holder",
+          "paper_sheet",
+          "half_vidalia_onion",
+          "crayon",
+          "steak"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 4,
+          "required_semantic_turns": 3,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 32,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 24,
+          "min_intervening_meaningful_actions": 0,
+          "min_meaningful_steps": 5
+        },
+        "preferred_story_categories": [
+          "mug",
+          "clipboard",
+          "paper_sheet",
+          "hand_towel"
+        ],
+        "preferred_story_category_glosses": {
+          "clipboard": "",
+          "hand_towel": "",
+          "mug": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 35.3,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "fridge": 2
+            },
+            "scene_surfaces": {
+              "commercial_kitchen_table": 2,
+              "stand": 1
+            },
+            "surface_max_area_m2": {
+              "commercial_kitchen_table": 1.002,
+              "stand": 0.116
+            },
+            "surface_reference_capacity": {
+              "commercial_kitchen_table": 3,
+              "stand": 3
+            }
+          }
+        ],
+        "scene": "restaurant_cafeteria",
+        "task_id": "GUIDE-108005",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "prompt_sha": "4b316488766e",
+      "prompt_sha256": "sha256:4b316488766eebc89ed4c39e5453db7e970f30c0a8f314df56fdaee74986ad10",
+      "prompt_version": "capability-v40-template-cap3-20260901",
+      "prose_sha256": "sha256:f6f52793887fa413ebe01b9dc7a3d21f9804dd0a23fae03275fb6812c83a40d8",
+      "review": {
+        "benchmark_check": {
+          "actor_scope": {
+            "live_physical_actors": [
+              "wearer"
+            ],
+            "other_person_changes_world": false
+          },
+          "core_claims": [
+            {
+              "available_before_turn": 0,
+              "claim": "the melt has two parallel prerequisite branches gating the final cheese placement",
+              "derived_from": [],
+              "established_by": "wearer's request to guide and stop if sending too soon, plus live view of laid-out components",
+              "runtime_support": "live view of steak, onion, cheese, table knife on the table",
+              "source": "utterance"
+            },
+            {
+              "available_before_turn": 0,
+              "claim": "the onion is still uncut when the wearer reaches for cheese, so cheese placement is illegal",
+              "derived_from": [],
+              "established_by": "LookAt on the table showing cooked steak beside uncut onion",
+              "runtime_support": "cut predicate false on onion at intervention",
+              "source": "live_state"
+            },
+            {
+              "available_before_turn": 0,
+              "claim": "both prerequisites are complete so ordered final placement is now legal",
+              "derived_from": [
+                "the onion is still uncut when the wearer reaches for cheese, so cheese placement is illegal"
+              ],
+              "established_by": "observing cooked steak and cut onion both true",
+              "runtime_support": "cooked(steak) and cut(onion) both observed true",
+              "source": "derived"
+            }
+          ],
+          "counterfactual_contract": {
+            "allowed_other_differences": [],
+            "operator": "place the final cheese step before the onion prerequisite is complete",
+            "shared_obligations": [
+              "g1"
+            ],
+            "target_difference": "strong refuses cheese until onion is cut; weak places cheese while onion still uncut, sending an incomplete melt"
+          },
+          "cross_field_consistency": {
+            "conflicts": [],
+            "consistent": true
+          },
+          "decisive_fact_absent_from_utterance": true,
+          "egocentric_evidence": "the live view showing the steak is cooked but the onion is still uncut when the wearer reaches for cheese",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "meaningful_steps": [
+            "initial branch instruction identifying two parallel prerequisites and the gated cheese step",
+            "verify cooked steak and instruct onion branch after observing uncut onion",
+            "refuse premature cheese reach because onion is still uncut",
+            "release gate after both prerequisites visible and give ordered placement",
+            "verify all three items on the stand"
+          ],
+          "memory_gap": {
+            "intervening_meaningful_actions": 0,
+            "reason": "this is a live dependency-reasoning task, not a memory-reconstruction task",
+            "required": false,
+            "wearer_just_established_answer": false
+          },
+          "physical_plausibility": {
+            "credible": true,
+            "issues": []
+          },
+          "semantic_turns": 3,
+          "story_world_mismatches": [],
+          "strong_completes_user_goal": true,
+          "strong_weak_distinct": true,
+          "turn0_access": {
+            "answer_fully_visible": false,
+            "assistant_need": "the wearer is new and lacks the dependency knowledge to sequence the branches and avoid a premature final placement",
+            "wearer_can_self_serve": false
+          },
+          "ungrounded_physical_nouns": [],
+          "unmodeled_claims": [],
+          "user_goal_obligations": [
+            {
+              "covered_by": [
+                "assistant dialogue",
+                "cooked/cut/on final predicates",
+                "ordered action trace"
+              ],
+              "description": "steak cooked, onion cut, and all three items staged on the service stand without premature sending",
+              "grounded_in": "'get this steak-and-onion melt ready for the service stand ... stop me if I'm about to send it too soon'",
+              "id": "g1",
+              "kind": "physical"
+            }
+          ],
+          "uses_only_grounded_assets": true,
+          "utterance_policy": {
+            "prescribes_assistant_words_or_trigger": false,
+            "reason": "the wearer states a goal and asks to be stopped if too soon, without dictating the trigger phrasing or dependency structure",
+            "states_goal_not_solution": true
+          },
+          "weak_shared_work_complete": true,
+          "why_user_needs_assistant": "the novice wearer does not know the dependency structure and would send an incomplete melt without the gate",
+          "why_utterance_alone_fails": "the utterance names components but the assistant must read the evolving completion state of each branch to know which step is legal at each moment"
+        },
+        "capability_fit": "The assistant must reason over a partial-order graph where two parallel branches gate a final placement, and refuse the requested cheese step whose onion prerequisite is incomplete.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "steak",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "steak to be cooked"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "half_vidalia_onion",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "half vidalia onion to be cut"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "paper_sheet",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "order ticket as final gated item"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "table_knife",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "table knife for cutting"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "A novice worker is covering the lunch pass in a restaurant cafeteria. An uncooked steak and an uncut half onion are on the prep table, the order ticket reading 'Steak + onion' waits on an adjacent table, and the food-safe service stand is empty. The worker asks the glasses to guide them through getting the order onto the service stand. The assistant identifies two preparation branches: cook the steak, and cut then cook the half onion. It first guides opening the oven and loading the steak. Once that placement is observed, it guides cutting the onion with the table knife, loading it beside the steak, closing the oven, and cooking both. After the cooked states are observed, it directs retrieval to the food pass and only then sends the ticket, closes the oven, and verifies the stand. A weak guide sends the ticket before either food branch is complete, even though it later performs the same physical preparation; the premature ready signal is the declared evaluation gap.",
+            "scene": "restaurant_cafeteria",
+            "why_scene": "a commercial kitchen with a prep table and service stand naturally supports a steak-and-onion melt prep-to-service dependency task"
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "does the assistant gate the final cheese placement on both prerequisite branches and refuse it while the onion is uncut",
+              "counterfactual_failure": "weak guide directs cheese placement while onion still uncut, sending an incomplete melt",
+              "forbidden_changes": [
+                "placing cheese while onion uncut",
+                "narrating every hand motion as a stage"
+              ],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "live view showing cooked steak and uncut onion at the refusal point",
+                "live view confirming both prerequisites before release"
+              ],
+              "required_final_predicates": [
+                "cooked",
+                "cut",
+                "on"
+              ],
+              "success_condition": "steak cooked, onion cut, all three on stand with cheese last",
+              "temporal_constraints": [
+                "cheese may not be placed before both steak cooked and onion cut"
+              ]
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "first prerequisite branch",
+                "what": "steak to be cooked",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "second prerequisite branch",
+                "what": "half vidalia onion to be cut",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "final service placement gated on both branches",
+                "what": "order ticket as final gated item",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "drives_the_story",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "cut surface for onion",
+                "what": "table knife for cutting",
+                "when": "main"
+              }
+            ],
+            "hinges_on": "the cheese final placement is gated on BOTH the cooked steak and the cut onion, and the onion is still uncut at the moment the wearer reaches for cheese",
+            "look_alike": [],
+            "opening": "steak, half vidalia onion, order ticket, and table knife laid out on the commercial kitchen table; stand empty",
+            "outcome": "cooked steak, cut onion, and order ticket all on the service stand, cheese placed last after both prerequisites complete",
+            "place": "kitchen_0 commercial kitchen table with an empty service stand nearby",
+            "printed": [],
+            "tests_what": "partial-order dependency reasoning with refusal of a prerequisite-incomplete step"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "This is a clean dependency-graph episode: two parallel prerequisite branches (cook steak, cut onion) both gate the final cheese service placement, and the assistant refuses the premature cheese placement when the wearer reaches for it while the onion is still uncut. Every edge is grounded in the wearer's request ('stop me if I'm about to send it too soon') and live visual state (steak cooked vs onion still uncut), not in a rigid total order. The strong branch gates on both prerequisites; the weak branch treats cheese as available after only the steak, producing an incomplete melt marked ready. There are 5+ meaningful stages (initial branch instruction, cook-verification+next-branch, refusal at premature cheese reach, gate-release with ordered placement, final verification), three+ assistant turns each driven by new observed state. All nouns bind to exact categories (steak, half_vidalia_onion, paper_sheet, table_knife, commercial_kitchen_table, stand). The strong/weak difference is observable via intervention timing and ordered trace even where final relations could partly converge; the refusal turn is the decisive distinguishing channel.",
+        "requirements": [
+          "Ensure the weak branch actually places cheese while onion is uncut, producing a distinguishable trace (premature final placement) even if final on-stand relations converge.",
+          "Keep the assistant refusal turn grounded in the observed uncut-onion state at the moment the wearer reaches for cheese."
+        ],
+        "runtime_requirements": {
+          "actions": [
+            "LookAt",
+            "Grab",
+            "Cook",
+            "Put",
+            "Cut",
+            "Walk"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 14,
+          "estimated_prologue_actions": 0,
+          "estimated_task_actions": 14,
+          "events": [],
+          "final_predicates": [
+            "cooked",
+            "cut",
+            "on"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 81.9,
+        "structural_signature": {
+          "evaluation": "ordered trace plus scorable cooked/cut/on final state",
+          "evidence": "live view of cooked-steak and uncut-onion states",
+          "failure": "weak guide places cheese before onion prerequisite complete",
+          "operation": "partial-order dependency gating with premature-step refusal",
+          "response": "instruct, verify, refuse premature step, release, verify",
+          "template_class": "parallel_prereq_branches_gate_final_placement",
+          "temporal": "incremental gating across two parallel branches then release"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "the melt has two parallel prerequisite branches gating the final cheese placement",
+                "derived_from": [],
+                "established_by": "wearer's request to guide and stop if sending too soon, plus live view of laid-out components",
+                "runtime_support": "live view of steak, onion, cheese, table knife on the table",
+                "source": "utterance"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "the onion is still uncut when the wearer reaches for cheese, so cheese placement is illegal",
+                "derived_from": [],
+                "established_by": "LookAt on the table showing cooked steak beside uncut onion",
+                "runtime_support": "cut predicate false on onion at intervention",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "both prerequisites are complete so ordered final placement is now legal",
+                "derived_from": [
+                  "the onion is still uncut when the wearer reaches for cheese, so cheese placement is illegal"
+                ],
+                "established_by": "observing cooked steak and cut onion both true",
+                "runtime_support": "cooked(steak) and cut(onion) both observed true",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "place the final cheese step before the onion prerequisite is complete",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "strong refuses cheese until onion is cut; weak places cheese while onion still uncut, sending an incomplete melt"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "the live view showing the steak is cooked but the onion is still uncut when the wearer reaches for cheese",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "initial branch instruction identifying two parallel prerequisites and the gated cheese step",
+              "verify cooked steak and instruct onion branch after observing uncut onion",
+              "refuse premature cheese reach because onion is still uncut",
+              "release gate after both prerequisites visible and give ordered placement",
+              "verify all three items on the stand"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 0,
+              "reason": "this is a live dependency-reasoning task, not a memory-reconstruction task",
+              "required": false,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 3,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": false,
+              "assistant_need": "the wearer is new and lacks the dependency knowledge to sequence the branches and avoid a premature final placement",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "assistant dialogue",
+                  "cooked/cut/on final predicates",
+                  "ordered action trace"
+                ],
+                "description": "steak cooked, onion cut, and all three items staged on the service stand without premature sending",
+                "grounded_in": "'get this steak-and-onion melt ready for the service stand ... stop me if I'm about to send it too soon'",
+                "id": "g1",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "the wearer states a goal and asks to be stopped if too soon, without dictating the trigger phrasing or dependency structure",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "the novice wearer does not know the dependency structure and would send an incomplete melt without the gate",
+            "why_utterance_alone_fails": "the utterance names components but the assistant must read the evolving completion state of each branch to know which step is legal at each moment"
+          },
+          "capability_fit": "The assistant must reason over a partial-order graph where two parallel branches gate a final placement, and refuse the requested cheese step whose onion prerequisite is incomplete.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "steak",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "steak to be cooked"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "half_vidalia_onion",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "half vidalia onion to be cut"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "order ticket as final gated item"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "table_knife",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "table knife for cutting"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "A novice worker is covering the lunch pass in a restaurant cafeteria. An uncooked steak and an uncut half onion are on the prep table, the order ticket reading 'Steak + onion' waits on an adjacent table, and the food-safe service stand is empty. The worker asks the glasses to guide them through getting the order onto the service stand. The assistant identifies two preparation branches: cook the steak, and cut then cook the half onion. It first guides opening the oven and loading the steak. Once that placement is observed, it guides cutting the onion with the table knife, loading it beside the steak, closing the oven, and cooking both. After the cooked states are observed, it directs retrieval to the food pass and only then sends the ticket, closes the oven, and verifies the stand. A weak guide sends the ticket before either food branch is complete, even though it later performs the same physical preparation; the premature ready signal is the declared evaluation gap.",
+              "scene": "restaurant_cafeteria",
+              "why_scene": "a commercial kitchen with a prep table and service stand naturally supports a steak-and-onion melt prep-to-service dependency task"
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "does the assistant gate the final cheese placement on both prerequisite branches and refuse it while the onion is uncut",
+                "counterfactual_failure": "weak guide directs cheese placement while onion still uncut, sending an incomplete melt",
+                "forbidden_changes": [
+                  "placing cheese while onion uncut",
+                  "narrating every hand motion as a stage"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "live view showing cooked steak and uncut onion at the refusal point",
+                  "live view confirming both prerequisites before release"
+                ],
+                "required_final_predicates": [
+                  "cooked",
+                  "cut",
+                  "on"
+                ],
+                "success_condition": "steak cooked, onion cut, all three on stand with cheese last",
+                "temporal_constraints": [
+                  "cheese may not be placed before both steak cooked and onion cut"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "first prerequisite branch",
+                  "what": "steak to be cooked",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "second prerequisite branch",
+                  "what": "half vidalia onion to be cut",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "final service placement gated on both branches",
+                  "what": "order ticket as final gated item",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "cut surface for onion",
+                  "what": "table knife for cutting",
+                  "when": "main"
+                }
+              ],
+              "hinges_on": "the cheese final placement is gated on BOTH the cooked steak and the cut onion, and the onion is still uncut at the moment the wearer reaches for cheese",
+              "look_alike": [],
+              "opening": "steak, half vidalia onion, order ticket, and table knife laid out on the commercial kitchen table; stand empty",
+              "outcome": "cooked steak, cut onion, and order ticket all on the service stand, cheese placed last after both prerequisites complete",
+              "place": "kitchen_0 commercial kitchen table with an empty service stand nearby",
+              "printed": [],
+              "tests_what": "partial-order dependency reasoning with refusal of a prerequisite-incomplete step"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "This is a clean dependency-graph episode: two parallel prerequisite branches (cook steak, cut onion) both gate the final cheese service placement, and the assistant refuses the premature cheese placement when the wearer reaches for it while the onion is still uncut. Every edge is grounded in the wearer's request ('stop me if I'm about to send it too soon') and live visual state (steak cooked vs onion still uncut), not in a rigid total order. The strong branch gates on both prerequisites; the weak branch treats cheese as available after only the steak, producing an incomplete melt marked ready. There are 5+ meaningful stages (initial branch instruction, cook-verification+next-branch, refusal at premature cheese reach, gate-release with ordered placement, final verification), three+ assistant turns each driven by new observed state. All nouns bind to exact categories (steak, half_vidalia_onion, paper_sheet, table_knife, commercial_kitchen_table, stand). The strong/weak difference is observable via intervention timing and ordered trace even where final relations could partly converge; the refusal turn is the decisive distinguishing channel.",
+          "requirements": [
+            "Ensure the weak branch actually places cheese while onion is uncut, producing a distinguishable trace (premature final placement) even if final on-stand relations converge.",
+            "Keep the assistant refusal turn grounded in the observed uncut-onion state at the moment the wearer reaches for cheese."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "LookAt",
+              "Grab",
+              "Cook",
+              "Put",
+              "Cut",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 14,
+            "estimated_prologue_actions": 0,
+            "estimated_task_actions": 14,
+            "events": [],
+            "final_predicates": [
+              "cooked",
+              "cut",
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 81.9,
+          "structural_signature": {
+            "evaluation": "ordered trace plus scorable cooked/cut/on final state",
+            "evidence": "live view of cooked-steak and uncut-onion states",
+            "failure": "weak guide places cheese before onion prerequisite complete",
+            "operation": "partial-order dependency gating with premature-step refusal",
+            "response": "instruct, verify, refuse premature step, release, verify",
+            "template_class": "parallel_prereq_branches_gate_final_placement",
+            "temporal": "incremental gating across two parallel branches then release"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "restaurant_cafeteria",
+      "sha": "f6f52793887f",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v68_curatedhistory_gpt55_opus_20260902a/compile_input/GUIDE/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gpt-5-5-genai-responses",
+      "judge_model": "claude-4-8-opus-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260901s"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_micro24_v68_curatedhistory_gpt55_opus_20260902a",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v40-template-cap3-20260901",
+      "release_id": "sha256:c8caddec12f4e765afc644483feb301b01fdb5b670b26529302f66325fd4e8c4",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "result": "guide26-story-refine-r2-20260912zl",
+        "source": "GUIDE-108005"
+      },
+      {
+        "kind": "canonicalize_required_evidence",
+        "source": "[\"I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time.\", \"The ticket is lifted for a readable close view of the complete griddle, stir, cook, and plate sequence, then returned to the preparation table.\", \"A level inspection shows the thin steak, prepared broccolini, sealed sauce, and compact clean spatula together along the operator side of the large preparation worktable.\", \"The powered flat top holds both the schnitzel and broccolini.\", \"The wearer has stirred the two ingredients with the spatula.\", \"Both ingredients have visibly changed to their browned variants and the flat top is safely off.\", \"The plate carrying both browned foods and the sauce are together on the waist-high finished-order service pass.\"]",
+        "result": "[\"I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time.\", \"The ticket is lifted for a readable close view of the complete griddle, stir, cook, and plate sequence, then returned to the preparation table.\", \"A level inspection shows the thin steak, prepared broccolini, sealed sauce, and compact clean spatula together along the operator side of the large preparation worktable.\", \"The powered flat top holds both the schnitzel and broccolini.\", \"The wearer has stirred the two ingredients with the spatula.\", \"Both ingredients have visibly changed to their browned variants and the flat top is safely off.\", \"The plate carrying both browned foods and the sauce are together on the waist-high finished-order service pass.\", \"Follow the ticket: turn on the flat top, place the pre-cooked schnitzel and prepared broccolini on it, stir them with the spatula, return the tool, and cook until both visibly brown. Turn the flat top off, put both browned foods on the clean plate, carry that plate onto the waist-high service pass, then place the sealed sauce bottle beside it.\"]"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "GUIDE-108005",
+    "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+    "capability_notes": [
+      "Hidden brown duplicates are pre-staged at safe fixed grill sites; each inherits its source food's center and base at the Cook-aligned reveal before its follow-up Grab is planned.",
+      "Cook actions create scored heating state on the raw counterparts while the revealed brown duplicates provide an unmistakable finished appearance.",
+      "The diner scene supplies only the shallow szisej/wchhzh commercial flat tops, each about 0.66 m deep and 1.03 m high, reducing the reach that caused sustained pelvis and leg penetration on the old 1.20 m-deep grill.",
+      "The formal recipe ticket is a graspable clipboard on the exact scene-native vxvtec worktable. The held-document LookAt path automatically returns it to that support and clears the hand before the opening survey continues.",
+      "The shallow scene-native bbjuqu_1 ticket counter remains unchanged and carries no movable load, while the separate exact nisnrl waist-high worktable serves as the reachable finished-order pass.",
+      "The spatula returns to the preparation worktable through the runtime's live-tested safe surface-site selection.",
+      "The large plate publishes surface/container affordances, carries both browned foods recursively, and is placed as one unit on the scene-native service-pass worktable before the sauce is added."
+    ],
+    "revision": "guide22-core-final-state-r3-20260914",
+    "benchmark_split": "production",
+    "physical_revision": "guide26-story-refine-r2-20260912zl",
+    "physical_taskpack_sha256": "sha256:ec40fb5ad83510ef0ec617b30e0681599bcb4d3b36c653705bb9132726fd5871",
+    "parent_lineage": {
+      "source": "manual_story_revision",
+      "compile_input_digest": "sha256:2c37f806e0b670b477df0f080c9aa93ce0317eaf9b20a8ab618ca80f6b239d64",
+      "source_contract_digest": "sha256:76df9b39e6110e77824293a62a169f73e81bda51b27b1b53617a05893f102ef9",
+      "executable_spec_digest": "sha256:3946d7353af31b99ba48cf2203501a1219dd7c843c46ef5ef614573a61eae08a",
+      "invention": {
+        "attempt": 1,
+        "author_prose": "A novice worker is covering the lunch pass in a restaurant cafeteria. An uncooked steak and an uncut half onion are on the prep table, the order ticket reading 'Steak + onion' waits on an adjacent table, and the food-safe service stand is empty. The worker asks the glasses to guide them through getting the order onto the service stand. The assistant identifies two preparation branches: cook the steak, and cut then cook the half onion. It first guides opening the oven and loading the steak. Once that placement is observed, it guides cutting the onion with the table knife, loading it beside the steak, closing the oven, and cooking both. After the cooked states are observed, it directs retrieval to the food pass and only then sends the ticket, closes the oven, and verifies the stand. A weak guide sends the ticket before either food branch is complete, even though it later performs the same physical preparation; the premature ready signal is the declared evaluation gap.",
+        "author_prose_sha256": "sha256:07347b08573993813ea97449237887b4c84673c485f81bec3e64e43206294958",
+        "capability": {
+          "boundary": "The core is dependency reasoning, not memorising one rigid total sequence and not sorting ingredients by label. Every edge in the dependency graph must come from an explicit user rule, an inspected instruction, or a represented physical precondition; never infer that every remaining object must be packed.",
+          "few_shot": "A novice is assembling a small display stand. Attaching the left foot and attaching the right foot are independent, but both must be secured before the upright can be raised. After completing only the left foot, the wearer asks whether they can raise the frame now. The assistant identifies the unmet right-foot prerequisite, directs that attachment first, and only then permits the raise. The beat-bound guidance and ordered command trace preserve the dependency decision, while the final attached and raised predicates verify the completed stand. A weak guide that merely recites a memorised total sequence either rejects a legal branch order or allows the irreversible raise too early.",
+          "id": "GUIDE.DEPENDENCY_GRAPH",
+          "name_zh": "依赖图推理与排序",
+          "target": "Guide a novice through a partial-order task graph, choosing a legal next step and refusing a requested step whose prerequisites are incomplete."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+          "evaluation_mode": "TRACE_AND_OUTCOME",
+          "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": true,
+          "owner": "SIMULATOR_EVALUATION",
+          "reason": "The chosen legal trace runs, but there is no generic scorer for alternative valid topological orders and rejected illegal steps.",
+          "reason_code": "DEPENDENCY_ORDER_EVALUATOR",
+          "recommended_work": "Add dependency-graph and legal-next-step evaluation over the command trace.",
+          "version": "capability-support/1.0",
+          "workstream": "EVALUATOR"
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "candy_dispenser_shelf",
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "compost_bin",
+            "dessert_stand",
+            "dish_rack_cart",
+            "dishwasher",
+            "display_case",
+            "display_fridge",
+            "dry_food_dispenser_shelf",
+            "free_weight_rack",
+            "freezer",
+            "fridge",
+            "grocery_fridge",
+            "grocery_shelf",
+            "locker",
+            "magazine_stand",
+            "metal_bottom_cabinet",
+            "oven",
+            "public_trash_can",
+            "recycling_bin",
+            "serving_cart",
+            "shelf",
+            "shopping_cart",
+            "snack_rack",
+            "top_cabinet",
+            "trash_can",
+            "umbrella_rack",
+            "vending_machine",
+            "wardrobe",
+            "washer",
+            "wine_fridge"
+          ],
+          "allowed_loose_categories": [
+            "mug",
+            "clipboard",
+            "paper_sheet",
+            "hand_towel",
+            "half_walnut",
+            "whetstone",
+            "hard_candy",
+            "nativity_figurine",
+            "hitch",
+            "bottle_of_tomato_paste",
+            "tulip",
+            "half_grapefruit",
+            "pruner",
+            "table_knife",
+            "hummus_box",
+            "tray",
+            "half_shrimp",
+            "gravy_boat",
+            "corkscrew",
+            "toilet_paper_holder",
+            "paper_sheet",
+            "half_vidalia_onion",
+            "crayon",
+            "steak"
+          ],
+          "allowed_surface_categories": [
+            "commercial_kitchen_table",
+            "stand"
+          ],
+          "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+          "coverage_categories": [
+            "half_walnut",
+            "whetstone",
+            "hard_candy",
+            "nativity_figurine",
+            "hitch",
+            "bottle_of_tomato_paste",
+            "tulip",
+            "half_grapefruit",
+            "pruner",
+            "table_knife",
+            "hummus_box",
+            "tray",
+            "half_shrimp",
+            "gravy_boat",
+            "corkscrew",
+            "toilet_paper_holder",
+            "paper_sheet",
+            "half_vidalia_onion",
+            "crayon",
+            "steak"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 4,
+            "required_semantic_turns": 3,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": true,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_memory_gap": false,
+            "requires_reselection": false,
+            "single_wearer_only": true,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "GUIDE",
+          "limits": {
+            "max_authored_actions": 32,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_meaningful_steps": 15,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 10,
+            "max_small_label_characters": 8,
+            "max_task_actions": 24,
+            "min_intervening_meaningful_actions": 0,
+            "min_meaningful_steps": 5
+          },
+          "preferred_story_categories": [
+            "mug",
+            "clipboard",
+            "paper_sheet",
+            "hand_towel"
+          ],
+          "preferred_story_category_glosses": {
+            "clipboard": "",
+            "hand_towel": "",
+            "mug": "",
+            "paper_sheet": ""
+          },
+          "rooms": [
+            {
+              "area_m2": 35.3,
+              "name": "kitchen_0",
+              "scene_containers": {
+                "fridge": 2
+              },
+              "scene_surfaces": {
+                "commercial_kitchen_table": 2,
+                "stand": 1
+              },
+              "surface_max_area_m2": {
+                "commercial_kitchen_table": 1.002,
+                "stand": 0.116
+              },
+              "surface_reference_capacity": {
+                "commercial_kitchen_table": 3,
+                "stand": 3
+              }
+            }
+          ],
+          "scene": "restaurant_cafeteria",
+          "task_id": "GUIDE-108005",
+          "version": "grounded-authoring/3.1-hard-context-20260901"
+        },
+        "prompt_sha": "4b316488766e",
+        "prompt_sha256": "sha256:4b316488766eebc89ed4c39e5453db7e970f30c0a8f314df56fdaee74986ad10",
+        "prompt_version": "capability-v40-template-cap3-20260901",
+        "prose_sha256": "sha256:f6f52793887fa413ebe01b9dc7a3d21f9804dd0a23fae03275fb6812c83a40d8",
+        "review": {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "the melt has two parallel prerequisite branches gating the final cheese placement",
+                "derived_from": [],
+                "established_by": "wearer's request to guide and stop if sending too soon, plus live view of laid-out components",
+                "runtime_support": "live view of steak, onion, cheese, table knife on the table",
+                "source": "utterance"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "the onion is still uncut when the wearer reaches for cheese, so cheese placement is illegal",
+                "derived_from": [],
+                "established_by": "LookAt on the table showing cooked steak beside uncut onion",
+                "runtime_support": "cut predicate false on onion at intervention",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "both prerequisites are complete so ordered final placement is now legal",
+                "derived_from": [
+                  "the onion is still uncut when the wearer reaches for cheese, so cheese placement is illegal"
+                ],
+                "established_by": "observing cooked steak and cut onion both true",
+                "runtime_support": "cooked(steak) and cut(onion) both observed true",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "place the final cheese step before the onion prerequisite is complete",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "strong refuses cheese until onion is cut; weak places cheese while onion still uncut, sending an incomplete melt"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "the live view showing the steak is cooked but the onion is still uncut when the wearer reaches for cheese",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "initial branch instruction identifying two parallel prerequisites and the gated cheese step",
+              "verify cooked steak and instruct onion branch after observing uncut onion",
+              "refuse premature cheese reach because onion is still uncut",
+              "release gate after both prerequisites visible and give ordered placement",
+              "verify all three items on the stand"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 0,
+              "reason": "this is a live dependency-reasoning task, not a memory-reconstruction task",
+              "required": false,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 3,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": false,
+              "assistant_need": "the wearer is new and lacks the dependency knowledge to sequence the branches and avoid a premature final placement",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "assistant dialogue",
+                  "cooked/cut/on final predicates",
+                  "ordered action trace"
+                ],
+                "description": "steak cooked, onion cut, and all three items staged on the service stand without premature sending",
+                "grounded_in": "'get this steak-and-onion melt ready for the service stand ... stop me if I'm about to send it too soon'",
+                "id": "g1",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "the wearer states a goal and asks to be stopped if too soon, without dictating the trigger phrasing or dependency structure",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "the novice wearer does not know the dependency structure and would send an incomplete melt without the gate",
+            "why_utterance_alone_fails": "the utterance names components but the assistant must read the evolving completion state of each branch to know which step is legal at each moment"
+          },
+          "capability_fit": "The assistant must reason over a partial-order graph where two parallel branches gate a final placement, and refuse the requested cheese step whose onion prerequisite is incomplete.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "steak",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "steak to be cooked"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "half_vidalia_onion",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "half vidalia onion to be cut"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "order ticket as final gated item"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "table_knife",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "table knife for cutting"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "A novice worker is covering the lunch pass in a restaurant cafeteria. An uncooked steak and an uncut half onion are on the prep table, the order ticket reading 'Steak + onion' waits on an adjacent table, and the food-safe service stand is empty. The worker asks the glasses to guide them through getting the order onto the service stand. The assistant identifies two preparation branches: cook the steak, and cut then cook the half onion. It first guides opening the oven and loading the steak. Once that placement is observed, it guides cutting the onion with the table knife, loading it beside the steak, closing the oven, and cooking both. After the cooked states are observed, it directs retrieval to the food pass and only then sends the ticket, closes the oven, and verifies the stand. A weak guide sends the ticket before either food branch is complete, even though it later performs the same physical preparation; the premature ready signal is the declared evaluation gap.",
+              "scene": "restaurant_cafeteria",
+              "why_scene": "a commercial kitchen with a prep table and service stand naturally supports a steak-and-onion melt prep-to-service dependency task"
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "does the assistant gate the final cheese placement on both prerequisite branches and refuse it while the onion is uncut",
+                "counterfactual_failure": "weak guide directs cheese placement while onion still uncut, sending an incomplete melt",
+                "forbidden_changes": [
+                  "placing cheese while onion uncut",
+                  "narrating every hand motion as a stage"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "live view showing cooked steak and uncut onion at the refusal point",
+                  "live view confirming both prerequisites before release"
+                ],
+                "required_final_predicates": [
+                  "cooked",
+                  "cut",
+                  "on"
+                ],
+                "success_condition": "steak cooked, onion cut, all three on stand with cheese last",
+                "temporal_constraints": [
+                  "cheese may not be placed before both steak cooked and onion cut"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "first prerequisite branch",
+                  "what": "steak to be cooked",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "second prerequisite branch",
+                  "what": "half vidalia onion to be cut",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "final service placement gated on both branches",
+                  "what": "order ticket as final gated item",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "cut surface for onion",
+                  "what": "table knife for cutting",
+                  "when": "main"
+                }
+              ],
+              "hinges_on": "the cheese final placement is gated on BOTH the cooked steak and the cut onion, and the onion is still uncut at the moment the wearer reaches for cheese",
+              "look_alike": [],
+              "opening": "steak, half vidalia onion, order ticket, and table knife laid out on the commercial kitchen table; stand empty",
+              "outcome": "cooked steak, cut onion, and order ticket all on the service stand, cheese placed last after both prerequisites complete",
+              "place": "kitchen_0 commercial kitchen table with an empty service stand nearby",
+              "printed": [],
+              "tests_what": "partial-order dependency reasoning with refusal of a prerequisite-incomplete step"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "This is a clean dependency-graph episode: two parallel prerequisite branches (cook steak, cut onion) both gate the final cheese service placement, and the assistant refuses the premature cheese placement when the wearer reaches for it while the onion is still uncut. Every edge is grounded in the wearer's request ('stop me if I'm about to send it too soon') and live visual state (steak cooked vs onion still uncut), not in a rigid total order. The strong branch gates on both prerequisites; the weak branch treats cheese as available after only the steak, producing an incomplete melt marked ready. There are 5+ meaningful stages (initial branch instruction, cook-verification+next-branch, refusal at premature cheese reach, gate-release with ordered placement, final verification), three+ assistant turns each driven by new observed state. All nouns bind to exact categories (steak, half_vidalia_onion, paper_sheet, table_knife, commercial_kitchen_table, stand). The strong/weak difference is observable via intervention timing and ordered trace even where final relations could partly converge; the refusal turn is the decisive distinguishing channel.",
+          "requirements": [
+            "Ensure the weak branch actually places cheese while onion is uncut, producing a distinguishable trace (premature final placement) even if final on-stand relations converge.",
+            "Keep the assistant refusal turn grounded in the observed uncut-onion state at the moment the wearer reaches for cheese."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "LookAt",
+              "Grab",
+              "Cook",
+              "Put",
+              "Cut",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 14,
+            "estimated_prologue_actions": 0,
+            "estimated_task_actions": 14,
+            "events": [],
+            "final_predicates": [
+              "cooked",
+              "cut",
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 81.9,
+          "structural_signature": {
+            "evaluation": "ordered trace plus scorable cooked/cut/on final state",
+            "evidence": "live view of cooked-steak and uncut-onion states",
+            "failure": "weak guide places cheese before onion prerequisite complete",
+            "operation": "partial-order dependency gating with premature-step refusal",
+            "response": "instruct, verify, refuse premature step, release, verify",
+            "template_class": "parallel_prereq_branches_gate_final_placement",
+            "temporal": "incremental gating across two parallel branches then release"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "actor_scope": {
+                "live_physical_actors": [
+                  "wearer"
+                ],
+                "other_person_changes_world": false
+              },
+              "core_claims": [
+                {
+                  "available_before_turn": 0,
+                  "claim": "the melt has two parallel prerequisite branches gating the final cheese placement",
+                  "derived_from": [],
+                  "established_by": "wearer's request to guide and stop if sending too soon, plus live view of laid-out components",
+                  "runtime_support": "live view of steak, onion, cheese, table knife on the table",
+                  "source": "utterance"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "the onion is still uncut when the wearer reaches for cheese, so cheese placement is illegal",
+                  "derived_from": [],
+                  "established_by": "LookAt on the table showing cooked steak beside uncut onion",
+                  "runtime_support": "cut predicate false on onion at intervention",
+                  "source": "live_state"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "both prerequisites are complete so ordered final placement is now legal",
+                  "derived_from": [
+                    "the onion is still uncut when the wearer reaches for cheese, so cheese placement is illegal"
+                  ],
+                  "established_by": "observing cooked steak and cut onion both true",
+                  "runtime_support": "cooked(steak) and cut(onion) both observed true",
+                  "source": "derived"
+                }
+              ],
+              "counterfactual_contract": {
+                "allowed_other_differences": [],
+                "operator": "place the final cheese step before the onion prerequisite is complete",
+                "shared_obligations": [
+                  "g1"
+                ],
+                "target_difference": "strong refuses cheese until onion is cut; weak places cheese while onion still uncut, sending an incomplete melt"
+              },
+              "cross_field_consistency": {
+                "conflicts": [],
+                "consistent": true
+              },
+              "decisive_fact_absent_from_utterance": true,
+              "egocentric_evidence": "the live view showing the steak is cooked but the onion is still uncut when the wearer reaches for cheese",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "meaningful_steps": [
+                "initial branch instruction identifying two parallel prerequisites and the gated cheese step",
+                "verify cooked steak and instruct onion branch after observing uncut onion",
+                "refuse premature cheese reach because onion is still uncut",
+                "release gate after both prerequisites visible and give ordered placement",
+                "verify all three items on the stand"
+              ],
+              "memory_gap": {
+                "intervening_meaningful_actions": 0,
+                "reason": "this is a live dependency-reasoning task, not a memory-reconstruction task",
+                "required": false,
+                "wearer_just_established_answer": false
+              },
+              "physical_plausibility": {
+                "credible": true,
+                "issues": []
+              },
+              "semantic_turns": 3,
+              "story_world_mismatches": [],
+              "strong_completes_user_goal": true,
+              "strong_weak_distinct": true,
+              "turn0_access": {
+                "answer_fully_visible": false,
+                "assistant_need": "the wearer is new and lacks the dependency knowledge to sequence the branches and avoid a premature final placement",
+                "wearer_can_self_serve": false
+              },
+              "ungrounded_physical_nouns": [],
+              "unmodeled_claims": [],
+              "user_goal_obligations": [
+                {
+                  "covered_by": [
+                    "assistant dialogue",
+                    "cooked/cut/on final predicates",
+                    "ordered action trace"
+                  ],
+                  "description": "steak cooked, onion cut, and all three items staged on the service stand without premature sending",
+                  "grounded_in": "'get this steak-and-onion melt ready for the service stand ... stop me if I'm about to send it too soon'",
+                  "id": "g1",
+                  "kind": "physical"
+                }
+              ],
+              "uses_only_grounded_assets": true,
+              "utterance_policy": {
+                "prescribes_assistant_words_or_trigger": false,
+                "reason": "the wearer states a goal and asks to be stopped if too soon, without dictating the trigger phrasing or dependency structure",
+                "states_goal_not_solution": true
+              },
+              "weak_shared_work_complete": true,
+              "why_user_needs_assistant": "the novice wearer does not know the dependency structure and would send an incomplete melt without the gate",
+              "why_utterance_alone_fails": "the utterance names components but the assistant must read the evolving completion state of each branch to know which step is legal at each moment"
+            },
+            "capability_fit": "The assistant must reason over a partial-order graph where two parallel branches gate a final placement, and refuse the requested cheese step whose onion prerequisite is incomplete.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "steak",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "steak to be cooked"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "half_vidalia_onion",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "half vidalia onion to be cut"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "paper_sheet",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "order ticket as final gated item"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "table_knife",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "table knife for cutting"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "A novice worker is covering the lunch pass in a restaurant cafeteria. An uncooked steak and an uncut half onion are on the prep table, the order ticket reading 'Steak + onion' waits on an adjacent table, and the food-safe service stand is empty. The worker asks the glasses to guide them through getting the order onto the service stand. The assistant identifies two preparation branches: cook the steak, and cut then cook the half onion. It first guides opening the oven and loading the steak. Once that placement is observed, it guides cutting the onion with the table knife, loading it beside the steak, closing the oven, and cooking both. After the cooked states are observed, it directs retrieval to the food pass and only then sends the ticket, closes the oven, and verifies the stand. A weak guide sends the ticket before either food branch is complete, even though it later performs the same physical preparation; the premature ready signal is the declared evaluation gap.",
+                "scene": "restaurant_cafeteria",
+                "why_scene": "a commercial kitchen with a prep table and service stand naturally supports a steak-and-onion melt prep-to-service dependency task"
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "does the assistant gate the final cheese placement on both prerequisite branches and refuse it while the onion is uncut",
+                  "counterfactual_failure": "weak guide directs cheese placement while onion still uncut, sending an incomplete melt",
+                  "forbidden_changes": [
+                    "placing cheese while onion uncut",
+                    "narrating every hand motion as a stage"
+                  ],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "live view showing cooked steak and uncut onion at the refusal point",
+                    "live view confirming both prerequisites before release"
+                  ],
+                  "required_final_predicates": [
+                    "cooked",
+                    "cut",
+                    "on"
+                  ],
+                  "success_condition": "steak cooked, onion cut, all three on stand with cheese last",
+                  "temporal_constraints": [
+                    "cheese may not be placed before both steak cooked and onion cut"
+                  ]
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "first prerequisite branch",
+                    "what": "steak to be cooked",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "second prerequisite branch",
+                    "what": "half vidalia onion to be cut",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "final service placement gated on both branches",
+                    "what": "order ticket as final gated item",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "drives_the_story",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "cut surface for onion",
+                    "what": "table knife for cutting",
+                    "when": "main"
+                  }
+                ],
+                "hinges_on": "the cheese final placement is gated on BOTH the cooked steak and the cut onion, and the onion is still uncut at the moment the wearer reaches for cheese",
+                "look_alike": [],
+                "opening": "steak, half vidalia onion, order ticket, and table knife laid out on the commercial kitchen table; stand empty",
+                "outcome": "cooked steak, cut onion, and order ticket all on the service stand, cheese placed last after both prerequisites complete",
+                "place": "kitchen_0 commercial kitchen table with an empty service stand nearby",
+                "printed": [],
+                "tests_what": "partial-order dependency reasoning with refusal of a prerequisite-incomplete step"
+              }
+            },
+            "duplicate_of": null,
+            "reason": "This is a clean dependency-graph episode: two parallel prerequisite branches (cook steak, cut onion) both gate the final cheese service placement, and the assistant refuses the premature cheese placement when the wearer reaches for it while the onion is still uncut. Every edge is grounded in the wearer's request ('stop me if I'm about to send it too soon') and live visual state (steak cooked vs onion still uncut), not in a rigid total order. The strong branch gates on both prerequisites; the weak branch treats cheese as available after only the steak, producing an incomplete melt marked ready. There are 5+ meaningful stages (initial branch instruction, cook-verification+next-branch, refusal at premature cheese reach, gate-release with ordered placement, final verification), three+ assistant turns each driven by new observed state. All nouns bind to exact categories (steak, half_vidalia_onion, paper_sheet, table_knife, commercial_kitchen_table, stand). The strong/weak difference is observable via intervention timing and ordered trace even where final relations could partly converge; the refusal turn is the decisive distinguishing channel.",
+            "requirements": [
+              "Ensure the weak branch actually places cheese while onion is uncut, producing a distinguishable trace (premature final placement) even if final on-stand relations converge.",
+              "Keep the assistant refusal turn grounded in the observed uncut-onion state at the moment the wearer reaches for cheese."
+            ],
+            "runtime_requirements": {
+              "actions": [
+                "LookAt",
+                "Grab",
+                "Cook",
+                "Put",
+                "Cut",
+                "Walk"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 14,
+              "estimated_prologue_actions": 0,
+              "estimated_task_actions": 14,
+              "events": [],
+              "final_predicates": [
+                "cooked",
+                "cut",
+                "on"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 81.9,
+            "structural_signature": {
+              "evaluation": "ordered trace plus scorable cooked/cut/on final state",
+              "evidence": "live view of cooked-steak and uncut-onion states",
+              "failure": "weak guide places cheese before onion prerequisite complete",
+              "operation": "partial-order dependency gating with premature-step refusal",
+              "response": "instruct, verify, refuse premature step, release, verify",
+              "template_class": "parallel_prereq_branches_gate_final_placement",
+              "temporal": "incremental gating across two parallel branches then release"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "restaurant_cafeteria",
+        "sha": "f6f52793887f",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v68_curatedhistory_gpt55_opus_20260902a/compile_input/GUIDE/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gpt-5-5-genai-responses",
+        "judge_model": "claude-4-8-opus-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260901s"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_micro24_v68_curatedhistory_gpt55_opus_20260902a",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v40-template-cap3-20260901",
+        "release_id": "sha256:c8caddec12f4e765afc644483feb301b01fdb5b670b26529302f66325fd4e8c4",
+        "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "normalizations": [
+        {
+          "kind": "manual_story_revision",
+          "result": "guide26-story-refine-r2-20260912zl",
+          "source": "GUIDE-108005"
+        },
+        {
+          "kind": "canonicalize_required_evidence",
+          "source": "[\"I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time.\", \"The ticket is lifted for a readable close view of the complete griddle, stir, cook, and plate sequence, then returned to the preparation table.\", \"A level inspection shows the thin steak, prepared broccolini, sealed sauce, and compact clean spatula together along the operator side of the large preparation worktable.\", \"The powered flat top holds both the schnitzel and broccolini.\", \"The wearer has stirred the two ingredients with the spatula.\", \"Both ingredients have visibly changed to their browned variants and the flat top is safely off.\", \"The plate carrying both browned foods and the sauce are together on the waist-high finished-order service pass.\"]",
+          "result": "[\"I'm new on the lunch pass. Please read the ticket, inspect what is here, and guide me through the entire order one step at a time.\", \"The ticket is lifted for a readable close view of the complete griddle, stir, cook, and plate sequence, then returned to the preparation table.\", \"A level inspection shows the thin steak, prepared broccolini, sealed sauce, and compact clean spatula together along the operator side of the large preparation worktable.\", \"The powered flat top holds both the schnitzel and broccolini.\", \"The wearer has stirred the two ingredients with the spatula.\", \"Both ingredients have visibly changed to their browned variants and the flat top is safely off.\", \"The plate carrying both browned foods and the sauce are together on the waist-high finished-order service pass.\", \"Follow the ticket: turn on the flat top, place the pre-cooked schnitzel and prepared broccolini on it, stir them with the spatula, return the tool, and cook until both visibly brown. Turn the flat top off, put both browned foods on the clean plate, carry that plate onto the waist-high service pass, then place the sealed sauce bottle beside it.\"]"
+        }
+      ],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "GUIDE-108005",
+      "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+      "capability_notes": [
+        "Hidden brown duplicates are pre-staged at safe fixed grill sites; each inherits its source food's center and base at the Cook-aligned reveal before its follow-up Grab is planned.",
+        "Cook actions create scored heating state on the raw counterparts while the revealed brown duplicates provide an unmistakable finished appearance.",
+        "The diner scene supplies only the shallow szisej/wchhzh commercial flat tops, each about 0.66 m deep and 1.03 m high, reducing the reach that caused sustained pelvis and leg penetration on the old 1.20 m-deep grill.",
+        "The formal recipe ticket is a graspable clipboard on the exact scene-native vxvtec worktable. The held-document LookAt path automatically returns it to that support and clears the hand before the opening survey continues.",
+        "The shallow scene-native bbjuqu_1 ticket counter remains unchanged and carries no movable load, while the separate exact nisnrl waist-high worktable serves as the reachable finished-order pass.",
+        "The spatula returns to the preparation worktable through the runtime's live-tested safe surface-site selection.",
+        "The large plate publishes surface/container affordances, carries both browned foods recursively, and is placed as one unit on the scene-native service-pass worktable before the sauce is added."
+      ],
+      "revision": "guide26-story-refine-r2-20260912zl"
+    },
+    "oracle_dialogue_override_ids": [
+      "guide108005_schnitzel_locator",
+      "guide108005_broccolini_locator",
+      "guide108005_spatula_locator",
+      "guide108005_cooking_locator",
+      "guide108005_plating_locators"
+    ],
+    "parent_interaction_revision": "guide22-interaction-20260913",
+    "opening_revision": "guide22-core-final-state-r3-20260914",
+    "score_contract_revision": "guide22-core-final-state-r3-20260914"
+  }
+}

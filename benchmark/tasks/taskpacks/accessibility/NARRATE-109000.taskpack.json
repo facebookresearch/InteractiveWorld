@@ -1,0 +1,4080 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "NARRATE-109000",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "phone",
+          "target": "office_desk"
+        },
+        {
+          "pred": "on",
+          "subject": "badge",
+          "target": "lobby_desk"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "phone",
+          "target": "office_desk"
+        },
+        {
+          "pred": "on",
+          "subject": "badge",
+          "target": "lobby_desk"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [],
+        "nested_containers": [],
+        "objects": [
+          "badge",
+          "checklist",
+          "folder",
+          "mug",
+          "phone"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer cannot infer the answer from speech alone; the weak branch demonstrates the visible mistake or unsafe continuation.",
+        "assistant_must": "The report folder is already on the supervisor's desk, and the mug is already on the lobby reception desk. Two jobs remain: move the office phone to the supervisor's cubicle desk, then take the visitor badge to the lobby reception desk.",
+        "cue": "I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?",
+        "premise": "All four checkout objects begin on the employee's own desk, while the checklist rests at reception. The wearer first completes the folder and mug jobs in two different rooms, then returns, lifts the checklist for a close reading, and asks what remains. The assistant must combine the written list with the observed action history and report only the phone and visitor-badge jobs as unfinished before guiding them to completion."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [
+        "Exact forearm-knockoff physics and the timing while the mug is in hand are not represented; the decision-critical baseline on(item_2,surf_1) and current on(item_2,surf_2) states are preserved.",
+        "The actual wiping motion and cleaning tool are not modeled."
+      ],
+      "family": "NARRATE",
+      "grounding": {
+        "cite": "I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?",
+        "kind": "authored",
+        "ref": "data_generate:NARRATE-109000"
+      },
+      "rule_table": "on(phone, office_desk); on(badge, lobby_desk)",
+      "scene": "office_cubicles_right",
+      "template": "the grounded office_cubicles_right scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 23,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 23,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "employee_desk"
+          ]
+        },
+        {
+          "verb": "LookScan",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "folder"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "office_desk"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "folder",
+            "office_desk"
+          ],
+          "place_spot": [
+            -0.5,
+            0.38
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "office_desk"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "employee_desk"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "lobby_desk"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "mug",
+            "lobby_desk"
+          ],
+          "place_spot": [
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "lobby_desk"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "checklist"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "checklist"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "employee_desk"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "office_desk"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "office_desk"
+          ],
+          "place_spot": [
+            -0.5,
+            0.58
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "office_desk"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "employee_desk"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "badge"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "lobby_desk"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "badge",
+            "lobby_desk"
+          ],
+          "place_spot": [
+            0.0,
+            0.15
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "lobby_desk"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "NARRATE",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Grab] <phone> (1), [Walk] <office_desk> (1), [PutOn] <phone> (1) <office_desk> (1) @place_spot=-0.5:0.58, [LookAt] <office_desk> (1), [Walk] <employee_desk> (1), [Grab] <badge> (1), [Walk] <lobby_desk> (1), [PutOn] <badge> (1) <lobby_desk> (1) @place_spot=0.0:0.15, [LookAt] <lobby_desk> (1)",
+      "seed": 3007953265,
+      "source_task_id": "NARRATE-109000"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "phone",
+          "target": "office_desk"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "badge",
+          "target": "lobby_desk"
+        }
+      ],
+      "sub_steps": [
+        "on(phone, office_desk)",
+        "on(badge, lobby_desk)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "NARRATE-109000",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 3007953265,
+      "containers": {},
+      "decor": [],
+      "fixtures": {
+        "employee_desk": {
+          "bind": {
+            "cat": "cubicle",
+            "source": "scene",
+            "pick": {
+              "name": "cubicle_deceti_0",
+              "stage_prim_path": "/World/b_cubicle_deceti_0",
+              "asset_sha256": "sha256:dbd2112b3c60a7d55edd5f8e01f78ae100207cde1292798059c0040ae5832c04",
+              "instance_digest": "sha256:3a513860646cf11669fb63d62d9b25f0a9c0feb6fb7e41a91687b48b467430c6",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "shared_office_0",
+          "seatable": false
+        },
+        "lobby_desk": {
+          "bind": {
+            "cat": "desk",
+            "source": "scene",
+            "pick": {
+              "name": "desk_pfsjbc_0",
+              "stage_prim_path": "/World/b_desk_pfsjbc_0",
+              "asset_sha256": "sha256:6b79195a16cbfe087c0e6426a9ea31e9c1897a70b8fdb1c8d7a539e163607f12",
+              "instance_digest": "sha256:a58c04706964f8bc4d573ea5d6776e37cc309e9b59d4950f43cde24b1c389cc5",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "lobby_0",
+          "seatable": false
+        },
+        "office_desk": {
+          "bind": {
+            "cat": "cubicle",
+            "source": "scene",
+            "pick": {
+              "name": "cubicle_deceti_2",
+              "stage_prim_path": "/World/b_cubicle_deceti_2",
+              "asset_sha256": "sha256:dbd2112b3c60a7d55edd5f8e01f78ae100207cde1292798059c0040ae5832c04",
+              "instance_digest": "sha256:8f16a0bcdf2e3d75835e171bd2ff6aa0f5635c4f8ecd075cf32bb7ec0ed6847f",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "shared_office_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_checklist": {
+          "content": {
+            "args": {
+              "renderer": "checklist",
+              "rows": [
+                "REPORT FOLDER|SUPERVISOR DESK",
+                "USED MUG|LOBBY RECEPTION DESK",
+                "OFFICE PHONE|SUPERVISOR DESK",
+                "VISITOR BADGE|LOBBY RECEPTION DESK"
+              ],
+              "sub": "VERIFY ONLY THE ITEMS STILL OUT OF PLACE",
+              "title": "OFFICE CHECK-OUT CHECKLIST"
+            },
+            "lines": [
+              "REPORT FOLDER|SUPERVISOR DESK",
+              "USED MUG|LOBBY RECEPTION DESK",
+              "OFFICE PHONE|SUPERVISOR DESK",
+              "VISITOR BADGE|LOBBY RECEPTION DESK"
+            ],
+            "text": "OFFICE CHECK-OUT CHECKLIST"
+          },
+          "kind": "range_card",
+          "mount": {
+            "on": "checklist",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "narrate_109000_narrate14_user_review_r4_20260912_checklist_66e48ff099c0"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "folder": {
+          "cat": "folder",
+          "model": "guhatz",
+          "needs_lookat": false,
+          "place": "on:employee_desk",
+          "room": "shared_office_0",
+          "scored": false,
+          "spot": [
+            -0.65,
+            0.62
+          ]
+        },
+        "mug": {
+          "cat": "coffee_cup",
+          "model": "nbhcgu",
+          "needs_lookat": false,
+          "place": "on:employee_desk",
+          "room": "shared_office_0",
+          "scored": false,
+          "spot": [
+            -0.22,
+            0.62
+          ]
+        },
+        "phone": {
+          "cat": "cell_phone",
+          "model": "dbhfuh",
+          "needs_lookat": false,
+          "place": "on:employee_desk",
+          "room": "shared_office_0",
+          "scored": true,
+          "spot": [
+            0.2,
+            0.62
+          ],
+          "tint": "orange"
+        },
+        "badge": {
+          "cat": "name_tag",
+          "model": "xmncvq",
+          "needs_lookat": false,
+          "place": "on:employee_desk",
+          "room": "shared_office_0",
+          "scored": true,
+          "spot": [
+            0.62,
+            0.62
+          ]
+        },
+        "checklist": {
+          "cat": "clipboard",
+          "model": "gmxyfo",
+          "needs_lookat": true,
+          "place": "on:lobby_desk",
+          "room": "lobby_0",
+          "scored": false,
+          "spot": [
+            0.58,
+            0.5
+          ],
+          "decal": "OFFICE CHECK-OUT CHECKLIST"
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "shared_office_0",
+        "lobby_0"
+      ],
+      "scene": "office_cubicles_right",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "All four checkout objects begin on the employee's own desk, while the checklist rests at reception. The wearer first completes the folder and mug jobs in two different rooms, then returns, lifts the checklist for a close reading, and asks what remains. The assistant must combine the written list with the observed action history and report only the phone and visitor-badge jobs as unfinished before guiding them to completion.",
+    "assistant_goal": "I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?",
+    "assessment_contract": {
+      "assigned_capability_id": "NARRATE.CHECKLIST_PROGRESS",
+      "assigned_scene": "office_cubicles_right",
+      "core_question": "I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?",
+      "counterfactual_failure": "The weak branch acts on a mistaken identity, stale layout, unsafe route, or incomplete count and fails at least one scored predicate.",
+      "forbidden_changes": [
+        "Adding toy labels to ordinary furniture",
+        "Putting decisive visual evidence into the wearer's utterance",
+        "Moving an assistant turn after the action it is meant to correct"
+      ],
+      "knowledge_constraints": [
+        "All four checkout objects begin on the employee's own desk, while the checklist rests at reception. The wearer first completes the folder and mug jobs in two different rooms, then returns, lifts the checklist for a close reading, and asks what remains. The assistant must combine the written list with the observed action history and report only the phone and visitor-badge jobs as unfinished before guiding them to completion."
+      ],
+      "required_evidence": [
+        "I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?",
+        "The initial desk scan visibly shows the folder, mug, phone, and badge together on the employee's desk.",
+        "The report folder is visibly placed on the supervisor's desk.",
+        "The used mug is visibly on the lobby reception desk.",
+        "Only after completing those two jobs, the wearer holds the checklist close enough to read all four rows.",
+        "The office phone is visibly on the specified supervisor's desk.",
+        "The visitor badge is visibly beside the mug on the lobby reception desk, completing all four rows.",
+        "The report folder is already on the supervisor's desk, and the mug is already on the lobby reception desk. Two jobs remain: move the office phone to the supervisor's cubicle desk, then take the visitor badge to the lobby reception desk."
+      ],
+      "required_final_predicates": [
+        "on",
+        "on"
+      ],
+      "success_condition": "on(phone, office_desk); on(badge, lobby_desk)",
+      "temporal_constraints": [
+        "Each intervention follows its evidence and precedes the corresponding action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "NARRATE-109000",
+      "family": "NARRATE",
+      "kind": "grounded egocentric narration",
+      "assessment_contract": {
+        "assigned_capability_id": "NARRATE.CHECKLIST_PROGRESS",
+        "assigned_scene": "office_cubicles_right",
+        "core_question": "I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?",
+        "counterfactual_failure": "The weak branch acts on a mistaken identity, stale layout, unsafe route, or incomplete count and fails at least one scored predicate.",
+        "forbidden_changes": [
+          "Adding toy labels to ordinary furniture",
+          "Putting decisive visual evidence into the wearer's utterance",
+          "Moving an assistant turn after the action it is meant to correct"
+        ],
+        "knowledge_constraints": [
+          "All four checkout objects begin on the employee's own desk, while the checklist rests at reception. The wearer first completes the folder and mug jobs in two different rooms, then returns, lifts the checklist for a close reading, and asks what remains. The assistant must combine the written list with the observed action history and report only the phone and visitor-badge jobs as unfinished before guiding them to completion."
+        ],
+        "required_evidence": [
+          "I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?",
+          "The initial desk scan visibly shows the folder, mug, phone, and badge together on the employee's desk.",
+          "The report folder is visibly placed on the supervisor's desk.",
+          "The used mug is visibly on the lobby reception desk.",
+          "Only after completing those two jobs, the wearer holds the checklist close enough to read all four rows.",
+          "The office phone is visibly on the specified supervisor's desk.",
+          "The visitor badge is visibly beside the mug on the lobby reception desk, completing all four rows.",
+          "The report folder is already on the supervisor's desk, and the mug is already on the lobby reception desk. Two jobs remain: move the office phone to the supervisor's cubicle desk, then take the visitor badge to the lobby reception desk."
+        ],
+        "required_final_predicates": [
+          "on",
+          "on"
+        ],
+        "success_condition": "on(phone, office_desk); on(badge, lobby_desk)",
+        "temporal_constraints": [
+          "Each intervention follows its evidence and precedes the corresponding action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "address",
+          "apple",
+          "artichoke",
+          "beef_broth_carton",
+          "bottle_of_ammonia",
+          "bottle_of_gin",
+          "bottle_of_mayonnaise",
+          "bottle_of_paint",
+          "bottle_of_vodka",
+          "box_of_baking_mix",
+          "box_of_lemons",
+          "can_of_tomato_paste",
+          "canteen",
+          "casserole",
+          "cell_phone",
+          "clipboard",
+          "coffee_cup",
+          "cotton_thread",
+          "digital_scale",
+          "electric_hand_mixer",
+          "folder",
+          "gift_box",
+          "grape",
+          "green_onion_stalk",
+          "half_bagel",
+          "half_bay_leaf",
+          "half_biscuit_dough",
+          "half_rhubarb",
+          "hand_towel",
+          "jade",
+          "jar_of_jam",
+          "jigger",
+          "license_plate",
+          "mug",
+          "name_tag",
+          "notebook",
+          "paint_roller",
+          "paper_sheet",
+          "plant_pot",
+          "polish_bottle",
+          "ribbon",
+          "rosemary_shaker",
+          "saddle_soap_bottle",
+          "screw",
+          "shoe_box",
+          "snow_globe",
+          "sponge",
+          "vanilla_bottle",
+          "vest"
+        ],
+        "allowed_surface_categories": [
+          "conference_table",
+          "countertop",
+          "cubicle",
+          "desk",
+          "shelf"
+        ],
+        "capability_id": "NARRATE.CHECKLIST_PROGRESS",
+        "coverage_categories": [
+          "box_of_baking_mix",
+          "vanilla_bottle",
+          "bottle_of_ammonia",
+          "bottle_of_paint",
+          "cotton_thread",
+          "grape",
+          "casserole",
+          "rosemary_shaker",
+          "license_plate",
+          "can_of_tomato_paste",
+          "electric_hand_mixer",
+          "half_rhubarb",
+          "jar_of_jam",
+          "polish_bottle",
+          "half_bagel",
+          "saddle_soap_bottle",
+          "box_of_lemons",
+          "jade",
+          "artichoke",
+          "bottle_of_mayonnaise"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 2,
+          "required_semantic_turns": 2,
+          "requires_cross_room_transition": true,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": true,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "NARRATE",
+        "limits": {
+          "max_authored_actions": 27,
+          "max_document_characters": 186,
+          "max_fixed_destinations": 4,
+          "max_meaningful_steps": 23,
+          "max_movable_objects": 5,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 14,
+          "max_small_label_characters": 40,
+          "max_task_actions": 9,
+          "min_intervening_meaningful_actions": 8,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "apple",
+          "paper_sheet",
+          "mug",
+          "cell_phone"
+        ],
+        "preferred_story_category_glosses": {
+          "apple": "fruit with red or yellow or green skin and sweet to tart crisp whitish flesh",
+          "cell_phone": "",
+          "mug": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 35.4,
+            "name": "bathroom_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "countertop": 1
+            },
+            "surface_max_area_m2": {
+              "countertop": 0.587
+            },
+            "surface_reference_capacity": {
+              "countertop": 3
+            }
+          },
+          {
+            "area_m2": 32.9,
+            "name": "meeting_room_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "conference_table": 1
+            },
+            "surface_max_area_m2": {
+              "conference_table": 1.266
+            },
+            "surface_reference_capacity": {
+              "conference_table": 3
+            }
+          },
+          {
+            "area_m2": 29.5,
+            "name": "lobby_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "desk": 1
+            },
+            "surface_max_area_m2": {
+              "desk": 1.139
+            },
+            "surface_reference_capacity": {
+              "desk": 3
+            }
+          }
+        ],
+        "scene": "office_cubicles_right",
+        "task_id": "NARRATE-109000",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "folder",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "report folder"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "coffee_cup",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "used office mug"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "cell_phone",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": "orange",
+            "what": "office phone"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "name_tag",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "visitor name badge"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "clipboard",
+            "changed": false,
+            "costs": null,
+            "label": "OFFICE CHECK-OUT CHECKLIST",
+            "tint": null,
+            "what": "large office check-out checklist clipboard"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "cubicle",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "employee's own cubicle desk holding all four checkout items"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "desk",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "lobby reception desk"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "cubicle",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "supervisor's cubicle desk in the shared office"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "large office check-out checklist clipboard",
+            "text": "OFFICE CHECK-OUT CHECKLIST",
+            "what": "document",
+            "which": null
+          }
+        ],
+        "restaged_story": "All four checkout objects begin on the employee's own desk, while the checklist rests at reception. The wearer first completes the folder and mug jobs in two different rooms, then returns, lifts the checklist for a close reading, and asks what remains. The assistant must combine the written list with the observed action history and report only the phone and visitor-badge jobs as unfinished before guiding them to completion.",
+        "scene": "office_cubicles_right",
+        "why_scene": "office_cubicles_right supplies the rooms and fixtures used by this grounded NARRATE story."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {},
+        "items": {
+          "folder": {
+            "affordances": [],
+            "cat": "folder",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:employee_desk",
+            "scored": false,
+            "spot": [
+              -0.65,
+              0.62
+            ],
+            "tint": null
+          },
+          "mug": {
+            "affordances": [],
+            "cat": "coffee_cup",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:employee_desk",
+            "scored": false,
+            "spot": [
+              -0.22,
+              0.62
+            ],
+            "tint": null
+          },
+          "phone": {
+            "affordances": [],
+            "cat": "cell_phone",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:employee_desk",
+            "scored": true,
+            "spot": [
+              0.2,
+              0.62
+            ],
+            "tint": "orange"
+          },
+          "badge": {
+            "affordances": [],
+            "cat": "name_tag",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:employee_desk",
+            "scored": true,
+            "spot": [
+              0.62,
+              0.62
+            ],
+            "tint": null
+          },
+          "checklist": {
+            "affordances": [],
+            "cat": "clipboard",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "OFFICE CHECK-OUT CHECKLIST",
+            "place": "on:lobby_desk",
+            "scored": false,
+            "spot": [
+              0.58,
+              0.5
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <employee_desk> (1)",
+          "[LookScan]",
+          "[Grab] <folder> (1)",
+          "[Walk] <office_desk> (1)",
+          "[PutOn] <folder> (1) <office_desk> (1) @place_spot=-0.5:0.38",
+          "[LookAt] <office_desk> (1)",
+          "[Walk] <employee_desk> (1)",
+          "[Grab] <mug> (1)",
+          "[Walk] <lobby_desk> (1)",
+          "[PutOn] <mug> (1) <lobby_desk> (1) @place_spot=0.0:0.5",
+          "[LookAt] <lobby_desk> (1)",
+          "[Grab] <checklist> (1)",
+          "[LookAt] <checklist> (1)",
+          "[Walk] <employee_desk> (1)"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "shared_office_0",
+          "lobby_0"
+        ],
+        "scene": "office_cubicles_right",
+        "staging": {
+          "groups": "All four checkout objects begin on the employee's own desk, while the checklist rests at reception. The wearer first completes the folder and mug jobs in two different rooms, then returns, lifts the checklist for a close reading, and asks what remains. The assistant must combine the written list with the observed action history and report only the phone and visitor-badge jobs as unfinished before guiding them to completion.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "employee_desk": {
+            "cat": "cubicle",
+            "label": null,
+            "room": "shared_office_0"
+          },
+          "lobby_desk": {
+            "cat": "desk",
+            "label": null,
+            "room": "lobby_0"
+          },
+          "office_desk": {
+            "cat": "cubicle",
+            "label": null,
+            "room": "shared_office_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?"
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The initial desk scan visibly shows the folder, mug, phone, and badge together on the employee's desk.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The report folder is visibly placed on the supervisor's desk.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 5,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The used mug is visibly on the lobby reception desk.",
+            "from": "prologue",
+            "id": "fact_004",
+            "source_index": 10,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Only after completing those two jobs, the wearer holds the checklist close enough to read all four rows.",
+            "from": "prologue",
+            "id": "fact_005",
+            "source_index": 12,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The office phone is visibly on the specified supervisor's desk.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 3,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The visitor badge is visibly beside the mug on the lobby reception desk, completing all four rows.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 8,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007"
+            ],
+            "fact": "The report folder is already on the supervisor's desk, and the mug is already on the lobby reception desk. Two jobs remain: move the office phone to the supervisor's cubicle desk, then take the visitor badge to the lobby reception desk.",
+            "from": "derived",
+            "id": "fact_008",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "phone",
+            "target": "office_desk"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "badge",
+            "target": "lobby_desk"
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "The folder and mug rows are already complete. Two tasks remain. Pick up the orange office phone from the shared-office employee desk, walk to the supervisor's office desk, place the phone on that supervisor's desk, and look directly at the desk to confirm it.",
+            "referents": [
+              "checklist",
+              "folder",
+              "mug",
+              "phone",
+              "office_desk"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ]
+          },
+          {
+            "before_index": 4,
+            "say": "The phone row is complete. Walk back to the shared-office employee desk and pick up the visitor badge from that shared-office employee desk. Walk to the lobby reception desk beside the mug you already placed, put the badge on that lobby desk, and look directly at the desk to confirm it.",
+            "referents": [
+              "checklist",
+              "phone",
+              "badge",
+              "lobby_desk",
+              "mug"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ]
+          }
+        ],
+        "hidden_fact": {
+          "what": "The report folder is already on the supervisor's desk, and the mug is already on the lobby reception desk. Two jobs remain: move the office phone to the supervisor's cubicle desk, then take the visitor badge to the lobby reception desk.",
+          "revealed_by": "[LookAt] <checklist> (1)",
+          "unavailable_because": "The answer depends on visual layout, prior observed state, or a document that the wearer cannot recover from the utterance alone."
+        },
+        "human_own_script": "[Grab] <badge> (1), [PutOn] <badge> (1) <office_desk> (1), [Wait]",
+        "mates": [],
+        "oracle_program": "[Grab] <phone> (1), [Walk] <office_desk> (1), [PutOn] <phone> (1) <office_desk> (1) @place_spot=-0.5:0.58, [LookAt] <office_desk> (1), [Walk] <employee_desk> (1), [Grab] <badge> (1), [Walk] <lobby_desk> (1), [PutOn] <badge> (1) <lobby_desk> (1) @place_spot=0.0:0.15, [LookAt] <lobby_desk> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "All four checkout objects begin on the employee's own desk, while the checklist rests at reception. The wearer first completes the folder and mug jobs in two different rooms, then returns, lifts the checklist for a close reading, and asks what remains. The assistant must combine the written list with the observed action history and report only the phone and visitor-badge jobs as unfinished before guiding them to completion.",
+        "utterance": "I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?"
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <employee_desk> (1)",
+        "[LookScan]",
+        "[Grab] <folder> (1)",
+        "[Walk] <office_desk> (1)",
+        "[PutOn] <folder> (1) <office_desk> (1) @place_spot=-0.5:0.38",
+        "[LookAt] <office_desk> (1)",
+        "[Walk] <employee_desk> (1)",
+        "[Grab] <mug> (1)",
+        "[Walk] <lobby_desk> (1)",
+        "[PutOn] <mug> (1) <lobby_desk> (1) @place_spot=0.0:0.5",
+        "[LookAt] <lobby_desk> (1)",
+        "[Grab] <checklist> (1)",
+        "[LookAt] <checklist> (1)",
+        "[Walk] <employee_desk> (1)"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "employee_desk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "employee_desk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookScan",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The initial desk scan visibly shows the folder, mug, phone, and badge together on the employee's desk.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The report folder is already on the supervisor's desk, and the mug is already on the lobby reception desk. Two jobs remain: move the office phone to the supervisor's cubicle desk, then take the visitor badge to the lobby reception desk.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "folder"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "folder"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "office_desk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "office_desk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "folder",
+            "office_desk"
+          ],
+          "place_spot": [
+            -0.5,
+            0.38
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "office_desk"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The report folder is visibly placed on the supervisor's desk.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The report folder is already on the supervisor's desk, and the mug is already on the lobby reception desk. Two jobs remain: move the office phone to the supervisor's cubicle desk, then take the visitor badge to the lobby reception desk.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "employee_desk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "employee_desk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "mug"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "lobby_desk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "lobby_desk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "mug",
+            "lobby_desk"
+          ],
+          "place_spot": [
+            0.0,
+            0.5
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "lobby_desk"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The used mug is visibly on the lobby reception desk.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The report folder is already on the supervisor's desk, and the mug is already on the lobby reception desk. Two jobs remain: move the office phone to the supervisor's cubicle desk, then take the visitor badge to the lobby reception desk.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p011",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "checklist"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "checklist"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p012",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "checklist"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "Only after completing those two jobs, the wearer holds the checklist close enough to read all four rows.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The report folder is already on the supervisor's desk, and the mug is already on the lobby reception desk. Two jobs remain: move the office phone to the supervisor's cubicle desk, then take the visitor badge to the lobby reception desk.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p013",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "employee_desk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "employee_desk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The report folder is already on the supervisor's desk, and the mug is already on the lobby reception desk. Two jobs remain: move the office phone to the supervisor's cubicle desk, then take the visitor badge to the lobby reception desk.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The folder and mug rows are already complete. Two tasks remain. Pick up the orange office phone from the shared-office employee desk, walk to the supervisor's office desk, place the phone on that supervisor's desk, and look directly at the desk to confirm it.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The phone row is complete. Walk back to the shared-office employee desk and pick up the visitor badge from that shared-office employee desk. Walk to the lobby reception desk beside the mug you already placed, put the badge on that lobby desk, and look directly at the desk to confirm it.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "badge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "badge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "badge",
+            "office_desk"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "phone"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "office_desk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "office_desk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "office_desk"
+          ],
+          "place_spot": [
+            -0.5,
+            0.58
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "office_desk"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The office phone is visibly on the specified supervisor's desk.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The report folder is already on the supervisor's desk, and the mug is already on the lobby reception desk. Two jobs remain: move the office phone to the supervisor's cubicle desk, then take the visitor badge to the lobby reception desk.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "employee_desk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "employee_desk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "badge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "badge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "lobby_desk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "lobby_desk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "badge",
+            "lobby_desk"
+          ],
+          "place_spot": [
+            0.0,
+            0.15
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "lobby_desk"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The visitor badge is visibly beside the mug on the lobby reception desk, completing all four rows.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The report folder is already on the supervisor's desk, and the mug is already on the lobby reception desk. Two jobs remain: move the office phone to the supervisor's cubicle desk, then take the visitor badge to the lobby reception desk.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The initial desk scan visibly shows the folder, mug, phone, and badge together on the employee's desk.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "The report folder is visibly placed on the supervisor's desk.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p005"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 5
+      },
+      {
+        "id": "fact_004",
+        "statement": "The used mug is visibly on the lobby reception desk.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p010"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 10
+      },
+      {
+        "id": "fact_005",
+        "statement": "Only after completing those two jobs, the wearer holds the checklist close enough to read all four rows.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p012"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 12
+      },
+      {
+        "id": "fact_006",
+        "statement": "The office phone is visibly on the specified supervisor's desk.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o003"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 3
+      },
+      {
+        "id": "fact_007",
+        "statement": "The visitor badge is visibly beside the mug on the lobby reception desk, completing all four rows.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o008"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 8
+      },
+      {
+        "id": "fact_008",
+        "statement": "The report folder is already on the supervisor's desk, and the mug is already on the lobby reception desk. Two jobs remain: move the office phone to the supervisor's cubicle desk, then take the visitor badge to the lobby reception desk.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "p005",
+          "p010",
+          "p012",
+          "o003",
+          "o008"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the visual history and live views to answer the wearer's request and guide one grounded action at a time.",
+      "human_task_context": "You are the blind wearer and only the Assistant's physical executor, not a second planner. You receive no camera images. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the first currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. Perform at most one physical action per response, then wait for the next Assistant turn. Any machine-readable action choices supplied to you are private implementation details: never mention or ask about them in speech, and never use them to invent an answer, object location, route, source, destination, or next step that the Assistant did not state. Speak only as a real blind person would: describe what you physically did or felt, report a concrete failure, or ask briefly for an ordinary direction or visible description. Never volunteer a place or object that the Assistant has not mentioned in its current instruction, except for the object you are already holding or the request you stated in the fixed opening. You may act on a movable object only when you are already holding it, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source or landmark and a visible description sufficient to identify it. If that information is missing or wrong, leave the action empty and ask where the object is relative to you. Do not travel to or operate an unseen object merely because the private controls make it possible. Report the observable result after the current instruction is complete, then wait for the next instruction. You cannot see score or completion state and must never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <employee_desk> (1)",
+          "[LookScan]",
+          "[Grab] <folder> (1)",
+          "[Walk] <office_desk> (1)",
+          "[PutOn] <folder> (1) <office_desk> (1) @place_spot=-0.5:0.38",
+          "[LookAt] <office_desk> (1)",
+          "[Walk] <employee_desk> (1)",
+          "[Grab] <mug> (1)",
+          "[Walk] <lobby_desk> (1)",
+          "[PutOn] <mug> (1) <lobby_desk> (1) @place_spot=0.0:0.5",
+          "[LookAt] <lobby_desk> (1)",
+          "[Grab] <checklist> (1)",
+          "[LookAt] <checklist> (1)",
+          "[Walk] <employee_desk> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 14,
+            "say": "Hi Assistant, I'm blind, so I may need some visual help. I've done part of this checklist. What's left? Please help me finish it."
+          }
+        ],
+        "handoff_say": "Hi Assistant, I'm blind, so I may need some visual help. I've done part of this checklist. What's left? Please help me finish it.",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "remaining_checklist_request",
+            "required_phrases": [
+              "I'm blind",
+              "done part of this checklist",
+              "What's left"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[Grab] <phone> (1)",
+          "[Walk] <office_desk> (1)",
+          "[Grab] <badge> (1)",
+          "[Walk] <lobby_desk> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[Grab] <folder> (1)",
+          "[Grab] <mug> (1)",
+          "[PutOn] <phone> (1) <lobby_desk> (1)",
+          "[PutOn] <badge> (1) <office_desk> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[Grab] <phone> (1)",
+            "[Walk] <office_desk> (1)"
+          ],
+          [
+            "[Grab] <badge> (1)",
+            "[Walk] <lobby_desk> (1)"
+          ]
+        ],
+        "verification_points": [
+          {
+            "id": "phone_on_office_desk",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "phone",
+            "target": "office_desk"
+          },
+          {
+            "id": "badge_on_lobby_desk",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "badge",
+            "target": "lobby_desk"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "phone": [
+          "orange office phone",
+          "orange cell phone"
+        ],
+        "badge": [
+          "visitor badge",
+          "name tag"
+        ],
+        "employee_desk": [
+          "shared-office employee desk"
+        ],
+        "office_desk": [
+          "supervisor's office desk"
+        ],
+        "lobby_desk": [
+          "lobby reception desk beside the completed mug"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 28,
+    "dialogue_budget": 2,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "employee_desk",
+        "held": [
+          "checklist"
+        ],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "checklist",
+              "folder",
+              "mug",
+              "phone",
+              "office_desk"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "checklist",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "phone",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "office_desk",
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "checklist",
+              "phone",
+              "badge",
+              "lobby_desk",
+              "mug"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "phone",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "employee_desk",
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "badge",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "lobby_desk",
+            "truth": true
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o008"
+        }
+      ],
+      "terminal_beats": [
+        "h002",
+        "o008"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "phone"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "office_desk"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "phone",
+          "office_desk"
+        ],
+        "place_spot": [
+          -0.5,
+          0.58
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "office_desk"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "employee_desk"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "badge"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "lobby_desk"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "badge",
+          "lobby_desk"
+        ],
+        "place_spot": [
+          0.0,
+          0.15
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "lobby_desk"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "badge"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "badge",
+          "office_desk"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "The folder and mug rows are already complete. Two tasks remain. Pick up the orange office phone from the shared-office employee desk, walk to the supervisor's office desk, place the phone on that supervisor's desk, and look directly at the desk to confirm it.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The phone row is complete. Walk back to the shared-office employee desk and pick up the visitor badge from that shared-office employee desk. Walk to the lobby reception desk beside the mug you already placed, put the badge on that lobby desk, and look directly at the desk to confirm it.",
+        "relation": "before",
+        "anchor_beat_id": "o004",
+        "source": "guidance",
+        "source_index": 1
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "source": "narrate19_interaction_assembly",
+    "compile_input_digest": "sha256:970a52beb0bb8eff9e396d9e494727f387184b0e6fbf7b6c843a5342339413c8",
+    "source_contract_digest": "sha256:fc2f4de49c8eac6f0db97f1d3cad4bc177cd65c30cd96c3bb6e363d30ff1d6f0",
+    "executable_spec_digest": "sha256:4070141ca051005f3d8b040622a7553d9afc2edf08fb92935dfe49a9a6780f90",
+    "invention": {
+      "attempt": 1,
+      "author_prose": "A low-vision hotel housekeeper is resetting the large suite and wants the glasses to notice only changes that still matter when she is done. At the start she says, “I’m checking this setup by touch as I work. Please remember how these four things start, and when I ask later, tell me only what is still different.” She then gives the camera a clear look at the bedroom shelf: a mug, her work cell phone, and an apple are on it. She also looks at the bedroom desk, where a single paper sheet is lying.\n\nShe needs the mug while checking the bathroom shelf. She reaches to the bedroom shelf and grabs the mug. As she draws it away, her forearm accidentally pushes the cell phone off its shelf spot onto the desk. She does not pick up or deliberately place the phone, and because she cannot rely on vision she does not notice the displacement. Still holding the mug, she walks into the bathroom and inspects the bathroom shelf for the room reset. She returns to the bedroom and puts the mug back on the shelf. Then, to wipe the desk area, she moves the paper sheet from the desk to the bedroom shelf, finishes that part of the work, and puts the paper sheet back on the desk. These later moves are intentional and restored before the question.\n\nAt the end she asks only, “Anything still changed?” A strong assistant compares the current view with the earlier baseline and answers concisely: “Only your work cell phone is still different. It started on the bedroom shelf with the mug and apple; now it is on the desk. The mug and paper are back where they started.” The wearer then picks up the cell phone from the desk and puts it back on the bedroom shelf.\n\nA weak assistant either narrates the whole visible room, including unchanged furniture and objects, or says the setup looks reset because the mug and paper are back. In that failure case the phone remains on the desk, and the useful change-detection goal is missed.",
+      "author_prose_sha256": "sha256:f102a3c26da1eb0afd497ee885fcdcca858b78b52853bc63bf1009282d2905af",
+      "capability": {
+        "boundary": "Do not replay a full room inventory. The core operation is a visual diff across time.",
+        "few_shot": "A blind tenant returns to a shared workroom whose baseline the glasses observed earlier: a storage cabinet was closed and a supply basket was on the rear shelf. Now the cabinet is open and the basket has been moved to the central table; the other visible furniture is unchanged. The assistant reports only those two changes, mentioning the open cabinet first because it affects the immediate reach. The wearer closes the cabinet and returns the basket to its shelf. Earlier evidence anchors the baseline, the authored response records the change-only description, and the closed and on predicates expose whether the useful consequences were completed.",
+        "id": "NARRATE.CHANGE_DESCRIPTION",
+        "name_zh": "变化检测叙述",
+        "target": "Compare the present scene with a known baseline and report only meaningful changes, prioritising any change that affects safety or the current goal."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "NARRATE.CHANGE_DESCRIPTION",
+        "evaluation_mode": "TRACE_AND_OUTCOME",
+        "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": true,
+        "owner": "SIMULATOR_EVALUATION",
+        "reason": "Baseline and changed states run, but spoken change precision and recall lack a dedicated scorer.",
+        "reason_code": "CHANGE_DESCRIPTION_EVALUATOR",
+        "recommended_work": "Add baseline-diff narration precision, recall, and priority evaluation.",
+        "version": "capability-support/1.0",
+        "workstream": "EVALUATOR"
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "paper_sheet",
+          "mug",
+          "cell_phone",
+          "box_of_baking_mix",
+          "vanilla_bottle",
+          "bottle_of_ammonia",
+          "bottle_of_paint",
+          "cotton_thread",
+          "grape",
+          "casserole",
+          "rosemary_shaker",
+          "license_plate",
+          "can_of_tomato_paste",
+          "electric_hand_mixer",
+          "half_rhubarb",
+          "jar_of_jam",
+          "polish_bottle",
+          "half_bagel",
+          "saddle_soap_bottle",
+          "box_of_lemons",
+          "jade",
+          "artichoke",
+          "bottle_of_mayonnaise"
+        ],
+        "allowed_surface_categories": [
+          "desk",
+          "shelf"
+        ],
+        "capability_id": "NARRATE.CHANGE_DESCRIPTION",
+        "coverage_categories": [
+          "box_of_baking_mix",
+          "vanilla_bottle",
+          "bottle_of_ammonia",
+          "bottle_of_paint",
+          "cotton_thread",
+          "grape",
+          "casserole",
+          "rosemary_shaker",
+          "license_plate",
+          "can_of_tomato_paste",
+          "electric_hand_mixer",
+          "half_rhubarb",
+          "jar_of_jam",
+          "polish_bottle",
+          "half_bagel",
+          "saddle_soap_bottle",
+          "box_of_lemons",
+          "jade",
+          "artichoke",
+          "bottle_of_mayonnaise"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": true,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "NARRATE",
+        "limits": {
+          "max_authored_actions": 26,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 18,
+          "max_small_label_characters": 8,
+          "max_task_actions": 12,
+          "min_intervening_meaningful_actions": 3,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "apple",
+          "paper_sheet",
+          "mug",
+          "cell_phone"
+        ],
+        "preferred_story_category_glosses": {
+          "apple": "fruit with red or yellow or green skin and sweet to tart crisp whitish flesh",
+          "cell_phone": "",
+          "mug": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 39.7,
+            "name": "bedroom_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "desk": 1,
+              "shelf": 1
+            },
+            "surface_max_area_m2": {
+              "desk": 0.227,
+              "shelf": 0.263
+            },
+            "surface_reference_capacity": {
+              "desk": 3,
+              "shelf": 3
+            }
+          },
+          {
+            "area_m2": 23.2,
+            "name": "bathroom_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "shelf": 2
+            },
+            "surface_max_area_m2": {
+              "shelf": 0.211
+            },
+            "surface_reference_capacity": {
+              "shelf": 3
+            }
+          }
+        ],
+        "scene": "hotel_suite_large",
+        "task_id": "NARRATE-109000",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "prompt_sha": "76c06c0aef6a",
+      "prompt_sha256": "sha256:76c06c0aef6a9fae26ce42de8d01debb317585ddb4179cc7372be5b34d434fe0",
+      "prompt_version": "capability-v40-template-cap3-20260901",
+      "prose_sha256": "sha256:63c297ef548fb272d382336654f7fa597f72cba104823f380dddb4f68fa6c327",
+      "review": {
+        "benchmark_check": {
+          "actor_scope": {
+            "live_physical_actors": [
+              "wearer"
+            ],
+            "other_person_changes_world": false
+          },
+          "core_claims": [
+            {
+              "available_before_turn": 0,
+              "claim": "the cell phone started on the bedroom shelf with the mug and apple",
+              "derived_from": [],
+              "established_by": "LookAt bedroom shelf baseline beat before turn zero",
+              "runtime_support": "observed on(cell_phone, shelf) at baseline",
+              "source": "prior_action"
+            },
+            {
+              "available_before_turn": 0,
+              "claim": "the cell phone is now on the desk",
+              "derived_from": [],
+              "established_by": "Push effect displacing phone from shelf to desk",
+              "runtime_support": "current on(cell_phone, desk)",
+              "source": "live_state"
+            },
+            {
+              "available_before_turn": 0,
+              "claim": "the mug and paper are back where they started and the apple never moved",
+              "derived_from": [],
+              "established_by": "Put mug back on shelf, Put paper back on desk, apple untouched",
+              "runtime_support": "on(mug,shelf), on(paper_sheet,desk), unmoved(apple)",
+              "source": "live_state"
+            },
+            {
+              "available_before_turn": 0,
+              "claim": "only the cell phone is still different from baseline",
+              "derived_from": [
+                "the cell phone started on the bedroom shelf with the mug and apple",
+                "the cell phone is now on the desk",
+                "the mug and paper are back where they started and the apple never moved"
+              ],
+              "established_by": "comparing current state to observed baseline and excluding restored/untouched items",
+              "runtime_support": "baseline vs current on-predicates for the four objects",
+              "source": "derived"
+            }
+          ],
+          "counterfactual_contract": {
+            "allowed_other_differences": [],
+            "operator": "report a non-meaningful change or omit the persistent change",
+            "shared_obligations": [
+              "g1"
+            ],
+            "target_difference": "strong restores phone to shelf; weak leaves phone on desk"
+          },
+          "cross_field_consistency": {
+            "conflicts": [],
+            "consistent": true
+          },
+          "decisive_fact_absent_from_utterance": true,
+          "egocentric_evidence": "the cell phone is now on the desk rather than on the bedroom shelf where it started",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "meaningful_steps": [
+            "observe baseline on shelf and desk",
+            "accidentally push phone onto desk while grabbing mug",
+            "inspect bathroom shelf",
+            "return mug to shelf",
+            "move paper to shelf and restore to desk",
+            "report only the phone still-different",
+            "restore phone to shelf"
+          ],
+          "memory_gap": {
+            "intervening_meaningful_actions": 4,
+            "reason": "baseline observed early, then phone push, bathroom inspection, mug return, and paper move-and-restore separate the decisive displacement from the question",
+            "required": true,
+            "wearer_just_established_answer": false
+          },
+          "physical_plausibility": {
+            "credible": true,
+            "issues": []
+          },
+          "semantic_turns": 1,
+          "story_world_mismatches": [],
+          "strong_completes_user_goal": true,
+          "strong_weak_distinct": true,
+          "turn0_access": {
+            "answer_fully_visible": false,
+            "assistant_need": "memory of the earlier baseline plus current visual diff the blind wearer cannot perform",
+            "wearer_can_self_serve": false
+          },
+          "ungrounded_physical_nouns": [],
+          "unmodeled_claims": [],
+          "user_goal_obligations": [
+            {
+              "covered_by": [
+                "assistant dialogue naming the phone"
+              ],
+              "description": "report only what is still different from the remembered baseline",
+              "grounded_in": "'tell me only what is still different' and 'Anything still changed?'",
+              "id": "g1",
+              "kind": "answer"
+            },
+            {
+              "covered_by": [
+                "Grab and Put restoring on(cell_phone,shelf)"
+              ],
+              "description": "the phone ends restored to the bedroom shelf in the strong branch",
+              "grounded_in": "wearer picks up the phone and returns it after the report",
+              "id": "g2",
+              "kind": "physical"
+            }
+          ],
+          "uses_only_grounded_assets": true,
+          "utterance_policy": {
+            "prescribes_assistant_words_or_trigger": false,
+            "reason": "the wearer requests only what is still different and does not name the phone or dictate phrasing",
+            "states_goal_not_solution": true
+          },
+          "weak_shared_work_complete": true,
+          "why_user_needs_assistant": "she is low-vision, worked by touch, and did not perceive the forearm bump that moved the phone",
+          "why_utterance_alone_fails": "the wearer asks only 'anything still changed?' and cannot know the accidental displacement without vision"
+        },
+        "capability_fit": "The task requires comparing the present scene against an explicitly observed baseline and reporting only the meaningful still-different change (the phone) while filtering restored and untouched objects.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "cell_phone",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "work cell phone"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "mug",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "mug"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "paper_sheet",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "paper sheet"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "apple",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "apple"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "In a large hotel suite, a low-vision housekeeper resetting the suite tells her glasses she is checking the setup by touch and wants them to remember how four things start and later tell her only what is still different. She looks at the bedroom shelf holding a mug, her work cell phone, and an apple, then looks at the bedroom desk where a single paper sheet lies. Needing the mug for the bathroom, she grabs it from the shelf and her forearm accidentally pushes the cell phone off the shelf onto the desk; being blind she does not notice. Holding the mug, she walks to the bathroom and inspects the bathroom shelf, then returns and puts the mug back on the shelf. To wipe the desk she moves the paper sheet onto the bedroom shelf, finishes, and puts the paper sheet back on the desk. She then asks, 'Anything still changed?' The strong assistant compares current state to the earlier baseline and answers that only the work cell phone is still different, having moved from the shelf to the desk, with mug and paper restored and the apple untouched; the wearer picks up the phone from the desk and puts it back on the bedroom shelf. A weak assistant narrates the whole room or declares the setup reset, leaving the phone on the desk.",
+            "scene": "hotel_suite_large",
+            "why_scene": "the assigned scene provides bedroom shelf and desk tops plus a bathroom shelf for the reset context"
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "does the assistant report only the still-different phone rather than a full inventory or a false reset",
+              "counterfactual_failure": "weak assistant dumps full room or declares reset, phone stays on desk",
+              "forbidden_changes": [
+                "moving or renaming the apple",
+                "failing to restore mug or paper before the query"
+              ],
+              "knowledge_constraints": [
+                "common_sense_allowed=false"
+              ],
+              "required_evidence": [
+                "observed baseline shelf and desk contents",
+                "current on(cell_phone,desk) state"
+              ],
+              "required_final_predicates": [
+                "on",
+                "unmoved"
+              ],
+              "success_condition": "assistant names only the phone; wearer restores it to the shelf",
+              "temporal_constraints": [
+                "baseline observed before turn zero",
+                "at least three intervening meaningful actions before the query"
+              ]
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "accidentally displaced object that is the meaningful change",
+                "what": "work cell phone",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "intentionally moved and restored noise",
+                "what": "mug",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "intentionally moved and restored noise",
+                "what": "paper sheet",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "drives_the_story",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "untouched baseline object",
+                "what": "apple",
+                "when": "both"
+              }
+            ],
+            "hinges_on": "detecting the accidentally displaced phone while filtering restored and untouched objects",
+            "look_alike": [],
+            "opening": "wearer states memory-and-diff goal, then observes bedroom shelf (mug, phone, apple) and desk (paper) baseline",
+            "outcome": "the phone is restored to the bedroom shelf while mug, paper, and apple remain at baseline",
+            "place": "large hotel suite bedroom and bathroom",
+            "printed": [],
+            "tests_what": "compare present scene to observed baseline and report only the meaningful persistent change"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "This is a clean change-detection task: a baseline of four objects is explicitly observed before turn zero, an accidental phone displacement occurs, and two intentional-but-restored moves (mug, paper) act as noise. At the final single-turn question the strong assistant must diff current state against the earlier baseline and report only the phone still-different, while the weak assistant either dumps a full inventory or falsely declares the room reset. The decisive fact (phone now on desk, not shelf) is unavailable from the utterance and unreadable by the low-vision wearer, and the weak branch leaves the phone on the desk versus the strong branch restoring it, so branches diverge in final scorable state. All props (mug, cell_phone, apple, paper_sheet) and surfaces (shelf, desk) bind to exact contract categories in the two allowed rooms, and the action path fits the budget. Distinct from NARRATE-104000 by baseline structure: here the noise is intentional-and-restored moves plus an untouched apple rather than a single intended towel move with one accidental shift.",
+        "requirements": [
+          "Ensure the baseline observation (mug+phone+apple on shelf, paper on desk) is enacted as an explicit LookAt beat before action zero, not asserted as a turn-zero fact",
+          "Keep the final utterance a bare change question with no scripted assistant words",
+          "Ensure the phone displacement is enacted (accidental push to desk) as a supported effect, not narrated only"
+        ],
+        "runtime_requirements": {
+          "actions": [
+            "Walk",
+            "LookAt",
+            "Grab",
+            "Put",
+            "Push"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 14,
+          "estimated_prologue_actions": 6,
+          "estimated_task_actions": 8,
+          "events": [],
+          "final_predicates": [
+            "on",
+            "unmoved"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 45.0,
+        "structural_signature": {
+          "evaluation": "final on/unmoved state plus divergent report",
+          "evidence": "observed baseline plus enacted displacement and restored noise moves",
+          "failure": "full-room narration or false reset claim leaves phone on desk",
+          "operation": "visual diff filtering restored and untouched objects",
+          "response": "report only the phone still-different",
+          "template_class": "baseline_diff_report_only_persistent_change",
+          "temporal": "baseline before turn zero, intervening moves, single final query"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "the cell phone started on the bedroom shelf with the mug and apple",
+                "derived_from": [],
+                "established_by": "LookAt bedroom shelf baseline beat before turn zero",
+                "runtime_support": "observed on(cell_phone, shelf) at baseline",
+                "source": "prior_action"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "the cell phone is now on the desk",
+                "derived_from": [],
+                "established_by": "Push effect displacing phone from shelf to desk",
+                "runtime_support": "current on(cell_phone, desk)",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "the mug and paper are back where they started and the apple never moved",
+                "derived_from": [],
+                "established_by": "Put mug back on shelf, Put paper back on desk, apple untouched",
+                "runtime_support": "on(mug,shelf), on(paper_sheet,desk), unmoved(apple)",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "only the cell phone is still different from baseline",
+                "derived_from": [
+                  "the cell phone started on the bedroom shelf with the mug and apple",
+                  "the cell phone is now on the desk",
+                  "the mug and paper are back where they started and the apple never moved"
+                ],
+                "established_by": "comparing current state to observed baseline and excluding restored/untouched items",
+                "runtime_support": "baseline vs current on-predicates for the four objects",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "report a non-meaningful change or omit the persistent change",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "strong restores phone to shelf; weak leaves phone on desk"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "the cell phone is now on the desk rather than on the bedroom shelf where it started",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "observe baseline on shelf and desk",
+              "accidentally push phone onto desk while grabbing mug",
+              "inspect bathroom shelf",
+              "return mug to shelf",
+              "move paper to shelf and restore to desk",
+              "report only the phone still-different",
+              "restore phone to shelf"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 4,
+              "reason": "baseline observed early, then phone push, bathroom inspection, mug return, and paper move-and-restore separate the decisive displacement from the question",
+              "required": true,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": false,
+              "assistant_need": "memory of the earlier baseline plus current visual diff the blind wearer cannot perform",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "assistant dialogue naming the phone"
+                ],
+                "description": "report only what is still different from the remembered baseline",
+                "grounded_in": "'tell me only what is still different' and 'Anything still changed?'",
+                "id": "g1",
+                "kind": "answer"
+              },
+              {
+                "covered_by": [
+                  "Grab and Put restoring on(cell_phone,shelf)"
+                ],
+                "description": "the phone ends restored to the bedroom shelf in the strong branch",
+                "grounded_in": "wearer picks up the phone and returns it after the report",
+                "id": "g2",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "the wearer requests only what is still different and does not name the phone or dictate phrasing",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "she is low-vision, worked by touch, and did not perceive the forearm bump that moved the phone",
+            "why_utterance_alone_fails": "the wearer asks only 'anything still changed?' and cannot know the accidental displacement without vision"
+          },
+          "capability_fit": "The task requires comparing the present scene against an explicitly observed baseline and reporting only the meaningful still-different change (the phone) while filtering restored and untouched objects.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cell_phone",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "work cell phone"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "mug",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "mug"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "paper sheet"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "apple",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "apple"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In a large hotel suite, a low-vision housekeeper resetting the suite tells her glasses she is checking the setup by touch and wants them to remember how four things start and later tell her only what is still different. She looks at the bedroom shelf holding a mug, her work cell phone, and an apple, then looks at the bedroom desk where a single paper sheet lies. Needing the mug for the bathroom, she grabs it from the shelf and her forearm accidentally pushes the cell phone off the shelf onto the desk; being blind she does not notice. Holding the mug, she walks to the bathroom and inspects the bathroom shelf, then returns and puts the mug back on the shelf. To wipe the desk she moves the paper sheet onto the bedroom shelf, finishes, and puts the paper sheet back on the desk. She then asks, 'Anything still changed?' The strong assistant compares current state to the earlier baseline and answers that only the work cell phone is still different, having moved from the shelf to the desk, with mug and paper restored and the apple untouched; the wearer picks up the phone from the desk and puts it back on the bedroom shelf. A weak assistant narrates the whole room or declares the setup reset, leaving the phone on the desk.",
+              "scene": "hotel_suite_large",
+              "why_scene": "the assigned scene provides bedroom shelf and desk tops plus a bathroom shelf for the reset context"
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "does the assistant report only the still-different phone rather than a full inventory or a false reset",
+                "counterfactual_failure": "weak assistant dumps full room or declares reset, phone stays on desk",
+                "forbidden_changes": [
+                  "moving or renaming the apple",
+                  "failing to restore mug or paper before the query"
+                ],
+                "knowledge_constraints": [
+                  "common_sense_allowed=false"
+                ],
+                "required_evidence": [
+                  "observed baseline shelf and desk contents",
+                  "current on(cell_phone,desk) state"
+                ],
+                "required_final_predicates": [
+                  "on",
+                  "unmoved"
+                ],
+                "success_condition": "assistant names only the phone; wearer restores it to the shelf",
+                "temporal_constraints": [
+                  "baseline observed before turn zero",
+                  "at least three intervening meaningful actions before the query"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "accidentally displaced object that is the meaningful change",
+                  "what": "work cell phone",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "intentionally moved and restored noise",
+                  "what": "mug",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "intentionally moved and restored noise",
+                  "what": "paper sheet",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "untouched baseline object",
+                  "what": "apple",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "detecting the accidentally displaced phone while filtering restored and untouched objects",
+              "look_alike": [],
+              "opening": "wearer states memory-and-diff goal, then observes bedroom shelf (mug, phone, apple) and desk (paper) baseline",
+              "outcome": "the phone is restored to the bedroom shelf while mug, paper, and apple remain at baseline",
+              "place": "large hotel suite bedroom and bathroom",
+              "printed": [],
+              "tests_what": "compare present scene to observed baseline and report only the meaningful persistent change"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "This is a clean change-detection task: a baseline of four objects is explicitly observed before turn zero, an accidental phone displacement occurs, and two intentional-but-restored moves (mug, paper) act as noise. At the final single-turn question the strong assistant must diff current state against the earlier baseline and report only the phone still-different, while the weak assistant either dumps a full inventory or falsely declares the room reset. The decisive fact (phone now on desk, not shelf) is unavailable from the utterance and unreadable by the low-vision wearer, and the weak branch leaves the phone on the desk versus the strong branch restoring it, so branches diverge in final scorable state. All props (mug, cell_phone, apple, paper_sheet) and surfaces (shelf, desk) bind to exact contract categories in the two allowed rooms, and the action path fits the budget. Distinct from NARRATE-104000 by baseline structure: here the noise is intentional-and-restored moves plus an untouched apple rather than a single intended towel move with one accidental shift.",
+          "requirements": [
+            "Ensure the baseline observation (mug+phone+apple on shelf, paper on desk) is enacted as an explicit LookAt beat before action zero, not asserted as a turn-zero fact",
+            "Keep the final utterance a bare change question with no scripted assistant words",
+            "Ensure the phone displacement is enacted (accidental push to desk) as a supported effect, not narrated only"
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Walk",
+              "LookAt",
+              "Grab",
+              "Put",
+              "Push"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 14,
+            "estimated_prologue_actions": 6,
+            "estimated_task_actions": 8,
+            "events": [],
+            "final_predicates": [
+              "on",
+              "unmoved"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 45.0,
+          "structural_signature": {
+            "evaluation": "final on/unmoved state plus divergent report",
+            "evidence": "observed baseline plus enacted displacement and restored noise moves",
+            "failure": "full-room narration or false reset claim leaves phone on desk",
+            "operation": "visual diff filtering restored and untouched objects",
+            "response": "report only the phone still-different",
+            "template_class": "baseline_diff_report_only_persistent_change",
+            "temporal": "baseline before turn zero, intervening moves, single final query"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "hotel_suite_large",
+      "sha": "63c297ef548f",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v69_hardbalance_gpt55_opus_20260902b/compile_input/NARRATE/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gpt-5-5-genai-responses",
+      "judge_model": "claude-4-8-opus-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:47e4974cefcc8613e050070cd2ec621ea03a2d06a24b9e221d6cc0ba6ca6ee9a",
+      "version": "compile-v2-grounded-20260901s"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_micro24_v69_hardbalance_gpt55_opus_20260902b",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v40-template-cap3-20260901",
+      "release_id": "sha256:12281576b217ebc63d12fa5e4bc9e230f869ab07eb6d06340c21a112cdf803bd",
+      "simulator_contract_digest": "sha256:47e4974cefcc8613e050070cd2ec621ea03a2d06a24b9e221d6cc0ba6ca6ee9a"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "result": "narrate14-user-review-r4-20260912",
+        "source": "NARRATE-109000"
+      },
+      {
+        "kind": "canonicalize_required_evidence",
+        "source": "[\"I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?\", \"The initial desk scan visibly shows the folder, mug, phone, and badge together on the employee's desk.\", \"The report folder is visibly placed on the supervisor's desk.\", \"The used mug is visibly on the lobby reception desk.\", \"Only after completing those two jobs, the wearer holds the checklist close enough to read all four rows.\", \"The office phone is visibly on the specified supervisor's desk.\", \"The visitor badge is visibly beside the mug on the lobby reception desk, completing all four rows.\"]",
+        "result": "[\"I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?\", \"The initial desk scan visibly shows the folder, mug, phone, and badge together on the employee's desk.\", \"The report folder is visibly placed on the supervisor's desk.\", \"The used mug is visibly on the lobby reception desk.\", \"Only after completing those two jobs, the wearer holds the checklist close enough to read all four rows.\", \"The office phone is visibly on the specified supervisor's desk.\", \"The visitor badge is visibly beside the mug on the lobby reception desk, completing all four rows.\", \"The report folder is already on the supervisor's desk, and the mug is already on the lobby reception desk. Two jobs remain: move the office phone to the supervisor's cubicle desk, then take the visitor badge to the lobby reception desk.\"]"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "NARRATE-109000",
+    "capability_id": "NARRATE.CHECKLIST_PROGRESS",
+    "capability_notes": [
+      "The four checkout objects begin together on an exact scene-native employee cubicle desk rather than on cabinet tops.",
+      "The wearer reads the checklist only after completing the folder and mug rows, and the clipboard is held close for legibility.",
+      "The mug and office phone use measured collision-backed center spots on their exact scene-native desks, separated from the report folder and visitor badge.",
+      "The completion answer is derived from the four-row document plus the observed prologue, not from changing check marks on the printed sheet."
+    ],
+    "revision": "narrate19-interaction-r9-20260914",
+    "benchmark_split": "production",
+    "physical_revision": "narrate14-user-review-r4-20260912",
+    "physical_taskpack_sha256": "sha256:432faff77bcaaf13c27a695e78e12c1a173a75a3a6baf5f7d3addec346c6b8cc",
+    "parent_lineage": {
+      "source": "manual_story_revision",
+      "compile_input_digest": "sha256:970a52beb0bb8eff9e396d9e494727f387184b0e6fbf7b6c843a5342339413c8",
+      "source_contract_digest": "sha256:d1ac35488eeb42e5bd73aa21e4b2635457584fa87f3ab29594bdf2b42ab99799",
+      "executable_spec_digest": "sha256:4070141ca051005f3d8b040622a7553d9afc2edf08fb92935dfe49a9a6780f90",
+      "invention": {
+        "attempt": 1,
+        "author_prose": "A low-vision hotel housekeeper is resetting the large suite and wants the glasses to notice only changes that still matter when she is done. At the start she says, “I’m checking this setup by touch as I work. Please remember how these four things start, and when I ask later, tell me only what is still different.” She then gives the camera a clear look at the bedroom shelf: a mug, her work cell phone, and an apple are on it. She also looks at the bedroom desk, where a single paper sheet is lying.\n\nShe needs the mug while checking the bathroom shelf. She reaches to the bedroom shelf and grabs the mug. As she draws it away, her forearm accidentally pushes the cell phone off its shelf spot onto the desk. She does not pick up or deliberately place the phone, and because she cannot rely on vision she does not notice the displacement. Still holding the mug, she walks into the bathroom and inspects the bathroom shelf for the room reset. She returns to the bedroom and puts the mug back on the shelf. Then, to wipe the desk area, she moves the paper sheet from the desk to the bedroom shelf, finishes that part of the work, and puts the paper sheet back on the desk. These later moves are intentional and restored before the question.\n\nAt the end she asks only, “Anything still changed?” A strong assistant compares the current view with the earlier baseline and answers concisely: “Only your work cell phone is still different. It started on the bedroom shelf with the mug and apple; now it is on the desk. The mug and paper are back where they started.” The wearer then picks up the cell phone from the desk and puts it back on the bedroom shelf.\n\nA weak assistant either narrates the whole visible room, including unchanged furniture and objects, or says the setup looks reset because the mug and paper are back. In that failure case the phone remains on the desk, and the useful change-detection goal is missed.",
+        "author_prose_sha256": "sha256:f102a3c26da1eb0afd497ee885fcdcca858b78b52853bc63bf1009282d2905af",
+        "capability": {
+          "boundary": "Do not replay a full room inventory. The core operation is a visual diff across time.",
+          "few_shot": "A blind tenant returns to a shared workroom whose baseline the glasses observed earlier: a storage cabinet was closed and a supply basket was on the rear shelf. Now the cabinet is open and the basket has been moved to the central table; the other visible furniture is unchanged. The assistant reports only those two changes, mentioning the open cabinet first because it affects the immediate reach. The wearer closes the cabinet and returns the basket to its shelf. Earlier evidence anchors the baseline, the authored response records the change-only description, and the closed and on predicates expose whether the useful consequences were completed.",
+          "id": "NARRATE.CHANGE_DESCRIPTION",
+          "name_zh": "变化检测叙述",
+          "target": "Compare the present scene with a known baseline and report only meaningful changes, prioritising any change that affects safety or the current goal."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "NARRATE.CHANGE_DESCRIPTION",
+          "evaluation_mode": "TRACE_AND_OUTCOME",
+          "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": true,
+          "owner": "SIMULATOR_EVALUATION",
+          "reason": "Baseline and changed states run, but spoken change precision and recall lack a dedicated scorer.",
+          "reason_code": "CHANGE_DESCRIPTION_EVALUATOR",
+          "recommended_work": "Add baseline-diff narration precision, recall, and priority evaluation.",
+          "version": "capability-support/1.0",
+          "workstream": "EVALUATOR"
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "candy_dispenser_shelf",
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "compost_bin",
+            "dessert_stand",
+            "dish_rack_cart",
+            "dishwasher",
+            "display_case",
+            "display_fridge",
+            "dry_food_dispenser_shelf",
+            "free_weight_rack",
+            "freezer",
+            "fridge",
+            "grocery_fridge",
+            "grocery_shelf",
+            "locker",
+            "magazine_stand",
+            "metal_bottom_cabinet",
+            "oven",
+            "public_trash_can",
+            "recycling_bin",
+            "serving_cart",
+            "shelf",
+            "shopping_cart",
+            "snack_rack",
+            "top_cabinet",
+            "trash_can",
+            "umbrella_rack",
+            "vending_machine",
+            "wardrobe",
+            "washer",
+            "wine_fridge"
+          ],
+          "allowed_loose_categories": [
+            "apple",
+            "paper_sheet",
+            "mug",
+            "cell_phone",
+            "box_of_baking_mix",
+            "vanilla_bottle",
+            "bottle_of_ammonia",
+            "bottle_of_paint",
+            "cotton_thread",
+            "grape",
+            "casserole",
+            "rosemary_shaker",
+            "license_plate",
+            "can_of_tomato_paste",
+            "electric_hand_mixer",
+            "half_rhubarb",
+            "jar_of_jam",
+            "polish_bottle",
+            "half_bagel",
+            "saddle_soap_bottle",
+            "box_of_lemons",
+            "jade",
+            "artichoke",
+            "bottle_of_mayonnaise"
+          ],
+          "allowed_surface_categories": [
+            "desk",
+            "shelf"
+          ],
+          "capability_id": "NARRATE.CHANGE_DESCRIPTION",
+          "coverage_categories": [
+            "box_of_baking_mix",
+            "vanilla_bottle",
+            "bottle_of_ammonia",
+            "bottle_of_paint",
+            "cotton_thread",
+            "grape",
+            "casserole",
+            "rosemary_shaker",
+            "license_plate",
+            "can_of_tomato_paste",
+            "electric_hand_mixer",
+            "half_rhubarb",
+            "jar_of_jam",
+            "polish_bottle",
+            "half_bagel",
+            "saddle_soap_bottle",
+            "box_of_lemons",
+            "jade",
+            "artichoke",
+            "bottle_of_mayonnaise"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 1,
+            "required_semantic_turns": 1,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": false,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_memory_gap": true,
+            "requires_reselection": false,
+            "single_wearer_only": true,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "NARRATE",
+          "limits": {
+            "max_authored_actions": 26,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_meaningful_steps": 15,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 18,
+            "max_small_label_characters": 8,
+            "max_task_actions": 12,
+            "min_intervening_meaningful_actions": 3,
+            "min_meaningful_steps": 1
+          },
+          "preferred_story_categories": [
+            "apple",
+            "paper_sheet",
+            "mug",
+            "cell_phone"
+          ],
+          "preferred_story_category_glosses": {
+            "apple": "fruit with red or yellow or green skin and sweet to tart crisp whitish flesh",
+            "cell_phone": "",
+            "mug": "",
+            "paper_sheet": ""
+          },
+          "rooms": [
+            {
+              "area_m2": 39.7,
+              "name": "bedroom_0",
+              "scene_containers": {},
+              "scene_surfaces": {
+                "desk": 1,
+                "shelf": 1
+              },
+              "surface_max_area_m2": {
+                "desk": 0.227,
+                "shelf": 0.263
+              },
+              "surface_reference_capacity": {
+                "desk": 3,
+                "shelf": 3
+              }
+            },
+            {
+              "area_m2": 23.2,
+              "name": "bathroom_0",
+              "scene_containers": {},
+              "scene_surfaces": {
+                "shelf": 2
+              },
+              "surface_max_area_m2": {
+                "shelf": 0.211
+              },
+              "surface_reference_capacity": {
+                "shelf": 3
+              }
+            }
+          ],
+          "scene": "hotel_suite_large",
+          "task_id": "NARRATE-109000",
+          "version": "grounded-authoring/3.1-hard-context-20260901"
+        },
+        "prompt_sha": "76c06c0aef6a",
+        "prompt_sha256": "sha256:76c06c0aef6a9fae26ce42de8d01debb317585ddb4179cc7372be5b34d434fe0",
+        "prompt_version": "capability-v40-template-cap3-20260901",
+        "prose_sha256": "sha256:63c297ef548fb272d382336654f7fa597f72cba104823f380dddb4f68fa6c327",
+        "review": {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "the cell phone started on the bedroom shelf with the mug and apple",
+                "derived_from": [],
+                "established_by": "LookAt bedroom shelf baseline beat before turn zero",
+                "runtime_support": "observed on(cell_phone, shelf) at baseline",
+                "source": "prior_action"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "the cell phone is now on the desk",
+                "derived_from": [],
+                "established_by": "Push effect displacing phone from shelf to desk",
+                "runtime_support": "current on(cell_phone, desk)",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "the mug and paper are back where they started and the apple never moved",
+                "derived_from": [],
+                "established_by": "Put mug back on shelf, Put paper back on desk, apple untouched",
+                "runtime_support": "on(mug,shelf), on(paper_sheet,desk), unmoved(apple)",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "only the cell phone is still different from baseline",
+                "derived_from": [
+                  "the cell phone started on the bedroom shelf with the mug and apple",
+                  "the cell phone is now on the desk",
+                  "the mug and paper are back where they started and the apple never moved"
+                ],
+                "established_by": "comparing current state to observed baseline and excluding restored/untouched items",
+                "runtime_support": "baseline vs current on-predicates for the four objects",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "report a non-meaningful change or omit the persistent change",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "strong restores phone to shelf; weak leaves phone on desk"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "the cell phone is now on the desk rather than on the bedroom shelf where it started",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "observe baseline on shelf and desk",
+              "accidentally push phone onto desk while grabbing mug",
+              "inspect bathroom shelf",
+              "return mug to shelf",
+              "move paper to shelf and restore to desk",
+              "report only the phone still-different",
+              "restore phone to shelf"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 4,
+              "reason": "baseline observed early, then phone push, bathroom inspection, mug return, and paper move-and-restore separate the decisive displacement from the question",
+              "required": true,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": false,
+              "assistant_need": "memory of the earlier baseline plus current visual diff the blind wearer cannot perform",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "assistant dialogue naming the phone"
+                ],
+                "description": "report only what is still different from the remembered baseline",
+                "grounded_in": "'tell me only what is still different' and 'Anything still changed?'",
+                "id": "g1",
+                "kind": "answer"
+              },
+              {
+                "covered_by": [
+                  "Grab and Put restoring on(cell_phone,shelf)"
+                ],
+                "description": "the phone ends restored to the bedroom shelf in the strong branch",
+                "grounded_in": "wearer picks up the phone and returns it after the report",
+                "id": "g2",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "the wearer requests only what is still different and does not name the phone or dictate phrasing",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "she is low-vision, worked by touch, and did not perceive the forearm bump that moved the phone",
+            "why_utterance_alone_fails": "the wearer asks only 'anything still changed?' and cannot know the accidental displacement without vision"
+          },
+          "capability_fit": "The task requires comparing the present scene against an explicitly observed baseline and reporting only the meaningful still-different change (the phone) while filtering restored and untouched objects.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cell_phone",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "work cell phone"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "mug",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "mug"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "paper sheet"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "apple",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "apple"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In a large hotel suite, a low-vision housekeeper resetting the suite tells her glasses she is checking the setup by touch and wants them to remember how four things start and later tell her only what is still different. She looks at the bedroom shelf holding a mug, her work cell phone, and an apple, then looks at the bedroom desk where a single paper sheet lies. Needing the mug for the bathroom, she grabs it from the shelf and her forearm accidentally pushes the cell phone off the shelf onto the desk; being blind she does not notice. Holding the mug, she walks to the bathroom and inspects the bathroom shelf, then returns and puts the mug back on the shelf. To wipe the desk she moves the paper sheet onto the bedroom shelf, finishes, and puts the paper sheet back on the desk. She then asks, 'Anything still changed?' The strong assistant compares current state to the earlier baseline and answers that only the work cell phone is still different, having moved from the shelf to the desk, with mug and paper restored and the apple untouched; the wearer picks up the phone from the desk and puts it back on the bedroom shelf. A weak assistant narrates the whole room or declares the setup reset, leaving the phone on the desk.",
+              "scene": "hotel_suite_large",
+              "why_scene": "the assigned scene provides bedroom shelf and desk tops plus a bathroom shelf for the reset context"
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "does the assistant report only the still-different phone rather than a full inventory or a false reset",
+                "counterfactual_failure": "weak assistant dumps full room or declares reset, phone stays on desk",
+                "forbidden_changes": [
+                  "moving or renaming the apple",
+                  "failing to restore mug or paper before the query"
+                ],
+                "knowledge_constraints": [
+                  "common_sense_allowed=false"
+                ],
+                "required_evidence": [
+                  "observed baseline shelf and desk contents",
+                  "current on(cell_phone,desk) state"
+                ],
+                "required_final_predicates": [
+                  "on",
+                  "unmoved"
+                ],
+                "success_condition": "assistant names only the phone; wearer restores it to the shelf",
+                "temporal_constraints": [
+                  "baseline observed before turn zero",
+                  "at least three intervening meaningful actions before the query"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "accidentally displaced object that is the meaningful change",
+                  "what": "work cell phone",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "intentionally moved and restored noise",
+                  "what": "mug",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "intentionally moved and restored noise",
+                  "what": "paper sheet",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "untouched baseline object",
+                  "what": "apple",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "detecting the accidentally displaced phone while filtering restored and untouched objects",
+              "look_alike": [],
+              "opening": "wearer states memory-and-diff goal, then observes bedroom shelf (mug, phone, apple) and desk (paper) baseline",
+              "outcome": "the phone is restored to the bedroom shelf while mug, paper, and apple remain at baseline",
+              "place": "large hotel suite bedroom and bathroom",
+              "printed": [],
+              "tests_what": "compare present scene to observed baseline and report only the meaningful persistent change"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "This is a clean change-detection task: a baseline of four objects is explicitly observed before turn zero, an accidental phone displacement occurs, and two intentional-but-restored moves (mug, paper) act as noise. At the final single-turn question the strong assistant must diff current state against the earlier baseline and report only the phone still-different, while the weak assistant either dumps a full inventory or falsely declares the room reset. The decisive fact (phone now on desk, not shelf) is unavailable from the utterance and unreadable by the low-vision wearer, and the weak branch leaves the phone on the desk versus the strong branch restoring it, so branches diverge in final scorable state. All props (mug, cell_phone, apple, paper_sheet) and surfaces (shelf, desk) bind to exact contract categories in the two allowed rooms, and the action path fits the budget. Distinct from NARRATE-104000 by baseline structure: here the noise is intentional-and-restored moves plus an untouched apple rather than a single intended towel move with one accidental shift.",
+          "requirements": [
+            "Ensure the baseline observation (mug+phone+apple on shelf, paper on desk) is enacted as an explicit LookAt beat before action zero, not asserted as a turn-zero fact",
+            "Keep the final utterance a bare change question with no scripted assistant words",
+            "Ensure the phone displacement is enacted (accidental push to desk) as a supported effect, not narrated only"
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Walk",
+              "LookAt",
+              "Grab",
+              "Put",
+              "Push"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 14,
+            "estimated_prologue_actions": 6,
+            "estimated_task_actions": 8,
+            "events": [],
+            "final_predicates": [
+              "on",
+              "unmoved"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 45.0,
+          "structural_signature": {
+            "evaluation": "final on/unmoved state plus divergent report",
+            "evidence": "observed baseline plus enacted displacement and restored noise moves",
+            "failure": "full-room narration or false reset claim leaves phone on desk",
+            "operation": "visual diff filtering restored and untouched objects",
+            "response": "report only the phone still-different",
+            "template_class": "baseline_diff_report_only_persistent_change",
+            "temporal": "baseline before turn zero, intervening moves, single final query"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "actor_scope": {
+                "live_physical_actors": [
+                  "wearer"
+                ],
+                "other_person_changes_world": false
+              },
+              "core_claims": [
+                {
+                  "available_before_turn": 0,
+                  "claim": "the cell phone started on the bedroom shelf with the mug and apple",
+                  "derived_from": [],
+                  "established_by": "LookAt bedroom shelf baseline beat before turn zero",
+                  "runtime_support": "observed on(cell_phone, shelf) at baseline",
+                  "source": "prior_action"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "the cell phone is now on the desk",
+                  "derived_from": [],
+                  "established_by": "Push effect displacing phone from shelf to desk",
+                  "runtime_support": "current on(cell_phone, desk)",
+                  "source": "live_state"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "the mug and paper are back where they started and the apple never moved",
+                  "derived_from": [],
+                  "established_by": "Put mug back on shelf, Put paper back on desk, apple untouched",
+                  "runtime_support": "on(mug,shelf), on(paper_sheet,desk), unmoved(apple)",
+                  "source": "live_state"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "only the cell phone is still different from baseline",
+                  "derived_from": [
+                    "the cell phone started on the bedroom shelf with the mug and apple",
+                    "the cell phone is now on the desk",
+                    "the mug and paper are back where they started and the apple never moved"
+                  ],
+                  "established_by": "comparing current state to observed baseline and excluding restored/untouched items",
+                  "runtime_support": "baseline vs current on-predicates for the four objects",
+                  "source": "derived"
+                }
+              ],
+              "counterfactual_contract": {
+                "allowed_other_differences": [],
+                "operator": "report a non-meaningful change or omit the persistent change",
+                "shared_obligations": [
+                  "g1"
+                ],
+                "target_difference": "strong restores phone to shelf; weak leaves phone on desk"
+              },
+              "cross_field_consistency": {
+                "conflicts": [],
+                "consistent": true
+              },
+              "decisive_fact_absent_from_utterance": true,
+              "egocentric_evidence": "the cell phone is now on the desk rather than on the bedroom shelf where it started",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "meaningful_steps": [
+                "observe baseline on shelf and desk",
+                "accidentally push phone onto desk while grabbing mug",
+                "inspect bathroom shelf",
+                "return mug to shelf",
+                "move paper to shelf and restore to desk",
+                "report only the phone still-different",
+                "restore phone to shelf"
+              ],
+              "memory_gap": {
+                "intervening_meaningful_actions": 4,
+                "reason": "baseline observed early, then phone push, bathroom inspection, mug return, and paper move-and-restore separate the decisive displacement from the question",
+                "required": true,
+                "wearer_just_established_answer": false
+              },
+              "physical_plausibility": {
+                "credible": true,
+                "issues": []
+              },
+              "semantic_turns": 1,
+              "story_world_mismatches": [],
+              "strong_completes_user_goal": true,
+              "strong_weak_distinct": true,
+              "turn0_access": {
+                "answer_fully_visible": false,
+                "assistant_need": "memory of the earlier baseline plus current visual diff the blind wearer cannot perform",
+                "wearer_can_self_serve": false
+              },
+              "ungrounded_physical_nouns": [],
+              "unmodeled_claims": [],
+              "user_goal_obligations": [
+                {
+                  "covered_by": [
+                    "assistant dialogue naming the phone"
+                  ],
+                  "description": "report only what is still different from the remembered baseline",
+                  "grounded_in": "'tell me only what is still different' and 'Anything still changed?'",
+                  "id": "g1",
+                  "kind": "answer"
+                },
+                {
+                  "covered_by": [
+                    "Grab and Put restoring on(cell_phone,shelf)"
+                  ],
+                  "description": "the phone ends restored to the bedroom shelf in the strong branch",
+                  "grounded_in": "wearer picks up the phone and returns it after the report",
+                  "id": "g2",
+                  "kind": "physical"
+                }
+              ],
+              "uses_only_grounded_assets": true,
+              "utterance_policy": {
+                "prescribes_assistant_words_or_trigger": false,
+                "reason": "the wearer requests only what is still different and does not name the phone or dictate phrasing",
+                "states_goal_not_solution": true
+              },
+              "weak_shared_work_complete": true,
+              "why_user_needs_assistant": "she is low-vision, worked by touch, and did not perceive the forearm bump that moved the phone",
+              "why_utterance_alone_fails": "the wearer asks only 'anything still changed?' and cannot know the accidental displacement without vision"
+            },
+            "capability_fit": "The task requires comparing the present scene against an explicitly observed baseline and reporting only the meaningful still-different change (the phone) while filtering restored and untouched objects.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "cell_phone",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "work cell phone"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "mug",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "mug"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "paper_sheet",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "paper sheet"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "apple",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "apple"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "In a large hotel suite, a low-vision housekeeper resetting the suite tells her glasses she is checking the setup by touch and wants them to remember how four things start and later tell her only what is still different. She looks at the bedroom shelf holding a mug, her work cell phone, and an apple, then looks at the bedroom desk where a single paper sheet lies. Needing the mug for the bathroom, she grabs it from the shelf and her forearm accidentally pushes the cell phone off the shelf onto the desk; being blind she does not notice. Holding the mug, she walks to the bathroom and inspects the bathroom shelf, then returns and puts the mug back on the shelf. To wipe the desk she moves the paper sheet onto the bedroom shelf, finishes, and puts the paper sheet back on the desk. She then asks, 'Anything still changed?' The strong assistant compares current state to the earlier baseline and answers that only the work cell phone is still different, having moved from the shelf to the desk, with mug and paper restored and the apple untouched; the wearer picks up the phone from the desk and puts it back on the bedroom shelf. A weak assistant narrates the whole room or declares the setup reset, leaving the phone on the desk.",
+                "scene": "hotel_suite_large",
+                "why_scene": "the assigned scene provides bedroom shelf and desk tops plus a bathroom shelf for the reset context"
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "does the assistant report only the still-different phone rather than a full inventory or a false reset",
+                  "counterfactual_failure": "weak assistant dumps full room or declares reset, phone stays on desk",
+                  "forbidden_changes": [
+                    "moving or renaming the apple",
+                    "failing to restore mug or paper before the query"
+                  ],
+                  "knowledge_constraints": [
+                    "common_sense_allowed=false"
+                  ],
+                  "required_evidence": [
+                    "observed baseline shelf and desk contents",
+                    "current on(cell_phone,desk) state"
+                  ],
+                  "required_final_predicates": [
+                    "on",
+                    "unmoved"
+                  ],
+                  "success_condition": "assistant names only the phone; wearer restores it to the shelf",
+                  "temporal_constraints": [
+                    "baseline observed before turn zero",
+                    "at least three intervening meaningful actions before the query"
+                  ]
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "accidentally displaced object that is the meaningful change",
+                    "what": "work cell phone",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "intentionally moved and restored noise",
+                    "what": "mug",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "intentionally moved and restored noise",
+                    "what": "paper sheet",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "drives_the_story",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "untouched baseline object",
+                    "what": "apple",
+                    "when": "both"
+                  }
+                ],
+                "hinges_on": "detecting the accidentally displaced phone while filtering restored and untouched objects",
+                "look_alike": [],
+                "opening": "wearer states memory-and-diff goal, then observes bedroom shelf (mug, phone, apple) and desk (paper) baseline",
+                "outcome": "the phone is restored to the bedroom shelf while mug, paper, and apple remain at baseline",
+                "place": "large hotel suite bedroom and bathroom",
+                "printed": [],
+                "tests_what": "compare present scene to observed baseline and report only the meaningful persistent change"
+              }
+            },
+            "duplicate_of": null,
+            "reason": "This is a clean change-detection task: a baseline of four objects is explicitly observed before turn zero, an accidental phone displacement occurs, and two intentional-but-restored moves (mug, paper) act as noise. At the final single-turn question the strong assistant must diff current state against the earlier baseline and report only the phone still-different, while the weak assistant either dumps a full inventory or falsely declares the room reset. The decisive fact (phone now on desk, not shelf) is unavailable from the utterance and unreadable by the low-vision wearer, and the weak branch leaves the phone on the desk versus the strong branch restoring it, so branches diverge in final scorable state. All props (mug, cell_phone, apple, paper_sheet) and surfaces (shelf, desk) bind to exact contract categories in the two allowed rooms, and the action path fits the budget. Distinct from NARRATE-104000 by baseline structure: here the noise is intentional-and-restored moves plus an untouched apple rather than a single intended towel move with one accidental shift.",
+            "requirements": [
+              "Ensure the baseline observation (mug+phone+apple on shelf, paper on desk) is enacted as an explicit LookAt beat before action zero, not asserted as a turn-zero fact",
+              "Keep the final utterance a bare change question with no scripted assistant words",
+              "Ensure the phone displacement is enacted (accidental push to desk) as a supported effect, not narrated only"
+            ],
+            "runtime_requirements": {
+              "actions": [
+                "Walk",
+                "LookAt",
+                "Grab",
+                "Put",
+                "Push"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 14,
+              "estimated_prologue_actions": 6,
+              "estimated_task_actions": 8,
+              "events": [],
+              "final_predicates": [
+                "on",
+                "unmoved"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 45.0,
+            "structural_signature": {
+              "evaluation": "final on/unmoved state plus divergent report",
+              "evidence": "observed baseline plus enacted displacement and restored noise moves",
+              "failure": "full-room narration or false reset claim leaves phone on desk",
+              "operation": "visual diff filtering restored and untouched objects",
+              "response": "report only the phone still-different",
+              "template_class": "baseline_diff_report_only_persistent_change",
+              "temporal": "baseline before turn zero, intervening moves, single final query"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "hotel_suite_large",
+        "sha": "63c297ef548f",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v69_hardbalance_gpt55_opus_20260902b/compile_input/NARRATE/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gpt-5-5-genai-responses",
+        "judge_model": "claude-4-8-opus-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:47e4974cefcc8613e050070cd2ec621ea03a2d06a24b9e221d6cc0ba6ca6ee9a",
+        "version": "compile-v2-grounded-20260901s"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_micro24_v69_hardbalance_gpt55_opus_20260902b",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v40-template-cap3-20260901",
+        "release_id": "sha256:12281576b217ebc63d12fa5e4bc9e230f869ab07eb6d06340c21a112cdf803bd",
+        "simulator_contract_digest": "sha256:47e4974cefcc8613e050070cd2ec621ea03a2d06a24b9e221d6cc0ba6ca6ee9a"
+      },
+      "normalizations": [
+        {
+          "kind": "manual_story_revision",
+          "result": "narrate14-user-review-r4-20260912",
+          "source": "NARRATE-109000"
+        },
+        {
+          "kind": "canonicalize_required_evidence",
+          "source": "[\"I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?\", \"The initial desk scan visibly shows the folder, mug, phone, and badge together on the employee's desk.\", \"The report folder is visibly placed on the supervisor's desk.\", \"The used mug is visibly on the lobby reception desk.\", \"Only after completing those two jobs, the wearer holds the checklist close enough to read all four rows.\", \"The office phone is visibly on the specified supervisor's desk.\", \"The visitor badge is visibly beside the mug on the lobby reception desk, completing all four rows.\"]",
+          "result": "[\"I've already done some of the office check-out list. Looking at the checklist and what I completed, which jobs are still left?\", \"The initial desk scan visibly shows the folder, mug, phone, and badge together on the employee's desk.\", \"The report folder is visibly placed on the supervisor's desk.\", \"The used mug is visibly on the lobby reception desk.\", \"Only after completing those two jobs, the wearer holds the checklist close enough to read all four rows.\", \"The office phone is visibly on the specified supervisor's desk.\", \"The visitor badge is visibly beside the mug on the lobby reception desk, completing all four rows.\", \"The report folder is already on the supervisor's desk, and the mug is already on the lobby reception desk. Two jobs remain: move the office phone to the supervisor's cubicle desk, then take the visitor badge to the lobby reception desk.\"]"
+        }
+      ],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "NARRATE-109000",
+      "capability_id": "NARRATE.CHECKLIST_PROGRESS",
+      "capability_notes": [
+        "The four checkout objects begin together on an exact scene-native employee cubicle desk rather than on cabinet tops.",
+        "The wearer reads the checklist only after completing the folder and mug rows, and the clipboard is held close for legibility.",
+        "The mug and office phone use measured collision-backed center spots on their exact scene-native desks, separated from the report folder and visitor badge.",
+        "The completion answer is derived from the four-row document plus the observed prologue, not from changing check marks on the printed sheet."
+      ],
+      "revision": "narrate14-user-review-r4-20260912"
+    },
+    "oracle_dialogue_override_ids": [
+      "narrate109000_phone_source",
+      "narrate109000_badge_source"
+    ]
+  }
+}

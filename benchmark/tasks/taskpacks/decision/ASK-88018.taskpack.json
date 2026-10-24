@@ -1,0 +1,3544 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "ASK-88018",
+  "executable_spec": {
+    "spec_version": "bts/1.0",
+    "task_id": "ASK-88018",
+    "variant": null,
+    "meta": {
+      "family": "ASK",
+      "template": "a restaurant kitchen and dining room",
+      "scene": "restaurant_asian",
+      "wave": 1,
+      "difficulty": "hard",
+      "rule_table": "on(paper_sheet_B, bar)",
+      "grounding": {
+        "kind": "authored",
+        "ref": "data_generate:ASK-88018",
+        "cite": "I checked prep sheet A in the kitchen and this sheet B here. Which sheet leaves more unbooked portions, and should go on the bar?"
+      },
+      "design": {
+        "premise": "In the restaurant kitchen, the wearer reads prep sheet A on the kitchen table: 'MADE 30 / BOOKED 14'. They answer an incoming call on the kitchen phone, carry the phone to the bar for order calls, return to the kitchen, and carry a water bottle to the staff breakfast table. At that table they walk up to prep sheet B, read 'MADE 28 / BOOKED 10', briefly pick it up, and set it back down. At turn zero they ask which sheet leaves more unbooked portions and should be displayed on the bar. The assistant compares 16 left on A with 18 left on B and selects sheet B.",
+        "cue": "I checked prep sheet A in the kitchen and this sheet B here. Which sheet leaves more unbooked portions, and should go on the bar?",
+        "assistant_must": "on(paper_sheet_B, bar)",
+        "anti_shortcut": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)"
+      },
+      "engine_deltas": []
+    },
+    "world": {
+      "scene": "restaurant_asian",
+      "instance": 0,
+      "layout": "frozen",
+      "authoring_seed": 192113737,
+      "seed_scope": "model",
+      "rooms": [
+        "dining_room_0",
+        "kitchen_0"
+      ],
+      "roles": {},
+      "fixtures": {
+        "surf_1": {
+          "bind": {
+            "source": "scene",
+            "cat": "commercial_kitchen_table"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "surf_2": {
+          "bind": {
+            "source": "scene",
+            "cat": "bar"
+          },
+          "room": "dining_room_0",
+          "seatable": false
+        },
+        "surf_3": {
+          "bind": {
+            "source": "scene",
+            "cat": "breakfast_table"
+          },
+          "room": "dining_room_0",
+          "seatable": false
+        }
+      },
+      "containers": {},
+      "objects": {
+        "item_1": {
+          "cat": "paper_sheet",
+          "model": "afdjfk",
+          "place": "on:surf_1",
+          "room": "kitchen_0",
+          "scored": false,
+          "needs_lookat": true,
+          "decal": "MADE 30 / BOOKED 14",
+          "spot": [
+            -0.8,
+            0.5
+          ]
+        },
+        "item_2": {
+          "cat": "paper_sheet",
+          "model": "afdjfk",
+          "place": "on:surf_3",
+          "room": "dining_room_0",
+          "scored": true,
+          "needs_lookat": true,
+          "decal": "MADE 28 / BOOKED 10",
+          "spot": [
+            0.0,
+            0.5
+          ]
+        },
+        "item_3": {
+          "cat": "cell_phone",
+          "model": "dbhfuh",
+          "place": "on:surf_1",
+          "room": "kitchen_0",
+          "scored": false,
+          "needs_lookat": false,
+          "spot": [
+            0.0,
+            0.5
+          ]
+        },
+        "item_4": {
+          "cat": "bottle_of_water",
+          "model": "atvnqy",
+          "place": "on:surf_1",
+          "room": "kitchen_0",
+          "scored": false,
+          "needs_lookat": false,
+          "spot": [
+            0.8,
+            0.5
+          ]
+        }
+      },
+      "parts": {},
+      "labels": {
+        "label_item_1": {
+          "png": "ask_88018_prep_sheet_a",
+          "kind": "short_string",
+          "content": {
+            "text": "MADE 30 / BOOKED 14",
+            "args": {
+              "renderer": "document_scan",
+              "source": "ask17/ask_88018_prep_sheet_a.png",
+              "primary_glyph_height_ratio": 0.026,
+              "primary_line_count": 2,
+              "primary_text_bbox_norm_xyxy": [
+                0.06,
+                0.12,
+                0.94,
+                0.9
+              ]
+            }
+          },
+          "per_seed": false,
+          "mount": {
+            "surface": "item_decal",
+            "on": "item_1",
+            "face": "top"
+          }
+        },
+        "label_item_2": {
+          "png": "ask_88018_prep_sheet_b",
+          "kind": "short_string",
+          "content": {
+            "text": "MADE 28 / BOOKED 10",
+            "args": {
+              "renderer": "document_scan",
+              "source": "ask17/ask_88018_prep_sheet_b.png",
+              "primary_glyph_height_ratio": 0.026,
+              "primary_line_count": 2,
+              "primary_text_bbox_norm_xyxy": [
+                0.06,
+                0.12,
+                0.94,
+                0.9
+              ]
+            }
+          },
+          "per_seed": false,
+          "mount": {
+            "surface": "item_decal",
+            "on": "item_2",
+            "face": "top"
+          }
+        }
+      },
+      "initial_attachments": [],
+      "object_groups": [],
+      "preload": {},
+      "permutations": [],
+      "start": {
+        "policy": "seeded_grid",
+        "forbid_rooms": [],
+        "forbid_near": [],
+        "resample_ladder": true
+      },
+      "initially_open_room_doors": true,
+      "decor": [],
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "decoys_constrained": true,
+        "permutation_within_model": true,
+        "key_is_derived": true
+      },
+      "auto_support_labels": false
+    },
+    "goal": {
+      "roster": {
+        "containers": [],
+        "objects": [
+          "item_1",
+          "item_2",
+          "item_3",
+          "item_4"
+        ],
+        "nested_containers": []
+      },
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "item_2",
+          "target": "surf_2"
+        }
+      ],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "item_2",
+          "target": "surf_2"
+        }
+      ],
+      "aggregate_goals": [],
+      "negatives": [],
+      "trace_outcomes": [],
+      "rule_table": null,
+      "arms": null
+    },
+    "program": {
+      "generator": "explicit",
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "item_1"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_1"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_3"
+          ]
+        },
+        {
+          "verb": "AnswerPhone",
+          "args": [
+            "item_3"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        {
+          "verb": "Put",
+          "args": [
+            "item_3",
+            "surf_2"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_4"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_3"
+          ]
+        },
+        {
+          "verb": "Put",
+          "args": [
+            "item_4",
+            "surf_3"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "item_2"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_2"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_2"
+          ]
+        },
+        {
+          "verb": "Put",
+          "args": [
+            "item_2",
+            "surf_3"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_2"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        {
+          "verb": "Put",
+          "args": [
+            "item_2",
+            "surf_2"
+          ]
+        }
+      ],
+      "budget": {
+        "grammar_cmds": 17,
+        "grammar_source": "from_program",
+        "expanded_cmds": 17,
+        "expanded_source": "oracle_cmds",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      }
+    },
+    "report": {
+      "sub_goals": [
+        {
+          "id": 0,
+          "kind": "on",
+          "subject": "item_2",
+          "target": "surf_2",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        }
+      ],
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ]
+      ],
+      "sub_steps": [
+        "on item_2 surf_2"
+      ],
+      "control": null,
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "human_frames_withheld": false,
+      "arms_reporting": null
+    },
+    "provenance": {
+      "source_task_id": "ASK-88018",
+      "human_program_raw": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "seed": 192113737,
+      "arm": "ASK"
+    }
+  },
+  "story": {
+    "premise": "In the restaurant kitchen, the wearer reads prep sheet A on the kitchen table: 'MADE 30 / BOOKED 14'. They answer an incoming call on the kitchen phone, carry the phone to the bar for order calls, return to the kitchen, and carry a water bottle to the staff breakfast table. At that table they walk up to prep sheet B, read 'MADE 28 / BOOKED 10', briefly pick it up, and set it back down. At turn zero they ask which sheet leaves more unbooked portions and should be displayed on the bar. The assistant compares 16 left on A with 18 left on B and selects sheet B.",
+    "assistant_goal": "I checked prep sheet A in the kitchen and this sheet B here. Which sheet leaves more unbooked portions, and should go on the bar?",
+    "assessment_contract": {
+      "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+      "assigned_scene": "restaurant_asian",
+      "core_question": "I checked prep sheet A in the kitchen and this sheet B here. Which sheet leaves more unbooked portions, and should go on the bar?",
+      "counterfactual_failure": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+      "forbidden_changes": [
+        "Changing the numbers so that raw made counts and remaining portions yield the same recommendation",
+        "Placing both sheets side-by-side so memory is not required"
+      ],
+      "knowledge_constraints": [
+        "The assistant must remember the numbers from paper_sheet A when looking at paper_sheet B"
+      ],
+      "required_evidence": [
+        "The wearer wants the prep sheet with more unbooked portions displayed on the bar.",
+        "The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.",
+        "The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.",
+        "The first prep sheet leaves 16 portions (30 - 14 = 16).",
+        "The second prep sheet leaves 18 portions (28 - 10 = 18).",
+        "The second prep sheet has more portions left (18 > 16)."
+      ],
+      "required_final_predicates": [
+        "on"
+      ],
+      "success_condition": "on(paper_sheet_B, bar)",
+      "temporal_constraints": [
+        "paper_sheet A must be observed before paper_sheet B",
+        "The assistant must answer after paper_sheet B is observed"
+      ]
+    },
+    "source_contract": {
+      "task_id": "ASK-88018",
+      "family": "ASK",
+      "kind": "a restaurant kitchen and dining room",
+      "assessment_contract": {
+        "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+        "assigned_scene": "restaurant_asian",
+        "core_question": "I checked prep sheet A in the kitchen and this sheet B here. Which sheet leaves more unbooked portions, and should go on the bar?",
+        "counterfactual_failure": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+        "forbidden_changes": [
+          "Changing the numbers so that raw made counts and remaining portions yield the same recommendation",
+          "Placing both sheets side-by-side so memory is not required"
+        ],
+        "knowledge_constraints": [
+          "The assistant must remember the numbers from paper_sheet A when looking at paper_sheet B"
+        ],
+        "required_evidence": [
+          "The wearer wants the prep sheet with more unbooked portions displayed on the bar.",
+          "The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.",
+          "The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.",
+          "The first prep sheet leaves 16 portions (30 - 14 = 16).",
+          "The second prep sheet leaves 18 portions (28 - 10 = 18).",
+          "The second prep sheet has more portions left (18 > 16)."
+        ],
+        "required_final_predicates": [
+          "on"
+        ],
+        "success_condition": "on(paper_sheet_B, bar)",
+        "temporal_constraints": [
+          "paper_sheet A must be observed before paper_sheet B",
+          "The assistant must answer after paper_sheet B is observed"
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [],
+        "allowed_loose_categories": [
+          "bottle_of_water",
+          "cell_phone",
+          "paper_sheet"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "breakfast_table",
+          "commercial_kitchen_table"
+        ],
+        "capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+        "coverage_categories": [
+          "bottle_of_water",
+          "cell_phone",
+          "paper_sheet"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": true,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": true,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "ASK",
+        "limits": {
+          "max_authored_actions": 26,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 18,
+          "max_small_label_characters": 19,
+          "max_task_actions": 12,
+          "min_intervening_meaningful_actions": 3,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "bottle_of_water",
+          "cell_phone",
+          "paper_sheet"
+        ],
+        "preferred_story_category_glosses": {
+          "bottle_of_water": "",
+          "cell_phone": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "name": "kitchen_0"
+          },
+          {
+            "name": "dining_room_0"
+          }
+        ],
+        "scene": "restaurant_asian",
+        "task_id": "ASK-88018",
+        "version": "grounded-authoring/3.0-validity-20260831"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "paper_sheet",
+            "changed": true,
+            "costs": null,
+            "label": "MADE 30 / BOOKED 14",
+            "tint": null,
+            "what": "item_1 paper_sheet labeled MADE 30 / BOOKED 14"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "paper_sheet",
+            "changed": true,
+            "costs": null,
+            "label": "MADE 28 / BOOKED 10",
+            "tint": null,
+            "what": "item_2 paper_sheet labeled MADE 28 / BOOKED 10"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "cell_phone",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_3 cell_phone"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_water",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_4 bottle_of_water"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_1 commercial_kitchen_table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "bar",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_2 bar"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "breakfast_table",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_3 breakfast_table"
+          }
+        ],
+        "distinct_by": [
+          "two prep sheets with made/booked arithmetic"
+        ],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+            "text": "MADE 30 / BOOKED 14",
+            "what": "readable printed object label",
+            "which": "item_1"
+          },
+          {
+            "rides": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+            "text": "MADE 28 / BOOKED 10",
+            "what": "readable printed object label",
+            "which": "item_2"
+          }
+        ],
+        "restaged_story": "In the restaurant kitchen, the wearer reads prep sheet A on the kitchen table: 'MADE 30 / BOOKED 14'. They answer an incoming call on the kitchen phone, carry the phone to the bar for order calls, return to the kitchen, and carry a water bottle to the staff breakfast table. At that table they walk up to prep sheet B, read 'MADE 28 / BOOKED 10', briefly pick it up, and set it back down. At turn zero they ask which sheet leaves more unbooked portions and should be displayed on the bar. The assistant compares 16 left on A with 18 left on B and selects sheet B.",
+        "scene": "restaurant_asian",
+        "why_scene": "Provides kitchen and dining/bar service surfaces."
+      },
+      "world": {
+        "boards": {},
+        "containers": {},
+        "items": {
+          "item_1": {
+            "affordances": [],
+            "cat": "paper_sheet",
+            "label": "MADE 30 / BOOKED 14",
+            "place": "on:surf_1",
+            "scored": false,
+            "spot": [
+              -0.8,
+              0.5
+            ],
+            "tint": null
+          },
+          "item_2": {
+            "affordances": [],
+            "cat": "paper_sheet",
+            "label": "MADE 28 / BOOKED 10",
+            "place": "on:surf_3",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.5
+            ],
+            "tint": null
+          },
+          "item_3": {
+            "affordances": [],
+            "cat": "cell_phone",
+            "label": null,
+            "place": "on:surf_1",
+            "scored": false,
+            "spot": [
+              0.0,
+              0.5
+            ],
+            "tint": null
+          },
+          "item_4": {
+            "affordances": [],
+            "cat": "bottle_of_water",
+            "label": null,
+            "place": "on:surf_1",
+            "scored": false,
+            "spot": [
+              0.8,
+              0.5
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <item_1> (1)",
+          "[LookAt] <item_1> (1)",
+          "[Grab] <item_3> (1)",
+          "[AnswerPhone] <item_3> (1)",
+          "[Walk] <surf_2> (1)",
+          "[Put] <item_3> (1) <surf_2> (1)",
+          "[Walk] <surf_1> (1)",
+          "[Grab] <item_4> (1)",
+          "[Walk] <surf_3> (1)",
+          "[Put] <item_4> (1) <surf_3> (1)",
+          "[Walk] <item_2> (1)",
+          "[LookAt] <item_2> (1)",
+          "[Grab] <item_2> (1)",
+          "[Put] <item_2> (1) <surf_3> (1)"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0",
+          "dining_room_0"
+        ],
+        "scene": "restaurant_asian",
+        "staging": {
+          "groups": "on:surf_1 holds item_1 paper_sheet labeled MADE 30 / BOOKED 14, item_3 cell_phone, item_4 bottle_of_water. on:surf_3 holds item_2 paper_sheet labeled MADE 28 / BOOKED 10.",
+          "labels_at_t0": "item_1 paper_sheet labeled MADE 30 / BOOKED 14 reads 'MADE 30 / BOOKED 14'. item_2 paper_sheet labeled MADE 28 / BOOKED 10 reads 'MADE 28 / BOOKED 10'.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "surf_1": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "surf_2": {
+            "cat": "bar",
+            "label": null,
+            "room": "dining_room_0"
+          },
+          "surf_3": {
+            "cat": "breakfast_table",
+            "label": null,
+            "room": "dining_room_0"
+          }
+        },
+        "initially_open_room_doors": true,
+        "auto_support_labels": false
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I checked prep sheet A in the kitchen and this sheet B here. Which sheet leaves more unbooked portions, and should go on the bar?"
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "The wearer wants the prep sheet with more unbooked portions displayed on the bar.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 11,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": [
+              "fact_002"
+            ],
+            "fact": "The first prep sheet leaves 16 portions (30 - 14 = 16).",
+            "from": "derived",
+            "id": "fact_004",
+            "source_index": null,
+            "source_phase": "derived"
+          },
+          {
+            "derived_from": [
+              "fact_003"
+            ],
+            "fact": "The second prep sheet leaves 18 portions (28 - 10 = 18).",
+            "from": "derived",
+            "id": "fact_005",
+            "source_index": null,
+            "source_phase": "derived"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_004",
+              "fact_005"
+            ],
+            "fact": "The second prep sheet has more portions left (18 > 16).",
+            "from": "derived",
+            "id": "fact_006",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "item_2",
+            "target": "surf_2"
+          }
+        ],
+        "guidance": null,
+        "hidden_fact": null,
+        "human_own_script": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+        "mates": [],
+        "oracle_program": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": [
+          {
+            "fact_ids": [
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ],
+            "index": 0,
+            "referents": [
+              "item_2"
+            ],
+            "say": "Use sheet B. Sheet A leaves 16 portions, while sheet B leaves 18 portions after booked portions are removed."
+          }
+        ],
+        "steps": null,
+        "story_check": "Everything fits perfectly. The task requires memory of the first sheet's numbers to compare with the second sheet's numbers, and the arithmetic correctly distinguishes the strong assistant from the weak one.",
+        "utterance": "I checked prep sheet A in the kitchen and this sheet B here. Which sheet leaves more unbooked portions, and should go on the bar?"
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "physical_preflight": {
+          "diagnostics": [],
+          "physical": {
+            "failures": [],
+            "ok": true,
+            "sited": true,
+            "staged": true,
+            "start": true,
+            "why_sited": "kitchen_0, dining_room_0",
+            "why_staged": "Manual group-C repaired staging.",
+            "why_start": ""
+          },
+          "report_version": "manual-group-c-metadata-sync/1.0",
+          "resolved": {
+            "objects": [
+              {
+                "category": "paper_sheet",
+                "key": "item_1",
+                "model": ""
+              },
+              {
+                "category": "paper_sheet",
+                "key": "item_2",
+                "model": ""
+              },
+              {
+                "category": "cell_phone",
+                "key": "item_3",
+                "model": ""
+              },
+              {
+                "category": "bottle_of_water",
+                "key": "item_4",
+                "model": ""
+              }
+            ],
+            "parts": [],
+            "room": "kitchen_0",
+            "scene": "restaurant_asian",
+            "surfaces": [
+              {
+                "category": "commercial_kitchen_table",
+                "key": "surf_1",
+                "model": ""
+              },
+              {
+                "category": "bar",
+                "key": "surf_2",
+                "model": ""
+              },
+              {
+                "category": "breakfast_table",
+                "key": "surf_3",
+                "model": ""
+              }
+            ],
+            "units": []
+          },
+          "seconds": 0.0,
+          "status": "PASS",
+          "task_id": "ASK-88018"
+        },
+        "sim_debt": [],
+        "soft": [],
+        "traces": {}
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <item_1> (1)",
+        "[LookAt] <item_1> (1)",
+        "[Grab] <item_3> (1)",
+        "[AnswerPhone] <item_3> (1)",
+        "[Walk] <surf_2> (1)",
+        "[Put] <item_3> (1) <surf_2> (1)",
+        "[Walk] <surf_1> (1)",
+        "[Grab] <item_4> (1)",
+        "[Walk] <surf_3> (1)",
+        "[Put] <item_4> (1) <surf_3> (1)",
+        "[Walk] <item_2> (1)",
+        "[LookAt] <item_2> (1)",
+        "[Grab] <item_2> (1)",
+        "[Put] <item_2> (1) <surf_3> (1)"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "item_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "item_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_1"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The first prep sheet leaves 16 portions (30 - 14 = 16).",
+            "channel": "derived"
+          },
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The second prep sheet has more portions left (18 > 16).",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_3"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_3"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "AnswerPhone",
+          "args": [
+            "item_3"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "item_3",
+            "surf_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_4"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_4"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_3"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_3"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "item_4",
+            "surf_3"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "item_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p011",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The second prep sheet leaves 18 portions (28 - 10 = 18).",
+            "channel": "derived"
+          },
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The second prep sheet has more portions left (18 > 16).",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p012",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p013",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "item_2",
+            "surf_3"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "I checked prep sheet A in the kitchen and this sheet B here. Which sheet leaves more unbooked portions, and should go on the bar?",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "The wearer wants the prep sheet with more unbooked portions displayed on the bar.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The second prep sheet has more portions left (18 > 16).",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Use sheet B. Sheet A leaves 16 portions, while sheet B leaves 18 portions after booked portions are removed.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "item_1",
+            "surf_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "item_2",
+            "surf_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "The wearer wants the prep sheet with more unbooked portions displayed on the bar.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p011"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 11
+      },
+      {
+        "id": "fact_004",
+        "statement": "The first prep sheet leaves 16 portions (30 - 14 = 16).",
+        "channel": "derived",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_002"
+        ]
+      },
+      {
+        "id": "fact_005",
+        "statement": "The second prep sheet leaves 18 portions (28 - 10 = 18).",
+        "channel": "derived",
+        "source_beat_ids": [
+          "p011"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_003"
+        ]
+      },
+      {
+        "id": "fact_006",
+        "statement": "The second prep sheet has more portions left (18 > 16).",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "p011"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_004",
+          "fact_005"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Compare the two prep sheets from the preceding first-person history and identify the one with more unbooked portions for the bar.",
+      "human_task_context": "Wait for the Assistant to explicitly identify one prep sheet. Carry only that sheet to the bar and leave the other sheet where it is. Do not calculate the remaining portions yourself.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <item_1> (1)",
+          "[LookAt] <item_1> (1)",
+          "[Grab] <item_3> (1)",
+          "[AnswerPhone] <item_3> (1)",
+          "[Walk] <surf_2> (1)",
+          "[Put] <item_3> (1) <surf_2> (1)",
+          "[Walk] <surf_1> (1)",
+          "[Grab] <item_4> (1)",
+          "[Walk] <surf_3> (1)",
+          "[Put] <item_4> (1) <surf_3> (1)",
+          "[Walk] <item_2> (1)",
+          "[LookAt] <item_2> (1)",
+          "[Grab] <item_2> (1)",
+          "[Put] <item_2> (1) <surf_3> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 14,
+            "say": "Hey, Assistant, which sheet has more portions left after the bookings? That's the one I need to take to the bar."
+          }
+        ],
+        "handoff_say": "Hey, Assistant, which sheet has more portions left after the bookings? That's the one I need to take to the bar.",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "remaining_portions_question",
+            "required_phrases": [
+              "which sheet has more portions left after the bookings",
+              "take to the bar"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "forbidden_successful_commands": [
+          "[Grab] <item_1> (1)"
+        ],
+        "verification_points": [
+          {
+            "id": "selected_prep_sheet_on_bar",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "item_2",
+            "target": "surf_2"
+          },
+          {
+            "id": "other_prep_sheet_stays",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "item_1",
+            "target": "surf_1"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "item_1": [
+          "sheet A",
+          "first prep sheet",
+          "kitchen prep sheet",
+          "prep sheet printed MADE 30 BOOKED 14"
+        ],
+        "item_2": [
+          "sheet B",
+          "second prep sheet",
+          "dining room prep sheet",
+          "prep sheet printed MADE 28 BOOKED 10"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 18,
+    "dialogue_budget": 1,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "item_2",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "item_2"
+            ],
+            "required_fact_ids": [
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "item_2",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "item_2",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "surf_2",
+            "truth": true
+          },
+          "next_beat": "o002"
+        }
+      ],
+      "terminal_beats": [
+        "h003",
+        "o002"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "item_2"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_2"
+        ]
+      },
+      {
+        "verb": "Put",
+        "args": [
+          "item_2",
+          "surf_2"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_1"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "item_1"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_2"
+        ]
+      },
+      {
+        "verb": "Put",
+        "args": [
+          "item_1",
+          "surf_2"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Use sheet B. Sheet A leaves 16 portions, while sheet B leaves 18 portions after booked portions are removed.",
+        "relation": "at",
+        "anchor_beat_id": "o000",
+        "source": "speaks_at",
+        "source_index": 0
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    }
+  },
+  "lineage": {
+    "source": "ask17_interaction_assembly",
+    "compile_input_digest": "",
+    "source_contract_digest": "sha256:73f8cca6925ef5bfcf21eccae5b10a41df6609e8dff033b1d6d182e699a5b32b",
+    "executable_spec_digest": "sha256:6ba03c600f56020f95777afe6e66c8e3f096539fc12737765025e151927ad3b4",
+    "invention": {
+      "attempt": 1,
+      "author_prose": "In the restaurant kitchen, the wearer reads prep sheet A on the kitchen table: 'MADE 30 / BOOKED 14'. They answer an incoming call on the kitchen phone, carry the phone to the bar for order calls, return to the kitchen, and carry a water bottle to the staff breakfast table. At that table they walk up to prep sheet B, read 'MADE 28 / BOOKED 10', briefly pick it up, and set it back down. At turn zero they ask which sheet leaves more unbooked portions and should be displayed on the bar. The assistant compares 16 left on A with 18 left on B and selects sheet B.",
+      "author_prose_sha256": "sha256:6ee8b8ff1b58f04c9c35649b9efd886bff9eed387bcb83a505f7f01ad4b9cc71",
+      "capability": {
+        "boundary": "The hard part is computation over externally read values, not counting the wearer's own actions and not merely repeating a price or measurement.",
+        "few_shot": "In a grocery shop, the wearer examined a two-litre detergent priced at 39.90, returned it to aisle three, and continued shopping. In aisle seven they hold a three-litre alternative marked 55.00 and ask which is cheaper per litre. The first price is no longer visible. The assistant recalls it, computes about 19.95 per litre versus 18.33, and recommends the second bottle. The wearer places that bottle in the shopping basket while the first remains on its shelf. A weak assistant compares only sticker totals and recommends the smaller bottle. The task requires cross-time numeric comparison; neither object identity tracking nor an unknown-item branch belongs in it.",
+        "id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+        "name_zh": "跨时空数值比较",
+        "target": "Combine numeric values read at different times or places and perform the required comparison, conversion, or arithmetic before answering."
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [],
+        "allowed_loose_categories": [
+          "bottle_of_water",
+          "cell_phone",
+          "paper_sheet"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "breakfast_table",
+          "commercial_kitchen_table"
+        ],
+        "capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+        "coverage_categories": [
+          "bottle_of_water",
+          "cell_phone",
+          "paper_sheet"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": true,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": true,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "ASK",
+        "limits": {
+          "max_authored_actions": 26,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 18,
+          "max_small_label_characters": 19,
+          "max_task_actions": 12,
+          "min_intervening_meaningful_actions": 3,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "bottle_of_water",
+          "cell_phone",
+          "paper_sheet"
+        ],
+        "preferred_story_category_glosses": {
+          "bottle_of_water": "",
+          "cell_phone": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "name": "kitchen_0"
+          },
+          {
+            "name": "dining_room_0"
+          }
+        ],
+        "scene": "restaurant_asian",
+        "task_id": "ASK-88018",
+        "version": "grounded-authoring/3.0-validity-20260831"
+      },
+      "prompt_sha": "e3f4ee01b3ec",
+      "prompt_sha256": "sha256:e3f4ee01b3ec66261b2c1647fc049fc8e7cc029d17e87ce7572cc2236a797d40",
+      "prompt_version": "capability-v35-realism-eval-gap-20260901",
+      "prose_sha256": "sha256:6ee8b8ff1b58f04c9c35649b9efd886bff9eed387bcb83a505f7f01ad4b9cc71",
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "The wearer wants the prep sheet with more unbooked portions displayed on the bar.; The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.; The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.; The first prep sheet leaves 16 portions (30 - 14 = 16).; The second prep sheet leaves 18 portions (28 - 10 = 18).; The second prep sheet has more portions left (18 > 16).",
+          "semantic_turns": 1,
+          "story_world_mismatches": [],
+          "strong_weak_distinct": true,
+          "uses_only_grounded_assets": true
+        },
+        "capability_fit": "Manual group-C repair for ASK-88018.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "paper_sheet",
+                "changed": true,
+                "costs": null,
+                "label": "MADE 30 / BOOKED 14",
+                "tint": null,
+                "what": "item_1 paper_sheet labeled MADE 30 / BOOKED 14"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "paper_sheet",
+                "changed": true,
+                "costs": null,
+                "label": "MADE 28 / BOOKED 10",
+                "tint": null,
+                "what": "item_2 paper_sheet labeled MADE 28 / BOOKED 10"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "cell_phone",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "item_3 cell_phone"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "bottle_of_water",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "item_4 bottle_of_water"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "commercial_kitchen_table",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "surf_1 commercial_kitchen_table"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "bar",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "surf_2 bar"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "breakfast_table",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "surf_3 breakfast_table"
+              }
+            ],
+            "distinct_by": [
+              "two prep sheets with made/booked arithmetic"
+            ],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [
+              {
+                "rides": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                "text": "MADE 30 / BOOKED 14",
+                "what": "readable printed object label",
+                "which": "item_1"
+              },
+              {
+                "rides": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                "text": "MADE 28 / BOOKED 10",
+                "what": "readable printed object label",
+                "which": "item_2"
+              }
+            ],
+            "restaged_story": "In the restaurant kitchen, the wearer reads prep sheet A on the kitchen table: 'MADE 30 / BOOKED 14'. They answer an incoming call on the kitchen phone, carry the phone to the bar for order calls, return to the kitchen, and carry a water bottle to the staff breakfast table. At that table they walk up to prep sheet B, read 'MADE 28 / BOOKED 10', briefly pick it up, and set it back down. At turn zero they ask which sheet leaves more unbooked portions and should be displayed on the bar. The assistant compares 16 left on A with 18 left on B and selects sheet B.",
+            "scene": "restaurant_asian",
+            "why_scene": "Provides kitchen and dining/bar service surfaces."
+          },
+          "needs": {
+            "assessment_contract": {
+              "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+              "assigned_scene": "restaurant_asian",
+              "core_question": "I checked prep sheet A in the kitchen and this sheet B here. Which sheet leaves more unbooked portions, and should go on the bar?",
+              "counterfactual_failure": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+              "forbidden_changes": [
+                "Changing the numbers so that raw made counts and remaining portions yield the same recommendation",
+                "Placing both sheets side-by-side so memory is not required"
+              ],
+              "knowledge_constraints": [
+                "The assistant must remember the numbers from paper_sheet A when looking at paper_sheet B"
+              ],
+              "required_evidence": [
+                "The wearer wants the prep sheet with more unbooked portions displayed on the bar.",
+                "The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.",
+                "The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.",
+                "The first prep sheet leaves 16 portions (30 - 14 = 16).",
+                "The second prep sheet leaves 18 portions (28 - 10 = 18).",
+                "The second prep sheet has more portions left (18 > 16)."
+              ],
+              "required_final_predicates": [
+                "on"
+              ],
+              "success_condition": "on(paper_sheet_B, bar)",
+              "temporal_constraints": [
+                "paper_sheet A must be observed before paper_sheet B",
+                "The assistant must answer after paper_sheet B is observed"
+              ]
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                "what": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                "what": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_3 cell_phone",
+                "what": "item_3 cell_phone",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_4 bottle_of_water",
+                "what": "item_4 bottle_of_water",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "surf_1 commercial_kitchen_table",
+                "what": "surf_1 commercial_kitchen_table",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "surf_2 bar",
+                "what": "surf_2 bar",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "surf_3 breakfast_table",
+                "what": "surf_3 breakfast_table",
+                "when": "both"
+              }
+            ]
+          }
+        },
+        "reason": "Manual group-C metadata synchronized to the repaired story.",
+        "runtime_requirements": {
+          "actions": [
+            "AnswerPhone",
+            "Grab",
+            "LookAt",
+            "Put",
+            "PutOn",
+            "Walk"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 17,
+          "estimated_prologue_actions": 14,
+          "estimated_task_actions": 3,
+          "events": [],
+          "final_predicates": [
+            "on"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "structural_signature": {
+          "evaluation": "on(paper_sheet_B, bar)",
+          "evidence": "The wearer wants the prep sheet with more unbooked portions displayed on the bar.; The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.; The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.; The first prep sheet leaves 16 portions (30 - 14 = 16).; The second prep sheet leaves 18 portions (28 - 10 = 18).; The second prep sheet has more portions left (18 > 16).",
+          "failure": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+          "operation": "manual repaired ASK task",
+          "response": "Use sheet B. Sheet A leaves 16 portions, while sheet B leaves 18 portions after booked portions are removed.",
+          "temporal": "repaired prologue before turn0"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The wearer wants the prep sheet with more unbooked portions displayed on the bar.; The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.; The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.; The first prep sheet leaves 16 portions (30 - 14 = 16).; The second prep sheet leaves 18 portions (28 - 10 = 18).; The second prep sheet has more portions left (18 > 16).",
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_weak_distinct": true,
+            "uses_only_grounded_assets": true
+          },
+          "capability_fit": "Manual group-C repair for ASK-88018.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": true,
+                  "costs": null,
+                  "label": "MADE 30 / BOOKED 14",
+                  "tint": null,
+                  "what": "item_1 paper_sheet labeled MADE 30 / BOOKED 14"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": true,
+                  "costs": null,
+                  "label": "MADE 28 / BOOKED 10",
+                  "tint": null,
+                  "what": "item_2 paper_sheet labeled MADE 28 / BOOKED 10"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cell_phone",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_3 cell_phone"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "bottle_of_water",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_4 bottle_of_water"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "commercial_kitchen_table",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_1 commercial_kitchen_table"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bar",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_2 bar"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "breakfast_table",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_3 breakfast_table"
+                }
+              ],
+              "distinct_by": [
+                "two prep sheets with made/booked arithmetic"
+              ],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [
+                {
+                  "rides": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                  "text": "MADE 30 / BOOKED 14",
+                  "what": "readable printed object label",
+                  "which": "item_1"
+                },
+                {
+                  "rides": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                  "text": "MADE 28 / BOOKED 10",
+                  "what": "readable printed object label",
+                  "which": "item_2"
+                }
+              ],
+              "restaged_story": "In the restaurant kitchen, the wearer reads prep sheet A on the kitchen table: 'MADE 30 / BOOKED 14'. They answer an incoming call on the kitchen phone, carry the phone to the bar for order calls, return to the kitchen, and carry a water bottle to the staff breakfast table. At that table they walk up to prep sheet B, read 'MADE 28 / BOOKED 10', briefly pick it up, and set it back down. At turn zero they ask which sheet leaves more unbooked portions and should be displayed on the bar. The assistant compares 16 left on A with 18 left on B and selects sheet B.",
+              "scene": "restaurant_asian",
+              "why_scene": "Provides kitchen and dining/bar service surfaces."
+            },
+            "needs": {
+              "assessment_contract": {
+                "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+                "assigned_scene": "restaurant_asian",
+                "core_question": "I checked prep sheet A in the kitchen and this sheet B here. Which sheet leaves more unbooked portions, and should go on the bar?",
+                "counterfactual_failure": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+                "forbidden_changes": [
+                  "Changing the numbers so that raw made counts and remaining portions yield the same recommendation",
+                  "Placing both sheets side-by-side so memory is not required"
+                ],
+                "knowledge_constraints": [
+                  "The assistant must remember the numbers from paper_sheet A when looking at paper_sheet B"
+                ],
+                "required_evidence": [
+                  "The wearer wants the prep sheet with more unbooked portions displayed on the bar.",
+                  "The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.",
+                  "The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.",
+                  "The first prep sheet leaves 16 portions (30 - 14 = 16).",
+                  "The second prep sheet leaves 18 portions (28 - 10 = 18).",
+                  "The second prep sheet has more portions left (18 > 16)."
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "on(paper_sheet_B, bar)",
+                "temporal_constraints": [
+                  "paper_sheet A must be observed before paper_sheet B",
+                  "The assistant must answer after paper_sheet B is observed"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                  "what": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                  "what": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_3 cell_phone",
+                  "what": "item_3 cell_phone",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_4 bottle_of_water",
+                  "what": "item_4 bottle_of_water",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_1 commercial_kitchen_table",
+                  "what": "surf_1 commercial_kitchen_table",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_2 bar",
+                  "what": "surf_2 bar",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_3 breakfast_table",
+                  "what": "surf_3 breakfast_table",
+                  "when": "both"
+                }
+              ]
+            }
+          },
+          "reason": "Manual group-C metadata synchronized to the repaired story.",
+          "runtime_requirements": {
+            "actions": [
+              "AnswerPhone",
+              "Grab",
+              "LookAt",
+              "Put",
+              "PutOn",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 17,
+            "estimated_prologue_actions": 14,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "structural_signature": {
+            "evaluation": "on(paper_sheet_B, bar)",
+            "evidence": "The wearer wants the prep sheet with more unbooked portions displayed on the bar.; The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.; The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.; The first prep sheet leaves 16 portions (30 - 14 = 16).; The second prep sheet leaves 18 portions (28 - 10 = 18).; The second prep sheet has more portions left (18 > 16).",
+            "failure": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+            "operation": "manual repaired ASK task",
+            "response": "Use sheet B. Sheet A leaves 16 portions, while sheet B leaves 18 portions after booked portions are removed.",
+            "temporal": "repaired prologue before turn0"
+          },
+          "verdict": "KEEP"
+        },
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The wearer wants the prep sheet with more unbooked portions displayed on the bar.; The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.; The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.; The first prep sheet leaves 16 portions (30 - 14 = 16).; The second prep sheet leaves 18 portions (28 - 10 = 18).; The second prep sheet has more portions left (18 > 16).",
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_weak_distinct": true,
+            "uses_only_grounded_assets": true
+          },
+          "capability_fit": "Manual group-C repair for ASK-88018.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": true,
+                  "costs": null,
+                  "label": "MADE 30 / BOOKED 14",
+                  "tint": null,
+                  "what": "item_1 paper_sheet labeled MADE 30 / BOOKED 14"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": true,
+                  "costs": null,
+                  "label": "MADE 28 / BOOKED 10",
+                  "tint": null,
+                  "what": "item_2 paper_sheet labeled MADE 28 / BOOKED 10"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cell_phone",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_3 cell_phone"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "bottle_of_water",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_4 bottle_of_water"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "commercial_kitchen_table",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_1 commercial_kitchen_table"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bar",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_2 bar"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "breakfast_table",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_3 breakfast_table"
+                }
+              ],
+              "distinct_by": [
+                "two prep sheets with made/booked arithmetic"
+              ],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [
+                {
+                  "rides": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                  "text": "MADE 30 / BOOKED 14",
+                  "what": "readable printed object label",
+                  "which": "item_1"
+                },
+                {
+                  "rides": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                  "text": "MADE 28 / BOOKED 10",
+                  "what": "readable printed object label",
+                  "which": "item_2"
+                }
+              ],
+              "restaged_story": "In the restaurant kitchen, the wearer reads prep sheet A on the kitchen table: 'MADE 30 / BOOKED 14'. They answer an incoming call on the kitchen phone, carry the phone to the bar for order calls, return to the kitchen, and carry a water bottle to the staff breakfast table. At that table they walk up to prep sheet B, read 'MADE 28 / BOOKED 10', briefly pick it up, and set it back down. At turn zero they ask which sheet leaves more unbooked portions and should be displayed on the bar. The assistant compares 16 left on A with 18 left on B and selects sheet B.",
+              "scene": "restaurant_asian",
+              "why_scene": "Provides kitchen and dining/bar service surfaces."
+            },
+            "needs": {
+              "assessment_contract": {
+                "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+                "assigned_scene": "restaurant_asian",
+                "core_question": "I checked prep sheet A in the kitchen and this sheet B here. Which sheet leaves more unbooked portions, and should go on the bar?",
+                "counterfactual_failure": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+                "forbidden_changes": [
+                  "Changing the numbers so that raw made counts and remaining portions yield the same recommendation",
+                  "Placing both sheets side-by-side so memory is not required"
+                ],
+                "knowledge_constraints": [
+                  "The assistant must remember the numbers from paper_sheet A when looking at paper_sheet B"
+                ],
+                "required_evidence": [
+                  "The wearer wants the prep sheet with more unbooked portions displayed on the bar.",
+                  "The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.",
+                  "The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.",
+                  "The first prep sheet leaves 16 portions (30 - 14 = 16).",
+                  "The second prep sheet leaves 18 portions (28 - 10 = 18).",
+                  "The second prep sheet has more portions left (18 > 16)."
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "on(paper_sheet_B, bar)",
+                "temporal_constraints": [
+                  "paper_sheet A must be observed before paper_sheet B",
+                  "The assistant must answer after paper_sheet B is observed"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                  "what": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                  "what": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_3 cell_phone",
+                  "what": "item_3 cell_phone",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_4 bottle_of_water",
+                  "what": "item_4 bottle_of_water",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_1 commercial_kitchen_table",
+                  "what": "surf_1 commercial_kitchen_table",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_2 bar",
+                  "what": "surf_2 bar",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_3 breakfast_table",
+                  "what": "surf_3 breakfast_table",
+                  "when": "both"
+                }
+              ]
+            }
+          },
+          "reason": "Manual group-C metadata synchronized to the repaired story.",
+          "runtime_requirements": {
+            "actions": [
+              "AnswerPhone",
+              "Grab",
+              "LookAt",
+              "Put",
+              "PutOn",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 17,
+            "estimated_prologue_actions": 14,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "structural_signature": {
+            "evaluation": "on(paper_sheet_B, bar)",
+            "evidence": "The wearer wants the prep sheet with more unbooked portions displayed on the bar.; The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.; The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.; The first prep sheet leaves 16 portions (30 - 14 = 16).; The second prep sheet leaves 18 portions (28 - 10 = 18).; The second prep sheet has more portions left (18 > 16).",
+            "failure": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+            "operation": "manual repaired ASK task",
+            "response": "Use sheet B. Sheet A leaves 16 portions, while sheet B leaves 18 portions after booked portions are removed.",
+            "temporal": "repaired prologue before turn0"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "restaurant_asian",
+      "sha": "sha256:6ee8b8ff1b58f04c9c35649b9efd886bff9eed387bcb83a505f7f01ad4b9cc71",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_final120_v35_realism_parallel24_20260901a/rounds/round_001/invention/ASK/stories.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gemini-3-1-pro-preview-tbd",
+      "judge_model": "gpt-5-5-genai-responses",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260831q"
+    },
+    "production_release": {},
+    "normalizations": [],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "ASK-88018",
+    "revision": "ask17-interaction-20260912",
+    "benchmark_split": "production",
+    "physical_taskpack_sha256": "sha256:93fbda8b57aa9a1d265a3d2d29ae9f47dd94ccd1ffeb473a237769b151c4b436",
+    "metadata_repairs": [],
+    "parent_lineage": {
+      "source": "data_generate.compile_v2",
+      "compile_input_digest": "",
+      "source_contract_digest": "sha256:73f8cca6925ef5bfcf21eccae5b10a41df6609e8dff033b1d6d182e699a5b32b",
+      "executable_spec_digest": "sha256:6ba03c600f56020f95777afe6e66c8e3f096539fc12737765025e151927ad3b4",
+      "invention": {
+        "attempt": 1,
+        "author_prose": "In the restaurant kitchen, the wearer reads prep sheet A on the kitchen table: 'MADE 30 / BOOKED 14'. They answer an incoming call on the kitchen phone, carry the phone to the bar for order calls, return to the kitchen, and carry a water bottle to the staff breakfast table. At that table they walk up to prep sheet B, read 'MADE 28 / BOOKED 10', briefly pick it up, and set it back down. At turn zero they ask which sheet leaves more unbooked portions and should be displayed on the bar. The assistant compares 16 left on A with 18 left on B and selects sheet B.",
+        "author_prose_sha256": "sha256:6ee8b8ff1b58f04c9c35649b9efd886bff9eed387bcb83a505f7f01ad4b9cc71",
+        "capability": {
+          "boundary": "The hard part is computation over externally read values, not counting the wearer's own actions and not merely repeating a price or measurement.",
+          "few_shot": "In a grocery shop, the wearer examined a two-litre detergent priced at 39.90, returned it to aisle three, and continued shopping. In aisle seven they hold a three-litre alternative marked 55.00 and ask which is cheaper per litre. The first price is no longer visible. The assistant recalls it, computes about 19.95 per litre versus 18.33, and recommends the second bottle. The wearer places that bottle in the shopping basket while the first remains on its shelf. A weak assistant compares only sticker totals and recommends the smaller bottle. The task requires cross-time numeric comparison; neither object identity tracking nor an unknown-item branch belongs in it.",
+          "id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+          "name_zh": "跨时空数值比较",
+          "target": "Combine numeric values read at different times or places and perform the required comparison, conversion, or arithmetic before answering."
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [],
+          "allowed_loose_categories": [
+            "bottle_of_water",
+            "cell_phone",
+            "paper_sheet"
+          ],
+          "allowed_surface_categories": [
+            "bar",
+            "breakfast_table",
+            "commercial_kitchen_table"
+          ],
+          "capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+          "coverage_categories": [
+            "bottle_of_water",
+            "cell_phone",
+            "paper_sheet"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 1,
+            "required_semantic_turns": 1,
+            "requires_cross_room_transition": true,
+            "requires_dynamic_evidence": false,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_memory_gap": true,
+            "requires_reselection": false,
+            "single_wearer_only": true,
+            "text_evidence_required": true,
+            "weak_branch_must_fail": true
+          },
+          "family": "ASK",
+          "limits": {
+            "max_authored_actions": 26,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_meaningful_steps": 15,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 18,
+            "max_small_label_characters": 19,
+            "max_task_actions": 12,
+            "min_intervening_meaningful_actions": 3,
+            "min_meaningful_steps": 1
+          },
+          "preferred_story_categories": [
+            "bottle_of_water",
+            "cell_phone",
+            "paper_sheet"
+          ],
+          "preferred_story_category_glosses": {
+            "bottle_of_water": "",
+            "cell_phone": "",
+            "paper_sheet": ""
+          },
+          "rooms": [
+            {
+              "name": "kitchen_0"
+            },
+            {
+              "name": "dining_room_0"
+            }
+          ],
+          "scene": "restaurant_asian",
+          "task_id": "ASK-88018",
+          "version": "grounded-authoring/3.0-validity-20260831"
+        },
+        "prompt_sha": "e3f4ee01b3ec",
+        "prompt_sha256": "sha256:e3f4ee01b3ec66261b2c1647fc049fc8e7cc029d17e87ce7572cc2236a797d40",
+        "prompt_version": "capability-v35-realism-eval-gap-20260901",
+        "prose_sha256": "sha256:6ee8b8ff1b58f04c9c35649b9efd886bff9eed387bcb83a505f7f01ad4b9cc71",
+        "review": {
+          "benchmark_check": {
+            "egocentric_evidence": "The wearer wants the prep sheet with more unbooked portions displayed on the bar.; The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.; The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.; The first prep sheet leaves 16 portions (30 - 14 = 16).; The second prep sheet leaves 18 portions (28 - 10 = 18).; The second prep sheet has more portions left (18 > 16).",
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_weak_distinct": true,
+            "uses_only_grounded_assets": true
+          },
+          "capability_fit": "Manual group-C repair for ASK-88018.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": true,
+                  "costs": null,
+                  "label": "MADE 30 / BOOKED 14",
+                  "tint": null,
+                  "what": "item_1 paper_sheet labeled MADE 30 / BOOKED 14"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": true,
+                  "costs": null,
+                  "label": "MADE 28 / BOOKED 10",
+                  "tint": null,
+                  "what": "item_2 paper_sheet labeled MADE 28 / BOOKED 10"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cell_phone",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_3 cell_phone"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "bottle_of_water",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_4 bottle_of_water"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "commercial_kitchen_table",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_1 commercial_kitchen_table"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bar",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_2 bar"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "breakfast_table",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_3 breakfast_table"
+                }
+              ],
+              "distinct_by": [
+                "two prep sheets with made/booked arithmetic"
+              ],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [
+                {
+                  "rides": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                  "text": "MADE 30 / BOOKED 14",
+                  "what": "readable printed object label",
+                  "which": "item_1"
+                },
+                {
+                  "rides": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                  "text": "MADE 28 / BOOKED 10",
+                  "what": "readable printed object label",
+                  "which": "item_2"
+                }
+              ],
+              "restaged_story": "In the restaurant kitchen, the wearer reads prep sheet A on the kitchen table: 'MADE 30 / BOOKED 14'. They answer an incoming call on the kitchen phone, carry the phone to the bar for order calls, return to the kitchen, and carry a water bottle to the staff breakfast table. At that table they walk up to prep sheet B, read 'MADE 28 / BOOKED 10', briefly pick it up, and set it back down. At turn zero they ask which sheet leaves more unbooked portions and should be displayed on the bar. The assistant compares 16 left on A with 18 left on B and selects sheet B.",
+              "scene": "restaurant_asian",
+              "why_scene": "Provides kitchen and dining/bar service surfaces."
+            },
+            "needs": {
+              "assessment_contract": {
+                "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+                "assigned_scene": "restaurant_asian",
+                "core_question": "I checked prep sheet A in the kitchen and this sheet B here. Which sheet leaves more unbooked portions, and should go on the bar?",
+                "counterfactual_failure": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+                "forbidden_changes": [
+                  "Changing the numbers so that raw made counts and remaining portions yield the same recommendation",
+                  "Placing both sheets side-by-side so memory is not required"
+                ],
+                "knowledge_constraints": [
+                  "The assistant must remember the numbers from paper_sheet A when looking at paper_sheet B"
+                ],
+                "required_evidence": [
+                  "The wearer wants the prep sheet with more unbooked portions displayed on the bar.",
+                  "The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.",
+                  "The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.",
+                  "The first prep sheet leaves 16 portions (30 - 14 = 16).",
+                  "The second prep sheet leaves 18 portions (28 - 10 = 18).",
+                  "The second prep sheet has more portions left (18 > 16)."
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "on(paper_sheet_B, bar)",
+                "temporal_constraints": [
+                  "paper_sheet A must be observed before paper_sheet B",
+                  "The assistant must answer after paper_sheet B is observed"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                  "what": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                  "what": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_3 cell_phone",
+                  "what": "item_3 cell_phone",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_4 bottle_of_water",
+                  "what": "item_4 bottle_of_water",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_1 commercial_kitchen_table",
+                  "what": "surf_1 commercial_kitchen_table",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_2 bar",
+                  "what": "surf_2 bar",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_3 breakfast_table",
+                  "what": "surf_3 breakfast_table",
+                  "when": "both"
+                }
+              ]
+            }
+          },
+          "reason": "Manual group-C metadata synchronized to the repaired story.",
+          "runtime_requirements": {
+            "actions": [
+              "AnswerPhone",
+              "Grab",
+              "LookAt",
+              "Put",
+              "PutOn",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 17,
+            "estimated_prologue_actions": 14,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "structural_signature": {
+            "evaluation": "on(paper_sheet_B, bar)",
+            "evidence": "The wearer wants the prep sheet with more unbooked portions displayed on the bar.; The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.; The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.; The first prep sheet leaves 16 portions (30 - 14 = 16).; The second prep sheet leaves 18 portions (28 - 10 = 18).; The second prep sheet has more portions left (18 > 16).",
+            "failure": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+            "operation": "manual repaired ASK task",
+            "response": "Use sheet B. Sheet A leaves 16 portions, while sheet B leaves 18 portions after booked portions are removed.",
+            "temporal": "repaired prologue before turn0"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "The wearer wants the prep sheet with more unbooked portions displayed on the bar.; The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.; The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.; The first prep sheet leaves 16 portions (30 - 14 = 16).; The second prep sheet leaves 18 portions (28 - 10 = 18).; The second prep sheet has more portions left (18 > 16).",
+              "semantic_turns": 1,
+              "story_world_mismatches": [],
+              "strong_weak_distinct": true,
+              "uses_only_grounded_assets": true
+            },
+            "capability_fit": "Manual group-C repair for ASK-88018.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "paper_sheet",
+                    "changed": true,
+                    "costs": null,
+                    "label": "MADE 30 / BOOKED 14",
+                    "tint": null,
+                    "what": "item_1 paper_sheet labeled MADE 30 / BOOKED 14"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "paper_sheet",
+                    "changed": true,
+                    "costs": null,
+                    "label": "MADE 28 / BOOKED 10",
+                    "tint": null,
+                    "what": "item_2 paper_sheet labeled MADE 28 / BOOKED 10"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "cell_phone",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "item_3 cell_phone"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "bottle_of_water",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "item_4 bottle_of_water"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "commercial_kitchen_table",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_1 commercial_kitchen_table"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "bar",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_2 bar"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "breakfast_table",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_3 breakfast_table"
+                  }
+                ],
+                "distinct_by": [
+                  "two prep sheets with made/booked arithmetic"
+                ],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [
+                  {
+                    "rides": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                    "text": "MADE 30 / BOOKED 14",
+                    "what": "readable printed object label",
+                    "which": "item_1"
+                  },
+                  {
+                    "rides": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                    "text": "MADE 28 / BOOKED 10",
+                    "what": "readable printed object label",
+                    "which": "item_2"
+                  }
+                ],
+                "restaged_story": "In the restaurant kitchen, the wearer reads prep sheet A on the kitchen table: 'MADE 30 / BOOKED 14'. They answer an incoming call on the kitchen phone, carry the phone to the bar for order calls, return to the kitchen, and carry a water bottle to the staff breakfast table. At that table they walk up to prep sheet B, read 'MADE 28 / BOOKED 10', briefly pick it up, and set it back down. At turn zero they ask which sheet leaves more unbooked portions and should be displayed on the bar. The assistant compares 16 left on A with 18 left on B and selects sheet B.",
+                "scene": "restaurant_asian",
+                "why_scene": "Provides kitchen and dining/bar service surfaces."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+                  "assigned_scene": "restaurant_asian",
+                  "core_question": "I checked prep sheet A in the kitchen and this sheet B here. Which sheet leaves more unbooked portions, and should go on the bar?",
+                  "counterfactual_failure": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+                  "forbidden_changes": [
+                    "Changing the numbers so that raw made counts and remaining portions yield the same recommendation",
+                    "Placing both sheets side-by-side so memory is not required"
+                  ],
+                  "knowledge_constraints": [
+                    "The assistant must remember the numbers from paper_sheet A when looking at paper_sheet B"
+                  ],
+                  "required_evidence": [
+                    "The wearer wants the prep sheet with more unbooked portions displayed on the bar.",
+                    "The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.",
+                    "The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.",
+                    "The first prep sheet leaves 16 portions (30 - 14 = 16).",
+                    "The second prep sheet leaves 18 portions (28 - 10 = 18).",
+                    "The second prep sheet has more portions left (18 > 16)."
+                  ],
+                  "required_final_predicates": [
+                    "on"
+                  ],
+                  "success_condition": "on(paper_sheet_B, bar)",
+                  "temporal_constraints": [
+                    "paper_sheet A must be observed before paper_sheet B",
+                    "The assistant must answer after paper_sheet B is observed"
+                  ]
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                    "what": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                    "what": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_3 cell_phone",
+                    "what": "item_3 cell_phone",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_4 bottle_of_water",
+                    "what": "item_4 bottle_of_water",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_1 commercial_kitchen_table",
+                    "what": "surf_1 commercial_kitchen_table",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_2 bar",
+                    "what": "surf_2 bar",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_3 breakfast_table",
+                    "what": "surf_3 breakfast_table",
+                    "when": "both"
+                  }
+                ]
+              }
+            },
+            "reason": "Manual group-C metadata synchronized to the repaired story.",
+            "runtime_requirements": {
+              "actions": [
+                "AnswerPhone",
+                "Grab",
+                "LookAt",
+                "Put",
+                "PutOn",
+                "Walk"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 17,
+              "estimated_prologue_actions": 14,
+              "estimated_task_actions": 3,
+              "events": [],
+              "final_predicates": [
+                "on"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "structural_signature": {
+              "evaluation": "on(paper_sheet_B, bar)",
+              "evidence": "The wearer wants the prep sheet with more unbooked portions displayed on the bar.; The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.; The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.; The first prep sheet leaves 16 portions (30 - 14 = 16).; The second prep sheet leaves 18 portions (28 - 10 = 18).; The second prep sheet has more portions left (18 > 16).",
+              "failure": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+              "operation": "manual repaired ASK task",
+              "response": "Use sheet B. Sheet A leaves 16 portions, while sheet B leaves 18 portions after booked portions are removed.",
+              "temporal": "repaired prologue before turn0"
+            },
+            "verdict": "KEEP"
+          },
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "The wearer wants the prep sheet with more unbooked portions displayed on the bar.; The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.; The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.; The first prep sheet leaves 16 portions (30 - 14 = 16).; The second prep sheet leaves 18 portions (28 - 10 = 18).; The second prep sheet has more portions left (18 > 16).",
+              "semantic_turns": 1,
+              "story_world_mismatches": [],
+              "strong_weak_distinct": true,
+              "uses_only_grounded_assets": true
+            },
+            "capability_fit": "Manual group-C repair for ASK-88018.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "paper_sheet",
+                    "changed": true,
+                    "costs": null,
+                    "label": "MADE 30 / BOOKED 14",
+                    "tint": null,
+                    "what": "item_1 paper_sheet labeled MADE 30 / BOOKED 14"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "paper_sheet",
+                    "changed": true,
+                    "costs": null,
+                    "label": "MADE 28 / BOOKED 10",
+                    "tint": null,
+                    "what": "item_2 paper_sheet labeled MADE 28 / BOOKED 10"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "cell_phone",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "item_3 cell_phone"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "bottle_of_water",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "item_4 bottle_of_water"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "commercial_kitchen_table",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_1 commercial_kitchen_table"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "bar",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_2 bar"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "breakfast_table",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_3 breakfast_table"
+                  }
+                ],
+                "distinct_by": [
+                  "two prep sheets with made/booked arithmetic"
+                ],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [
+                  {
+                    "rides": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                    "text": "MADE 30 / BOOKED 14",
+                    "what": "readable printed object label",
+                    "which": "item_1"
+                  },
+                  {
+                    "rides": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                    "text": "MADE 28 / BOOKED 10",
+                    "what": "readable printed object label",
+                    "which": "item_2"
+                  }
+                ],
+                "restaged_story": "In the restaurant kitchen, the wearer reads prep sheet A on the kitchen table: 'MADE 30 / BOOKED 14'. They answer an incoming call on the kitchen phone, carry the phone to the bar for order calls, return to the kitchen, and carry a water bottle to the staff breakfast table. At that table they walk up to prep sheet B, read 'MADE 28 / BOOKED 10', briefly pick it up, and set it back down. At turn zero they ask which sheet leaves more unbooked portions and should be displayed on the bar. The assistant compares 16 left on A with 18 left on B and selects sheet B.",
+                "scene": "restaurant_asian",
+                "why_scene": "Provides kitchen and dining/bar service surfaces."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+                  "assigned_scene": "restaurant_asian",
+                  "core_question": "I checked prep sheet A in the kitchen and this sheet B here. Which sheet leaves more unbooked portions, and should go on the bar?",
+                  "counterfactual_failure": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+                  "forbidden_changes": [
+                    "Changing the numbers so that raw made counts and remaining portions yield the same recommendation",
+                    "Placing both sheets side-by-side so memory is not required"
+                  ],
+                  "knowledge_constraints": [
+                    "The assistant must remember the numbers from paper_sheet A when looking at paper_sheet B"
+                  ],
+                  "required_evidence": [
+                    "The wearer wants the prep sheet with more unbooked portions displayed on the bar.",
+                    "The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.",
+                    "The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.",
+                    "The first prep sheet leaves 16 portions (30 - 14 = 16).",
+                    "The second prep sheet leaves 18 portions (28 - 10 = 18).",
+                    "The second prep sheet has more portions left (18 > 16)."
+                  ],
+                  "required_final_predicates": [
+                    "on"
+                  ],
+                  "success_condition": "on(paper_sheet_B, bar)",
+                  "temporal_constraints": [
+                    "paper_sheet A must be observed before paper_sheet B",
+                    "The assistant must answer after paper_sheet B is observed"
+                  ]
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                    "what": "item_1 paper_sheet labeled MADE 30 / BOOKED 14",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                    "what": "item_2 paper_sheet labeled MADE 28 / BOOKED 10",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_3 cell_phone",
+                    "what": "item_3 cell_phone",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_4 bottle_of_water",
+                    "what": "item_4 bottle_of_water",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_1 commercial_kitchen_table",
+                    "what": "surf_1 commercial_kitchen_table",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_2 bar",
+                    "what": "surf_2 bar",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_3 breakfast_table",
+                    "what": "surf_3 breakfast_table",
+                    "when": "both"
+                  }
+                ]
+              }
+            },
+            "reason": "Manual group-C metadata synchronized to the repaired story.",
+            "runtime_requirements": {
+              "actions": [
+                "AnswerPhone",
+                "Grab",
+                "LookAt",
+                "Put",
+                "PutOn",
+                "Walk"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 17,
+              "estimated_prologue_actions": 14,
+              "estimated_task_actions": 3,
+              "events": [],
+              "final_predicates": [
+                "on"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "structural_signature": {
+              "evaluation": "on(paper_sheet_B, bar)",
+              "evidence": "The wearer wants the prep sheet with more unbooked portions displayed on the bar.; The first prep sheet (item_1) prints 'MADE 30 / BOOKED 14'.; The second prep sheet (item_2) prints 'MADE 28 / BOOKED 10'.; The first prep sheet leaves 16 portions (30 - 14 = 16).; The second prep sheet leaves 18 portions (28 - 10 = 18).; The second prep sheet has more portions left (18 > 16).",
+              "failure": "[Walk] <surf_1> (1), [Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+              "operation": "manual repaired ASK task",
+              "response": "Use sheet B. Sheet A leaves 16 portions, while sheet B leaves 18 portions after booked portions are removed.",
+              "temporal": "repaired prologue before turn0"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "restaurant_asian",
+        "sha": "sha256:6ee8b8ff1b58f04c9c35649b9efd886bff9eed387bcb83a505f7f01ad4b9cc71",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_final120_v35_realism_parallel24_20260901a/rounds/round_001/invention/ASK/stories.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gemini-3-1-pro-preview-tbd",
+        "judge_model": "gpt-5-5-genai-responses",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260831q"
+      },
+      "production_release": {},
+      "normalizations": [],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ]
+    }
+  }
+}

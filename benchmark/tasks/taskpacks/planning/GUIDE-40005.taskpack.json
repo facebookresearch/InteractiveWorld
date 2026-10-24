@@ -1,0 +1,4058 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-40005",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "inside",
+          "subject": "gift_box",
+          "target": "locker"
+        },
+        {
+          "pred": "closed",
+          "subject": "locker",
+          "target": "locker"
+        },
+        {
+          "pred": "inside",
+          "subject": "water",
+          "target": "fridge"
+        },
+        {
+          "pred": "inside",
+          "subject": "towel",
+          "target": "washer"
+        },
+        {
+          "pred": "closed",
+          "subject": "washer",
+          "target": "washer"
+        },
+        {
+          "pred": "running",
+          "subject": "washer",
+          "target": "washer"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "inside",
+          "subject": "gift_box",
+          "target": "locker"
+        },
+        {
+          "pred": "closed",
+          "subject": "locker",
+          "target": "locker"
+        },
+        {
+          "pred": "inside",
+          "subject": "water",
+          "target": "fridge"
+        },
+        {
+          "pred": "inside",
+          "subject": "towel",
+          "target": "washer"
+        },
+        {
+          "pred": "closed",
+          "subject": "washer",
+          "target": "washer"
+        },
+        {
+          "pred": "running",
+          "subject": "washer",
+          "target": "washer"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "fridge",
+          "locker",
+          "washer"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "gift_box",
+          "note",
+          "towel",
+          "water"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "The note gives four ordered duties: secure the gift box in the brown housekeeping locker, chill the water in the open kitchen fridge, load the towel into the bathroom washer, then close and start the washer.",
+        "cue": "There should be a closeout note here. Please inspect it and guide me through every instruction in order.",
+        "premise": "A closeout note sits alone on a scene-native kitchen bar, while an adjacent scene-native table holds three unrelated supplies. Their destinations are the nearby refrigerator and brown housekeeping locker plus the scene-native washer beyond the bathroom doorway. The note orders the nearby locker job first, the open-fridge water job second, and the bathroom washer job last. The wearer does not state the jobs; the assistant must inspect the note, scan the room, and guide every instruction in order."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "There should be a closeout note here. Please inspect it and guide me through every instruction in order.",
+        "kind": "authored",
+        "ref": "data_generate:GUIDE-40005"
+      },
+      "rule_table": "inside(gift_box, locker); closed(locker); inside(water, fridge); inside(towel, washer); closed(washer); running(washer)",
+      "scene": "house_double_floor_lower",
+      "template": "the grounded house_double_floor_lower scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 21,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 21,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "manual_counter"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "note"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "note"
+          ]
+        },
+        {
+          "verb": "LookAround",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "gift_box"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "locker"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "locker"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "gift_box",
+            "locker"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "locker"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "work_counter"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "water"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "water",
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "work_counter"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "towel"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "washer"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "washer"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "towel",
+            "washer"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "washer"
+          ]
+        },
+        {
+          "verb": "TurnOn",
+          "args": [
+            "washer"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Grab] <gift_box> (1), [Walk] <locker> (1), [Open] <locker> (1), [PutInside] <gift_box> (1) <locker> (1), [Close] <locker> (1), [Walk] <work_counter> (1), [Grab] <water> (1), [Walk] <fridge> (1), [PutInside] <water> (1) <fridge> (1), [Walk] <work_counter> (1), [Grab] <towel> (1), [Walk] <washer> (1), [Open] <washer> (1), [PutInside] <towel> (1) <washer> (1), [Close] <washer> (1), [TurnOn] <washer> (1)",
+      "seed": 3545832296,
+      "source_task_id": "GUIDE-40005"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "gift_box",
+          "target": "locker"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "locker",
+          "target": "locker"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "water",
+          "target": "fridge"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "towel",
+          "target": "washer"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 4,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "washer",
+          "target": "washer"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 5,
+          "kind": "running",
+          "label": null,
+          "neg_kind": null,
+          "subject": "washer",
+          "target": "washer"
+        }
+      ],
+      "sub_steps": [
+        "inside(gift_box, locker)",
+        "closed(locker)",
+        "inside(water, fridge)",
+        "inside(towel, washer)",
+        "closed(washer)",
+        "running(washer)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-40005",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 3545832296,
+      "containers": {
+        "locker": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "locker",
+            "model": "gemgfz",
+            "source": "import"
+          },
+          "door": {
+            "required": true,
+            "operator_lateral_offset_m": 0.3
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "kitchen_0"
+        },
+        "fridge": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "fridge",
+            "source": "scene",
+            "pick": {
+              "name": "fridge_petcxr_0",
+              "stage_prim_path": "/World/b_fridge_petcxr_0",
+              "asset_sha256": "sha256:2f5e276e4c42dabecd29ac983321f572ff5f03f2e9661927c5322afc6420ca0c",
+              "instance_digest": "sha256:ceccefb04e26be473585031a446672d1fd89963f3bdf44bdd13e2f7ff4bd086c",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "door": {
+            "required": true,
+            "action_standoff_m": 0.95,
+            "content_standoff_m": 0.65
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "kitchen_0",
+          "initially_open": true
+        },
+        "washer": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "washer",
+            "source": "scene",
+            "pick": {
+              "name": "washer_ziomqg_0",
+              "stage_prim_path": "/World/b_washer_ziomqg_0",
+              "asset_sha256": "sha256:96bff2deb24cf207040d76bc5416b4a1ecfee22dedc1b658b641b56cd3e8e207",
+              "instance_digest": "sha256:8c4da1b16557742e94a8e2f664b1aac084fc8cbc187bdd2786fffb6cd58c7256",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "door": {
+            "required": true,
+            "action_standoff_m": 0.95,
+            "content_standoff_m": 0.8
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "bathroom_0"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "manual_counter": {
+          "bind": {
+            "cat": "bar",
+            "source": "scene",
+            "pick": {
+              "name": "bar_egwapq_0",
+              "stage_prim_path": "/World/b_bar_egwapq_0",
+              "asset_sha256": "sha256:708dd8ab8eae0c015cee9af8e2caf55eac6154bd3ded36a9a9178948efc1c044",
+              "instance_digest": "sha256:0c245c4d0ff5d8eccaab4b4a8064d4792b0ed2fd576c8484495d5faed10653f9",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "work_counter": {
+          "bind": {
+            "cat": "breakfast_table",
+            "source": "scene",
+            "pick": {
+              "name": "breakfast_table_xftrki_0",
+              "stage_prim_path": "/World/b_breakfast_table_xftrki_0",
+              "asset_sha256": "sha256:81b8a888e6951c3eb849dcfb56e5dda87ac1ee5a40ae77fcacdb1b6dd514c38b",
+              "instance_digest": "sha256:816c8312a70a55540ad7fc011511f8416ad1ca9725bbb6ccd28e5d41a864e616",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_note": {
+          "content": {
+            "args": {
+              "renderer": "checklist",
+              "rows": [
+                "1|GIFT BOX → BROWN LOCKER",
+                "2|WATER → OPEN KITCHEN FRIDGE",
+                "3|TOWEL → BATHROOM WASHER",
+                "4|CLOSE AND START WASHER"
+              ],
+              "sub": "",
+              "title": "HOUSEKEEPING CLOSEOUT"
+            },
+            "lines": [
+              "1|GIFT BOX → BROWN LOCKER",
+              "2|WATER → OPEN KITCHEN FRIDGE",
+              "3|TOWEL → BATHROOM WASHER",
+              "4|CLOSE AND START WASHER"
+            ],
+            "text": "HOUSEKEEPING CLOSEOUT"
+          },
+          "kind": "range_card",
+          "mount": {
+            "on": "note",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_40005_guide26_story_refine_r2_20260912zl_note_2f5cd02d391d"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "note": {
+          "cat": "paper_sheet",
+          "model": "afdjfk",
+          "needs_lookat": true,
+          "place": "on:manual_counter",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.0,
+            0.5
+          ],
+          "decal": "CLOSEOUT"
+        },
+        "gift_box": {
+          "cat": "gift_box",
+          "model": "mfalrc",
+          "needs_lookat": false,
+          "place": "on:work_counter",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.55,
+            0.7
+          ]
+        },
+        "water": {
+          "cat": "bottle_of_water",
+          "model": "atvnqy",
+          "needs_lookat": false,
+          "place": "on:work_counter",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            0.25
+          ]
+        },
+        "towel": {
+          "cat": "hand_towel",
+          "model": "klevhj",
+          "needs_lookat": false,
+          "place": "on:work_counter",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.55,
+            0.7
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "kitchen_0",
+        "bathroom_0"
+      ],
+      "scene": "house_double_floor_lower",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false,
+      "initially_open_room_door_names": [
+        "door_bexenl_1"
+      ],
+      "initially_open_room_door_reverse_swing_names": [
+        "door_bexenl_1"
+      ]
+    }
+  },
+  "story": {
+    "premise": "A closeout note sits alone on a scene-native kitchen bar, while an adjacent scene-native table holds three unrelated supplies. Their destinations are the nearby refrigerator and brown housekeeping locker plus the scene-native washer beyond the bathroom doorway. The note orders the nearby locker job first, the open-fridge water job second, and the bathroom washer job last. The wearer does not state the jobs; the assistant must inspect the note, scan the room, and guide every instruction in order.",
+    "assistant_goal": "There should be a closeout note here. Please inspect it and guide me through every instruction in order.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+      "assigned_scene": "house_double_floor_lower",
+      "core_question": "There should be a closeout note here. Please inspect it and guide me through every instruction in order.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "A closeout note sits alone on a scene-native kitchen bar, while an adjacent scene-native table holds three unrelated supplies. Their destinations are the nearby refrigerator and brown housekeeping locker plus the scene-native washer beyond the bathroom doorway. The note orders the nearby locker job first, the open-fridge water job second, and the bathroom washer job last. The wearer does not state the jobs; the assistant must inspect the note, scan the room, and guide every instruction in order."
+      ],
+      "required_evidence": [
+        "There should be a closeout note here. Please inspect it and guide me through every instruction in order.",
+        "The held multi-line housekeeping closeout note visibly specifies all four duties.",
+        "The subsequent room scan establishes the separate supply table, nearby brown locker, and built-in refrigerator; the held note identifies the bathroom washer for the final closeout duties.",
+        "The gift box is secured in the closed brown housekeeping locker.",
+        "The water is inside the open kitchen refrigerator.",
+        "The towel is loaded and the bathroom washer door is closed.",
+        "The built-in washer has been started.",
+        "The note gives four ordered duties: secure the gift box in the brown housekeeping locker, chill the water in the open kitchen fridge, load the towel into the bathroom washer, then close and start the washer."
+      ],
+      "required_final_predicates": [
+        "inside",
+        "closed",
+        "inside",
+        "inside",
+        "closed",
+        "running"
+      ],
+      "success_condition": "inside(gift_box, locker); closed(locker); inside(water, fridge); inside(towel, washer); closed(washer); running(washer)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-40005",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "assigned_scene": "house_double_floor_lower",
+        "core_question": "There should be a closeout note here. Please inspect it and guide me through every instruction in order.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "A closeout note sits alone on a scene-native kitchen bar, while an adjacent scene-native table holds three unrelated supplies. Their destinations are the nearby refrigerator and brown housekeeping locker plus the scene-native washer beyond the bathroom doorway. The note orders the nearby locker job first, the open-fridge water job second, and the bathroom washer job last. The wearer does not state the jobs; the assistant must inspect the note, scan the room, and guide every instruction in order."
+        ],
+        "required_evidence": [
+          "There should be a closeout note here. Please inspect it and guide me through every instruction in order.",
+          "The held multi-line housekeeping closeout note visibly specifies all four duties.",
+          "The subsequent room scan establishes the separate supply table, nearby brown locker, and built-in refrigerator; the held note identifies the bathroom washer for the final closeout duties.",
+          "The gift box is secured in the closed brown housekeeping locker.",
+          "The water is inside the open kitchen refrigerator.",
+          "The towel is loaded and the bathroom washer door is closed.",
+          "The built-in washer has been started.",
+          "The note gives four ordered duties: secure the gift box in the brown housekeeping locker, chill the water in the open kitchen fridge, load the towel into the bathroom washer, then close and start the washer."
+        ],
+        "required_final_predicates": [
+          "inside",
+          "closed",
+          "inside",
+          "inside",
+          "closed",
+          "running"
+        ],
+        "success_condition": "inside(gift_box, locker); closed(locker); inside(water, fridge); inside(towel, washer); closed(washer); running(washer)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "artichoke",
+          "baseball",
+          "bottle_of_barbecue_sauce",
+          "bottle_of_coconut_oil",
+          "bottle_of_water",
+          "boxed_ink_cartridge",
+          "burrito",
+          "can_of_baking_mix",
+          "can_of_sardines",
+          "can_of_tomatoes",
+          "cell_phone",
+          "chocolate_cookie_dough",
+          "cilantro",
+          "electric_kettle",
+          "folder",
+          "gift_box",
+          "gingerbread",
+          "half_bell_pepper",
+          "half_ham_hock",
+          "half_log",
+          "half_pepperoni",
+          "ham_hock",
+          "hand_dryer",
+          "hand_towel",
+          "heap_of_granola",
+          "ice_cream_carton",
+          "jade",
+          "kitchen_analog_scale",
+          "mac_and_cheese",
+          "mallet",
+          "maple_syrup_jar",
+          "mint",
+          "nectarine",
+          "oyster",
+          "pack_of_protein_powder",
+          "paper_sheet",
+          "parer",
+          "pork_rib",
+          "putty_knife",
+          "scone",
+          "sponge",
+          "sugar_syrup_bottle",
+          "vodka_bottle",
+          "walker",
+          "water_atomizer",
+          "work_helmet"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "breakfast_table",
+          "burner",
+          "desk",
+          "shelf"
+        ],
+        "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "coverage_categories": [
+          "pack_of_protein_powder",
+          "burrito",
+          "half_log",
+          "cilantro",
+          "mallet",
+          "artichoke",
+          "oyster",
+          "can_of_baking_mix",
+          "parer",
+          "folder",
+          "half_pepperoni",
+          "heap_of_granola",
+          "putty_knife",
+          "electric_kettle",
+          "baseball",
+          "ice_cream_carton",
+          "pork_rib",
+          "mint",
+          "boxed_ink_cartridge",
+          "bottle_of_coconut_oil"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 3,
+          "required_semantic_turns": 3,
+          "requires_cross_room_transition": true,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 25,
+          "max_document_characters": 124,
+          "max_fixed_destinations": 5,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 5,
+          "max_small_label_characters": 40,
+          "max_task_actions": 16,
+          "max_meaningful_steps": 21,
+          "min_intervening_meaningful_actions": 5
+        },
+        "preferred_story_categories": [
+          "apple",
+          "paper_sheet",
+          "gift_box",
+          "cell_phone"
+        ],
+        "preferred_story_category_glosses": {
+          "apple": "fruit with red or yellow or green skin and sweet to tart crisp whitish flesh",
+          "cell_phone": "",
+          "gift_box": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 36.8,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "dishwasher": 1,
+              "fridge": 1,
+              "microwave": 1
+            },
+            "scene_surfaces": {
+              "bar": 2,
+              "breakfast_table": 1,
+              "burner": 1
+            },
+            "surface_max_area_m2": {
+              "bar": 0.379,
+              "breakfast_table": 0.347,
+              "burner": 0.102
+            },
+            "surface_reference_capacity": {
+              "bar": 3,
+              "breakfast_table": 3,
+              "burner": 3
+            }
+          }
+        ],
+        "scene": "house_double_floor_lower",
+        "task_id": "GUIDE-40005",
+        "version": "grounded-authoring/2.7-safe-preference-20260831"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "paper_sheet",
+            "changed": false,
+            "costs": null,
+            "label": "CLOSEOUT",
+            "tint": null,
+            "what": "housekeeping closeout note"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "gift_box",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "client gift box"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_water",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "service water bottle"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "hand_towel",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "service hand towel"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "locker",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "brown housekeeping locker beside the counter"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "fridge",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "built-in kitchen refrigerator"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "washer",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "built-in bathroom washer"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "bar",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "scene-native kitchen bar holding the closeout note"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "breakfast_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "scene-native kitchen table holding the three supplies"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "housekeeping closeout note",
+            "text": "CLOSEOUT",
+            "what": "document",
+            "which": null
+          }
+        ],
+        "restaged_story": "A closeout note sits alone on a scene-native kitchen bar, while an adjacent scene-native table holds three unrelated supplies. Their destinations are the nearby refrigerator and brown housekeeping locker plus the scene-native washer beyond the bathroom doorway. The note orders the nearby locker job first, the open-fridge water job second, and the bathroom washer job last. The wearer does not state the jobs; the assistant must inspect the note, scan the room, and guide every instruction in order.",
+        "scene": "house_double_floor_lower",
+        "why_scene": "house_double_floor_lower supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "locker": {
+            "cat": "locker",
+            "initially_open": false,
+            "label": null,
+            "preload": [],
+            "role": "scored",
+            "room": "kitchen_0"
+          },
+          "fridge": {
+            "cat": "fridge",
+            "initially_open": true,
+            "label": null,
+            "preload": [],
+            "role": "scored",
+            "room": "kitchen_0"
+          },
+          "washer": {
+            "cat": "washer",
+            "initially_open": false,
+            "label": null,
+            "preload": [],
+            "role": "scored",
+            "room": "bathroom_0"
+          }
+        },
+        "items": {
+          "note": {
+            "affordances": [],
+            "cat": "paper_sheet",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "CLOSEOUT",
+            "place": "on:manual_counter",
+            "scored": false,
+            "spot": [
+              0.0,
+              0.5
+            ],
+            "tint": null
+          },
+          "gift_box": {
+            "affordances": [],
+            "cat": "gift_box",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:work_counter",
+            "scored": true,
+            "spot": [
+              -0.55,
+              0.7
+            ],
+            "tint": null
+          },
+          "water": {
+            "affordances": [],
+            "cat": "bottle_of_water",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:work_counter",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.25
+            ],
+            "tint": null
+          },
+          "towel": {
+            "affordances": [],
+            "cat": "hand_towel",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:work_counter",
+            "scored": true,
+            "spot": [
+              0.55,
+              0.7
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <manual_counter> (1)",
+          "[Grab] <note> (1)",
+          "[LookAt] <note> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0",
+          "bathroom_0"
+        ],
+        "scene": "house_double_floor_lower",
+        "staging": {
+          "groups": "A closeout note sits alone on a scene-native kitchen bar, while an adjacent scene-native table holds three unrelated supplies. Their destinations are the nearby refrigerator and brown housekeeping locker plus the scene-native washer beyond the bathroom doorway. The note orders the nearby locker job first, the open-fridge water job second, and the bathroom washer job last. The wearer does not state the jobs; the assistant must inspect the note, scan the room, and guide every instruction in order.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "manual_counter": {
+            "cat": "bar",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "work_counter": {
+            "cat": "breakfast_table",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        },
+        "initially_open_room_door_names": [
+          "door_bexenl_1"
+        ],
+        "initially_open_room_door_reverse_swing_names": [
+          "door_bexenl_1"
+        ]
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "There should be a closeout note here. Please inspect it and guide me through every instruction in order."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "There should be a closeout note here. Please inspect it and guide me through every instruction in order.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The held multi-line housekeeping closeout note visibly specifies all four duties.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 2,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The subsequent room scan establishes the separate supply table, nearby brown locker, and built-in refrigerator; the held note identifies the bathroom washer for the final closeout duties.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 3,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The gift box is secured in the closed brown housekeeping locker.",
+            "from": "live",
+            "id": "fact_004",
+            "source_index": 4,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The water is inside the open kitchen refrigerator.",
+            "from": "live",
+            "id": "fact_005",
+            "source_index": 8,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The towel is loaded and the bathroom washer door is closed.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 14,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The built-in washer has been started.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 15,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007"
+            ],
+            "fact": "The note gives four ordered duties: secure the gift box in the brown housekeeping locker, chill the water in the open kitchen fridge, load the towel into the bathroom washer, then close and start the washer.",
+            "from": "derived",
+            "id": "fact_008",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "gift_box",
+            "target": "locker"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "locker",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "water",
+            "target": "fridge"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "towel",
+            "target": "washer"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "washer",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "running",
+            "scorable": true,
+            "subject": "washer",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "First, take the client gift box from the breakfast table beside the kitchen bar, put it in the nearby brown housekeeping locker, and close the locker.",
+            "referents": [
+              "note",
+              "gift_box",
+              "locker"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 5,
+            "say": "Return to that breakfast table beside the kitchen bar for the service-water bottle and put it inside the already-open built-in kitchen refrigerator.",
+            "referents": [
+              "work_counter",
+              "water",
+              "fridge"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ]
+          },
+          {
+            "before_index": 9,
+            "say": "Finally, return to that breakfast table beside the kitchen bar for the towel, follow the normal doorway route to the built-in washer in the bathroom, load it, close the washer, and start it.",
+            "referents": [
+              "work_counter",
+              "towel",
+              "washer"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_003",
+              "fact_005"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Grab] <gift_box> (1), [Walk] <locker> (1), [Open] <locker> (1), [PutInside] <gift_box> (1) <locker> (1), [Close] <locker> (1)",
+        "mates": [],
+        "oracle_program": "[Grab] <gift_box> (1), [Walk] <locker> (1), [Open] <locker> (1), [PutInside] <gift_box> (1) <locker> (1), [Close] <locker> (1), [Walk] <work_counter> (1), [Grab] <water> (1), [Walk] <fridge> (1), [PutInside] <water> (1) <fridge> (1), [Walk] <work_counter> (1), [Grab] <towel> (1), [Walk] <washer> (1), [Open] <washer> (1), [PutInside] <towel> (1) <washer> (1), [Close] <washer> (1), [TurnOn] <washer> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "A closeout note sits alone on a scene-native kitchen bar, while an adjacent scene-native table holds three unrelated supplies. Their destinations are the nearby refrigerator and brown housekeeping locker plus the scene-native washer beyond the bathroom doorway. The note orders the nearby locker job first, the open-fridge water job second, and the bathroom washer job last. The wearer does not state the jobs; the assistant must inspect the note, scan the room, and guide every instruction in order.",
+        "utterance": "There should be a closeout note here. Please inspect it and guide me through every instruction in order."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <manual_counter> (1)",
+        "[Grab] <note> (1)",
+        "[LookAt] <note> (1)",
+        "[LookAround]",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "manual_counter"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "manual_counter"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "note"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "note"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "note"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The held multi-line housekeeping closeout note visibly specifies all four duties.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The note gives four ordered duties: secure the gift box in the brown housekeeping locker, chill the water in the open kitchen fridge, load the towel into the bathroom washer, then close and start the washer.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The subsequent room scan establishes the separate supply table, nearby brown locker, and built-in refrigerator; the held note identifies the bathroom washer for the final closeout duties.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The note gives four ordered duties: secure the gift box in the brown housekeeping locker, chill the water in the open kitchen fridge, load the towel into the bathroom washer, then close and start the washer.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "There should be a closeout note here. Please inspect it and guide me through every instruction in order.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "There should be a closeout note here. Please inspect it and guide me through every instruction in order.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The note gives four ordered duties: secure the gift box in the brown housekeeping locker, chill the water in the open kitchen fridge, load the towel into the bathroom washer, then close and start the washer.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "First, take the client gift box from the breakfast table beside the kitchen bar, put it in the nearby brown housekeeping locker, and close the locker.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Return to that breakfast table beside the kitchen bar for the service-water bottle and put it inside the already-open built-in kitchen refrigerator.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Finally, return to that breakfast table beside the kitchen bar for the towel, follow the normal doorway route to the built-in washer in the bathroom, load it, close the washer, and start it.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "gift_box"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "gift_box"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "locker"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "locker"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "locker"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "gift_box",
+            "locker"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "gift_box",
+            "target": "locker"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "locker"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "gift_box"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "gift_box"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "locker"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "locker"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "locker"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "gift_box",
+            "locker"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "gift_box",
+            "target": "locker"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "locker"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The gift box is secured in the closed brown housekeeping locker.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The note gives four ordered duties: secure the gift box in the brown housekeeping locker, chill the water in the open kitchen fridge, load the towel into the bathroom washer, then close and start the washer.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "work_counter"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "work_counter"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "water"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "water"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "water",
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "water",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The water is inside the open kitchen refrigerator.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The note gives four ordered duties: secure the gift box in the brown housekeeping locker, chill the water in the open kitchen fridge, load the towel into the bathroom washer, then close and start the washer.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "work_counter"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "work_counter"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o010",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "towel"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "towel"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o011",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "washer"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "washer"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o012",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "washer"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o013",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "towel",
+            "washer"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "towel",
+            "target": "washer"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o014",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "washer"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The towel is loaded and the bathroom washer door is closed.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The note gives four ordered duties: secure the gift box in the brown housekeeping locker, chill the water in the open kitchen fridge, load the towel into the bathroom washer, then close and start the washer.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o015",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "TurnOn",
+          "args": [
+            "washer"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The built-in washer has been started.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The note gives four ordered duties: secure the gift box in the brown housekeeping locker, chill the water in the open kitchen fridge, load the towel into the bathroom washer, then close and start the washer.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "There should be a closeout note here. Please inspect it and guide me through every instruction in order.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The held multi-line housekeeping closeout note visibly specifies all four duties.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p002"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 2
+      },
+      {
+        "id": "fact_003",
+        "statement": "The subsequent room scan establishes the separate supply table, nearby brown locker, and built-in refrigerator; the held note identifies the bathroom washer for the final closeout duties.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p003"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 3
+      },
+      {
+        "id": "fact_004",
+        "statement": "The gift box is secured in the closed brown housekeeping locker.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o004"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 4
+      },
+      {
+        "id": "fact_005",
+        "statement": "The water is inside the open kitchen refrigerator.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o008"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 8
+      },
+      {
+        "id": "fact_006",
+        "statement": "The towel is loaded and the bathroom washer door is closed.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o014"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 14
+      },
+      {
+        "id": "fact_007",
+        "statement": "The built-in washer has been started.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o015"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 15
+      },
+      {
+        "id": "fact_008",
+        "statement": "The note gives four ordered duties: secure the gift box in the brown housekeeping locker, chill the water in the open kitchen fridge, load the towel into the bathroom washer, then close and start the washer.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p002",
+          "p003",
+          "o004",
+          "o008",
+          "o014",
+          "o015"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the closeout note and preceding room survey to guide the person through every remaining closeout step in order.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <manual_counter> (1)",
+          "[Grab] <note> (1)",
+          "[LookAt] <note> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 4,
+            "say": "Hey, Assistant, I need to finish closing up. Can you use that note and walk me through everything in order?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, I need to finish closing up. Can you use that note and walk me through everything in order?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "closeout_request",
+            "required_phrases": [
+              "finish closing up",
+              "use that note",
+              "everything in order"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutInside] <gift_box> (1) <locker> (1)",
+          "[Close] <locker> (1)",
+          "[PutInside] <water> (1) <fridge> (1)",
+          "[PutInside] <towel> (1) <washer> (1)",
+          "[Close] <washer> (1)",
+          "[TurnOn] <washer> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[PutInside] <gift_box> (1) <locker> (1)",
+            "[Close] <locker> (1)",
+            "[PutInside] <water> (1) <fridge> (1)",
+            "[PutInside] <towel> (1) <washer> (1)",
+            "[Close] <washer> (1)",
+            "[TurnOn] <washer> (1)"
+          ]
+        ],
+        "verification_points": [
+          {
+            "id": "gift_box_in_locker",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "gift_box",
+            "target": "locker"
+          },
+          {
+            "id": "locker_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "locker",
+            "target": "locker"
+          },
+          {
+            "id": "water_in_fridge",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "water",
+            "target": "fridge"
+          },
+          {
+            "id": "towel_in_washer",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "towel",
+            "target": "washer"
+          },
+          {
+            "id": "washer_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "washer",
+            "target": "washer"
+          },
+          {
+            "id": "washer_running",
+            "kind": "world_state",
+            "pred": "running",
+            "subject": "washer",
+            "target": "washer"
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 46,
+    "dialogue_budget": 3,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "note",
+        "held": [
+          "note"
+        ],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "note",
+              "gift_box",
+              "locker"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "note",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "gift_box",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "locker",
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "gift_box",
+            "target": "locker",
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "work_counter",
+              "water",
+              "fridge"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "gift_box",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "work_counter",
+            "truth": true
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "water",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "fridge",
+            "truth": true
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "work_counter",
+              "towel",
+              "washer"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_003",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "gift_box",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o009"
+        },
+        {
+          "after_beat": "o009",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "work_counter",
+            "truth": true
+          },
+          "next_beat": "o010"
+        },
+        {
+          "after_beat": "o010",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "towel",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o011"
+        },
+        {
+          "after_beat": "o011",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "washer",
+            "truth": true
+          },
+          "next_beat": "o012"
+        },
+        {
+          "after_beat": "o012",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o013"
+        },
+        {
+          "after_beat": "o013",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "towel",
+            "target": "washer",
+            "truth": true
+          },
+          "next_beat": "o014"
+        },
+        {
+          "after_beat": "o014",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o015"
+        }
+      ],
+      "terminal_beats": [
+        "h004",
+        "o015"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "gift_box"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "locker"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "locker"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "gift_box",
+          "locker"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "locker"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "work_counter"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "water"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "fridge"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "water",
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "work_counter"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "towel"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "washer"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "washer"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "towel",
+          "washer"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "washer"
+        ]
+      },
+      {
+        "verb": "TurnOn",
+        "args": [
+          "washer"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "gift_box"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "locker"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "locker"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "gift_box",
+          "locker"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "locker"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "First, take the client gift box from the breakfast table beside the kitchen bar, put it in the nearby brown housekeeping locker, and close the locker.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "Return to that breakfast table beside the kitchen bar for the service-water bottle and put it inside the already-open built-in kitchen refrigerator.",
+        "relation": "before",
+        "anchor_beat_id": "o005",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "Finally, return to that breakfast table beside the kitchen bar for the towel, follow the normal doorway route to the built-in washer in the bathroom, load it, close the washer, and start it.",
+        "relation": "before",
+        "anchor_beat_id": "o009",
+        "source": "guidance",
+        "source_index": 2
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "source": "guide22_interaction_assembly",
+    "compile_input_digest": "sha256:84c8e0342cbc27cfa942063f30c5d3b3a0f4d11eb3f45bce02da3b6c69ead537",
+    "source_contract_digest": "sha256:08a251a551cb950ff3879ad1bb1cd5826c7e8a499157a258733ed937a6873095",
+    "executable_spec_digest": "sha256:5b7a34e54741e96282988074456380c9150a05e536c420e1763be18782bd905a",
+    "invention": {
+      "attempt": 2,
+      "author_prose": "A hotel guest is preparing to check out of their suite's bedroom. Standing directly in front of the desk, they look down at two loose items: a cell phone and a small gift box. The guest asks their smart glasses, \"My partner left a note somewhere in this room specifying whether I should lock up the cell phone or the gift box before we head to the airport. I'm at the desk right now, but I don't see any paper here. Which item should I put in the locker?\"\n\nThe assistant's egocentric camera currently shows only the surface of the desk, the phone, and the gift box. A weak assistant assumes it must provide an immediate answer and guesses based on typical item value, advising the wearer to secure the cell phone. By completely ignoring the stated dependency on the unseen note, the weak assistant fails the task. If the wearer follows this premature guess, they risk locking away the wrong item and leaving the intended one vulnerable.\n\nA strong AI assistant recognizes that the required visual evidence—the handwritten note—is outside the camera's current field of view. Before any physical task actions occur, it refuses to guess and instead explicitly directs the wearer to step back and scan the rest of the bedroom to locate the missing document. Following this initial guidance, the wearer turns away from the desk, walks over to the bedroom shelf, and explicitly looks at a paper sheet resting on the surface. Having observed this new visual evidence, the assistant reads the text and provides its substantive guidance in a second turn, confirming that the note asks to secure the gift box. The wearer then walks back to the desk, grabs the gift box, walks over to the freestanding locker, opens its door, places the gift box inside, and closes the locker. The episode evaluates whether the assistant correctly delays its final instruction until the wearer brings the externally located evidence into view, successfully ending with the gift box safely secured inside the closed locker.",
+      "author_prose_sha256": "sha256:200e9079cf7bedbd4fc6f232b5f137e126da64cee6b7dda2ca7e3ce3435f13bc",
+      "capability": {
+        "boundary": "The information-gathering instruction must be necessary; the assistant may not guess or proceed from hidden simulator state.",
+        "few_shot": "A volunteer must attach one of two similar camera lenses to a donated camera body, but the compatibility code is printed inside the closed lens-case lid and neither lens front reveals it. The wearer asks which lens to mount. The assistant first says it cannot determine that from the current view and asks them to open the case and angle the lid toward the glasses. Only after reading the compatibility table does it direct the correct lens onto the camera and the spare into the padded compartment. Guessing immediately can attach the wrong lens. The final attachment and containment are scoreable, while the episode also tests that information acquisition precedes advice.",
+        "id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "name_zh": "感知缺口的主动补齐",
+        "target": "Recognise that required evidence is outside the current view and first direct the wearer to reveal it before giving substantive guidance."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+        "evaluation_status": "PASS",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": false,
+        "owner": null,
+        "reason": null,
+        "reason_code": null,
+        "recommended_work": null,
+        "version": "capability-support/1.0",
+        "workstream": null
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "paper_sheet",
+          "gift_box",
+          "cell_phone",
+          "pack_of_protein_powder",
+          "burrito",
+          "half_log",
+          "cilantro",
+          "mallet",
+          "artichoke",
+          "oyster",
+          "can_of_baking_mix",
+          "parer",
+          "folder",
+          "half_pepperoni",
+          "heap_of_granola",
+          "putty_knife",
+          "electric_kettle",
+          "baseball",
+          "ice_cream_carton",
+          "pork_rib",
+          "mint",
+          "boxed_ink_cartridge",
+          "bottle_of_coconut_oil"
+        ],
+        "allowed_surface_categories": [
+          "desk",
+          "shelf"
+        ],
+        "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "coverage_categories": [
+          "pack_of_protein_powder",
+          "burrito",
+          "half_log",
+          "cilantro",
+          "mallet",
+          "artichoke",
+          "oyster",
+          "can_of_baking_mix",
+          "parer",
+          "folder",
+          "half_pepperoni",
+          "heap_of_granola",
+          "putty_knife",
+          "electric_kettle",
+          "baseball",
+          "ice_cream_carton",
+          "pork_rib",
+          "mint",
+          "boxed_ink_cartridge",
+          "bottle_of_coconut_oil"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 4,
+          "required_semantic_turns": 2,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "apple",
+          "paper_sheet",
+          "gift_box",
+          "cell_phone"
+        ],
+        "preferred_story_category_glosses": {
+          "apple": "fruit with red or yellow or green skin and sweet to tart crisp whitish flesh",
+          "cell_phone": "",
+          "gift_box": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 39.7,
+            "name": "bedroom_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "desk": 1,
+              "shelf": 1
+            },
+            "surface_max_area_m2": {
+              "desk": 0.227,
+              "shelf": 0.263
+            },
+            "surface_reference_capacity": {
+              "desk": 3,
+              "shelf": 3
+            }
+          }
+        ],
+        "scene": "hotel_suite_large",
+        "task_id": "GUIDE-40005",
+        "version": "grounded-authoring/2.7-safe-preference-20260831"
+      },
+      "prompt_sha": "b227c14f1c92",
+      "prompt_sha256": "sha256:b227c14f1c92b0e55d70d9683164c213d52dc5ac8c1149bee6b7ca364deab5a8",
+      "prompt_version": "capability-v25-safe-asset-preference-20260831",
+      "prose_sha256": "sha256:1baf6d99f96fc749183fa8bacec7eb84c23d774cb78f6d5ea385e45e86028f55",
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "The text on the paper sheet which is initially out of view.",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "semantic_turns": 2,
+          "strong_weak_distinct": true,
+          "ungrounded_physical_nouns": [],
+          "uses_only_grounded_assets": true,
+          "why_utterance_alone_fails": "The utterance states a note exists but does not provide its contents, so the assistant cannot know which item to secure without seeing it."
+        },
+        "capability_fit": "The assistant correctly delays its substantive guidance until the wearer brings the externally located evidence into view.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "cell_phone",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "cell phone"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "gift_box",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "gift box"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "paper_sheet",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "paper sheet"
+              },
+              {
+                "affordances": [
+                  "container",
+                  "openable"
+                ],
+                "category": "locker",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "locker"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "desk",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "desk"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "shelf",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "shelf"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [
+              {
+                "rides": "paper sheet",
+                "text": "gift box",
+                "what": "instruction note",
+                "which": null
+              }
+            ],
+            "restaged_story": "A locker is standing in bedroom_0. A cell phone and a gift box are on the desk. A paper sheet is on the shelf. At turn 0, the wearer is standing at the desk and asks which item to lock up, noting that their partner left a note somewhere in the room. The assistant recognizes the note is not in view and instructs the wearer to look around for it. The wearer walks to the shelf and looks at the paper sheet. At turn 1, the assistant reads the note, which says 'gift box', and instructs the wearer to secure the gift box. The wearer walks to the desk, grabs the gift box, walks to the locker, opens the locker, puts the gift box inside, and closes the locker.",
+            "scene": "hotel_suite_large",
+            "why_scene": "Provides a bedroom with a desk and shelf for the items and note."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "Does the assistant delay guidance until the missing evidence is found?",
+              "counterfactual_failure": "The cell phone is inside the locker.",
+              "forbidden_changes": [
+                "Changing the text on the note or the initial locations of the items."
+              ],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "The text on the paper sheet"
+              ],
+              "required_final_predicates": [
+                "inside",
+                "closed"
+              ],
+              "success_condition": "The gift box is inside the locker.",
+              "temporal_constraints": []
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "distractor item",
+                "what": "cell phone",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "target item",
+                "what": "gift box",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "read",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "instruction note",
+                "what": "paper sheet",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container",
+                  "openable"
+                ],
+                "role_in_story": "secure storage",
+                "what": "locker",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "surface",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "initial location of items",
+                "what": "desk",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "surface",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "location of note",
+                "what": "shelf",
+                "when": "main"
+              }
+            ],
+            "hinges_on": "recognizing that the required note is not currently in view and directing the wearer to find it",
+            "look_alike": [],
+            "opening": "The cell phone and gift box are on the desk. The paper sheet is on the shelf. The locker is in the room.",
+            "outcome": "The gift box is secured inside the locker.",
+            "place": "bedroom_0",
+            "printed": [
+              {
+                "says": "gift box",
+                "what": "instruction note",
+                "where": "paper sheet"
+              }
+            ],
+            "tests_what": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The candidate perfectly matches the assigned capability by requiring the assistant to recognize that the necessary evidence (the note) is outside the current field of view and directing the wearer to find it before providing the final instruction. The story uses allowed categories, fits within the action budget, and provides a clear, scorable outcome. The printed text has been shortened to 8 characters to comply with the max_small_label_characters limit.",
+        "requirements": [],
+        "runtime_requirements": {
+          "actions": [
+            "Walk",
+            "LookAt",
+            "Grab",
+            "Open",
+            "Putin",
+            "Close"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 8,
+          "estimated_prologue_actions": 0,
+          "estimated_task_actions": 8,
+          "events": [],
+          "final_predicates": [
+            "inside",
+            "closed"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 418.8,
+        "structural_signature": {
+          "evaluation": "gift box inside locker",
+          "evidence": "text on a paper sheet located elsewhere",
+          "failure": "guessing without evidence",
+          "operation": "active viewpoint acquisition",
+          "response": "two-stage instruction",
+          "temporal": "interrupted/delayed guidance"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The text on the paper sheet which is initially out of view.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 2,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The utterance states a note exists but does not provide its contents, so the assistant cannot know which item to secure without seeing it."
+          },
+          "capability_fit": "The assistant correctly delays its substantive guidance until the wearer brings the externally located evidence into view.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cell_phone",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "cell phone"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "gift_box",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "gift box"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "paper sheet"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "locker",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "locker"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "desk",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "desk"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "shelf",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "shelf"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [
+                {
+                  "rides": "paper sheet",
+                  "text": "gift box",
+                  "what": "instruction note",
+                  "which": null
+                }
+              ],
+              "restaged_story": "A locker is standing in bedroom_0. A cell phone and a gift box are on the desk. A paper sheet is on the shelf. At turn 0, the wearer is standing at the desk and asks which item to lock up, noting that their partner left a note somewhere in the room. The assistant recognizes the note is not in view and instructs the wearer to look around for it. The wearer walks to the shelf and looks at the paper sheet. At turn 1, the assistant reads the note, which says 'gift box', and instructs the wearer to secure the gift box. The wearer walks to the desk, grabs the gift box, walks to the locker, opens the locker, puts the gift box inside, and closes the locker.",
+              "scene": "hotel_suite_large",
+              "why_scene": "Provides a bedroom with a desk and shelf for the items and note."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "Does the assistant delay guidance until the missing evidence is found?",
+                "counterfactual_failure": "The cell phone is inside the locker.",
+                "forbidden_changes": [
+                  "Changing the text on the note or the initial locations of the items."
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "The text on the paper sheet"
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "closed"
+                ],
+                "success_condition": "The gift box is inside the locker.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "distractor item",
+                  "what": "cell phone",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "target item",
+                  "what": "gift box",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "read",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "instruction note",
+                  "what": "paper sheet",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "secure storage",
+                  "what": "locker",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "surface",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "initial location of items",
+                  "what": "desk",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "surface",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "location of note",
+                  "what": "shelf",
+                  "when": "main"
+                }
+              ],
+              "hinges_on": "recognizing that the required note is not currently in view and directing the wearer to find it",
+              "look_alike": [],
+              "opening": "The cell phone and gift box are on the desk. The paper sheet is on the shelf. The locker is in the room.",
+              "outcome": "The gift box is secured inside the locker.",
+              "place": "bedroom_0",
+              "printed": [
+                {
+                  "says": "gift box",
+                  "what": "instruction note",
+                  "where": "paper sheet"
+                }
+              ],
+              "tests_what": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate perfectly matches the assigned capability by requiring the assistant to recognize that the necessary evidence (the note) is outside the current field of view and directing the wearer to find it before providing the final instruction. The story uses allowed categories, fits within the action budget, and provides a clear, scorable outcome. The printed text has been shortened to 8 characters to comply with the max_small_label_characters limit.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Walk",
+              "LookAt",
+              "Grab",
+              "Open",
+              "Putin",
+              "Close"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 8,
+            "estimated_prologue_actions": 0,
+            "estimated_task_actions": 8,
+            "events": [],
+            "final_predicates": [
+              "inside",
+              "closed"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 418.8,
+          "structural_signature": {
+            "evaluation": "gift box inside locker",
+            "evidence": "text on a paper sheet located elsewhere",
+            "failure": "guessing without evidence",
+            "operation": "active viewpoint acquisition",
+            "response": "two-stage instruction",
+            "temporal": "interrupted/delayed guidance"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "hotel_suite_large",
+      "sha": "1baf6d99f96f",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_manual_remaining_20260831y/compile_input/GUIDE/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gemini-3-1-pro-preview-tbd",
+      "judge_model": "gemini-3-1-pro-preview-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260831m"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_grounded_manual_remaining_20260831y",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v25-safe-asset-preference-20260831",
+      "release_id": "sha256:f1d8807e8cd27d40aa3a9b522d582d96eaf79377b81bb5520f50b7786115071b",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "result": "guide26-story-refine-r2-20260912zl",
+        "source": "GUIDE-40005"
+      },
+      {
+        "kind": "canonicalize_required_evidence",
+        "source": "[\"There should be a closeout note here. Please inspect it and guide me through every instruction in order.\", \"The held multi-line housekeeping closeout note visibly specifies all four duties.\", \"The subsequent room scan establishes the separate supply table, nearby brown locker, and built-in refrigerator; the held note identifies the bathroom washer for the final closeout duties.\", \"The gift box is secured in the closed brown housekeeping locker.\", \"The water is inside the open kitchen refrigerator.\", \"The towel is loaded and the bathroom washer door is closed.\", \"The built-in washer has been started.\"]",
+        "result": "[\"There should be a closeout note here. Please inspect it and guide me through every instruction in order.\", \"The held multi-line housekeeping closeout note visibly specifies all four duties.\", \"The subsequent room scan establishes the separate supply table, nearby brown locker, and built-in refrigerator; the held note identifies the bathroom washer for the final closeout duties.\", \"The gift box is secured in the closed brown housekeeping locker.\", \"The water is inside the open kitchen refrigerator.\", \"The towel is loaded and the bathroom washer door is closed.\", \"The built-in washer has been started.\", \"The note gives four ordered duties: secure the gift box in the brown housekeeping locker, chill the water in the open kitchen fridge, load the towel into the bathroom washer, then close and start the washer.\"]"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "GUIDE-40005",
+    "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+    "capability_notes": [
+      "The refrigerator, washer, note bar, and supply table are existing scene-native fridge_petcxr_0, washer_ziomqg_0, bar_egwapq_0, and breakfast_table_xftrki_0; only the task-specific brown housekeeping locker is added.",
+      "The closeout note sits alone on the bar, while the three supplies use separate non-overlapping sites on the breakfast table so neither native surface is overloaded.",
+      "The lower-floor house's real corridor-to-bathroom door_bexenl_1 begins open, so the wearer follows its carved doorway instead of staging through a wall or using the disconnected sliding-door route in house_single_floor.",
+      "The gift is secured first, the water is chilled while the wearer remains in the kitchen, and the towel is then loaded through the normal bathroom doorway as the terminal job.",
+      "The refrigerator begins open for closeout loading because this scene-native two-door model has no collision-free pose from which the wearer can reach its open handle to close it.",
+      "The washer keeps its reachable 0.95-meter control stance while its content stance is pulled back to 0.80 meters; the front-drum door retains the runtime's validated default sweep clearance.",
+      "Starting the washer is terminal so the wearer crosses the real bathroom doorway once and never asks the path planner to return around the opened door leaf."
+    ],
+    "revision": "guide22-interaction-20260913",
+    "benchmark_split": "production",
+    "physical_revision": "guide26-story-refine-r2-20260912zl",
+    "physical_taskpack_sha256": "sha256:6cb0cadc62131bff6c0fe36e451edc76313c4966b4287763f44e5f4aba91677f",
+    "parent_lineage": {
+      "source": "manual_story_revision",
+      "compile_input_digest": "sha256:84c8e0342cbc27cfa942063f30c5d3b3a0f4d11eb3f45bce02da3b6c69ead537",
+      "source_contract_digest": "sha256:19e546a0611202d5c72bf4da90350695e0766343b023562896e173956fd26978",
+      "executable_spec_digest": "sha256:5b7a34e54741e96282988074456380c9150a05e536c420e1763be18782bd905a",
+      "invention": {
+        "attempt": 2,
+        "author_prose": "A hotel guest is preparing to check out of their suite's bedroom. Standing directly in front of the desk, they look down at two loose items: a cell phone and a small gift box. The guest asks their smart glasses, \"My partner left a note somewhere in this room specifying whether I should lock up the cell phone or the gift box before we head to the airport. I'm at the desk right now, but I don't see any paper here. Which item should I put in the locker?\"\n\nThe assistant's egocentric camera currently shows only the surface of the desk, the phone, and the gift box. A weak assistant assumes it must provide an immediate answer and guesses based on typical item value, advising the wearer to secure the cell phone. By completely ignoring the stated dependency on the unseen note, the weak assistant fails the task. If the wearer follows this premature guess, they risk locking away the wrong item and leaving the intended one vulnerable.\n\nA strong AI assistant recognizes that the required visual evidence—the handwritten note—is outside the camera's current field of view. Before any physical task actions occur, it refuses to guess and instead explicitly directs the wearer to step back and scan the rest of the bedroom to locate the missing document. Following this initial guidance, the wearer turns away from the desk, walks over to the bedroom shelf, and explicitly looks at a paper sheet resting on the surface. Having observed this new visual evidence, the assistant reads the text and provides its substantive guidance in a second turn, confirming that the note asks to secure the gift box. The wearer then walks back to the desk, grabs the gift box, walks over to the freestanding locker, opens its door, places the gift box inside, and closes the locker. The episode evaluates whether the assistant correctly delays its final instruction until the wearer brings the externally located evidence into view, successfully ending with the gift box safely secured inside the closed locker.",
+        "author_prose_sha256": "sha256:200e9079cf7bedbd4fc6f232b5f137e126da64cee6b7dda2ca7e3ce3435f13bc",
+        "capability": {
+          "boundary": "The information-gathering instruction must be necessary; the assistant may not guess or proceed from hidden simulator state.",
+          "few_shot": "A volunteer must attach one of two similar camera lenses to a donated camera body, but the compatibility code is printed inside the closed lens-case lid and neither lens front reveals it. The wearer asks which lens to mount. The assistant first says it cannot determine that from the current view and asks them to open the case and angle the lid toward the glasses. Only after reading the compatibility table does it direct the correct lens onto the camera and the spare into the padded compartment. Guessing immediately can attach the wrong lens. The final attachment and containment are scoreable, while the episode also tests that information acquisition precedes advice.",
+          "id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+          "name_zh": "感知缺口的主动补齐",
+          "target": "Recognise that required evidence is outside the current view and first direct the wearer to reveal it before giving substantive guidance."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+          "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+          "evaluation_status": "PASS",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": false,
+          "owner": null,
+          "reason": null,
+          "reason_code": null,
+          "recommended_work": null,
+          "version": "capability-support/1.0",
+          "workstream": null
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "candy_dispenser_shelf",
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "compost_bin",
+            "dessert_stand",
+            "dish_rack_cart",
+            "dishwasher",
+            "display_case",
+            "display_fridge",
+            "dry_food_dispenser_shelf",
+            "free_weight_rack",
+            "freezer",
+            "fridge",
+            "grocery_fridge",
+            "grocery_shelf",
+            "locker",
+            "magazine_stand",
+            "metal_bottom_cabinet",
+            "oven",
+            "public_trash_can",
+            "recycling_bin",
+            "serving_cart",
+            "shelf",
+            "shopping_cart",
+            "snack_rack",
+            "top_cabinet",
+            "trash_can",
+            "umbrella_rack",
+            "vending_machine",
+            "wardrobe",
+            "washer",
+            "wine_fridge"
+          ],
+          "allowed_loose_categories": [
+            "apple",
+            "paper_sheet",
+            "gift_box",
+            "cell_phone",
+            "pack_of_protein_powder",
+            "burrito",
+            "half_log",
+            "cilantro",
+            "mallet",
+            "artichoke",
+            "oyster",
+            "can_of_baking_mix",
+            "parer",
+            "folder",
+            "half_pepperoni",
+            "heap_of_granola",
+            "putty_knife",
+            "electric_kettle",
+            "baseball",
+            "ice_cream_carton",
+            "pork_rib",
+            "mint",
+            "boxed_ink_cartridge",
+            "bottle_of_coconut_oil"
+          ],
+          "allowed_surface_categories": [
+            "desk",
+            "shelf"
+          ],
+          "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+          "coverage_categories": [
+            "pack_of_protein_powder",
+            "burrito",
+            "half_log",
+            "cilantro",
+            "mallet",
+            "artichoke",
+            "oyster",
+            "can_of_baking_mix",
+            "parer",
+            "folder",
+            "half_pepperoni",
+            "heap_of_granola",
+            "putty_knife",
+            "electric_kettle",
+            "baseball",
+            "ice_cream_carton",
+            "pork_rib",
+            "mint",
+            "boxed_ink_cartridge",
+            "bottle_of_coconut_oil"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 4,
+            "required_semantic_turns": 2,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": true,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_reselection": false,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "GUIDE",
+          "limits": {
+            "max_authored_actions": 18,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 10,
+            "max_small_label_characters": 8,
+            "max_task_actions": 10
+          },
+          "preferred_story_categories": [
+            "apple",
+            "paper_sheet",
+            "gift_box",
+            "cell_phone"
+          ],
+          "preferred_story_category_glosses": {
+            "apple": "fruit with red or yellow or green skin and sweet to tart crisp whitish flesh",
+            "cell_phone": "",
+            "gift_box": "",
+            "paper_sheet": ""
+          },
+          "rooms": [
+            {
+              "area_m2": 39.7,
+              "name": "bedroom_0",
+              "scene_containers": {},
+              "scene_surfaces": {
+                "desk": 1,
+                "shelf": 1
+              },
+              "surface_max_area_m2": {
+                "desk": 0.227,
+                "shelf": 0.263
+              },
+              "surface_reference_capacity": {
+                "desk": 3,
+                "shelf": 3
+              }
+            }
+          ],
+          "scene": "hotel_suite_large",
+          "task_id": "GUIDE-40005",
+          "version": "grounded-authoring/2.7-safe-preference-20260831"
+        },
+        "prompt_sha": "b227c14f1c92",
+        "prompt_sha256": "sha256:b227c14f1c92b0e55d70d9683164c213d52dc5ac8c1149bee6b7ca364deab5a8",
+        "prompt_version": "capability-v25-safe-asset-preference-20260831",
+        "prose_sha256": "sha256:1baf6d99f96fc749183fa8bacec7eb84c23d774cb78f6d5ea385e45e86028f55",
+        "review": {
+          "benchmark_check": {
+            "egocentric_evidence": "The text on the paper sheet which is initially out of view.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 2,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The utterance states a note exists but does not provide its contents, so the assistant cannot know which item to secure without seeing it."
+          },
+          "capability_fit": "The assistant correctly delays its substantive guidance until the wearer brings the externally located evidence into view.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cell_phone",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "cell phone"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "gift_box",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "gift box"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "paper sheet"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "locker",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "locker"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "desk",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "desk"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "shelf",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "shelf"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [
+                {
+                  "rides": "paper sheet",
+                  "text": "gift box",
+                  "what": "instruction note",
+                  "which": null
+                }
+              ],
+              "restaged_story": "A locker is standing in bedroom_0. A cell phone and a gift box are on the desk. A paper sheet is on the shelf. At turn 0, the wearer is standing at the desk and asks which item to lock up, noting that their partner left a note somewhere in the room. The assistant recognizes the note is not in view and instructs the wearer to look around for it. The wearer walks to the shelf and looks at the paper sheet. At turn 1, the assistant reads the note, which says 'gift box', and instructs the wearer to secure the gift box. The wearer walks to the desk, grabs the gift box, walks to the locker, opens the locker, puts the gift box inside, and closes the locker.",
+              "scene": "hotel_suite_large",
+              "why_scene": "Provides a bedroom with a desk and shelf for the items and note."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "Does the assistant delay guidance until the missing evidence is found?",
+                "counterfactual_failure": "The cell phone is inside the locker.",
+                "forbidden_changes": [
+                  "Changing the text on the note or the initial locations of the items."
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "The text on the paper sheet"
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "closed"
+                ],
+                "success_condition": "The gift box is inside the locker.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "distractor item",
+                  "what": "cell phone",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "target item",
+                  "what": "gift box",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "read",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "instruction note",
+                  "what": "paper sheet",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "secure storage",
+                  "what": "locker",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "surface",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "initial location of items",
+                  "what": "desk",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "surface",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "location of note",
+                  "what": "shelf",
+                  "when": "main"
+                }
+              ],
+              "hinges_on": "recognizing that the required note is not currently in view and directing the wearer to find it",
+              "look_alike": [],
+              "opening": "The cell phone and gift box are on the desk. The paper sheet is on the shelf. The locker is in the room.",
+              "outcome": "The gift box is secured inside the locker.",
+              "place": "bedroom_0",
+              "printed": [
+                {
+                  "says": "gift box",
+                  "what": "instruction note",
+                  "where": "paper sheet"
+                }
+              ],
+              "tests_what": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate perfectly matches the assigned capability by requiring the assistant to recognize that the necessary evidence (the note) is outside the current field of view and directing the wearer to find it before providing the final instruction. The story uses allowed categories, fits within the action budget, and provides a clear, scorable outcome. The printed text has been shortened to 8 characters to comply with the max_small_label_characters limit.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Walk",
+              "LookAt",
+              "Grab",
+              "Open",
+              "Putin",
+              "Close"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 8,
+            "estimated_prologue_actions": 0,
+            "estimated_task_actions": 8,
+            "events": [],
+            "final_predicates": [
+              "inside",
+              "closed"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 418.8,
+          "structural_signature": {
+            "evaluation": "gift box inside locker",
+            "evidence": "text on a paper sheet located elsewhere",
+            "failure": "guessing without evidence",
+            "operation": "active viewpoint acquisition",
+            "response": "two-stage instruction",
+            "temporal": "interrupted/delayed guidance"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "The text on the paper sheet which is initially out of view.",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "semantic_turns": 2,
+              "strong_weak_distinct": true,
+              "ungrounded_physical_nouns": [],
+              "uses_only_grounded_assets": true,
+              "why_utterance_alone_fails": "The utterance states a note exists but does not provide its contents, so the assistant cannot know which item to secure without seeing it."
+            },
+            "capability_fit": "The assistant correctly delays its substantive guidance until the wearer brings the externally located evidence into view.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "cell_phone",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "cell phone"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "gift_box",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "gift box"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "paper_sheet",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "paper sheet"
+                  },
+                  {
+                    "affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "category": "locker",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "locker"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "desk",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "desk"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "shelf",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "shelf"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [
+                  {
+                    "rides": "paper sheet",
+                    "text": "gift box",
+                    "what": "instruction note",
+                    "which": null
+                  }
+                ],
+                "restaged_story": "A locker is standing in bedroom_0. A cell phone and a gift box are on the desk. A paper sheet is on the shelf. At turn 0, the wearer is standing at the desk and asks which item to lock up, noting that their partner left a note somewhere in the room. The assistant recognizes the note is not in view and instructs the wearer to look around for it. The wearer walks to the shelf and looks at the paper sheet. At turn 1, the assistant reads the note, which says 'gift box', and instructs the wearer to secure the gift box. The wearer walks to the desk, grabs the gift box, walks to the locker, opens the locker, puts the gift box inside, and closes the locker.",
+                "scene": "hotel_suite_large",
+                "why_scene": "Provides a bedroom with a desk and shelf for the items and note."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "Does the assistant delay guidance until the missing evidence is found?",
+                  "counterfactual_failure": "The cell phone is inside the locker.",
+                  "forbidden_changes": [
+                    "Changing the text on the note or the initial locations of the items."
+                  ],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "The text on the paper sheet"
+                  ],
+                  "required_final_predicates": [
+                    "inside",
+                    "closed"
+                  ],
+                  "success_condition": "The gift box is inside the locker.",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "distractor item",
+                    "what": "cell phone",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "target item",
+                    "what": "gift box",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "read",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "instruction note",
+                    "what": "paper sheet",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "role_in_story": "secure storage",
+                    "what": "locker",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "surface",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "initial location of items",
+                    "what": "desk",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "surface",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "location of note",
+                    "what": "shelf",
+                    "when": "main"
+                  }
+                ],
+                "hinges_on": "recognizing that the required note is not currently in view and directing the wearer to find it",
+                "look_alike": [],
+                "opening": "The cell phone and gift box are on the desk. The paper sheet is on the shelf. The locker is in the room.",
+                "outcome": "The gift box is secured inside the locker.",
+                "place": "bedroom_0",
+                "printed": [
+                  {
+                    "says": "gift box",
+                    "what": "instruction note",
+                    "where": "paper sheet"
+                  }
+                ],
+                "tests_what": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION"
+              }
+            },
+            "duplicate_of": null,
+            "reason": "The candidate perfectly matches the assigned capability by requiring the assistant to recognize that the necessary evidence (the note) is outside the current field of view and directing the wearer to find it before providing the final instruction. The story uses allowed categories, fits within the action budget, and provides a clear, scorable outcome. The printed text has been shortened to 8 characters to comply with the max_small_label_characters limit.",
+            "requirements": [],
+            "runtime_requirements": {
+              "actions": [
+                "Walk",
+                "LookAt",
+                "Grab",
+                "Open",
+                "Putin",
+                "Close"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 8,
+              "estimated_prologue_actions": 0,
+              "estimated_task_actions": 8,
+              "events": [],
+              "final_predicates": [
+                "inside",
+                "closed"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 418.8,
+            "structural_signature": {
+              "evaluation": "gift box inside locker",
+              "evidence": "text on a paper sheet located elsewhere",
+              "failure": "guessing without evidence",
+              "operation": "active viewpoint acquisition",
+              "response": "two-stage instruction",
+              "temporal": "interrupted/delayed guidance"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "hotel_suite_large",
+        "sha": "1baf6d99f96f",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_manual_remaining_20260831y/compile_input/GUIDE/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gemini-3-1-pro-preview-tbd",
+        "judge_model": "gemini-3-1-pro-preview-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260831m"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_grounded_manual_remaining_20260831y",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v25-safe-asset-preference-20260831",
+        "release_id": "sha256:f1d8807e8cd27d40aa3a9b522d582d96eaf79377b81bb5520f50b7786115071b",
+        "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "normalizations": [
+        {
+          "kind": "manual_story_revision",
+          "result": "guide26-story-refine-r2-20260912zl",
+          "source": "GUIDE-40005"
+        },
+        {
+          "kind": "canonicalize_required_evidence",
+          "source": "[\"There should be a closeout note here. Please inspect it and guide me through every instruction in order.\", \"The held multi-line housekeeping closeout note visibly specifies all four duties.\", \"The subsequent room scan establishes the separate supply table, nearby brown locker, and built-in refrigerator; the held note identifies the bathroom washer for the final closeout duties.\", \"The gift box is secured in the closed brown housekeeping locker.\", \"The water is inside the open kitchen refrigerator.\", \"The towel is loaded and the bathroom washer door is closed.\", \"The built-in washer has been started.\"]",
+          "result": "[\"There should be a closeout note here. Please inspect it and guide me through every instruction in order.\", \"The held multi-line housekeeping closeout note visibly specifies all four duties.\", \"The subsequent room scan establishes the separate supply table, nearby brown locker, and built-in refrigerator; the held note identifies the bathroom washer for the final closeout duties.\", \"The gift box is secured in the closed brown housekeeping locker.\", \"The water is inside the open kitchen refrigerator.\", \"The towel is loaded and the bathroom washer door is closed.\", \"The built-in washer has been started.\", \"The note gives four ordered duties: secure the gift box in the brown housekeeping locker, chill the water in the open kitchen fridge, load the towel into the bathroom washer, then close and start the washer.\"]"
+        }
+      ],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "GUIDE-40005",
+      "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+      "capability_notes": [
+        "The refrigerator, washer, note bar, and supply table are existing scene-native fridge_petcxr_0, washer_ziomqg_0, bar_egwapq_0, and breakfast_table_xftrki_0; only the task-specific brown housekeeping locker is added.",
+        "The closeout note sits alone on the bar, while the three supplies use separate non-overlapping sites on the breakfast table so neither native surface is overloaded.",
+        "The lower-floor house's real corridor-to-bathroom door_bexenl_1 begins open, so the wearer follows its carved doorway instead of staging through a wall or using the disconnected sliding-door route in house_single_floor.",
+        "The gift is secured first, the water is chilled while the wearer remains in the kitchen, and the towel is then loaded through the normal bathroom doorway as the terminal job.",
+        "The refrigerator begins open for closeout loading because this scene-native two-door model has no collision-free pose from which the wearer can reach its open handle to close it.",
+        "The washer keeps its reachable 0.95-meter control stance while its content stance is pulled back to 0.80 meters; the front-drum door retains the runtime's validated default sweep clearance.",
+        "Starting the washer is terminal so the wearer crosses the real bathroom doorway once and never asks the path planner to return around the opened door leaf."
+      ],
+      "revision": "guide26-story-refine-r2-20260912zl"
+    },
+    "oracle_dialogue_override_ids": [
+      "guide40005_gift_locker_locators",
+      "guide40005_water_fridge_locators",
+      "guide40005_towel_washer_locators"
+    ]
+  }
+}

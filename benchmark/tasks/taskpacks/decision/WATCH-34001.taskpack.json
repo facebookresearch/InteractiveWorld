@@ -1,0 +1,3330 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "WATCH-34001",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "inside",
+          "subject": "item_2",
+          "target": "fridge"
+        },
+        {
+          "pred": "inside",
+          "subject": "item_4",
+          "target": "fridge"
+        },
+        {
+          "pred": "closed",
+          "subject": "fridge",
+          "target": "fridge"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "inside",
+          "subject": "item_2",
+          "target": "fridge"
+        },
+        {
+          "pred": "inside",
+          "subject": "item_4",
+          "target": "fridge"
+        },
+        {
+          "pred": "closed",
+          "subject": "fridge",
+          "target": "fridge"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "fridge"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "checklist",
+          "item_1",
+          "item_2",
+          "item_3",
+          "item_4",
+          "item_5",
+          "phone"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The weak branch continues the imminent mistake instead of applying the earlier evidence.",
+        "assistant_must": "Not yet. Items 1, 3, and 5 went in, but item 2 yogurt and item 4 feta are still on the kitchen counter.",
+        "cue": "Did I already put every item on this list in the refrigerator?",
+        "premise": "The wearer refrigerates only checklist items one, three, and five, closes the refrigerator, then answers and returns a phone at a separate kitchen counter. After that real distraction, they walk to another room, read the five-line checklist on the living-room table, and ask for a memory audit."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [
+        "The continuous motion of reaching for the door."
+      ],
+      "family": "WATCH",
+      "grounding": {
+        "cite": "Did I already put every item on this list in the refrigerator?",
+        "kind": "authored",
+        "ref": "data_generate:WATCH-34001"
+      },
+      "rule_table": "inside(item_2, fridge); inside(item_4, fridge); closed(fridge, fridge)",
+      "scene": "Beechwood_0_garden",
+      "template": "the grounded Beechwood_0_garden scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 24,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 24,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Open",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_1"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "item_1",
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_3"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "item_3",
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_5"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "item_5",
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "phone_counter"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "AnswerPhone",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "phone_counter"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "checklist"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "checklist"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_2"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "item_2",
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_4"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "item_4",
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "fridge"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "WATCH",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Walk] <fridge> (1), [Open] <fridge> (1), [Grab] <item_2> (1), [PutInside] <item_2> (1) <fridge> (1), [Grab] <item_4> (1), [PutInside] <item_4> (1) <fridge> (1), [Walk] <fridge> (1), [Close] <fridge> (1)",
+      "seed": 1504175686,
+      "source_task_id": "WATCH-34001"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "item_2",
+          "target": "fridge"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "item_4",
+          "target": "fridge"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "fridge",
+          "target": "fridge"
+        }
+      ],
+      "sub_steps": [
+        "inside item_2 fridge",
+        "inside item_4 fridge",
+        "closed fridge fridge"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "WATCH-34001",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 1504175686,
+      "containers": {
+        "fridge": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "fridge",
+            "source": "scene",
+            "pick": {
+              "name": "fridge_dszchb_0",
+              "stage_prim_path": "/World/b_fridge_dszchb_0",
+              "asset_sha256": "sha256:ffcdc68d33e823239a36c64e293e9e4ed2f6de870a4859ddbb5e3dc51e6b27cf",
+              "instance_digest": "sha256:4d30e161234d14a4960d39bba3167355e2b93bb96f28a13bd3d305134b54cce6",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "door": {
+            "required": true,
+            "hinge_source": "joint",
+            "stationary_operator": true,
+            "close_reposition": true,
+            "operator_stand_xy": [
+              -3.17,
+              15.14
+            ],
+            "action_standoff_m": 0.68,
+            "close_standoff_m": 1.1,
+            "close_operator_lateral_offset_m": -0.6,
+            "action_lateral_limit_m": 0.75,
+            "content_standoff_m": 0.68,
+            "sweep_standoff_m": 0.3,
+            "opening_pullback_m": 0.75,
+            "closing_pullback_m": 0.0,
+            "closing_swing_retreat_m": 0.18
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "kitchen_0"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "grocery_counter": {
+          "bind": {
+            "cat": "countertop",
+            "source": "scene",
+            "pick": {
+              "name": "countertop_tpuwys_3",
+              "stage_prim_path": "/World/b_countertop_tpuwys_3",
+              "asset_sha256": "sha256:1bf2a44fa9ee771fd7bc205c0db6203bf6565216f35ed621b10adbb95f87b894",
+              "instance_digest": "sha256:ac865154c48c9b7a843ca74b257a6b16df490ec614d641a5ae7d37c7e57786df",
+              "by": "scene_instance",
+              "rank": 3
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "entry_table": {
+          "bind": {
+            "cat": "breakfast_table",
+            "source": "scene",
+            "pick": {
+              "name": "breakfast_table_skczfi_0",
+              "stage_prim_path": "/World/b_breakfast_table_skczfi_0",
+              "asset_sha256": "sha256:b5a4e2e9b46cb46fb2014b366cd79f0f892ff35fa9301e53d1b0677719bbe235",
+              "instance_digest": "sha256:9c2e949a2244de05c7c529873802471c4a2df08d5e3a8e4fcbf0217bd1404f73",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "living_room_0",
+          "seatable": false
+        },
+        "phone_counter": {
+          "bind": {
+            "cat": "countertop",
+            "source": "scene",
+            "pick": {
+              "name": "countertop_tpuwys_1",
+              "stage_prim_path": "/World/b_countertop_tpuwys_1",
+              "asset_sha256": "sha256:1bf2a44fa9ee771fd7bc205c0db6203bf6565216f35ed621b10adbb95f87b894",
+              "instance_digest": "sha256:23b6339e5a3c7b037b747a42edae9414ffef5e036db0c0ce2da646da023684ec",
+              "by": "scene_instance",
+              "rank": 1
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_checklist": {
+          "content": {
+            "text": "REFRIGERATE BEFORE BREAK",
+            "args": {
+              "renderer": "document_scan",
+              "source": "watch20/watch_34001_checklist.png",
+              "primary_glyph_height_ratio": 0.026,
+              "primary_line_count": 5,
+              "primary_text_bbox_norm_xyxy": [
+                0.08,
+                0.2,
+                0.76,
+                0.91
+              ]
+            },
+            "lines": [
+              "1 | MILK CARTON",
+              "2 | YOGURT CUP",
+              "3 | SLICED BRISKET",
+              "4 | FETA",
+              "5 | ORANGE JUICE"
+            ]
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "checklist",
+            "surface": "item_decal",
+            "face": "top"
+          },
+          "per_seed": false,
+          "png": "watch_34001_watch7_review_refine_20260911z_checklist_a887d868afb3"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "checklist": {
+          "cat": "paper_sheet",
+          "model": "afdjfk",
+          "needs_lookat": true,
+          "place": "on:entry_table",
+          "room": "living_room_0",
+          "scored": false,
+          "decal": "COLD ITEMS"
+        },
+        "phone": {
+          "cat": "cell_phone",
+          "model": "dbhfuh",
+          "needs_lookat": false,
+          "place": "on:phone_counter",
+          "room": "kitchen_0",
+          "scored": false
+        },
+        "item_1": {
+          "cat": "carton_of_milk",
+          "model": "atyqub",
+          "needs_lookat": false,
+          "place": "on:grocery_counter",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            -0.9,
+            0.55
+          ]
+        },
+        "item_2": {
+          "cat": "cup_of_yogurt",
+          "model": "kihdsj",
+          "needs_lookat": false,
+          "place": "on:grocery_counter",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.45,
+            0.55
+          ]
+        },
+        "item_3": {
+          "cat": "sliced_brisket",
+          "model": "bzazex",
+          "needs_lookat": false,
+          "place": "on:grocery_counter",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.0,
+            0.55
+          ]
+        },
+        "item_4": {
+          "cat": "feta",
+          "model": "gkaitc",
+          "needs_lookat": false,
+          "place": "on:grocery_counter",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.45,
+            0.55
+          ]
+        },
+        "item_5": {
+          "cat": "carton_of_orange_juice",
+          "model": "brryuo",
+          "needs_lookat": false,
+          "place": "on:grocery_counter",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.9,
+            0.55
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "kitchen_0",
+        "living_room_0"
+      ],
+      "scene": "Beechwood_0_garden",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "The wearer refrigerates only checklist items one, three, and five, closes the refrigerator, then answers and returns a phone at a separate kitchen counter. After that real distraction, they walk to another room, read the five-line checklist on the living-room table, and ask for a memory audit.",
+    "assistant_goal": "Did I already put every item on this list in the refrigerator?",
+    "assessment_contract": {
+      "assigned_capability_id": "WATCH.OMITTED_STEP",
+      "assigned_scene": "Beechwood_0_garden",
+      "core_question": "Did I already put every item on this list in the refrigerator?",
+      "counterfactual_failure": "The weak branch continues the stated mistaken action and violates at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the decisive observed history or printed instruction",
+        "Making an identity-memory target visually unique",
+        "Moving an assistant turn away from its impending-error boundary"
+      ],
+      "knowledge_constraints": [
+        "The wearer refrigerates only checklist items one, three, and five, closes the refrigerator, then answers and returns a phone at a separate kitchen counter. After that real distraction, they walk to another room, read the five-line checklist on the living-room table, and ask for a memory audit."
+      ],
+      "required_evidence": [
+        "Did I already put every item on this list in the refrigerator?",
+        "Only items 1, 3, and 5 were refrigerated before the door closed.",
+        "The wearer completed a phone call and returned the phone before leaving the kitchen.",
+        "The later checklist visibly names all five cold items.",
+        "Not yet. Items 1, 3, and 5 went in, but item 2 yogurt and item 4 feta are still on the kitchen counter."
+      ],
+      "required_final_predicates": [
+        "inside",
+        "inside",
+        "closed"
+      ],
+      "success_condition": "inside(item_2, fridge); inside(item_4, fridge); closed(fridge, fridge)",
+      "temporal_constraints": [
+        "Every assistant intervention occurs after its evidence and before the corresponding invalid state transition."
+      ]
+    },
+    "source_contract": {
+      "task_id": "WATCH-34001",
+      "family": "WATCH",
+      "kind": "a detached family house",
+      "assessment_contract": {
+        "assigned_capability_id": "WATCH.OMITTED_STEP",
+        "assigned_scene": "Beechwood_0_garden",
+        "core_question": "Did I already put every item on this list in the refrigerator?",
+        "counterfactual_failure": "The weak branch continues the stated mistaken action and violates at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the decisive observed history or printed instruction",
+          "Making an identity-memory target visually unique",
+          "Moving an assistant turn away from its impending-error boundary"
+        ],
+        "knowledge_constraints": [
+          "The wearer refrigerates only checklist items one, three, and five, closes the refrigerator, then answers and returns a phone at a separate kitchen counter. After that real distraction, they walk to another room, read the five-line checklist on the living-room table, and ask for a memory audit."
+        ],
+        "required_evidence": [
+          "Did I already put every item on this list in the refrigerator?",
+          "Only items 1, 3, and 5 were refrigerated before the door closed.",
+          "The wearer completed a phone call and returned the phone before leaving the kitchen.",
+          "The later checklist visibly names all five cold items.",
+          "Not yet. Items 1, 3, and 5 went in, but item 2 yogurt and item 4 feta are still on the kitchen counter."
+        ],
+        "required_final_predicates": [
+          "inside",
+          "inside",
+          "closed"
+        ],
+        "success_condition": "inside(item_2, fridge); inside(item_4, fridge); closed(fridge, fridge)",
+        "temporal_constraints": [
+          "Every assistant intervention occurs after its evidence and before the corresponding invalid state transition."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "avocado",
+          "baking_sheet",
+          "bottle_of_pop",
+          "bottle_of_water",
+          "boxed_ink_cartridge",
+          "broken_glass",
+          "can_of_sardines",
+          "carton_of_milk",
+          "carton_of_orange_juice",
+          "cat_food_tin",
+          "cell_phone",
+          "club_sandwich",
+          "cookie_cutter",
+          "copper_pot",
+          "cup_of_yogurt",
+          "dustpan",
+          "electric_switch",
+          "feta",
+          "folder",
+          "garlic",
+          "grocery_sign",
+          "half_bagel",
+          "half_hotdog_frank",
+          "half_quail_breast",
+          "half_steak",
+          "hand_towel",
+          "handle",
+          "honey_jar",
+          "hydrogen_peroxide_bottle",
+          "jar_of_sesame_seed",
+          "lasagna",
+          "legal_document",
+          "lint_screen",
+          "liquid_carton",
+          "meat_loaf",
+          "mug",
+          "pack_of_cigarettes",
+          "pack_of_protein_powder",
+          "paper_sheet",
+          "parmesan_shaker",
+          "pastry",
+          "platter",
+          "popcorn_bag",
+          "salad",
+          "sealant_atomizer",
+          "sliced_brisket",
+          "tiramisu",
+          "white_turnip",
+          "wooden_spoon"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "bottom_cabinet_no_top",
+          "breakfast_table",
+          "burner",
+          "countertop"
+        ],
+        "capability_id": "WATCH.OMITTED_STEP",
+        "coverage_categories": [
+          "copper_pot",
+          "sliced_brisket",
+          "pack_of_cigarettes",
+          "half_hotdog_frank",
+          "platter",
+          "handle",
+          "white_turnip",
+          "grocery_sign",
+          "half_steak",
+          "pastry",
+          "lasagna",
+          "can_of_sardines",
+          "boxed_ink_cartridge",
+          "garlic",
+          "half_bagel",
+          "honey_jar",
+          "liquid_carton",
+          "cookie_cutter",
+          "avocado",
+          "broken_glass"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": true,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "WATCH",
+        "limits": {
+          "max_authored_actions": 28,
+          "max_document_characters": 95,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 7,
+          "max_objects_per_container": 7,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 16,
+          "max_small_label_characters": 40,
+          "max_task_actions": 8,
+          "max_meaningful_steps": 24,
+          "min_intervening_meaningful_actions": 8
+        },
+        "preferred_story_categories": [
+          "copper_pot",
+          "sliced_brisket",
+          "half_hotdog_frank",
+          "platter",
+          "handle",
+          "white_turnip",
+          "grocery_sign",
+          "half_steak"
+        ],
+        "preferred_story_category_glosses": {
+          "copper_pot": "",
+          "grocery_sign": "",
+          "half_hotdog_frank": "",
+          "half_steak": "",
+          "handle": "",
+          "platter": "a large shallow dish used for serving food",
+          "sliced_brisket": "",
+          "white_turnip": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 29.2,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "bottom_cabinet_no_top": 5,
+              "cedar_chest": 1,
+              "dishwasher": 1
+            },
+            "scene_surfaces": {
+              "bottom_cabinet_no_top": 7,
+              "burner": 1,
+              "countertop": 7
+            },
+            "surface_max_area_m2": {
+              "bottom_cabinet_no_top": 0.147,
+              "burner": 0.124,
+              "countertop": 0.549
+            },
+            "surface_reference_capacity": {
+              "bottom_cabinet_no_top": 3,
+              "burner": 3,
+              "countertop": 3
+            }
+          }
+        ],
+        "scene": "Beechwood_0_garden",
+        "task_id": "WATCH-34001",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "what": "five-item cold-storage checklist",
+            "category": "paper_sheet",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": "COLD ITEMS",
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "kitchen phone",
+            "category": "cell_phone",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "item 1 milk carton",
+            "category": "carton_of_milk",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "item 2 yogurt cup",
+            "category": "cup_of_yogurt",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "item 3 sliced brisket",
+            "category": "sliced_brisket",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "item 4 feta",
+            "category": "feta",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "item 5 orange juice",
+            "category": "carton_of_orange_juice",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "kitchen refrigerator",
+            "category": "fridge",
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "five-item cold-storage checklist",
+            "text": "COLD ITEMS",
+            "what": "document",
+            "which": null
+          }
+        ],
+        "restaged_story": "The wearer refrigerates only checklist items one, three, and five, closes the refrigerator, then answers and returns a phone at a separate kitchen counter. After that real distraction, they walk to another room, read the five-line checklist on the living-room table, and ask for a memory audit.",
+        "scene": "Beechwood_0_garden",
+        "why_scene": "Beechwood_0_garden supplies the exact rooms and fixtures used by this revised WATCH story."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "fridge": {
+            "cat": "fridge",
+            "label": null,
+            "preload": [],
+            "role": "scored",
+            "room": "kitchen_0"
+          }
+        },
+        "items": {
+          "checklist": {
+            "affordances": [],
+            "cat": "paper_sheet",
+            "label": "COLD ITEMS",
+            "place": "on:entry_table",
+            "scored": false,
+            "spot": null,
+            "tint": null
+          },
+          "phone": {
+            "affordances": [],
+            "cat": "cell_phone",
+            "label": null,
+            "place": "on:phone_counter",
+            "scored": false,
+            "spot": null,
+            "tint": null
+          },
+          "item_1": {
+            "affordances": [],
+            "cat": "carton_of_milk",
+            "label": null,
+            "place": "on:grocery_counter",
+            "scored": false,
+            "spot": [
+              -0.9,
+              0.55
+            ],
+            "tint": null
+          },
+          "item_2": {
+            "affordances": [],
+            "cat": "cup_of_yogurt",
+            "label": null,
+            "place": "on:grocery_counter",
+            "scored": true,
+            "spot": [
+              -0.45,
+              0.55
+            ],
+            "tint": null
+          },
+          "item_3": {
+            "affordances": [],
+            "cat": "sliced_brisket",
+            "label": null,
+            "place": "on:grocery_counter",
+            "scored": false,
+            "spot": [
+              0.0,
+              0.55
+            ],
+            "tint": null
+          },
+          "item_4": {
+            "affordances": [],
+            "cat": "feta",
+            "label": null,
+            "place": "on:grocery_counter",
+            "scored": true,
+            "spot": [
+              0.45,
+              0.55
+            ],
+            "tint": null
+          },
+          "item_5": {
+            "affordances": [],
+            "cat": "carton_of_orange_juice",
+            "label": null,
+            "place": "on:grocery_counter",
+            "scored": false,
+            "spot": [
+              0.9,
+              0.55
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Open] <fridge> (1)",
+          "[Grab] <item_1> (1)",
+          "[PutInside] <item_1> (1) <fridge> (1)",
+          "[Grab] <item_3> (1)",
+          "[PutInside] <item_3> (1) <fridge> (1)",
+          "[Grab] <item_5> (1)",
+          "[PutInside] <item_5> (1) <fridge> (1)",
+          "[Walk] <fridge> (1)",
+          "[Close] <fridge> (1)",
+          "[Walk] <phone_counter> (1)",
+          "[Grab] <phone> (1)",
+          "[AnswerPhone] <phone> (1)",
+          "[PutOn] <phone> (1) <phone_counter> (1)",
+          "[Walk] <checklist> (1)",
+          "[LookAt] <checklist> (1)",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0",
+          "living_room_0"
+        ],
+        "scene": "Beechwood_0_garden",
+        "staging": {
+          "groups": "The wearer refrigerates only checklist items one, three, and five, closes the refrigerator, then answers and returns a phone at a separate kitchen counter. After that real distraction, they walk to another room, read the five-line checklist on the living-room table, and ask for a memory audit.",
+          "labels_at_t0": "All task documents and routing labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "grocery_counter": {
+            "cat": "countertop",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "entry_table": {
+            "cat": "breakfast_table",
+            "label": null,
+            "room": "living_room_0"
+          },
+          "phone_counter": {
+            "cat": "countertop",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "Did I already put every item on this list in the refrigerator?"
+        },
+        "fact_ledger": [
+          {
+            "id": "fact_001",
+            "fact": "Did I already put every item on this list in the refrigerator?",
+            "from": "utterance",
+            "source_phase": "turn0",
+            "source_index": null,
+            "derived_from": null
+          },
+          {
+            "id": "fact_002",
+            "fact": "Only items 1, 3, and 5 were refrigerated before the door closed.",
+            "from": "prologue",
+            "source_phase": "opening",
+            "source_index": 8,
+            "derived_from": null
+          },
+          {
+            "id": "fact_003",
+            "fact": "The wearer completed a phone call and returned the phone before leaving the kitchen.",
+            "from": "prologue",
+            "source_phase": "opening",
+            "source_index": 12,
+            "derived_from": null
+          },
+          {
+            "id": "fact_004",
+            "fact": "The later checklist visibly names all five cold items.",
+            "from": "prologue",
+            "source_phase": "opening",
+            "source_index": 14,
+            "derived_from": null
+          },
+          {
+            "id": "fact_005",
+            "fact": "Not yet. Items 1, 3, and 5 went in, but item 2 yogurt and item 4 feta are still on the kitchen counter.",
+            "from": "derived",
+            "source_phase": "derived",
+            "source_index": null,
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ]
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "item_2",
+            "target": "fridge"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "item_4",
+            "target": "fridge"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "fridge",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "Not yet. You stored items 1, 3, and 5; yogurt number 2 and feta number 4 are still on the kitchen counter.",
+            "referents": [
+              "item_1",
+              "item_2",
+              "item_3",
+              "item_4",
+              "item_5",
+              "fridge"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ]
+          }
+        ],
+        "hidden_fact": {
+          "what": "Not yet. Items 1, 3, and 5 went in, but item 2 yogurt and item 4 feta are still on the kitchen counter.",
+          "revealed_by": "[LookAt] <checklist> (1)",
+          "unavailable_because": "The decisive earlier event or persistent state is no longer in the current view."
+        },
+        "human_own_script": "[Confirm]",
+        "mates": [],
+        "oracle_program": "[Walk] <fridge> (1), [Open] <fridge> (1), [Grab] <item_2> (1), [PutInside] <item_2> (1) <fridge> (1), [Grab] <item_4> (1), [PutInside] <item_4> (1) <fridge> (1), [Walk] <fridge> (1), [Close] <fridge> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "The wearer refrigerates only checklist items one, three, and five, closes the refrigerator, then answers and returns a phone at a separate kitchen counter. After that real distraction, they walk to another room, read the five-line checklist on the living-room table, and ask for a memory audit.",
+        "utterance": "Did I already put every item on this list in the refrigerator?"
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "physical_preflight": {
+          "diagnostics": [],
+          "physical": {
+            "failures": [],
+            "ok": true,
+            "sited": true,
+            "staged": true,
+            "start": true,
+            "why_sited": "kitchen_0 @ body rung 0",
+            "why_staged": "",
+            "why_start": ""
+          },
+          "report_version": "compiler-physical-preflight/1.5",
+          "resolved": {
+            "binding_contract": {
+              "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+              "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+              "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+              "exact_asset_models": true,
+              "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+              "layout": "frozen",
+              "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+              "version": "compiler-asset-capabilities/1.5"
+            },
+            "objects": [
+              {
+                "category": "white_turnip",
+                "key": "item_3",
+                "model": "nnvlrd"
+              },
+              {
+                "category": "paper_sheet",
+                "key": "item_1",
+                "model": "afdjfk"
+              },
+              {
+                "category": "sliced_brisket",
+                "key": "item_2",
+                "model": "bzazex"
+              }
+            ],
+            "parts": [],
+            "room": "kitchen_0",
+            "scene": "house_single_floor",
+            "units": [
+              {
+                "category": "fridge",
+                "key": "unit_a",
+                "model": "jtqazu",
+                "room": "kitchen_0"
+              }
+            ]
+          },
+          "seconds": 1.94,
+          "status": "PASS",
+          "task_id": "WATCH-34001",
+          "taskpack_digest": "sha256:b746d46b5814833a4f5917c0303e845db21b4210070d981828830934bca42e9a"
+        },
+        "sim_debt": [],
+        "soft": [],
+        "traces": {
+          "human": [
+            {
+              "primitive": "close",
+              "source": "[Close] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 0
+            }
+          ],
+          "opening": [
+            {
+              "primitive": "navigate_to",
+              "source": "[Walk] <surf_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 0
+            },
+            {
+              "primitive": "look_at",
+              "source": "[LookAt] <item_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 1
+            },
+            {
+              "primitive": "navigate_to",
+              "source": "[Walk] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 2
+            },
+            {
+              "primitive": "open",
+              "source": "[Open] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 3
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_2> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2"
+                ],
+                "held": "item_2",
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "held",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 4
+            },
+            {
+              "primitive": "place_inside",
+              "source": "[PutInside] <item_2> (1) <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2"
+                ],
+                "held": "item_2",
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "held",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 5
+            },
+            {
+              "primitive": "wait",
+              "source": "[Wait]",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 6
+            }
+          ],
+          "oracle": [
+            {
+              "primitive": "navigate_to",
+              "source": "[Walk] <surf_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 0
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_3> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2",
+                  "item_3"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "item_3": "held",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "item_3": "on:surf_1",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 1
+            },
+            {
+              "primitive": "navigate_to",
+              "source": "[Walk] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2",
+                  "item_3"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "item_3": "held",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2",
+                  "item_3"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "item_3": "held",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 2
+            },
+            {
+              "primitive": "place_inside",
+              "source": "[PutInside] <item_3> (1) <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2",
+                  "item_3"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "item_3": "in:unit_a",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2",
+                  "item_3"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "item_3": "held",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 3
+            },
+            {
+              "primitive": "close",
+              "source": "[Close] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2",
+                  "item_3"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "item_3": "in:unit_a",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_2",
+                  "item_3"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "item_3": "in:unit_a",
+                  "unit_a": "floor:kitchen_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 4
+            }
+          ]
+        }
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Open] <fridge> (1)",
+        "[Grab] <item_1> (1)",
+        "[PutInside] <item_1> (1) <fridge> (1)",
+        "[Grab] <item_3> (1)",
+        "[PutInside] <item_3> (1) <fridge> (1)",
+        "[Grab] <item_5> (1)",
+        "[PutInside] <item_5> (1) <fridge> (1)",
+        "[Walk] <fridge> (1)",
+        "[Close] <fridge> (1)",
+        "[Walk] <phone_counter> (1)",
+        "[Grab] <phone> (1)",
+        "[AnswerPhone] <phone> (1)",
+        "[PutOn] <phone> (1) <phone_counter> (1)",
+        "[Walk] <checklist> (1)",
+        "[LookAt] <checklist> (1)",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "item_1",
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "item_1",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_3"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_3"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "item_3",
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "item_3",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_5"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_5"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "item_5",
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "item_5",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "Only items 1, 3, and 5 were refrigerated before the door closed.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "Not yet. Items 1, 3, and 5 went in, but item 2 yogurt and item 4 feta are still on the kitchen counter.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "phone_counter"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "phone_counter"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "phone"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p011",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "AnswerPhone",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p012",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "phone_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The wearer completed a phone call and returned the phone before leaving the kitchen.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "Not yet. Items 1, 3, and 5 went in, but item 2 yogurt and item 4 feta are still on the kitchen counter.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p013",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "checklist"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "checklist"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p014",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "checklist"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The later checklist visibly names all five cold items.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "Not yet. Items 1, 3, and 5 went in, but item 2 yogurt and item 4 feta are still on the kitchen counter.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p015",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "Did I already put every item on this list in the refrigerator?",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "Did I already put every item on this list in the refrigerator?",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "Not yet. Items 1, 3, and 5 went in, but item 2 yogurt and item 4 feta are still on the kitchen counter.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Not yet. You stored items 1, 3, and 5; yogurt number 2 and feta number 4 are still on the kitchen counter.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Confirm",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "item_2",
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "item_2",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_4"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_4"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "item_4",
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "item_4",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "Did I already put every item on this list in the refrigerator?",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "Only items 1, 3, and 5 were refrigerated before the door closed.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p008"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 8
+      },
+      {
+        "id": "fact_003",
+        "statement": "The wearer completed a phone call and returned the phone before leaving the kitchen.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p012"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 12
+      },
+      {
+        "id": "fact_004",
+        "statement": "The later checklist visibly names all five cold items.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p014"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 14
+      },
+      {
+        "id": "fact_005",
+        "statement": "Not yet. Items 1, 3, and 5 went in, but item 2 yogurt and item 4 feta are still on the kitchen counter.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p008",
+          "p012",
+          "p014"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004"
+        ]
+      }
+    ]
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "public_preparation": {
+      "mode": "continuous_watch"
+    },
+    "tick_budget": 22,
+    "dialogue_budget": 1,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "checklist",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "halt",
+            "expected_referents": [
+              "item_1",
+              "item_2",
+              "item_3",
+              "item_4",
+              "item_5",
+              "fridge"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "item_2",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "fridge",
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "item_2",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "item_2",
+            "target": "fridge",
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "item_4",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "item_4",
+            "target": "fridge",
+            "truth": true
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "fridge",
+            "truth": true
+          },
+          "next_beat": "o007"
+        }
+      ],
+      "terminal_beats": [
+        "h000",
+        "o007"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "item_2"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "item_2",
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "item_4"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "item_4",
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "fridge"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Confirm",
+        "args": []
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Not yet. You stored items 1, 3, and 5; yogurt number 2 and feta number 4 are still on the kitchen counter.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    }
+  },
+  "lineage": {
+    "source": "manual_story_revision",
+    "compile_input_digest": "sha256:60fe240443190a860d77c89abf9f6427386ee29f455cdb35ee5b92fa184d9dd7",
+    "source_contract_digest": "sha256:601c5ef6ff9e2ccd25c568a1838124477873be86c379c67a3a0a70211dce903f",
+    "executable_spec_digest": "sha256:2c57f0f079b9b4d13c6703e2680a46facf4006b2201d8f5da320d426cbae27b3",
+    "invention": {
+      "attempt": 2,
+      "author_prose": "The wearer is unpacking a premium meal delivery kit in the home kitchen. Resting on the main countertop are the kit’s components: a printed paper sheet serving as the packing slip, a vacuum-sealed sliced brisket, a half steak, and a white turnip. The wearer intends to store the perishable ingredients before discarding the packaging.\n\nThe episode begins with the wearer looking directly at the paper sheet, which clearly lists the brisket, steak, and turnip as items requiring immediate refrigeration. Following this inspection, the wearer opens the kitchen fridge. They grab the sliced brisket from the countertop and put it inside the fridge. Next, they grab the half steak and place it inside alongside the brisket. Believing the unpacking is finished, the wearer reaches out to push the fridge door shut, completely overlooking the white turnip that remains clearly visible on the countertop.\n\nThe assistant must proactively monitor this sequence, tracking the completed storage actions against the requirements printed on the packing slip. The omission of the turnip is the sole trigger; no incorrect item has been moved, and the wearer is simply moving too quickly. A weak assistant remains silent during this critical window, allowing the wearer to close the fridge door while the final vegetable is left behind on the countertop to eventually spoil. \n\nA strong assistant recognizes that a required step from the inspected list has been skipped. It intervenes just as the wearer reaches for the door, prompting them to store the remaining ingredient before sealing the appliance. Following this timely correction, the wearer grabs the white turnip, puts it inside the fridge with the meats, and finally closes the fridge door. The task succeeds if the sliced brisket, half steak, and white turnip are all verified to be inside the fridge, and the fridge door is closed.",
+      "author_prose_sha256": "sha256:4d3d53936d876e27fee677b386057d9585c47843517e1ff6e5755fbe7db0f6c4",
+      "capability": {
+        "boundary": "No wrong action has occurred yet. The evidence is the missing prerequisite, so an object-identity mix-up is not sufficient.",
+        "few_shot": "A photographer is packing a camera body and spare battery into a hard equipment case. The wearer completes both placements and reaches to close the case, but the observed prefix never includes the memory card still lying on the desk. The assistant stays silent through the correct placements and intervenes before the close action, directing the wearer to put the card inside and then close the case. The missing action is recoverable from the opening trace; the default branch closes an incomplete case, while the corrected branch ends with all three items inside and the case closed.",
+        "id": "WATCH.OMITTED_STEP",
+        "name_zh": "漏步检测",
+        "target": "Infer that a required action is absent from the completed prefix and intervene before a later transition makes the omission consequential."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "WATCH.OMITTED_STEP",
+        "evaluation_mode": "TRACE_AND_OUTCOME",
+        "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": true,
+        "owner": "SIMULATOR_EVALUATION",
+        "reason": "The corrected branch runs, but generic missing-prerequisite detection lacks a dedicated scorer.",
+        "reason_code": "OMITTED_STEP_EVALUATOR",
+        "recommended_work": "Add omitted-step and last-safe-intervention-window evaluation.",
+        "version": "capability-support/1.0",
+        "workstream": "EVALUATOR"
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "paper_sheet",
+          "folder",
+          "cell_phone",
+          "bottle_of_water",
+          "copper_pot",
+          "sliced_brisket",
+          "pack_of_cigarettes",
+          "half_hotdog_frank",
+          "platter",
+          "handle",
+          "white_turnip",
+          "grocery_sign",
+          "half_steak",
+          "pastry",
+          "lasagna",
+          "can_of_sardines",
+          "boxed_ink_cartridge",
+          "garlic",
+          "half_bagel",
+          "honey_jar",
+          "liquid_carton",
+          "cookie_cutter",
+          "avocado",
+          "broken_glass"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "bottom_cabinet_no_top",
+          "countertop"
+        ],
+        "capability_id": "WATCH.OMITTED_STEP",
+        "coverage_categories": [
+          "copper_pot",
+          "sliced_brisket",
+          "pack_of_cigarettes",
+          "half_hotdog_frank",
+          "platter",
+          "handle",
+          "white_turnip",
+          "grocery_sign",
+          "half_steak",
+          "pastry",
+          "lasagna",
+          "can_of_sardines",
+          "boxed_ink_cartridge",
+          "garlic",
+          "half_bagel",
+          "honey_jar",
+          "liquid_carton",
+          "cookie_cutter",
+          "avocado",
+          "broken_glass"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": false,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "WATCH",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "copper_pot",
+          "sliced_brisket",
+          "half_hotdog_frank",
+          "platter",
+          "handle",
+          "white_turnip",
+          "grocery_sign",
+          "half_steak"
+        ],
+        "preferred_story_category_glosses": {
+          "copper_pot": "",
+          "grocery_sign": "",
+          "half_hotdog_frank": "",
+          "half_steak": "",
+          "handle": "",
+          "platter": "a large shallow dish used for serving food",
+          "sliced_brisket": "",
+          "white_turnip": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 23.8,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "bottom_cabinet": 1,
+              "dishwasher": 1,
+              "fridge": 1
+            },
+            "scene_surfaces": {
+              "bar": 1,
+              "bottom_cabinet_no_top": 2,
+              "countertop": 2
+            },
+            "surface_max_area_m2": {
+              "bar": 0.864,
+              "bottom_cabinet_no_top": 0.533,
+              "countertop": 1.116
+            },
+            "surface_reference_capacity": {
+              "bar": 3,
+              "bottom_cabinet_no_top": 3,
+              "countertop": 3
+            }
+          }
+        ],
+        "scene": "house_single_floor",
+        "task_id": "WATCH-34001",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "prompt_sha": "8c59f0508321",
+      "prompt_sha256": "sha256:8c59f0508321c3477105a856dea7ec2e0f7dcc9aab9b42a5a0a78f9041b309bd",
+      "prompt_version": "capability-v23-contextual-believability-20260831",
+      "prose_sha256": "sha256:4ded2aaaa097e5498699973414f4c8743ba08083664207635e5d2ae6d12d1c6e",
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "The text on the packing slip and the visual tracking of which items have been placed in the fridge.",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "semantic_turns": 1,
+          "strong_weak_distinct": true,
+          "ungrounded_physical_nouns": [],
+          "uses_only_grounded_assets": true,
+          "why_utterance_alone_fails": "The wearer does not speak; the assistant must visually read the list and monitor the wearer's actions."
+        },
+        "capability_fit": "The assistant must track completed actions against a printed list and intervene when an item is omitted before the wearer closes the container.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [],
+                "category": "paper_sheet",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "packing slip"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "sliced_brisket",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "first food item"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "white_turnip",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "second food item"
+              },
+              {
+                "affordances": [
+                  "container",
+                  "openable"
+                ],
+                "category": "fridge",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "storage appliance"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "countertop",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "source surface"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [
+              {
+                "rides": "packing slip",
+                "text": "2 ITEMS",
+                "what": "packing slip text",
+                "which": null
+              }
+            ],
+            "restaged_story": "The paper_sheet, sliced_brisket, and white_turnip are on the countertop. The wearer looks at the paper_sheet, which reads '2 ITEMS'. The wearer opens the fridge, grabs the sliced_brisket, and puts it inside the fridge. The wearer then reaches to close the fridge door. The assistant intervenes to point out the omitted white_turnip. The wearer grabs the white_turnip, puts it inside the fridge, and closes the fridge door. In the failure branch, the wearer closes the fridge door without storing the white_turnip.",
+            "scene": "house_single_floor",
+            "why_scene": "Provides a kitchen with a fridge and countertop."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "WATCH.OMITTED_STEP",
+              "counterfactual_failure": "The wearer closes the fridge with only the brisket inside, leaving the turnip on the countertop.",
+              "forbidden_changes": [
+                "Changing the trigger to an incorrect item being moved instead of an omitted item"
+              ],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "The packing slip indicating 2 items",
+                "The wearer putting only the first item in the fridge and reaching to close it"
+              ],
+              "required_final_predicates": [
+                "inside",
+                "closed"
+              ],
+              "success_condition": "Both the brisket and the turnip are inside the fridge, and the fridge is closed.",
+              "temporal_constraints": []
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "read",
+                "required_affordances": [
+                  "readable"
+                ],
+                "role_in_story": "document listing the items to refrigerate",
+                "what": "packing slip",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item stored correctly",
+                "what": "first food item",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item omitted initially",
+                "what": "second food item",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container",
+                  "openable"
+                ],
+                "role_in_story": "destination for the food items",
+                "what": "storage appliance",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "initial location of the items",
+                "what": "source surface",
+                "when": "main"
+              }
+            ],
+            "hinges_on": "Recognizing that the second item required by the packing slip has not been stored before the wearer attempts to close the fridge.",
+            "look_alike": [],
+            "opening": "The items are resting on the countertop.",
+            "outcome": "Both food items are stored in the fridge and the fridge is closed.",
+            "place": "kitchen_0",
+            "printed": [
+              {
+                "says": "2 ITEMS",
+                "what": "packing slip text",
+                "where": "packing slip"
+              }
+            ],
+            "tests_what": "The assistant's ability to track a printed list of items and intervene when a required item is omitted before a state transition."
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The candidate successfully tests WATCH.OMITTED_STEP by having the wearer skip a required item from a printed list before closing the storage container. The only issue is a minor violation of the max_objects_per_container limit, which is easily fixed by reducing the number of stored items from three to two, and shortening the printed text to fit the 8-character limit.",
+        "requirements": [
+          "The story puts three objects in the fridge, which violates the max_objects_per_container limit of 2. Rewrite the story to use only two items (e.g., the sliced brisket and the white turnip) listed on the packing slip, so that exactly two objects end up in the fridge.",
+          "Shorten the printed text to 8 characters or fewer to comply with the max_small_label_characters limit."
+        ],
+        "runtime_requirements": {
+          "actions": [
+            "LookAt",
+            "Open",
+            "Grab",
+            "Putin",
+            "Close"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 7,
+          "estimated_prologue_actions": 0,
+          "estimated_task_actions": 7,
+          "events": [],
+          "final_predicates": [
+            "inside",
+            "closed"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 85.1,
+        "structural_signature": {
+          "evaluation": "final object locations",
+          "evidence": "printed list and observed placements",
+          "failure": "omitted item left out",
+          "operation": "tracking omissions",
+          "response": "proactive intervention",
+          "temporal": "before container closure"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The text on the packing slip and the visual tracking of which items have been placed in the fridge.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The wearer does not speak; the assistant must visually read the list and monitor the wearer's actions."
+          },
+          "capability_fit": "The assistant must track completed actions against a printed list and intervene when an item is omitted before the wearer closes the container.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [],
+                  "category": "paper_sheet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "packing slip"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "sliced_brisket",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "first food item"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "white_turnip",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "second food item"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "fridge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "storage appliance"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "countertop",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "source surface"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [
+                {
+                  "rides": "packing slip",
+                  "text": "2 ITEMS",
+                  "what": "packing slip text",
+                  "which": null
+                }
+              ],
+              "restaged_story": "The paper_sheet, sliced_brisket, and white_turnip are on the countertop. The wearer looks at the paper_sheet, which reads '2 ITEMS'. The wearer opens the fridge, grabs the sliced_brisket, and puts it inside the fridge. The wearer then reaches to close the fridge door. The assistant intervenes to point out the omitted white_turnip. The wearer grabs the white_turnip, puts it inside the fridge, and closes the fridge door. In the failure branch, the wearer closes the fridge door without storing the white_turnip.",
+              "scene": "house_single_floor",
+              "why_scene": "Provides a kitchen with a fridge and countertop."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "WATCH.OMITTED_STEP",
+                "counterfactual_failure": "The wearer closes the fridge with only the brisket inside, leaving the turnip on the countertop.",
+                "forbidden_changes": [
+                  "Changing the trigger to an incorrect item being moved instead of an omitted item"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "The packing slip indicating 2 items",
+                  "The wearer putting only the first item in the fridge and reaching to close it"
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "closed"
+                ],
+                "success_condition": "Both the brisket and the turnip are inside the fridge, and the fridge is closed.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "read",
+                  "required_affordances": [
+                    "readable"
+                  ],
+                  "role_in_story": "document listing the items to refrigerate",
+                  "what": "packing slip",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item stored correctly",
+                  "what": "first food item",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item omitted initially",
+                  "what": "second food item",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "destination for the food items",
+                  "what": "storage appliance",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "initial location of the items",
+                  "what": "source surface",
+                  "when": "main"
+                }
+              ],
+              "hinges_on": "Recognizing that the second item required by the packing slip has not been stored before the wearer attempts to close the fridge.",
+              "look_alike": [],
+              "opening": "The items are resting on the countertop.",
+              "outcome": "Both food items are stored in the fridge and the fridge is closed.",
+              "place": "kitchen_0",
+              "printed": [
+                {
+                  "says": "2 ITEMS",
+                  "what": "packing slip text",
+                  "where": "packing slip"
+                }
+              ],
+              "tests_what": "The assistant's ability to track a printed list of items and intervene when a required item is omitted before a state transition."
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate successfully tests WATCH.OMITTED_STEP by having the wearer skip a required item from a printed list before closing the storage container. The only issue is a minor violation of the max_objects_per_container limit, which is easily fixed by reducing the number of stored items from three to two, and shortening the printed text to fit the 8-character limit.",
+          "requirements": [
+            "The story puts three objects in the fridge, which violates the max_objects_per_container limit of 2. Rewrite the story to use only two items (e.g., the sliced brisket and the white turnip) listed on the packing slip, so that exactly two objects end up in the fridge.",
+            "Shorten the printed text to 8 characters or fewer to comply with the max_small_label_characters limit."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "LookAt",
+              "Open",
+              "Grab",
+              "Putin",
+              "Close"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 7,
+            "estimated_prologue_actions": 0,
+            "estimated_task_actions": 7,
+            "events": [],
+            "final_predicates": [
+              "inside",
+              "closed"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 85.1,
+          "structural_signature": {
+            "evaluation": "final object locations",
+            "evidence": "printed list and observed placements",
+            "failure": "omitted item left out",
+            "operation": "tracking omissions",
+            "response": "proactive intervention",
+            "temporal": "before container closure"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "house_single_floor",
+      "sha": "4ded2aaaa097",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_manual_watch_20260831s/compile_input/WATCH/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gemini-3-1-pro-preview-tbd",
+      "judge_model": "gemini-3-1-pro-preview-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260831m"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_grounded_manual_watch_20260831s",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v23-contextual-believability-20260831",
+      "release_id": "sha256:8645674b86f7e297f997d23cb2c7334a53a9a3ae4d2a3f2651f7dca83082a782",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "source": "WATCH-34001",
+        "result": "watch7-review-refine-20260911z"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "WATCH-34001",
+    "revision": "watch7-review-refine-20260911z",
+    "capability_notes": []
+  }
+}

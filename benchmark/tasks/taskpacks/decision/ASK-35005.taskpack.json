@@ -1,0 +1,2764 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "ASK-35005",
+  "executable_spec": {
+    "spec_version": "bts/1.0",
+    "task_id": "ASK-35005",
+    "variant": null,
+    "meta": {
+      "family": "ASK",
+      "template": "a flat or apartment: kitchen, living room, bedrooms, utility",
+      "scene": "Beechwood_0_int",
+      "wave": 1,
+      "difficulty": "hard",
+      "rule_table": "on(pineapple, steak prep counter)",
+      "grounding": {
+        "kind": "authored",
+        "ref": "data_generate:ASK-35005",
+        "cite": "For the steak and bowl I just checked, which fruit should I bring back for enzymatic tenderizing?"
+      },
+      "design": {
+        "premise": "The wearer is setting up a steak marinade. They first inspect the steak and mixing bowl on the kitchen counter, then walk to the living-room breakfast table and inspect a highly recognizable whole pineapple and whole yellow lemon. At turn zero they ask which fruit should be brought back for enzymatic tenderizing. The assistant selects the pineapple because of bromelain, and the lemon remains unmoved.",
+        "cue": "For the steak and bowl I just checked, which fruit should I bring back for enzymatic tenderizing?",
+        "assistant_must": "on(pineapple, steak prep counter)",
+        "anti_shortcut": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)"
+      },
+      "engine_deltas": []
+    },
+    "world": {
+      "scene": "Beechwood_0_int",
+      "instance": 0,
+      "layout": "frozen",
+      "authoring_seed": 4087148144,
+      "seed_scope": "model",
+      "rooms": [
+        "living_room_0",
+        "kitchen_0"
+      ],
+      "roles": {},
+      "fixtures": {
+        "surf_1": {
+          "bind": {
+            "source": "scene",
+            "cat": "breakfast_table"
+          },
+          "room": "living_room_0",
+          "seatable": false
+        },
+        "surf_2": {
+          "bind": {
+            "source": "scene",
+            "cat": "countertop"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "containers": {},
+      "objects": {
+        "item_1": {
+          "cat": "pineapple",
+          "model": "wfaybl",
+          "place": "on:surf_1",
+          "room": "living_room_0",
+          "scored": true,
+          "needs_lookat": false,
+          "spot": [
+            -0.3,
+            0.5
+          ],
+          "grasp_hint": {
+            "target": "body",
+            "family": "wrap",
+            "height_fraction": 0.5
+          }
+        },
+        "item_2": {
+          "cat": "lemon",
+          "model": "vuwehu",
+          "place": "on:surf_1",
+          "room": "living_room_0",
+          "scored": true,
+          "needs_lookat": false,
+          "spot": [
+            0.3,
+            0.5
+          ],
+          "grasp_hint": {
+            "target": "body",
+            "family": "wrap",
+            "height_fraction": 0.5
+          }
+        },
+        "item_3": {
+          "cat": "steak",
+          "model": "akoxpw",
+          "place": "on:surf_2",
+          "room": "kitchen_0",
+          "scored": false,
+          "needs_lookat": false,
+          "spot": [
+            -0.25,
+            0.45
+          ]
+        },
+        "item_4": {
+          "cat": "mixing_bowl",
+          "model": "bsgybx",
+          "place": "on:surf_2",
+          "room": "kitchen_0",
+          "scored": false,
+          "needs_lookat": false,
+          "spot": [
+            0.25,
+            0.45
+          ]
+        }
+      },
+      "parts": {},
+      "labels": {},
+      "initial_attachments": [],
+      "object_groups": [],
+      "preload": {},
+      "permutations": [],
+      "start": {
+        "policy": "seeded_grid",
+        "forbid_rooms": [],
+        "forbid_near": [],
+        "resample_ladder": true
+      },
+      "initially_open_room_doors": true,
+      "decor": [],
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "decoys_constrained": true,
+        "permutation_within_model": true,
+        "key_is_derived": true
+      },
+      "auto_support_labels": false
+    },
+    "goal": {
+      "roster": {
+        "containers": [],
+        "objects": [
+          "item_1",
+          "item_2",
+          "item_3",
+          "item_4"
+        ],
+        "nested_containers": []
+      },
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "item_1",
+          "target": "surf_2"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "item_2",
+          "target": "item_2"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "item_3",
+          "target": "item_3"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "item_4",
+          "target": "item_4"
+        }
+      ],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "item_1",
+          "target": "surf_2"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "item_2",
+          "target": "item_2"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "item_3",
+          "target": "item_3"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "item_4",
+          "target": "item_4"
+        }
+      ],
+      "aggregate_goals": [],
+      "negatives": [],
+      "trace_outcomes": [],
+      "rule_table": null,
+      "arms": null
+    },
+    "program": {
+      "generator": "explicit",
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_3"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_4"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_1"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_2"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_1"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        {
+          "verb": "Put",
+          "args": [
+            "item_1",
+            "surf_2"
+          ]
+        }
+      ],
+      "budget": {
+        "grammar_cmds": 9,
+        "grammar_source": "from_program",
+        "expanded_cmds": 9,
+        "expanded_source": "oracle_cmds",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      }
+    },
+    "report": {
+      "sub_goals": [
+        {
+          "id": 0,
+          "kind": "on",
+          "subject": "item_1",
+          "target": "surf_2",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        },
+        {
+          "id": 1,
+          "kind": "unmoved",
+          "subject": "item_2",
+          "target": "item_2",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        },
+        {
+          "id": 2,
+          "kind": "unmoved",
+          "subject": "item_3",
+          "target": "item_3",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        },
+        {
+          "id": 3,
+          "kind": "unmoved",
+          "subject": "item_4",
+          "target": "item_4",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        }
+      ],
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "sub_steps": [
+        "on item_1 surf_2",
+        "unmoved item_2 item_2",
+        "unmoved item_3 item_3",
+        "unmoved item_4 item_4"
+      ],
+      "control": null,
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "human_frames_withheld": false,
+      "arms_reporting": null
+    },
+    "provenance": {
+      "source_task_id": "ASK-35005",
+      "human_program_raw": "[Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "seed": 4087148144,
+      "arm": "ASK"
+    }
+  },
+  "story": {
+    "premise": "The wearer is setting up a steak marinade. They first inspect the steak and mixing bowl on the kitchen counter, then walk to the living-room breakfast table and inspect a highly recognizable whole pineapple and whole yellow lemon. At turn zero they ask which fruit should be brought back for enzymatic tenderizing. The assistant selects the pineapple because of bromelain, and the lemon remains unmoved.",
+    "assistant_goal": "For the steak and bowl I just checked, which fruit should I bring back for enzymatic tenderizing?",
+    "assessment_contract": {
+      "core_question": "For the steak and bowl I just checked, which fruit should I bring back for enzymatic tenderizing?",
+      "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+      "forbidden_changes": [
+        "changing the ingredients to ones that do not test the specific knowledge of enzymatic tenderization"
+      ],
+      "knowledge_constraints": [
+        "pineapple contains bromelain/enzymes that tenderize meat",
+        "lemon is acidic but does not have the same enzymatic tenderizing effect"
+      ],
+      "required_evidence": [
+        "The kitchen counter has a steak and a mixing bowl.",
+        "The living-room table has a whole pineapple.",
+        "The living-room table has a whole lemon.",
+        "Pineapple contains bromelain for enzymatic tenderizing.",
+        "Lemon is acidic but is not the intended enzymatic tenderizer."
+      ],
+      "required_final_predicates": [
+        "on",
+        "unmoved"
+      ],
+      "success_condition": "on(pineapple, steak prep counter)",
+      "temporal_constraints": [],
+      "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+      "assigned_scene": "Beechwood_0_int"
+    },
+    "source_contract": {
+      "task_id": "ASK-35005",
+      "family": "ASK",
+      "kind": "a flat or apartment: kitchen, living room, bedrooms, utility",
+      "assessment_contract": {
+        "core_question": "For the steak and bowl I just checked, which fruit should I bring back for enzymatic tenderizing?",
+        "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+        "forbidden_changes": [
+          "changing the ingredients to ones that do not test the specific knowledge of enzymatic tenderization"
+        ],
+        "knowledge_constraints": [
+          "pineapple contains bromelain/enzymes that tenderize meat",
+          "lemon is acidic but does not have the same enzymatic tenderizing effect"
+        ],
+        "required_evidence": [
+          "The kitchen counter has a steak and a mixing bowl.",
+          "The living-room table has a whole pineapple.",
+          "The living-room table has a whole lemon.",
+          "Pineapple contains bromelain for enzymatic tenderizing.",
+          "Lemon is acidic but is not the intended enzymatic tenderizer."
+        ],
+        "required_final_predicates": [
+          "on",
+          "unmoved"
+        ],
+        "success_condition": "on(pineapple, steak prep counter)",
+        "temporal_constraints": [],
+        "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "assigned_scene": "Beechwood_0_int"
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [],
+        "allowed_loose_categories": [
+          "lemon",
+          "mixing_bowl",
+          "pineapple",
+          "steak"
+        ],
+        "allowed_surface_categories": [
+          "breakfast_table",
+          "countertop"
+        ],
+        "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "coverage_categories": [
+          "sliced_lemon",
+          "denture",
+          "wall_mounted_light",
+          "case_of_eyeshadow",
+          "half_pineapple",
+          "lemonade_bottle",
+          "jigger",
+          "bag_of_jerky",
+          "saucer",
+          "skates",
+          "jar_of_pepper",
+          "plastic_bag",
+          "tomato_paste_can",
+          "rolled_yoga_mat",
+          "shiitake",
+          "half_bok_choy",
+          "soda_cup",
+          "flask_clamp",
+          "microscope",
+          "half_fillet"
+        ],
+        "evaluation": {
+          "common_sense_allowed": true,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": true,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "ASK",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "sliced_lemon",
+          "denture",
+          "wall_mounted_light",
+          "case_of_eyeshadow",
+          "half_pineapple",
+          "lemonade_bottle",
+          "jigger",
+          "bag_of_jerky"
+        ],
+        "preferred_story_category_glosses": {
+          "bag_of_jerky": "",
+          "case_of_eyeshadow": "",
+          "denture": "",
+          "half_pineapple": "",
+          "jigger": "",
+          "lemonade_bottle": "",
+          "sliced_lemon": "",
+          "wall_mounted_light": "light that provides general illumination for a room"
+        },
+        "rooms": [
+          {
+            "area_m2": 29.2,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "bottom_cabinet_no_top": 5,
+              "cedar_chest": 1,
+              "dishwasher": 1
+            },
+            "scene_surfaces": {
+              "bottom_cabinet_no_top": 7,
+              "breakfast_table": 1,
+              "countertop": 7
+            },
+            "surface_max_area_m2": {
+              "bottom_cabinet_no_top": 0.147,
+              "breakfast_table": 0.26,
+              "countertop": 0.642
+            },
+            "surface_reference_capacity": {
+              "bottom_cabinet_no_top": 3,
+              "breakfast_table": 3,
+              "countertop": 3
+            }
+          }
+        ],
+        "scene": "Beechwood_0_int",
+        "task_id": "ASK-35005",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "pineapple",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_1 pineapple"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "lemon",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_2 lemon"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "steak",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_3 steak"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "mixing_bowl",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_4 mixing_bowl"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "breakfast_table",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_1 breakfast_table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "countertop",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_2 countertop"
+          }
+        ],
+        "distinct_by": [
+          "ingredient function: pineapple enzyme versus lemon acid"
+        ],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [],
+        "restaged_story": "The wearer is setting up a steak marinade. They first inspect the steak and mixing bowl on the kitchen counter, then walk to the living-room breakfast table and inspect a highly recognizable whole pineapple and whole yellow lemon. At turn zero they ask which fruit should be brought back for enzymatic tenderizing. The assistant selects the pineapple because of bromelain, and the lemon remains unmoved.",
+        "scene": "Beechwood_0_int",
+        "why_scene": "Provides kitchen prep surfaces plus a separate office/living area."
+      },
+      "world": {
+        "rooms": [
+          "kitchen_0",
+          "living_room_0"
+        ],
+        "surfaces": {
+          "surf_1": {
+            "cat": "breakfast_table",
+            "label": null,
+            "room": "living_room_0"
+          },
+          "surf_2": {
+            "cat": "countertop",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        },
+        "containers": {},
+        "items": {
+          "item_1": {
+            "affordances": [
+              "graspable"
+            ],
+            "cat": "pineapple",
+            "label": null,
+            "model": "wfaybl",
+            "place": "on:surf_1",
+            "scored": true,
+            "spot": [
+              -0.3,
+              0.5
+            ],
+            "tint": null,
+            "grasp_hint": {
+              "target": "body",
+              "family": "wrap",
+              "height_fraction": 0.5
+            }
+          },
+          "item_2": {
+            "affordances": [
+              "graspable"
+            ],
+            "cat": "lemon",
+            "label": null,
+            "model": "vuwehu",
+            "place": "on:surf_1",
+            "scored": true,
+            "spot": [
+              0.3,
+              0.5
+            ],
+            "tint": null,
+            "grasp_hint": {
+              "target": "body",
+              "family": "wrap",
+              "height_fraction": 0.5
+            }
+          },
+          "item_3": {
+            "affordances": [
+              "graspable"
+            ],
+            "cat": "steak",
+            "label": null,
+            "model": "akoxpw",
+            "place": "on:surf_2",
+            "scored": false,
+            "spot": [
+              -0.25,
+              0.45
+            ],
+            "tint": null
+          },
+          "item_4": {
+            "affordances": [
+              "graspable"
+            ],
+            "cat": "mixing_bowl",
+            "label": null,
+            "model": "bsgybx",
+            "place": "on:surf_2",
+            "scored": false,
+            "spot": [
+              0.25,
+              0.45
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "boards": {},
+        "prologue": [
+          "[Walk] <surf_2> (1)",
+          "[LookAt] <item_3> (1)",
+          "[LookAt] <item_4> (1)",
+          "[Walk] <surf_1> (1)",
+          "[LookAt] <item_1> (1)",
+          "[LookAt] <item_2> (1)"
+        ],
+        "staging": {
+          "groups": "Manual group-B repair defines explicit spatial groups in the prologue.",
+          "labels_at_t0": "Only intentionally printed object labels are used.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "prologue_gaps": [],
+        "scene": "Beechwood_0_int",
+        "initially_open_room_doors": true,
+        "auto_support_labels": false
+      },
+      "task": {
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "utterance": "For the steak and bowl I just checked, which fruit should I bring back for enzymatic tenderizing?",
+        "oracle_program": "[Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+        "human_own_script": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "item_1",
+            "target": "surf_2"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "item_2",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "item_3",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "item_4",
+            "target": null
+          }
+        ],
+        "simulator_events": [],
+        "fact_ledger": [
+          {
+            "fact": "The kitchen counter has a steak and a mixing bowl.",
+            "from": "prologue",
+            "id": "fact_001",
+            "source_phase": "opening",
+            "source_index": 2
+          },
+          {
+            "fact": "The living-room table has a whole pineapple.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_phase": "opening",
+            "source_index": 4
+          },
+          {
+            "fact": "The living-room table has a whole lemon.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_phase": "opening",
+            "source_index": 5
+          },
+          {
+            "fact": "Pineapple contains bromelain for enzymatic tenderizing.",
+            "from": "common_sense",
+            "id": "fact_004",
+            "source_phase": "compiler_knowledge",
+            "source_index": null
+          },
+          {
+            "fact": "Lemon is acidic but is not the intended enzymatic tenderizer.",
+            "from": "common_sense",
+            "id": "fact_005",
+            "source_phase": "compiler_knowledge",
+            "source_index": null
+          }
+        ],
+        "asks_at": {
+          "index": 0,
+          "question": "For the steak and bowl I just checked, which fruit should I bring back for enzymatic tenderizing?"
+        },
+        "speaks_at": [
+          {
+            "fact_ids": [
+              "fact_001",
+              "fact_004"
+            ],
+            "index": 0,
+            "referents": [
+              "item_1",
+              "surf_2"
+            ],
+            "say": "Bring the pineapple to the steak bowl. Pineapple contains bromelain for tenderizing; lemon mainly adds acid."
+          }
+        ],
+        "guidance": [],
+        "hidden_fact": null,
+        "steps": null,
+        "mates": [],
+        "story_check": "manually repaired by ask-group-b-refine-20260910r29"
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <surf_2> (1)",
+        "[LookAt] <item_3> (1)",
+        "[LookAt] <item_4> (1)",
+        "[Walk] <surf_1> (1)",
+        "[LookAt] <item_1> (1)",
+        "[LookAt] <item_2> (1)"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "Pineapple contains bromelain for enzymatic tenderizing.",
+            "channel": "common_sense"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "Lemon is acidic but is not the intended enzymatic tenderizer.",
+            "channel": "common_sense"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_3"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_4"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "The kitchen counter has a steak and a mixing bowl.",
+            "channel": "prologue"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_1"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The living-room table has a whole pineapple.",
+            "channel": "prologue"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The living-room table has a whole lemon.",
+            "channel": "prologue"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "For the steak and bowl I just checked, which fruit should I bring back for enzymatic tenderizing?",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Take the pineapple back to the steak-prep counter and set it on the counter beside the bowl. Leave the lemon on the fruit table; pineapple contains bromelain for tenderizing.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "item_2",
+            "surf_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "item_1",
+            "surf_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "The kitchen counter has a steak and a mixing bowl.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p002"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 2
+      },
+      {
+        "id": "fact_002",
+        "statement": "The living-room table has a whole pineapple.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p004"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 4
+      },
+      {
+        "id": "fact_003",
+        "statement": "The living-room table has a whole lemon.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p005"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 5
+      },
+      {
+        "id": "fact_004",
+        "statement": "Pineapple contains bromelain for enzymatic tenderizing.",
+        "channel": "common_sense",
+        "source_beat_ids": [
+          "reset"
+        ],
+        "grounding": "compiler_knowledge",
+        "source_phase": "compiler_knowledge",
+        "source_index": null
+      },
+      {
+        "id": "fact_005",
+        "statement": "Lemon is acidic but is not the intended enzymatic tenderizer.",
+        "channel": "common_sense",
+        "source_beat_ids": [
+          "reset"
+        ],
+        "grounding": "compiler_knowledge",
+        "source_phase": "compiler_knowledge",
+        "source_index": null
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the preceding steak context and the two visible fruits to identify what the person should take to the prep counter.",
+      "human_task_context": "Wait for the Assistant to explicitly select one fruit; do not choose the fruit yourself. Carry only that fruit to the steak-prep counter and set it on the counter surface beside the bowl, never inside the bowl. Leave the other fruit, steak, and bowl in place. This surface placement is the prearranged destination, so do not ask the Assistant where to put it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <surf_2> (1)",
+          "[LookAt] <item_3> (1)",
+          "[LookAt] <item_4> (1)",
+          "[Walk] <surf_1> (1)",
+          "[LookAt] <item_1> (1)",
+          "[LookAt] <item_2> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 6,
+            "say": "Hey, Assistant, which fruit should I take back if I want to use enzymes to tenderize the steak?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, which fruit should I take back if I want to use enzymes to tenderize the steak?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "enzymatic_tenderizing_question",
+            "required_phrases": [
+              "which fruit",
+              "enzymes to tenderize the steak"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "forbidden_successful_commands": [
+          "[Grab] <item_2> (1)",
+          "[Grab] <item_3> (1)",
+          "[Grab] <item_4> (1)"
+        ],
+        "verification_points": [
+          {
+            "id": "selected_fruit_on_steak_counter",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "item_1",
+            "target": "surf_2"
+          },
+          {
+            "id": "other_fruit_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "item_2",
+            "target": "item_2"
+          },
+          {
+            "id": "steak_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "item_3",
+            "target": "item_3"
+          },
+          {
+            "id": "bowl_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "item_4",
+            "target": "item_4"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "item_1": [
+          "whole pineapple on the left side of the fruit table"
+        ],
+        "item_2": [
+          "whole lemon on the right side of the fruit table"
+        ],
+        "item_3": [
+          "steak on the left side of the kitchen countertop"
+        ],
+        "item_4": [
+          "mixing bowl on the right side of the kitchen countertop"
+        ],
+        "surf_1": [
+          "living room table holding the pineapple and lemon",
+          "fruit table"
+        ],
+        "surf_2": [
+          "kitchen countertop holding the steak and mixing bowl",
+          "steak-prep counter"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 16,
+    "dialogue_budget": 1,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "item_2",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "item_1",
+              "surf_2"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "item_1",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "item_1",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "surf_2",
+            "truth": true
+          },
+          "next_beat": "o002"
+        }
+      ],
+      "terminal_beats": [
+        "h002",
+        "o002"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "item_1"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_2"
+        ]
+      },
+      {
+        "verb": "Put",
+        "args": [
+          "item_1",
+          "surf_2"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "item_2"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_2"
+        ]
+      },
+      {
+        "verb": "Put",
+        "args": [
+          "item_2",
+          "surf_2"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Take the pineapple back to the steak-prep counter and set it on the counter beside the bowl. Leave the lemon on the fruit table; pineapple contains bromelain for tenderizing.",
+        "relation": "at",
+        "anchor_beat_id": "o000",
+        "source": "speaks_at",
+        "source_index": 0
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    }
+  },
+  "lineage": {
+    "source": "ask17_interaction_assembly",
+    "compile_input_digest": "sha256:0cd553237fdfb876f10fd995f938c2fef64cb8257687dbceeceef6a4813c5814",
+    "source_contract_digest": "sha256:ce039ff71a7ed23f825275d27441d4c92e6af26eb723aca8da1c4c003058455e",
+    "executable_spec_digest": "sha256:12c36eda13e5024be022dad65045996d846bba682210abcb48d0689c655c161b",
+    "invention": {
+      "capability": {
+        "boundary": "The decisive rule is prior knowledge applied to a visually identified feature, not a remembered local document, arbitrary label mapping, or invented preference. Keep claims safe, broadly established, low stakes, and appropriate to the assigned room. Prefer ordinary tool-purpose, object-use, or household-organisation knowledge. Use food only in a real kitchen, grocery, or restaurant context, and do not make debatable storage-life or food-safety claims. Do not use diagnosis, treatment, wound care, child dosing, pesticide dosing, or ambiguous chemical advice.",
+        "few_shot": "A wearer is assembling a small desk accessory and holds the bracket steady with one hand. On the work surface are a cross-head screw, a flat-head screwdriver, and a cross-head screwdriver. They ask the glasses which tool to use. The assistant identifies the visible screw-head shape and applies ordinary tool knowledge to name the cross-head screwdriver; no label or earlier document supplies the answer. The wearer uses that tool to attach the bracket and returns the unused driver to the fixed tool drawer. A weak assistant that chooses by proximity uses the wrong tool. The visible fastener feature, ordinary functional rule, and final attachment make the decision both situated and low stakes.",
+        "id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "name_zh": "功能与世界知识推理",
+        "target": "Apply ordinary functional or domain knowledge to a present scene in order to answer where, how, or with what the wearer should act."
+      },
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "The kitchen counter has a steak and a mixing bowl.; The living-room table has a whole pineapple.; The living-room table has a whole lemon.; Pineapple contains bromelain for enzymatic tenderizing.; Lemon is acidic but is not the intended enzymatic tenderizer.",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "semantic_turns": 1,
+          "strong_weak_distinct": true,
+          "ungrounded_physical_nouns": [],
+          "uses_only_grounded_assets": true,
+          "why_utterance_alone_fails": "The wearer asks 'Which of these ingredients' without naming them, requiring the assistant to visually identify the available options before applying its knowledge."
+        },
+        "capability_fit": "Manual group-B repair for ASK-35005.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "pineapple",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "item_1 pineapple"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "lemon",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "item_2 lemon"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "steak",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "item_3 steak"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "mixing_bowl",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "item_4 mixing_bowl"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "breakfast_table",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "surf_1 breakfast_table"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "countertop",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "surf_2 countertop"
+              }
+            ],
+            "distinct_by": [
+              "ingredient function: pineapple enzyme versus lemon acid"
+            ],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "The wearer is setting up a steak marinade. They first inspect the steak and mixing bowl on the kitchen counter, then walk to the living-room breakfast table and inspect a highly recognizable whole pineapple and whole yellow lemon. At turn zero they ask which fruit should be brought back for enzymatic tenderizing. The assistant selects the pineapple because of bromelain, and the lemon remains unmoved.",
+            "scene": "Beechwood_0_int",
+            "why_scene": "Provides kitchen prep surfaces plus a separate office/living area."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "For the steak and bowl I just checked, which fruit should I bring back for enzymatic tenderizing?",
+              "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+              "forbidden_changes": [
+                "changing the ingredients to ones that do not test the specific knowledge of enzymatic tenderization"
+              ],
+              "knowledge_constraints": [
+                "pineapple contains bromelain/enzymes that tenderize meat",
+                "lemon is acidic but does not have the same enzymatic tenderizing effect"
+              ],
+              "required_evidence": [
+                "The kitchen counter has a steak and a mixing bowl.",
+                "The living-room table has a whole pineapple.",
+                "The living-room table has a whole lemon.",
+                "Pineapple contains bromelain for enzymatic tenderizing.",
+                "Lemon is acidic but is not the intended enzymatic tenderizer."
+              ],
+              "required_final_predicates": [
+                "on",
+                "unmoved"
+              ],
+              "success_condition": "on(pineapple, steak prep counter)",
+              "temporal_constraints": [],
+              "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+              "assigned_scene": "Beechwood_0_int"
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-B repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_1 pineapple",
+                "what": "item_1 pineapple",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-B repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_2 lemon",
+                "what": "item_2 lemon",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-B repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_3 steak",
+                "what": "item_3 steak",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-B repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_4 mixing_bowl",
+                "what": "item_4 mixing_bowl",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-B repaired story uses it",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "surf_1 breakfast_table",
+                "what": "surf_1 breakfast_table",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-B repaired story uses it",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "surf_2 countertop",
+                "what": "surf_2 countertop",
+                "when": "both"
+              }
+            ]
+          }
+        },
+        "duplicate_of": null,
+        "reason": "Manual group-B metadata synchronized to the repaired story.",
+        "requirements": [],
+        "runtime_requirements": {
+          "actions": [
+            "Grab",
+            "LookAt",
+            "PutOn",
+            "Walk"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 9,
+          "estimated_prologue_actions": 6,
+          "estimated_task_actions": 3,
+          "events": [],
+          "final_predicates": [
+            "on",
+            "unmoved",
+            "unmoved",
+            "unmoved"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 32.9,
+        "structural_signature": {
+          "evaluation": "on(pineapple, steak prep counter)",
+          "evidence": "The kitchen counter has a steak and a mixing bowl.; The living-room table has a whole pineapple.; The living-room table has a whole lemon.; Pineapple contains bromelain for enzymatic tenderizing.; Lemon is acidic but is not the intended enzymatic tenderizer.",
+          "failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+          "operation": "manual repaired ASK task",
+          "response": "Bring the pineapple to the steak bowl. Pineapple contains bromelain for tenderizing; lemon mainly adds acid.",
+          "temporal": "repaired prologue before turn0"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The kitchen counter has a steak and a mixing bowl.; The living-room table has a whole pineapple.; The living-room table has a whole lemon.; Pineapple contains bromelain for enzymatic tenderizing.; Lemon is acidic but is not the intended enzymatic tenderizer.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The wearer asks 'Which of these ingredients' without naming them, requiring the assistant to visually identify the available options before applying its knowledge."
+          },
+          "capability_fit": "Manual group-B repair for ASK-35005.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "pineapple",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_1 pineapple"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "lemon",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_2 lemon"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "steak",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_3 steak"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "mixing_bowl",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_4 mixing_bowl"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "breakfast_table",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_1 breakfast_table"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "countertop",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_2 countertop"
+                }
+              ],
+              "distinct_by": [
+                "ingredient function: pineapple enzyme versus lemon acid"
+              ],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "The wearer is setting up a steak marinade. They first inspect the steak and mixing bowl on the kitchen counter, then walk to the living-room breakfast table and inspect a highly recognizable whole pineapple and whole yellow lemon. At turn zero they ask which fruit should be brought back for enzymatic tenderizing. The assistant selects the pineapple because of bromelain, and the lemon remains unmoved.",
+              "scene": "Beechwood_0_int",
+              "why_scene": "Provides kitchen prep surfaces plus a separate office/living area."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "For the steak and bowl I just checked, which fruit should I bring back for enzymatic tenderizing?",
+                "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+                "forbidden_changes": [
+                  "changing the ingredients to ones that do not test the specific knowledge of enzymatic tenderization"
+                ],
+                "knowledge_constraints": [
+                  "pineapple contains bromelain/enzymes that tenderize meat",
+                  "lemon is acidic but does not have the same enzymatic tenderizing effect"
+                ],
+                "required_evidence": [
+                  "The kitchen counter has a steak and a mixing bowl.",
+                  "The living-room table has a whole pineapple.",
+                  "The living-room table has a whole lemon.",
+                  "Pineapple contains bromelain for enzymatic tenderizing.",
+                  "Lemon is acidic but is not the intended enzymatic tenderizer."
+                ],
+                "required_final_predicates": [
+                  "on",
+                  "unmoved"
+                ],
+                "success_condition": "on(pineapple, steak prep counter)",
+                "temporal_constraints": [],
+                "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                "assigned_scene": "Beechwood_0_int"
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_1 pineapple",
+                  "what": "item_1 pineapple",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_2 lemon",
+                  "what": "item_2 lemon",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_3 steak",
+                  "what": "item_3 steak",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_4 mixing_bowl",
+                  "what": "item_4 mixing_bowl",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_1 breakfast_table",
+                  "what": "surf_1 breakfast_table",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_2 countertop",
+                  "what": "surf_2 countertop",
+                  "when": "both"
+                }
+              ]
+            }
+          },
+          "duplicate_of": null,
+          "reason": "Manual group-B metadata synchronized to the repaired story.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "LookAt",
+              "PutOn",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 9,
+            "estimated_prologue_actions": 6,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "on",
+              "unmoved",
+              "unmoved",
+              "unmoved"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 32.9,
+          "structural_signature": {
+            "evaluation": "on(pineapple, steak prep counter)",
+            "evidence": "The kitchen counter has a steak and a mixing bowl.; The living-room table has a whole pineapple.; The living-room table has a whole lemon.; Pineapple contains bromelain for enzymatic tenderizing.; Lemon is acidic but is not the intended enzymatic tenderizer.",
+            "failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+            "operation": "manual repaired ASK task",
+            "response": "Bring the pineapple to the steak bowl. Pineapple contains bromelain for tenderizing; lemon mainly adds acid.",
+            "temporal": "repaired prologue before turn0"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "attempt": 2,
+      "sha": "sha256:e5f33a0c7894902422b456bdd2aa7c214887fedbb93868e3992085b0e61d3309",
+      "prose_sha256": "sha256:e5f33a0c7894902422b456bdd2aa7c214887fedbb93868e3992085b0e61d3309",
+      "prompt_sha": "11a611129e85",
+      "prompt_sha256": "sha256:11a611129e85d2b185cbb99c8adc9db30bd21131dd68baa8903afba97f4419ee",
+      "author_prose": "The wearer is setting up a steak marinade. They first inspect the steak and mixing bowl on the kitchen counter, then walk to the living-room breakfast table and inspect a highly recognizable whole pineapple and whole yellow lemon. At turn zero they ask which fruit should be brought back for enzymatic tenderizing. The assistant selects the pineapple because of bromelain, and the lemon remains unmoved.",
+      "author_prose_sha256": "sha256:e5f33a0c7894902422b456bdd2aa7c214887fedbb93868e3992085b0e61d3309",
+      "scene": "Beechwood_0_int",
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+        "evaluation_status": "PASS",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": false,
+        "owner": null,
+        "reason": null,
+        "reason_code": null,
+        "recommended_work": null,
+        "version": "capability-support/1.0",
+        "workstream": null
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [],
+        "allowed_loose_categories": [
+          "lemon",
+          "mixing_bowl",
+          "pineapple",
+          "steak"
+        ],
+        "allowed_surface_categories": [
+          "breakfast_table",
+          "countertop"
+        ],
+        "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "coverage_categories": [
+          "sliced_lemon",
+          "denture",
+          "wall_mounted_light",
+          "case_of_eyeshadow",
+          "half_pineapple",
+          "lemonade_bottle",
+          "jigger",
+          "bag_of_jerky",
+          "saucer",
+          "skates",
+          "jar_of_pepper",
+          "plastic_bag",
+          "tomato_paste_can",
+          "rolled_yoga_mat",
+          "shiitake",
+          "half_bok_choy",
+          "soda_cup",
+          "flask_clamp",
+          "microscope",
+          "half_fillet"
+        ],
+        "evaluation": {
+          "common_sense_allowed": true,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": true,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "ASK",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "sliced_lemon",
+          "denture",
+          "wall_mounted_light",
+          "case_of_eyeshadow",
+          "half_pineapple",
+          "lemonade_bottle",
+          "jigger",
+          "bag_of_jerky"
+        ],
+        "preferred_story_category_glosses": {
+          "bag_of_jerky": "",
+          "case_of_eyeshadow": "",
+          "denture": "",
+          "half_pineapple": "",
+          "jigger": "",
+          "lemonade_bottle": "",
+          "sliced_lemon": "",
+          "wall_mounted_light": "light that provides general illumination for a room"
+        },
+        "rooms": [
+          {
+            "area_m2": 29.2,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "bottom_cabinet_no_top": 5,
+              "cedar_chest": 1,
+              "dishwasher": 1
+            },
+            "scene_surfaces": {
+              "bottom_cabinet_no_top": 7,
+              "breakfast_table": 1,
+              "countertop": 7
+            },
+            "surface_max_area_m2": {
+              "bottom_cabinet_no_top": 0.147,
+              "breakfast_table": 0.26,
+              "countertop": 0.642
+            },
+            "surface_reference_capacity": {
+              "bottom_cabinet_no_top": 3,
+              "breakfast_table": 3,
+              "countertop": 3
+            }
+          }
+        ],
+        "scene": "Beechwood_0_int",
+        "task_id": "ASK-35005",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "prompt_version": "capability-v23-contextual-believability-20260831",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_manual_ask_guide_20260831t/compile_input/ASK/run.json"
+    },
+    "compiler_contract": {
+      "version": "compile-v2-grounded-20260831m",
+      "author_model": "gemini-3-1-pro-preview-tbd",
+      "judge_model": "gemini-3-1-pro-preview-genai",
+      "asset_contract": {
+        "version": "compiler-asset-capabilities/1.5",
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370"
+      },
+      "retrieval": {
+        "mode": "lexical",
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_grounded_manual_ask_guide_20260831t",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v23-contextual-believability-20260831",
+      "release_id": "sha256:3670913a749b6832fb498a71ec6bddc60854cf34a9784fe3b3e1d40af5868662",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "ASK-35005",
+    "revision": "ask17-interaction-20260912",
+    "benchmark_split": "production",
+    "physical_taskpack_sha256": "sha256:98d556f9a95fdf248a5c5f87b0e66e89e446bc1fc20f3b410d9fb9d171e09096",
+    "metadata_repairs": [],
+    "parent_lineage": {
+      "source": "data_generate.compile_v2",
+      "compile_input_digest": "sha256:0cd553237fdfb876f10fd995f938c2fef64cb8257687dbceeceef6a4813c5814",
+      "source_contract_digest": "sha256:ce039ff71a7ed23f825275d27441d4c92e6af26eb723aca8da1c4c003058455e",
+      "executable_spec_digest": "sha256:12c36eda13e5024be022dad65045996d846bba682210abcb48d0689c655c161b",
+      "invention": {
+        "capability": {
+          "boundary": "The decisive rule is prior knowledge applied to a visually identified feature, not a remembered local document, arbitrary label mapping, or invented preference. Keep claims safe, broadly established, low stakes, and appropriate to the assigned room. Prefer ordinary tool-purpose, object-use, or household-organisation knowledge. Use food only in a real kitchen, grocery, or restaurant context, and do not make debatable storage-life or food-safety claims. Do not use diagnosis, treatment, wound care, child dosing, pesticide dosing, or ambiguous chemical advice.",
+          "few_shot": "A wearer is assembling a small desk accessory and holds the bracket steady with one hand. On the work surface are a cross-head screw, a flat-head screwdriver, and a cross-head screwdriver. They ask the glasses which tool to use. The assistant identifies the visible screw-head shape and applies ordinary tool knowledge to name the cross-head screwdriver; no label or earlier document supplies the answer. The wearer uses that tool to attach the bracket and returns the unused driver to the fixed tool drawer. A weak assistant that chooses by proximity uses the wrong tool. The visible fastener feature, ordinary functional rule, and final attachment make the decision both situated and low stakes.",
+          "id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+          "name_zh": "功能与世界知识推理",
+          "target": "Apply ordinary functional or domain knowledge to a present scene in order to answer where, how, or with what the wearer should act."
+        },
+        "review": {
+          "benchmark_check": {
+            "egocentric_evidence": "The kitchen counter has a steak and a mixing bowl.; The living-room table has a whole pineapple.; The living-room table has a whole lemon.; Pineapple contains bromelain for enzymatic tenderizing.; Lemon is acidic but is not the intended enzymatic tenderizer.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The wearer asks 'Which of these ingredients' without naming them, requiring the assistant to visually identify the available options before applying its knowledge."
+          },
+          "capability_fit": "Manual group-B repair for ASK-35005.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "pineapple",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_1 pineapple"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "lemon",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_2 lemon"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "steak",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_3 steak"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "mixing_bowl",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_4 mixing_bowl"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "breakfast_table",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_1 breakfast_table"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "countertop",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_2 countertop"
+                }
+              ],
+              "distinct_by": [
+                "ingredient function: pineapple enzyme versus lemon acid"
+              ],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "The wearer is setting up a steak marinade. They first inspect the steak and mixing bowl on the kitchen counter, then walk to the living-room breakfast table and inspect a highly recognizable whole pineapple and whole yellow lemon. At turn zero they ask which fruit should be brought back for enzymatic tenderizing. The assistant selects the pineapple because of bromelain, and the lemon remains unmoved.",
+              "scene": "Beechwood_0_int",
+              "why_scene": "Provides kitchen prep surfaces plus a separate office/living area."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "For the steak and bowl I just checked, which fruit should I bring back for enzymatic tenderizing?",
+                "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+                "forbidden_changes": [
+                  "changing the ingredients to ones that do not test the specific knowledge of enzymatic tenderization"
+                ],
+                "knowledge_constraints": [
+                  "pineapple contains bromelain/enzymes that tenderize meat",
+                  "lemon is acidic but does not have the same enzymatic tenderizing effect"
+                ],
+                "required_evidence": [
+                  "The kitchen counter has a steak and a mixing bowl.",
+                  "The living-room table has a whole pineapple.",
+                  "The living-room table has a whole lemon.",
+                  "Pineapple contains bromelain for enzymatic tenderizing.",
+                  "Lemon is acidic but is not the intended enzymatic tenderizer."
+                ],
+                "required_final_predicates": [
+                  "on",
+                  "unmoved"
+                ],
+                "success_condition": "on(pineapple, steak prep counter)",
+                "temporal_constraints": [],
+                "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                "assigned_scene": "Beechwood_0_int"
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_1 pineapple",
+                  "what": "item_1 pineapple",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_2 lemon",
+                  "what": "item_2 lemon",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_3 steak",
+                  "what": "item_3 steak",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_4 mixing_bowl",
+                  "what": "item_4 mixing_bowl",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_1 breakfast_table",
+                  "what": "surf_1 breakfast_table",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_2 countertop",
+                  "what": "surf_2 countertop",
+                  "when": "both"
+                }
+              ]
+            }
+          },
+          "duplicate_of": null,
+          "reason": "Manual group-B metadata synchronized to the repaired story.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "LookAt",
+              "PutOn",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 9,
+            "estimated_prologue_actions": 6,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "on",
+              "unmoved",
+              "unmoved",
+              "unmoved"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 32.9,
+          "structural_signature": {
+            "evaluation": "on(pineapple, steak prep counter)",
+            "evidence": "The kitchen counter has a steak and a mixing bowl.; The living-room table has a whole pineapple.; The living-room table has a whole lemon.; Pineapple contains bromelain for enzymatic tenderizing.; Lemon is acidic but is not the intended enzymatic tenderizer.",
+            "failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+            "operation": "manual repaired ASK task",
+            "response": "Bring the pineapple to the steak bowl. Pineapple contains bromelain for tenderizing; lemon mainly adds acid.",
+            "temporal": "repaired prologue before turn0"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "The kitchen counter has a steak and a mixing bowl.; The living-room table has a whole pineapple.; The living-room table has a whole lemon.; Pineapple contains bromelain for enzymatic tenderizing.; Lemon is acidic but is not the intended enzymatic tenderizer.",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "semantic_turns": 1,
+              "strong_weak_distinct": true,
+              "ungrounded_physical_nouns": [],
+              "uses_only_grounded_assets": true,
+              "why_utterance_alone_fails": "The wearer asks 'Which of these ingredients' without naming them, requiring the assistant to visually identify the available options before applying its knowledge."
+            },
+            "capability_fit": "Manual group-B repair for ASK-35005.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "pineapple",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "item_1 pineapple"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "lemon",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "item_2 lemon"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "steak",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "item_3 steak"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "mixing_bowl",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "item_4 mixing_bowl"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "breakfast_table",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_1 breakfast_table"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "countertop",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_2 countertop"
+                  }
+                ],
+                "distinct_by": [
+                  "ingredient function: pineapple enzyme versus lemon acid"
+                ],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "The wearer is setting up a steak marinade. They first inspect the steak and mixing bowl on the kitchen counter, then walk to the living-room breakfast table and inspect a highly recognizable whole pineapple and whole yellow lemon. At turn zero they ask which fruit should be brought back for enzymatic tenderizing. The assistant selects the pineapple because of bromelain, and the lemon remains unmoved.",
+                "scene": "Beechwood_0_int",
+                "why_scene": "Provides kitchen prep surfaces plus a separate office/living area."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "For the steak and bowl I just checked, which fruit should I bring back for enzymatic tenderizing?",
+                  "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+                  "forbidden_changes": [
+                    "changing the ingredients to ones that do not test the specific knowledge of enzymatic tenderization"
+                  ],
+                  "knowledge_constraints": [
+                    "pineapple contains bromelain/enzymes that tenderize meat",
+                    "lemon is acidic but does not have the same enzymatic tenderizing effect"
+                  ],
+                  "required_evidence": [
+                    "The kitchen counter has a steak and a mixing bowl.",
+                    "The living-room table has a whole pineapple.",
+                    "The living-room table has a whole lemon.",
+                    "Pineapple contains bromelain for enzymatic tenderizing.",
+                    "Lemon is acidic but is not the intended enzymatic tenderizer."
+                  ],
+                  "required_final_predicates": [
+                    "on",
+                    "unmoved"
+                  ],
+                  "success_condition": "on(pineapple, steak prep counter)",
+                  "temporal_constraints": [],
+                  "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                  "assigned_scene": "Beechwood_0_int"
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-B repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_1 pineapple",
+                    "what": "item_1 pineapple",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-B repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_2 lemon",
+                    "what": "item_2 lemon",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-B repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_3 steak",
+                    "what": "item_3 steak",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-B repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_4 mixing_bowl",
+                    "what": "item_4 mixing_bowl",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-B repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_1 breakfast_table",
+                    "what": "surf_1 breakfast_table",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-B repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_2 countertop",
+                    "what": "surf_2 countertop",
+                    "when": "both"
+                  }
+                ]
+              }
+            },
+            "duplicate_of": null,
+            "reason": "Manual group-B metadata synchronized to the repaired story.",
+            "requirements": [],
+            "runtime_requirements": {
+              "actions": [
+                "Grab",
+                "LookAt",
+                "PutOn",
+                "Walk"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 9,
+              "estimated_prologue_actions": 6,
+              "estimated_task_actions": 3,
+              "events": [],
+              "final_predicates": [
+                "on",
+                "unmoved",
+                "unmoved",
+                "unmoved"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 32.9,
+            "structural_signature": {
+              "evaluation": "on(pineapple, steak prep counter)",
+              "evidence": "The kitchen counter has a steak and a mixing bowl.; The living-room table has a whole pineapple.; The living-room table has a whole lemon.; Pineapple contains bromelain for enzymatic tenderizing.; Lemon is acidic but is not the intended enzymatic tenderizer.",
+              "failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+              "operation": "manual repaired ASK task",
+              "response": "Bring the pineapple to the steak bowl. Pineapple contains bromelain for tenderizing; lemon mainly adds acid.",
+              "temporal": "repaired prologue before turn0"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "attempt": 2,
+        "sha": "sha256:e5f33a0c7894902422b456bdd2aa7c214887fedbb93868e3992085b0e61d3309",
+        "prose_sha256": "sha256:e5f33a0c7894902422b456bdd2aa7c214887fedbb93868e3992085b0e61d3309",
+        "prompt_sha": "11a611129e85",
+        "prompt_sha256": "sha256:11a611129e85d2b185cbb99c8adc9db30bd21131dd68baa8903afba97f4419ee",
+        "author_prose": "The wearer is setting up a steak marinade. They first inspect the steak and mixing bowl on the kitchen counter, then walk to the living-room breakfast table and inspect a highly recognizable whole pineapple and whole yellow lemon. At turn zero they ask which fruit should be brought back for enzymatic tenderizing. The assistant selects the pineapple because of bromelain, and the lemon remains unmoved.",
+        "author_prose_sha256": "sha256:e5f33a0c7894902422b456bdd2aa7c214887fedbb93868e3992085b0e61d3309",
+        "scene": "Beechwood_0_int",
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+          "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+          "evaluation_status": "PASS",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": false,
+          "owner": null,
+          "reason": null,
+          "reason_code": null,
+          "recommended_work": null,
+          "version": "capability-support/1.0",
+          "workstream": null
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [],
+          "allowed_loose_categories": [
+            "lemon",
+            "mixing_bowl",
+            "pineapple",
+            "steak"
+          ],
+          "allowed_surface_categories": [
+            "breakfast_table",
+            "countertop"
+          ],
+          "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+          "coverage_categories": [
+            "sliced_lemon",
+            "denture",
+            "wall_mounted_light",
+            "case_of_eyeshadow",
+            "half_pineapple",
+            "lemonade_bottle",
+            "jigger",
+            "bag_of_jerky",
+            "saucer",
+            "skates",
+            "jar_of_pepper",
+            "plastic_bag",
+            "tomato_paste_can",
+            "rolled_yoga_mat",
+            "shiitake",
+            "half_bok_choy",
+            "soda_cup",
+            "flask_clamp",
+            "microscope",
+            "half_fillet"
+          ],
+          "evaluation": {
+            "common_sense_allowed": true,
+            "document_carrier_required": false,
+            "max_semantic_turns": 1,
+            "required_semantic_turns": 1,
+            "requires_cross_room_transition": true,
+            "requires_dynamic_evidence": false,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_reselection": false,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "ASK",
+          "limits": {
+            "max_authored_actions": 18,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 10,
+            "max_small_label_characters": 8,
+            "max_task_actions": 10
+          },
+          "preferred_story_categories": [
+            "sliced_lemon",
+            "denture",
+            "wall_mounted_light",
+            "case_of_eyeshadow",
+            "half_pineapple",
+            "lemonade_bottle",
+            "jigger",
+            "bag_of_jerky"
+          ],
+          "preferred_story_category_glosses": {
+            "bag_of_jerky": "",
+            "case_of_eyeshadow": "",
+            "denture": "",
+            "half_pineapple": "",
+            "jigger": "",
+            "lemonade_bottle": "",
+            "sliced_lemon": "",
+            "wall_mounted_light": "light that provides general illumination for a room"
+          },
+          "rooms": [
+            {
+              "area_m2": 29.2,
+              "name": "kitchen_0",
+              "scene_containers": {
+                "bottom_cabinet_no_top": 5,
+                "cedar_chest": 1,
+                "dishwasher": 1
+              },
+              "scene_surfaces": {
+                "bottom_cabinet_no_top": 7,
+                "breakfast_table": 1,
+                "countertop": 7
+              },
+              "surface_max_area_m2": {
+                "bottom_cabinet_no_top": 0.147,
+                "breakfast_table": 0.26,
+                "countertop": 0.642
+              },
+              "surface_reference_capacity": {
+                "bottom_cabinet_no_top": 3,
+                "breakfast_table": 3,
+                "countertop": 3
+              }
+            }
+          ],
+          "scene": "Beechwood_0_int",
+          "task_id": "ASK-35005",
+          "version": "grounded-authoring/2.5-20260829"
+        },
+        "prompt_version": "capability-v23-contextual-believability-20260831",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_manual_ask_guide_20260831t/compile_input/ASK/run.json"
+      },
+      "compiler_contract": {
+        "version": "compile-v2-grounded-20260831m",
+        "author_model": "gemini-3-1-pro-preview-tbd",
+        "judge_model": "gemini-3-1-pro-preview-genai",
+        "asset_contract": {
+          "version": "compiler-asset-capabilities/1.5",
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370"
+        },
+        "retrieval": {
+          "mode": "lexical",
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_grounded_manual_ask_guide_20260831t",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v23-contextual-believability-20260831",
+        "release_id": "sha256:3670913a749b6832fb498a71ec6bddc60854cf34a9784fe3b3e1d40af5868662",
+        "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "normalizations": [],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ]
+    },
+    "oracle_dialogue_override_ids": [
+      "ask35005_surface_beside_bowl"
+    ]
+  }
+}

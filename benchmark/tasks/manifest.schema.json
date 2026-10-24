@@ -1,0 +1,233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interactive-world.invalid/schemas/task-manifest-1.0.json",
+  "title": "InteractiveWorld Balanced120 task manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifest_version",
+    "release_id",
+    "schema_file",
+    "taskpack_root",
+    "task_count",
+    "assigned_family_counts",
+    "source_family_counts",
+    "format_counts",
+    "hash_policy",
+    "interaction_openings",
+    "assets",
+    "provenance",
+    "tasks"
+  ],
+  "properties": {
+    "manifest_version": {
+      "const": "interactive-world-task-manifest/1.0"
+    },
+    "release_id": {
+      "const": "InteractiveWorld-Balanced120"
+    },
+    "schema_file": {
+      "const": "manifest.schema.json"
+    },
+    "taskpack_root": {
+      "const": "taskpacks"
+    },
+    "task_count": {
+      "const": 120
+    },
+    "assigned_family_counts": {
+      "$ref": "#/$defs/assignedFamilyCounts"
+    },
+    "source_family_counts": {
+      "$ref": "#/$defs/sourceFamilyCounts"
+    },
+    "format_counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["taskpack_versions", "runtime_contract_versions"],
+      "properties": {
+        "taskpack_versions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["data-generate-taskpack/1.0"],
+          "properties": {
+            "data-generate-taskpack/1.0": {
+              "const": 120
+            }
+          }
+        },
+        "runtime_contract_versions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["compiled-runtime-contract/1.8"],
+          "properties": {
+            "compiled-runtime-contract/1.8": {
+              "const": 120
+            }
+          }
+        }
+      }
+    },
+    "hash_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authoritative_field",
+        "taskpack_sha256_algorithm"
+      ],
+      "properties": {
+        "authoritative_field": {
+          "const": "tasks[].taskpack_sha256"
+        },
+        "taskpack_sha256_algorithm": {
+          "const": "SHA-256"
+        }
+      }
+    },
+    "interaction_openings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "schema_version", "task_count", "source_family"],
+      "properties": {
+        "path": {"const": "interaction_openings.json"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "schema_version": {"const": "taskpack-interaction-openings/2.1"},
+        "task_count": {"const": 22},
+        "source_family": {"const": "WATCH"}
+      }
+    },
+    "assets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["manifest_path", "manifest_sha256", "schema_version", "file_count"],
+      "properties": {
+        "manifest_path": {"const": "assets/manifest.json"},
+        "manifest_sha256": {"$ref": "#/$defs/sha256"},
+        "schema_version": {"const": "interactiveworld-task-assets/1.0"},
+        "file_count": {"const": 85}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_revision",
+        "selection_manifest_sha256",
+        "category_assignment_manifest_sha256"
+      ],
+      "properties": {
+        "source_revision": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "selection_manifest_sha256": {"$ref": "#/$defs/sha256"},
+        "category_assignment_manifest_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "minItems": 120,
+      "maxItems": 120,
+      "items": {
+        "$ref": "#/$defs/task"
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "assignedFamily": {
+      "enum": [
+        "Accessibility",
+        "Decision",
+        "Finding",
+        "Guidance",
+        "Planning",
+        "Prevention"
+      ]
+    },
+    "sourceFamily": {
+      "enum": ["ASK", "FIND", "GUIDE", "NARRATE", "ORCHESTRATE", "WATCH"]
+    },
+    "assignedFamilyCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Accessibility",
+        "Decision",
+        "Finding",
+        "Guidance",
+        "Planning",
+        "Prevention"
+      ],
+      "properties": {
+        "Accessibility": {"const": 20},
+        "Decision": {"const": 20},
+        "Finding": {"const": 20},
+        "Guidance": {"const": 20},
+        "Planning": {"const": 20},
+        "Prevention": {"const": 20}
+      }
+    },
+    "sourceFamilyCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ASK", "FIND", "GUIDE", "NARRATE", "ORCHESTRATE", "WATCH"],
+      "properties": {
+        "ASK": {"const": 19},
+        "FIND": {"const": 17},
+        "GUIDE": {"const": 26},
+        "NARRATE": {"const": 20},
+        "ORCHESTRATE": {"const": 16},
+        "WATCH": {"const": 22}
+      }
+    },
+    "task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "task_id",
+        "assigned_family",
+        "source_family",
+        "taskpack_path",
+        "taskpack_sha256",
+        "taskpack_version",
+        "runtime_contract_version",
+        "completion_protocol",
+        "performance_rubric_version"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "pattern": "^(ASK|FIND|GUIDE|NARRATE|ORCHESTRATE|WATCH)-[0-9]+$"
+        },
+        "assigned_family": {"$ref": "#/$defs/assignedFamily"},
+        "source_family": {"$ref": "#/$defs/sourceFamily"},
+        "taskpack_path": {
+          "type": "string",
+          "pattern": "^taskpacks/(accessibility|decision|finding|guidance|planning|prevention)/(ASK|FIND|GUIDE|NARRATE|ORCHESTRATE|WATCH)-[0-9]+\\.taskpack\\.json$"
+        },
+        "taskpack_sha256": {"$ref": "#/$defs/sha256"},
+        "taskpack_version": {
+          "const": "data-generate-taskpack/1.0"
+        },
+        "runtime_contract_version": {
+          "const": "compiled-runtime-contract/1.8"
+        },
+        "completion_protocol": {
+          "enum": [
+            "ASK-PCS",
+            "CFSS-StateScore",
+            "FIND-C-pass-binary",
+            "StateBundle-v1",
+            "StateScore-v2",
+            "WATCH-binary"
+          ]
+        },
+        "performance_rubric_version": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

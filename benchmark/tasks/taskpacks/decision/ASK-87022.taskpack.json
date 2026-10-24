@@ -1,0 +1,4037 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "ASK-87022",
+  "executable_spec": {
+    "spec_version": "bts/1.0",
+    "task_id": "ASK-87022",
+    "variant": null,
+    "meta": {
+      "family": "ASK",
+      "template": "a school sports hall and its changing rooms",
+      "scene": "school_gym",
+      "wave": 1,
+      "difficulty": "hard",
+      "rule_table": "near(backpack, parallel bars)",
+      "grounding": {
+        "kind": "authored",
+        "ref": "data_generate:ASK-87022",
+        "cite": "I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?"
+      },
+      "design": {
+        "premise": "In the school gym, the wearer approaches the parallel bars and looks over their two long side-by-side rails, then walks to the pommel horse and inspects its single padded body and handles. No game-style identification cards are attached to either fixture. They next walk to a backpack on the gym floor, pick it up, and ask which apparatus is for a supported-balance warm-up and where the bag should be left. The assistant chooses the parallel bars. The wearer puts the backpack on the floor beside them and takes a final close look at the bag on the floor beside the apparatus.",
+        "cue": "I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?",
+        "assistant_must": "near(backpack, parallel bars)",
+        "anti_shortcut": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)"
+      },
+      "engine_deltas": []
+    },
+    "world": {
+      "scene": "school_gym",
+      "instance": 0,
+      "layout": "frozen",
+      "authoring_seed": 2134505375,
+      "seed_scope": "model",
+      "rooms": [
+        "gym_0"
+      ],
+      "roles": {},
+      "fixtures": {
+        "surf_1": {
+          "bind": {
+            "source": "scene",
+            "cat": "parallel_bars"
+          },
+          "room": "gym_0",
+          "seatable": false,
+          "look_region": {
+            "kind": "surface"
+          }
+        },
+        "surf_2": {
+          "bind": {
+            "source": "scene",
+            "cat": "pommel_horse"
+          },
+          "room": "gym_0",
+          "seatable": false,
+          "look_region": {
+            "kind": "surface"
+          }
+        }
+      },
+      "containers": {},
+      "objects": {
+        "item_1": {
+          "cat": "backpack",
+          "model": "gvbiwl",
+          "place": "floor:gym_0",
+          "room": "gym_0",
+          "scored": true,
+          "needs_lookat": false,
+          "spot": [
+            0.05,
+            0.35
+          ],
+          "grasp_hint": {
+            "target": "edge",
+            "family": "wrap",
+            "edge": "nearest",
+            "height_fraction": 0.65
+          }
+        }
+      },
+      "parts": {},
+      "labels": {},
+      "initial_attachments": [],
+      "object_groups": [],
+      "preload": {},
+      "permutations": [],
+      "start": {
+        "policy": "seeded_grid",
+        "forbid_rooms": [],
+        "forbid_near": [],
+        "resample_ladder": true
+      },
+      "initially_open_room_doors": true,
+      "decor": [],
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "decoys_constrained": true,
+        "permutation_within_model": true,
+        "key_is_derived": true
+      },
+      "auto_support_labels": false
+    },
+    "goal": {
+      "roster": {
+        "containers": [],
+        "objects": [
+          "item_1"
+        ],
+        "nested_containers": []
+      },
+      "goals": [
+        {
+          "pred": "near",
+          "subject": "item_1",
+          "target": "surf_1"
+        }
+      ],
+      "answer_key": [
+        {
+          "pred": "near",
+          "subject": "item_1",
+          "target": "surf_1"
+        }
+      ],
+      "aggregate_goals": [],
+      "negatives": [],
+      "trace_outcomes": [],
+      "rule_table": null,
+      "arms": null
+    },
+    "program": {
+      "generator": "explicit",
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "surf_1"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "surf_2"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "item_1"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_1"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        {
+          "verb": "PutOnFloor",
+          "args": [
+            "item_1",
+            "surf_1"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_1"
+          ]
+        }
+      ],
+      "budget": {
+        "grammar_cmds": 9,
+        "grammar_source": "from_program",
+        "expanded_cmds": 9,
+        "expanded_source": "oracle_cmds",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      }
+    },
+    "report": {
+      "sub_goals": [
+        {
+          "id": 0,
+          "kind": "near",
+          "subject": "item_1",
+          "target": "surf_1",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        }
+      ],
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ]
+      ],
+      "sub_steps": [
+        "near item_1 surf_1"
+      ],
+      "control": null,
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "human_frames_withheld": false,
+      "arms_reporting": null
+    },
+    "provenance": {
+      "source_task_id": "ASK-87022",
+      "human_program_raw": "[Walk] <surf_1> (1), [PutOnFloor] <item_1> (1) <surf_1> (1), [LookAt] <item_1> (1)",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "seed": 2134505375,
+      "arm": "ASK"
+    }
+  },
+  "story": {
+    "premise": "In the school gym, the wearer approaches the parallel bars and looks over their two long side-by-side rails, then walks to the pommel horse and inspects its single padded body and handles. No game-style identification cards are attached to either fixture. They next walk to a backpack on the gym floor, pick it up, and ask which apparatus is for a supported-balance warm-up and where the bag should be left. The assistant chooses the parallel bars. The wearer puts the backpack on the floor beside them and takes a final close look at the bag on the floor beside the apparatus.",
+    "assistant_goal": "Hey, Assistant, which one should I head to for a supported-balance warm-up? I'll leave my bag on the floor next to whichever apparatus you recommend.",
+    "assessment_contract": {
+      "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+      "assigned_scene": "school_gym",
+      "core_question": "I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?",
+      "counterfactual_failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+      "forbidden_changes": [
+        "adding a readable label that names the correct fixture",
+        "turning either fixture into a container"
+      ],
+      "knowledge_constraints": [
+        "decision must come from functional apparatus knowledge applied to the live view, not a label or document"
+      ],
+      "required_evidence": [
+        "The wearer is holding the backpack.",
+        "The first apparatus has two long side-by-side rails for supported balance.",
+        "The second apparatus is a single padded pommel horse with handles.",
+        "Supported-balance warm-up belongs at the parallel bars."
+      ],
+      "required_final_predicates": [
+        "near"
+      ],
+      "success_condition": "near(backpack, parallel bars)",
+      "temporal_constraints": []
+    },
+    "source_contract": {
+      "task_id": "ASK-87022",
+      "family": "ASK",
+      "kind": "a school sports hall and its changing rooms",
+      "assessment_contract": {
+        "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "assigned_scene": "school_gym",
+        "core_question": "I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?",
+        "counterfactual_failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+        "forbidden_changes": [
+          "adding a readable label that names the correct fixture",
+          "turning either fixture into a container"
+        ],
+        "knowledge_constraints": [
+          "decision must come from functional apparatus knowledge applied to the live view, not a label or document"
+        ],
+        "required_evidence": [
+          "The wearer is holding the backpack.",
+          "The first apparatus has two long side-by-side rails for supported balance.",
+          "The second apparatus is a single padded pommel horse with handles.",
+          "Supported-balance warm-up belongs at the parallel bars."
+        ],
+        "required_final_predicates": [
+          "near"
+        ],
+        "success_condition": "near(backpack, parallel bars)",
+        "temporal_constraints": []
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [],
+        "allowed_loose_categories": [
+          "backpack"
+        ],
+        "allowed_surface_categories": [
+          "parallel_bars",
+          "pommel_horse"
+        ],
+        "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "coverage_categories": [
+          "volleyball",
+          "doll",
+          "cheese_tart",
+          "fruitcake",
+          "legal_document",
+          "half_fried_chicken",
+          "jar_of_curry_powder",
+          "mustard_seed_shaker",
+          "walnut_meat",
+          "chicken_soup_carton",
+          "bottle_of_pesto",
+          "drip_pot",
+          "post_it",
+          "toast",
+          "half_avocado",
+          "pork",
+          "ashtray",
+          "pack_of_protein_powder",
+          "honey_jar",
+          "peanut_butter_jar"
+        ],
+        "evaluation": {
+          "common_sense_allowed": true,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "ASK",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 12,
+          "min_intervening_meaningful_actions": 0,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "cell_phone",
+          "mug",
+          "clipboard",
+          "paper_sheet"
+        ],
+        "preferred_story_category_glosses": {
+          "cell_phone": "",
+          "clipboard": "",
+          "mug": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 1265.0,
+            "name": "gym_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "parallel_bars": 2,
+              "pommel_horse": 2
+            },
+            "surface_max_area_m2": {
+              "parallel_bars": 0.618,
+              "pommel_horse": 0.18
+            },
+            "surface_reference_capacity": {
+              "parallel_bars": 3,
+              "pommel_horse": 3
+            }
+          }
+        ],
+        "scene": "school_gym",
+        "task_id": "ASK-87022",
+        "version": "grounded-authoring/3.0-validity-20260831"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "backpack",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_1 backpack"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "parallel_bars",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_1 parallel_bars"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "pommel_horse",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_2 pommel_horse"
+          }
+        ],
+        "distinct_by": [
+          "parallel-bar rails versus pommel-horse shape"
+        ],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [],
+        "restaged_story": "In the school gym, the wearer approaches the parallel bars and looks over their two long side-by-side rails, then walks to the pommel horse and inspects its single padded body and handles. No game-style identification cards are attached to either fixture. They next walk to a backpack on the gym floor, pick it up, and ask which apparatus is for a supported-balance warm-up and where the bag should be left. The assistant chooses the parallel bars. The wearer puts the backpack on the floor beside them and takes a final close look at the bag on the floor beside the apparatus.",
+        "scene": "school_gym",
+        "why_scene": "Provides parallel bars and a pommel horse in the gym."
+      },
+      "world": {
+        "boards": {},
+        "containers": {},
+        "items": {
+          "item_1": {
+            "affordances": [
+              "graspable"
+            ],
+            "cat": "backpack",
+            "label": null,
+            "model": "gvbiwl",
+            "place": "floor:gym_0",
+            "scored": true,
+            "spot": [
+              0.05,
+              0.35
+            ],
+            "tint": null,
+            "grasp_hint": {
+              "target": "edge",
+              "family": "wrap",
+              "edge": "nearest",
+              "height_fraction": 0.65
+            }
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <surf_1> (1)",
+          "[LookAt] <surf_1> (1)",
+          "[Walk] <surf_2> (1)",
+          "[LookAt] <surf_2> (1)",
+          "[Walk] <item_1> (1)",
+          "[Grab] <item_1> (1)"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "gym_0"
+        ],
+        "scene": "school_gym",
+        "staging": {
+          "groups": "Manual group-B repair defines explicit spatial groups in the prologue.",
+          "labels_at_t0": "Only intentionally printed object labels are used.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "surf_1": {
+            "cat": "parallel_bars",
+            "label": null,
+            "room": "gym_0",
+            "look_region": {
+              "kind": "surface"
+            }
+          },
+          "surf_2": {
+            "cat": "pommel_horse",
+            "label": null,
+            "room": "gym_0",
+            "look_region": {
+              "kind": "surface"
+            }
+          }
+        },
+        "initially_open_room_doors": true,
+        "auto_support_labels": false
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?"
+        },
+        "fact_ledger": [
+          {
+            "fact": "The wearer is holding the backpack.",
+            "from": "prologue",
+            "id": "fact_001",
+            "source_phase": "opening",
+            "source_index": 5
+          },
+          {
+            "fact": "The first apparatus has two long side-by-side rails for supported balance.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_phase": "opening",
+            "source_index": 1
+          },
+          {
+            "fact": "The second apparatus is a single padded pommel horse with handles.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_phase": "opening",
+            "source_index": 3
+          },
+          {
+            "fact": "Supported-balance warm-up belongs at the parallel bars.",
+            "from": "common_sense",
+            "id": "fact_004",
+            "source_phase": "compiler_knowledge",
+            "source_index": null
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "near",
+            "scorable": true,
+            "subject": "item_1",
+            "target": "surf_1"
+          }
+        ],
+        "guidance": [],
+        "hidden_fact": null,
+        "human_own_script": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+        "mates": [],
+        "oracle_program": "[Walk] <surf_1> (1), [PutOnFloor] <item_1> (1) <surf_1> (1), [LookAt] <item_1> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": [
+          {
+            "fact_ids": [
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "index": 0,
+            "referents": [
+              "item_1",
+              "surf_1"
+            ],
+            "say": "Use the parallel bars; their two side-by-side rails are the supported-balance apparatus. Set the backpack on the floor beside them, not on the equipment."
+          }
+        ],
+        "steps": null,
+        "story_check": "manually repaired by ask-group-b-refine-20260910r29",
+        "utterance": "I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?"
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <surf_1> (1)",
+        "[LookAt] <surf_1> (1)",
+        "[Walk] <surf_2> (1)",
+        "[LookAt] <surf_2> (1)",
+        "[Walk] <item_1> (1)",
+        "[Grab] <item_1> (1)"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "Supported-balance warm-up belongs at the parallel bars.",
+            "channel": "common_sense"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "surf_1"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The first apparatus has two long side-by-side rails for supported balance.",
+            "channel": "prologue"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The second apparatus is a single padded pommel horse with handles.",
+            "channel": "prologue"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "item_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "item_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_1"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "The wearer is holding the backpack.",
+            "channel": "prologue"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "Hey, Assistant, which one should I head to for a supported-balance warm-up? I'll leave my bag on the floor next to whichever apparatus you recommend.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Use the parallel bars; their two side-by-side rails are the supported-balance apparatus. Set the backpack on the floor beside them, not on the equipment.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOnFloor",
+          "args": [
+            "item_1",
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "near",
+            "subject": "item_1",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOnFloor",
+          "args": [
+            "item_1",
+            "surf_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "near",
+            "subject": "item_1",
+            "target": "surf_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_1"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "The wearer is holding the backpack.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p005"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 5
+      },
+      {
+        "id": "fact_002",
+        "statement": "The first apparatus has two long side-by-side rails for supported balance.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "The second apparatus is a single padded pommel horse with handles.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p003"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 3
+      },
+      {
+        "id": "fact_004",
+        "statement": "Supported-balance warm-up belongs at the parallel bars.",
+        "channel": "common_sense",
+        "source_beat_ids": [
+          "reset"
+        ],
+        "grounding": "compiler_knowledge",
+        "source_phase": "compiler_knowledge",
+        "source_index": null
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the visible apparatus shapes to direct the person to the suitable warm-up station and specify a safe place for the carried backpack.",
+      "human_task_context": "Keep holding the backpack until the Assistant identifies both an apparatus and a bag location. Then go only to that apparatus and set the bag exactly where directed. Do not choose from the equipment yourself.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <surf_1> (1)",
+          "[LookAt] <surf_1> (1)",
+          "[Walk] <surf_2> (1)",
+          "[LookAt] <surf_2> (1)",
+          "[Walk] <item_1> (1)",
+          "[Grab] <item_1> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 6,
+            "say": "Hey, Assistant, which one should I head to for a supported-balance warm-up? I'll leave my bag on the floor next to whichever apparatus you recommend."
+          }
+        ],
+        "handoff_say": "Hey, Assistant, which one should I head to for a supported-balance warm-up? I'll leave my bag on the floor next to whichever apparatus you recommend.",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "apparatus_and_bag_question",
+            "required_phrases": [
+              "supported-balance warm-up"
+            ]
+          },
+          {
+            "id": "final_destination",
+            "required_phrases": [
+              "on the floor",
+              "next to whichever apparatus you recommend"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[Drop]"
+        ],
+        "forbidden_successful_commands": [
+          "[Walk] <surf_2> (1)",
+          "[PutOnFloor] <item_1> (1) <surf_2> (1)",
+          "[Put] <item_1> (1) <surf_1> (1)",
+          "[PutOn] <item_1> (1) <surf_1> (1)",
+          "[Put] <item_1> (1) <surf_2> (1)",
+          "[PutOn] <item_1> (1) <surf_2> (1)"
+        ],
+        "verification_points": [
+          {
+            "id": "backpack_beside_selected_apparatus",
+            "kind": "world_state",
+            "pred": "near",
+            "subject": "item_1",
+            "target": "surf_1"
+          },
+          {
+            "id": "backpack_placed_on_floor",
+            "kind": "successful_command",
+            "command": "[Drop]"
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 16,
+    "dialogue_budget": 1,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "item_1",
+        "held": [
+          "item_1"
+        ],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "item_1",
+              "surf_1"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "item_1",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "surf_1",
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "near",
+            "subject": "item_1",
+            "target": "surf_1",
+            "truth": true
+          },
+          "next_beat": "o002"
+        }
+      ],
+      "terminal_beats": [
+        "h002",
+        "o002"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_1"
+        ]
+      },
+      {
+        "verb": "PutOnFloor",
+        "args": [
+          "item_1",
+          "surf_1"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "item_1"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_2"
+        ]
+      },
+      {
+        "verb": "PutOnFloor",
+        "args": [
+          "item_1",
+          "surf_2"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "surf_2"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Use the parallel bars; their two side-by-side rails are the supported-balance apparatus. Set the backpack on the floor beside them, not on the equipment.",
+        "relation": "at",
+        "anchor_beat_id": "o000",
+        "source": "speaks_at",
+        "source_index": 0
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    }
+  },
+  "lineage": {
+    "source": "ask_destination_clarity_derivation",
+    "compile_input_digest": "sha256:a0b254108c7f8b06d4f27291d1de7d3533ab5acb0009b561356eb29ef00ab00e",
+    "source_contract_digest": "sha256:0d65872a24b5e68624c479dbc88f2d966e4121ca7d745d7afab025fdcee9d16a",
+    "executable_spec_digest": "sha256:a8d7d832db1d05780b17a79d704e71613859d5213fafac40a5c15106cc7a7aa2",
+    "invention": {
+      "attempt": 3,
+      "author_prose": "In the school gym, the wearer approaches the parallel bars and looks over their two long side-by-side rails, then walks to the pommel horse and inspects its single padded body and handles. No game-style identification cards are attached to either fixture. They next walk to a backpack on the gym floor, pick it up, and ask which apparatus is for a supported-balance warm-up and where the bag should be left. The assistant chooses the parallel bars. The wearer puts the backpack on the floor beside them and takes a final close look at the bag on the floor beside the apparatus.",
+      "author_prose_sha256": "sha256:3c4ca7acf01dbb533944f31a730e56440bd52ab218653b35cab0c43e67c04b5b",
+      "capability": {
+        "boundary": "The decisive rule is prior knowledge applied to a visually identified feature, not a remembered local document, arbitrary label mapping, or invented preference. Keep claims safe, broadly established, low stakes, and appropriate to the assigned room. Prefer ordinary tool-purpose, object-use, or household-organisation knowledge. Use food only in a real kitchen, grocery, or restaurant context, and do not make debatable storage-life or food-safety claims. Do not use diagnosis, treatment, wound care, child dosing, pesticide dosing, or ambiguous chemical advice.",
+        "few_shot": "A wearer is assembling a small desk accessory and holds the bracket steady with one hand. On the work surface are a cross-head screw, a flat-head screwdriver, and a cross-head screwdriver. They ask the glasses which tool to use. The assistant identifies the visible screw-head shape and applies ordinary tool knowledge to name the cross-head screwdriver; no label or earlier document supplies the answer. The wearer uses that tool to attach the bracket and returns the unused driver to the fixed tool drawer. A weak assistant that chooses by proximity uses the wrong tool. The visible fastener feature, ordinary functional rule, and final attachment make the decision both situated and low stakes.",
+        "id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "name_zh": "功能与世界知识推理",
+        "target": "Apply ordinary functional or domain knowledge to a present scene in order to answer where, how, or with what the wearer should act."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+        "evaluation_status": "PASS",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": false,
+        "owner": null,
+        "reason": null,
+        "reason_code": null,
+        "recommended_work": null,
+        "version": "capability-support/1.0",
+        "workstream": null
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [],
+        "allowed_loose_categories": [
+          "backpack"
+        ],
+        "allowed_surface_categories": [
+          "parallel_bars",
+          "pommel_horse"
+        ],
+        "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "coverage_categories": [
+          "volleyball",
+          "doll",
+          "cheese_tart",
+          "fruitcake",
+          "legal_document",
+          "half_fried_chicken",
+          "jar_of_curry_powder",
+          "mustard_seed_shaker",
+          "walnut_meat",
+          "chicken_soup_carton",
+          "bottle_of_pesto",
+          "drip_pot",
+          "post_it",
+          "toast",
+          "half_avocado",
+          "pork",
+          "ashtray",
+          "pack_of_protein_powder",
+          "honey_jar",
+          "peanut_butter_jar"
+        ],
+        "evaluation": {
+          "common_sense_allowed": true,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "ASK",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 12,
+          "min_intervening_meaningful_actions": 0,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "cell_phone",
+          "mug",
+          "clipboard",
+          "paper_sheet"
+        ],
+        "preferred_story_category_glosses": {
+          "cell_phone": "",
+          "clipboard": "",
+          "mug": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 1265.0,
+            "name": "gym_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "parallel_bars": 2,
+              "pommel_horse": 2
+            },
+            "surface_max_area_m2": {
+              "parallel_bars": 0.618,
+              "pommel_horse": 0.18
+            },
+            "surface_reference_capacity": {
+              "parallel_bars": 3,
+              "pommel_horse": 3
+            }
+          }
+        ],
+        "scene": "school_gym",
+        "task_id": "ASK-87022",
+        "version": "grounded-authoring/3.0-validity-20260831"
+      },
+      "prompt_sha": "5e86b6222ddf",
+      "prompt_sha256": "sha256:5e86b6222ddf2605f8d69282d20fffac570c9e8d177c56a628be728bd1015f98",
+      "prompt_version": "capability-v34-necessity-causality-20260831",
+      "prose_sha256": "sha256:3c4ca7acf01dbb533944f31a730e56440bd52ab218653b35cab0c43e67c04b5b",
+      "review": {
+        "benchmark_check": {
+          "actor_scope": {
+            "live_physical_actors": [
+              "wearer"
+            ],
+            "other_person_changes_world": false
+          },
+          "core_claims": [
+            {
+              "available_before_turn": 0,
+              "claim": "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+              "derived_from": [],
+              "established_by": "LookAt on the gym fixtures in the current frame",
+              "runtime_support": "egocentric view of parallel_bars and pommel_horse in gym_0",
+              "source": "live_state"
+            },
+            {
+              "available_before_turn": 0,
+              "claim": "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging",
+              "derived_from": [],
+              "established_by": "ordinary gym-apparatus functional knowledge",
+              "runtime_support": "external world knowledge of apparatus purpose",
+              "source": "common_sense"
+            },
+            {
+              "available_before_turn": 0,
+              "claim": "the backpack should be placed on the floor beside the parallel bars",
+              "derived_from": [
+                "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging"
+              ],
+              "established_by": "combining fixture identification with apparatus-purpose knowledge for a supported-balance warm-up",
+              "runtime_support": "live fixture identification plus common-sense apparatus function",
+              "source": "derived"
+            }
+          ],
+          "counterfactual_contract": {
+            "allowed_other_differences": [],
+            "operator": "select the wrong apparatus by superficial handle resemblance",
+            "shared_obligations": [
+              "g1"
+            ],
+            "target_difference": "backpack beside parallel_bars (strong) versus beside pommel_horse (weak)"
+          },
+          "cross_field_consistency": {
+            "conflicts": [],
+            "consistent": true
+          },
+          "decisive_fact_absent_from_utterance": true,
+          "egocentric_evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "meaningful_steps": [
+            "assistant identifies the parallel bars versus pommel horse from the live view",
+            "wearer walks to the parallel bars",
+            "wearer places the backpack on the floor beside the parallel bars",
+            "wearer checks the placed backpack and apparatus together"
+          ],
+          "memory_gap": {
+            "intervening_meaningful_actions": 0,
+            "reason": "this is a live functional-knowledge task, not a memory task; the evidence and decision are in the current frame",
+            "required": false,
+            "wearer_just_established_answer": false
+          },
+          "physical_plausibility": {
+            "credible": true,
+            "issues": []
+          },
+          "semantic_turns": 1,
+          "story_world_mismatches": [],
+          "strong_completes_user_goal": true,
+          "strong_weak_distinct": true,
+          "turn0_access": {
+            "answer_fully_visible": true,
+            "assistant_need": "accessibility: low-vision wearer cannot resolve which blurred fixture is the parallel bars versus pommel horse, and lacks the functional knowledge of which suits supported balance",
+            "wearer_can_self_serve": false
+          },
+          "ungrounded_physical_nouns": [],
+          "unmodeled_claims": [],
+          "user_goal_obligations": [
+            {
+              "covered_by": [
+                "assistant dialogue naming the parallel bars",
+                "PutOnFloor action placing backpack beside parallel_bars",
+                "near(backpack, parallel_bars) scorer"
+              ],
+              "description": "the backpack ends up on the floor beside the apparatus suited for the supported-balance warm-up",
+              "grounded_in": "'I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?'",
+              "id": "g1",
+              "kind": "physical"
+            }
+          ],
+          "uses_only_grounded_assets": true,
+          "utterance_policy": {
+            "prescribes_assistant_words_or_trigger": false,
+            "reason": "the wearer states the goal (mark the apparatus for supported balance) and asks which one, leaving the apparatus identification and functional inference to the assistant",
+            "states_goal_not_solution": true
+          },
+          "weak_shared_work_complete": true,
+          "why_user_needs_assistant": "the low-vision wearer sees the apparatus shapes blur together from a few steps back and cannot reliably distinguish them",
+          "why_utterance_alone_fails": "the wearer never names which fixture is which; only the camera can identify the parallel bars versus the pommel horse"
+        },
+        "capability_fit": "Manual group-B repair for ASK-87022.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "backpack",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "item_1 backpack"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "parallel_bars",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "surf_1 parallel_bars"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "pommel_horse",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "surf_2 pommel_horse"
+              }
+            ],
+            "distinct_by": [
+              "parallel-bar rails versus pommel-horse shape"
+            ],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "In the school gym, the wearer approaches the parallel bars and looks over their two long side-by-side rails, then walks to the pommel horse and inspects its single padded body and handles. No game-style identification cards are attached to either fixture. They next walk to a backpack on the gym floor, pick it up, and ask which apparatus is for a supported-balance warm-up and where the bag should be left. The assistant chooses the parallel bars. The wearer puts the backpack on the floor beside them and takes a final close look at the bag on the floor beside the apparatus.",
+            "scene": "school_gym",
+            "why_scene": "Provides parallel bars and a pommel horse in the gym."
+          },
+          "needs": {
+            "assessment_contract": {
+              "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+              "assigned_scene": "school_gym",
+              "core_question": "I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?",
+              "counterfactual_failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+              "forbidden_changes": [
+                "adding a readable label that names the correct fixture",
+                "turning either fixture into a container"
+              ],
+              "knowledge_constraints": [
+                "decision must come from functional apparatus knowledge applied to the live view, not a label or document"
+              ],
+              "required_evidence": [
+                "The wearer is holding the backpack.",
+                "The first apparatus has two long side-by-side rails for supported balance.",
+                "The second apparatus is a single padded pommel horse with handles.",
+                "Supported-balance warm-up belongs at the parallel bars."
+              ],
+              "required_final_predicates": [
+                "near"
+              ],
+              "success_condition": "near(backpack, parallel bars)",
+              "temporal_constraints": []
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-B repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_1 backpack",
+                "what": "item_1 backpack",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-B repaired story uses it",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "surf_1 parallel_bars",
+                "what": "surf_1 parallel_bars",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-B repaired story uses it",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "surf_2 pommel_horse",
+                "what": "surf_2 pommel_horse",
+                "when": "both"
+              }
+            ]
+          }
+        },
+        "duplicate_of": null,
+        "reason": "Manual group-B metadata synchronized to the repaired story.",
+        "requirements": [],
+        "runtime_requirements": {
+          "actions": [
+            "Grab",
+            "LookAt",
+            "PutOnFloor",
+            "Walk"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 9,
+          "estimated_prologue_actions": 6,
+          "estimated_task_actions": 3,
+          "events": [],
+          "final_predicates": [
+            "near"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 39.3,
+        "structural_signature": {
+          "evaluation": "near(backpack, parallel bars)",
+          "evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+          "failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+          "operation": "manual repaired ASK task",
+          "response": "Use the parallel bars; their two side-by-side rails are the supported-balance apparatus. Set the backpack on the floor beside them, not on the equipment.",
+          "temporal": "repaired prologue before turn0"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                "derived_from": [],
+                "established_by": "LookAt on the gym fixtures in the current frame",
+                "runtime_support": "egocentric view of parallel_bars and pommel_horse in gym_0",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging",
+                "derived_from": [],
+                "established_by": "ordinary gym-apparatus functional knowledge",
+                "runtime_support": "external world knowledge of apparatus purpose",
+                "source": "common_sense"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "the backpack should be placed on the floor beside the parallel bars",
+                "derived_from": [
+                  "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                  "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging"
+                ],
+                "established_by": "combining fixture identification with apparatus-purpose knowledge for a supported-balance warm-up",
+                "runtime_support": "live fixture identification plus common-sense apparatus function",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "select the wrong apparatus by superficial handle resemblance",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "backpack beside parallel_bars (strong) versus beside pommel_horse (weak)"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "assistant identifies the parallel bars versus pommel horse from the live view",
+              "wearer walks to the parallel bars",
+              "wearer places the backpack on the floor beside the parallel bars",
+              "wearer checks the placed backpack and apparatus together"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 0,
+              "reason": "this is a present-scene functional-knowledge decision, not a memory task",
+              "required": false,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": false,
+              "assistant_need": "accessibility (low vision) plus functional-purpose knowledge to distinguish and select the correct apparatus from the live view",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "assistant dialogue naming the parallel bars",
+                  "PutOnFloor action placing backpack beside parallel_bars",
+                  "near(backpack, parallel_bars) scorer"
+                ],
+                "description": "the backpack ends up on the floor beside the apparatus suited for the supported-balance warm-up",
+                "grounded_in": "'I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?'",
+                "id": "g1",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "the wearer states a goal (mark the apparatus for the supported balance warm-up) and asks which one, leaving the fixture identification to the assistant",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "low vision blurs the two apparatus silhouettes at a few steps, so the wearer cannot reliably tell the parallel bars from the pommel horse without the glasses",
+            "why_utterance_alone_fails": "the wearer names neither apparatus and asks 'which one', so a text-only assistant cannot know which visible fixture is the parallel bars"
+          },
+          "capability_fit": "Manual group-B repair for ASK-87022.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "backpack",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_1 backpack"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "parallel_bars",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_1 parallel_bars"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "pommel_horse",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_2 pommel_horse"
+                }
+              ],
+              "distinct_by": [
+                "parallel-bar rails versus pommel-horse shape"
+              ],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In the school gym, the wearer approaches the parallel bars and looks over their two long side-by-side rails, then walks to the pommel horse and inspects its single padded body and handles. No game-style identification cards are attached to either fixture. They next walk to a backpack on the gym floor, pick it up, and ask which apparatus is for a supported-balance warm-up and where the bag should be left. The assistant chooses the parallel bars. The wearer puts the backpack on the floor beside them and takes a final close look at the bag on the floor beside the apparatus.",
+              "scene": "school_gym",
+              "why_scene": "Provides parallel bars and a pommel horse in the gym."
+            },
+            "needs": {
+              "assessment_contract": {
+                "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                "assigned_scene": "school_gym",
+                "core_question": "I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?",
+                "counterfactual_failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+                "forbidden_changes": [
+                  "adding a readable label that names the correct fixture",
+                  "turning either fixture into a container"
+                ],
+                "knowledge_constraints": [
+                  "decision must come from functional apparatus knowledge applied to the live view, not a label or document"
+                ],
+                "required_evidence": [
+                  "The wearer is holding the backpack.",
+                  "The first apparatus has two long side-by-side rails for supported balance.",
+                  "The second apparatus is a single padded pommel horse with handles.",
+                  "Supported-balance warm-up belongs at the parallel bars."
+                ],
+                "required_final_predicates": [
+                  "near"
+                ],
+                "success_condition": "near(backpack, parallel bars)",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_1 backpack",
+                  "what": "item_1 backpack",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_1 parallel_bars",
+                  "what": "surf_1 parallel_bars",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_2 pommel_horse",
+                  "what": "surf_2 pommel_horse",
+                  "when": "both"
+                }
+              ]
+            }
+          },
+          "duplicate_of": null,
+          "reason": "Manual group-B metadata synchronized to the repaired story.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "LookAt",
+              "PutOnFloor",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 9,
+            "estimated_prologue_actions": 6,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "near"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 39.8,
+          "structural_signature": {
+            "evaluation": "near(backpack, parallel bars)",
+            "evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+            "failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+            "operation": "manual repaired ASK task",
+            "response": "Use the parallel bars; their two side-by-side rails are the supported-balance apparatus. Set the backpack on the floor beside them, not on the equipment.",
+            "temporal": "repaired prologue before turn0"
+          },
+          "verdict": "KEEP"
+        },
+        {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                "derived_from": [],
+                "established_by": "LookAt on the gym fixtures in the current frame",
+                "runtime_support": "egocentric view of parallel_bars and pommel_horse in gym_0",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging",
+                "derived_from": [],
+                "established_by": "ordinary gym-apparatus functional knowledge",
+                "runtime_support": "external world knowledge of apparatus purpose",
+                "source": "common_sense"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "the backpack should be placed on the floor beside the parallel bars",
+                "derived_from": [
+                  "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                  "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging"
+                ],
+                "established_by": "combining fixture identification with apparatus-purpose knowledge for a supported-balance warm-up",
+                "runtime_support": "live fixture identification plus common-sense apparatus function",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "select the wrong apparatus by superficial handle resemblance",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "backpack beside parallel_bars (strong) versus beside pommel_horse (weak)"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "assistant identifies the parallel bars versus pommel horse from the live view",
+              "wearer walks to the parallel bars",
+              "wearer places the backpack on the floor beside the parallel bars",
+              "wearer checks the placed backpack and apparatus together"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 0,
+              "reason": "this is a live functional-knowledge task, not a memory task; the evidence and decision are in the current frame",
+              "required": false,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": true,
+              "assistant_need": "accessibility: low-vision wearer cannot resolve which blurred fixture is the parallel bars versus pommel horse, and lacks the functional knowledge of which suits supported balance",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "assistant dialogue naming the parallel bars",
+                  "PutOnFloor action placing backpack beside parallel_bars",
+                  "near(backpack, parallel_bars) scorer"
+                ],
+                "description": "the backpack ends up on the floor beside the apparatus suited for the supported-balance warm-up",
+                "grounded_in": "'I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?'",
+                "id": "g1",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "the wearer states the goal (mark the apparatus for supported balance) and asks which one, leaving the apparatus identification and functional inference to the assistant",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "the low-vision wearer sees the apparatus shapes blur together from a few steps back and cannot reliably distinguish them",
+            "why_utterance_alone_fails": "the wearer never names which fixture is which; only the camera can identify the parallel bars versus the pommel horse"
+          },
+          "capability_fit": "Manual group-B repair for ASK-87022.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "backpack",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_1 backpack"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "parallel_bars",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_1 parallel_bars"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "pommel_horse",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_2 pommel_horse"
+                }
+              ],
+              "distinct_by": [
+                "parallel-bar rails versus pommel-horse shape"
+              ],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In the school gym, the wearer approaches the parallel bars and looks over their two long side-by-side rails, then walks to the pommel horse and inspects its single padded body and handles. No game-style identification cards are attached to either fixture. They next walk to a backpack on the gym floor, pick it up, and ask which apparatus is for a supported-balance warm-up and where the bag should be left. The assistant chooses the parallel bars. The wearer puts the backpack on the floor beside them and takes a final close look at the bag on the floor beside the apparatus.",
+              "scene": "school_gym",
+              "why_scene": "Provides parallel bars and a pommel horse in the gym."
+            },
+            "needs": {
+              "assessment_contract": {
+                "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                "assigned_scene": "school_gym",
+                "core_question": "I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?",
+                "counterfactual_failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+                "forbidden_changes": [
+                  "adding a readable label that names the correct fixture",
+                  "turning either fixture into a container"
+                ],
+                "knowledge_constraints": [
+                  "decision must come from functional apparatus knowledge applied to the live view, not a label or document"
+                ],
+                "required_evidence": [
+                  "The wearer is holding the backpack.",
+                  "The first apparatus has two long side-by-side rails for supported balance.",
+                  "The second apparatus is a single padded pommel horse with handles.",
+                  "Supported-balance warm-up belongs at the parallel bars."
+                ],
+                "required_final_predicates": [
+                  "near"
+                ],
+                "success_condition": "near(backpack, parallel bars)",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_1 backpack",
+                  "what": "item_1 backpack",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_1 parallel_bars",
+                  "what": "surf_1 parallel_bars",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_2 pommel_horse",
+                  "what": "surf_2 pommel_horse",
+                  "when": "both"
+                }
+              ]
+            }
+          },
+          "duplicate_of": null,
+          "reason": "Manual group-B metadata synchronized to the repaired story.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "LookAt",
+              "PutOnFloor",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 9,
+            "estimated_prologue_actions": 6,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "near"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 39.3,
+          "structural_signature": {
+            "evaluation": "near(backpack, parallel bars)",
+            "evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+            "failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+            "operation": "manual repaired ASK task",
+            "response": "Use the parallel bars; their two side-by-side rails are the supported-balance apparatus. Set the backpack on the floor beside them, not on the equipment.",
+            "temporal": "repaired prologue before turn0"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "school_gym",
+      "sha": "sha256:3c4ca7acf01dbb533944f31a730e56440bd52ab218653b35cab0c43e67c04b5b",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_final120_v34_opusjudge_parallel24_20260901a/rounds/round_001/compile_input/ASK/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gpt-5-5-genai-responses",
+      "judge_model": "claude-4-8-opus-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260831q"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_grounded_final120_v34_opusjudge_parallel24_20260901a-r001",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v34-necessity-causality-20260831",
+      "release_id": "sha256:4c845fe085359213bf2c06c77fd63aa1e02c9f862e87d6b57ad3346970c0a7d8",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "ASK-87022",
+    "revision": "ask-destination-clarity-20260914",
+    "benchmark_split": "production",
+    "physical_taskpack_sha256": "sha256:40bf93d7f838c7802b4a9656f400a77adb66cff816f91713cb38f3f2d6eac25f",
+    "metadata_repairs": [],
+    "parent_lineage": {
+      "source": "ask17_interaction_assembly",
+      "compile_input_digest": "sha256:a0b254108c7f8b06d4f27291d1de7d3533ab5acb0009b561356eb29ef00ab00e",
+      "source_contract_digest": "sha256:0d65872a24b5e68624c479dbc88f2d966e4121ca7d745d7afab025fdcee9d16a",
+      "executable_spec_digest": "sha256:a8d7d832db1d05780b17a79d704e71613859d5213fafac40a5c15106cc7a7aa2",
+      "invention": {
+        "attempt": 3,
+        "author_prose": "In the school gym, the wearer approaches the parallel bars and looks over their two long side-by-side rails, then walks to the pommel horse and inspects its single padded body and handles. No game-style identification cards are attached to either fixture. They next walk to a backpack on the gym floor, pick it up, and ask which apparatus is for a supported-balance warm-up and where the bag should be left. The assistant chooses the parallel bars. The wearer puts the backpack on the floor beside them and takes a final close look at the bag on the floor beside the apparatus.",
+        "author_prose_sha256": "sha256:3c4ca7acf01dbb533944f31a730e56440bd52ab218653b35cab0c43e67c04b5b",
+        "capability": {
+          "boundary": "The decisive rule is prior knowledge applied to a visually identified feature, not a remembered local document, arbitrary label mapping, or invented preference. Keep claims safe, broadly established, low stakes, and appropriate to the assigned room. Prefer ordinary tool-purpose, object-use, or household-organisation knowledge. Use food only in a real kitchen, grocery, or restaurant context, and do not make debatable storage-life or food-safety claims. Do not use diagnosis, treatment, wound care, child dosing, pesticide dosing, or ambiguous chemical advice.",
+          "few_shot": "A wearer is assembling a small desk accessory and holds the bracket steady with one hand. On the work surface are a cross-head screw, a flat-head screwdriver, and a cross-head screwdriver. They ask the glasses which tool to use. The assistant identifies the visible screw-head shape and applies ordinary tool knowledge to name the cross-head screwdriver; no label or earlier document supplies the answer. The wearer uses that tool to attach the bracket and returns the unused driver to the fixed tool drawer. A weak assistant that chooses by proximity uses the wrong tool. The visible fastener feature, ordinary functional rule, and final attachment make the decision both situated and low stakes.",
+          "id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+          "name_zh": "功能与世界知识推理",
+          "target": "Apply ordinary functional or domain knowledge to a present scene in order to answer where, how, or with what the wearer should act."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+          "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+          "evaluation_status": "PASS",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": false,
+          "owner": null,
+          "reason": null,
+          "reason_code": null,
+          "recommended_work": null,
+          "version": "capability-support/1.0",
+          "workstream": null
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [],
+          "allowed_loose_categories": [
+            "backpack"
+          ],
+          "allowed_surface_categories": [
+            "parallel_bars",
+            "pommel_horse"
+          ],
+          "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+          "coverage_categories": [
+            "volleyball",
+            "doll",
+            "cheese_tart",
+            "fruitcake",
+            "legal_document",
+            "half_fried_chicken",
+            "jar_of_curry_powder",
+            "mustard_seed_shaker",
+            "walnut_meat",
+            "chicken_soup_carton",
+            "bottle_of_pesto",
+            "drip_pot",
+            "post_it",
+            "toast",
+            "half_avocado",
+            "pork",
+            "ashtray",
+            "pack_of_protein_powder",
+            "honey_jar",
+            "peanut_butter_jar"
+          ],
+          "evaluation": {
+            "common_sense_allowed": true,
+            "document_carrier_required": false,
+            "max_semantic_turns": 1,
+            "required_semantic_turns": 1,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": false,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_memory_gap": false,
+            "requires_reselection": false,
+            "single_wearer_only": true,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "ASK",
+          "limits": {
+            "max_authored_actions": 18,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_meaningful_steps": 15,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 10,
+            "max_small_label_characters": 8,
+            "max_task_actions": 12,
+            "min_intervening_meaningful_actions": 0,
+            "min_meaningful_steps": 1
+          },
+          "preferred_story_categories": [
+            "cell_phone",
+            "mug",
+            "clipboard",
+            "paper_sheet"
+          ],
+          "preferred_story_category_glosses": {
+            "cell_phone": "",
+            "clipboard": "",
+            "mug": "",
+            "paper_sheet": ""
+          },
+          "rooms": [
+            {
+              "area_m2": 1265.0,
+              "name": "gym_0",
+              "scene_containers": {},
+              "scene_surfaces": {
+                "parallel_bars": 2,
+                "pommel_horse": 2
+              },
+              "surface_max_area_m2": {
+                "parallel_bars": 0.618,
+                "pommel_horse": 0.18
+              },
+              "surface_reference_capacity": {
+                "parallel_bars": 3,
+                "pommel_horse": 3
+              }
+            }
+          ],
+          "scene": "school_gym",
+          "task_id": "ASK-87022",
+          "version": "grounded-authoring/3.0-validity-20260831"
+        },
+        "prompt_sha": "5e86b6222ddf",
+        "prompt_sha256": "sha256:5e86b6222ddf2605f8d69282d20fffac570c9e8d177c56a628be728bd1015f98",
+        "prompt_version": "capability-v34-necessity-causality-20260831",
+        "prose_sha256": "sha256:3c4ca7acf01dbb533944f31a730e56440bd52ab218653b35cab0c43e67c04b5b",
+        "review": {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                "derived_from": [],
+                "established_by": "LookAt on the gym fixtures in the current frame",
+                "runtime_support": "egocentric view of parallel_bars and pommel_horse in gym_0",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging",
+                "derived_from": [],
+                "established_by": "ordinary gym-apparatus functional knowledge",
+                "runtime_support": "external world knowledge of apparatus purpose",
+                "source": "common_sense"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "the backpack should be placed on the floor beside the parallel bars",
+                "derived_from": [
+                  "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                  "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging"
+                ],
+                "established_by": "combining fixture identification with apparatus-purpose knowledge for a supported-balance warm-up",
+                "runtime_support": "live fixture identification plus common-sense apparatus function",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "select the wrong apparatus by superficial handle resemblance",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "backpack beside parallel_bars (strong) versus beside pommel_horse (weak)"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "assistant identifies the parallel bars versus pommel horse from the live view",
+              "wearer walks to the parallel bars",
+              "wearer places the backpack on the floor beside the parallel bars",
+              "wearer checks the placed backpack and apparatus together"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 0,
+              "reason": "this is a live functional-knowledge task, not a memory task; the evidence and decision are in the current frame",
+              "required": false,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": true,
+              "assistant_need": "accessibility: low-vision wearer cannot resolve which blurred fixture is the parallel bars versus pommel horse, and lacks the functional knowledge of which suits supported balance",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "assistant dialogue naming the parallel bars",
+                  "PutOnFloor action placing backpack beside parallel_bars",
+                  "near(backpack, parallel_bars) scorer"
+                ],
+                "description": "the backpack ends up on the floor beside the apparatus suited for the supported-balance warm-up",
+                "grounded_in": "'I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?'",
+                "id": "g1",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "the wearer states the goal (mark the apparatus for supported balance) and asks which one, leaving the apparatus identification and functional inference to the assistant",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "the low-vision wearer sees the apparatus shapes blur together from a few steps back and cannot reliably distinguish them",
+            "why_utterance_alone_fails": "the wearer never names which fixture is which; only the camera can identify the parallel bars versus the pommel horse"
+          },
+          "capability_fit": "Manual group-B repair for ASK-87022.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "backpack",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_1 backpack"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "parallel_bars",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_1 parallel_bars"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "pommel_horse",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_2 pommel_horse"
+                }
+              ],
+              "distinct_by": [
+                "parallel-bar rails versus pommel-horse shape"
+              ],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In the school gym, the wearer approaches the parallel bars and looks over their two long side-by-side rails, then walks to the pommel horse and inspects its single padded body and handles. No game-style identification cards are attached to either fixture. They next walk to a backpack on the gym floor, pick it up, and ask which apparatus is for a supported-balance warm-up and where the bag should be left. The assistant chooses the parallel bars. The wearer puts the backpack on the floor beside them and takes a final close look at the bag on the floor beside the apparatus.",
+              "scene": "school_gym",
+              "why_scene": "Provides parallel bars and a pommel horse in the gym."
+            },
+            "needs": {
+              "assessment_contract": {
+                "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                "assigned_scene": "school_gym",
+                "core_question": "I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?",
+                "counterfactual_failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+                "forbidden_changes": [
+                  "adding a readable label that names the correct fixture",
+                  "turning either fixture into a container"
+                ],
+                "knowledge_constraints": [
+                  "decision must come from functional apparatus knowledge applied to the live view, not a label or document"
+                ],
+                "required_evidence": [
+                  "The wearer is holding the backpack.",
+                  "The first apparatus has two long side-by-side rails for supported balance.",
+                  "The second apparatus is a single padded pommel horse with handles.",
+                  "Supported-balance warm-up belongs at the parallel bars."
+                ],
+                "required_final_predicates": [
+                  "near"
+                ],
+                "success_condition": "near(backpack, parallel bars)",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_1 backpack",
+                  "what": "item_1 backpack",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_1 parallel_bars",
+                  "what": "surf_1 parallel_bars",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-B repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_2 pommel_horse",
+                  "what": "surf_2 pommel_horse",
+                  "when": "both"
+                }
+              ]
+            }
+          },
+          "duplicate_of": null,
+          "reason": "Manual group-B metadata synchronized to the repaired story.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "LookAt",
+              "PutOnFloor",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 9,
+            "estimated_prologue_actions": 6,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "near"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 39.3,
+          "structural_signature": {
+            "evaluation": "near(backpack, parallel bars)",
+            "evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+            "failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+            "operation": "manual repaired ASK task",
+            "response": "Use the parallel bars; their two side-by-side rails are the supported-balance apparatus. Set the backpack on the floor beside them, not on the equipment.",
+            "temporal": "repaired prologue before turn0"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "actor_scope": {
+                "live_physical_actors": [
+                  "wearer"
+                ],
+                "other_person_changes_world": false
+              },
+              "core_claims": [
+                {
+                  "available_before_turn": 0,
+                  "claim": "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                  "derived_from": [],
+                  "established_by": "LookAt on the gym fixtures in the current frame",
+                  "runtime_support": "egocentric view of parallel_bars and pommel_horse in gym_0",
+                  "source": "live_state"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging",
+                  "derived_from": [],
+                  "established_by": "ordinary gym-apparatus functional knowledge",
+                  "runtime_support": "external world knowledge of apparatus purpose",
+                  "source": "common_sense"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "the backpack should be placed on the floor beside the parallel bars",
+                  "derived_from": [
+                    "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                    "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging"
+                  ],
+                  "established_by": "combining fixture identification with apparatus-purpose knowledge for a supported-balance warm-up",
+                  "runtime_support": "live fixture identification plus common-sense apparatus function",
+                  "source": "derived"
+                }
+              ],
+              "counterfactual_contract": {
+                "allowed_other_differences": [],
+                "operator": "select the wrong apparatus by superficial handle resemblance",
+                "shared_obligations": [
+                  "g1"
+                ],
+                "target_difference": "backpack beside parallel_bars (strong) versus beside pommel_horse (weak)"
+              },
+              "cross_field_consistency": {
+                "conflicts": [],
+                "consistent": true
+              },
+              "decisive_fact_absent_from_utterance": true,
+              "egocentric_evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "meaningful_steps": [
+                "assistant identifies the parallel bars versus pommel horse from the live view",
+                "wearer walks to the parallel bars",
+                "wearer places the backpack on the floor beside the parallel bars",
+                "wearer checks the placed backpack and apparatus together"
+              ],
+              "memory_gap": {
+                "intervening_meaningful_actions": 0,
+                "reason": "this is a present-scene functional-knowledge decision, not a memory task",
+                "required": false,
+                "wearer_just_established_answer": false
+              },
+              "physical_plausibility": {
+                "credible": true,
+                "issues": []
+              },
+              "semantic_turns": 1,
+              "story_world_mismatches": [],
+              "strong_completes_user_goal": true,
+              "strong_weak_distinct": true,
+              "turn0_access": {
+                "answer_fully_visible": false,
+                "assistant_need": "accessibility (low vision) plus functional-purpose knowledge to distinguish and select the correct apparatus from the live view",
+                "wearer_can_self_serve": false
+              },
+              "ungrounded_physical_nouns": [],
+              "unmodeled_claims": [],
+              "user_goal_obligations": [
+                {
+                  "covered_by": [
+                    "assistant dialogue naming the parallel bars",
+                    "PutOnFloor action placing backpack beside parallel_bars",
+                    "near(backpack, parallel_bars) scorer"
+                  ],
+                  "description": "the backpack ends up on the floor beside the apparatus suited for the supported-balance warm-up",
+                  "grounded_in": "'I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?'",
+                  "id": "g1",
+                  "kind": "physical"
+                }
+              ],
+              "uses_only_grounded_assets": true,
+              "utterance_policy": {
+                "prescribes_assistant_words_or_trigger": false,
+                "reason": "the wearer states a goal (mark the apparatus for the supported balance warm-up) and asks which one, leaving the fixture identification to the assistant",
+                "states_goal_not_solution": true
+              },
+              "weak_shared_work_complete": true,
+              "why_user_needs_assistant": "low vision blurs the two apparatus silhouettes at a few steps, so the wearer cannot reliably tell the parallel bars from the pommel horse without the glasses",
+              "why_utterance_alone_fails": "the wearer names neither apparatus and asks 'which one', so a text-only assistant cannot know which visible fixture is the parallel bars"
+            },
+            "capability_fit": "Manual group-B repair for ASK-87022.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "backpack",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "item_1 backpack"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "parallel_bars",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_1 parallel_bars"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "pommel_horse",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_2 pommel_horse"
+                  }
+                ],
+                "distinct_by": [
+                  "parallel-bar rails versus pommel-horse shape"
+                ],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "In the school gym, the wearer approaches the parallel bars and looks over their two long side-by-side rails, then walks to the pommel horse and inspects its single padded body and handles. No game-style identification cards are attached to either fixture. They next walk to a backpack on the gym floor, pick it up, and ask which apparatus is for a supported-balance warm-up and where the bag should be left. The assistant chooses the parallel bars. The wearer puts the backpack on the floor beside them and takes a final close look at the bag on the floor beside the apparatus.",
+                "scene": "school_gym",
+                "why_scene": "Provides parallel bars and a pommel horse in the gym."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                  "assigned_scene": "school_gym",
+                  "core_question": "I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?",
+                  "counterfactual_failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+                  "forbidden_changes": [
+                    "adding a readable label that names the correct fixture",
+                    "turning either fixture into a container"
+                  ],
+                  "knowledge_constraints": [
+                    "decision must come from functional apparatus knowledge applied to the live view, not a label or document"
+                  ],
+                  "required_evidence": [
+                    "The wearer is holding the backpack.",
+                    "The first apparatus has two long side-by-side rails for supported balance.",
+                    "The second apparatus is a single padded pommel horse with handles.",
+                    "Supported-balance warm-up belongs at the parallel bars."
+                  ],
+                  "required_final_predicates": [
+                    "near"
+                  ],
+                  "success_condition": "near(backpack, parallel bars)",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-B repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_1 backpack",
+                    "what": "item_1 backpack",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-B repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_1 parallel_bars",
+                    "what": "surf_1 parallel_bars",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-B repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_2 pommel_horse",
+                    "what": "surf_2 pommel_horse",
+                    "when": "both"
+                  }
+                ]
+              }
+            },
+            "duplicate_of": null,
+            "reason": "Manual group-B metadata synchronized to the repaired story.",
+            "requirements": [],
+            "runtime_requirements": {
+              "actions": [
+                "Grab",
+                "LookAt",
+                "PutOnFloor",
+                "Walk"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 9,
+              "estimated_prologue_actions": 6,
+              "estimated_task_actions": 3,
+              "events": [],
+              "final_predicates": [
+                "near"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 39.8,
+            "structural_signature": {
+              "evaluation": "near(backpack, parallel bars)",
+              "evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+              "failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+              "operation": "manual repaired ASK task",
+              "response": "Use the parallel bars; their two side-by-side rails are the supported-balance apparatus. Set the backpack on the floor beside them, not on the equipment.",
+              "temporal": "repaired prologue before turn0"
+            },
+            "verdict": "KEEP"
+          },
+          {
+            "benchmark_check": {
+              "actor_scope": {
+                "live_physical_actors": [
+                  "wearer"
+                ],
+                "other_person_changes_world": false
+              },
+              "core_claims": [
+                {
+                  "available_before_turn": 0,
+                  "claim": "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                  "derived_from": [],
+                  "established_by": "LookAt on the gym fixtures in the current frame",
+                  "runtime_support": "egocentric view of parallel_bars and pommel_horse in gym_0",
+                  "source": "live_state"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging",
+                  "derived_from": [],
+                  "established_by": "ordinary gym-apparatus functional knowledge",
+                  "runtime_support": "external world knowledge of apparatus purpose",
+                  "source": "common_sense"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "the backpack should be placed on the floor beside the parallel bars",
+                  "derived_from": [
+                    "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                    "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging"
+                  ],
+                  "established_by": "combining fixture identification with apparatus-purpose knowledge for a supported-balance warm-up",
+                  "runtime_support": "live fixture identification plus common-sense apparatus function",
+                  "source": "derived"
+                }
+              ],
+              "counterfactual_contract": {
+                "allowed_other_differences": [],
+                "operator": "select the wrong apparatus by superficial handle resemblance",
+                "shared_obligations": [
+                  "g1"
+                ],
+                "target_difference": "backpack beside parallel_bars (strong) versus beside pommel_horse (weak)"
+              },
+              "cross_field_consistency": {
+                "conflicts": [],
+                "consistent": true
+              },
+              "decisive_fact_absent_from_utterance": true,
+              "egocentric_evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "meaningful_steps": [
+                "assistant identifies the parallel bars versus pommel horse from the live view",
+                "wearer walks to the parallel bars",
+                "wearer places the backpack on the floor beside the parallel bars",
+                "wearer checks the placed backpack and apparatus together"
+              ],
+              "memory_gap": {
+                "intervening_meaningful_actions": 0,
+                "reason": "this is a live functional-knowledge task, not a memory task; the evidence and decision are in the current frame",
+                "required": false,
+                "wearer_just_established_answer": false
+              },
+              "physical_plausibility": {
+                "credible": true,
+                "issues": []
+              },
+              "semantic_turns": 1,
+              "story_world_mismatches": [],
+              "strong_completes_user_goal": true,
+              "strong_weak_distinct": true,
+              "turn0_access": {
+                "answer_fully_visible": true,
+                "assistant_need": "accessibility: low-vision wearer cannot resolve which blurred fixture is the parallel bars versus pommel horse, and lacks the functional knowledge of which suits supported balance",
+                "wearer_can_self_serve": false
+              },
+              "ungrounded_physical_nouns": [],
+              "unmodeled_claims": [],
+              "user_goal_obligations": [
+                {
+                  "covered_by": [
+                    "assistant dialogue naming the parallel bars",
+                    "PutOnFloor action placing backpack beside parallel_bars",
+                    "near(backpack, parallel_bars) scorer"
+                  ],
+                  "description": "the backpack ends up on the floor beside the apparatus suited for the supported-balance warm-up",
+                  "grounded_in": "'I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?'",
+                  "id": "g1",
+                  "kind": "physical"
+                }
+              ],
+              "uses_only_grounded_assets": true,
+              "utterance_policy": {
+                "prescribes_assistant_words_or_trigger": false,
+                "reason": "the wearer states the goal (mark the apparatus for supported balance) and asks which one, leaving the apparatus identification and functional inference to the assistant",
+                "states_goal_not_solution": true
+              },
+              "weak_shared_work_complete": true,
+              "why_user_needs_assistant": "the low-vision wearer sees the apparatus shapes blur together from a few steps back and cannot reliably distinguish them",
+              "why_utterance_alone_fails": "the wearer never names which fixture is which; only the camera can identify the parallel bars versus the pommel horse"
+            },
+            "capability_fit": "Manual group-B repair for ASK-87022.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "backpack",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "item_1 backpack"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "parallel_bars",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_1 parallel_bars"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "pommel_horse",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_2 pommel_horse"
+                  }
+                ],
+                "distinct_by": [
+                  "parallel-bar rails versus pommel-horse shape"
+                ],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "In the school gym, the wearer approaches the parallel bars and looks over their two long side-by-side rails, then walks to the pommel horse and inspects its single padded body and handles. No game-style identification cards are attached to either fixture. They next walk to a backpack on the gym floor, pick it up, and ask which apparatus is for a supported-balance warm-up and where the bag should be left. The assistant chooses the parallel bars. The wearer puts the backpack on the floor beside them and takes a final close look at the bag on the floor beside the apparatus.",
+                "scene": "school_gym",
+                "why_scene": "Provides parallel bars and a pommel horse in the gym."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                  "assigned_scene": "school_gym",
+                  "core_question": "I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?",
+                  "counterfactual_failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+                  "forbidden_changes": [
+                    "adding a readable label that names the correct fixture",
+                    "turning either fixture into a container"
+                  ],
+                  "knowledge_constraints": [
+                    "decision must come from functional apparatus knowledge applied to the live view, not a label or document"
+                  ],
+                  "required_evidence": [
+                    "The wearer is holding the backpack.",
+                    "The first apparatus has two long side-by-side rails for supported balance.",
+                    "The second apparatus is a single padded pommel horse with handles.",
+                    "Supported-balance warm-up belongs at the parallel bars."
+                  ],
+                  "required_final_predicates": [
+                    "near"
+                  ],
+                  "success_condition": "near(backpack, parallel bars)",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-B repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_1 backpack",
+                    "what": "item_1 backpack",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-B repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_1 parallel_bars",
+                    "what": "surf_1 parallel_bars",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-B repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_2 pommel_horse",
+                    "what": "surf_2 pommel_horse",
+                    "when": "both"
+                  }
+                ]
+              }
+            },
+            "duplicate_of": null,
+            "reason": "Manual group-B metadata synchronized to the repaired story.",
+            "requirements": [],
+            "runtime_requirements": {
+              "actions": [
+                "Grab",
+                "LookAt",
+                "PutOnFloor",
+                "Walk"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 9,
+              "estimated_prologue_actions": 6,
+              "estimated_task_actions": 3,
+              "events": [],
+              "final_predicates": [
+                "near"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 39.3,
+            "structural_signature": {
+              "evaluation": "near(backpack, parallel bars)",
+              "evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+              "failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+              "operation": "manual repaired ASK task",
+              "response": "Use the parallel bars; their two side-by-side rails are the supported-balance apparatus. Set the backpack on the floor beside them, not on the equipment.",
+              "temporal": "repaired prologue before turn0"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "school_gym",
+        "sha": "sha256:3c4ca7acf01dbb533944f31a730e56440bd52ab218653b35cab0c43e67c04b5b",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_final120_v34_opusjudge_parallel24_20260901a/rounds/round_001/compile_input/ASK/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gpt-5-5-genai-responses",
+        "judge_model": "claude-4-8-opus-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260831q"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_grounded_final120_v34_opusjudge_parallel24_20260901a-r001",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v34-necessity-causality-20260831",
+        "release_id": "sha256:4c845fe085359213bf2c06c77fd63aa1e02c9f862e87d6b57ad3346970c0a7d8",
+        "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "normalizations": [],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "ASK-87022",
+      "revision": "ask17-interaction-20260912",
+      "benchmark_split": "production",
+      "physical_taskpack_sha256": "sha256:40bf93d7f838c7802b4a9656f400a77adb66cff816f91713cb38f3f2d6eac25f",
+      "metadata_repairs": [],
+      "parent_lineage": {
+        "source": "data_generate.compile_v2",
+        "compile_input_digest": "sha256:a0b254108c7f8b06d4f27291d1de7d3533ab5acb0009b561356eb29ef00ab00e",
+        "source_contract_digest": "sha256:0d65872a24b5e68624c479dbc88f2d966e4121ca7d745d7afab025fdcee9d16a",
+        "executable_spec_digest": "sha256:a8d7d832db1d05780b17a79d704e71613859d5213fafac40a5c15106cc7a7aa2",
+        "invention": {
+          "attempt": 3,
+          "author_prose": "In the school gym, the wearer approaches the parallel bars and looks over their two long side-by-side rails, then walks to the pommel horse and inspects its single padded body and handles. No game-style identification cards are attached to either fixture. They next walk to a backpack on the gym floor, pick it up, and ask which apparatus is for a supported-balance warm-up and where the bag should be left. The assistant chooses the parallel bars. The wearer puts the backpack on the floor beside them and takes a final close look at the bag on the floor beside the apparatus.",
+          "author_prose_sha256": "sha256:3c4ca7acf01dbb533944f31a730e56440bd52ab218653b35cab0c43e67c04b5b",
+          "capability": {
+            "boundary": "The decisive rule is prior knowledge applied to a visually identified feature, not a remembered local document, arbitrary label mapping, or invented preference. Keep claims safe, broadly established, low stakes, and appropriate to the assigned room. Prefer ordinary tool-purpose, object-use, or household-organisation knowledge. Use food only in a real kitchen, grocery, or restaurant context, and do not make debatable storage-life or food-safety claims. Do not use diagnosis, treatment, wound care, child dosing, pesticide dosing, or ambiguous chemical advice.",
+            "few_shot": "A wearer is assembling a small desk accessory and holds the bracket steady with one hand. On the work surface are a cross-head screw, a flat-head screwdriver, and a cross-head screwdriver. They ask the glasses which tool to use. The assistant identifies the visible screw-head shape and applies ordinary tool knowledge to name the cross-head screwdriver; no label or earlier document supplies the answer. The wearer uses that tool to attach the bracket and returns the unused driver to the fixed tool drawer. A weak assistant that chooses by proximity uses the wrong tool. The visible fastener feature, ordinary functional rule, and final attachment make the decision both situated and low stakes.",
+            "id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+            "name_zh": "功能与世界知识推理",
+            "target": "Apply ordinary functional or domain knowledge to a present scene in order to answer where, how, or with what the wearer should act."
+          },
+          "capability_support": {
+            "blocking": false,
+            "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+            "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+            "evaluation_status": "PASS",
+            "execution_status": "SUPPORTED",
+            "needs_simulator_work": false,
+            "owner": null,
+            "reason": null,
+            "reason_code": null,
+            "recommended_work": null,
+            "version": "capability-support/1.0",
+            "workstream": null
+          },
+          "grounding_contract": {
+            "allowed_container_categories": [],
+            "allowed_loose_categories": [
+              "backpack"
+            ],
+            "allowed_surface_categories": [
+              "parallel_bars",
+              "pommel_horse"
+            ],
+            "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+            "coverage_categories": [
+              "volleyball",
+              "doll",
+              "cheese_tart",
+              "fruitcake",
+              "legal_document",
+              "half_fried_chicken",
+              "jar_of_curry_powder",
+              "mustard_seed_shaker",
+              "walnut_meat",
+              "chicken_soup_carton",
+              "bottle_of_pesto",
+              "drip_pot",
+              "post_it",
+              "toast",
+              "half_avocado",
+              "pork",
+              "ashtray",
+              "pack_of_protein_powder",
+              "honey_jar",
+              "peanut_butter_jar"
+            ],
+            "evaluation": {
+              "common_sense_allowed": true,
+              "document_carrier_required": false,
+              "max_semantic_turns": 1,
+              "required_semantic_turns": 1,
+              "requires_cross_room_transition": false,
+              "requires_dynamic_evidence": false,
+              "requires_egocentric_evidence": true,
+              "requires_initial_dialogue_at_zero": true,
+              "requires_memory_gap": false,
+              "requires_reselection": false,
+              "single_wearer_only": true,
+              "text_evidence_required": false,
+              "weak_branch_must_fail": true
+            },
+            "family": "ASK",
+            "limits": {
+              "max_authored_actions": 18,
+              "max_document_characters": 32,
+              "max_fixed_destinations": 3,
+              "max_meaningful_steps": 15,
+              "max_movable_objects": 4,
+              "max_objects_per_container": 2,
+              "max_objects_per_surface": 3,
+              "max_prologue_actions": 10,
+              "max_small_label_characters": 8,
+              "max_task_actions": 12,
+              "min_intervening_meaningful_actions": 0,
+              "min_meaningful_steps": 1
+            },
+            "preferred_story_categories": [
+              "cell_phone",
+              "mug",
+              "clipboard",
+              "paper_sheet"
+            ],
+            "preferred_story_category_glosses": {
+              "cell_phone": "",
+              "clipboard": "",
+              "mug": "",
+              "paper_sheet": ""
+            },
+            "rooms": [
+              {
+                "area_m2": 1265.0,
+                "name": "gym_0",
+                "scene_containers": {},
+                "scene_surfaces": {
+                  "parallel_bars": 2,
+                  "pommel_horse": 2
+                },
+                "surface_max_area_m2": {
+                  "parallel_bars": 0.618,
+                  "pommel_horse": 0.18
+                },
+                "surface_reference_capacity": {
+                  "parallel_bars": 3,
+                  "pommel_horse": 3
+                }
+              }
+            ],
+            "scene": "school_gym",
+            "task_id": "ASK-87022",
+            "version": "grounded-authoring/3.0-validity-20260831"
+          },
+          "prompt_sha": "5e86b6222ddf",
+          "prompt_sha256": "sha256:5e86b6222ddf2605f8d69282d20fffac570c9e8d177c56a628be728bd1015f98",
+          "prompt_version": "capability-v34-necessity-causality-20260831",
+          "prose_sha256": "sha256:3c4ca7acf01dbb533944f31a730e56440bd52ab218653b35cab0c43e67c04b5b",
+          "review": {
+            "benchmark_check": {
+              "actor_scope": {
+                "live_physical_actors": [
+                  "wearer"
+                ],
+                "other_person_changes_world": false
+              },
+              "core_claims": [
+                {
+                  "available_before_turn": 0,
+                  "claim": "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                  "derived_from": [],
+                  "established_by": "LookAt on the gym fixtures in the current frame",
+                  "runtime_support": "egocentric view of parallel_bars and pommel_horse in gym_0",
+                  "source": "live_state"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging",
+                  "derived_from": [],
+                  "established_by": "ordinary gym-apparatus functional knowledge",
+                  "runtime_support": "external world knowledge of apparatus purpose",
+                  "source": "common_sense"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "the backpack should be placed on the floor beside the parallel bars",
+                  "derived_from": [
+                    "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                    "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging"
+                  ],
+                  "established_by": "combining fixture identification with apparatus-purpose knowledge for a supported-balance warm-up",
+                  "runtime_support": "live fixture identification plus common-sense apparatus function",
+                  "source": "derived"
+                }
+              ],
+              "counterfactual_contract": {
+                "allowed_other_differences": [],
+                "operator": "select the wrong apparatus by superficial handle resemblance",
+                "shared_obligations": [
+                  "g1"
+                ],
+                "target_difference": "backpack beside parallel_bars (strong) versus beside pommel_horse (weak)"
+              },
+              "cross_field_consistency": {
+                "conflicts": [],
+                "consistent": true
+              },
+              "decisive_fact_absent_from_utterance": true,
+              "egocentric_evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "meaningful_steps": [
+                "assistant identifies the parallel bars versus pommel horse from the live view",
+                "wearer walks to the parallel bars",
+                "wearer places the backpack on the floor beside the parallel bars",
+                "wearer checks the placed backpack and apparatus together"
+              ],
+              "memory_gap": {
+                "intervening_meaningful_actions": 0,
+                "reason": "this is a live functional-knowledge task, not a memory task; the evidence and decision are in the current frame",
+                "required": false,
+                "wearer_just_established_answer": false
+              },
+              "physical_plausibility": {
+                "credible": true,
+                "issues": []
+              },
+              "semantic_turns": 1,
+              "story_world_mismatches": [],
+              "strong_completes_user_goal": true,
+              "strong_weak_distinct": true,
+              "turn0_access": {
+                "answer_fully_visible": true,
+                "assistant_need": "accessibility: low-vision wearer cannot resolve which blurred fixture is the parallel bars versus pommel horse, and lacks the functional knowledge of which suits supported balance",
+                "wearer_can_self_serve": false
+              },
+              "ungrounded_physical_nouns": [],
+              "unmodeled_claims": [],
+              "user_goal_obligations": [
+                {
+                  "covered_by": [
+                    "assistant dialogue naming the parallel bars",
+                    "PutOnFloor action placing backpack beside parallel_bars",
+                    "near(backpack, parallel_bars) scorer"
+                  ],
+                  "description": "the backpack ends up on the floor beside the apparatus suited for the supported-balance warm-up",
+                  "grounded_in": "'I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?'",
+                  "id": "g1",
+                  "kind": "physical"
+                }
+              ],
+              "uses_only_grounded_assets": true,
+              "utterance_policy": {
+                "prescribes_assistant_words_or_trigger": false,
+                "reason": "the wearer states the goal (mark the apparatus for supported balance) and asks which one, leaving the apparatus identification and functional inference to the assistant",
+                "states_goal_not_solution": true
+              },
+              "weak_shared_work_complete": true,
+              "why_user_needs_assistant": "the low-vision wearer sees the apparatus shapes blur together from a few steps back and cannot reliably distinguish them",
+              "why_utterance_alone_fails": "the wearer never names which fixture is which; only the camera can identify the parallel bars versus the pommel horse"
+            },
+            "capability_fit": "Manual group-B repair for ASK-87022.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "backpack",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "item_1 backpack"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "parallel_bars",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_1 parallel_bars"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "pommel_horse",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_2 pommel_horse"
+                  }
+                ],
+                "distinct_by": [
+                  "parallel-bar rails versus pommel-horse shape"
+                ],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "In the school gym, the wearer approaches the parallel bars and looks over their two long side-by-side rails, then walks to the pommel horse and inspects its single padded body and handles. No game-style identification cards are attached to either fixture. They next walk to a backpack on the gym floor, pick it up, and ask which apparatus is for a supported-balance warm-up and where the bag should be left. The assistant chooses the parallel bars. The wearer puts the backpack on the floor beside them and takes a final close look at the bag on the floor beside the apparatus.",
+                "scene": "school_gym",
+                "why_scene": "Provides parallel bars and a pommel horse in the gym."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                  "assigned_scene": "school_gym",
+                  "core_question": "I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?",
+                  "counterfactual_failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+                  "forbidden_changes": [
+                    "adding a readable label that names the correct fixture",
+                    "turning either fixture into a container"
+                  ],
+                  "knowledge_constraints": [
+                    "decision must come from functional apparatus knowledge applied to the live view, not a label or document"
+                  ],
+                  "required_evidence": [
+                    "The wearer is holding the backpack.",
+                    "The first apparatus has two long side-by-side rails for supported balance.",
+                    "The second apparatus is a single padded pommel horse with handles.",
+                    "Supported-balance warm-up belongs at the parallel bars."
+                  ],
+                  "required_final_predicates": [
+                    "near"
+                  ],
+                  "success_condition": "near(backpack, parallel bars)",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-B repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_1 backpack",
+                    "what": "item_1 backpack",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-B repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_1 parallel_bars",
+                    "what": "surf_1 parallel_bars",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-B repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_2 pommel_horse",
+                    "what": "surf_2 pommel_horse",
+                    "when": "both"
+                  }
+                ]
+              }
+            },
+            "duplicate_of": null,
+            "reason": "Manual group-B metadata synchronized to the repaired story.",
+            "requirements": [],
+            "runtime_requirements": {
+              "actions": [
+                "Grab",
+                "LookAt",
+                "PutOnFloor",
+                "Walk"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 9,
+              "estimated_prologue_actions": 6,
+              "estimated_task_actions": 3,
+              "events": [],
+              "final_predicates": [
+                "near"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 39.3,
+            "structural_signature": {
+              "evaluation": "near(backpack, parallel bars)",
+              "evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+              "failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+              "operation": "manual repaired ASK task",
+              "response": "Use the parallel bars; their two side-by-side rails are the supported-balance apparatus. Set the backpack on the floor beside them, not on the equipment.",
+              "temporal": "repaired prologue before turn0"
+            },
+            "verdict": "KEEP"
+          },
+          "reviews": [
+            {
+              "benchmark_check": {
+                "actor_scope": {
+                  "live_physical_actors": [
+                    "wearer"
+                  ],
+                  "other_person_changes_world": false
+                },
+                "core_claims": [
+                  {
+                    "available_before_turn": 0,
+                    "claim": "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                    "derived_from": [],
+                    "established_by": "LookAt on the gym fixtures in the current frame",
+                    "runtime_support": "egocentric view of parallel_bars and pommel_horse in gym_0",
+                    "source": "live_state"
+                  },
+                  {
+                    "available_before_turn": 0,
+                    "claim": "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging",
+                    "derived_from": [],
+                    "established_by": "ordinary gym-apparatus functional knowledge",
+                    "runtime_support": "external world knowledge of apparatus purpose",
+                    "source": "common_sense"
+                  },
+                  {
+                    "available_before_turn": 0,
+                    "claim": "the backpack should be placed on the floor beside the parallel bars",
+                    "derived_from": [
+                      "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                      "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging"
+                    ],
+                    "established_by": "combining fixture identification with apparatus-purpose knowledge for a supported-balance warm-up",
+                    "runtime_support": "live fixture identification plus common-sense apparatus function",
+                    "source": "derived"
+                  }
+                ],
+                "counterfactual_contract": {
+                  "allowed_other_differences": [],
+                  "operator": "select the wrong apparatus by superficial handle resemblance",
+                  "shared_obligations": [
+                    "g1"
+                  ],
+                  "target_difference": "backpack beside parallel_bars (strong) versus beside pommel_horse (weak)"
+                },
+                "cross_field_consistency": {
+                  "conflicts": [],
+                  "consistent": true
+                },
+                "decisive_fact_absent_from_utterance": true,
+                "egocentric_evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+                "egocentric_required": true,
+                "evidence_visible": true,
+                "meaningful_steps": [
+                  "assistant identifies the parallel bars versus pommel horse from the live view",
+                  "wearer walks to the parallel bars",
+                  "wearer places the backpack on the floor beside the parallel bars",
+                  "wearer checks the placed backpack and apparatus together"
+                ],
+                "memory_gap": {
+                  "intervening_meaningful_actions": 0,
+                  "reason": "this is a present-scene functional-knowledge decision, not a memory task",
+                  "required": false,
+                  "wearer_just_established_answer": false
+                },
+                "physical_plausibility": {
+                  "credible": true,
+                  "issues": []
+                },
+                "semantic_turns": 1,
+                "story_world_mismatches": [],
+                "strong_completes_user_goal": true,
+                "strong_weak_distinct": true,
+                "turn0_access": {
+                  "answer_fully_visible": false,
+                  "assistant_need": "accessibility (low vision) plus functional-purpose knowledge to distinguish and select the correct apparatus from the live view",
+                  "wearer_can_self_serve": false
+                },
+                "ungrounded_physical_nouns": [],
+                "unmodeled_claims": [],
+                "user_goal_obligations": [
+                  {
+                    "covered_by": [
+                      "assistant dialogue naming the parallel bars",
+                      "PutOnFloor action placing backpack beside parallel_bars",
+                      "near(backpack, parallel_bars) scorer"
+                    ],
+                    "description": "the backpack ends up on the floor beside the apparatus suited for the supported-balance warm-up",
+                    "grounded_in": "'I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?'",
+                    "id": "g1",
+                    "kind": "physical"
+                  }
+                ],
+                "uses_only_grounded_assets": true,
+                "utterance_policy": {
+                  "prescribes_assistant_words_or_trigger": false,
+                  "reason": "the wearer states a goal (mark the apparatus for the supported balance warm-up) and asks which one, leaving the fixture identification to the assistant",
+                  "states_goal_not_solution": true
+                },
+                "weak_shared_work_complete": true,
+                "why_user_needs_assistant": "low vision blurs the two apparatus silhouettes at a few steps, so the wearer cannot reliably tell the parallel bars from the pommel horse without the glasses",
+                "why_utterance_alone_fails": "the wearer names neither apparatus and asks 'which one', so a text-only assistant cannot know which visible fixture is the parallel bars"
+              },
+              "capability_fit": "Manual group-B repair for ASK-87022.",
+              "compiler_blueprint": {
+                "cast": {
+                  "assembly": [],
+                  "bindings": [
+                    {
+                      "affordances": [
+                        "graspable"
+                      ],
+                      "category": "backpack",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": null,
+                      "what": "item_1 backpack"
+                    },
+                    {
+                      "affordances": [
+                        "surface"
+                      ],
+                      "category": "parallel_bars",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": null,
+                      "what": "surf_1 parallel_bars"
+                    },
+                    {
+                      "affordances": [
+                        "surface"
+                      ],
+                      "category": "pommel_horse",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": null,
+                      "what": "surf_2 pommel_horse"
+                    }
+                  ],
+                  "distinct_by": [
+                    "parallel-bar rails versus pommel-horse shape"
+                  ],
+                  "identical_groups": [],
+                  "impossible": [],
+                  "printed": [],
+                  "restaged_story": "In the school gym, the wearer approaches the parallel bars and looks over their two long side-by-side rails, then walks to the pommel horse and inspects its single padded body and handles. No game-style identification cards are attached to either fixture. They next walk to a backpack on the gym floor, pick it up, and ask which apparatus is for a supported-balance warm-up and where the bag should be left. The assistant chooses the parallel bars. The wearer puts the backpack on the floor beside them and takes a final close look at the bag on the floor beside the apparatus.",
+                  "scene": "school_gym",
+                  "why_scene": "Provides parallel bars and a pommel horse in the gym."
+                },
+                "needs": {
+                  "assessment_contract": {
+                    "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                    "assigned_scene": "school_gym",
+                    "core_question": "I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?",
+                    "counterfactual_failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+                    "forbidden_changes": [
+                      "adding a readable label that names the correct fixture",
+                      "turning either fixture into a container"
+                    ],
+                    "knowledge_constraints": [
+                      "decision must come from functional apparatus knowledge applied to the live view, not a label or document"
+                    ],
+                    "required_evidence": [
+                      "The wearer is holding the backpack.",
+                      "The first apparatus has two long side-by-side rails for supported balance.",
+                      "The second apparatus is a single padded pommel horse with handles.",
+                      "Supported-balance warm-up belongs at the parallel bars."
+                    ],
+                    "required_final_predicates": [
+                      "near"
+                    ],
+                    "success_condition": "near(backpack, parallel bars)",
+                    "temporal_constraints": []
+                  },
+                  "entities": [
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-B repaired story uses it",
+                      "required_affordances": [
+                        "graspable"
+                      ],
+                      "role_in_story": "item_1 backpack",
+                      "what": "item_1 backpack",
+                      "when": "both"
+                    },
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-B repaired story uses it",
+                      "required_affordances": [
+                        "surface"
+                      ],
+                      "role_in_story": "surf_1 parallel_bars",
+                      "what": "surf_1 parallel_bars",
+                      "when": "both"
+                    },
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-B repaired story uses it",
+                      "required_affordances": [
+                        "surface"
+                      ],
+                      "role_in_story": "surf_2 pommel_horse",
+                      "what": "surf_2 pommel_horse",
+                      "when": "both"
+                    }
+                  ]
+                }
+              },
+              "duplicate_of": null,
+              "reason": "Manual group-B metadata synchronized to the repaired story.",
+              "requirements": [],
+              "runtime_requirements": {
+                "actions": [
+                  "Grab",
+                  "LookAt",
+                  "PutOnFloor",
+                  "Walk"
+                ],
+                "continuous_control": false,
+                "estimated_authored_actions": 9,
+                "estimated_prologue_actions": 6,
+                "estimated_task_actions": 3,
+                "events": [],
+                "final_predicates": [
+                  "near"
+                ],
+                "moves_loaded_carrier": false,
+                "portable_container_or_surface": false,
+                "requires_exact_pose": false,
+                "requires_unscorable_state": false,
+                "unsupported_observations": []
+              },
+              "secs": 39.8,
+              "structural_signature": {
+                "evaluation": "near(backpack, parallel bars)",
+                "evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+                "failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+                "operation": "manual repaired ASK task",
+                "response": "Use the parallel bars; their two side-by-side rails are the supported-balance apparatus. Set the backpack on the floor beside them, not on the equipment.",
+                "temporal": "repaired prologue before turn0"
+              },
+              "verdict": "KEEP"
+            },
+            {
+              "benchmark_check": {
+                "actor_scope": {
+                  "live_physical_actors": [
+                    "wearer"
+                  ],
+                  "other_person_changes_world": false
+                },
+                "core_claims": [
+                  {
+                    "available_before_turn": 0,
+                    "claim": "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                    "derived_from": [],
+                    "established_by": "LookAt on the gym fixtures in the current frame",
+                    "runtime_support": "egocentric view of parallel_bars and pommel_horse in gym_0",
+                    "source": "live_state"
+                  },
+                  {
+                    "available_before_turn": 0,
+                    "claim": "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging",
+                    "derived_from": [],
+                    "established_by": "ordinary gym-apparatus functional knowledge",
+                    "runtime_support": "external world knowledge of apparatus purpose",
+                    "source": "common_sense"
+                  },
+                  {
+                    "available_before_turn": 0,
+                    "claim": "the backpack should be placed on the floor beside the parallel bars",
+                    "derived_from": [
+                      "the two side-by-side long rails are the parallel bars, distinct from the padded horse with handles",
+                      "parallel bars are the apparatus meant for holding with both hands during supported balance work, while the pommel horse is for vaulting and swinging"
+                    ],
+                    "established_by": "combining fixture identification with apparatus-purpose knowledge for a supported-balance warm-up",
+                    "runtime_support": "live fixture identification plus common-sense apparatus function",
+                    "source": "derived"
+                  }
+                ],
+                "counterfactual_contract": {
+                  "allowed_other_differences": [],
+                  "operator": "select the wrong apparatus by superficial handle resemblance",
+                  "shared_obligations": [
+                    "g1"
+                  ],
+                  "target_difference": "backpack beside parallel_bars (strong) versus beside pommel_horse (weak)"
+                },
+                "cross_field_consistency": {
+                  "conflicts": [],
+                  "consistent": true
+                },
+                "decisive_fact_absent_from_utterance": true,
+                "egocentric_evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+                "egocentric_required": true,
+                "evidence_visible": true,
+                "meaningful_steps": [
+                  "assistant identifies the parallel bars versus pommel horse from the live view",
+                  "wearer walks to the parallel bars",
+                  "wearer places the backpack on the floor beside the parallel bars",
+                  "wearer checks the placed backpack and apparatus together"
+                ],
+                "memory_gap": {
+                  "intervening_meaningful_actions": 0,
+                  "reason": "this is a live functional-knowledge task, not a memory task; the evidence and decision are in the current frame",
+                  "required": false,
+                  "wearer_just_established_answer": false
+                },
+                "physical_plausibility": {
+                  "credible": true,
+                  "issues": []
+                },
+                "semantic_turns": 1,
+                "story_world_mismatches": [],
+                "strong_completes_user_goal": true,
+                "strong_weak_distinct": true,
+                "turn0_access": {
+                  "answer_fully_visible": true,
+                  "assistant_need": "accessibility: low-vision wearer cannot resolve which blurred fixture is the parallel bars versus pommel horse, and lacks the functional knowledge of which suits supported balance",
+                  "wearer_can_self_serve": false
+                },
+                "ungrounded_physical_nouns": [],
+                "unmodeled_claims": [],
+                "user_goal_obligations": [
+                  {
+                    "covered_by": [
+                      "assistant dialogue naming the parallel bars",
+                      "PutOnFloor action placing backpack beside parallel_bars",
+                      "near(backpack, parallel_bars) scorer"
+                    ],
+                    "description": "the backpack ends up on the floor beside the apparatus suited for the supported-balance warm-up",
+                    "grounded_in": "'I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?'",
+                    "id": "g1",
+                    "kind": "physical"
+                  }
+                ],
+                "uses_only_grounded_assets": true,
+                "utterance_policy": {
+                  "prescribes_assistant_words_or_trigger": false,
+                  "reason": "the wearer states the goal (mark the apparatus for supported balance) and asks which one, leaving the apparatus identification and functional inference to the assistant",
+                  "states_goal_not_solution": true
+                },
+                "weak_shared_work_complete": true,
+                "why_user_needs_assistant": "the low-vision wearer sees the apparatus shapes blur together from a few steps back and cannot reliably distinguish them",
+                "why_utterance_alone_fails": "the wearer never names which fixture is which; only the camera can identify the parallel bars versus the pommel horse"
+              },
+              "capability_fit": "Manual group-B repair for ASK-87022.",
+              "compiler_blueprint": {
+                "cast": {
+                  "assembly": [],
+                  "bindings": [
+                    {
+                      "affordances": [
+                        "graspable"
+                      ],
+                      "category": "backpack",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": null,
+                      "what": "item_1 backpack"
+                    },
+                    {
+                      "affordances": [
+                        "surface"
+                      ],
+                      "category": "parallel_bars",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": null,
+                      "what": "surf_1 parallel_bars"
+                    },
+                    {
+                      "affordances": [
+                        "surface"
+                      ],
+                      "category": "pommel_horse",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": null,
+                      "what": "surf_2 pommel_horse"
+                    }
+                  ],
+                  "distinct_by": [
+                    "parallel-bar rails versus pommel-horse shape"
+                  ],
+                  "identical_groups": [],
+                  "impossible": [],
+                  "printed": [],
+                  "restaged_story": "In the school gym, the wearer approaches the parallel bars and looks over their two long side-by-side rails, then walks to the pommel horse and inspects its single padded body and handles. No game-style identification cards are attached to either fixture. They next walk to a backpack on the gym floor, pick it up, and ask which apparatus is for a supported-balance warm-up and where the bag should be left. The assistant chooses the parallel bars. The wearer puts the backpack on the floor beside them and takes a final close look at the bag on the floor beside the apparatus.",
+                  "scene": "school_gym",
+                  "why_scene": "Provides parallel bars and a pommel horse in the gym."
+                },
+                "needs": {
+                  "assessment_contract": {
+                    "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                    "assigned_scene": "school_gym",
+                    "core_question": "I need the apparatus for a supported-balance warm-up. Which one should I head to, and where should I set this backpack down?",
+                    "counterfactual_failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+                    "forbidden_changes": [
+                      "adding a readable label that names the correct fixture",
+                      "turning either fixture into a container"
+                    ],
+                    "knowledge_constraints": [
+                      "decision must come from functional apparatus knowledge applied to the live view, not a label or document"
+                    ],
+                    "required_evidence": [
+                      "The wearer is holding the backpack.",
+                      "The first apparatus has two long side-by-side rails for supported balance.",
+                      "The second apparatus is a single padded pommel horse with handles.",
+                      "Supported-balance warm-up belongs at the parallel bars."
+                    ],
+                    "required_final_predicates": [
+                      "near"
+                    ],
+                    "success_condition": "near(backpack, parallel bars)",
+                    "temporal_constraints": []
+                  },
+                  "entities": [
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-B repaired story uses it",
+                      "required_affordances": [
+                        "graspable"
+                      ],
+                      "role_in_story": "item_1 backpack",
+                      "what": "item_1 backpack",
+                      "when": "both"
+                    },
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-B repaired story uses it",
+                      "required_affordances": [
+                        "surface"
+                      ],
+                      "role_in_story": "surf_1 parallel_bars",
+                      "what": "surf_1 parallel_bars",
+                      "when": "both"
+                    },
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-B repaired story uses it",
+                      "required_affordances": [
+                        "surface"
+                      ],
+                      "role_in_story": "surf_2 pommel_horse",
+                      "what": "surf_2 pommel_horse",
+                      "when": "both"
+                    }
+                  ]
+                }
+              },
+              "duplicate_of": null,
+              "reason": "Manual group-B metadata synchronized to the repaired story.",
+              "requirements": [],
+              "runtime_requirements": {
+                "actions": [
+                  "Grab",
+                  "LookAt",
+                  "PutOnFloor",
+                  "Walk"
+                ],
+                "continuous_control": false,
+                "estimated_authored_actions": 9,
+                "estimated_prologue_actions": 6,
+                "estimated_task_actions": 3,
+                "events": [],
+                "final_predicates": [
+                  "near"
+                ],
+                "moves_loaded_carrier": false,
+                "portable_container_or_surface": false,
+                "requires_exact_pose": false,
+                "requires_unscorable_state": false,
+                "unsupported_observations": []
+              },
+              "secs": 39.3,
+              "structural_signature": {
+                "evaluation": "near(backpack, parallel bars)",
+                "evidence": "The wearer is holding the backpack.; The first apparatus has two long side-by-side rails for supported balance.; The second apparatus is a single padded pommel horse with handles.; Supported-balance warm-up belongs at the parallel bars.",
+                "failure": "[Walk] <surf_2> (1), [PutOnFloor] <item_1> (1) <surf_2> (1), [LookAt] <surf_2> (1)",
+                "operation": "manual repaired ASK task",
+                "response": "Use the parallel bars; their two side-by-side rails are the supported-balance apparatus. Set the backpack on the floor beside them, not on the equipment.",
+                "temporal": "repaired prologue before turn0"
+              },
+              "verdict": "KEEP"
+            }
+          ],
+          "scene": "school_gym",
+          "sha": "sha256:3c4ca7acf01dbb533944f31a730e56440bd52ab218653b35cab0c43e67c04b5b",
+          "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_final120_v34_opusjudge_parallel24_20260901a/rounds/round_001/compile_input/ASK/run.json"
+        },
+        "compiler_contract": {
+          "asset_contract": {
+            "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+            "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+            "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+            "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+            "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+            "version": "compiler-asset-capabilities/1.5"
+          },
+          "author_model": "gpt-5-5-genai-responses",
+          "judge_model": "claude-4-8-opus-genai",
+          "retrieval": {
+            "lexical_version": "catalog-idf-ancestry/1.0",
+            "mode": "lexical",
+            "semantic_index": null
+          },
+          "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+          "version": "compile-v2-grounded-20260831q"
+        },
+        "production_release": {
+          "campaign_id": "egocentric_grounded_final120_v34_opusjudge_parallel24_20260901a-r001",
+          "production_version": "egocentric-grounded-production/3.0-20260829",
+          "prompt_version": "capability-v34-necessity-causality-20260831",
+          "release_id": "sha256:4c845fe085359213bf2c06c77fd63aa1e02c9f862e87d6b57ad3346970c0a7d8",
+          "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+        },
+        "normalizations": [],
+        "consumption_ledger": [
+          {
+            "source": "story.source_contract.assessment_contract",
+            "consumer": "story and final semantic audit"
+          },
+          {
+            "source": "story.source_contract.grounding_contract",
+            "consumer": "scene, asset, interaction, and evaluation constraints"
+          },
+          {
+            "source": "story.source_contract.world",
+            "consumer": "executable_spec builder"
+          },
+          {
+            "source": "story.source_contract.world.staging",
+            "consumer": "evidence and layout audit"
+          },
+          {
+            "source": "story.source_contract.world.prologue",
+            "consumer": "story.prologue and simulator opening"
+          },
+          {
+            "source": "story.source_contract.task.oracle_program",
+            "consumer": "runtime oracle branch"
+          },
+          {
+            "source": "story.source_contract.task.human_own_script",
+            "consumer": "runtime default branch"
+          },
+          {
+            "source": "story.source_contract.task.final_state",
+            "consumer": "shared scorer"
+          },
+          {
+            "source": "story.source_contract.task.fact_ledger",
+            "consumer": "story evidence contract"
+          },
+          {
+            "source": "story.source_contract.task.asks_at",
+            "consumer": "turn-zero human request"
+          },
+          {
+            "source": "story.source_contract.task.speaks_at",
+            "consumer": "beat-bound assistant dialogue"
+          },
+          {
+            "source": "story.source_contract.task.guidance",
+            "consumer": "beat-bound assistant guidance"
+          },
+          {
+            "source": "story.source_contract.task.hidden_fact",
+            "consumer": "evidence availability audit"
+          },
+          {
+            "source": "story.source_contract.task.steps",
+            "consumer": "ordering audit"
+          },
+          {
+            "source": "story.source_contract.task.simulator_events",
+            "consumer": "runtime state transitions"
+          }
+        ]
+      }
+    },
+    "parent_taskpack_sha256": "sha256:108cd13ca4d06c5720fa8e858a4752c2f8ad03c5103164d893d0b67105dba2e5",
+    "destination_clarity_required_phrases": [
+      "on the floor",
+      "next to whichever apparatus you recommend"
+    ]
+  }
+}

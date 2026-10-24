@@ -1,0 +1,4630 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-14015",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "inside",
+          "subject": "ice_cream",
+          "target": "freezer"
+        },
+        {
+          "pred": "inside",
+          "subject": "ice_lolly",
+          "target": "freezer"
+        },
+        {
+          "pred": "inside",
+          "subject": "milk",
+          "target": "chiller"
+        },
+        {
+          "pred": "inside",
+          "subject": "yogurt",
+          "target": "chiller"
+        },
+        {
+          "pred": "inside",
+          "subject": "lettuce",
+          "target": "chiller"
+        },
+        {
+          "pred": "closed",
+          "subject": "freezer",
+          "target": "freezer"
+        },
+        {
+          "pred": "closed",
+          "subject": "chiller",
+          "target": "chiller"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "inside",
+          "subject": "ice_cream",
+          "target": "freezer"
+        },
+        {
+          "pred": "inside",
+          "subject": "ice_lolly",
+          "target": "freezer"
+        },
+        {
+          "pred": "inside",
+          "subject": "milk",
+          "target": "chiller"
+        },
+        {
+          "pred": "inside",
+          "subject": "yogurt",
+          "target": "chiller"
+        },
+        {
+          "pred": "inside",
+          "subject": "lettuce",
+          "target": "chiller"
+        },
+        {
+          "pred": "closed",
+          "subject": "freezer",
+          "target": "freezer"
+        },
+        {
+          "pred": "closed",
+          "subject": "chiller",
+          "target": "chiller"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "chiller",
+          "freezer"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "ice_cream",
+          "ice_lolly",
+          "lettuce",
+          "milk",
+          "yogurt"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "Use the unit labeled FREEZER for the ice cream and ice lolly. Use the unit labeled CHILLER for the milk, yogurt, and lettuce, then close both doors.",
+        "cue": "This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch.",
+        "premise": "Five visibly different foods are mixed on one delivery counter. The assistant reads the English labels on one imported freezer and the kitchen's built-in refrigerator, classifies every product, and guides the full batch rather than answering only for one pair."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch.",
+        "kind": "authored",
+        "ref": "data_generate:GUIDE-14015"
+      },
+      "rule_table": "inside(ice_cream, freezer); inside(ice_lolly, freezer); inside(milk, chiller); inside(yogurt, chiller); inside(lettuce, chiller); closed(freezer); closed(chiller)",
+      "scene": "house_single_floor",
+      "template": "the grounded house_single_floor scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 27,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 27,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "delivery_counter"
+          ]
+        },
+        {
+          "verb": "LookAround",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "freezer"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "freezer"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "chiller"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "chiller"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "ice_cream"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "freezer"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "ice_cream",
+            "freezer"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "freezer"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "ice_lolly"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "freezer"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "ice_lolly",
+            "freezer"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "freezer"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "milk"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "chiller"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "milk",
+            "chiller"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "chiller"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "yogurt"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "chiller"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "yogurt",
+            "chiller"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "chiller"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "lettuce"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "chiller"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "lettuce",
+            "chiller"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "chiller"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Walk] <freezer> (1), [LookAt] <freezer> (1), [Walk] <chiller> (1), [LookAt] <chiller> (1), [Grab] <ice_cream> (1), [Open] <freezer> (1), [PutInside] <ice_cream> (1) <freezer> (1), [Close] <freezer> (1), [Grab] <ice_lolly> (1), [Open] <freezer> (1), [PutInside] <ice_lolly> (1) <freezer> (1), [Close] <freezer> (1), [Grab] <milk> (1), [Open] <chiller> (1), [PutInside] <milk> (1) <chiller> (1), [Close] <chiller> (1), [Grab] <yogurt> (1), [Open] <chiller> (1), [PutInside] <yogurt> (1) <chiller> (1), [Close] <chiller> (1), [Grab] <lettuce> (1), [Open] <chiller> (1), [PutInside] <lettuce> (1) <chiller> (1), [Close] <chiller> (1)",
+      "seed": 1974217387,
+      "source_task_id": "GUIDE-14015"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "ice_cream",
+          "target": "freezer"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "ice_lolly",
+          "target": "freezer"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "milk",
+          "target": "chiller"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "yogurt",
+          "target": "chiller"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 4,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "lettuce",
+          "target": "chiller"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 5,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "freezer",
+          "target": "freezer"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 6,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "chiller",
+          "target": "chiller"
+        }
+      ],
+      "sub_steps": [
+        "inside(ice_cream, freezer)",
+        "inside(ice_lolly, freezer)",
+        "inside(milk, chiller)",
+        "inside(yogurt, chiller)",
+        "inside(lettuce, chiller)",
+        "closed(freezer)",
+        "closed(chiller)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-14015",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 1974217387,
+      "containers": {
+        "freezer": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "fridge",
+            "model": "dszchb",
+            "source": "import"
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "kitchen_0",
+          "label": "FREEZER"
+        },
+        "chiller": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "fridge",
+            "source": "scene",
+            "pick": {
+              "name": "fridge_dszchb_0",
+              "stage_prim_path": "/World/b_fridge_dszchb_0",
+              "asset_sha256": "sha256:ffcdc68d33e823239a36c64e293e9e4ed2f6de870a4859ddbb5e3dc51e6b27cf",
+              "instance_digest": "sha256:36288ad94c3c6c274b365899671d37ad2d827bce7ed77ba66f4f6fad0fb156b6",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "door": {
+            "required": true,
+            "action_standoff_m": 0.95,
+            "content_standoff_m": 0.65
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "kitchen_0",
+          "label": "CHILLER"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "delivery_counter": {
+          "bind": {
+            "cat": "countertop",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_freezer": {
+          "content": {
+            "args": {
+              "renderer": "short_string",
+              "sub": "",
+              "title": "",
+              "mount_style": "adhesive"
+            },
+            "text": "FREEZER"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "freezer",
+            "surface": "container_sign"
+          },
+          "per_seed": false,
+          "png": "guide_14015_guide26_story_refine_r2_20260912zl_freezer_ac5713e1e0c5"
+        },
+        "label_chiller": {
+          "content": {
+            "args": {
+              "renderer": "short_string",
+              "sub": "",
+              "title": "",
+              "mount_style": "adhesive"
+            },
+            "text": "CHILLER"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "chiller",
+            "surface": "container_sign"
+          },
+          "per_seed": false,
+          "png": "guide_14015_guide26_story_refine_r2_20260912zl_chiller_f4f192534f8c"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "ice_cream": {
+          "cat": "bag_of_ice_cream",
+          "model": "jwalbo",
+          "needs_lookat": false,
+          "place": "on:delivery_counter",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.8,
+            0.25
+          ]
+        },
+        "ice_lolly": {
+          "cat": "ice_lolly",
+          "model": "kcfwxs",
+          "needs_lookat": false,
+          "place": "on:delivery_counter",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.4,
+            0.7
+          ]
+        },
+        "milk": {
+          "cat": "carton_of_milk",
+          "model": "xmugpm",
+          "needs_lookat": false,
+          "place": "on:delivery_counter",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            0.25
+          ]
+        },
+        "yogurt": {
+          "cat": "box_of_yogurt",
+          "model": "thxfjq",
+          "needs_lookat": false,
+          "place": "on:delivery_counter",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.4,
+            0.7
+          ]
+        },
+        "lettuce": {
+          "cat": "lettuce",
+          "model": "orsjxq",
+          "needs_lookat": false,
+          "place": "on:delivery_counter",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.8,
+            0.25
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "kitchen_0"
+      ],
+      "scene": "house_single_floor",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "Five visibly different foods are mixed on one delivery counter. The assistant reads the English labels on one imported freezer and the kitchen's built-in refrigerator, classifies every product, and guides the full batch rather than answering only for one pair.",
+    "assistant_goal": "This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+      "assigned_scene": "house_single_floor",
+      "core_question": "This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "Five visibly different foods are mixed on one delivery counter. The assistant reads the English labels on one imported freezer and the kitchen's built-in refrigerator, classifies every product, and guides the full batch rather than answering only for one pair."
+      ],
+      "required_evidence": [
+        "This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch.",
+        "Five mixed frozen and chilled products and two closed cold-storage units are visible from the delivery counter.",
+        "A close view establishes that the first unit is labeled FREEZER.",
+        "A close view establishes that the second unit is labeled CHILLER.",
+        "Both frozen products are loaded and the freezer is closed.",
+        "The milk, yogurt, and lettuce are loaded and the chiller is closed.",
+        "Use the unit labeled FREEZER for the ice cream and ice lolly. Use the unit labeled CHILLER for the milk, yogurt, and lettuce, then close both doors."
+      ],
+      "required_final_predicates": [
+        "inside",
+        "inside",
+        "inside",
+        "inside",
+        "inside",
+        "closed",
+        "closed"
+      ],
+      "success_condition": "inside(ice_cream, freezer); inside(ice_lolly, freezer); inside(milk, chiller); inside(yogurt, chiller); inside(lettuce, chiller); closed(freezer); closed(chiller)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-14015",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "assigned_scene": "house_single_floor",
+        "core_question": "This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "Five visibly different foods are mixed on one delivery counter. The assistant reads the English labels on one imported freezer and the kitchen's built-in refrigerator, classifies every product, and guides the full batch rather than answering only for one pair."
+        ],
+        "required_evidence": [
+          "This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch.",
+          "Five mixed frozen and chilled products and two closed cold-storage units are visible from the delivery counter.",
+          "A close view establishes that the first unit is labeled FREEZER.",
+          "A close view establishes that the second unit is labeled CHILLER.",
+          "Both frozen products are loaded and the freezer is closed.",
+          "The milk, yogurt, and lettuce are loaded and the chiller is closed.",
+          "Use the unit labeled FREEZER for the ice cream and ice lolly. Use the unit labeled CHILLER for the milk, yogurt, and lettuce, then close both doors."
+        ],
+        "required_final_predicates": [
+          "inside",
+          "inside",
+          "inside",
+          "inside",
+          "inside",
+          "closed",
+          "closed"
+        ],
+        "success_condition": "inside(ice_cream, freezer); inside(ice_lolly, freezer); inside(milk, chiller); inside(yogurt, chiller); inside(lettuce, chiller); closed(freezer); closed(chiller)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "ashtray",
+          "bag_of_ice_cream",
+          "batting_gloves",
+          "birdcage",
+          "bottle_of_alcohol",
+          "bottle_of_sage",
+          "bottle_of_solvent",
+          "bottle_of_water",
+          "box_of_yogurt",
+          "bust",
+          "carton_of_milk",
+          "catsup_bottle",
+          "cell_phone",
+          "cellulose_tape",
+          "chicken_breast",
+          "clipboard",
+          "clout_nail",
+          "comb",
+          "cooking_oil_atomizer",
+          "cucumber",
+          "downlight",
+          "gift_box",
+          "granola_bar",
+          "half_auricularia",
+          "half_bok_choy",
+          "half_chicken_leg",
+          "half_ginger_root",
+          "half_kiwi",
+          "half_rosehip",
+          "half_shiitake",
+          "half_sweet_corn",
+          "hand_towel",
+          "ice_lolly",
+          "jar_of_peppercorns",
+          "jar_of_tumeric",
+          "lampshade",
+          "lettuce",
+          "lint_screen",
+          "maillot",
+          "modem",
+          "orange_juice_carton",
+          "outline_vase",
+          "pattypan_squash",
+          "peach",
+          "postcard",
+          "pottable_beefsteak_tomato",
+          "roasting_pan",
+          "specimen_bottle",
+          "sponge"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "bottom_cabinet_no_top",
+          "commercial_kitchen_table",
+          "countertop",
+          "flat_top_grill",
+          "metal_bottom_cabinet"
+        ],
+        "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "coverage_categories": [
+          "cellulose_tape",
+          "half_sweet_corn",
+          "ashtray",
+          "bottle_of_sage",
+          "jar_of_peppercorns",
+          "half_ginger_root",
+          "bottle_of_alcohol",
+          "lettuce",
+          "specimen_bottle",
+          "half_chicken_leg",
+          "downlight",
+          "jar_of_tumeric",
+          "granola_bar",
+          "half_auricularia",
+          "batting_gloves",
+          "catsup_bottle",
+          "cooking_oil_atomizer",
+          "half_rosehip",
+          "comb",
+          "bust"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 4,
+          "required_semantic_turns": 4,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 31,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 5,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 3,
+          "max_small_label_characters": 40,
+          "max_task_actions": 24,
+          "max_meaningful_steps": 27,
+          "min_intervening_meaningful_actions": 3
+        },
+        "preferred_story_categories": [
+          "cellulose_tape",
+          "half_sweet_corn",
+          "ashtray",
+          "bottle_of_sage",
+          "jar_of_peppercorns",
+          "half_ginger_root",
+          "lettuce",
+          "specimen_bottle"
+        ],
+        "preferred_story_category_glosses": {
+          "ashtray": "",
+          "bottle_of_sage": "",
+          "cellulose_tape": "transparent or semitransparent adhesive tape (trade names Scotch tape and Sellotape) used for sealing or attaching or mending",
+          "half_ginger_root": "",
+          "half_sweet_corn": "",
+          "jar_of_peppercorns": "",
+          "lettuce": "",
+          "specimen_bottle": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 23.8,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "bottom_cabinet": 1,
+              "dishwasher": 1,
+              "fridge": 1
+            },
+            "scene_surfaces": {
+              "bar": 1,
+              "bottom_cabinet_no_top": 2,
+              "countertop": 2
+            },
+            "surface_max_area_m2": {
+              "bar": 0.864,
+              "bottom_cabinet_no_top": 0.533,
+              "countertop": 1.116
+            },
+            "surface_reference_capacity": {
+              "bar": 3,
+              "bottom_cabinet_no_top": 3,
+              "countertop": 3
+            }
+          }
+        ],
+        "scene": "house_single_floor",
+        "task_id": "GUIDE-14015",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bag_of_ice_cream",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "pink-orange bag printed with chocolate ice-cream bars"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "ice_lolly",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "ice lolly"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "carton_of_milk",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "navy-and-white carton of milk"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "box_of_yogurt",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "blue-and-white Greek yogurt multipack"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "lettuce",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "head of lettuce"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "fridge",
+            "changed": false,
+            "costs": null,
+            "label": "FREEZER",
+            "tint": null,
+            "what": "imported unit labeled FREEZER"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "fridge",
+            "changed": false,
+            "costs": null,
+            "label": "CHILLER",
+            "tint": null,
+            "what": "built-in refrigerator labeled CHILLER"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "countertop",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "mixed cold-delivery counter"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "imported unit labeled FREEZER",
+            "text": "FREEZER",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "built-in refrigerator labeled CHILLER",
+            "text": "CHILLER",
+            "what": "label",
+            "which": null
+          }
+        ],
+        "restaged_story": "Five visibly different foods are mixed on one delivery counter. The assistant reads the English labels on one imported freezer and the kitchen's built-in refrigerator, classifies every product, and guides the full batch rather than answering only for one pair.",
+        "scene": "house_single_floor",
+        "why_scene": "house_single_floor supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "freezer": {
+            "cat": "fridge",
+            "initially_open": false,
+            "label": "FREEZER",
+            "preload": [],
+            "role": "scored",
+            "room": "kitchen_0"
+          },
+          "chiller": {
+            "cat": "fridge",
+            "initially_open": false,
+            "label": "CHILLER",
+            "preload": [],
+            "role": "scored",
+            "room": "kitchen_0"
+          }
+        },
+        "items": {
+          "ice_cream": {
+            "affordances": [],
+            "cat": "bag_of_ice_cream",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:delivery_counter",
+            "scored": true,
+            "spot": [
+              -0.8,
+              0.25
+            ],
+            "tint": null
+          },
+          "ice_lolly": {
+            "affordances": [],
+            "cat": "ice_lolly",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:delivery_counter",
+            "scored": true,
+            "spot": [
+              -0.4,
+              0.7
+            ],
+            "tint": null
+          },
+          "milk": {
+            "affordances": [],
+            "cat": "carton_of_milk",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:delivery_counter",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.25
+            ],
+            "tint": null
+          },
+          "yogurt": {
+            "affordances": [],
+            "cat": "box_of_yogurt",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:delivery_counter",
+            "scored": true,
+            "spot": [
+              0.4,
+              0.7
+            ],
+            "tint": null
+          },
+          "lettuce": {
+            "affordances": [],
+            "cat": "lettuce",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:delivery_counter",
+            "scored": true,
+            "spot": [
+              0.8,
+              0.25
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <delivery_counter> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0"
+        ],
+        "scene": "house_single_floor",
+        "staging": {
+          "groups": "Five visibly different foods are mixed on one delivery counter. The assistant reads the English labels on one imported freezer and the kitchen's built-in refrigerator, classifies every product, and guides the full batch rather than answering only for one pair.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "delivery_counter": {
+            "cat": "countertop",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "Five mixed frozen and chilled products and two closed cold-storage units are visible from the delivery counter.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "A close view establishes that the first unit is labeled FREEZER.",
+            "from": "live",
+            "id": "fact_003",
+            "source_index": 1,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "A close view establishes that the second unit is labeled CHILLER.",
+            "from": "live",
+            "id": "fact_004",
+            "source_index": 3,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "Both frozen products are loaded and the freezer is closed.",
+            "from": "live",
+            "id": "fact_005",
+            "source_index": 11,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The milk, yogurt, and lettuce are loaded and the chiller is closed.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 23,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ],
+            "fact": "Use the unit labeled FREEZER for the ice cream and ice lolly. Use the unit labeled CHILLER for the milk, yogurt, and lettuce, then close both doors.",
+            "from": "derived",
+            "id": "fact_007",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "ice_cream",
+            "target": "freezer"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "ice_lolly",
+            "target": "freezer"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "milk",
+            "target": "chiller"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "yogurt",
+            "target": "chiller"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "lettuce",
+            "target": "chiller"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "freezer",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "chiller",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "Before moving any food, inspect the English label on the freestanding imported cold-storage unit, then inspect the label on the built-in kitchen refrigerator.",
+            "referents": [
+              "freezer",
+              "chiller",
+              "ice_cream",
+              "ice_lolly"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002"
+            ]
+          },
+          {
+            "before_index": 4,
+            "say": "The labels identify the units. From the mixed-delivery counter, take the ice-cream bag to the unit labeled FREEZER and close it, then take the ice lolly from the same counter to that freezer and close it again.",
+            "referents": [
+              "freezer",
+              "chiller",
+              "ice_cream",
+              "ice_lolly"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ]
+          },
+          {
+            "before_index": 12,
+            "say": "The frozen group is stored. From the mixed-delivery counter, put the milk in the built-in refrigerator labeled CHILLER and close it, then do the same with the yogurt.",
+            "referents": [
+              "freezer",
+              "chiller",
+              "milk",
+              "yogurt",
+              "lettuce"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_005"
+            ]
+          },
+          {
+            "before_index": 20,
+            "say": "Milk and yogurt are chilled and the door is shut. Take the lettuce from the mixed-delivery counter, put it in that same CHILLER, and close the door again.",
+            "referents": [
+              "lettuce",
+              "chiller"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_005"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Walk] <freezer> (1), [LookAt] <freezer> (1), [Walk] <chiller> (1), [LookAt] <chiller> (1), [Open] <freezer> (1), [Grab] <milk> (1), [PutInside] <milk> (1) <freezer> (1), [Close] <freezer> (1)",
+        "mates": [],
+        "oracle_program": "[Walk] <freezer> (1), [LookAt] <freezer> (1), [Walk] <chiller> (1), [LookAt] <chiller> (1), [Grab] <ice_cream> (1), [Open] <freezer> (1), [PutInside] <ice_cream> (1) <freezer> (1), [Close] <freezer> (1), [Grab] <ice_lolly> (1), [Open] <freezer> (1), [PutInside] <ice_lolly> (1) <freezer> (1), [Close] <freezer> (1), [Grab] <milk> (1), [Open] <chiller> (1), [PutInside] <milk> (1) <chiller> (1), [Close] <chiller> (1), [Grab] <yogurt> (1), [Open] <chiller> (1), [PutInside] <yogurt> (1) <chiller> (1), [Close] <chiller> (1), [Grab] <lettuce> (1), [Open] <chiller> (1), [PutInside] <lettuce> (1) <chiller> (1), [Close] <chiller> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "Five visibly different foods are mixed on one delivery counter. The assistant reads the English labels on one imported freezer and the kitchen's built-in refrigerator, classifies every product, and guides the full batch rather than answering only for one pair.",
+        "utterance": "This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <delivery_counter> (1)",
+        "[LookAround]",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "delivery_counter"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "delivery_counter"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "Five mixed frozen and chilled products and two closed cold-storage units are visible from the delivery counter.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "Use the unit labeled FREEZER for the ice cream and ice lolly. Use the unit labeled CHILLER for the milk, yogurt, and lettuce, then close both doors.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "Use the unit labeled FREEZER for the ice cream and ice lolly. Use the unit labeled CHILLER for the milk, yogurt, and lettuce, then close both doors.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Before moving any food, inspect the English label on the freestanding imported cold-storage unit, then inspect the label on the built-in kitchen refrigerator.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The labels identify the units. From the mixed-delivery counter, take the ice-cream bag to the unit labeled FREEZER and close it, then take the ice lolly from the same counter to that freezer and close it again.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The frozen group is stored. From the mixed-delivery counter, put the milk in the built-in refrigerator labeled CHILLER and close it, then do the same with the yogurt.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_003",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Milk and yogurt are chilled and the door is shut. Take the lettuce from the mixed-delivery counter, put it in that same CHILLER, and close the door again.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "freezer"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "freezer"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "freezer"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "chiller"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "chiller"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "chiller"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "freezer"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "milk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "milk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "milk",
+            "freezer"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "milk",
+            "target": "freezer"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "freezer"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "freezer"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "freezer"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "freezer"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "A close view establishes that the first unit is labeled FREEZER.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "Use the unit labeled FREEZER for the ice cream and ice lolly. Use the unit labeled CHILLER for the milk, yogurt, and lettuce, then close both doors.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "chiller"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "chiller"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "chiller"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "A close view establishes that the second unit is labeled CHILLER.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "Use the unit labeled FREEZER for the ice cream and ice lolly. Use the unit labeled CHILLER for the milk, yogurt, and lettuce, then close both doors.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "ice_cream"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "ice_cream"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "freezer"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "ice_cream",
+            "freezer"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "ice_cream",
+            "target": "freezer"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "freezer"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "ice_lolly"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "ice_lolly"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "freezer"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o010",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "ice_lolly",
+            "freezer"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "ice_lolly",
+            "target": "freezer"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o011",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "freezer"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "Both frozen products are loaded and the freezer is closed.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "Use the unit labeled FREEZER for the ice cream and ice lolly. Use the unit labeled CHILLER for the milk, yogurt, and lettuce, then close both doors.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o012",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "milk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "milk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o013",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "chiller"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o014",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "milk",
+            "chiller"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "milk",
+            "target": "chiller"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o015",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "chiller"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o016",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "yogurt"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "yogurt"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o017",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "chiller"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o018",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "yogurt",
+            "chiller"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "yogurt",
+            "target": "chiller"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o019",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "chiller"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o020",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "lettuce"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "lettuce"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o021",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "chiller"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o022",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "lettuce",
+            "chiller"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "lettuce",
+            "target": "chiller"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o023",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "chiller"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The milk, yogurt, and lettuce are loaded and the chiller is closed.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "Use the unit labeled FREEZER for the ice cream and ice lolly. Use the unit labeled CHILLER for the milk, yogurt, and lettuce, then close both doors.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "Five mixed frozen and chilled products and two closed cold-storage units are visible from the delivery counter.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "A close view establishes that the first unit is labeled FREEZER.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o001"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 1
+      },
+      {
+        "id": "fact_004",
+        "statement": "A close view establishes that the second unit is labeled CHILLER.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o003"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 3
+      },
+      {
+        "id": "fact_005",
+        "statement": "Both frozen products are loaded and the freezer is closed.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o011"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 11
+      },
+      {
+        "id": "fact_006",
+        "statement": "The milk, yogurt, and lettuce are loaded and the chiller is closed.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o023"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 23
+      },
+      {
+        "id": "fact_007",
+        "statement": "Use the unit labeled FREEZER for the ice cream and ice lolly. Use the unit labeled CHILLER for the milk, yogurt, and lettuce, then close both doors.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "o001",
+          "o003",
+          "o011",
+          "o023"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Help the person determine where each cold-delivery item belongs and guide them through putting away the complete batch.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <delivery_counter> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 2,
+            "say": "Hey, Assistant, I need to put this cold delivery away, but I'm not sure which unit each item belongs in. Can you help me figure it out and walk me through the whole batch?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, I need to put this cold delivery away, but I'm not sure which unit each item belongs in. Can you help me figure it out and walk me through the whole batch?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "cold_delivery_request",
+            "required_phrases": [
+              "which unit each item belongs in",
+              "walk me through the whole batch"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[LookAt] <freezer> (1)",
+          "[LookAt] <chiller> (1)",
+          "[PutInside] <ice_cream> (1) <freezer> (1)",
+          "[Close] <freezer> (1)",
+          "[PutInside] <ice_lolly> (1) <freezer> (1)",
+          "[Close] <freezer> (1)",
+          "[PutInside] <milk> (1) <chiller> (1)",
+          "[Close] <chiller> (1)",
+          "[PutInside] <yogurt> (1) <chiller> (1)",
+          "[Close] <chiller> (1)",
+          "[PutInside] <lettuce> (1) <chiller> (1)",
+          "[Close] <chiller> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[PutInside] <ice_cream> (1) <chiller> (1)",
+          "[PutInside] <ice_lolly> (1) <chiller> (1)",
+          "[PutInside] <milk> (1) <freezer> (1)",
+          "[PutInside] <yogurt> (1) <freezer> (1)",
+          "[PutInside] <lettuce> (1) <freezer> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[LookAt] <freezer> (1)",
+            "[LookAt] <chiller> (1)",
+            "[PutInside] <ice_cream> (1) <freezer> (1)",
+            "[Close] <freezer> (1)",
+            "[PutInside] <ice_lolly> (1) <freezer> (1)",
+            "[Close] <freezer> (1)",
+            "[PutInside] <milk> (1) <chiller> (1)",
+            "[Close] <chiller> (1)",
+            "[PutInside] <yogurt> (1) <chiller> (1)",
+            "[Close] <chiller> (1)",
+            "[PutInside] <lettuce> (1) <chiller> (1)",
+            "[Close] <chiller> (1)"
+          ]
+        ],
+        "verification_points": [
+          {
+            "id": "ice_cream_in_freezer",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "ice_cream",
+            "target": "freezer"
+          },
+          {
+            "id": "ice_lolly_in_freezer",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "ice_lolly",
+            "target": "freezer"
+          },
+          {
+            "id": "milk_in_chiller",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "milk",
+            "target": "chiller"
+          },
+          {
+            "id": "yogurt_in_chiller",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "yogurt",
+            "target": "chiller"
+          },
+          {
+            "id": "lettuce_in_chiller",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "lettuce",
+            "target": "chiller"
+          },
+          {
+            "id": "freezer_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "freezer",
+            "target": "freezer"
+          },
+          {
+            "id": "chiller_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "chiller",
+            "target": "chiller"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "freezer": [
+          "freestanding imported cold-storage unit"
+        ],
+        "chiller": [
+          "built-in kitchen refrigerator"
+        ],
+        "delivery_counter": [
+          "mixed-delivery counter"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 68,
+    "dialogue_budget": 4,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "delivery_counter",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005",
+        "h006",
+        "h007"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "freezer",
+              "chiller",
+              "ice_cream",
+              "ice_lolly"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "ice_cream",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "freezer",
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "chiller",
+            "truth": true
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "freezer",
+              "chiller",
+              "ice_cream",
+              "ice_lolly"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "ice_cream",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "ice_cream",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "ice_cream",
+            "target": "freezer",
+            "truth": true
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "ice_lolly",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o009"
+        },
+        {
+          "after_beat": "o009",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o010"
+        },
+        {
+          "after_beat": "o010",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "ice_lolly",
+            "target": "freezer",
+            "truth": true
+          },
+          "next_beat": "o011"
+        },
+        {
+          "after_beat": "o011",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "freezer",
+              "chiller",
+              "milk",
+              "yogurt",
+              "lettuce"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "ice_cream",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o012"
+        },
+        {
+          "after_beat": "o012",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "milk",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o013"
+        },
+        {
+          "after_beat": "o013",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o014"
+        },
+        {
+          "after_beat": "o014",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "milk",
+            "target": "chiller",
+            "truth": true
+          },
+          "next_beat": "o015"
+        },
+        {
+          "after_beat": "o015",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o016"
+        },
+        {
+          "after_beat": "o016",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "yogurt",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o017"
+        },
+        {
+          "after_beat": "o017",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o018"
+        },
+        {
+          "after_beat": "o018",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "yogurt",
+            "target": "chiller",
+            "truth": true
+          },
+          "next_beat": "o019"
+        },
+        {
+          "after_beat": "o019",
+          "intervention_beat": "assistant_003",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "lettuce",
+              "chiller"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "ice_cream",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o020"
+        },
+        {
+          "after_beat": "o020",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "lettuce",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o021"
+        },
+        {
+          "after_beat": "o021",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o022"
+        },
+        {
+          "after_beat": "o022",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "lettuce",
+            "target": "chiller",
+            "truth": true
+          },
+          "next_beat": "o023"
+        }
+      ],
+      "terminal_beats": [
+        "h007",
+        "o023"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "freezer"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "freezer"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "chiller"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "chiller"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "ice_cream"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "freezer"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "ice_cream",
+          "freezer"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "freezer"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "ice_lolly"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "freezer"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "ice_lolly",
+          "freezer"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "freezer"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "milk"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "chiller"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "milk",
+          "chiller"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "chiller"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "yogurt"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "chiller"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "yogurt",
+          "chiller"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "chiller"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "lettuce"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "chiller"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "lettuce",
+          "chiller"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "chiller"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "freezer"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "freezer"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "chiller"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "chiller"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "freezer"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "milk"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "milk",
+          "freezer"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "freezer"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Before moving any food, inspect the English label on the freestanding imported cold-storage unit, then inspect the label on the built-in kitchen refrigerator.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The labels identify the units. From the mixed-delivery counter, take the ice-cream bag to the unit labeled FREEZER and close it, then take the ice lolly from the same counter to that freezer and close it again.",
+        "relation": "before",
+        "anchor_beat_id": "o004",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "The frozen group is stored. From the mixed-delivery counter, put the milk in the built-in refrigerator labeled CHILLER and close it, then do the same with the yogurt.",
+        "relation": "before",
+        "anchor_beat_id": "o012",
+        "source": "guidance",
+        "source_index": 2
+      },
+      {
+        "id": "assistant_003",
+        "say": "Milk and yogurt are chilled and the door is shut. Take the lettuce from the mixed-delivery counter, put it in that same CHILLER, and close the door again.",
+        "relation": "before",
+        "anchor_beat_id": "o020",
+        "source": "guidance",
+        "source_index": 3
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "source": "guide22_interaction_assembly",
+    "compile_input_digest": "sha256:91db67a0ed247e02071ca07992b10f9b53b9b555493044e94cfc8571a80ad589",
+    "source_contract_digest": "sha256:73445c32b5310ebe9019714e3835c6604c68fef03ca680ff537315b77532adb1",
+    "executable_spec_digest": "sha256:5ab3a5b7c5b0c407cbd6d9e3e1ea7e233ac67385755b49006dee59b598b54235",
+    "invention": {
+      "attempt": 6,
+      "author_prose": "A trainee chef in a hotel kitchen (`kitchen_0`) is preparing to store newly delivered ingredients. Resting on a `commercial_kitchen_table` are a `half_chicken_leg` and a `half_auricularia` mushroom. The kitchen is equipped with two identical `fridge` units. Hotel food safety protocols require storing raw poultry in the colder meat fridge and mushrooms in the warmer produce fridge to prevent freezing damage and cross-contamination. However, the exterior doors of both fridges are unmarked stainless steel; the critical temperature dials and zone labels are printed on the inside back walls of the appliances.\n\nThe wearer looks at the two closed fridges and asks the assistant, \"Which fridge should I use for the chicken, and which for the mushroom?\"\n\nA weak assistant hallucinates a destination based on generic left/right assumptions or guesses blindly without evidence. This premature instruction could result in the raw chicken being stored at an unsafe temperature or the delicate mushroom being frozen and ruined.\n\nA strong assistant recognizes that the visual evidence required to make a safe routing decision is currently hidden from the egocentric camera. It withholds any placement instructions and instead directs the wearer to actively change the state of the environment to acquire the missing information: \"I cannot see the temperature zones from the outside. Please open both fridges so I can read their internal dials.\"\n\nThe wearer physically executes this by opening the left fridge and then the right fridge. The camera now clearly captures the internal labels, revealing that the left fridge is set to \"Produce 38F\" and the right fridge is set to \"Meat 34F\". Having acquired the necessary viewpoint, the assistant finally provides the substantive guidance, instructing the wearer to place the chicken in the right fridge and the mushroom in the left fridge.\n\nThe episode succeeds if the assistant explicitly delays the routing decision until the wearer reveals the hidden dials, and the physical execution concludes with the `half_chicken_leg` inside the meat `fridge` and the `half_auricularia` inside the produce `fridge`.",
+      "author_prose_sha256": "sha256:c8edaafbb7df35975c80210c6301452cf5d44a6ac644a72d6afe83881dbca6f0",
+      "capability": {
+        "boundary": "The information-gathering instruction must be necessary; the assistant may not guess or proceed from hidden simulator state.",
+        "few_shot": "A volunteer must attach one of two similar camera lenses to a donated camera body, but the compatibility code is printed inside the closed lens-case lid and neither lens front reveals it. The wearer asks which lens to mount. The assistant first says it cannot determine that from the current view and asks them to open the case and angle the lid toward the glasses. Only after reading the compatibility table does it direct the correct lens onto the camera and the spare into the padded compartment. Guessing immediately can attach the wrong lens. The final attachment and containment are scoreable, while the episode also tests that information acquisition precedes advice.",
+        "id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "name_zh": "感知缺口的主动补齐",
+        "target": "Recognise that required evidence is outside the current view and first direct the wearer to reveal it before giving substantive guidance."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+        "evaluation_status": "PASS",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": false,
+        "owner": null,
+        "reason": null,
+        "reason_code": null,
+        "recommended_work": null,
+        "version": "capability-support/1.0",
+        "workstream": null
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "cell_phone",
+          "clipboard",
+          "bottle_of_water",
+          "cellulose_tape",
+          "half_sweet_corn",
+          "ashtray",
+          "bottle_of_sage",
+          "jar_of_peppercorns",
+          "half_ginger_root",
+          "bottle_of_alcohol",
+          "lettuce",
+          "specimen_bottle",
+          "half_chicken_leg",
+          "downlight",
+          "jar_of_tumeric",
+          "granola_bar",
+          "half_auricularia",
+          "batting_gloves",
+          "catsup_bottle",
+          "cooking_oil_atomizer",
+          "half_rosehip",
+          "comb",
+          "bust"
+        ],
+        "allowed_surface_categories": [
+          "commercial_kitchen_table",
+          "flat_top_grill",
+          "metal_bottom_cabinet"
+        ],
+        "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "coverage_categories": [
+          "cellulose_tape",
+          "half_sweet_corn",
+          "ashtray",
+          "bottle_of_sage",
+          "jar_of_peppercorns",
+          "half_ginger_root",
+          "bottle_of_alcohol",
+          "lettuce",
+          "specimen_bottle",
+          "half_chicken_leg",
+          "downlight",
+          "jar_of_tumeric",
+          "granola_bar",
+          "half_auricularia",
+          "batting_gloves",
+          "catsup_bottle",
+          "cooking_oil_atomizer",
+          "half_rosehip",
+          "comb",
+          "bust"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 4,
+          "required_semantic_turns": 2,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "cellulose_tape",
+          "half_sweet_corn",
+          "ashtray",
+          "bottle_of_sage",
+          "jar_of_peppercorns",
+          "half_ginger_root",
+          "lettuce",
+          "specimen_bottle"
+        ],
+        "preferred_story_category_glosses": {
+          "ashtray": "",
+          "bottle_of_sage": "",
+          "cellulose_tape": "transparent or semitransparent adhesive tape (trade names Scotch tape and Sellotape) used for sealing or attaching or mending",
+          "half_ginger_root": "",
+          "half_sweet_corn": "",
+          "jar_of_peppercorns": "",
+          "lettuce": "",
+          "specimen_bottle": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 59.2,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "fridge": 3,
+              "metal_bottom_cabinet": 5,
+              "oven": 1
+            },
+            "scene_surfaces": {
+              "commercial_kitchen_table": 7,
+              "flat_top_grill": 4,
+              "metal_bottom_cabinet": 9
+            },
+            "surface_max_area_m2": {
+              "commercial_kitchen_table": 0.2,
+              "flat_top_grill": 0.265,
+              "metal_bottom_cabinet": 0.253
+            },
+            "surface_reference_capacity": {
+              "commercial_kitchen_table": 3,
+              "flat_top_grill": 3,
+              "metal_bottom_cabinet": 3
+            }
+          }
+        ],
+        "scene": "restaurant_hotel",
+        "task_id": "GUIDE-14015",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "prompt_sha": "2c30a574caf3",
+      "prompt_sha256": "sha256:2c30a574caf3917d382c4bad64f90dbd77a81db84574828e1956b97f5040d6f2",
+      "prompt_version": "capability-v19-grounded-physics-20260829",
+      "prose_sha256": "sha256:ce92889e47cf0b727a96f96516af2728a1b1a2d21d1632c9bc3a7ce91487c1a8",
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "The specific text on the labels inside the newly opened fridges.",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "semantic_turns": 2,
+          "strong_weak_distinct": true,
+          "ungrounded_physical_nouns": [],
+          "uses_only_grounded_assets": true,
+          "why_utterance_alone_fails": "The wearer does not specify which fridge is which, and they are identical from the outside."
+        },
+        "capability_fit": "The assistant delays a routing decision until the wearer changes the environment state (opening doors) to reveal hidden visual evidence.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "container",
+                  "openable"
+                ],
+                "category": "fridge",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "produce fridge"
+              },
+              {
+                "affordances": [
+                  "container",
+                  "openable"
+                ],
+                "category": "fridge",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "meat fridge"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "cellulose_tape",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "produce label"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "cellulose_tape",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "meat label"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "half_chicken_leg",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "raw chicken"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "half_auricularia",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "mushroom"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "commercial_kitchen_table",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "prep table"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [
+              [
+                "produce fridge",
+                "meat fridge"
+              ]
+            ],
+            "impossible": [],
+            "printed": [
+              {
+                "rides": "produce label",
+                "text": "PRODUCE",
+                "what": "produce label text",
+                "which": null
+              },
+              {
+                "rides": "meat label",
+                "text": "MEAT",
+                "what": "meat label text",
+                "which": null
+              }
+            ],
+            "restaged_story": "The wearer is in kitchen_0. The produce label is inside the produce fridge, and the meat label is inside the meat fridge. Both fridges are closed. The raw chicken and mushroom are resting on the prep table. At action zero, the wearer asks the assistant which fridge they should use for the chicken and which for the mushroom. The assistant recognizes that the temperature labels are hidden inside the closed fridges and instructs the wearer to open both fridges first. The wearer executes an [Open] action on the produce fridge and an [Open] action on the meat fridge. The assistant reads the revealed labels and instructs the wearer to put the chicken in the meat fridge and the mushroom in the produce fridge. The wearer executes a [Grab] action on the raw chicken and a [Putin] action to place it inside the meat fridge. The wearer then executes a [Grab] action on the mushroom and a [Putin] action to place it inside the produce fridge.",
+            "scene": "restaurant_hotel",
+            "why_scene": "Provides a commercial kitchen with multiple fridges and prep tables."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+              "counterfactual_failure": "A weak assistant guesses the routing immediately, leading to incorrect placement.",
+              "forbidden_changes": [
+                "Placing the labels on the outside of the fridges."
+              ],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "produce label text",
+                "meat label text"
+              ],
+              "required_final_predicates": [
+                "inside",
+                "open"
+              ],
+              "success_condition": "The wearer successfully routes the items to their correct respective fridges after opening them.",
+              "temporal_constraints": []
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container",
+                  "openable"
+                ],
+                "role_in_story": "destination for mushroom",
+                "what": "produce fridge",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container",
+                  "openable"
+                ],
+                "role_in_story": "destination for chicken",
+                "what": "meat fridge",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "read",
+                "required_affordances": [
+                  "readable"
+                ],
+                "role_in_story": "internal label",
+                "what": "produce label",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "read",
+                "required_affordances": [
+                  "readable"
+                ],
+                "role_in_story": "internal label",
+                "what": "meat label",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item to be stored",
+                "what": "raw chicken",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item to be stored",
+                "what": "mushroom",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "surface",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "starting surface",
+                "what": "prep table",
+                "when": "both"
+              }
+            ],
+            "hinges_on": "Realizing the temperature zones cannot be seen from the outside of the identical fridges.",
+            "look_alike": [
+              {
+                "must": "identical",
+                "these": [
+                  "produce fridge",
+                  "meat fridge"
+                ],
+                "why": "So the assistant cannot guess their identities from the outside."
+              }
+            ],
+            "opening": "The food items start on the table, and the fridges start closed with the labels inside.",
+            "outcome": "The chicken is in the meat fridge and the mushroom is in the produce fridge.",
+            "place": "kitchen_0",
+            "printed": [
+              {
+                "says": "PRODUCE",
+                "what": "produce label text",
+                "where": "produce label"
+              },
+              {
+                "says": "MEAT",
+                "what": "meat label text",
+                "where": "meat label"
+              }
+            ],
+            "tests_what": "The assistant's ability to recognize that required visual evidence is hidden inside closed containers and direct the wearer to reveal it before answering."
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The story perfectly matches the ACTIVE_VIEWPOINT_ACQUISITION capability. The assistant must recognize that the critical routing information (temperature zone labels) is hidden inside the closed identical fridges and proactively instruct the wearer to open them before issuing the final placement commands. The use of cellulose_tape as internal labels ensures the text is strictly bounded by the 8-character limit and physically contained within the appliances.",
+        "requirements": [
+          "Use cellulose_tape inside each fridge to carry the 'PRODUCE' and 'MEAT' labels, as fridges cannot natively hide their own surface labels when closed.",
+          "Ensure the labels are 8 characters or fewer (e.g., 'PRODUCE' and 'MEAT')."
+        ],
+        "runtime_requirements": {
+          "actions": [
+            "Open",
+            "Grab",
+            "Putin"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 6,
+          "estimated_prologue_actions": 0,
+          "estimated_task_actions": 6,
+          "events": [],
+          "final_predicates": [
+            "inside",
+            "open"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 41.0,
+        "structural_signature": {
+          "evaluation": "correct final containment",
+          "evidence": "hidden internal labels",
+          "failure": "premature guessing",
+          "operation": "active viewpoint acquisition",
+          "response": "two-part instruction",
+          "temporal": "interrupted routing"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The specific text on the labels inside the newly opened fridges.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 2,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The wearer does not specify which fridge is which, and they are identical from the outside."
+          },
+          "capability_fit": "The assistant delays a routing decision until the wearer changes the environment state (opening doors) to reveal hidden visual evidence.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "fridge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "produce fridge"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "fridge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "meat fridge"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cellulose_tape",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "produce label"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cellulose_tape",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "meat label"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "half_chicken_leg",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "raw chicken"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "half_auricularia",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "mushroom"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "commercial_kitchen_table",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "prep table"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [
+                [
+                  "produce fridge",
+                  "meat fridge"
+                ]
+              ],
+              "impossible": [],
+              "printed": [
+                {
+                  "rides": "produce label",
+                  "text": "PRODUCE",
+                  "what": "produce label text",
+                  "which": null
+                },
+                {
+                  "rides": "meat label",
+                  "text": "MEAT",
+                  "what": "meat label text",
+                  "which": null
+                }
+              ],
+              "restaged_story": "The wearer is in kitchen_0. The produce label is inside the produce fridge, and the meat label is inside the meat fridge. Both fridges are closed. The raw chicken and mushroom are resting on the prep table. At action zero, the wearer asks the assistant which fridge they should use for the chicken and which for the mushroom. The assistant recognizes that the temperature labels are hidden inside the closed fridges and instructs the wearer to open both fridges first. The wearer executes an [Open] action on the produce fridge and an [Open] action on the meat fridge. The assistant reads the revealed labels and instructs the wearer to put the chicken in the meat fridge and the mushroom in the produce fridge. The wearer executes a [Grab] action on the raw chicken and a [Putin] action to place it inside the meat fridge. The wearer then executes a [Grab] action on the mushroom and a [Putin] action to place it inside the produce fridge.",
+              "scene": "restaurant_hotel",
+              "why_scene": "Provides a commercial kitchen with multiple fridges and prep tables."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+                "counterfactual_failure": "A weak assistant guesses the routing immediately, leading to incorrect placement.",
+                "forbidden_changes": [
+                  "Placing the labels on the outside of the fridges."
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "produce label text",
+                  "meat label text"
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "open"
+                ],
+                "success_condition": "The wearer successfully routes the items to their correct respective fridges after opening them.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "destination for mushroom",
+                  "what": "produce fridge",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "destination for chicken",
+                  "what": "meat fridge",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "read",
+                  "required_affordances": [
+                    "readable"
+                  ],
+                  "role_in_story": "internal label",
+                  "what": "produce label",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "read",
+                  "required_affordances": [
+                    "readable"
+                  ],
+                  "role_in_story": "internal label",
+                  "what": "meat label",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be stored",
+                  "what": "raw chicken",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be stored",
+                  "what": "mushroom",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "surface",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "starting surface",
+                  "what": "prep table",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "Realizing the temperature zones cannot be seen from the outside of the identical fridges.",
+              "look_alike": [
+                {
+                  "must": "identical",
+                  "these": [
+                    "produce fridge",
+                    "meat fridge"
+                  ],
+                  "why": "So the assistant cannot guess their identities from the outside."
+                }
+              ],
+              "opening": "The food items start on the table, and the fridges start closed with the labels inside.",
+              "outcome": "The chicken is in the meat fridge and the mushroom is in the produce fridge.",
+              "place": "kitchen_0",
+              "printed": [
+                {
+                  "says": "PRODUCE",
+                  "what": "produce label text",
+                  "where": "produce label"
+                },
+                {
+                  "says": "MEAT",
+                  "what": "meat label text",
+                  "where": "meat label"
+                }
+              ],
+              "tests_what": "The assistant's ability to recognize that required visual evidence is hidden inside closed containers and direct the wearer to reveal it before answering."
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The story perfectly matches the ACTIVE_VIEWPOINT_ACQUISITION capability. The assistant must recognize that the critical routing information (temperature zone labels) is hidden inside the closed identical fridges and proactively instruct the wearer to open them before issuing the final placement commands. The use of cellulose_tape as internal labels ensures the text is strictly bounded by the 8-character limit and physically contained within the appliances.",
+          "requirements": [
+            "Use cellulose_tape inside each fridge to carry the 'PRODUCE' and 'MEAT' labels, as fridges cannot natively hide their own surface labels when closed.",
+            "Ensure the labels are 8 characters or fewer (e.g., 'PRODUCE' and 'MEAT')."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Open",
+              "Grab",
+              "Putin"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 6,
+            "estimated_prologue_actions": 0,
+            "estimated_task_actions": 6,
+            "events": [],
+            "final_predicates": [
+              "inside",
+              "open"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 41.0,
+          "structural_signature": {
+            "evaluation": "correct final containment",
+            "evidence": "hidden internal labels",
+            "failure": "premature guessing",
+            "operation": "active viewpoint acquisition",
+            "response": "two-part instruction",
+            "temporal": "interrupted routing"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "restaurant_hotel",
+      "sha": "ce92889e47cf",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_prod120_quality_20260829c/rounds/round_001/compile_input/GUIDE/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gemini-3-1-pro-preview-tbd",
+      "judge_model": "gemini-3-1-pro-preview-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260829j"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_grounded_prod120_quality_20260829c-r001",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v19-grounded-physics-20260829",
+      "release_id": "sha256:34b86c296becbe4aeca1aeda58c0219f85ac552858fd347e5f46b61ac2c4087f",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "result": "guide26-story-refine-r2-20260912zl",
+        "source": "GUIDE-14015"
+      },
+      {
+        "kind": "canonicalize_required_evidence",
+        "source": "[\"This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch.\", \"Five mixed frozen and chilled products and two closed cold-storage units are visible from the delivery counter.\", \"A close view establishes that the first unit is labeled FREEZER.\", \"A close view establishes that the second unit is labeled CHILLER.\", \"Both frozen products are loaded and the freezer is closed.\", \"The milk, yogurt, and lettuce are loaded and the chiller is closed.\"]",
+        "result": "[\"This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch.\", \"Five mixed frozen and chilled products and two closed cold-storage units are visible from the delivery counter.\", \"A close view establishes that the first unit is labeled FREEZER.\", \"A close view establishes that the second unit is labeled CHILLER.\", \"Both frozen products are loaded and the freezer is closed.\", \"The milk, yogurt, and lettuce are loaded and the chiller is closed.\", \"Use the unit labeled FREEZER for the ice cream and ice lolly. Use the unit labeled CHILLER for the milk, yogurt, and lettuce, then close both doors.\"]"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "GUIDE-14015",
+    "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+    "capability_notes": [
+      "The five-item counter and three-item chiller need relaxed manual capacity limits and a collision preflight.",
+      "Only the FREEZER is imported; CHILLER is the house kitchen's scene-native fridge_dszchb_0. The ice cream is a flat pink-orange retail bag with chocolate ice-cream bars pictured on the package rather than a jar-shaped carton, and the larger blue-and-white yogurt multipack visibly says GREEK YOGURT on its original texture rather than relying on a synthetic placard.",
+      "Each unit is closed before the wearer returns to the delivery counter, preventing an open door from blocking the next pickup route."
+    ],
+    "revision": "guide22-interaction-20260913",
+    "benchmark_split": "production",
+    "physical_revision": "guide26-story-refine-r2-20260912zl",
+    "physical_taskpack_sha256": "sha256:b8664c967a5e18281bae4855b8a31e3d392370db5d7ac0c808d3c907434be9c2",
+    "parent_lineage": {
+      "source": "manual_story_revision",
+      "compile_input_digest": "sha256:91db67a0ed247e02071ca07992b10f9b53b9b555493044e94cfc8571a80ad589",
+      "source_contract_digest": "sha256:1326efe0d243129abf443aee735444a23b70fd5d0475fc2b4b743a9f7786d2b4",
+      "executable_spec_digest": "sha256:5ab3a5b7c5b0c407cbd6d9e3e1ea7e233ac67385755b49006dee59b598b54235",
+      "invention": {
+        "attempt": 6,
+        "author_prose": "A trainee chef in a hotel kitchen (`kitchen_0`) is preparing to store newly delivered ingredients. Resting on a `commercial_kitchen_table` are a `half_chicken_leg` and a `half_auricularia` mushroom. The kitchen is equipped with two identical `fridge` units. Hotel food safety protocols require storing raw poultry in the colder meat fridge and mushrooms in the warmer produce fridge to prevent freezing damage and cross-contamination. However, the exterior doors of both fridges are unmarked stainless steel; the critical temperature dials and zone labels are printed on the inside back walls of the appliances.\n\nThe wearer looks at the two closed fridges and asks the assistant, \"Which fridge should I use for the chicken, and which for the mushroom?\"\n\nA weak assistant hallucinates a destination based on generic left/right assumptions or guesses blindly without evidence. This premature instruction could result in the raw chicken being stored at an unsafe temperature or the delicate mushroom being frozen and ruined.\n\nA strong assistant recognizes that the visual evidence required to make a safe routing decision is currently hidden from the egocentric camera. It withholds any placement instructions and instead directs the wearer to actively change the state of the environment to acquire the missing information: \"I cannot see the temperature zones from the outside. Please open both fridges so I can read their internal dials.\"\n\nThe wearer physically executes this by opening the left fridge and then the right fridge. The camera now clearly captures the internal labels, revealing that the left fridge is set to \"Produce 38F\" and the right fridge is set to \"Meat 34F\". Having acquired the necessary viewpoint, the assistant finally provides the substantive guidance, instructing the wearer to place the chicken in the right fridge and the mushroom in the left fridge.\n\nThe episode succeeds if the assistant explicitly delays the routing decision until the wearer reveals the hidden dials, and the physical execution concludes with the `half_chicken_leg` inside the meat `fridge` and the `half_auricularia` inside the produce `fridge`.",
+        "author_prose_sha256": "sha256:c8edaafbb7df35975c80210c6301452cf5d44a6ac644a72d6afe83881dbca6f0",
+        "capability": {
+          "boundary": "The information-gathering instruction must be necessary; the assistant may not guess or proceed from hidden simulator state.",
+          "few_shot": "A volunteer must attach one of two similar camera lenses to a donated camera body, but the compatibility code is printed inside the closed lens-case lid and neither lens front reveals it. The wearer asks which lens to mount. The assistant first says it cannot determine that from the current view and asks them to open the case and angle the lid toward the glasses. Only after reading the compatibility table does it direct the correct lens onto the camera and the spare into the padded compartment. Guessing immediately can attach the wrong lens. The final attachment and containment are scoreable, while the episode also tests that information acquisition precedes advice.",
+          "id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+          "name_zh": "感知缺口的主动补齐",
+          "target": "Recognise that required evidence is outside the current view and first direct the wearer to reveal it before giving substantive guidance."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+          "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+          "evaluation_status": "PASS",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": false,
+          "owner": null,
+          "reason": null,
+          "reason_code": null,
+          "recommended_work": null,
+          "version": "capability-support/1.0",
+          "workstream": null
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "candy_dispenser_shelf",
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "compost_bin",
+            "dessert_stand",
+            "dish_rack_cart",
+            "dishwasher",
+            "display_case",
+            "display_fridge",
+            "dry_food_dispenser_shelf",
+            "free_weight_rack",
+            "freezer",
+            "fridge",
+            "grocery_fridge",
+            "grocery_shelf",
+            "locker",
+            "magazine_stand",
+            "metal_bottom_cabinet",
+            "oven",
+            "public_trash_can",
+            "recycling_bin",
+            "serving_cart",
+            "shelf",
+            "shopping_cart",
+            "snack_rack",
+            "top_cabinet",
+            "trash_can",
+            "umbrella_rack",
+            "vending_machine",
+            "wardrobe",
+            "washer",
+            "wine_fridge"
+          ],
+          "allowed_loose_categories": [
+            "apple",
+            "cell_phone",
+            "clipboard",
+            "bottle_of_water",
+            "cellulose_tape",
+            "half_sweet_corn",
+            "ashtray",
+            "bottle_of_sage",
+            "jar_of_peppercorns",
+            "half_ginger_root",
+            "bottle_of_alcohol",
+            "lettuce",
+            "specimen_bottle",
+            "half_chicken_leg",
+            "downlight",
+            "jar_of_tumeric",
+            "granola_bar",
+            "half_auricularia",
+            "batting_gloves",
+            "catsup_bottle",
+            "cooking_oil_atomizer",
+            "half_rosehip",
+            "comb",
+            "bust"
+          ],
+          "allowed_surface_categories": [
+            "commercial_kitchen_table",
+            "flat_top_grill",
+            "metal_bottom_cabinet"
+          ],
+          "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+          "coverage_categories": [
+            "cellulose_tape",
+            "half_sweet_corn",
+            "ashtray",
+            "bottle_of_sage",
+            "jar_of_peppercorns",
+            "half_ginger_root",
+            "bottle_of_alcohol",
+            "lettuce",
+            "specimen_bottle",
+            "half_chicken_leg",
+            "downlight",
+            "jar_of_tumeric",
+            "granola_bar",
+            "half_auricularia",
+            "batting_gloves",
+            "catsup_bottle",
+            "cooking_oil_atomizer",
+            "half_rosehip",
+            "comb",
+            "bust"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 4,
+            "required_semantic_turns": 2,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": true,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_reselection": false,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "GUIDE",
+          "limits": {
+            "max_authored_actions": 18,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 10,
+            "max_small_label_characters": 8,
+            "max_task_actions": 10
+          },
+          "preferred_story_categories": [
+            "cellulose_tape",
+            "half_sweet_corn",
+            "ashtray",
+            "bottle_of_sage",
+            "jar_of_peppercorns",
+            "half_ginger_root",
+            "lettuce",
+            "specimen_bottle"
+          ],
+          "preferred_story_category_glosses": {
+            "ashtray": "",
+            "bottle_of_sage": "",
+            "cellulose_tape": "transparent or semitransparent adhesive tape (trade names Scotch tape and Sellotape) used for sealing or attaching or mending",
+            "half_ginger_root": "",
+            "half_sweet_corn": "",
+            "jar_of_peppercorns": "",
+            "lettuce": "",
+            "specimen_bottle": ""
+          },
+          "rooms": [
+            {
+              "area_m2": 59.2,
+              "name": "kitchen_0",
+              "scene_containers": {
+                "fridge": 3,
+                "metal_bottom_cabinet": 5,
+                "oven": 1
+              },
+              "scene_surfaces": {
+                "commercial_kitchen_table": 7,
+                "flat_top_grill": 4,
+                "metal_bottom_cabinet": 9
+              },
+              "surface_max_area_m2": {
+                "commercial_kitchen_table": 0.2,
+                "flat_top_grill": 0.265,
+                "metal_bottom_cabinet": 0.253
+              },
+              "surface_reference_capacity": {
+                "commercial_kitchen_table": 3,
+                "flat_top_grill": 3,
+                "metal_bottom_cabinet": 3
+              }
+            }
+          ],
+          "scene": "restaurant_hotel",
+          "task_id": "GUIDE-14015",
+          "version": "grounded-authoring/2.5-20260829"
+        },
+        "prompt_sha": "2c30a574caf3",
+        "prompt_sha256": "sha256:2c30a574caf3917d382c4bad64f90dbd77a81db84574828e1956b97f5040d6f2",
+        "prompt_version": "capability-v19-grounded-physics-20260829",
+        "prose_sha256": "sha256:ce92889e47cf0b727a96f96516af2728a1b1a2d21d1632c9bc3a7ce91487c1a8",
+        "review": {
+          "benchmark_check": {
+            "egocentric_evidence": "The specific text on the labels inside the newly opened fridges.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 2,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The wearer does not specify which fridge is which, and they are identical from the outside."
+          },
+          "capability_fit": "The assistant delays a routing decision until the wearer changes the environment state (opening doors) to reveal hidden visual evidence.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "fridge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "produce fridge"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "fridge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "meat fridge"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cellulose_tape",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "produce label"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cellulose_tape",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "meat label"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "half_chicken_leg",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "raw chicken"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "half_auricularia",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "mushroom"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "commercial_kitchen_table",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "prep table"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [
+                [
+                  "produce fridge",
+                  "meat fridge"
+                ]
+              ],
+              "impossible": [],
+              "printed": [
+                {
+                  "rides": "produce label",
+                  "text": "PRODUCE",
+                  "what": "produce label text",
+                  "which": null
+                },
+                {
+                  "rides": "meat label",
+                  "text": "MEAT",
+                  "what": "meat label text",
+                  "which": null
+                }
+              ],
+              "restaged_story": "The wearer is in kitchen_0. The produce label is inside the produce fridge, and the meat label is inside the meat fridge. Both fridges are closed. The raw chicken and mushroom are resting on the prep table. At action zero, the wearer asks the assistant which fridge they should use for the chicken and which for the mushroom. The assistant recognizes that the temperature labels are hidden inside the closed fridges and instructs the wearer to open both fridges first. The wearer executes an [Open] action on the produce fridge and an [Open] action on the meat fridge. The assistant reads the revealed labels and instructs the wearer to put the chicken in the meat fridge and the mushroom in the produce fridge. The wearer executes a [Grab] action on the raw chicken and a [Putin] action to place it inside the meat fridge. The wearer then executes a [Grab] action on the mushroom and a [Putin] action to place it inside the produce fridge.",
+              "scene": "restaurant_hotel",
+              "why_scene": "Provides a commercial kitchen with multiple fridges and prep tables."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+                "counterfactual_failure": "A weak assistant guesses the routing immediately, leading to incorrect placement.",
+                "forbidden_changes": [
+                  "Placing the labels on the outside of the fridges."
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "produce label text",
+                  "meat label text"
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "open"
+                ],
+                "success_condition": "The wearer successfully routes the items to their correct respective fridges after opening them.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "destination for mushroom",
+                  "what": "produce fridge",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "destination for chicken",
+                  "what": "meat fridge",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "read",
+                  "required_affordances": [
+                    "readable"
+                  ],
+                  "role_in_story": "internal label",
+                  "what": "produce label",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "read",
+                  "required_affordances": [
+                    "readable"
+                  ],
+                  "role_in_story": "internal label",
+                  "what": "meat label",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be stored",
+                  "what": "raw chicken",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be stored",
+                  "what": "mushroom",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "surface",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "starting surface",
+                  "what": "prep table",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "Realizing the temperature zones cannot be seen from the outside of the identical fridges.",
+              "look_alike": [
+                {
+                  "must": "identical",
+                  "these": [
+                    "produce fridge",
+                    "meat fridge"
+                  ],
+                  "why": "So the assistant cannot guess their identities from the outside."
+                }
+              ],
+              "opening": "The food items start on the table, and the fridges start closed with the labels inside.",
+              "outcome": "The chicken is in the meat fridge and the mushroom is in the produce fridge.",
+              "place": "kitchen_0",
+              "printed": [
+                {
+                  "says": "PRODUCE",
+                  "what": "produce label text",
+                  "where": "produce label"
+                },
+                {
+                  "says": "MEAT",
+                  "what": "meat label text",
+                  "where": "meat label"
+                }
+              ],
+              "tests_what": "The assistant's ability to recognize that required visual evidence is hidden inside closed containers and direct the wearer to reveal it before answering."
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The story perfectly matches the ACTIVE_VIEWPOINT_ACQUISITION capability. The assistant must recognize that the critical routing information (temperature zone labels) is hidden inside the closed identical fridges and proactively instruct the wearer to open them before issuing the final placement commands. The use of cellulose_tape as internal labels ensures the text is strictly bounded by the 8-character limit and physically contained within the appliances.",
+          "requirements": [
+            "Use cellulose_tape inside each fridge to carry the 'PRODUCE' and 'MEAT' labels, as fridges cannot natively hide their own surface labels when closed.",
+            "Ensure the labels are 8 characters or fewer (e.g., 'PRODUCE' and 'MEAT')."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Open",
+              "Grab",
+              "Putin"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 6,
+            "estimated_prologue_actions": 0,
+            "estimated_task_actions": 6,
+            "events": [],
+            "final_predicates": [
+              "inside",
+              "open"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 41.0,
+          "structural_signature": {
+            "evaluation": "correct final containment",
+            "evidence": "hidden internal labels",
+            "failure": "premature guessing",
+            "operation": "active viewpoint acquisition",
+            "response": "two-part instruction",
+            "temporal": "interrupted routing"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "The specific text on the labels inside the newly opened fridges.",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "semantic_turns": 2,
+              "strong_weak_distinct": true,
+              "ungrounded_physical_nouns": [],
+              "uses_only_grounded_assets": true,
+              "why_utterance_alone_fails": "The wearer does not specify which fridge is which, and they are identical from the outside."
+            },
+            "capability_fit": "The assistant delays a routing decision until the wearer changes the environment state (opening doors) to reveal hidden visual evidence.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "category": "fridge",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "produce fridge"
+                  },
+                  {
+                    "affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "category": "fridge",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "meat fridge"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "cellulose_tape",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "produce label"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "cellulose_tape",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "meat label"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "half_chicken_leg",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "raw chicken"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "half_auricularia",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "mushroom"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "commercial_kitchen_table",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "prep table"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [
+                  [
+                    "produce fridge",
+                    "meat fridge"
+                  ]
+                ],
+                "impossible": [],
+                "printed": [
+                  {
+                    "rides": "produce label",
+                    "text": "PRODUCE",
+                    "what": "produce label text",
+                    "which": null
+                  },
+                  {
+                    "rides": "meat label",
+                    "text": "MEAT",
+                    "what": "meat label text",
+                    "which": null
+                  }
+                ],
+                "restaged_story": "The wearer is in kitchen_0. The produce label is inside the produce fridge, and the meat label is inside the meat fridge. Both fridges are closed. The raw chicken and mushroom are resting on the prep table. At action zero, the wearer asks the assistant which fridge they should use for the chicken and which for the mushroom. The assistant recognizes that the temperature labels are hidden inside the closed fridges and instructs the wearer to open both fridges first. The wearer executes an [Open] action on the produce fridge and an [Open] action on the meat fridge. The assistant reads the revealed labels and instructs the wearer to put the chicken in the meat fridge and the mushroom in the produce fridge. The wearer executes a [Grab] action on the raw chicken and a [Putin] action to place it inside the meat fridge. The wearer then executes a [Grab] action on the mushroom and a [Putin] action to place it inside the produce fridge.",
+                "scene": "restaurant_hotel",
+                "why_scene": "Provides a commercial kitchen with multiple fridges and prep tables."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+                  "counterfactual_failure": "A weak assistant guesses the routing immediately, leading to incorrect placement.",
+                  "forbidden_changes": [
+                    "Placing the labels on the outside of the fridges."
+                  ],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "produce label text",
+                    "meat label text"
+                  ],
+                  "required_final_predicates": [
+                    "inside",
+                    "open"
+                  ],
+                  "success_condition": "The wearer successfully routes the items to their correct respective fridges after opening them.",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "role_in_story": "destination for mushroom",
+                    "what": "produce fridge",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "role_in_story": "destination for chicken",
+                    "what": "meat fridge",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "read",
+                    "required_affordances": [
+                      "readable"
+                    ],
+                    "role_in_story": "internal label",
+                    "what": "produce label",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "read",
+                    "required_affordances": [
+                      "readable"
+                    ],
+                    "role_in_story": "internal label",
+                    "what": "meat label",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item to be stored",
+                    "what": "raw chicken",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item to be stored",
+                    "what": "mushroom",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "surface",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "starting surface",
+                    "what": "prep table",
+                    "when": "both"
+                  }
+                ],
+                "hinges_on": "Realizing the temperature zones cannot be seen from the outside of the identical fridges.",
+                "look_alike": [
+                  {
+                    "must": "identical",
+                    "these": [
+                      "produce fridge",
+                      "meat fridge"
+                    ],
+                    "why": "So the assistant cannot guess their identities from the outside."
+                  }
+                ],
+                "opening": "The food items start on the table, and the fridges start closed with the labels inside.",
+                "outcome": "The chicken is in the meat fridge and the mushroom is in the produce fridge.",
+                "place": "kitchen_0",
+                "printed": [
+                  {
+                    "says": "PRODUCE",
+                    "what": "produce label text",
+                    "where": "produce label"
+                  },
+                  {
+                    "says": "MEAT",
+                    "what": "meat label text",
+                    "where": "meat label"
+                  }
+                ],
+                "tests_what": "The assistant's ability to recognize that required visual evidence is hidden inside closed containers and direct the wearer to reveal it before answering."
+              }
+            },
+            "duplicate_of": null,
+            "reason": "The story perfectly matches the ACTIVE_VIEWPOINT_ACQUISITION capability. The assistant must recognize that the critical routing information (temperature zone labels) is hidden inside the closed identical fridges and proactively instruct the wearer to open them before issuing the final placement commands. The use of cellulose_tape as internal labels ensures the text is strictly bounded by the 8-character limit and physically contained within the appliances.",
+            "requirements": [
+              "Use cellulose_tape inside each fridge to carry the 'PRODUCE' and 'MEAT' labels, as fridges cannot natively hide their own surface labels when closed.",
+              "Ensure the labels are 8 characters or fewer (e.g., 'PRODUCE' and 'MEAT')."
+            ],
+            "runtime_requirements": {
+              "actions": [
+                "Open",
+                "Grab",
+                "Putin"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 6,
+              "estimated_prologue_actions": 0,
+              "estimated_task_actions": 6,
+              "events": [],
+              "final_predicates": [
+                "inside",
+                "open"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 41.0,
+            "structural_signature": {
+              "evaluation": "correct final containment",
+              "evidence": "hidden internal labels",
+              "failure": "premature guessing",
+              "operation": "active viewpoint acquisition",
+              "response": "two-part instruction",
+              "temporal": "interrupted routing"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "restaurant_hotel",
+        "sha": "ce92889e47cf",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_prod120_quality_20260829c/rounds/round_001/compile_input/GUIDE/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gemini-3-1-pro-preview-tbd",
+        "judge_model": "gemini-3-1-pro-preview-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260829j"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_grounded_prod120_quality_20260829c-r001",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v19-grounded-physics-20260829",
+        "release_id": "sha256:34b86c296becbe4aeca1aeda58c0219f85ac552858fd347e5f46b61ac2c4087f",
+        "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "normalizations": [
+        {
+          "kind": "manual_story_revision",
+          "result": "guide26-story-refine-r2-20260912zl",
+          "source": "GUIDE-14015"
+        },
+        {
+          "kind": "canonicalize_required_evidence",
+          "source": "[\"This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch.\", \"Five mixed frozen and chilled products and two closed cold-storage units are visible from the delivery counter.\", \"A close view establishes that the first unit is labeled FREEZER.\", \"A close view establishes that the second unit is labeled CHILLER.\", \"Both frozen products are loaded and the freezer is closed.\", \"The milk, yogurt, and lettuce are loaded and the chiller is closed.\"]",
+          "result": "[\"This cold delivery needs putting away, but I don't know which of these two units is for which foods. Please inspect them and guide me through the whole batch.\", \"Five mixed frozen and chilled products and two closed cold-storage units are visible from the delivery counter.\", \"A close view establishes that the first unit is labeled FREEZER.\", \"A close view establishes that the second unit is labeled CHILLER.\", \"Both frozen products are loaded and the freezer is closed.\", \"The milk, yogurt, and lettuce are loaded and the chiller is closed.\", \"Use the unit labeled FREEZER for the ice cream and ice lolly. Use the unit labeled CHILLER for the milk, yogurt, and lettuce, then close both doors.\"]"
+        }
+      ],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "GUIDE-14015",
+      "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+      "capability_notes": [
+        "The five-item counter and three-item chiller need relaxed manual capacity limits and a collision preflight.",
+        "Only the FREEZER is imported; CHILLER is the house kitchen's scene-native fridge_dszchb_0. The ice cream is a flat pink-orange retail bag with chocolate ice-cream bars pictured on the package rather than a jar-shaped carton, and the larger blue-and-white yogurt multipack visibly says GREEK YOGURT on its original texture rather than relying on a synthetic placard.",
+        "Each unit is closed before the wearer returns to the delivery counter, preventing an open door from blocking the next pickup route."
+      ],
+      "revision": "guide26-story-refine-r2-20260912zl"
+    },
+    "oracle_dialogue_override_ids": [
+      "guide14015_unit_inspection_locators",
+      "guide14015_frozen_food_locators",
+      "guide14015_milk_yogurt_locators",
+      "guide14015_lettuce_locator"
+    ]
+  }
+}

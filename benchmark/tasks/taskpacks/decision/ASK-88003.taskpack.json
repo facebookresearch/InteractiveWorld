@@ -1,0 +1,3725 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "ASK-88003",
+  "executable_spec": {
+    "spec_version": "bts/1.0",
+    "task_id": "ASK-88003",
+    "variant": null,
+    "meta": {
+      "family": "ASK",
+      "template": "a flat or apartment: kitchen, living room, bedrooms, utility",
+      "scene": "Ihlen_1_int",
+      "wave": 1,
+      "difficulty": "hard",
+      "rule_table": "on(cookie bag, lunch staging counter)",
+      "grounding": {
+        "kind": "authored",
+        "ref": "data_generate:ASK-88003",
+        "cite": "I already staged the coffee with lunch, and I checked the limit earlier. Which is the largest snack I can add without taking the coffee-and-snack total over that limit?"
+      },
+      "design": {
+        "premise": "The wearer is packing a small lunch. They first walk to the living-room side surface, read a formal limit sheet marked 'MAX 355g', and read the coffee's realistic 9g meal-plan label. They carry the coffee to the kitchen lunch staging surface, then walk to the snack counter. There they briefly lift each package for a close look at its printed weight and set it back down. The branded cracker box states 351g and the branded cookie bag states 250g; neither snack has an oversized pasted-on weight label. At turn zero they ask which is the largest snack that can be added without taking the combined amount over the earlier limit. The assistant rejects the crackers because 9+351=360g, and selects the cookies because 9+250=259g.",
+        "cue": "I already staged the coffee with lunch, and I checked the limit earlier. Which is the largest snack I can add without taking the coffee-and-snack total over that limit?",
+        "assistant_must": "on(cookie bag, lunch staging counter)",
+        "anti_shortcut": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)"
+      },
+      "engine_deltas": []
+    },
+    "world": {
+      "scene": "Ihlen_1_int",
+      "instance": 0,
+      "layout": "frozen",
+      "authoring_seed": 284772712,
+      "seed_scope": "model",
+      "rooms": [
+        "kitchen_0",
+        "living_room_0"
+      ],
+      "roles": {},
+      "fixtures": {
+        "surf_1": {
+          "bind": {
+            "source": "scene",
+            "cat": "bottom_cabinet"
+          },
+          "room": "living_room_0",
+          "seatable": false
+        },
+        "surf_2": {
+          "bind": {
+            "source": "scene",
+            "cat": "countertop"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "surf_3": {
+          "bind": {
+            "source": "scene",
+            "cat": "countertop"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "containers": {},
+      "objects": {
+        "item_1": {
+          "cat": "paper_sheet",
+          "model": "afdjfk",
+          "place": "on:surf_1",
+          "room": "living_room_0",
+          "scored": false,
+          "needs_lookat": true,
+          "decal": "MAX 355g",
+          "spot": [
+            -0.35,
+            0.55
+          ]
+        },
+        "item_2": {
+          "cat": "jar_of_coffee",
+          "model": "bnrvcs",
+          "place": "on:surf_1",
+          "room": "living_room_0",
+          "scored": false,
+          "needs_lookat": true,
+          "decal": "9g",
+          "spot": [
+            0.35,
+            0.48
+          ],
+          "grasp_hint": {
+            "target": "body",
+            "family": "wrap",
+            "height_fraction": 0.55
+          }
+        },
+        "item_3": {
+          "cat": "box_of_crackers",
+          "model": "cmdigf",
+          "place": "on:surf_3",
+          "room": "kitchen_0",
+          "scored": true,
+          "needs_lookat": true,
+          "cue": "native_nutrition",
+          "spot": [
+            -0.28,
+            0.45
+          ],
+          "grasp_hint": {
+            "target": "edge",
+            "family": "wrap",
+            "edge": "nearest"
+          }
+        },
+        "item_4": {
+          "cat": "bag_of_cookies",
+          "model": "ksjtde",
+          "place": "on:surf_3",
+          "room": "kitchen_0",
+          "scored": true,
+          "needs_lookat": true,
+          "cue": "native_nutrition",
+          "spot": [
+            0.32,
+            0.45
+          ],
+          "grasp_hint": {
+            "target": "edge",
+            "family": "wrap",
+            "edge": "nearest"
+          }
+        }
+      },
+      "parts": {},
+      "labels": {
+        "label_item_1": {
+          "png": "ask_88003_portion_limit",
+          "kind": "short_string",
+          "content": {
+            "text": "MAX 355g",
+            "args": {
+              "renderer": "document_scan",
+              "source": "ask17/ask_88003_portion_limit.png",
+              "primary_glyph_height_ratio": 0.026,
+              "primary_line_count": 1,
+              "primary_text_bbox_norm_xyxy": [
+                0.06,
+                0.12,
+                0.94,
+                0.9
+              ]
+            }
+          },
+          "per_seed": false,
+          "mount": {
+            "surface": "item_decal",
+            "on": "item_1",
+            "face": "top"
+          }
+        },
+        "label_item_2": {
+          "png": "coffee_nutrition_9g",
+          "kind": "short_string",
+          "content": {
+            "text": "9g",
+            "args": {
+              "renderer": "document_scan",
+              "source": "ask17/coffee_nutrition_9g.png",
+              "primary_glyph_height_ratio": 0.03421053,
+              "primary_line_count": 1,
+              "primary_text_bbox_norm_xyxy": [
+                0.21532258,
+                0.5125,
+                0.78387097,
+                0.54671053
+              ],
+              "look_held_distance_m": 0.31,
+              "look_target_glyph_px": 16
+            }
+          },
+          "per_seed": false,
+          "mount": {
+            "surface": "item_decal",
+            "on": "item_2",
+            "face": "front"
+          }
+        }
+      },
+      "initial_attachments": [],
+      "object_groups": [],
+      "preload": {},
+      "permutations": [],
+      "start": {
+        "policy": "seeded_grid",
+        "forbid_rooms": [],
+        "forbid_near": [],
+        "resample_ladder": true
+      },
+      "decor": [],
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "decoys_constrained": true,
+        "permutation_within_model": true,
+        "key_is_derived": true
+      },
+      "auto_support_labels": false
+    },
+    "goal": {
+      "roster": {
+        "containers": [],
+        "objects": [
+          "item_1",
+          "item_2",
+          "item_3",
+          "item_4"
+        ],
+        "nested_containers": []
+      },
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "item_4",
+          "target": "surf_2"
+        }
+      ],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "item_4",
+          "target": "surf_2"
+        }
+      ],
+      "aggregate_goals": [],
+      "negatives": [],
+      "trace_outcomes": [],
+      "rule_table": null,
+      "arms": null
+    },
+    "program": {
+      "generator": "explicit",
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_1"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "item_2"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_2"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_2"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        {
+          "verb": "Put",
+          "args": [
+            "item_2",
+            "surf_2"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "item_3"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_3"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "item_4"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_4"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_4"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        {
+          "verb": "Put",
+          "args": [
+            "item_4",
+            "surf_2"
+          ]
+        }
+      ],
+      "budget": {
+        "grammar_cmds": 14,
+        "grammar_source": "from_program",
+        "expanded_cmds": 14,
+        "expanded_source": "oracle_cmds",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      }
+    },
+    "report": {
+      "sub_goals": [
+        {
+          "id": 0,
+          "kind": "on",
+          "subject": "item_4",
+          "target": "surf_2",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        }
+      ],
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ]
+      ],
+      "sub_steps": [
+        "on item_4 surf_2"
+      ],
+      "control": null,
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "human_frames_withheld": false,
+      "arms_reporting": null
+    },
+    "provenance": {
+      "source_task_id": "ASK-88003",
+      "human_program_raw": "[Grab] <item_4> (1), [Walk] <surf_2> (1), [Put] <item_4> (1) <surf_2> (1)",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "seed": 284772712,
+      "arm": "ASK"
+    }
+  },
+  "story": {
+    "premise": "The wearer is packing a small lunch. They first walk to the living-room side surface, read a formal limit sheet marked 'MAX 355g', and read the coffee's realistic 9g meal-plan label. They carry the coffee to the kitchen lunch staging surface, then walk to the snack counter. There they briefly lift each package for a close look at its printed weight and set it back down. The branded cracker box states 351g and the branded cookie bag states 250g; neither snack has an oversized pasted-on weight label. At turn zero they ask which is the largest snack that can be added without taking the combined amount over the earlier limit. The assistant rejects the crackers because 9+351=360g, and selects the cookies because 9+250=259g.",
+    "assistant_goal": "I already staged the coffee with lunch, and I checked the limit earlier. Which is the largest snack I can add without taking the coffee-and-snack total over that limit?",
+    "assessment_contract": {
+      "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+      "assigned_scene": "Ihlen_1_int",
+      "core_question": "I already staged the coffee with lunch, and I checked the limit earlier. Which is the largest snack I can add without taking the coffee-and-snack total over that limit?",
+      "counterfactual_failure": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)",
+      "forbidden_changes": [],
+      "knowledge_constraints": [],
+      "required_evidence": [
+        "The lunch limit sheet reads 'MAX 355g'.",
+        "The coffee label reads '9g'.",
+        "The coffee was put on surf_2 as the lunch staging surface.",
+        "The cracker box's original package states a net weight of 351g.",
+        "The cookie bag's original package states a net weight of 250g.",
+        "The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.",
+        "The numeric lunch limit is 355g.",
+        "The coffee amount is 9g.",
+        "The cracker box amount is 351g.",
+        "The cookie bag amount is 250g.",
+        "The coffee plus the cracker box would total 360g.",
+        "The coffee plus the cookie bag would total 259g.",
+        "360g is over the 355g limit, so the cracker box is not eligible.",
+        "259g is under the 355g limit, so the cookie bag is eligible."
+      ],
+      "required_final_predicates": [
+        "on"
+      ],
+      "success_condition": "on(cookie bag, lunch staging counter)",
+      "temporal_constraints": []
+    },
+    "source_contract": {
+      "task_id": "ASK-88003",
+      "family": "ASK",
+      "kind": "a flat or apartment: kitchen, living room, bedrooms, utility",
+      "assessment_contract": {
+        "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+        "assigned_scene": "Ihlen_1_int",
+        "core_question": "I already staged the coffee with lunch, and I checked the limit earlier. Which is the largest snack I can add without taking the coffee-and-snack total over that limit?",
+        "counterfactual_failure": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)",
+        "forbidden_changes": [],
+        "knowledge_constraints": [],
+        "required_evidence": [
+          "The lunch limit sheet reads 'MAX 355g'.",
+          "The coffee label reads '9g'.",
+          "The coffee was put on surf_2 as the lunch staging surface.",
+          "The cracker box's original package states a net weight of 351g.",
+          "The cookie bag's original package states a net weight of 250g.",
+          "The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.",
+          "The numeric lunch limit is 355g.",
+          "The coffee amount is 9g.",
+          "The cracker box amount is 351g.",
+          "The cookie bag amount is 250g.",
+          "The coffee plus the cracker box would total 360g.",
+          "The coffee plus the cookie bag would total 259g.",
+          "360g is over the 355g limit, so the cracker box is not eligible.",
+          "259g is under the 355g limit, so the cookie bag is eligible."
+        ],
+        "required_final_predicates": [
+          "on"
+        ],
+        "success_condition": "on(cookie bag, lunch staging counter)",
+        "temporal_constraints": []
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [],
+        "allowed_loose_categories": [
+          "bag_of_cookies",
+          "box_of_crackers",
+          "jar_of_coffee",
+          "paper_sheet"
+        ],
+        "allowed_surface_categories": [
+          "bottom_cabinet",
+          "countertop"
+        ],
+        "capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+        "coverage_categories": [
+          "bag_of_cookies",
+          "box_of_crackers",
+          "jar_of_coffee",
+          "paper_sheet"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": true,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": true,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "ASK",
+        "limits": {
+          "max_authored_actions": 26,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 18,
+          "max_small_label_characters": 8,
+          "max_task_actions": 12,
+          "min_intervening_meaningful_actions": 3,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "bag_of_cookies",
+          "box_of_crackers",
+          "jar_of_coffee",
+          "paper_sheet"
+        ],
+        "preferred_story_category_glosses": {
+          "bag_of_cookies": "",
+          "box_of_crackers": "",
+          "jar_of_coffee": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "name": "living_room_0"
+          },
+          {
+            "name": "kitchen_0"
+          }
+        ],
+        "scene": "Ihlen_1_int",
+        "task_id": "ASK-88003",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "paper_sheet",
+            "changed": true,
+            "costs": null,
+            "label": "MAX 355g",
+            "tint": null,
+            "what": "item_1 paper_sheet labeled MAX 355g"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "jar_of_coffee",
+            "changed": true,
+            "costs": null,
+            "label": "9g",
+            "tint": null,
+            "what": "item_2 jar_of_coffee labeled 9g"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "box_of_crackers",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_3 box_of_crackers"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bag_of_cookies",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_4 bag_of_cookies"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "bottom_cabinet",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_1 bottom_cabinet"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "countertop",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_2 countertop"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "countertop",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_3 countertop"
+          }
+        ],
+        "distinct_by": [
+          "earlier lunch limit plus native net weights on two distinct packages"
+        ],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "item_1 paper_sheet labeled MAX 355g",
+            "text": "MAX 355g",
+            "what": "readable printed object label",
+            "which": "item_1"
+          },
+          {
+            "rides": "item_2 jar_of_coffee labeled 9g",
+            "text": "9g",
+            "what": "readable printed object label",
+            "which": "item_2"
+          }
+        ],
+        "restaged_story": "The wearer is packing a small lunch. They first walk to the living-room side surface, read a formal limit sheet marked 'MAX 355g', and read the coffee's realistic 9g meal-plan label. They carry the coffee to the kitchen lunch staging surface, then walk to the snack counter. There they briefly lift each package for a close look at its printed weight and set it back down. The branded cracker box states 351g and the branded cookie bag states 250g; neither snack has an oversized pasted-on weight label. At turn zero they ask which is the largest snack that can be added without taking the combined amount over the earlier limit. The assistant rejects the crackers because 9+351=360g, and selects the cookies because 9+250=259g.",
+        "scene": "Ihlen_1_int",
+        "why_scene": "Provides separated kitchen/living-room surfaces."
+      },
+      "world": {
+        "boards": {},
+        "containers": {},
+        "items": {
+          "item_1": {
+            "affordances": [],
+            "cat": "paper_sheet",
+            "label": "MAX 355g",
+            "place": "on:surf_1",
+            "scored": false,
+            "spot": [
+              -0.35,
+              0.55
+            ],
+            "tint": null
+          },
+          "item_2": {
+            "affordances": [],
+            "cat": "jar_of_coffee",
+            "label": "9g",
+            "place": "on:surf_1",
+            "scored": false,
+            "spot": [
+              0.35,
+              0.48
+            ],
+            "tint": null,
+            "model": "bnrvcs",
+            "grasp_hint": {
+              "target": "body",
+              "family": "wrap",
+              "height_fraction": 0.55
+            }
+          },
+          "item_3": {
+            "affordances": [],
+            "cat": "box_of_crackers",
+            "label": null,
+            "place": "on:surf_3",
+            "scored": true,
+            "spot": [
+              -0.28,
+              0.45
+            ],
+            "tint": null,
+            "model": "cmdigf",
+            "cue": "native_nutrition",
+            "grasp_hint": {
+              "target": "edge",
+              "family": "wrap",
+              "edge": "nearest"
+            }
+          },
+          "item_4": {
+            "affordances": [],
+            "cat": "bag_of_cookies",
+            "label": null,
+            "place": "on:surf_3",
+            "scored": true,
+            "spot": [
+              0.32,
+              0.45
+            ],
+            "tint": null,
+            "model": "ksjtde",
+            "cue": "native_nutrition",
+            "grasp_hint": {
+              "target": "edge",
+              "family": "wrap",
+              "edge": "nearest"
+            }
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <surf_1> (1)",
+          "[LookAt] <item_1> (1)",
+          "[Walk] <item_2> (1)",
+          "[LookAt] <item_2> (1)",
+          "[Grab] <item_2> (1)",
+          "[Walk] <surf_2> (1)",
+          "[Put] <item_2> (1) <surf_2> (1)",
+          "[Walk] <item_3> (1)",
+          "[LookAt] <item_3> (1)",
+          "[Walk] <item_4> (1)",
+          "[LookAt] <item_4> (1)"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "living_room_0",
+          "kitchen_0"
+        ],
+        "scene": "Ihlen_1_int",
+        "staging": {
+          "groups": "on:surf_1 holds item_1 paper_sheet labeled MAX 355g, item_2 jar_of_coffee labeled 9g. on:surf_3 holds item_3 box_of_crackers, item_4 bag_of_cookies.",
+          "labels_at_t0": "item_1 paper_sheet labeled MAX 355g reads 'MAX 355g'. item_2 jar_of_coffee labeled 9g reads '9g'.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "surf_1": {
+            "cat": "bottom_cabinet",
+            "label": null,
+            "room": "living_room_0"
+          },
+          "surf_2": {
+            "cat": "countertop",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "surf_3": {
+            "cat": "countertop",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        },
+        "auto_support_labels": false
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I already staged the coffee with lunch, and I checked the limit earlier. Which is the largest snack I can add without taking the coffee-and-snack total over that limit?"
+        },
+        "fact_ledger": [
+          {
+            "id": "fact_001",
+            "fact": "The lunch limit sheet reads 'MAX 355g'.",
+            "from": "prologue",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "id": "fact_002",
+            "fact": "The coffee label reads '9g'.",
+            "from": "prologue",
+            "source_index": 3,
+            "source_phase": "opening"
+          },
+          {
+            "id": "fact_003",
+            "fact": "The coffee was put on surf_2 as the lunch staging surface.",
+            "from": "prologue",
+            "source_index": 6,
+            "source_phase": "opening"
+          },
+          {
+            "id": "fact_004",
+            "fact": "The cracker box's original package states a net weight of 351g.",
+            "from": "prologue",
+            "source_index": 8,
+            "source_phase": "opening"
+          },
+          {
+            "id": "fact_005",
+            "fact": "The cookie bag's original package states a net weight of 250g.",
+            "from": "prologue",
+            "source_index": 10,
+            "source_phase": "opening"
+          },
+          {
+            "id": "fact_006",
+            "fact": "The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.",
+            "from": "utterance",
+            "source_phase": "turn0"
+          },
+          {
+            "id": "fact_007",
+            "fact": "The numeric lunch limit is 355g.",
+            "from": "derived",
+            "derived_from": [
+              "fact_001"
+            ],
+            "source_phase": "derived"
+          },
+          {
+            "id": "fact_008",
+            "fact": "The coffee amount is 9g.",
+            "from": "derived",
+            "derived_from": [
+              "fact_002"
+            ],
+            "source_phase": "derived"
+          },
+          {
+            "id": "fact_009",
+            "fact": "The cracker box amount is 351g.",
+            "from": "derived",
+            "derived_from": [
+              "fact_004"
+            ],
+            "source_phase": "derived"
+          },
+          {
+            "id": "fact_010",
+            "fact": "The cookie bag amount is 250g.",
+            "from": "derived",
+            "derived_from": [
+              "fact_005"
+            ],
+            "source_phase": "derived"
+          },
+          {
+            "id": "fact_011",
+            "fact": "The coffee plus the cracker box would total 360g.",
+            "from": "derived",
+            "derived_from": [
+              "fact_008",
+              "fact_009"
+            ],
+            "source_phase": "derived"
+          },
+          {
+            "id": "fact_012",
+            "fact": "The coffee plus the cookie bag would total 259g.",
+            "from": "derived",
+            "derived_from": [
+              "fact_008",
+              "fact_010"
+            ],
+            "source_phase": "derived"
+          },
+          {
+            "id": "fact_013",
+            "fact": "360g is over the 355g limit, so the cracker box is not eligible.",
+            "from": "derived",
+            "derived_from": [
+              "fact_007",
+              "fact_011",
+              "fact_006"
+            ],
+            "source_phase": "derived"
+          },
+          {
+            "id": "fact_014",
+            "fact": "259g is under the 355g limit, so the cookie bag is eligible.",
+            "from": "derived",
+            "derived_from": [
+              "fact_007",
+              "fact_012",
+              "fact_006"
+            ],
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "item_4",
+            "target": "surf_2"
+          }
+        ],
+        "guidance": null,
+        "hidden_fact": null,
+        "human_own_script": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)",
+        "mates": [],
+        "oracle_program": "[Grab] <item_4> (1), [Walk] <surf_2> (1), [Put] <item_4> (1) <surf_2> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": [
+          {
+            "fact_ids": [
+              "fact_011",
+              "fact_012",
+              "fact_013",
+              "fact_014"
+            ],
+            "index": 0,
+            "referents": [
+              "item_4"
+            ],
+            "say": "Choose the 250g cookie bag. With the 9g coffee it totals 259g. The 351g cracker box would total 360g and exceed the earlier limit."
+          }
+        ],
+        "steps": null,
+        "story_check": "The question hides the previously observed 355g limit. The oracle selects the native 250g cookie package, while the weak branch selects the native 351g cracker package that would exceed the combined limit.",
+        "utterance": "I already staged the coffee with lunch, and I checked the limit earlier. Which is the largest snack I can add without taking the coffee-and-snack total over that limit?"
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "physical_preflight": {
+          "diagnostics": [],
+          "physical": {
+            "failures": [],
+            "ok": true,
+            "sited": true,
+            "staged": true,
+            "start": true,
+            "why_sited": "living_room_0, kitchen_0",
+            "why_staged": "Manual group-C repaired staging.",
+            "why_start": ""
+          },
+          "report_version": "manual-group-c-metadata-sync/1.0",
+          "resolved": {
+            "objects": [
+              {
+                "category": "paper_sheet",
+                "key": "item_1",
+                "model": ""
+              },
+              {
+                "category": "jar_of_coffee",
+                "key": "item_2",
+                "model": "bnrvcs"
+              },
+              {
+                "category": "box_of_crackers",
+                "key": "item_3",
+                "model": "cmdigf"
+              },
+              {
+                "category": "bag_of_cookies",
+                "key": "item_4",
+                "model": "ksjtde"
+              }
+            ],
+            "parts": [],
+            "room": "living_room_0",
+            "scene": "Ihlen_1_int",
+            "surfaces": [
+              {
+                "category": "bottom_cabinet",
+                "key": "surf_1",
+                "model": ""
+              },
+              {
+                "category": "countertop",
+                "key": "surf_2",
+                "model": ""
+              },
+              {
+                "category": "countertop",
+                "key": "surf_3",
+                "model": ""
+              }
+            ],
+            "units": []
+          },
+          "seconds": 0.0,
+          "status": "PASS",
+          "task_id": "ASK-88003"
+        },
+        "sim_debt": [],
+        "soft": [],
+        "traces": {}
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <surf_1> (1)",
+        "[LookAt] <item_1> (1)",
+        "[Walk] <item_2> (1)",
+        "[LookAt] <item_2> (1)",
+        "[Grab] <item_2> (1)",
+        "[Walk] <surf_2> (1)",
+        "[Put] <item_2> (1) <surf_2> (1)",
+        "[Walk] <item_3> (1)",
+        "[LookAt] <item_3> (1)",
+        "[Walk] <item_4> (1)",
+        "[LookAt] <item_4> (1)"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_1"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "The lunch limit sheet reads 'MAX 355g'.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The numeric lunch limit is 355g.",
+            "channel": "derived"
+          },
+          {
+            "id": "fact_013",
+            "kind": "evidence",
+            "statement": "360g is over the 355g limit, so the cracker box is not eligible.",
+            "channel": "derived"
+          },
+          {
+            "id": "fact_014",
+            "kind": "evidence",
+            "statement": "259g is under the 355g limit, so the cookie bag is eligible.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "item_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The coffee label reads '9g'.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The coffee amount is 9g.",
+            "channel": "derived"
+          },
+          {
+            "id": "fact_011",
+            "kind": "evidence",
+            "statement": "The coffee plus the cracker box would total 360g.",
+            "channel": "derived"
+          },
+          {
+            "id": "fact_012",
+            "kind": "evidence",
+            "statement": "The coffee plus the cookie bag would total 259g.",
+            "channel": "derived"
+          },
+          {
+            "id": "fact_013",
+            "kind": "evidence",
+            "statement": "360g is over the 355g limit, so the cracker box is not eligible.",
+            "channel": "derived"
+          },
+          {
+            "id": "fact_014",
+            "kind": "evidence",
+            "statement": "259g is under the 355g limit, so the cookie bag is eligible.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "item_2",
+            "surf_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The coffee was put on surf_2 as the lunch staging surface.",
+            "channel": "prologue"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "item_3"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "item_3"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_3"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The cracker box's original package states a net weight of 351g.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The cracker box amount is 351g.",
+            "channel": "derived"
+          },
+          {
+            "id": "fact_011",
+            "kind": "evidence",
+            "statement": "The coffee plus the cracker box would total 360g.",
+            "channel": "derived"
+          },
+          {
+            "id": "fact_013",
+            "kind": "evidence",
+            "statement": "360g is over the 355g limit, so the cracker box is not eligible.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "item_4"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "item_4"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_4"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The cookie bag's original package states a net weight of 250g.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The cookie bag amount is 250g.",
+            "channel": "derived"
+          },
+          {
+            "id": "fact_012",
+            "kind": "evidence",
+            "statement": "The coffee plus the cookie bag would total 259g.",
+            "channel": "derived"
+          },
+          {
+            "id": "fact_014",
+            "kind": "evidence",
+            "statement": "259g is under the 355g limit, so the cookie bag is eligible.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "I already staged the coffee with lunch, and I checked the limit earlier. Which is the largest snack I can add without taking the coffee-and-snack total over that limit?",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_013",
+            "kind": "evidence",
+            "statement": "360g is over the 355g limit, so the cracker box is not eligible.",
+            "channel": "derived"
+          },
+          {
+            "id": "fact_014",
+            "kind": "evidence",
+            "statement": "259g is under the 355g limit, so the cookie bag is eligible.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Choose the 250g cookie bag. With the 9g coffee it totals 259g. The 351g cracker box would total 360g and exceed the earlier limit.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_3"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_3"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "item_3",
+            "surf_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_4"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_4"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "item_4",
+            "surf_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "The lunch limit sheet reads 'MAX 355g'.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_002",
+        "statement": "The coffee label reads '9g'.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p003"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 3
+      },
+      {
+        "id": "fact_003",
+        "statement": "The coffee was put on surf_2 as the lunch staging surface.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p006"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 6
+      },
+      {
+        "id": "fact_004",
+        "statement": "The cracker box's original package states a net weight of 351g.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p008"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 8
+      },
+      {
+        "id": "fact_005",
+        "statement": "The cookie bag's original package states a net weight of 250g.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p010"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 10
+      },
+      {
+        "id": "fact_006",
+        "statement": "The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0"
+      },
+      {
+        "id": "fact_007",
+        "statement": "The numeric lunch limit is 355g.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "derived_from": [
+          "fact_001"
+        ]
+      },
+      {
+        "id": "fact_008",
+        "statement": "The coffee amount is 9g.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "p003"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "derived_from": [
+          "fact_002"
+        ]
+      },
+      {
+        "id": "fact_009",
+        "statement": "The cracker box amount is 351g.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "p008"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "derived_from": [
+          "fact_004"
+        ]
+      },
+      {
+        "id": "fact_010",
+        "statement": "The cookie bag amount is 250g.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "p010"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "derived_from": [
+          "fact_005"
+        ]
+      },
+      {
+        "id": "fact_011",
+        "statement": "The coffee plus the cracker box would total 360g.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "p003",
+          "p008"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "derived_from": [
+          "fact_008",
+          "fact_009"
+        ]
+      },
+      {
+        "id": "fact_012",
+        "statement": "The coffee plus the cookie bag would total 259g.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "p003",
+          "p010"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "derived_from": [
+          "fact_008",
+          "fact_010"
+        ]
+      },
+      {
+        "id": "fact_013",
+        "statement": "360g is over the 355g limit, so the cracker box is not eligible.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "p001",
+          "p003",
+          "p008",
+          "turn0"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "derived_from": [
+          "fact_007",
+          "fact_011",
+          "fact_006"
+        ]
+      },
+      {
+        "id": "fact_014",
+        "statement": "259g is under the 355g limit, so the cookie bag is eligible.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "p001",
+          "p003",
+          "p010",
+          "turn0"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "derived_from": [
+          "fact_007",
+          "fact_012",
+          "fact_006"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the earlier limit and coffee weight together with the two visible snack weights to independently choose the largest valid snack. Then direct the person one physical step at a time to place only that selected snack on the lunch-staging counter beside the coffee, leaving the other snack and the coffee where they are.",
+      "human_task_context": "Wait for the Assistant to explicitly select one snack. Put only that snack beside the coffee at the lunch staging surface and leave the other snack in place. Do not perform the weight comparison yourself.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <surf_1> (1)",
+          "[LookAt] <item_1> (1)",
+          "[Walk] <item_2> (1)",
+          "[LookAt] <item_2> (1)",
+          "[Grab] <item_2> (1)",
+          "[Walk] <surf_2> (1)",
+          "[Put] <item_2> (1) <surf_2> (1)",
+          "[Walk] <item_3> (1)",
+          "[LookAt] <item_3> (1)",
+          "[Walk] <item_4> (1)",
+          "[LookAt] <item_4> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 11,
+            "say": "Hey, Assistant, with the coffee already counted, which is the biggest snack I can add without going over that limit?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, with the coffee already counted, which is the biggest snack I can add without going over that limit?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "bounded_snack_question",
+            "required_phrases": [
+              "coffee already counted",
+              "biggest snack",
+              "without going over that limit"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "forbidden_successful_commands": [
+          "[Grab] <item_3> (1)"
+        ],
+        "verification_points": [
+          {
+            "id": "selected_snack_on_lunch_stage",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "item_4",
+            "target": "surf_2"
+          },
+          {
+            "id": "coffee_remains_on_lunch_stage",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "item_2",
+            "target": "surf_2"
+          },
+          {
+            "id": "other_snack_stays_on_counter",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "item_3",
+            "target": "surf_3"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "surf_2": [
+          "lunch-staging counter",
+          "counter holding the coffee",
+          "first kitchen counter"
+        ],
+        "surf_3": [
+          "counter holding the two snacks",
+          "second kitchen counter"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 16,
+    "dialogue_budget": 1,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "item_4",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "item_4"
+            ],
+            "required_fact_ids": [
+              "fact_011",
+              "fact_012",
+              "fact_013",
+              "fact_014"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "item_4",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "item_4",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "surf_2",
+            "truth": true
+          },
+          "next_beat": "o002"
+        }
+      ],
+      "terminal_beats": [
+        "h002",
+        "o002"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "item_4"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_2"
+        ]
+      },
+      {
+        "verb": "Put",
+        "args": [
+          "item_4",
+          "surf_2"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "item_3"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_2"
+        ]
+      },
+      {
+        "verb": "Put",
+        "args": [
+          "item_3",
+          "surf_2"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Choose the 250g cookie bag. With the 9g coffee it totals 259g. The 351g cracker box would total 360g and exceed the earlier limit.",
+        "relation": "at",
+        "anchor_beat_id": "o000",
+        "source": "speaks_at",
+        "source_index": 0
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    }
+  },
+  "lineage": {
+    "source": "ask17_interaction_assembly",
+    "compile_input_digest": "sha256:76bd4f7a04be26e2a8884944bbc92f645cbdfbaa1dd21dbc5730b79c5b7a69a7",
+    "source_contract_digest": "sha256:5656d7067808ae666edc2920f09c2142c3e135d0dc617405ea49c209de5867a7",
+    "executable_spec_digest": "sha256:c7784a962a8023fed205d5e1e8372d018141b39b93ed72a218bf91439a2e3dca",
+    "invention": {
+      "attempt": 1,
+      "capability": {
+        "boundary": "The hard part is computation over externally read values, not counting the wearer's own actions and not merely repeating a price or measurement.",
+        "id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+        "name_zh": "跨时空数值比较",
+        "target": "Combine numeric values read at different times or places and perform the required comparison, conversion, or arithmetic before answering."
+      },
+      "capability_support": {},
+      "grounding_contract": {
+        "allowed_container_categories": [],
+        "allowed_loose_categories": [
+          "bag_of_cookies",
+          "box_of_crackers",
+          "jar_of_coffee",
+          "paper_sheet"
+        ],
+        "allowed_surface_categories": [
+          "bottom_cabinet",
+          "countertop"
+        ],
+        "capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+        "coverage_categories": [
+          "bag_of_cookies",
+          "box_of_crackers",
+          "jar_of_coffee",
+          "paper_sheet"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": true,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": true,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "ASK",
+        "limits": {
+          "max_authored_actions": 26,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 18,
+          "max_small_label_characters": 8,
+          "max_task_actions": 12,
+          "min_intervening_meaningful_actions": 3,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "bag_of_cookies",
+          "box_of_crackers",
+          "jar_of_coffee",
+          "paper_sheet"
+        ],
+        "preferred_story_category_glosses": {
+          "bag_of_cookies": "",
+          "box_of_crackers": "",
+          "jar_of_coffee": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "name": "living_room_0"
+          },
+          {
+            "name": "kitchen_0"
+          }
+        ],
+        "scene": "Ihlen_1_int",
+        "task_id": "ASK-88003",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "prompt_version": "capability-v40-template-cap3-20260901",
+      "prose_sha256": "sha256:4277d715ceaa6d99d61aac16b361dd906fd51439c4878755c34b174295953065",
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "The lunch limit sheet reads 'MAX 355g'.; The coffee label reads '9g'.; The coffee was put on surf_2 as the lunch staging surface.; The cracker box's original package states a net weight of 351g.; The cookie bag's original package states a net weight of 250g.; The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.; The numeric lunch limit is 355g.; The coffee amount is 9g.; The cracker box amount is 351g.; The cookie bag amount is 250g.; The coffee plus the cracker box would total 360g.; The coffee plus the cookie bag would total 259g.; 360g is over the 355g limit, so the cracker box is not eligible.; 259g is under the 355g limit, so the cookie bag is eligible.",
+          "semantic_turns": 1,
+          "story_world_mismatches": [],
+          "strong_weak_distinct": true,
+          "uses_only_grounded_assets": true
+        },
+        "capability_fit": "Manual group-C repair for ASK-88003.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "paper_sheet",
+                "changed": true,
+                "costs": null,
+                "label": "MAX 355g",
+                "tint": null,
+                "what": "item_1 paper_sheet labeled MAX 355g"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "jar_of_coffee",
+                "changed": true,
+                "costs": null,
+                "label": "9g",
+                "tint": null,
+                "what": "item_2 jar_of_coffee labeled 9g"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "box_of_crackers",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "item_3 box_of_crackers"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "bag_of_cookies",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "item_4 bag_of_cookies"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "bottom_cabinet",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "surf_1 bottom_cabinet"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "countertop",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "surf_2 countertop"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "countertop",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "surf_3 countertop"
+              }
+            ],
+            "distinct_by": [
+              "earlier lunch limit plus native net weights on two distinct packages"
+            ],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [
+              {
+                "rides": "item_1 paper_sheet labeled MAX 355g",
+                "text": "MAX 355g",
+                "what": "readable printed object label",
+                "which": "item_1"
+              },
+              {
+                "rides": "item_2 jar_of_coffee labeled 9g",
+                "text": "9g",
+                "what": "readable printed object label",
+                "which": "item_2"
+              }
+            ],
+            "restaged_story": "The wearer is packing a small lunch. They first walk to the living-room side surface, read a formal limit sheet marked 'MAX 355g', and read the coffee's realistic 9g meal-plan label. They carry the coffee to the kitchen lunch staging surface, then walk to the snack counter. There they briefly lift each package for a close look at its printed weight and set it back down. The branded cracker box states 351g and the branded cookie bag states 250g; neither snack has an oversized pasted-on weight label. At turn zero they ask which is the largest snack that can be added without taking the combined amount over the earlier limit. The assistant rejects the crackers because 9+351=360g, and selects the cookies because 9+250=259g.",
+            "scene": "Ihlen_1_int",
+            "why_scene": "Provides separated kitchen/living-room surfaces."
+          },
+          "needs": {
+            "assessment_contract": {
+              "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+              "assigned_scene": "Ihlen_1_int",
+              "core_question": "I already staged the coffee with lunch, and I checked the limit earlier. Which is the largest snack I can add without taking the coffee-and-snack total over that limit?",
+              "counterfactual_failure": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)",
+              "forbidden_changes": [],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "The lunch limit sheet reads 'MAX 355g'.",
+                "The coffee label reads '9g'.",
+                "The coffee was put on surf_2 as the lunch staging surface.",
+                "The cracker box's original package states a net weight of 351g.",
+                "The cookie bag's original package states a net weight of 250g.",
+                "The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.",
+                "The numeric lunch limit is 355g.",
+                "The coffee amount is 9g.",
+                "The cracker box amount is 351g.",
+                "The cookie bag amount is 250g.",
+                "The coffee plus the cracker box would total 360g.",
+                "The coffee plus the cookie bag would total 259g.",
+                "360g is over the 355g limit, so the cracker box is not eligible.",
+                "259g is under the 355g limit, so the cookie bag is eligible."
+              ],
+              "required_final_predicates": [
+                "on"
+              ],
+              "success_condition": "on(cookie bag, lunch staging counter)",
+              "temporal_constraints": []
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_1 paper_sheet labeled MAX 355g",
+                "what": "item_1 paper_sheet labeled MAX 355g",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_2 jar_of_coffee labeled 9g",
+                "what": "item_2 jar_of_coffee labeled 9g",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_3 box_of_crackers",
+                "what": "item_3 box_of_crackers",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_4 bag_of_cookies",
+                "what": "item_4 bag_of_cookies",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "surf_1 bottom_cabinet",
+                "what": "surf_1 bottom_cabinet",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "surf_2 countertop",
+                "what": "surf_2 countertop",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "surf_3 countertop",
+                "what": "surf_3 countertop",
+                "when": "both"
+              }
+            ]
+          }
+        },
+        "reason": "Manual group-C metadata synchronized to the repaired story.",
+        "runtime_requirements": {
+          "actions": [
+            "Grab",
+            "LookAt",
+            "Put",
+            "Walk"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 14,
+          "estimated_prologue_actions": 11,
+          "estimated_task_actions": 3,
+          "events": [],
+          "final_predicates": [
+            "on"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "structural_signature": {
+          "evaluation": "on(cookie bag, lunch staging counter)",
+          "evidence": "The lunch limit sheet reads 'MAX 355g'.; The coffee label reads '9g'.; The coffee was put on surf_2 as the lunch staging surface.; The cracker box's original package states a net weight of 351g.; The cookie bag's original package states a net weight of 250g.; The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.; The numeric lunch limit is 355g.; The coffee amount is 9g.; The cracker box amount is 351g.; The cookie bag amount is 250g.; The coffee plus the cracker box would total 360g.; The coffee plus the cookie bag would total 259g.; 360g is over the 355g limit, so the cracker box is not eligible.; 259g is under the 355g limit, so the cookie bag is eligible.",
+          "failure": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)",
+          "operation": "manual repaired ASK task",
+          "response": "Choose the 250g cookie bag. With the 9g coffee it totals 259g. The 351g cracker box would total 360g and exceed the earlier limit.",
+          "temporal": "repaired prologue before turn0"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The lunch limit sheet reads 'MAX 355g'.; The coffee label reads '9g'.; The coffee was put on surf_2 as the lunch staging surface.; The cracker box's original package states a net weight of 351g.; The cookie bag's original package states a net weight of 250g.; The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.; The numeric lunch limit is 355g.; The coffee amount is 9g.; The cracker box amount is 351g.; The cookie bag amount is 250g.; The coffee plus the cracker box would total 360g.; The coffee plus the cookie bag would total 259g.; 360g is over the 355g limit, so the cracker box is not eligible.; 259g is under the 355g limit, so the cookie bag is eligible.",
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_weak_distinct": true,
+            "uses_only_grounded_assets": true
+          },
+          "capability_fit": "Manual group-C repair for ASK-88003.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": true,
+                  "costs": null,
+                  "label": "MAX 355g",
+                  "tint": null,
+                  "what": "item_1 paper_sheet labeled MAX 355g"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "jar_of_coffee",
+                  "changed": true,
+                  "costs": null,
+                  "label": "9g",
+                  "tint": null,
+                  "what": "item_2 jar_of_coffee labeled 9g"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "box_of_crackers",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_3 box_of_crackers"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "bag_of_cookies",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_4 bag_of_cookies"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_1 bottom_cabinet"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "countertop",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_2 countertop"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "countertop",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_3 countertop"
+                }
+              ],
+              "distinct_by": [
+                "earlier lunch limit plus native net weights on two distinct packages"
+              ],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [
+                {
+                  "rides": "item_1 paper_sheet labeled MAX 355g",
+                  "text": "MAX 355g",
+                  "what": "readable printed object label",
+                  "which": "item_1"
+                },
+                {
+                  "rides": "item_2 jar_of_coffee labeled 9g",
+                  "text": "9g",
+                  "what": "readable printed object label",
+                  "which": "item_2"
+                }
+              ],
+              "restaged_story": "The wearer is packing a small lunch. They first walk to the living-room side surface, read a formal limit sheet marked 'MAX 355g', and read the coffee's realistic 9g meal-plan label. They carry the coffee to the kitchen lunch staging surface, then walk to the snack counter. There they briefly lift each package for a close look at its printed weight and set it back down. The branded cracker box states 351g and the branded cookie bag states 250g; neither snack has an oversized pasted-on weight label. At turn zero they ask which is the largest snack that can be added without taking the combined amount over the earlier limit. The assistant rejects the crackers because 9+351=360g, and selects the cookies because 9+250=259g.",
+              "scene": "Ihlen_1_int",
+              "why_scene": "Provides separated kitchen/living-room surfaces."
+            },
+            "needs": {
+              "assessment_contract": {
+                "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+                "assigned_scene": "Ihlen_1_int",
+                "core_question": "I already staged the coffee with lunch, and I checked the limit earlier. Which is the largest snack I can add without taking the coffee-and-snack total over that limit?",
+                "counterfactual_failure": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)",
+                "forbidden_changes": [],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "The lunch limit sheet reads 'MAX 355g'.",
+                  "The coffee label reads '9g'.",
+                  "The coffee was put on surf_2 as the lunch staging surface.",
+                  "The cracker box's original package states a net weight of 351g.",
+                  "The cookie bag's original package states a net weight of 250g.",
+                  "The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.",
+                  "The numeric lunch limit is 355g.",
+                  "The coffee amount is 9g.",
+                  "The cracker box amount is 351g.",
+                  "The cookie bag amount is 250g.",
+                  "The coffee plus the cracker box would total 360g.",
+                  "The coffee plus the cookie bag would total 259g.",
+                  "360g is over the 355g limit, so the cracker box is not eligible.",
+                  "259g is under the 355g limit, so the cookie bag is eligible."
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "on(cookie bag, lunch staging counter)",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_1 paper_sheet labeled MAX 355g",
+                  "what": "item_1 paper_sheet labeled MAX 355g",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_2 jar_of_coffee labeled 9g",
+                  "what": "item_2 jar_of_coffee labeled 9g",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_3 box_of_crackers",
+                  "what": "item_3 box_of_crackers",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_4 bag_of_cookies",
+                  "what": "item_4 bag_of_cookies",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_1 bottom_cabinet",
+                  "what": "surf_1 bottom_cabinet",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_2 countertop",
+                  "what": "surf_2 countertop",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_3 countertop",
+                  "what": "surf_3 countertop",
+                  "when": "both"
+                }
+              ]
+            }
+          },
+          "reason": "Manual group-C metadata synchronized to the repaired story.",
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "LookAt",
+              "Put",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 14,
+            "estimated_prologue_actions": 11,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "structural_signature": {
+            "evaluation": "on(cookie bag, lunch staging counter)",
+            "evidence": "The lunch limit sheet reads 'MAX 355g'.; The coffee label reads '9g'.; The coffee was put on surf_2 as the lunch staging surface.; The cracker box's original package states a net weight of 351g.; The cookie bag's original package states a net weight of 250g.; The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.; The numeric lunch limit is 355g.; The coffee amount is 9g.; The cracker box amount is 351g.; The cookie bag amount is 250g.; The coffee plus the cracker box would total 360g.; The coffee plus the cookie bag would total 259g.; 360g is over the 355g limit, so the cracker box is not eligible.; 259g is under the 355g limit, so the cookie bag is eligible.",
+            "failure": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)",
+            "operation": "manual repaired ASK task",
+            "response": "Choose the 250g cookie bag. With the 9g coffee it totals 259g. The 351g cracker box would total 360g and exceed the earlier limit.",
+            "temporal": "repaired prologue before turn0"
+          },
+          "verdict": "KEEP"
+        },
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The lunch limit sheet reads 'MAX 355g'.; The coffee label reads '9g'.; The coffee was put on surf_2 as the lunch staging surface.; The cracker box's original package states a net weight of 351g.; The cookie bag's original package states a net weight of 250g.; The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.; The numeric lunch limit is 355g.; The coffee amount is 9g.; The cracker box amount is 351g.; The cookie bag amount is 250g.; The coffee plus the cracker box would total 360g.; The coffee plus the cookie bag would total 259g.; 360g is over the 355g limit, so the cracker box is not eligible.; 259g is under the 355g limit, so the cookie bag is eligible.",
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_weak_distinct": true,
+            "uses_only_grounded_assets": true
+          },
+          "capability_fit": "Manual group-C repair for ASK-88003.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": true,
+                  "costs": null,
+                  "label": "MAX 355g",
+                  "tint": null,
+                  "what": "item_1 paper_sheet labeled MAX 355g"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "jar_of_coffee",
+                  "changed": true,
+                  "costs": null,
+                  "label": "9g",
+                  "tint": null,
+                  "what": "item_2 jar_of_coffee labeled 9g"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "box_of_crackers",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_3 box_of_crackers"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "bag_of_cookies",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_4 bag_of_cookies"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_1 bottom_cabinet"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "countertop",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_2 countertop"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "countertop",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_3 countertop"
+                }
+              ],
+              "distinct_by": [
+                "earlier lunch limit plus native net weights on two distinct packages"
+              ],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [
+                {
+                  "rides": "item_1 paper_sheet labeled MAX 355g",
+                  "text": "MAX 355g",
+                  "what": "readable printed object label",
+                  "which": "item_1"
+                },
+                {
+                  "rides": "item_2 jar_of_coffee labeled 9g",
+                  "text": "9g",
+                  "what": "readable printed object label",
+                  "which": "item_2"
+                }
+              ],
+              "restaged_story": "The wearer is packing a small lunch. They first walk to the living-room side surface, read a formal limit sheet marked 'MAX 355g', and read the coffee's realistic 9g meal-plan label. They carry the coffee to the kitchen lunch staging surface, then walk to the snack counter. There they briefly lift each package for a close look at its printed weight and set it back down. The branded cracker box states 351g and the branded cookie bag states 250g; neither snack has an oversized pasted-on weight label. At turn zero they ask which is the largest snack that can be added without taking the combined amount over the earlier limit. The assistant rejects the crackers because 9+351=360g, and selects the cookies because 9+250=259g.",
+              "scene": "Ihlen_1_int",
+              "why_scene": "Provides separated kitchen/living-room surfaces."
+            },
+            "needs": {
+              "assessment_contract": {
+                "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+                "assigned_scene": "Ihlen_1_int",
+                "core_question": "I already staged the coffee with lunch, and I checked the limit earlier. Which is the largest snack I can add without taking the coffee-and-snack total over that limit?",
+                "counterfactual_failure": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)",
+                "forbidden_changes": [],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "The lunch limit sheet reads 'MAX 355g'.",
+                  "The coffee label reads '9g'.",
+                  "The coffee was put on surf_2 as the lunch staging surface.",
+                  "The cracker box's original package states a net weight of 351g.",
+                  "The cookie bag's original package states a net weight of 250g.",
+                  "The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.",
+                  "The numeric lunch limit is 355g.",
+                  "The coffee amount is 9g.",
+                  "The cracker box amount is 351g.",
+                  "The cookie bag amount is 250g.",
+                  "The coffee plus the cracker box would total 360g.",
+                  "The coffee plus the cookie bag would total 259g.",
+                  "360g is over the 355g limit, so the cracker box is not eligible.",
+                  "259g is under the 355g limit, so the cookie bag is eligible."
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "on(cookie bag, lunch staging counter)",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_1 paper_sheet labeled MAX 355g",
+                  "what": "item_1 paper_sheet labeled MAX 355g",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_2 jar_of_coffee labeled 9g",
+                  "what": "item_2 jar_of_coffee labeled 9g",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_3 box_of_crackers",
+                  "what": "item_3 box_of_crackers",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_4 bag_of_cookies",
+                  "what": "item_4 bag_of_cookies",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_1 bottom_cabinet",
+                  "what": "surf_1 bottom_cabinet",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_2 countertop",
+                  "what": "surf_2 countertop",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_3 countertop",
+                  "what": "surf_3 countertop",
+                  "when": "both"
+                }
+              ]
+            }
+          },
+          "reason": "Manual group-C metadata synchronized to the repaired story.",
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "LookAt",
+              "Put",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 14,
+            "estimated_prologue_actions": 11,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "structural_signature": {
+            "evaluation": "on(cookie bag, lunch staging counter)",
+            "evidence": "The lunch limit sheet reads 'MAX 355g'.; The coffee label reads '9g'.; The coffee was put on surf_2 as the lunch staging surface.; The cracker box's original package states a net weight of 351g.; The cookie bag's original package states a net weight of 250g.; The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.; The numeric lunch limit is 355g.; The coffee amount is 9g.; The cracker box amount is 351g.; The cookie bag amount is 250g.; The coffee plus the cracker box would total 360g.; The coffee plus the cookie bag would total 259g.; 360g is over the 355g limit, so the cracker box is not eligible.; 259g is under the 355g limit, so the cookie bag is eligible.",
+            "failure": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)",
+            "operation": "manual repaired ASK task",
+            "response": "Choose the 250g cookie bag. With the 9g coffee it totals 259g. The 351g cracker box would total 360g and exceed the earlier limit.",
+            "temporal": "repaired prologue before turn0"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "Ihlen_1_int",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_final120_v35_realism_parallel24_20260901a/repairs/resurrect_ask88003/reviewed_v4/compile_input/ASK/run.json",
+      "author_prose": "The wearer is packing a small lunch. They first walk to the living-room side surface, read a formal limit sheet marked 'MAX 355g', and read the coffee's realistic 9g meal-plan label. They carry the coffee to the kitchen lunch staging surface, then walk to the snack counter. There they briefly lift each package for a close look at its printed weight and set it back down. The branded cracker box states 351g and the branded cookie bag states 250g; neither snack has an oversized pasted-on weight label. At turn zero they ask which is the largest snack that can be added without taking the combined amount over the earlier limit. The assistant rejects the crackers because 9+351=360g, and selects the cookies because 9+250=259g.",
+      "author_prose_sha256": "sha256:4277d715ceaa6d99d61aac16b361dd906fd51439c4878755c34b174295953065",
+      "sha": "sha256:4277d715ceaa6d99d61aac16b361dd906fd51439c4878755c34b174295953065"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gpt-5-5-genai-responses",
+      "judge_model": "gemini-3-1-pro-preview-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260901s"
+    },
+    "production_release": {},
+    "normalizations": [],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "ASK-88003",
+    "revision": "ask17-interaction-20260912",
+    "benchmark_split": "production",
+    "physical_taskpack_sha256": "sha256:fa42094ba3803e7b7bcaa9510513f4a272205e40e7c9c8433eb35f35dbee4cb1",
+    "metadata_repairs": [],
+    "parent_lineage": {
+      "source": "data_generate.compile_v2",
+      "compile_input_digest": "sha256:76bd4f7a04be26e2a8884944bbc92f645cbdfbaa1dd21dbc5730b79c5b7a69a7",
+      "source_contract_digest": "sha256:5656d7067808ae666edc2920f09c2142c3e135d0dc617405ea49c209de5867a7",
+      "executable_spec_digest": "sha256:c7784a962a8023fed205d5e1e8372d018141b39b93ed72a218bf91439a2e3dca",
+      "invention": {
+        "attempt": 1,
+        "capability": {
+          "boundary": "The hard part is computation over externally read values, not counting the wearer's own actions and not merely repeating a price or measurement.",
+          "id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+          "name_zh": "跨时空数值比较",
+          "target": "Combine numeric values read at different times or places and perform the required comparison, conversion, or arithmetic before answering."
+        },
+        "capability_support": {},
+        "grounding_contract": {
+          "allowed_container_categories": [],
+          "allowed_loose_categories": [
+            "bag_of_cookies",
+            "box_of_crackers",
+            "jar_of_coffee",
+            "paper_sheet"
+          ],
+          "allowed_surface_categories": [
+            "bottom_cabinet",
+            "countertop"
+          ],
+          "capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+          "coverage_categories": [
+            "bag_of_cookies",
+            "box_of_crackers",
+            "jar_of_coffee",
+            "paper_sheet"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 1,
+            "required_semantic_turns": 1,
+            "requires_cross_room_transition": true,
+            "requires_dynamic_evidence": false,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_memory_gap": true,
+            "requires_reselection": false,
+            "single_wearer_only": true,
+            "text_evidence_required": true,
+            "weak_branch_must_fail": true
+          },
+          "family": "ASK",
+          "limits": {
+            "max_authored_actions": 26,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_meaningful_steps": 15,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 18,
+            "max_small_label_characters": 8,
+            "max_task_actions": 12,
+            "min_intervening_meaningful_actions": 3,
+            "min_meaningful_steps": 1
+          },
+          "preferred_story_categories": [
+            "bag_of_cookies",
+            "box_of_crackers",
+            "jar_of_coffee",
+            "paper_sheet"
+          ],
+          "preferred_story_category_glosses": {
+            "bag_of_cookies": "",
+            "box_of_crackers": "",
+            "jar_of_coffee": "",
+            "paper_sheet": ""
+          },
+          "rooms": [
+            {
+              "name": "living_room_0"
+            },
+            {
+              "name": "kitchen_0"
+            }
+          ],
+          "scene": "Ihlen_1_int",
+          "task_id": "ASK-88003",
+          "version": "grounded-authoring/3.1-hard-context-20260901"
+        },
+        "prompt_version": "capability-v40-template-cap3-20260901",
+        "prose_sha256": "sha256:4277d715ceaa6d99d61aac16b361dd906fd51439c4878755c34b174295953065",
+        "review": {
+          "benchmark_check": {
+            "egocentric_evidence": "The lunch limit sheet reads 'MAX 355g'.; The coffee label reads '9g'.; The coffee was put on surf_2 as the lunch staging surface.; The cracker box's original package states a net weight of 351g.; The cookie bag's original package states a net weight of 250g.; The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.; The numeric lunch limit is 355g.; The coffee amount is 9g.; The cracker box amount is 351g.; The cookie bag amount is 250g.; The coffee plus the cracker box would total 360g.; The coffee plus the cookie bag would total 259g.; 360g is over the 355g limit, so the cracker box is not eligible.; 259g is under the 355g limit, so the cookie bag is eligible.",
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_weak_distinct": true,
+            "uses_only_grounded_assets": true
+          },
+          "capability_fit": "Manual group-C repair for ASK-88003.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": true,
+                  "costs": null,
+                  "label": "MAX 355g",
+                  "tint": null,
+                  "what": "item_1 paper_sheet labeled MAX 355g"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "jar_of_coffee",
+                  "changed": true,
+                  "costs": null,
+                  "label": "9g",
+                  "tint": null,
+                  "what": "item_2 jar_of_coffee labeled 9g"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "box_of_crackers",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_3 box_of_crackers"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "bag_of_cookies",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "item_4 bag_of_cookies"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_1 bottom_cabinet"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "countertop",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_2 countertop"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "countertop",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_3 countertop"
+                }
+              ],
+              "distinct_by": [
+                "earlier lunch limit plus native net weights on two distinct packages"
+              ],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [
+                {
+                  "rides": "item_1 paper_sheet labeled MAX 355g",
+                  "text": "MAX 355g",
+                  "what": "readable printed object label",
+                  "which": "item_1"
+                },
+                {
+                  "rides": "item_2 jar_of_coffee labeled 9g",
+                  "text": "9g",
+                  "what": "readable printed object label",
+                  "which": "item_2"
+                }
+              ],
+              "restaged_story": "The wearer is packing a small lunch. They first walk to the living-room side surface, read a formal limit sheet marked 'MAX 355g', and read the coffee's realistic 9g meal-plan label. They carry the coffee to the kitchen lunch staging surface, then walk to the snack counter. There they briefly lift each package for a close look at its printed weight and set it back down. The branded cracker box states 351g and the branded cookie bag states 250g; neither snack has an oversized pasted-on weight label. At turn zero they ask which is the largest snack that can be added without taking the combined amount over the earlier limit. The assistant rejects the crackers because 9+351=360g, and selects the cookies because 9+250=259g.",
+              "scene": "Ihlen_1_int",
+              "why_scene": "Provides separated kitchen/living-room surfaces."
+            },
+            "needs": {
+              "assessment_contract": {
+                "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+                "assigned_scene": "Ihlen_1_int",
+                "core_question": "I already staged the coffee with lunch, and I checked the limit earlier. Which is the largest snack I can add without taking the coffee-and-snack total over that limit?",
+                "counterfactual_failure": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)",
+                "forbidden_changes": [],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "The lunch limit sheet reads 'MAX 355g'.",
+                  "The coffee label reads '9g'.",
+                  "The coffee was put on surf_2 as the lunch staging surface.",
+                  "The cracker box's original package states a net weight of 351g.",
+                  "The cookie bag's original package states a net weight of 250g.",
+                  "The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.",
+                  "The numeric lunch limit is 355g.",
+                  "The coffee amount is 9g.",
+                  "The cracker box amount is 351g.",
+                  "The cookie bag amount is 250g.",
+                  "The coffee plus the cracker box would total 360g.",
+                  "The coffee plus the cookie bag would total 259g.",
+                  "360g is over the 355g limit, so the cracker box is not eligible.",
+                  "259g is under the 355g limit, so the cookie bag is eligible."
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "on(cookie bag, lunch staging counter)",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_1 paper_sheet labeled MAX 355g",
+                  "what": "item_1 paper_sheet labeled MAX 355g",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_2 jar_of_coffee labeled 9g",
+                  "what": "item_2 jar_of_coffee labeled 9g",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_3 box_of_crackers",
+                  "what": "item_3 box_of_crackers",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_4 bag_of_cookies",
+                  "what": "item_4 bag_of_cookies",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_1 bottom_cabinet",
+                  "what": "surf_1 bottom_cabinet",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_2 countertop",
+                  "what": "surf_2 countertop",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_3 countertop",
+                  "what": "surf_3 countertop",
+                  "when": "both"
+                }
+              ]
+            }
+          },
+          "reason": "Manual group-C metadata synchronized to the repaired story.",
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "LookAt",
+              "Put",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 14,
+            "estimated_prologue_actions": 11,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "structural_signature": {
+            "evaluation": "on(cookie bag, lunch staging counter)",
+            "evidence": "The lunch limit sheet reads 'MAX 355g'.; The coffee label reads '9g'.; The coffee was put on surf_2 as the lunch staging surface.; The cracker box's original package states a net weight of 351g.; The cookie bag's original package states a net weight of 250g.; The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.; The numeric lunch limit is 355g.; The coffee amount is 9g.; The cracker box amount is 351g.; The cookie bag amount is 250g.; The coffee plus the cracker box would total 360g.; The coffee plus the cookie bag would total 259g.; 360g is over the 355g limit, so the cracker box is not eligible.; 259g is under the 355g limit, so the cookie bag is eligible.",
+            "failure": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)",
+            "operation": "manual repaired ASK task",
+            "response": "Choose the 250g cookie bag. With the 9g coffee it totals 259g. The 351g cracker box would total 360g and exceed the earlier limit.",
+            "temporal": "repaired prologue before turn0"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "The lunch limit sheet reads 'MAX 355g'.; The coffee label reads '9g'.; The coffee was put on surf_2 as the lunch staging surface.; The cracker box's original package states a net weight of 351g.; The cookie bag's original package states a net weight of 250g.; The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.; The numeric lunch limit is 355g.; The coffee amount is 9g.; The cracker box amount is 351g.; The cookie bag amount is 250g.; The coffee plus the cracker box would total 360g.; The coffee plus the cookie bag would total 259g.; 360g is over the 355g limit, so the cracker box is not eligible.; 259g is under the 355g limit, so the cookie bag is eligible.",
+              "semantic_turns": 1,
+              "story_world_mismatches": [],
+              "strong_weak_distinct": true,
+              "uses_only_grounded_assets": true
+            },
+            "capability_fit": "Manual group-C repair for ASK-88003.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "paper_sheet",
+                    "changed": true,
+                    "costs": null,
+                    "label": "MAX 355g",
+                    "tint": null,
+                    "what": "item_1 paper_sheet labeled MAX 355g"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "jar_of_coffee",
+                    "changed": true,
+                    "costs": null,
+                    "label": "9g",
+                    "tint": null,
+                    "what": "item_2 jar_of_coffee labeled 9g"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "box_of_crackers",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "item_3 box_of_crackers"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "bag_of_cookies",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "item_4 bag_of_cookies"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "bottom_cabinet",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_1 bottom_cabinet"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "countertop",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_2 countertop"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "countertop",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_3 countertop"
+                  }
+                ],
+                "distinct_by": [
+                  "earlier lunch limit plus native net weights on two distinct packages"
+                ],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [
+                  {
+                    "rides": "item_1 paper_sheet labeled MAX 355g",
+                    "text": "MAX 355g",
+                    "what": "readable printed object label",
+                    "which": "item_1"
+                  },
+                  {
+                    "rides": "item_2 jar_of_coffee labeled 9g",
+                    "text": "9g",
+                    "what": "readable printed object label",
+                    "which": "item_2"
+                  }
+                ],
+                "restaged_story": "The wearer is packing a small lunch. They first walk to the living-room side surface, read a formal limit sheet marked 'MAX 355g', and read the coffee's realistic 9g meal-plan label. They carry the coffee to the kitchen lunch staging surface, then walk to the snack counter. There they briefly lift each package for a close look at its printed weight and set it back down. The branded cracker box states 351g and the branded cookie bag states 250g; neither snack has an oversized pasted-on weight label. At turn zero they ask which is the largest snack that can be added without taking the combined amount over the earlier limit. The assistant rejects the crackers because 9+351=360g, and selects the cookies because 9+250=259g.",
+                "scene": "Ihlen_1_int",
+                "why_scene": "Provides separated kitchen/living-room surfaces."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+                  "assigned_scene": "Ihlen_1_int",
+                  "core_question": "I already staged the coffee with lunch, and I checked the limit earlier. Which is the largest snack I can add without taking the coffee-and-snack total over that limit?",
+                  "counterfactual_failure": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)",
+                  "forbidden_changes": [],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "The lunch limit sheet reads 'MAX 355g'.",
+                    "The coffee label reads '9g'.",
+                    "The coffee was put on surf_2 as the lunch staging surface.",
+                    "The cracker box's original package states a net weight of 351g.",
+                    "The cookie bag's original package states a net weight of 250g.",
+                    "The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.",
+                    "The numeric lunch limit is 355g.",
+                    "The coffee amount is 9g.",
+                    "The cracker box amount is 351g.",
+                    "The cookie bag amount is 250g.",
+                    "The coffee plus the cracker box would total 360g.",
+                    "The coffee plus the cookie bag would total 259g.",
+                    "360g is over the 355g limit, so the cracker box is not eligible.",
+                    "259g is under the 355g limit, so the cookie bag is eligible."
+                  ],
+                  "required_final_predicates": [
+                    "on"
+                  ],
+                  "success_condition": "on(cookie bag, lunch staging counter)",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_1 paper_sheet labeled MAX 355g",
+                    "what": "item_1 paper_sheet labeled MAX 355g",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_2 jar_of_coffee labeled 9g",
+                    "what": "item_2 jar_of_coffee labeled 9g",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_3 box_of_crackers",
+                    "what": "item_3 box_of_crackers",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_4 bag_of_cookies",
+                    "what": "item_4 bag_of_cookies",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_1 bottom_cabinet",
+                    "what": "surf_1 bottom_cabinet",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_2 countertop",
+                    "what": "surf_2 countertop",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_3 countertop",
+                    "what": "surf_3 countertop",
+                    "when": "both"
+                  }
+                ]
+              }
+            },
+            "reason": "Manual group-C metadata synchronized to the repaired story.",
+            "runtime_requirements": {
+              "actions": [
+                "Grab",
+                "LookAt",
+                "Put",
+                "Walk"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 14,
+              "estimated_prologue_actions": 11,
+              "estimated_task_actions": 3,
+              "events": [],
+              "final_predicates": [
+                "on"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "structural_signature": {
+              "evaluation": "on(cookie bag, lunch staging counter)",
+              "evidence": "The lunch limit sheet reads 'MAX 355g'.; The coffee label reads '9g'.; The coffee was put on surf_2 as the lunch staging surface.; The cracker box's original package states a net weight of 351g.; The cookie bag's original package states a net weight of 250g.; The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.; The numeric lunch limit is 355g.; The coffee amount is 9g.; The cracker box amount is 351g.; The cookie bag amount is 250g.; The coffee plus the cracker box would total 360g.; The coffee plus the cookie bag would total 259g.; 360g is over the 355g limit, so the cracker box is not eligible.; 259g is under the 355g limit, so the cookie bag is eligible.",
+              "failure": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)",
+              "operation": "manual repaired ASK task",
+              "response": "Choose the 250g cookie bag. With the 9g coffee it totals 259g. The 351g cracker box would total 360g and exceed the earlier limit.",
+              "temporal": "repaired prologue before turn0"
+            },
+            "verdict": "KEEP"
+          },
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "The lunch limit sheet reads 'MAX 355g'.; The coffee label reads '9g'.; The coffee was put on surf_2 as the lunch staging surface.; The cracker box's original package states a net weight of 351g.; The cookie bag's original package states a net weight of 250g.; The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.; The numeric lunch limit is 355g.; The coffee amount is 9g.; The cracker box amount is 351g.; The cookie bag amount is 250g.; The coffee plus the cracker box would total 360g.; The coffee plus the cookie bag would total 259g.; 360g is over the 355g limit, so the cracker box is not eligible.; 259g is under the 355g limit, so the cookie bag is eligible.",
+              "semantic_turns": 1,
+              "story_world_mismatches": [],
+              "strong_weak_distinct": true,
+              "uses_only_grounded_assets": true
+            },
+            "capability_fit": "Manual group-C repair for ASK-88003.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "paper_sheet",
+                    "changed": true,
+                    "costs": null,
+                    "label": "MAX 355g",
+                    "tint": null,
+                    "what": "item_1 paper_sheet labeled MAX 355g"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "jar_of_coffee",
+                    "changed": true,
+                    "costs": null,
+                    "label": "9g",
+                    "tint": null,
+                    "what": "item_2 jar_of_coffee labeled 9g"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "box_of_crackers",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "item_3 box_of_crackers"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "bag_of_cookies",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "item_4 bag_of_cookies"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "bottom_cabinet",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_1 bottom_cabinet"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "countertop",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_2 countertop"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "countertop",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_3 countertop"
+                  }
+                ],
+                "distinct_by": [
+                  "earlier lunch limit plus native net weights on two distinct packages"
+                ],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [
+                  {
+                    "rides": "item_1 paper_sheet labeled MAX 355g",
+                    "text": "MAX 355g",
+                    "what": "readable printed object label",
+                    "which": "item_1"
+                  },
+                  {
+                    "rides": "item_2 jar_of_coffee labeled 9g",
+                    "text": "9g",
+                    "what": "readable printed object label",
+                    "which": "item_2"
+                  }
+                ],
+                "restaged_story": "The wearer is packing a small lunch. They first walk to the living-room side surface, read a formal limit sheet marked 'MAX 355g', and read the coffee's realistic 9g meal-plan label. They carry the coffee to the kitchen lunch staging surface, then walk to the snack counter. There they briefly lift each package for a close look at its printed weight and set it back down. The branded cracker box states 351g and the branded cookie bag states 250g; neither snack has an oversized pasted-on weight label. At turn zero they ask which is the largest snack that can be added without taking the combined amount over the earlier limit. The assistant rejects the crackers because 9+351=360g, and selects the cookies because 9+250=259g.",
+                "scene": "Ihlen_1_int",
+                "why_scene": "Provides separated kitchen/living-room surfaces."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "assigned_capability_id": "ASK.CROSS_TIME_NUMERIC_COMPARISON",
+                  "assigned_scene": "Ihlen_1_int",
+                  "core_question": "I already staged the coffee with lunch, and I checked the limit earlier. Which is the largest snack I can add without taking the coffee-and-snack total over that limit?",
+                  "counterfactual_failure": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)",
+                  "forbidden_changes": [],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "The lunch limit sheet reads 'MAX 355g'.",
+                    "The coffee label reads '9g'.",
+                    "The coffee was put on surf_2 as the lunch staging surface.",
+                    "The cracker box's original package states a net weight of 351g.",
+                    "The cookie bag's original package states a net weight of 250g.",
+                    "The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.",
+                    "The numeric lunch limit is 355g.",
+                    "The coffee amount is 9g.",
+                    "The cracker box amount is 351g.",
+                    "The cookie bag amount is 250g.",
+                    "The coffee plus the cracker box would total 360g.",
+                    "The coffee plus the cookie bag would total 259g.",
+                    "360g is over the 355g limit, so the cracker box is not eligible.",
+                    "259g is under the 355g limit, so the cookie bag is eligible."
+                  ],
+                  "required_final_predicates": [
+                    "on"
+                  ],
+                  "success_condition": "on(cookie bag, lunch staging counter)",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_1 paper_sheet labeled MAX 355g",
+                    "what": "item_1 paper_sheet labeled MAX 355g",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_2 jar_of_coffee labeled 9g",
+                    "what": "item_2 jar_of_coffee labeled 9g",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_3 box_of_crackers",
+                    "what": "item_3 box_of_crackers",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_4 bag_of_cookies",
+                    "what": "item_4 bag_of_cookies",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_1 bottom_cabinet",
+                    "what": "surf_1 bottom_cabinet",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_2 countertop",
+                    "what": "surf_2 countertop",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_3 countertop",
+                    "what": "surf_3 countertop",
+                    "when": "both"
+                  }
+                ]
+              }
+            },
+            "reason": "Manual group-C metadata synchronized to the repaired story.",
+            "runtime_requirements": {
+              "actions": [
+                "Grab",
+                "LookAt",
+                "Put",
+                "Walk"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 14,
+              "estimated_prologue_actions": 11,
+              "estimated_task_actions": 3,
+              "events": [],
+              "final_predicates": [
+                "on"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "structural_signature": {
+              "evaluation": "on(cookie bag, lunch staging counter)",
+              "evidence": "The lunch limit sheet reads 'MAX 355g'.; The coffee label reads '9g'.; The coffee was put on surf_2 as the lunch staging surface.; The cracker box's original package states a net weight of 351g.; The cookie bag's original package states a net weight of 250g.; The wearer asks for the largest snack whose coffee-and-snack total does not exceed the checked lunch limit.; The numeric lunch limit is 355g.; The coffee amount is 9g.; The cracker box amount is 351g.; The cookie bag amount is 250g.; The coffee plus the cracker box would total 360g.; The coffee plus the cookie bag would total 259g.; 360g is over the 355g limit, so the cracker box is not eligible.; 259g is under the 355g limit, so the cookie bag is eligible.",
+              "failure": "[Grab] <item_3> (1), [Walk] <surf_2> (1), [Put] <item_3> (1) <surf_2> (1)",
+              "operation": "manual repaired ASK task",
+              "response": "Choose the 250g cookie bag. With the 9g coffee it totals 259g. The 351g cracker box would total 360g and exceed the earlier limit.",
+              "temporal": "repaired prologue before turn0"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "Ihlen_1_int",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_final120_v35_realism_parallel24_20260901a/repairs/resurrect_ask88003/reviewed_v4/compile_input/ASK/run.json",
+        "author_prose": "The wearer is packing a small lunch. They first walk to the living-room side surface, read a formal limit sheet marked 'MAX 355g', and read the coffee's realistic 9g meal-plan label. They carry the coffee to the kitchen lunch staging surface, then walk to the snack counter. There they briefly lift each package for a close look at its printed weight and set it back down. The branded cracker box states 351g and the branded cookie bag states 250g; neither snack has an oversized pasted-on weight label. At turn zero they ask which is the largest snack that can be added without taking the combined amount over the earlier limit. The assistant rejects the crackers because 9+351=360g, and selects the cookies because 9+250=259g.",
+        "author_prose_sha256": "sha256:4277d715ceaa6d99d61aac16b361dd906fd51439c4878755c34b174295953065",
+        "sha": "sha256:4277d715ceaa6d99d61aac16b361dd906fd51439c4878755c34b174295953065"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gpt-5-5-genai-responses",
+        "judge_model": "gemini-3-1-pro-preview-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260901s"
+      },
+      "production_release": {},
+      "normalizations": [],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ]
+    }
+  }
+}

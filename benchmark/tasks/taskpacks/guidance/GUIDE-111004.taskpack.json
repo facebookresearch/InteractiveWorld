@@ -1,0 +1,4322 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-111004",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "inside",
+          "subject": "old_material",
+          "target": "archive_cabinet"
+        },
+        {
+          "pred": "on",
+          "subject": "new_packet",
+          "target": "reset_table"
+        },
+        {
+          "pred": "on",
+          "subject": "pen",
+          "target": "reset_table"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "inside",
+          "subject": "old_material",
+          "target": "archive_cabinet"
+        },
+        {
+          "pred": "on",
+          "subject": "new_packet",
+          "target": "reset_table"
+        },
+        {
+          "pred": "on",
+          "subject": "pen",
+          "target": "reset_table"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "archive_cabinet",
+          "new_supply_cabinet"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "checklist",
+          "new_packet",
+          "old_material",
+          "pen"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last.",
+        "cue": "Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order.",
+        "premise": "Before an office service briefing, the assistant picks up and reads a formal reset checklist from the setup table. The inspection returns the checklist to the table before the assistant inspects the setup and finds the old red briefing folder. The new blue packet and pen begin inside an open green scene-native wall cabinet, while the old red folder remains on the setup table and must move into a separate open black scene-native cabinet. No floor box or cabinet label is added."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order.",
+        "kind": "authored",
+        "ref": "data_generate:GUIDE-111004"
+      },
+      "rule_table": "inside(old_material, archive_cabinet); on(new_packet, reset_table); on(pen, reset_table)",
+      "scene": "office_vendor_machine",
+      "template": "the grounded office_vendor_machine scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 21,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 21,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "checklist"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "checklist"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "checklist"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "reset_table"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "old_material"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "archive_cabinet"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "archive_cabinet"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "new_supply_cabinet"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "new_packet"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "new_packet"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "pen"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "old_material"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "archive_cabinet"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "old_material",
+            "archive_cabinet"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "new_packet"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "new_packet",
+            "reset_table"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "pen"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "pen",
+            "reset_table"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "reset_table"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Grab] <old_material> (1), [Walk] <archive_cabinet> (1), [PutInside] <old_material> (1) <archive_cabinet> (1), [Grab] <new_packet> (1), [PutOn] <new_packet> (1) <reset_table> (1), [Grab] <pen> (1), [PutOn] <pen> (1) <reset_table> (1), [LookAt] <reset_table> (1), [Wait]",
+      "seed": 1205252110,
+      "source_task_id": "GUIDE-111004"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "old_material",
+          "target": "archive_cabinet"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "new_packet",
+          "target": "reset_table"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "pen",
+          "target": "reset_table"
+        }
+      ],
+      "sub_steps": [
+        "inside(old_material, archive_cabinet)",
+        "on(new_packet, reset_table)",
+        "on(pen, reset_table)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-111004",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 1205252110,
+      "containers": {
+        "archive_cabinet": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "locker",
+            "source": "scene",
+            "pick": {
+              "name": "locker_umumgu_0",
+              "stage_prim_path": "/World/b_locker_umumgu_0",
+              "asset_sha256": "sha256:af54c6de9733cbc58d11f8275bccb924ae35709280dfb0ff5cbba8a222b91ce0",
+              "instance_digest": "sha256:5eca9a15ece6118a9107a6783cd79088029215a95e058ff73da1478269520bbd",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "shared_office_0",
+          "initially_open": true,
+          "tint": "black"
+        },
+        "new_supply_cabinet": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "locker",
+            "source": "scene",
+            "pick": {
+              "name": "locker_umumgu_1",
+              "stage_prim_path": "/World/b_locker_umumgu_1",
+              "asset_sha256": "sha256:af54c6de9733cbc58d11f8275bccb924ae35709280dfb0ff5cbba8a222b91ce0",
+              "instance_digest": "sha256:4bd6979d1cfdd15e48c0f17bfd51142b964ef4e0db85740616dfc400fd0bb772",
+              "by": "scene_instance",
+              "rank": 1
+            }
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "hold",
+          "room": "shared_office_0",
+          "initially_open": true,
+          "tint": "green"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "checklist_counter": {
+          "bind": {
+            "cat": "bottom_cabinet",
+            "source": "scene",
+            "pick": {
+              "name": "bottom_cabinet_bamfsz_8",
+              "stage_prim_path": "/World/b_bottom_cabinet_bamfsz_8",
+              "asset_sha256": "sha256:ed0274b2017e32f6cec7d4d9baf061b8fbdadb7074aacbe344b36302427660f7",
+              "instance_digest": "sha256:8d8b5e968b0a536c747fff83754989ac9a6fe9ed101492bba84d1e1f3047cad3",
+              "by": "scene_instance",
+              "rank": 6
+            }
+          },
+          "room": "shared_office_0",
+          "seatable": false
+        },
+        "reset_table": {
+          "bind": {
+            "cat": "conference_table",
+            "source": "scene"
+          },
+          "room": "shared_office_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_checklist": {
+          "content": {
+            "args": {
+              "renderer": "checklist",
+              "rows": [
+                "1|REMOVE OLD BRIEFING MATERIAL",
+                "2|FILE RED FOLDER IN BLACK WALL CABINET",
+                "3|BLUE PACKET FROM GREEN WALL CABINET",
+                "4|PACKET TO CLEARED SETUP TABLE",
+                "5|PEN FROM GREEN CABINET; PLACE LAST"
+              ],
+              "sub": "",
+              "title": "PRE-SERVICE TABLE RESET"
+            },
+            "lines": [
+              "1|REMOVE OLD BRIEFING MATERIAL",
+              "2|FILE RED FOLDER IN BLACK WALL CABINET",
+              "3|BLUE PACKET FROM GREEN WALL CABINET",
+              "4|PACKET TO CLEARED SETUP TABLE",
+              "5|PEN FROM GREEN CABINET; PLACE LAST"
+            ],
+            "text": "PRE-SERVICE TABLE RESET"
+          },
+          "kind": "range_card",
+          "mount": {
+            "on": "checklist",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_111004_guide26_story_refine_r2_20260912zl_checklist_e300ed0048b8"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "checklist": {
+          "cat": "clipboard",
+          "model": "gmxyfo",
+          "needs_lookat": true,
+          "place": "on:reset_table",
+          "room": "shared_office_0",
+          "scored": false,
+          "spot": [
+            -0.55,
+            -0.4
+          ],
+          "decal": "TABLE RESET"
+        },
+        "new_packet": {
+          "cat": "folder",
+          "model": "lktggf",
+          "needs_lookat": false,
+          "place": "in:new_supply_cabinet",
+          "room": "shared_office_0",
+          "scored": true,
+          "tint": "blue"
+        },
+        "pen": {
+          "cat": "pen",
+          "model": "gqwdor",
+          "needs_lookat": false,
+          "place": "in:new_supply_cabinet",
+          "room": "shared_office_0",
+          "scored": true
+        },
+        "old_material": {
+          "cat": "folder",
+          "model": "lktggf",
+          "needs_lookat": false,
+          "place": "on:reset_table",
+          "room": "shared_office_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            0.4
+          ],
+          "tint": "red"
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "shared_office_0"
+      ],
+      "scene": "office_vendor_machine",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "Before an office service briefing, the assistant picks up and reads a formal reset checklist from the setup table. The inspection returns the checklist to the table before the assistant inspects the setup and finds the old red briefing folder. The new blue packet and pen begin inside an open green scene-native wall cabinet, while the old red folder remains on the setup table and must move into a separate open black scene-native cabinet. No floor box or cabinet label is added.",
+    "assistant_goal": "Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+      "assigned_scene": "office_vendor_machine",
+      "core_question": "Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "Before an office service briefing, the assistant picks up and reads a formal reset checklist from the setup table. The inspection returns the checklist to the table before the assistant inspects the setup and finds the old red briefing folder. The new blue packet and pen begin inside an open green scene-native wall cabinet, while the old red folder remains on the setup table and must move into a separate open black scene-native cabinet. No floor box or cabinet label is added."
+      ],
+      "required_evidence": [
+        "Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order.",
+        "The lifted checklist visibly requires the old material to be archived before the new packet and pen are placed in order, and it is returned before work continues.",
+        "Inspection reveals the previous red service briefing folder still on the setup table.",
+        "The open black scene-native archive cabinet is inspected before work begins.",
+        "The new blue briefing packet is visibly present inside the open green wall cabinet.",
+        "The new briefing pen is visibly present beside the packet inside the green cabinet.",
+        "The previous red briefing folder has been filed in the black wall cabinet.",
+        "The new blue briefing packet is clearly visible on the cleared setup table.",
+        "The pen was placed after the packet, and the final wide inspection shows both on the setup table.",
+        "The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last."
+      ],
+      "required_final_predicates": [
+        "inside",
+        "on",
+        "on"
+      ],
+      "success_condition": "inside(old_material, archive_cabinet); on(new_packet, reset_table); on(pen, reset_table)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-111004",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "assigned_scene": "office_vendor_machine",
+        "core_question": "Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "Before an office service briefing, the assistant picks up and reads a formal reset checklist from the setup table. The inspection returns the checklist to the table before the assistant inspects the setup and finds the old red briefing folder. The new blue packet and pen begin inside an open green scene-native wall cabinet, while the old red folder remains on the setup table and must move into a separate open black scene-native cabinet. No floor box or cabinet label is added."
+        ],
+        "required_evidence": [
+          "Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order.",
+          "The lifted checklist visibly requires the old material to be archived before the new packet and pen are placed in order, and it is returned before work continues.",
+          "Inspection reveals the previous red service briefing folder still on the setup table.",
+          "The open black scene-native archive cabinet is inspected before work begins.",
+          "The new blue briefing packet is visibly present inside the open green wall cabinet.",
+          "The new briefing pen is visibly present beside the packet inside the green cabinet.",
+          "The previous red briefing folder has been filed in the black wall cabinet.",
+          "The new blue briefing packet is clearly visible on the cleared setup table.",
+          "The pen was placed after the packet, and the final wide inspection shows both on the setup table.",
+          "The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last."
+        ],
+        "required_final_predicates": [
+          "inside",
+          "on",
+          "on"
+        ],
+        "success_condition": "inside(old_material, archive_cabinet); on(new_packet, reset_table); on(pen, reset_table)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "architectural_plan",
+          "bicycle_chain",
+          "bleaching_agent_atomizer",
+          "bottle_of_black_pepper",
+          "bottle_of_medicine",
+          "bottle_of_papaya_juice",
+          "bottle_of_skin_cream",
+          "bottle_of_tomato_paste",
+          "bottle_of_water",
+          "bunch_of_bananas",
+          "casserole",
+          "centerpiece",
+          "chopping_board",
+          "clipboard",
+          "crab",
+          "dried_apricot",
+          "folder",
+          "french_toast",
+          "griddle_pan",
+          "half_asparagus",
+          "half_club_sandwich",
+          "half_sweet_corn",
+          "hand_towel",
+          "hinge",
+          "hockey_puck",
+          "jade_roller",
+          "jar_of_curry_powder",
+          "kielbasa",
+          "lemonade_bottle",
+          "lollipop",
+          "lubricant_bottle",
+          "map",
+          "pack_of_kielbasa",
+          "paper_sheet",
+          "pen",
+          "petri_dish",
+          "picture",
+          "ribbon",
+          "security_camera",
+          "shrimp",
+          "skyrocket",
+          "sponge",
+          "wall_mounted_light",
+          "walnut_meat",
+          "whiskey_stone"
+        ],
+        "allowed_surface_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "conference_table",
+          "serving_cart"
+        ],
+        "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "coverage_categories": [
+          "chopping_board",
+          "lemonade_bottle",
+          "walnut_meat",
+          "pen",
+          "architectural_plan",
+          "bottle_of_skin_cream",
+          "petri_dish",
+          "pack_of_kielbasa",
+          "hockey_puck",
+          "kielbasa",
+          "picture",
+          "bottle_of_black_pepper",
+          "dried_apricot",
+          "ribbon",
+          "whiskey_stone",
+          "bunch_of_bananas",
+          "lollipop",
+          "lubricant_bottle",
+          "security_camera",
+          "griddle_pan"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 3,
+          "required_semantic_turns": 3,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 25,
+          "max_document_characters": 196,
+          "max_fixed_destinations": 4,
+          "max_meaningful_steps": 21,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 12,
+          "max_small_label_characters": 40,
+          "max_task_actions": 9,
+          "min_intervening_meaningful_actions": 8,
+          "min_meaningful_steps": 5
+        },
+        "preferred_story_categories": [
+          "sponge",
+          "paper_sheet",
+          "clipboard",
+          "hand_towel"
+        ],
+        "preferred_story_category_glosses": {
+          "clipboard": "",
+          "hand_towel": "",
+          "paper_sheet": "",
+          "sponge": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 216.9,
+            "name": "shared_office_0",
+            "scene_containers": {
+              "locker": 2
+            },
+            "scene_surfaces": {
+              "bookcase": 7,
+              "conference_table": 2,
+              "serving_cart": 1
+            },
+            "surface_max_area_m2": {
+              "bookcase": 0.157,
+              "conference_table": 2.977,
+              "serving_cart": 0.14
+            },
+            "surface_reference_capacity": {
+              "bookcase": 3,
+              "conference_table": 3,
+              "serving_cart": 3
+            }
+          }
+        ],
+        "scene": "office_vendor_machine",
+        "task_id": "GUIDE-111004",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "clipboard",
+            "changed": false,
+            "costs": null,
+            "label": "TABLE RESET",
+            "tint": null,
+            "what": "liftable pre-service table-reset checklist"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "folder",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": "blue",
+            "what": "new blue service briefing folder"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "pen",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "new briefing pen"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "folder",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": "red",
+            "what": "previous red service briefing folder"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "locker",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "open black scene-native wall cabinet"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "locker",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "open green scene-native wall cabinet"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "bottom_cabinet",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "scene-native briefing counter"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "conference_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "large pre-service briefing setup table"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "liftable pre-service table-reset checklist",
+            "text": "TABLE RESET",
+            "what": "document",
+            "which": null
+          }
+        ],
+        "restaged_story": "Before an office service briefing, the assistant picks up and reads a formal reset checklist from the setup table. The inspection returns the checklist to the table before the assistant inspects the setup and finds the old red briefing folder. The new blue packet and pen begin inside an open green scene-native wall cabinet, while the old red folder remains on the setup table and must move into a separate open black scene-native cabinet. No floor box or cabinet label is added.",
+        "scene": "office_vendor_machine",
+        "why_scene": "office_vendor_machine supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "archive_cabinet": {
+            "cat": "locker",
+            "initially_open": true,
+            "label": null,
+            "preload": [],
+            "role": "scored",
+            "room": "shared_office_0"
+          },
+          "new_supply_cabinet": {
+            "cat": "locker",
+            "initially_open": true,
+            "label": null,
+            "preload": [
+              "new_packet",
+              "pen"
+            ],
+            "role": "hold",
+            "room": "shared_office_0"
+          }
+        },
+        "items": {
+          "checklist": {
+            "affordances": [],
+            "cat": "clipboard",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "TABLE RESET",
+            "place": "on:reset_table",
+            "scored": false,
+            "spot": [
+              -0.55,
+              -0.4
+            ],
+            "tint": null
+          },
+          "new_packet": {
+            "affordances": [],
+            "cat": "folder",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "in:new_supply_cabinet",
+            "scored": true,
+            "spot": null,
+            "tint": "blue"
+          },
+          "pen": {
+            "affordances": [],
+            "cat": "pen",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "in:new_supply_cabinet",
+            "scored": true,
+            "spot": null,
+            "tint": null
+          },
+          "old_material": {
+            "affordances": [],
+            "cat": "folder",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:reset_table",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.4
+            ],
+            "tint": "red"
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <checklist> (1)",
+          "[Grab] <checklist> (1)",
+          "[LookAt] <checklist> (1)",
+          "[Walk] <reset_table> (1)",
+          "[LookAt] <old_material> (1)",
+          "[Walk] <archive_cabinet> (1)",
+          "[LookAt] <archive_cabinet> (1)",
+          "[Walk] <new_supply_cabinet> (1)",
+          "[Walk] <new_packet> (1)",
+          "[LookAt] <new_packet> (1)",
+          "[LookAt] <pen> (1)",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "shared_office_0"
+        ],
+        "scene": "office_vendor_machine",
+        "staging": {
+          "groups": "Before an office service briefing, the assistant picks up and reads a formal reset checklist from the setup table. The inspection returns the checklist to the table before the assistant inspects the setup and finds the old red briefing folder. The new blue packet and pen begin inside an open green scene-native wall cabinet, while the old red folder remains on the setup table and must move into a separate open black scene-native cabinet. No floor box or cabinet label is added.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "checklist_counter": {
+            "cat": "bottom_cabinet",
+            "label": null,
+            "room": "shared_office_0"
+          },
+          "reset_table": {
+            "cat": "conference_table",
+            "label": null,
+            "room": "shared_office_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The lifted checklist visibly requires the old material to be archived before the new packet and pen are placed in order, and it is returned before work continues.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 2,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Inspection reveals the previous red service briefing folder still on the setup table.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 4,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The open black scene-native archive cabinet is inspected before work begins.",
+            "from": "prologue",
+            "id": "fact_004",
+            "source_index": 6,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The new blue briefing packet is visibly present inside the open green wall cabinet.",
+            "from": "prologue",
+            "id": "fact_005",
+            "source_index": 9,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The new briefing pen is visibly present beside the packet inside the green cabinet.",
+            "from": "prologue",
+            "id": "fact_006",
+            "source_index": 10,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The previous red briefing folder has been filed in the black wall cabinet.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 2,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The new blue briefing packet is clearly visible on the cleared setup table.",
+            "from": "live",
+            "id": "fact_008",
+            "source_index": 4,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The pen was placed after the packet, and the final wide inspection shows both on the setup table.",
+            "from": "live",
+            "id": "fact_009",
+            "source_index": 7,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007",
+              "fact_008",
+              "fact_009"
+            ],
+            "fact": "The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last.",
+            "from": "derived",
+            "id": "fact_010",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "old_material",
+            "target": "archive_cabinet"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "new_packet",
+            "target": "reset_table"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "pen",
+            "target": "reset_table"
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "Take the old red briefing folder from the reset table and put it inside the open black archive cabinet on the wall.",
+            "referents": [
+              "checklist",
+              "old_material",
+              "reset_table",
+              "archive_cabinet"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 3,
+            "say": "The old material is filed. Take the new blue briefing packet from the open green supply cabinet and place it on the cleared reset table.",
+            "referents": [
+              "new_packet",
+              "new_supply_cabinet",
+              "reset_table"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_004",
+              "fact_006"
+            ]
+          },
+          {
+            "before_index": 5,
+            "say": "Take the pen from that same open green supply cabinet, place it last on the reset table beside the blue packet, and inspect the whole setup.",
+            "referents": [
+              "pen",
+              "new_supply_cabinet",
+              "new_packet",
+              "reset_table"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_005",
+              "fact_007"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Grab] <new_packet> (1), [Walk] <reset_table> (1), [PutOn] <new_packet> (1) <reset_table> (1), [Grab] <pen> (1), [Walk] <reset_table> (1), [PutOn] <pen> (1) <reset_table> (1), [Wait]",
+        "mates": [],
+        "oracle_program": "[Grab] <old_material> (1), [Walk] <archive_cabinet> (1), [PutInside] <old_material> (1) <archive_cabinet> (1), [Grab] <new_packet> (1), [PutOn] <new_packet> (1) <reset_table> (1), [Grab] <pen> (1), [PutOn] <pen> (1) <reset_table> (1), [LookAt] <reset_table> (1), [Wait]",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "Before an office service briefing, the assistant picks up and reads a formal reset checklist from the setup table. The inspection returns the checklist to the table before the assistant inspects the setup and finds the old red briefing folder. The new blue packet and pen begin inside an open green scene-native wall cabinet, while the old red folder remains on the setup table and must move into a separate open black scene-native cabinet. No floor box or cabinet label is added.",
+        "utterance": "Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <checklist> (1)",
+        "[Grab] <checklist> (1)",
+        "[LookAt] <checklist> (1)",
+        "[Walk] <reset_table> (1)",
+        "[LookAt] <old_material> (1)",
+        "[Walk] <archive_cabinet> (1)",
+        "[LookAt] <archive_cabinet> (1)",
+        "[Walk] <new_supply_cabinet> (1)",
+        "[Walk] <new_packet> (1)",
+        "[LookAt] <new_packet> (1)",
+        "[LookAt] <pen> (1)",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "checklist"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "checklist"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "checklist"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "checklist"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "checklist"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The lifted checklist visibly requires the old material to be archived before the new packet and pen are placed in order, and it is returned before work continues.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "reset_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "reset_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "old_material"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "Inspection reveals the previous red service briefing folder still on the setup table.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "archive_cabinet"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "archive_cabinet"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "archive_cabinet"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The open black scene-native archive cabinet is inspected before work begins.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "new_supply_cabinet"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "new_supply_cabinet"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "new_packet"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "new_packet"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "new_packet"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The new blue briefing packet is visibly present inside the open green wall cabinet.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "pen"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The new briefing pen is visibly present beside the packet inside the green cabinet.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p011",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Take the old red briefing folder from the reset table and put it inside the open black archive cabinet on the wall.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The old material is filed. Take the new blue briefing packet from the open green supply cabinet and place it on the cleared reset table.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Take the pen from that same open green supply cabinet, place it last on the reset table beside the blue packet, and inspect the whole setup.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "new_packet"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "new_packet"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "reset_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "reset_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "new_packet",
+            "reset_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "pen"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "pen"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "reset_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "reset_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "pen",
+            "reset_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "old_material"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "old_material"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "archive_cabinet"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "archive_cabinet"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "old_material",
+            "archive_cabinet"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "old_material",
+            "target": "archive_cabinet"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The previous red briefing folder has been filed in the black wall cabinet.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "new_packet"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "new_packet"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "new_packet",
+            "reset_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The new blue briefing packet is clearly visible on the cleared setup table.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "pen"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "pen"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "pen",
+            "reset_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "reset_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The pen was placed after the packet, and the final wide inspection shows both on the setup table.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The lifted checklist visibly requires the old material to be archived before the new packet and pen are placed in order, and it is returned before work continues.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p002"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 2
+      },
+      {
+        "id": "fact_003",
+        "statement": "Inspection reveals the previous red service briefing folder still on the setup table.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p004"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 4
+      },
+      {
+        "id": "fact_004",
+        "statement": "The open black scene-native archive cabinet is inspected before work begins.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p006"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 6
+      },
+      {
+        "id": "fact_005",
+        "statement": "The new blue briefing packet is visibly present inside the open green wall cabinet.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p009"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 9
+      },
+      {
+        "id": "fact_006",
+        "statement": "The new briefing pen is visibly present beside the packet inside the green cabinet.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p010"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 10
+      },
+      {
+        "id": "fact_007",
+        "statement": "The previous red briefing folder has been filed in the black wall cabinet.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o002"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 2
+      },
+      {
+        "id": "fact_008",
+        "statement": "The new blue briefing packet is clearly visible on the cleared setup table.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o004"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 4
+      },
+      {
+        "id": "fact_009",
+        "statement": "The pen was placed after the packet, and the final wide inspection shows both on the setup table.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o007"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 7
+      },
+      {
+        "id": "fact_010",
+        "statement": "The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p002",
+          "p004",
+          "p006",
+          "p009",
+          "p010",
+          "o002",
+          "o004",
+          "o007"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007",
+          "fact_008",
+          "fact_009"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the checklist and inspected briefing station to guide the person through the pre-service reset in the required order.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <checklist> (1)",
+          "[Grab] <checklist> (1)",
+          "[LookAt] <checklist> (1)",
+          "[Walk] <reset_table> (1)",
+          "[LookAt] <old_material> (1)",
+          "[Walk] <archive_cabinet> (1)",
+          "[LookAt] <archive_cabinet> (1)",
+          "[Walk] <new_supply_cabinet> (1)",
+          "[Walk] <new_packet> (1)",
+          "[LookAt] <new_packet> (1)",
+          "[LookAt] <pen> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 11,
+            "say": "Hey, Assistant, I need to reset this briefing table before service. Can you use the checklist and walk me through it in the right order?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, I need to reset this briefing table before service. Can you use the checklist and walk me through it in the right order?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "briefing_reset_request",
+            "required_phrases": [
+              "reset this briefing table before service",
+              "use the checklist",
+              "in the right order"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutInside] <old_material> (1) <archive_cabinet> (1)",
+          "[PutOn] <new_packet> (1) <reset_table> (1)",
+          "[PutOn] <pen> (1) <reset_table> (1)",
+          "[LookAt] <reset_table> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[PutInside] <old_material> (1) <archive_cabinet> (1)",
+            "[PutOn] <new_packet> (1) <reset_table> (1)",
+            "[PutOn] <pen> (1) <reset_table> (1)",
+            "[LookAt] <reset_table> (1)"
+          ]
+        ],
+        "verification_points": [
+          {
+            "id": "old_material_archived",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "old_material",
+            "target": "archive_cabinet"
+          },
+          {
+            "id": "new_packet_on_reset_table",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "new_packet",
+            "target": "reset_table"
+          },
+          {
+            "id": "pen_on_reset_table",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "pen",
+            "target": "reset_table"
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 36,
+    "dialogue_budget": 3,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "pen",
+        "held": [
+          "checklist"
+        ],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005",
+        "h006"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "checklist",
+              "old_material",
+              "reset_table",
+              "archive_cabinet"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "checklist",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "old_material",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "archive_cabinet",
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "new_packet",
+              "new_supply_cabinet",
+              "reset_table"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_004",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "old_material",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "new_packet",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "pen",
+              "new_supply_cabinet",
+              "new_packet",
+              "reset_table"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_005",
+              "fact_007"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "old_material",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "pen",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o008"
+        }
+      ],
+      "terminal_beats": [
+        "h006",
+        "o008"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "old_material"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "archive_cabinet"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "old_material",
+          "archive_cabinet"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "new_packet"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "new_packet",
+          "reset_table"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "pen"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "pen",
+          "reset_table"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "reset_table"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "new_packet"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "reset_table"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "new_packet",
+          "reset_table"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "pen"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "reset_table"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "pen",
+          "reset_table"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Take the old red briefing folder from the reset table and put it inside the open black archive cabinet on the wall.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The old material is filed. Take the new blue briefing packet from the open green supply cabinet and place it on the cleared reset table.",
+        "relation": "before",
+        "anchor_beat_id": "o003",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "Take the pen from that same open green supply cabinet, place it last on the reset table beside the blue packet, and inspect the whole setup.",
+        "relation": "before",
+        "anchor_beat_id": "o005",
+        "source": "guidance",
+        "source_index": 2
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "source": "guide22_interaction_assembly",
+    "compile_input_digest": "sha256:f7be1ee1875948ad173a50f5844a46ef48e9aa9294b6c42f647929a3865cda3f",
+    "source_contract_digest": "sha256:994f3ffb5bb7adb4f6a2327c6475353b822c8e7cef1570c2e50fc01f687b394b",
+    "executable_spec_digest": "sha256:dfdb52eb3b2b34febd61ea2a065a513b3a3feaae366af5f90a78d8a39f6c0de5",
+    "invention": {
+      "attempt": 1,
+      "author_prose": "A low-vision office worker is setting a conference table for a finance review. From the serving cart they can see the new packet, pen, and hand towel, but the table itself is around a corner. They ask the glasses to inspect what the last group left and guide the reset, without dictating either branch. The assistant first requests the missing view. On the conference table it finds the previous meeting's clipboard, showing that the last group did not complete the clean reset. That evidence selects the full reset rather than a simple setup. The assistant guides the clipboard to the office bookcase, verifies that removal, guides a return trip for the towel and a wipe of the exact table, verifies the wipe, then has the towel returned and the new packet and pen staged. A weak guide that skips the off-view inspection places the new materials among the old ones without the wipe.",
+      "author_prose_sha256": "sha256:dd35bc72c766a03442ced346f2de284689a306fa63ef93ddc875b40b79bc9e8a",
+      "capability": {
+        "boundary": "The information-gathering instruction must be necessary; the assistant may not guess or proceed from hidden simulator state.",
+        "few_shot": "A volunteer must attach one of two similar camera lenses to a donated camera body, but the compatibility code is printed inside the closed lens-case lid and neither lens front reveals it. The wearer asks which lens to mount. The assistant first says it cannot determine that from the current view and asks them to open the case and angle the lid toward the glasses. Only after reading the compatibility table does it direct the correct lens onto the camera and the spare into the padded compartment. Guessing immediately can attach the wrong lens. The final attachment and containment are scoreable, while the episode also tests that information acquisition precedes advice.",
+        "id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "name_zh": "感知缺口的主动补齐",
+        "target": "Recognise that required evidence is outside the current view and first direct the wearer to reveal it before giving substantive guidance."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+        "evaluation_status": "PASS",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": false,
+        "owner": null,
+        "reason": null,
+        "reason_code": null,
+        "recommended_work": null,
+        "version": "capability-support/1.0",
+        "workstream": null
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "sponge",
+          "paper_sheet",
+          "clipboard",
+          "hand_towel",
+          "chopping_board",
+          "lemonade_bottle",
+          "walnut_meat",
+          "pen",
+          "architectural_plan",
+          "bottle_of_skin_cream",
+          "petri_dish",
+          "pack_of_kielbasa",
+          "hockey_puck",
+          "kielbasa",
+          "picture",
+          "bottle_of_black_pepper",
+          "dried_apricot",
+          "ribbon",
+          "whiskey_stone",
+          "bunch_of_bananas",
+          "lollipop",
+          "lubricant_bottle",
+          "security_camera",
+          "griddle_pan"
+        ],
+        "allowed_surface_categories": [
+          "bookcase",
+          "conference_table",
+          "serving_cart"
+        ],
+        "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "coverage_categories": [
+          "chopping_board",
+          "lemonade_bottle",
+          "walnut_meat",
+          "pen",
+          "architectural_plan",
+          "bottle_of_skin_cream",
+          "petri_dish",
+          "pack_of_kielbasa",
+          "hockey_puck",
+          "kielbasa",
+          "picture",
+          "bottle_of_black_pepper",
+          "dried_apricot",
+          "ribbon",
+          "whiskey_stone",
+          "bunch_of_bananas",
+          "lollipop",
+          "lubricant_bottle",
+          "security_camera",
+          "griddle_pan"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 4,
+          "required_semantic_turns": 3,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 32,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 24,
+          "min_intervening_meaningful_actions": 0,
+          "min_meaningful_steps": 5
+        },
+        "preferred_story_categories": [
+          "sponge",
+          "paper_sheet",
+          "clipboard",
+          "hand_towel"
+        ],
+        "preferred_story_category_glosses": {
+          "clipboard": "",
+          "hand_towel": "",
+          "paper_sheet": "",
+          "sponge": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 216.9,
+            "name": "shared_office_0",
+            "scene_containers": {
+              "locker": 2
+            },
+            "scene_surfaces": {
+              "bookcase": 7,
+              "conference_table": 2,
+              "serving_cart": 1
+            },
+            "surface_max_area_m2": {
+              "bookcase": 0.157,
+              "conference_table": 2.977,
+              "serving_cart": 0.14
+            },
+            "surface_reference_capacity": {
+              "bookcase": 3,
+              "conference_table": 3,
+              "serving_cart": 3
+            }
+          }
+        ],
+        "scene": "office_vendor_machine",
+        "task_id": "GUIDE-111004",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "prompt_sha": "737fdee5f255",
+      "prompt_sha256": "sha256:737fdee5f255b21865210c1fa2fc3598932ea65c485b0643b99fb6096ea0c9c5",
+      "prompt_version": "capability-v40-template-cap3-20260901",
+      "prose_sha256": "sha256:a30e783f55c0a6dac6709bc26bf1de3b3437094f712e66964680233596ee5d4b",
+      "review": {
+        "benchmark_check": {
+          "actor_scope": {
+            "live_physical_actors": [
+              "wearer"
+            ],
+            "other_person_changes_world": false
+          },
+          "core_claims": [
+            {
+              "available_before_turn": 0,
+              "claim": "a leftover clipboard is on the meeting-room conference table, so the clear-and-wipe branch applies",
+              "derived_from": [],
+              "established_by": "Walk into meeting_room_0 then LookAt the conference_table",
+              "runtime_support": "the clipboard's on-predicate on the conference_table observed after navigation",
+              "source": "live_state"
+            },
+            {
+              "available_before_turn": 0,
+              "claim": "because a leftover clipboard is present, the packet must not be set down until the clipboard is cleared and the table wiped",
+              "derived_from": [
+                "a leftover clipboard is on the meeting-room conference table, so the clear-and-wipe branch applies"
+              ],
+              "established_by": "applying the wearer's stated conditional rule to the revealed table state",
+              "runtime_support": "utterance rule plus observed clipboard-on-table state",
+              "source": "derived"
+            }
+          ],
+          "counterfactual_contract": {
+            "allowed_other_differences": [],
+            "operator": "skip evidence acquisition and commit to the simple branch",
+            "shared_obligations": [
+              "g2"
+            ],
+            "target_difference": "weak leaves clipboard on the table mixed with finance materials and never wipes, whereas strong clears the clipboard to the bookcase and wipes first"
+          },
+          "cross_field_consistency": {
+            "conflicts": [],
+            "consistent": true
+          },
+          "decisive_fact_absent_from_utterance": true,
+          "egocentric_evidence": "a leftover clipboard lies on the meeting_room conference table, seen only after entering that room",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "meaningful_steps": [
+            "recognize cart view lacks the table and direct entry into meeting_room_0 to look",
+            "reveal clipboard and commit to clear-and-wipe, directing clipboard to the office bookcase",
+            "confirm separation and direct wiping the conference table with the hand towel",
+            "return the towel and stage the paper packet on the conference table",
+            "place the pen with the packet and confirm completion"
+          ],
+          "memory_gap": {
+            "intervening_meaningful_actions": 0,
+            "reason": "this is an active-viewpoint task; the decisive fact must be revealed by directed navigation, not recalled",
+            "required": false,
+            "wearer_just_established_answer": false
+          },
+          "physical_plausibility": {
+            "credible": true,
+            "issues": []
+          },
+          "semantic_turns": 3,
+          "story_world_mismatches": [],
+          "strong_completes_user_goal": true,
+          "strong_weak_distinct": true,
+          "turn0_access": {
+            "answer_fully_visible": false,
+            "assistant_need": "accessibility: low-vision wearer cannot resolve remote table state and needs branch selection plus ordering guidance",
+            "wearer_can_self_serve": false
+          },
+          "ungrounded_physical_nouns": [],
+          "unmodeled_claims": [],
+          "user_goal_obligations": [
+            {
+              "covered_by": [
+                "assistant dialogue",
+                "Put clipboard on bookcase",
+                "Wipe conference_table"
+              ],
+              "description": "clear the leftover clipboard to the office bookcase and wipe the table before staging",
+              "grounded_in": "'it has to be cleared to the office bookcase and the table wiped before I put out this packet'",
+              "id": "g1",
+              "kind": "physical"
+            },
+            {
+              "covered_by": [
+                "Put paper_sheet on conference_table",
+                "Put pen on conference_table"
+              ],
+              "description": "stage the packet and pen on the meeting-room conference table",
+              "grounded_in": "'I'm setting up the meeting table for the finance review ... it's just the packet and pen'",
+              "id": "g2",
+              "kind": "physical"
+            }
+          ],
+          "uses_only_grounded_assets": true,
+          "utterance_policy": {
+            "prescribes_assistant_words_or_trigger": false,
+            "reason": "the wearer states the conditional rule and that they cannot tell from here, leaving the branch inference and ordering to the assistant",
+            "states_goal_not_solution": true
+          },
+          "weak_shared_work_complete": true,
+          "why_user_needs_assistant": "the low-vision wearer cannot read the remote table state and needs hands-free guidance on which branch applies and in what order",
+          "why_utterance_alone_fails": "the wearer explicitly cannot tell whether the table is clear from the cart position, so the conditional branch is undetermined without the view"
+        },
+        "capability_fit": "The assistant succeeds only by recognizing that the required table state is off-view and directing navigation to reveal it before giving substantive guidance.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "clipboard",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "leftover clipboard"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "paper_sheet",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "paper packet"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "pen",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "pen"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "hand_towel",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "hand towel"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "bookcase",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "office bookcase"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "conference_table",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "meeting conference table"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "serving_cart",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "serving cart"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "A low-vision office worker is setting a conference table for a finance review. From the serving cart they can see the new packet, pen, and hand towel, but the table itself is around a corner. They ask the glasses to inspect what the last group left and guide the reset, without dictating either branch. The assistant first requests the missing view. On the conference table it finds the previous meeting's clipboard, showing that the last group did not complete the clean reset. That evidence selects the full reset rather than a simple setup. The assistant guides the clipboard to the office bookcase, verifies that removal, guides a return trip for the towel and a wipe of the exact table, verifies the wipe, then has the towel returned and the new packet and pen staged. A weak guide that skips the off-view inspection places the new materials among the old ones without the wipe.",
+            "scene": "office_vendor_machine",
+            "why_scene": "the scene provides shared_office_0 with a serving_cart and bookcases plus a separate meeting_room_0 with a conference_table, matching the remote-evidence structure."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "does the assistant require the remote table view before choosing a workflow",
+              "counterfactual_failure": "weak assistant stages packet and pen immediately, leaving the clipboard on the table and skipping the wipe",
+              "forbidden_changes": [
+                "revealing the table state from the cart view",
+                "placing the packet before clearing and wiping"
+              ],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "clipboard observed on the meeting conference_table after navigation"
+              ],
+              "required_final_predicates": [
+                "on"
+              ],
+              "success_condition": "clipboard on bookcase and packet plus pen on conference_table with the wipe performed first",
+              "temporal_constraints": [
+                "wipe occurs before packet and pen are placed"
+              ]
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "drives_the_story",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "remote gating object on the meeting table",
+                "what": "leftover clipboard",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "fresh material to stage",
+                "what": "paper packet",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "fresh material to stage",
+                "what": "pen",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "wipe implement",
+                "what": "hand towel",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "destination for cleared clipboard",
+                "what": "office bookcase",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "staging surface and evidence carrier",
+                "what": "meeting conference table",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "origin surface for materials and towel return",
+                "what": "serving cart",
+                "when": "both"
+              }
+            ],
+            "hinges_on": "whether a leftover clipboard sits on the remote meeting-room conference table",
+            "look_alike": [],
+            "opening": "wearer stands at the serving cart in shared_office_0 with packet, pen, and hand towel on it; a clipboard rests on the meeting_room_0 conference_table",
+            "outcome": "clipboard on the office bookcase, table wiped, packet and pen on the meeting-room conference table",
+            "place": "office_vendor_machine, shared_office_0 and meeting_room_0",
+            "printed": [],
+            "tests_what": "recognising off-view evidence and directing navigation before committing to a procedure"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The candidate is a clean active-viewpoint-acquisition GUIDE: the decisive fact (a leftover clipboard on the meeting-room conference table) is outside the initial cart view and gates a conditional clear-and-wipe workflow, so the strong assistant must first direct the wearer into meeting_room_0 to look before committing to a procedure, while the weak assistant guesses the table is clear and produces a different scorable outcome (clipboard left mixed with finance materials, no wipe). Evidence is dynamic and egocentric, the branches differ in both ordered trace and final on-predicates, all nouns bind to allowed categories, and the five-plus meaningful stages are grounded in the wearer's stated conditional rule rather than invented dependencies.",
+        "requirements": [
+          "Keep the total authored path at or under 18 actions; the wipe-and-restage sequence is tight, so avoid adding decorative walks.",
+          "Ensure the assistant's first turn explicitly withholds the workflow and states the cart view lacks the table, before any navigation is enacted.",
+          "Bind the paper packet to paper_sheet and keep the wipe grounded in the wearer's stated conditional rule."
+        ],
+        "runtime_requirements": {
+          "actions": [
+            "Walk",
+            "LookAt",
+            "Grab",
+            "Put",
+            "Wipe"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 17,
+          "estimated_prologue_actions": 2,
+          "estimated_task_actions": 15,
+          "events": [],
+          "final_predicates": [
+            "on"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 102.8,
+        "structural_signature": {
+          "evaluation": "scorable on-predicates plus ordered wipe-before-staging trace",
+          "evidence": "leftover clipboard visible only after walking into the meeting room",
+          "failure": "blind commitment to simple setup leaving clipboard and skipping wipe",
+          "operation": "select clear-and-wipe vs simple setup from revealed table state",
+          "response": "withhold procedure, direct navigation, then stage incrementally",
+          "template_class": "remote_room_object_presence_gates_conditional_workflow",
+          "temporal": "reveal-then-commit, wipe before fresh staging"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "a leftover clipboard is on the meeting-room conference table, so the clear-and-wipe branch applies",
+                "derived_from": [],
+                "established_by": "Walk into meeting_room_0 then LookAt the conference_table",
+                "runtime_support": "the clipboard's on-predicate on the conference_table observed after navigation",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "because a leftover clipboard is present, the packet must not be set down until the clipboard is cleared and the table wiped",
+                "derived_from": [
+                  "a leftover clipboard is on the meeting-room conference table, so the clear-and-wipe branch applies"
+                ],
+                "established_by": "applying the wearer's stated conditional rule to the revealed table state",
+                "runtime_support": "utterance rule plus observed clipboard-on-table state",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "skip evidence acquisition and commit to the simple branch",
+              "shared_obligations": [
+                "g2"
+              ],
+              "target_difference": "weak leaves clipboard on the table mixed with finance materials and never wipes, whereas strong clears the clipboard to the bookcase and wipes first"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "a leftover clipboard lies on the meeting_room conference table, seen only after entering that room",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "recognize cart view lacks the table and direct entry into meeting_room_0 to look",
+              "reveal clipboard and commit to clear-and-wipe, directing clipboard to the office bookcase",
+              "confirm separation and direct wiping the conference table with the hand towel",
+              "return the towel and stage the paper packet on the conference table",
+              "place the pen with the packet and confirm completion"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 0,
+              "reason": "this is an active-viewpoint task; the decisive fact must be revealed by directed navigation, not recalled",
+              "required": false,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 3,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": false,
+              "assistant_need": "accessibility: low-vision wearer cannot resolve remote table state and needs branch selection plus ordering guidance",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "assistant dialogue",
+                  "Put clipboard on bookcase",
+                  "Wipe conference_table"
+                ],
+                "description": "clear the leftover clipboard to the office bookcase and wipe the table before staging",
+                "grounded_in": "'it has to be cleared to the office bookcase and the table wiped before I put out this packet'",
+                "id": "g1",
+                "kind": "physical"
+              },
+              {
+                "covered_by": [
+                  "Put paper_sheet on conference_table",
+                  "Put pen on conference_table"
+                ],
+                "description": "stage the packet and pen on the meeting-room conference table",
+                "grounded_in": "'I'm setting up the meeting table for the finance review ... it's just the packet and pen'",
+                "id": "g2",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "the wearer states the conditional rule and that they cannot tell from here, leaving the branch inference and ordering to the assistant",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "the low-vision wearer cannot read the remote table state and needs hands-free guidance on which branch applies and in what order",
+            "why_utterance_alone_fails": "the wearer explicitly cannot tell whether the table is clear from the cart position, so the conditional branch is undetermined without the view"
+          },
+          "capability_fit": "The assistant succeeds only by recognizing that the required table state is off-view and directing navigation to reveal it before giving substantive guidance.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "clipboard",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "leftover clipboard"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "paper packet"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "pen",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "pen"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "hand_towel",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "hand towel"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bookcase",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "office bookcase"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "conference_table",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "meeting conference table"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "serving_cart",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "serving cart"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "A low-vision office worker is setting a conference table for a finance review. From the serving cart they can see the new packet, pen, and hand towel, but the table itself is around a corner. They ask the glasses to inspect what the last group left and guide the reset, without dictating either branch. The assistant first requests the missing view. On the conference table it finds the previous meeting's clipboard, showing that the last group did not complete the clean reset. That evidence selects the full reset rather than a simple setup. The assistant guides the clipboard to the office bookcase, verifies that removal, guides a return trip for the towel and a wipe of the exact table, verifies the wipe, then has the towel returned and the new packet and pen staged. A weak guide that skips the off-view inspection places the new materials among the old ones without the wipe.",
+              "scene": "office_vendor_machine",
+              "why_scene": "the scene provides shared_office_0 with a serving_cart and bookcases plus a separate meeting_room_0 with a conference_table, matching the remote-evidence structure."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "does the assistant require the remote table view before choosing a workflow",
+                "counterfactual_failure": "weak assistant stages packet and pen immediately, leaving the clipboard on the table and skipping the wipe",
+                "forbidden_changes": [
+                  "revealing the table state from the cart view",
+                  "placing the packet before clearing and wiping"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "clipboard observed on the meeting conference_table after navigation"
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "clipboard on bookcase and packet plus pen on conference_table with the wipe performed first",
+                "temporal_constraints": [
+                  "wipe occurs before packet and pen are placed"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "remote gating object on the meeting table",
+                  "what": "leftover clipboard",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "fresh material to stage",
+                  "what": "paper packet",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "fresh material to stage",
+                  "what": "pen",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "wipe implement",
+                  "what": "hand towel",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "destination for cleared clipboard",
+                  "what": "office bookcase",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "staging surface and evidence carrier",
+                  "what": "meeting conference table",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "origin surface for materials and towel return",
+                  "what": "serving cart",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "whether a leftover clipboard sits on the remote meeting-room conference table",
+              "look_alike": [],
+              "opening": "wearer stands at the serving cart in shared_office_0 with packet, pen, and hand towel on it; a clipboard rests on the meeting_room_0 conference_table",
+              "outcome": "clipboard on the office bookcase, table wiped, packet and pen on the meeting-room conference table",
+              "place": "office_vendor_machine, shared_office_0 and meeting_room_0",
+              "printed": [],
+              "tests_what": "recognising off-view evidence and directing navigation before committing to a procedure"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate is a clean active-viewpoint-acquisition GUIDE: the decisive fact (a leftover clipboard on the meeting-room conference table) is outside the initial cart view and gates a conditional clear-and-wipe workflow, so the strong assistant must first direct the wearer into meeting_room_0 to look before committing to a procedure, while the weak assistant guesses the table is clear and produces a different scorable outcome (clipboard left mixed with finance materials, no wipe). Evidence is dynamic and egocentric, the branches differ in both ordered trace and final on-predicates, all nouns bind to allowed categories, and the five-plus meaningful stages are grounded in the wearer's stated conditional rule rather than invented dependencies.",
+          "requirements": [
+            "Keep the total authored path at or under 18 actions; the wipe-and-restage sequence is tight, so avoid adding decorative walks.",
+            "Ensure the assistant's first turn explicitly withholds the workflow and states the cart view lacks the table, before any navigation is enacted.",
+            "Bind the paper packet to paper_sheet and keep the wipe grounded in the wearer's stated conditional rule."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Walk",
+              "LookAt",
+              "Grab",
+              "Put",
+              "Wipe"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 17,
+            "estimated_prologue_actions": 2,
+            "estimated_task_actions": 15,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 102.8,
+          "structural_signature": {
+            "evaluation": "scorable on-predicates plus ordered wipe-before-staging trace",
+            "evidence": "leftover clipboard visible only after walking into the meeting room",
+            "failure": "blind commitment to simple setup leaving clipboard and skipping wipe",
+            "operation": "select clear-and-wipe vs simple setup from revealed table state",
+            "response": "withhold procedure, direct navigation, then stage incrementally",
+            "template_class": "remote_room_object_presence_gates_conditional_workflow",
+            "temporal": "reveal-then-commit, wipe before fresh staging"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "office_vendor_machine",
+      "sha": "a30e783f55c0",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v71_finish_gpt55_opus_20260902a/compile_input/GUIDE/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gpt-5-5-genai-responses",
+      "judge_model": "claude-4-8-opus-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:65c063682cb905f5fc1045bcebd2836422ffcb8e2b52dbb4cfadd64b9f6b6559",
+      "version": "compile-v2-grounded-20260901s"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_micro24_v71_finish_gpt55_opus_20260902a",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v40-template-cap3-20260901",
+      "release_id": "sha256:55453e256b2e340f667a6cb049009c444e2bdef69c9c25628560caa49eb72fa1",
+      "simulator_contract_digest": "sha256:65c063682cb905f5fc1045bcebd2836422ffcb8e2b52dbb4cfadd64b9f6b6559"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "result": "guide26-story-refine-r2-20260912zl",
+        "source": "GUIDE-111004"
+      },
+      {
+        "kind": "canonicalize_required_evidence",
+        "source": "[\"Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order.\", \"The lifted checklist visibly requires the old material to be archived before the new packet and pen are placed in order, and it is returned before work continues.\", \"Inspection reveals the previous red service briefing folder still on the setup table.\", \"The open black scene-native archive cabinet is inspected before work begins.\", \"The new blue briefing packet is visibly present inside the open green wall cabinet.\", \"The new briefing pen is visibly present beside the packet inside the green cabinet.\", \"The previous red briefing folder has been filed in the black wall cabinet.\", \"The new blue briefing packet is clearly visible on the cleared setup table.\", \"The pen was placed after the packet, and the final wide inspection shows both on the setup table.\"]",
+        "result": "[\"Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order.\", \"The lifted checklist visibly requires the old material to be archived before the new packet and pen are placed in order, and it is returned before work continues.\", \"Inspection reveals the previous red service briefing folder still on the setup table.\", \"The open black scene-native archive cabinet is inspected before work begins.\", \"The new blue briefing packet is visibly present inside the open green wall cabinet.\", \"The new briefing pen is visibly present beside the packet inside the green cabinet.\", \"The previous red briefing folder has been filed in the black wall cabinet.\", \"The new blue briefing packet is clearly visible on the cleared setup table.\", \"The pen was placed after the packet, and the final wide inspection shows both on the setup table.\", \"The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last.\"]"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "GUIDE-111004",
+    "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+    "capability_notes": [
+      "The office workflow leaves the shallow scene-native bamfsz_8 briefing counter unchanged and places no movable load on its top.",
+      "The formal reset checklist is a graspable clipboard on the scene-native conference table. The held-document LookAt path automatically returns it to that support and clears the hand before the setup inspection continues.",
+      "The checklist and old red folder start at separated reachable sites on the scene-native conference table; the new blue folder and pen begin inside the exact green-tinted office locker_umumgu_1.",
+      "The old folder is filed in the separate exact black-tinted locker_umumgu_0, so no floor box or imported cabinet is introduced and neither cabinet needs a label.",
+      "The packet and pen use the nearest validated placement sites on the reset table instead of forcing far-edge coordinates beyond the wearer's reach.",
+      "Redundant explicit table-waypoint walks are omitted because Grab and PutOn already perform their own validated navigation; this avoids parking the body against a table between actions.",
+      "No high rack or overhead fixture is part of the interaction route, preventing the repeated first-person occlusions seen in the kitchen version.",
+      "The final inspection targets the full setup table so the blue packet and pen remain visible together."
+    ],
+    "revision": "guide22-interaction-20260913",
+    "benchmark_split": "production",
+    "physical_revision": "guide26-story-refine-r2-20260912zl",
+    "physical_taskpack_sha256": "sha256:b4b1b5054ea86df27dd32435df56bef1c33e5ae2d6e9d282b925ab5a1df227a3",
+    "parent_lineage": {
+      "source": "manual_story_revision",
+      "compile_input_digest": "sha256:f7be1ee1875948ad173a50f5844a46ef48e9aa9294b6c42f647929a3865cda3f",
+      "source_contract_digest": "sha256:a8d53f66542ff85cc76a6b7b6ccaee989289854e943709acb705f2f6ebda2907",
+      "executable_spec_digest": "sha256:dfdb52eb3b2b34febd61ea2a065a513b3a3feaae366af5f90a78d8a39f6c0de5",
+      "invention": {
+        "attempt": 1,
+        "author_prose": "A low-vision office worker is setting a conference table for a finance review. From the serving cart they can see the new packet, pen, and hand towel, but the table itself is around a corner. They ask the glasses to inspect what the last group left and guide the reset, without dictating either branch. The assistant first requests the missing view. On the conference table it finds the previous meeting's clipboard, showing that the last group did not complete the clean reset. That evidence selects the full reset rather than a simple setup. The assistant guides the clipboard to the office bookcase, verifies that removal, guides a return trip for the towel and a wipe of the exact table, verifies the wipe, then has the towel returned and the new packet and pen staged. A weak guide that skips the off-view inspection places the new materials among the old ones without the wipe.",
+        "author_prose_sha256": "sha256:dd35bc72c766a03442ced346f2de284689a306fa63ef93ddc875b40b79bc9e8a",
+        "capability": {
+          "boundary": "The information-gathering instruction must be necessary; the assistant may not guess or proceed from hidden simulator state.",
+          "few_shot": "A volunteer must attach one of two similar camera lenses to a donated camera body, but the compatibility code is printed inside the closed lens-case lid and neither lens front reveals it. The wearer asks which lens to mount. The assistant first says it cannot determine that from the current view and asks them to open the case and angle the lid toward the glasses. Only after reading the compatibility table does it direct the correct lens onto the camera and the spare into the padded compartment. Guessing immediately can attach the wrong lens. The final attachment and containment are scoreable, while the episode also tests that information acquisition precedes advice.",
+          "id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+          "name_zh": "感知缺口的主动补齐",
+          "target": "Recognise that required evidence is outside the current view and first direct the wearer to reveal it before giving substantive guidance."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+          "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+          "evaluation_status": "PASS",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": false,
+          "owner": null,
+          "reason": null,
+          "reason_code": null,
+          "recommended_work": null,
+          "version": "capability-support/1.0",
+          "workstream": null
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "candy_dispenser_shelf",
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "compost_bin",
+            "dessert_stand",
+            "dish_rack_cart",
+            "dishwasher",
+            "display_case",
+            "display_fridge",
+            "dry_food_dispenser_shelf",
+            "free_weight_rack",
+            "freezer",
+            "fridge",
+            "grocery_fridge",
+            "grocery_shelf",
+            "locker",
+            "magazine_stand",
+            "metal_bottom_cabinet",
+            "oven",
+            "public_trash_can",
+            "recycling_bin",
+            "serving_cart",
+            "shelf",
+            "shopping_cart",
+            "snack_rack",
+            "top_cabinet",
+            "trash_can",
+            "umbrella_rack",
+            "vending_machine",
+            "wardrobe",
+            "washer",
+            "wine_fridge"
+          ],
+          "allowed_loose_categories": [
+            "sponge",
+            "paper_sheet",
+            "clipboard",
+            "hand_towel",
+            "chopping_board",
+            "lemonade_bottle",
+            "walnut_meat",
+            "pen",
+            "architectural_plan",
+            "bottle_of_skin_cream",
+            "petri_dish",
+            "pack_of_kielbasa",
+            "hockey_puck",
+            "kielbasa",
+            "picture",
+            "bottle_of_black_pepper",
+            "dried_apricot",
+            "ribbon",
+            "whiskey_stone",
+            "bunch_of_bananas",
+            "lollipop",
+            "lubricant_bottle",
+            "security_camera",
+            "griddle_pan"
+          ],
+          "allowed_surface_categories": [
+            "bookcase",
+            "conference_table",
+            "serving_cart"
+          ],
+          "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+          "coverage_categories": [
+            "chopping_board",
+            "lemonade_bottle",
+            "walnut_meat",
+            "pen",
+            "architectural_plan",
+            "bottle_of_skin_cream",
+            "petri_dish",
+            "pack_of_kielbasa",
+            "hockey_puck",
+            "kielbasa",
+            "picture",
+            "bottle_of_black_pepper",
+            "dried_apricot",
+            "ribbon",
+            "whiskey_stone",
+            "bunch_of_bananas",
+            "lollipop",
+            "lubricant_bottle",
+            "security_camera",
+            "griddle_pan"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 4,
+            "required_semantic_turns": 3,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": true,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_memory_gap": false,
+            "requires_reselection": false,
+            "single_wearer_only": true,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "GUIDE",
+          "limits": {
+            "max_authored_actions": 32,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_meaningful_steps": 15,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 10,
+            "max_small_label_characters": 8,
+            "max_task_actions": 24,
+            "min_intervening_meaningful_actions": 0,
+            "min_meaningful_steps": 5
+          },
+          "preferred_story_categories": [
+            "sponge",
+            "paper_sheet",
+            "clipboard",
+            "hand_towel"
+          ],
+          "preferred_story_category_glosses": {
+            "clipboard": "",
+            "hand_towel": "",
+            "paper_sheet": "",
+            "sponge": ""
+          },
+          "rooms": [
+            {
+              "area_m2": 216.9,
+              "name": "shared_office_0",
+              "scene_containers": {
+                "locker": 2
+              },
+              "scene_surfaces": {
+                "bookcase": 7,
+                "conference_table": 2,
+                "serving_cart": 1
+              },
+              "surface_max_area_m2": {
+                "bookcase": 0.157,
+                "conference_table": 2.977,
+                "serving_cart": 0.14
+              },
+              "surface_reference_capacity": {
+                "bookcase": 3,
+                "conference_table": 3,
+                "serving_cart": 3
+              }
+            }
+          ],
+          "scene": "office_vendor_machine",
+          "task_id": "GUIDE-111004",
+          "version": "grounded-authoring/3.1-hard-context-20260901"
+        },
+        "prompt_sha": "737fdee5f255",
+        "prompt_sha256": "sha256:737fdee5f255b21865210c1fa2fc3598932ea65c485b0643b99fb6096ea0c9c5",
+        "prompt_version": "capability-v40-template-cap3-20260901",
+        "prose_sha256": "sha256:a30e783f55c0a6dac6709bc26bf1de3b3437094f712e66964680233596ee5d4b",
+        "review": {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "a leftover clipboard is on the meeting-room conference table, so the clear-and-wipe branch applies",
+                "derived_from": [],
+                "established_by": "Walk into meeting_room_0 then LookAt the conference_table",
+                "runtime_support": "the clipboard's on-predicate on the conference_table observed after navigation",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "because a leftover clipboard is present, the packet must not be set down until the clipboard is cleared and the table wiped",
+                "derived_from": [
+                  "a leftover clipboard is on the meeting-room conference table, so the clear-and-wipe branch applies"
+                ],
+                "established_by": "applying the wearer's stated conditional rule to the revealed table state",
+                "runtime_support": "utterance rule plus observed clipboard-on-table state",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "skip evidence acquisition and commit to the simple branch",
+              "shared_obligations": [
+                "g2"
+              ],
+              "target_difference": "weak leaves clipboard on the table mixed with finance materials and never wipes, whereas strong clears the clipboard to the bookcase and wipes first"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "a leftover clipboard lies on the meeting_room conference table, seen only after entering that room",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "recognize cart view lacks the table and direct entry into meeting_room_0 to look",
+              "reveal clipboard and commit to clear-and-wipe, directing clipboard to the office bookcase",
+              "confirm separation and direct wiping the conference table with the hand towel",
+              "return the towel and stage the paper packet on the conference table",
+              "place the pen with the packet and confirm completion"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 0,
+              "reason": "this is an active-viewpoint task; the decisive fact must be revealed by directed navigation, not recalled",
+              "required": false,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 3,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": false,
+              "assistant_need": "accessibility: low-vision wearer cannot resolve remote table state and needs branch selection plus ordering guidance",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "assistant dialogue",
+                  "Put clipboard on bookcase",
+                  "Wipe conference_table"
+                ],
+                "description": "clear the leftover clipboard to the office bookcase and wipe the table before staging",
+                "grounded_in": "'it has to be cleared to the office bookcase and the table wiped before I put out this packet'",
+                "id": "g1",
+                "kind": "physical"
+              },
+              {
+                "covered_by": [
+                  "Put paper_sheet on conference_table",
+                  "Put pen on conference_table"
+                ],
+                "description": "stage the packet and pen on the meeting-room conference table",
+                "grounded_in": "'I'm setting up the meeting table for the finance review ... it's just the packet and pen'",
+                "id": "g2",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "the wearer states the conditional rule and that they cannot tell from here, leaving the branch inference and ordering to the assistant",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "the low-vision wearer cannot read the remote table state and needs hands-free guidance on which branch applies and in what order",
+            "why_utterance_alone_fails": "the wearer explicitly cannot tell whether the table is clear from the cart position, so the conditional branch is undetermined without the view"
+          },
+          "capability_fit": "The assistant succeeds only by recognizing that the required table state is off-view and directing navigation to reveal it before giving substantive guidance.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "clipboard",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "leftover clipboard"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "paper_sheet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "paper packet"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "pen",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "pen"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "hand_towel",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "hand towel"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bookcase",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "office bookcase"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "conference_table",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "meeting conference table"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "serving_cart",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "serving cart"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "A low-vision office worker is setting a conference table for a finance review. From the serving cart they can see the new packet, pen, and hand towel, but the table itself is around a corner. They ask the glasses to inspect what the last group left and guide the reset, without dictating either branch. The assistant first requests the missing view. On the conference table it finds the previous meeting's clipboard, showing that the last group did not complete the clean reset. That evidence selects the full reset rather than a simple setup. The assistant guides the clipboard to the office bookcase, verifies that removal, guides a return trip for the towel and a wipe of the exact table, verifies the wipe, then has the towel returned and the new packet and pen staged. A weak guide that skips the off-view inspection places the new materials among the old ones without the wipe.",
+              "scene": "office_vendor_machine",
+              "why_scene": "the scene provides shared_office_0 with a serving_cart and bookcases plus a separate meeting_room_0 with a conference_table, matching the remote-evidence structure."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "does the assistant require the remote table view before choosing a workflow",
+                "counterfactual_failure": "weak assistant stages packet and pen immediately, leaving the clipboard on the table and skipping the wipe",
+                "forbidden_changes": [
+                  "revealing the table state from the cart view",
+                  "placing the packet before clearing and wiping"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "clipboard observed on the meeting conference_table after navigation"
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "clipboard on bookcase and packet plus pen on conference_table with the wipe performed first",
+                "temporal_constraints": [
+                  "wipe occurs before packet and pen are placed"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "remote gating object on the meeting table",
+                  "what": "leftover clipboard",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "fresh material to stage",
+                  "what": "paper packet",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "fresh material to stage",
+                  "what": "pen",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "wipe implement",
+                  "what": "hand towel",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "destination for cleared clipboard",
+                  "what": "office bookcase",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "staging surface and evidence carrier",
+                  "what": "meeting conference table",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "origin surface for materials and towel return",
+                  "what": "serving cart",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "whether a leftover clipboard sits on the remote meeting-room conference table",
+              "look_alike": [],
+              "opening": "wearer stands at the serving cart in shared_office_0 with packet, pen, and hand towel on it; a clipboard rests on the meeting_room_0 conference_table",
+              "outcome": "clipboard on the office bookcase, table wiped, packet and pen on the meeting-room conference table",
+              "place": "office_vendor_machine, shared_office_0 and meeting_room_0",
+              "printed": [],
+              "tests_what": "recognising off-view evidence and directing navigation before committing to a procedure"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate is a clean active-viewpoint-acquisition GUIDE: the decisive fact (a leftover clipboard on the meeting-room conference table) is outside the initial cart view and gates a conditional clear-and-wipe workflow, so the strong assistant must first direct the wearer into meeting_room_0 to look before committing to a procedure, while the weak assistant guesses the table is clear and produces a different scorable outcome (clipboard left mixed with finance materials, no wipe). Evidence is dynamic and egocentric, the branches differ in both ordered trace and final on-predicates, all nouns bind to allowed categories, and the five-plus meaningful stages are grounded in the wearer's stated conditional rule rather than invented dependencies.",
+          "requirements": [
+            "Keep the total authored path at or under 18 actions; the wipe-and-restage sequence is tight, so avoid adding decorative walks.",
+            "Ensure the assistant's first turn explicitly withholds the workflow and states the cart view lacks the table, before any navigation is enacted.",
+            "Bind the paper packet to paper_sheet and keep the wipe grounded in the wearer's stated conditional rule."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Walk",
+              "LookAt",
+              "Grab",
+              "Put",
+              "Wipe"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 17,
+            "estimated_prologue_actions": 2,
+            "estimated_task_actions": 15,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 102.8,
+          "structural_signature": {
+            "evaluation": "scorable on-predicates plus ordered wipe-before-staging trace",
+            "evidence": "leftover clipboard visible only after walking into the meeting room",
+            "failure": "blind commitment to simple setup leaving clipboard and skipping wipe",
+            "operation": "select clear-and-wipe vs simple setup from revealed table state",
+            "response": "withhold procedure, direct navigation, then stage incrementally",
+            "template_class": "remote_room_object_presence_gates_conditional_workflow",
+            "temporal": "reveal-then-commit, wipe before fresh staging"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "actor_scope": {
+                "live_physical_actors": [
+                  "wearer"
+                ],
+                "other_person_changes_world": false
+              },
+              "core_claims": [
+                {
+                  "available_before_turn": 0,
+                  "claim": "a leftover clipboard is on the meeting-room conference table, so the clear-and-wipe branch applies",
+                  "derived_from": [],
+                  "established_by": "Walk into meeting_room_0 then LookAt the conference_table",
+                  "runtime_support": "the clipboard's on-predicate on the conference_table observed after navigation",
+                  "source": "live_state"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "because a leftover clipboard is present, the packet must not be set down until the clipboard is cleared and the table wiped",
+                  "derived_from": [
+                    "a leftover clipboard is on the meeting-room conference table, so the clear-and-wipe branch applies"
+                  ],
+                  "established_by": "applying the wearer's stated conditional rule to the revealed table state",
+                  "runtime_support": "utterance rule plus observed clipboard-on-table state",
+                  "source": "derived"
+                }
+              ],
+              "counterfactual_contract": {
+                "allowed_other_differences": [],
+                "operator": "skip evidence acquisition and commit to the simple branch",
+                "shared_obligations": [
+                  "g2"
+                ],
+                "target_difference": "weak leaves clipboard on the table mixed with finance materials and never wipes, whereas strong clears the clipboard to the bookcase and wipes first"
+              },
+              "cross_field_consistency": {
+                "conflicts": [],
+                "consistent": true
+              },
+              "decisive_fact_absent_from_utterance": true,
+              "egocentric_evidence": "a leftover clipboard lies on the meeting_room conference table, seen only after entering that room",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "meaningful_steps": [
+                "recognize cart view lacks the table and direct entry into meeting_room_0 to look",
+                "reveal clipboard and commit to clear-and-wipe, directing clipboard to the office bookcase",
+                "confirm separation and direct wiping the conference table with the hand towel",
+                "return the towel and stage the paper packet on the conference table",
+                "place the pen with the packet and confirm completion"
+              ],
+              "memory_gap": {
+                "intervening_meaningful_actions": 0,
+                "reason": "this is an active-viewpoint task; the decisive fact must be revealed by directed navigation, not recalled",
+                "required": false,
+                "wearer_just_established_answer": false
+              },
+              "physical_plausibility": {
+                "credible": true,
+                "issues": []
+              },
+              "semantic_turns": 3,
+              "story_world_mismatches": [],
+              "strong_completes_user_goal": true,
+              "strong_weak_distinct": true,
+              "turn0_access": {
+                "answer_fully_visible": false,
+                "assistant_need": "accessibility: low-vision wearer cannot resolve remote table state and needs branch selection plus ordering guidance",
+                "wearer_can_self_serve": false
+              },
+              "ungrounded_physical_nouns": [],
+              "unmodeled_claims": [],
+              "user_goal_obligations": [
+                {
+                  "covered_by": [
+                    "assistant dialogue",
+                    "Put clipboard on bookcase",
+                    "Wipe conference_table"
+                  ],
+                  "description": "clear the leftover clipboard to the office bookcase and wipe the table before staging",
+                  "grounded_in": "'it has to be cleared to the office bookcase and the table wiped before I put out this packet'",
+                  "id": "g1",
+                  "kind": "physical"
+                },
+                {
+                  "covered_by": [
+                    "Put paper_sheet on conference_table",
+                    "Put pen on conference_table"
+                  ],
+                  "description": "stage the packet and pen on the meeting-room conference table",
+                  "grounded_in": "'I'm setting up the meeting table for the finance review ... it's just the packet and pen'",
+                  "id": "g2",
+                  "kind": "physical"
+                }
+              ],
+              "uses_only_grounded_assets": true,
+              "utterance_policy": {
+                "prescribes_assistant_words_or_trigger": false,
+                "reason": "the wearer states the conditional rule and that they cannot tell from here, leaving the branch inference and ordering to the assistant",
+                "states_goal_not_solution": true
+              },
+              "weak_shared_work_complete": true,
+              "why_user_needs_assistant": "the low-vision wearer cannot read the remote table state and needs hands-free guidance on which branch applies and in what order",
+              "why_utterance_alone_fails": "the wearer explicitly cannot tell whether the table is clear from the cart position, so the conditional branch is undetermined without the view"
+            },
+            "capability_fit": "The assistant succeeds only by recognizing that the required table state is off-view and directing navigation to reveal it before giving substantive guidance.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "clipboard",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "leftover clipboard"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "paper_sheet",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "paper packet"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "pen",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "pen"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "hand_towel",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "hand towel"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "bookcase",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "office bookcase"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "conference_table",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "meeting conference table"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "serving_cart",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "serving cart"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "A low-vision office worker is setting a conference table for a finance review. From the serving cart they can see the new packet, pen, and hand towel, but the table itself is around a corner. They ask the glasses to inspect what the last group left and guide the reset, without dictating either branch. The assistant first requests the missing view. On the conference table it finds the previous meeting's clipboard, showing that the last group did not complete the clean reset. That evidence selects the full reset rather than a simple setup. The assistant guides the clipboard to the office bookcase, verifies that removal, guides a return trip for the towel and a wipe of the exact table, verifies the wipe, then has the towel returned and the new packet and pen staged. A weak guide that skips the off-view inspection places the new materials among the old ones without the wipe.",
+                "scene": "office_vendor_machine",
+                "why_scene": "the scene provides shared_office_0 with a serving_cart and bookcases plus a separate meeting_room_0 with a conference_table, matching the remote-evidence structure."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "does the assistant require the remote table view before choosing a workflow",
+                  "counterfactual_failure": "weak assistant stages packet and pen immediately, leaving the clipboard on the table and skipping the wipe",
+                  "forbidden_changes": [
+                    "revealing the table state from the cart view",
+                    "placing the packet before clearing and wiping"
+                  ],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "clipboard observed on the meeting conference_table after navigation"
+                  ],
+                  "required_final_predicates": [
+                    "on"
+                  ],
+                  "success_condition": "clipboard on bookcase and packet plus pen on conference_table with the wipe performed first",
+                  "temporal_constraints": [
+                    "wipe occurs before packet and pen are placed"
+                  ]
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "drives_the_story",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "remote gating object on the meeting table",
+                    "what": "leftover clipboard",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "fresh material to stage",
+                    "what": "paper packet",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "fresh material to stage",
+                    "what": "pen",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "wipe implement",
+                    "what": "hand towel",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "destination for cleared clipboard",
+                    "what": "office bookcase",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "staging surface and evidence carrier",
+                    "what": "meeting conference table",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "origin surface for materials and towel return",
+                    "what": "serving cart",
+                    "when": "both"
+                  }
+                ],
+                "hinges_on": "whether a leftover clipboard sits on the remote meeting-room conference table",
+                "look_alike": [],
+                "opening": "wearer stands at the serving cart in shared_office_0 with packet, pen, and hand towel on it; a clipboard rests on the meeting_room_0 conference_table",
+                "outcome": "clipboard on the office bookcase, table wiped, packet and pen on the meeting-room conference table",
+                "place": "office_vendor_machine, shared_office_0 and meeting_room_0",
+                "printed": [],
+                "tests_what": "recognising off-view evidence and directing navigation before committing to a procedure"
+              }
+            },
+            "duplicate_of": null,
+            "reason": "The candidate is a clean active-viewpoint-acquisition GUIDE: the decisive fact (a leftover clipboard on the meeting-room conference table) is outside the initial cart view and gates a conditional clear-and-wipe workflow, so the strong assistant must first direct the wearer into meeting_room_0 to look before committing to a procedure, while the weak assistant guesses the table is clear and produces a different scorable outcome (clipboard left mixed with finance materials, no wipe). Evidence is dynamic and egocentric, the branches differ in both ordered trace and final on-predicates, all nouns bind to allowed categories, and the five-plus meaningful stages are grounded in the wearer's stated conditional rule rather than invented dependencies.",
+            "requirements": [
+              "Keep the total authored path at or under 18 actions; the wipe-and-restage sequence is tight, so avoid adding decorative walks.",
+              "Ensure the assistant's first turn explicitly withholds the workflow and states the cart view lacks the table, before any navigation is enacted.",
+              "Bind the paper packet to paper_sheet and keep the wipe grounded in the wearer's stated conditional rule."
+            ],
+            "runtime_requirements": {
+              "actions": [
+                "Walk",
+                "LookAt",
+                "Grab",
+                "Put",
+                "Wipe"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 17,
+              "estimated_prologue_actions": 2,
+              "estimated_task_actions": 15,
+              "events": [],
+              "final_predicates": [
+                "on"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 102.8,
+            "structural_signature": {
+              "evaluation": "scorable on-predicates plus ordered wipe-before-staging trace",
+              "evidence": "leftover clipboard visible only after walking into the meeting room",
+              "failure": "blind commitment to simple setup leaving clipboard and skipping wipe",
+              "operation": "select clear-and-wipe vs simple setup from revealed table state",
+              "response": "withhold procedure, direct navigation, then stage incrementally",
+              "template_class": "remote_room_object_presence_gates_conditional_workflow",
+              "temporal": "reveal-then-commit, wipe before fresh staging"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "office_vendor_machine",
+        "sha": "a30e783f55c0",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v71_finish_gpt55_opus_20260902a/compile_input/GUIDE/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gpt-5-5-genai-responses",
+        "judge_model": "claude-4-8-opus-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:65c063682cb905f5fc1045bcebd2836422ffcb8e2b52dbb4cfadd64b9f6b6559",
+        "version": "compile-v2-grounded-20260901s"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_micro24_v71_finish_gpt55_opus_20260902a",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v40-template-cap3-20260901",
+        "release_id": "sha256:55453e256b2e340f667a6cb049009c444e2bdef69c9c25628560caa49eb72fa1",
+        "simulator_contract_digest": "sha256:65c063682cb905f5fc1045bcebd2836422ffcb8e2b52dbb4cfadd64b9f6b6559"
+      },
+      "normalizations": [
+        {
+          "kind": "manual_story_revision",
+          "result": "guide26-story-refine-r2-20260912zl",
+          "source": "GUIDE-111004"
+        },
+        {
+          "kind": "canonicalize_required_evidence",
+          "source": "[\"Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order.\", \"The lifted checklist visibly requires the old material to be archived before the new packet and pen are placed in order, and it is returned before work continues.\", \"Inspection reveals the previous red service briefing folder still on the setup table.\", \"The open black scene-native archive cabinet is inspected before work begins.\", \"The new blue briefing packet is visibly present inside the open green wall cabinet.\", \"The new briefing pen is visibly present beside the packet inside the green cabinet.\", \"The previous red briefing folder has been filed in the black wall cabinet.\", \"The new blue briefing packet is clearly visible on the cleared setup table.\", \"The pen was placed after the packet, and the final wide inspection shows both on the setup table.\"]",
+          "result": "[\"Please use the pre-service reset checklist and what is actually at this briefing station to guide me through every remaining step in order.\", \"The lifted checklist visibly requires the old material to be archived before the new packet and pen are placed in order, and it is returned before work continues.\", \"Inspection reveals the previous red service briefing folder still on the setup table.\", \"The open black scene-native archive cabinet is inspected before work begins.\", \"The new blue briefing packet is visibly present inside the open green wall cabinet.\", \"The new briefing pen is visibly present beside the packet inside the green cabinet.\", \"The previous red briefing folder has been filed in the black wall cabinet.\", \"The new blue briefing packet is clearly visible on the cleared setup table.\", \"The pen was placed after the packet, and the final wide inspection shows both on the setup table.\", \"The previous red briefing folder means the full reset applies. File it in the open black wall cabinet, then take the new blue briefing packet and pen from the open green wall cabinet, place the packet on the cleared setup table, and put the pen down last.\"]"
+        }
+      ],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "GUIDE-111004",
+      "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+      "capability_notes": [
+        "The office workflow leaves the shallow scene-native bamfsz_8 briefing counter unchanged and places no movable load on its top.",
+        "The formal reset checklist is a graspable clipboard on the scene-native conference table. The held-document LookAt path automatically returns it to that support and clears the hand before the setup inspection continues.",
+        "The checklist and old red folder start at separated reachable sites on the scene-native conference table; the new blue folder and pen begin inside the exact green-tinted office locker_umumgu_1.",
+        "The old folder is filed in the separate exact black-tinted locker_umumgu_0, so no floor box or imported cabinet is introduced and neither cabinet needs a label.",
+        "The packet and pen use the nearest validated placement sites on the reset table instead of forcing far-edge coordinates beyond the wearer's reach.",
+        "Redundant explicit table-waypoint walks are omitted because Grab and PutOn already perform their own validated navigation; this avoids parking the body against a table between actions.",
+        "No high rack or overhead fixture is part of the interaction route, preventing the repeated first-person occlusions seen in the kitchen version.",
+        "The final inspection targets the full setup table so the blue packet and pen remain visible together."
+      ],
+      "revision": "guide26-story-refine-r2-20260912zl"
+    },
+    "oracle_dialogue_override_ids": [
+      "guide111004_archive_locators",
+      "guide111004_packet_locators",
+      "guide111004_pen_locator"
+    ]
+  }
+}

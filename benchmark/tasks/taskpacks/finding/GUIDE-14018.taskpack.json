@@ -1,0 +1,3432 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-14018",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "inside",
+          "subject": "cheese",
+          "target": "dairy_fridge"
+        },
+        {
+          "pred": "closed",
+          "subject": "dairy_fridge",
+          "target": "dairy_fridge"
+        },
+        {
+          "pred": "closed",
+          "subject": "other_fridge",
+          "target": "other_fridge"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "inside",
+          "subject": "cheese",
+          "target": "dairy_fridge"
+        },
+        {
+          "pred": "closed",
+          "subject": "dairy_fridge",
+          "target": "dairy_fridge"
+        },
+        {
+          "pred": "closed",
+          "subject": "other_fridge",
+          "target": "other_fridge"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "dairy_fridge",
+          "other_fridge"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "cheese",
+          "chicken",
+          "milk"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "Inspect UNIT A and UNIT B one at a time, closing each after the check. UNIT A contains a milk carton, so reopen it, put the Swiss cheese with the dairy, and close it again.",
+        "cue": "This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me.",
+        "premise": "Two otherwise identical fridges carry only neutral UNIT A and UNIT B labels and begin closed with contents installed directly in the reset state, so the opening never reveals which one was stocked. The assistant must actively inspect a milk carton versus chicken, infer the dairy unit, and store the recognizable Swiss-cheese wedge there."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [
+        "The action of placing the half_bleu on the table."
+      ],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me.",
+        "kind": "authored",
+        "ref": "data_generate:GUIDE-14018"
+      },
+      "rule_table": "inside(cheese, dairy_fridge); closed(dairy_fridge); closed(other_fridge)",
+      "scene": "restaurant_asian",
+      "template": "the grounded restaurant_asian scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 14,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 14,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "prep"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "cheese"
+          ]
+        },
+        {
+          "verb": "LookAround",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "dairy_fridge"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "milk"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "dairy_fridge"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "other_fridge"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "chicken"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "other_fridge"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "dairy_fridge"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "cheese"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "cheese",
+            "dairy_fridge"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "dairy_fridge"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Open] <dairy_fridge> (1), [LookAt] <milk> (1), [Close] <dairy_fridge> (1), [Open] <other_fridge> (1), [LookAt] <chicken> (1), [Close] <other_fridge> (1), [Open] <dairy_fridge> (1), [Grab] <cheese> (1), [PutInside] <cheese> (1) <dairy_fridge> (1), [Close] <dairy_fridge> (1)",
+      "seed": 1863204680,
+      "source_task_id": "GUIDE-14018"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "cheese",
+          "target": "dairy_fridge"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "dairy_fridge",
+          "target": "dairy_fridge"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "other_fridge",
+          "target": "other_fridge"
+        }
+      ],
+      "sub_steps": [
+        "inside(cheese, dairy_fridge)",
+        "closed(dairy_fridge)",
+        "closed(other_fridge)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-14018",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 1863204680,
+      "containers": {
+        "dairy_fridge": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "fridge",
+            "model": "dszchb",
+            "source": "import"
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "kitchen_0",
+          "label": "UNIT A"
+        },
+        "other_fridge": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "fridge",
+            "model": "dszchb",
+            "source": "import"
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "decoy",
+          "room": "kitchen_0",
+          "label": "UNIT B"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "prep": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_dairy_fridge": {
+          "content": {
+            "args": {
+              "renderer": "short_string",
+              "sub": "",
+              "title": "",
+              "mount_style": "adhesive"
+            },
+            "text": "UNIT A"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "dairy_fridge",
+            "surface": "container_sign"
+          },
+          "per_seed": false,
+          "png": "guide_14018_guide26_story_refine_r2_20260912zl_dairy_fridge_8a9dae8e1bd8"
+        },
+        "label_other_fridge": {
+          "content": {
+            "args": {
+              "renderer": "short_string",
+              "sub": "",
+              "title": "",
+              "mount_style": "adhesive"
+            },
+            "text": "UNIT B"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "other_fridge",
+            "surface": "container_sign"
+          },
+          "per_seed": false,
+          "png": "guide_14018_guide26_story_refine_r2_20260912zl_other_fridge_f1ae32d60224"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "milk": {
+          "cat": "carton_of_milk",
+          "model": "xmugpm",
+          "needs_lookat": false,
+          "place": "in:dairy_fridge",
+          "room": "kitchen_0",
+          "scored": false
+        },
+        "chicken": {
+          "cat": "chicken",
+          "model": "nppsmz",
+          "needs_lookat": false,
+          "place": "in:other_fridge",
+          "room": "kitchen_0",
+          "scored": false
+        },
+        "cheese": {
+          "cat": "swiss_cheese",
+          "model": "hwxeto",
+          "needs_lookat": false,
+          "place": "on:prep",
+          "room": "kitchen_0",
+          "scored": true
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "kitchen_0"
+      ],
+      "scene": "restaurant_asian",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "Two otherwise identical fridges carry only neutral UNIT A and UNIT B labels and begin closed with contents installed directly in the reset state, so the opening never reveals which one was stocked. The assistant must actively inspect a milk carton versus chicken, infer the dairy unit, and store the recognizable Swiss-cheese wedge there.",
+    "assistant_goal": "This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+      "assigned_scene": "restaurant_asian",
+      "core_question": "This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "Two otherwise identical fridges carry only neutral UNIT A and UNIT B labels and begin closed with contents installed directly in the reset state, so the opening never reveals which one was stocked. The assistant must actively inspect a milk carton versus chicken, infer the dairy unit, and store the recognizable Swiss-cheese wedge there."
+      ],
+      "required_evidence": [
+        "This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me.",
+        "A yellow Swiss-cheese wedge with visible holes waits on the preparation table.",
+        "Two closed fridges marked only UNIT A and UNIT B are visible, with their contents hidden.",
+        "Opening and inspecting the first fridge reveals milk.",
+        "Opening and inspecting the second fridge reveals chicken rather than dairy.",
+        "The Swiss cheese has been placed with the milk carton in the inferred dairy fridge.",
+        "Inspect UNIT A and UNIT B one at a time, closing each after the check. UNIT A contains a milk carton, so reopen it, put the Swiss cheese with the dairy, and close it again."
+      ],
+      "required_final_predicates": [
+        "inside",
+        "closed",
+        "closed"
+      ],
+      "success_condition": "inside(cheese, dairy_fridge); closed(dairy_fridge); closed(other_fridge)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-14018",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "assigned_scene": "restaurant_asian",
+        "core_question": "This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "Two otherwise identical fridges carry only neutral UNIT A and UNIT B labels and begin closed with contents installed directly in the reset state, so the opening never reveals which one was stocked. The assistant must actively inspect a milk carton versus chicken, infer the dairy unit, and store the recognizable Swiss-cheese wedge there."
+        ],
+        "required_evidence": [
+          "This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me.",
+          "A yellow Swiss-cheese wedge with visible holes waits on the preparation table.",
+          "Two closed fridges marked only UNIT A and UNIT B are visible, with their contents hidden.",
+          "Opening and inspecting the first fridge reveals milk.",
+          "Opening and inspecting the second fridge reveals chicken rather than dairy.",
+          "The Swiss cheese has been placed with the milk carton in the inferred dairy fridge.",
+          "Inspect UNIT A and UNIT B one at a time, closing each after the check. UNIT A contains a milk carton, so reopen it, put the Swiss cheese with the dairy, and close it again."
+        ],
+        "required_final_predicates": [
+          "inside",
+          "closed",
+          "closed"
+        ],
+        "success_condition": "inside(cheese, dairy_fridge); closed(dairy_fridge); closed(other_fridge)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "avocado",
+          "bar_soap",
+          "bottle_of_lubricant",
+          "bottle_of_paint",
+          "bottle_of_poppy_seeds",
+          "bottle_of_soy_milk",
+          "bottle_of_vinegar",
+          "box_of_coffee",
+          "cap",
+          "carton_of_milk",
+          "centerpiece",
+          "ceramic_tile",
+          "chicken",
+          "clipboard",
+          "club_sandwich",
+          "coconut_oil_jar",
+          "copper_pot",
+          "cup_holder",
+          "dental_floss",
+          "folder",
+          "gift_box",
+          "half_bleu",
+          "half_garlic_bread",
+          "half_hamburger",
+          "half_hotdog_bun",
+          "half_sugar_cookie",
+          "hardback",
+          "herbicide_bottle",
+          "ice_cream_cone",
+          "jar_of_tumeric",
+          "lemon",
+          "magnifying_glass",
+          "mozzarella",
+          "paper_sheet",
+          "poinsettia",
+          "portable_game_console",
+          "shaker",
+          "soupspoon",
+          "soy_sauce_bottle",
+          "sponge",
+          "spotlight",
+          "steel_wool",
+          "swiss_cheese",
+          "teacup",
+          "toilet_paper_dispenser",
+          "tupperware",
+          "vanilla_flower"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "breakfast_table",
+          "commercial_kitchen_table",
+          "freezer",
+          "metal_bottom_cabinet"
+        ],
+        "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "coverage_categories": [
+          "lemon",
+          "cap",
+          "avocado",
+          "bottle_of_lubricant",
+          "toilet_paper_dispenser",
+          "magnifying_glass",
+          "hardback",
+          "ice_cream_cone",
+          "steel_wool",
+          "half_bleu",
+          "spotlight",
+          "club_sandwich",
+          "mozzarella",
+          "half_hamburger",
+          "tupperware",
+          "bottle_of_poppy_seeds",
+          "copper_pot",
+          "vanilla_flower",
+          "portable_game_console",
+          "bar_soap"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 4,
+          "required_semantic_turns": 4,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 4,
+          "max_small_label_characters": 40,
+          "max_task_actions": 10,
+          "max_meaningful_steps": 14,
+          "min_intervening_meaningful_actions": 4
+        },
+        "preferred_story_categories": [
+          "lemon",
+          "cap",
+          "avocado",
+          "bottle_of_lubricant",
+          "toilet_paper_dispenser",
+          "magnifying_glass",
+          "hardback",
+          "ice_cream_cone"
+        ],
+        "preferred_story_category_glosses": {
+          "avocado": "",
+          "bottle_of_lubricant": "",
+          "cap": "",
+          "hardback": "a book with cardboard or cloth or leather covers",
+          "ice_cream_cone": "",
+          "lemon": "",
+          "magnifying_glass": "",
+          "toilet_paper_dispenser": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 55.5,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "fridge": 2,
+              "metal_bottom_cabinet": 4,
+              "oven": 1
+            },
+            "scene_surfaces": {
+              "commercial_kitchen_table": 2,
+              "freezer": 1,
+              "metal_bottom_cabinet": 4
+            },
+            "surface_max_area_m2": {
+              "commercial_kitchen_table": 0.565,
+              "freezer": 0.508,
+              "metal_bottom_cabinet": 0.216
+            },
+            "surface_reference_capacity": {
+              "commercial_kitchen_table": 3,
+              "freezer": 3,
+              "metal_bottom_cabinet": 3
+            }
+          },
+          {
+            "area_m2": 190.2,
+            "name": "dining_room_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "bar": 2,
+              "breakfast_table": 12
+            },
+            "surface_max_area_m2": {
+              "bar": 0.573,
+              "breakfast_table": 0.452
+            },
+            "surface_reference_capacity": {
+              "bar": 3,
+              "breakfast_table": 3
+            }
+          }
+        ],
+        "scene": "restaurant_asian",
+        "task_id": "GUIDE-14018",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "carton_of_milk",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "carton of milk already stored by the previous shift"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "chicken",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "chicken already stored by the previous shift"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "swiss_cheese",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "recognizable wedge of Swiss cheese awaiting storage"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "fridge",
+            "changed": false,
+            "costs": null,
+            "label": "UNIT A",
+            "tint": null,
+            "what": "neutral UNIT A refrigerator"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "fridge",
+            "changed": false,
+            "costs": null,
+            "label": "UNIT B",
+            "tint": null,
+            "what": "neutral UNIT B refrigerator"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "kitchen preparation table"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "neutral UNIT A refrigerator",
+            "text": "UNIT A",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "neutral UNIT B refrigerator",
+            "text": "UNIT B",
+            "what": "label",
+            "which": null
+          }
+        ],
+        "restaged_story": "Two otherwise identical fridges carry only neutral UNIT A and UNIT B labels and begin closed with contents installed directly in the reset state, so the opening never reveals which one was stocked. The assistant must actively inspect a milk carton versus chicken, infer the dairy unit, and store the recognizable Swiss-cheese wedge there.",
+        "scene": "restaurant_asian",
+        "why_scene": "restaurant_asian supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "dairy_fridge": {
+            "cat": "fridge",
+            "initially_open": false,
+            "label": "UNIT A",
+            "preload": [
+              "milk"
+            ],
+            "role": "scored",
+            "room": "kitchen_0"
+          },
+          "other_fridge": {
+            "cat": "fridge",
+            "initially_open": false,
+            "label": "UNIT B",
+            "preload": [
+              "chicken"
+            ],
+            "role": "decoy",
+            "room": "kitchen_0"
+          }
+        },
+        "items": {
+          "milk": {
+            "affordances": [],
+            "cat": "carton_of_milk",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "in:dairy_fridge",
+            "scored": false,
+            "spot": null,
+            "tint": null
+          },
+          "chicken": {
+            "affordances": [],
+            "cat": "chicken",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "in:other_fridge",
+            "scored": false,
+            "spot": null,
+            "tint": null
+          },
+          "cheese": {
+            "affordances": [],
+            "cat": "swiss_cheese",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:prep",
+            "scored": true,
+            "spot": null,
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <prep> (1)",
+          "[LookAt] <cheese> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0"
+        ],
+        "scene": "restaurant_asian",
+        "staging": {
+          "groups": "Two otherwise identical fridges carry only neutral UNIT A and UNIT B labels and begin closed with contents installed directly in the reset state, so the opening never reveals which one was stocked. The assistant must actively inspect a milk carton versus chicken, infer the dairy unit, and store the recognizable Swiss-cheese wedge there.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "prep": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "A yellow Swiss-cheese wedge with visible holes waits on the preparation table.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Two closed fridges marked only UNIT A and UNIT B are visible, with their contents hidden.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 2,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Opening and inspecting the first fridge reveals milk.",
+            "from": "live",
+            "id": "fact_004",
+            "source_index": 1,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "Opening and inspecting the second fridge reveals chicken rather than dairy.",
+            "from": "live",
+            "id": "fact_005",
+            "source_index": 4,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The Swiss cheese has been placed with the milk carton in the inferred dairy fridge.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 8,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ],
+            "fact": "Inspect UNIT A and UNIT B one at a time, closing each after the check. UNIT A contains a milk carton, so reopen it, put the Swiss cheese with the dairy, and close it again.",
+            "from": "derived",
+            "id": "fact_007",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "cheese",
+            "target": "dairy_fridge"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "dairy_fridge",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "other_fridge",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "The neutral A and B labels do not reveal a category. Start with UNIT A: it is the refrigerator currently visible directly ahead of you beside the preparation table, and its simulator control key is `dairy_fridge`. Treat that key only as an execution handle, not as evidence about the fridge's category. Open `dairy_fridge`, inspect the single item revealed inside, then close `dairy_fridge`.",
+            "referents": [
+              "dairy_fridge",
+              "other_fridge",
+              "cheese"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 3,
+            "say": "UNIT A contained the milk carton, so it is the dairy refrigerator. Turn around to the other refrigerator behind you, UNIT B, whose control key is `other_fridge`. Open `other_fridge`, inspect the item inside, then close `other_fridge`.",
+            "referents": [
+              "dairy_fridge",
+              "milk",
+              "other_fridge"
+            ],
+            "fact_ids": [
+              "fact_004"
+            ]
+          },
+          {
+            "before_index": 6,
+            "say": "UNIT B contained chicken. Turn around and return to UNIT A using `dairy_fridge`; it is the refrigerator beside the preparation table. Reopen it, then take the Swiss cheese wedge from the preparation table using `cheese` and put it inside `dairy_fridge` with the milk.",
+            "referents": [
+              "cheese",
+              "milk",
+              "dairy_fridge",
+              "chicken"
+            ],
+            "fact_ids": [
+              "fact_004",
+              "fact_005"
+            ]
+          },
+          {
+            "before_index": 9,
+            "say": "The cheese is now with the dairy items. Close UNIT A using `dairy_fridge` to finish with both refrigerator doors shut.",
+            "referents": [
+              "cheese",
+              "dairy_fridge"
+            ],
+            "fact_ids": [
+              "fact_006"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Open] <other_fridge> (1), [LookAt] <chicken> (1), [Grab] <cheese> (1), [PutInside] <cheese> (1) <other_fridge> (1), [Close] <other_fridge> (1)",
+        "mates": [],
+        "oracle_program": "[Open] <dairy_fridge> (1), [LookAt] <milk> (1), [Close] <dairy_fridge> (1), [Open] <other_fridge> (1), [LookAt] <chicken> (1), [Close] <other_fridge> (1), [Open] <dairy_fridge> (1), [Grab] <cheese> (1), [PutInside] <cheese> (1) <dairy_fridge> (1), [Close] <dairy_fridge> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "Two otherwise identical fridges carry only neutral UNIT A and UNIT B labels and begin closed with contents installed directly in the reset state, so the opening never reveals which one was stocked. The assistant must actively inspect a milk carton versus chicken, infer the dairy unit, and store the recognizable Swiss-cheese wedge there.",
+        "utterance": "This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <prep> (1)",
+        "[LookAt] <cheese> (1)",
+        "[LookAround]",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "prep"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "prep"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "cheese"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "A yellow Swiss-cheese wedge with visible holes waits on the preparation table.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "Inspect UNIT A and UNIT B one at a time, closing each after the check. UNIT A contains a milk carton, so reopen it, put the Swiss cheese with the dairy, and close it again.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "Two closed fridges marked only UNIT A and UNIT B are visible, with their contents hidden.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "Inspect UNIT A and UNIT B one at a time, closing each after the check. UNIT A contains a milk carton, so reopen it, put the Swiss cheese with the dairy, and close it again.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "Inspect UNIT A and UNIT B one at a time, closing each after the check. UNIT A contains a milk carton, so reopen it, put the Swiss cheese with the dairy, and close it again.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The neutral A and B labels do not reveal a category. Start with UNIT A: it is the refrigerator currently visible directly ahead of you beside the preparation table, and its simulator control key is `dairy_fridge`. Treat that key only as an execution handle, not as evidence about the fridge's category. Open `dairy_fridge`, inspect the single item revealed inside, then close `dairy_fridge`.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "UNIT A contained the milk carton, so it is the dairy refrigerator. Turn around to the other refrigerator behind you, UNIT B, whose control key is `other_fridge`. Open `other_fridge`, inspect the item inside, then close `other_fridge`.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "UNIT B contained chicken. Turn around and return to UNIT A using `dairy_fridge`; it is the refrigerator beside the preparation table. Reopen it, then take the Swiss cheese wedge from the preparation table using `cheese` and put it inside `dairy_fridge` with the milk.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_003",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The cheese is now with the dairy items. Close UNIT A using `dairy_fridge` to finish with both refrigerator doors shut.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "other_fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "chicken"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "cheese"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "cheese"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "cheese",
+            "other_fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "cheese",
+            "target": "other_fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "other_fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "dairy_fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "milk"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "Opening and inspecting the first fridge reveals milk.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "Inspect UNIT A and UNIT B one at a time, closing each after the check. UNIT A contains a milk carton, so reopen it, put the Swiss cheese with the dairy, and close it again.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "dairy_fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "other_fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "chicken"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "Opening and inspecting the second fridge reveals chicken rather than dairy.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "Inspect UNIT A and UNIT B one at a time, closing each after the check. UNIT A contains a milk carton, so reopen it, put the Swiss cheese with the dairy, and close it again.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "other_fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "dairy_fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "cheese"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "cheese"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "cheese",
+            "dairy_fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "cheese",
+            "target": "dairy_fridge"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The Swiss cheese has been placed with the milk carton in the inferred dairy fridge.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "Inspect UNIT A and UNIT B one at a time, closing each after the check. UNIT A contains a milk carton, so reopen it, put the Swiss cheese with the dairy, and close it again.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "dairy_fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "A yellow Swiss-cheese wedge with visible holes waits on the preparation table.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "Two closed fridges marked only UNIT A and UNIT B are visible, with their contents hidden.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p002"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 2
+      },
+      {
+        "id": "fact_004",
+        "statement": "Opening and inspecting the first fridge reveals milk.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o001"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 1
+      },
+      {
+        "id": "fact_005",
+        "statement": "Opening and inspecting the second fridge reveals chicken rather than dairy.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o004"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 4
+      },
+      {
+        "id": "fact_006",
+        "statement": "The Swiss cheese has been placed with the milk carton in the inferred dairy fridge.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o008"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 8
+      },
+      {
+        "id": "fact_007",
+        "statement": "Inspect UNIT A and UNIT B one at a time, closing each after the check. UNIT A contains a milk carton, so reopen it, put the Swiss cheese with the dairy, and close it again.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "p002",
+          "o001",
+          "o004",
+          "o008"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Help the person determine which refrigerator is used for dairy and guide them through storing the cheese.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <prep> (1)",
+          "[LookAt] <cheese> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 3,
+            "say": "Hey, Assistant, I need to put this cheese away, but I can't tell which fridge is for dairy. Can you help me work it out and guide me from there?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, I need to put this cheese away, but I can't tell which fridge is for dairy. Can you help me work it out and guide me from there?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "dairy_fridge_request",
+            "required_phrases": [
+              "which fridge is for dairy",
+              "help me work it out"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[Open] <dairy_fridge> (1)",
+          "[LookAt] <milk> (1)",
+          "[Close] <dairy_fridge> (1)",
+          "[Open] <other_fridge> (1)",
+          "[LookAt] <chicken> (1)",
+          "[Close] <other_fridge> (1)",
+          "[Open] <dairy_fridge> (1)",
+          "[PutInside] <cheese> (1) <dairy_fridge> (1)",
+          "[Close] <dairy_fridge> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[PutInside] <cheese> (1) <other_fridge> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[Open] <dairy_fridge> (1)",
+            "[LookAt] <milk> (1)",
+            "[Close] <dairy_fridge> (1)",
+            "[Open] <other_fridge> (1)",
+            "[LookAt] <chicken> (1)",
+            "[Close] <other_fridge> (1)",
+            "[Open] <dairy_fridge> (1)",
+            "[PutInside] <cheese> (1) <dairy_fridge> (1)",
+            "[Close] <dairy_fridge> (1)"
+          ]
+        ],
+        "verification_points": [
+          {
+            "id": "cheese_in_dairy_fridge",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "cheese",
+            "target": "dairy_fridge"
+          },
+          {
+            "id": "dairy_fridge_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "dairy_fridge",
+            "target": "dairy_fridge"
+          },
+          {
+            "id": "other_fridge_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "other_fridge",
+            "target": "other_fridge"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "dairy_fridge": [
+          "UNIT A refrigerator",
+          "refrigerator beside the preparation table",
+          "refrigerator directly ahead"
+        ],
+        "other_fridge": [
+          "UNIT B refrigerator",
+          "other refrigerator behind you"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 34,
+    "dialogue_budget": 4,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "cheese",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "dairy_fridge",
+              "other_fridge",
+              "cheese"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "cheese",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "dairy_fridge",
+              "milk",
+              "other_fridge"
+            ],
+            "required_fact_ids": [
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "cheese",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "cheese",
+              "milk",
+              "dairy_fridge",
+              "chicken"
+            ],
+            "required_fact_ids": [
+              "fact_004",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "cheese",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "cheese",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "intervention_beat": "assistant_003",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "cheese",
+              "dairy_fridge"
+            ],
+            "required_fact_ids": [
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "cheese",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o009"
+        }
+      ],
+      "terminal_beats": [
+        "h004",
+        "o009"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Open",
+        "args": [
+          "dairy_fridge"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "milk"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "dairy_fridge"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "other_fridge"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "chicken"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "other_fridge"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "dairy_fridge"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "cheese"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "cheese",
+          "dairy_fridge"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "dairy_fridge"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Open",
+        "args": [
+          "other_fridge"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "chicken"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "cheese"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "cheese",
+          "other_fridge"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "other_fridge"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "The neutral A and B labels do not reveal a category. Start with UNIT A: it is the refrigerator currently visible directly ahead of you beside the preparation table, and its simulator control key is `dairy_fridge`. Treat that key only as an execution handle, not as evidence about the fridge's category. Open `dairy_fridge`, inspect the single item revealed inside, then close `dairy_fridge`.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "UNIT A contained the milk carton, so it is the dairy refrigerator. Turn around to the other refrigerator behind you, UNIT B, whose control key is `other_fridge`. Open `other_fridge`, inspect the item inside, then close `other_fridge`.",
+        "relation": "before",
+        "anchor_beat_id": "o003",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "UNIT B contained chicken. Turn around and return to UNIT A using `dairy_fridge`; it is the refrigerator beside the preparation table. Reopen it, then take the Swiss cheese wedge from the preparation table using `cheese` and put it inside `dairy_fridge` with the milk.",
+        "relation": "before",
+        "anchor_beat_id": "o006",
+        "source": "guidance",
+        "source_index": 2
+      },
+      {
+        "id": "assistant_003",
+        "say": "The cheese is now with the dairy items. Close UNIT A using `dairy_fridge` to finish with both refrigerator doors shut.",
+        "relation": "before",
+        "anchor_beat_id": "o009",
+        "source": "guidance",
+        "source_index": 3
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "source": "guide22_interaction_assembly",
+    "compile_input_digest": "sha256:4d1014f7ec847358ccbd478a36c41b659ea7dcd2654ab8b35b67a6a99b03ff06",
+    "source_contract_digest": "sha256:d7c6a5a4bfac61d789949ebaf687151ecc7e17d585f13b13deae35b5527ea734",
+    "executable_spec_digest": "sha256:ac305f149bffb5fb089f68a0e20f46cfe86c6e276cab5aaae8e5b224ba82ffa2",
+    "invention": {
+      "attempt": 4,
+      "author_prose": "A prep cook in a restaurant kitchen is organizing ingredients at the end of a shift and needs to store a leftover piece of blue cheese (`half_bleu`). The kitchen features two identical, unlabeled fridges standing side-by-side. To maintain strict food safety and organizational standards, one fridge is strictly used for raw dairy products, while the other is exclusively reserved for assembled prepared meals.\n\nThe cook picks up the `half_bleu` from the `commercial_kitchen_table` and asks the smart glasses, \"Which fridge is the dairy fridge so I can store this cheese?\"\n\nBecause the fridges are completely closed and lack any exterior markings, the glasses cannot determine their designated uses from the current egocentric view. A weak assistant might guess a fridge at random or hallucinate a default kitchen layout, risking a health code violation if the pungent raw cheese is placed alongside prepared meals. A strong assistant recognizes this critical perceptual gap and actively directs the wearer to gather the missing visual evidence. It replies, \"I cannot tell from the outside. Please open both fridges so I can check their current contents.\"\n\nFollowing the assistant's instruction, the cook opens the doors to both appliances. The camera stream now reveals the previously hidden interiors: one fridge contains fresh `mozzarella`, while the other holds a pre-made `club_sandwich`. By visually identifying the existing dairy item, the assistant can now confidently deduce the correct destination. It provides the final substantive guidance: \"The fridge with the mozzarella is the dairy fridge. Please place the blue cheese in there.\" The cook successfully places the `half_bleu` into the correct appliance.\n\nSuccess is scored by the final containment of the `half_bleu` inside the same fridge as the `mozzarella`. The evaluation also strictly requires the ordered command trace to show that the assistant explicitly withheld its routing instruction until it first directed the wearer to open the doors and reveal the hidden interior evidence.",
+      "author_prose_sha256": "sha256:e9bcdac07afe6fb7da15dca23f8d1d6862a541da344353a5941eb7aebf957b7d",
+      "capability": {
+        "boundary": "The information-gathering instruction must be necessary; the assistant may not guess or proceed from hidden simulator state.",
+        "few_shot": "A volunteer must attach one of two similar camera lenses to a donated camera body, but the compatibility code is printed inside the closed lens-case lid and neither lens front reveals it. The wearer asks which lens to mount. The assistant first says it cannot determine that from the current view and asks them to open the case and angle the lid toward the glasses. Only after reading the compatibility table does it direct the correct lens onto the camera and the spare into the padded compartment. Guessing immediately can attach the wrong lens. The final attachment and containment are scoreable, while the episode also tests that information acquisition precedes advice.",
+        "id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "name_zh": "感知缺口的主动补齐",
+        "target": "Recognise that required evidence is outside the current view and first direct the wearer to reveal it before giving substantive guidance."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+        "evaluation_status": "PASS",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": false,
+        "owner": null,
+        "reason": null,
+        "reason_code": null,
+        "recommended_work": null,
+        "version": "capability-support/1.0",
+        "workstream": null
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "paper_sheet",
+          "clipboard",
+          "folder",
+          "gift_box",
+          "lemon",
+          "cap",
+          "avocado",
+          "bottle_of_lubricant",
+          "toilet_paper_dispenser",
+          "magnifying_glass",
+          "hardback",
+          "ice_cream_cone",
+          "steel_wool",
+          "half_bleu",
+          "spotlight",
+          "club_sandwich",
+          "mozzarella",
+          "half_hamburger",
+          "tupperware",
+          "bottle_of_poppy_seeds",
+          "copper_pot",
+          "vanilla_flower",
+          "portable_game_console",
+          "bar_soap"
+        ],
+        "allowed_surface_categories": [
+          "commercial_kitchen_table",
+          "freezer",
+          "metal_bottom_cabinet"
+        ],
+        "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+        "coverage_categories": [
+          "lemon",
+          "cap",
+          "avocado",
+          "bottle_of_lubricant",
+          "toilet_paper_dispenser",
+          "magnifying_glass",
+          "hardback",
+          "ice_cream_cone",
+          "steel_wool",
+          "half_bleu",
+          "spotlight",
+          "club_sandwich",
+          "mozzarella",
+          "half_hamburger",
+          "tupperware",
+          "bottle_of_poppy_seeds",
+          "copper_pot",
+          "vanilla_flower",
+          "portable_game_console",
+          "bar_soap"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 4,
+          "required_semantic_turns": 2,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "lemon",
+          "cap",
+          "avocado",
+          "bottle_of_lubricant",
+          "toilet_paper_dispenser",
+          "magnifying_glass",
+          "hardback",
+          "ice_cream_cone"
+        ],
+        "preferred_story_category_glosses": {
+          "avocado": "",
+          "bottle_of_lubricant": "",
+          "cap": "",
+          "hardback": "a book with cardboard or cloth or leather covers",
+          "ice_cream_cone": "",
+          "lemon": "",
+          "magnifying_glass": "",
+          "toilet_paper_dispenser": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 55.5,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "fridge": 2,
+              "metal_bottom_cabinet": 4,
+              "oven": 1
+            },
+            "scene_surfaces": {
+              "commercial_kitchen_table": 2,
+              "freezer": 1,
+              "metal_bottom_cabinet": 4
+            },
+            "surface_max_area_m2": {
+              "commercial_kitchen_table": 0.565,
+              "freezer": 0.508,
+              "metal_bottom_cabinet": 0.216
+            },
+            "surface_reference_capacity": {
+              "commercial_kitchen_table": 3,
+              "freezer": 3,
+              "metal_bottom_cabinet": 3
+            }
+          }
+        ],
+        "scene": "restaurant_asian",
+        "task_id": "GUIDE-14018",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "prompt_sha": "0f6a6e8f6864",
+      "prompt_sha256": "sha256:0f6a6e8f686453093eb49b7614366f9943309592ee7c9d6c67ead076f04dd807",
+      "prompt_version": "capability-v19-grounded-physics-20260829",
+      "prose_sha256": "sha256:d0954068c7e23ded88ebe582d8faab3f4a463be0f0ada9d2b036226ab8378cbb",
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "the visual presence of mozzarella versus a club sandwich inside the newly opened fridges",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "semantic_turns": 2,
+          "strong_weak_distinct": true,
+          "ungrounded_physical_nouns": [],
+          "uses_only_grounded_assets": true,
+          "why_utterance_alone_fails": "The utterance does not specify which fridge contains the dairy indicator, and the fridges are identical from the outside."
+        },
+        "capability_fit": "The assistant actively directs the wearer to change the environment's state (opening doors) to acquire hidden visual evidence before providing substantive guidance.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "half_bleu",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "target item"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "mozzarella",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "dairy indicator"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "club_sandwich",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "prepared meal indicator"
+              },
+              {
+                "affordances": [
+                  "container",
+                  "openable"
+                ],
+                "category": "fridge",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "storage containers"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "commercial_kitchen_table",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "starting surface"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [
+              {
+                "what": "storage containers"
+              }
+            ],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "In the prologue, the wearer puts the mozzarella into fridge_1 and closes it. The wearer puts the club_sandwich into fridge_2 and closes it. The wearer puts the half_bleu on the commercial_kitchen_table. At action zero, the wearer asks the assistant which fridge is the dairy fridge so they can store the half_bleu. The assistant recognizes that the fridges are closed and their contents are hidden. It instructs the wearer to open both fridges. The wearer executes an [Open] action on fridge_1 and an [Open] action on fridge_2. The assistant observes the mozzarella in fridge_1 and the club_sandwich in fridge_2. It identifies fridge_1 as the dairy fridge and instructs the wearer to place the half_bleu inside it. The wearer executes a [Grab] action on the half_bleu and a [Putin] action to place it inside fridge_1.",
+            "scene": "restaurant_asian",
+            "why_scene": "Provides a commercial kitchen with multiple identical fridges for food storage."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+              "counterfactual_failure": "The weak assistant guesses a fridge without asking to open them, resulting in the half_bleu being placed in the wrong fridge or the command trace lacking the required intermediate instruction.",
+              "forbidden_changes": [
+                "leaving the fridges open at the start"
+              ],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "the mozzarella inside the opened fridge"
+              ],
+              "required_final_predicates": [
+                "inside"
+              ],
+              "success_condition": "The half_bleu is inside the same fridge as the mozzarella.",
+              "temporal_constraints": [
+                "The assistant must instruct the wearer to open the fridges before providing the final routing instruction."
+              ]
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "handled",
+                "what": "target item",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "destination",
+                "what": "dairy indicator",
+                "when": "opening"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "destination",
+                "what": "prepared meal indicator",
+                "when": "opening"
+              },
+              {
+                "count": 2,
+                "needs_a_body_because": "drives_the_story",
+                "required_affordances": [
+                  "container",
+                  "openable"
+                ],
+                "role_in_story": "drives_the_story",
+                "what": "storage containers",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "handled",
+                "what": "starting surface",
+                "when": "opening"
+              }
+            ],
+            "hinges_on": "the assistant must realize the fridges are closed and instruct the wearer to open them to identify the dairy fridge by its contents (mozzarella) before routing the half_bleu",
+            "look_alike": [
+              {
+                "must": "identical",
+                "these": [
+                  "storage containers"
+                ],
+                "why": "so the wearer cannot distinguish them from the outside"
+              }
+            ],
+            "opening": "The mozzarella is placed inside one fridge and it is closed. The club_sandwich is placed inside the other fridge and it is closed. The half_bleu is placed on the commercial_kitchen_table.",
+            "outcome": "The half_bleu is placed in the correct fridge after the assistant directs the wearer to open both.",
+            "place": "kitchen_0",
+            "printed": [],
+            "tests_what": "assistant's ability to recognize that required visual evidence is hidden inside closed containers and direct the wearer to reveal it before providing guidance"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The story perfectly matches the ACTIVE_VIEWPOINT_ACQUISITION capability by requiring the assistant to recognize that the critical evidence (the contents of the fridges) is hidden behind closed doors. It must withhold its final routing instruction and first direct the wearer to open the fridges. The cognitive operation of using semantic categorization of existing food items (mozzarella vs. club sandwich) to deduce the purpose of identical appliances provides a distinct and valid test compared to prior label-reading tasks.",
+        "requirements": [],
+        "runtime_requirements": {
+          "actions": [
+            "Put",
+            "Putin",
+            "Close",
+            "Open",
+            "Grab"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 9,
+          "estimated_prologue_actions": 5,
+          "estimated_task_actions": 4,
+          "events": [],
+          "final_predicates": [
+            "inside"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 48.5,
+        "structural_signature": {
+          "evaluation": "ordered command trace and final containment",
+          "evidence": "hidden fridge contents",
+          "failure": "guessing without opening",
+          "operation": "semantic categorization of indicator items",
+          "response": "withhold and direct viewpoint change",
+          "temporal": "ask, instruct to open, open, instruct to route, route"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "the visual presence of mozzarella versus a club sandwich inside the newly opened fridges",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 2,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The utterance does not specify which fridge contains the dairy indicator, and the fridges are identical from the outside."
+          },
+          "capability_fit": "The assistant actively directs the wearer to change the environment's state (opening doors) to acquire hidden visual evidence before providing substantive guidance.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "half_bleu",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target item"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "mozzarella",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "dairy indicator"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "club_sandwich",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "prepared meal indicator"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "fridge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "storage containers"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "commercial_kitchen_table",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "starting surface"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [
+                {
+                  "what": "storage containers"
+                }
+              ],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In the prologue, the wearer puts the mozzarella into fridge_1 and closes it. The wearer puts the club_sandwich into fridge_2 and closes it. The wearer puts the half_bleu on the commercial_kitchen_table. At action zero, the wearer asks the assistant which fridge is the dairy fridge so they can store the half_bleu. The assistant recognizes that the fridges are closed and their contents are hidden. It instructs the wearer to open both fridges. The wearer executes an [Open] action on fridge_1 and an [Open] action on fridge_2. The assistant observes the mozzarella in fridge_1 and the club_sandwich in fridge_2. It identifies fridge_1 as the dairy fridge and instructs the wearer to place the half_bleu inside it. The wearer executes a [Grab] action on the half_bleu and a [Putin] action to place it inside fridge_1.",
+              "scene": "restaurant_asian",
+              "why_scene": "Provides a commercial kitchen with multiple identical fridges for food storage."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+                "counterfactual_failure": "The weak assistant guesses a fridge without asking to open them, resulting in the half_bleu being placed in the wrong fridge or the command trace lacking the required intermediate instruction.",
+                "forbidden_changes": [
+                  "leaving the fridges open at the start"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "the mozzarella inside the opened fridge"
+                ],
+                "required_final_predicates": [
+                  "inside"
+                ],
+                "success_condition": "The half_bleu is inside the same fridge as the mozzarella.",
+                "temporal_constraints": [
+                  "The assistant must instruct the wearer to open the fridges before providing the final routing instruction."
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "handled",
+                  "what": "target item",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "destination",
+                  "what": "dairy indicator",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "destination",
+                  "what": "prepared meal indicator",
+                  "when": "opening"
+                },
+                {
+                  "count": 2,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "drives_the_story",
+                  "what": "storage containers",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "handled",
+                  "what": "starting surface",
+                  "when": "opening"
+                }
+              ],
+              "hinges_on": "the assistant must realize the fridges are closed and instruct the wearer to open them to identify the dairy fridge by its contents (mozzarella) before routing the half_bleu",
+              "look_alike": [
+                {
+                  "must": "identical",
+                  "these": [
+                    "storage containers"
+                  ],
+                  "why": "so the wearer cannot distinguish them from the outside"
+                }
+              ],
+              "opening": "The mozzarella is placed inside one fridge and it is closed. The club_sandwich is placed inside the other fridge and it is closed. The half_bleu is placed on the commercial_kitchen_table.",
+              "outcome": "The half_bleu is placed in the correct fridge after the assistant directs the wearer to open both.",
+              "place": "kitchen_0",
+              "printed": [],
+              "tests_what": "assistant's ability to recognize that required visual evidence is hidden inside closed containers and direct the wearer to reveal it before providing guidance"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The story perfectly matches the ACTIVE_VIEWPOINT_ACQUISITION capability by requiring the assistant to recognize that the critical evidence (the contents of the fridges) is hidden behind closed doors. It must withhold its final routing instruction and first direct the wearer to open the fridges. The cognitive operation of using semantic categorization of existing food items (mozzarella vs. club sandwich) to deduce the purpose of identical appliances provides a distinct and valid test compared to prior label-reading tasks.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Put",
+              "Putin",
+              "Close",
+              "Open",
+              "Grab"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 9,
+            "estimated_prologue_actions": 5,
+            "estimated_task_actions": 4,
+            "events": [],
+            "final_predicates": [
+              "inside"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 48.5,
+          "structural_signature": {
+            "evaluation": "ordered command trace and final containment",
+            "evidence": "hidden fridge contents",
+            "failure": "guessing without opening",
+            "operation": "semantic categorization of indicator items",
+            "response": "withhold and direct viewpoint change",
+            "temporal": "ask, instruct to open, open, instruct to route, route"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "restaurant_asian",
+      "sha": "d0954068c7e2",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_prod120_quality_20260829c/rounds/round_001/compile_input/GUIDE/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gemini-3-1-pro-preview-tbd",
+      "judge_model": "gemini-3-1-pro-preview-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260829j"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_grounded_prod120_quality_20260829c-r001",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v19-grounded-physics-20260829",
+      "release_id": "sha256:34b86c296becbe4aeca1aeda58c0219f85ac552858fd347e5f46b61ac2c4087f",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "result": "guide26-story-refine-r2-20260912zl",
+        "source": "GUIDE-14018"
+      },
+      {
+        "kind": "canonicalize_required_evidence",
+        "source": "[\"This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me.\", \"A yellow Swiss-cheese wedge with visible holes waits on the preparation table.\", \"Two closed fridges marked only UNIT A and UNIT B are visible, with their contents hidden.\", \"Opening and inspecting the first fridge reveals milk.\", \"Opening and inspecting the second fridge reveals chicken rather than dairy.\", \"The Swiss cheese has been placed with the milk carton in the inferred dairy fridge.\"]",
+        "result": "[\"This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me.\", \"A yellow Swiss-cheese wedge with visible holes waits on the preparation table.\", \"Two closed fridges marked only UNIT A and UNIT B are visible, with their contents hidden.\", \"Opening and inspecting the first fridge reveals milk.\", \"Opening and inspecting the second fridge reveals chicken rather than dairy.\", \"The Swiss cheese has been placed with the milk carton in the inferred dairy fridge.\", \"Inspect UNIT A and UNIT B one at a time, closing each after the check. UNIT A contains a milk carton, so reopen it, put the Swiss cheese with the dairy, and close it again.\"]"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "GUIDE-14018",
+    "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+    "capability_notes": [],
+    "revision": "guide22-interaction-20260913",
+    "benchmark_split": "production",
+    "physical_revision": "guide26-story-refine-r2-20260912zl",
+    "physical_taskpack_sha256": "sha256:c49008ea0325c8653dde82786272719a549bc8f8719dfd96f45bf6829af5ae2a",
+    "parent_lineage": {
+      "source": "manual_story_revision",
+      "compile_input_digest": "sha256:4d1014f7ec847358ccbd478a36c41b659ea7dcd2654ab8b35b67a6a99b03ff06",
+      "source_contract_digest": "sha256:99c957bf6165e8fdbba7c82a9f76ed8c1f1863f329b0b27dfe8121bf54ac1b9f",
+      "executable_spec_digest": "sha256:ac305f149bffb5fb089f68a0e20f46cfe86c6e276cab5aaae8e5b224ba82ffa2",
+      "invention": {
+        "attempt": 4,
+        "author_prose": "A prep cook in a restaurant kitchen is organizing ingredients at the end of a shift and needs to store a leftover piece of blue cheese (`half_bleu`). The kitchen features two identical, unlabeled fridges standing side-by-side. To maintain strict food safety and organizational standards, one fridge is strictly used for raw dairy products, while the other is exclusively reserved for assembled prepared meals.\n\nThe cook picks up the `half_bleu` from the `commercial_kitchen_table` and asks the smart glasses, \"Which fridge is the dairy fridge so I can store this cheese?\"\n\nBecause the fridges are completely closed and lack any exterior markings, the glasses cannot determine their designated uses from the current egocentric view. A weak assistant might guess a fridge at random or hallucinate a default kitchen layout, risking a health code violation if the pungent raw cheese is placed alongside prepared meals. A strong assistant recognizes this critical perceptual gap and actively directs the wearer to gather the missing visual evidence. It replies, \"I cannot tell from the outside. Please open both fridges so I can check their current contents.\"\n\nFollowing the assistant's instruction, the cook opens the doors to both appliances. The camera stream now reveals the previously hidden interiors: one fridge contains fresh `mozzarella`, while the other holds a pre-made `club_sandwich`. By visually identifying the existing dairy item, the assistant can now confidently deduce the correct destination. It provides the final substantive guidance: \"The fridge with the mozzarella is the dairy fridge. Please place the blue cheese in there.\" The cook successfully places the `half_bleu` into the correct appliance.\n\nSuccess is scored by the final containment of the `half_bleu` inside the same fridge as the `mozzarella`. The evaluation also strictly requires the ordered command trace to show that the assistant explicitly withheld its routing instruction until it first directed the wearer to open the doors and reveal the hidden interior evidence.",
+        "author_prose_sha256": "sha256:e9bcdac07afe6fb7da15dca23f8d1d6862a541da344353a5941eb7aebf957b7d",
+        "capability": {
+          "boundary": "The information-gathering instruction must be necessary; the assistant may not guess or proceed from hidden simulator state.",
+          "few_shot": "A volunteer must attach one of two similar camera lenses to a donated camera body, but the compatibility code is printed inside the closed lens-case lid and neither lens front reveals it. The wearer asks which lens to mount. The assistant first says it cannot determine that from the current view and asks them to open the case and angle the lid toward the glasses. Only after reading the compatibility table does it direct the correct lens onto the camera and the spare into the padded compartment. Guessing immediately can attach the wrong lens. The final attachment and containment are scoreable, while the episode also tests that information acquisition precedes advice.",
+          "id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+          "name_zh": "感知缺口的主动补齐",
+          "target": "Recognise that required evidence is outside the current view and first direct the wearer to reveal it before giving substantive guidance."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+          "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+          "evaluation_status": "PASS",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": false,
+          "owner": null,
+          "reason": null,
+          "reason_code": null,
+          "recommended_work": null,
+          "version": "capability-support/1.0",
+          "workstream": null
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "candy_dispenser_shelf",
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "compost_bin",
+            "dessert_stand",
+            "dish_rack_cart",
+            "dishwasher",
+            "display_case",
+            "display_fridge",
+            "dry_food_dispenser_shelf",
+            "free_weight_rack",
+            "freezer",
+            "fridge",
+            "grocery_fridge",
+            "grocery_shelf",
+            "locker",
+            "magazine_stand",
+            "metal_bottom_cabinet",
+            "oven",
+            "public_trash_can",
+            "recycling_bin",
+            "serving_cart",
+            "shelf",
+            "shopping_cart",
+            "snack_rack",
+            "top_cabinet",
+            "trash_can",
+            "umbrella_rack",
+            "vending_machine",
+            "wardrobe",
+            "washer",
+            "wine_fridge"
+          ],
+          "allowed_loose_categories": [
+            "paper_sheet",
+            "clipboard",
+            "folder",
+            "gift_box",
+            "lemon",
+            "cap",
+            "avocado",
+            "bottle_of_lubricant",
+            "toilet_paper_dispenser",
+            "magnifying_glass",
+            "hardback",
+            "ice_cream_cone",
+            "steel_wool",
+            "half_bleu",
+            "spotlight",
+            "club_sandwich",
+            "mozzarella",
+            "half_hamburger",
+            "tupperware",
+            "bottle_of_poppy_seeds",
+            "copper_pot",
+            "vanilla_flower",
+            "portable_game_console",
+            "bar_soap"
+          ],
+          "allowed_surface_categories": [
+            "commercial_kitchen_table",
+            "freezer",
+            "metal_bottom_cabinet"
+          ],
+          "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+          "coverage_categories": [
+            "lemon",
+            "cap",
+            "avocado",
+            "bottle_of_lubricant",
+            "toilet_paper_dispenser",
+            "magnifying_glass",
+            "hardback",
+            "ice_cream_cone",
+            "steel_wool",
+            "half_bleu",
+            "spotlight",
+            "club_sandwich",
+            "mozzarella",
+            "half_hamburger",
+            "tupperware",
+            "bottle_of_poppy_seeds",
+            "copper_pot",
+            "vanilla_flower",
+            "portable_game_console",
+            "bar_soap"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 4,
+            "required_semantic_turns": 2,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": true,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_reselection": false,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "GUIDE",
+          "limits": {
+            "max_authored_actions": 18,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 10,
+            "max_small_label_characters": 8,
+            "max_task_actions": 10
+          },
+          "preferred_story_categories": [
+            "lemon",
+            "cap",
+            "avocado",
+            "bottle_of_lubricant",
+            "toilet_paper_dispenser",
+            "magnifying_glass",
+            "hardback",
+            "ice_cream_cone"
+          ],
+          "preferred_story_category_glosses": {
+            "avocado": "",
+            "bottle_of_lubricant": "",
+            "cap": "",
+            "hardback": "a book with cardboard or cloth or leather covers",
+            "ice_cream_cone": "",
+            "lemon": "",
+            "magnifying_glass": "",
+            "toilet_paper_dispenser": ""
+          },
+          "rooms": [
+            {
+              "area_m2": 55.5,
+              "name": "kitchen_0",
+              "scene_containers": {
+                "fridge": 2,
+                "metal_bottom_cabinet": 4,
+                "oven": 1
+              },
+              "scene_surfaces": {
+                "commercial_kitchen_table": 2,
+                "freezer": 1,
+                "metal_bottom_cabinet": 4
+              },
+              "surface_max_area_m2": {
+                "commercial_kitchen_table": 0.565,
+                "freezer": 0.508,
+                "metal_bottom_cabinet": 0.216
+              },
+              "surface_reference_capacity": {
+                "commercial_kitchen_table": 3,
+                "freezer": 3,
+                "metal_bottom_cabinet": 3
+              }
+            }
+          ],
+          "scene": "restaurant_asian",
+          "task_id": "GUIDE-14018",
+          "version": "grounded-authoring/2.5-20260829"
+        },
+        "prompt_sha": "0f6a6e8f6864",
+        "prompt_sha256": "sha256:0f6a6e8f686453093eb49b7614366f9943309592ee7c9d6c67ead076f04dd807",
+        "prompt_version": "capability-v19-grounded-physics-20260829",
+        "prose_sha256": "sha256:d0954068c7e23ded88ebe582d8faab3f4a463be0f0ada9d2b036226ab8378cbb",
+        "review": {
+          "benchmark_check": {
+            "egocentric_evidence": "the visual presence of mozzarella versus a club sandwich inside the newly opened fridges",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 2,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The utterance does not specify which fridge contains the dairy indicator, and the fridges are identical from the outside."
+          },
+          "capability_fit": "The assistant actively directs the wearer to change the environment's state (opening doors) to acquire hidden visual evidence before providing substantive guidance.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "half_bleu",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target item"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "mozzarella",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "dairy indicator"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "club_sandwich",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "prepared meal indicator"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "fridge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "storage containers"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "commercial_kitchen_table",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "starting surface"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [
+                {
+                  "what": "storage containers"
+                }
+              ],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In the prologue, the wearer puts the mozzarella into fridge_1 and closes it. The wearer puts the club_sandwich into fridge_2 and closes it. The wearer puts the half_bleu on the commercial_kitchen_table. At action zero, the wearer asks the assistant which fridge is the dairy fridge so they can store the half_bleu. The assistant recognizes that the fridges are closed and their contents are hidden. It instructs the wearer to open both fridges. The wearer executes an [Open] action on fridge_1 and an [Open] action on fridge_2. The assistant observes the mozzarella in fridge_1 and the club_sandwich in fridge_2. It identifies fridge_1 as the dairy fridge and instructs the wearer to place the half_bleu inside it. The wearer executes a [Grab] action on the half_bleu and a [Putin] action to place it inside fridge_1.",
+              "scene": "restaurant_asian",
+              "why_scene": "Provides a commercial kitchen with multiple identical fridges for food storage."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+                "counterfactual_failure": "The weak assistant guesses a fridge without asking to open them, resulting in the half_bleu being placed in the wrong fridge or the command trace lacking the required intermediate instruction.",
+                "forbidden_changes": [
+                  "leaving the fridges open at the start"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "the mozzarella inside the opened fridge"
+                ],
+                "required_final_predicates": [
+                  "inside"
+                ],
+                "success_condition": "The half_bleu is inside the same fridge as the mozzarella.",
+                "temporal_constraints": [
+                  "The assistant must instruct the wearer to open the fridges before providing the final routing instruction."
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "handled",
+                  "what": "target item",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "destination",
+                  "what": "dairy indicator",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "destination",
+                  "what": "prepared meal indicator",
+                  "when": "opening"
+                },
+                {
+                  "count": 2,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "drives_the_story",
+                  "what": "storage containers",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "handled",
+                  "what": "starting surface",
+                  "when": "opening"
+                }
+              ],
+              "hinges_on": "the assistant must realize the fridges are closed and instruct the wearer to open them to identify the dairy fridge by its contents (mozzarella) before routing the half_bleu",
+              "look_alike": [
+                {
+                  "must": "identical",
+                  "these": [
+                    "storage containers"
+                  ],
+                  "why": "so the wearer cannot distinguish them from the outside"
+                }
+              ],
+              "opening": "The mozzarella is placed inside one fridge and it is closed. The club_sandwich is placed inside the other fridge and it is closed. The half_bleu is placed on the commercial_kitchen_table.",
+              "outcome": "The half_bleu is placed in the correct fridge after the assistant directs the wearer to open both.",
+              "place": "kitchen_0",
+              "printed": [],
+              "tests_what": "assistant's ability to recognize that required visual evidence is hidden inside closed containers and direct the wearer to reveal it before providing guidance"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The story perfectly matches the ACTIVE_VIEWPOINT_ACQUISITION capability by requiring the assistant to recognize that the critical evidence (the contents of the fridges) is hidden behind closed doors. It must withhold its final routing instruction and first direct the wearer to open the fridges. The cognitive operation of using semantic categorization of existing food items (mozzarella vs. club sandwich) to deduce the purpose of identical appliances provides a distinct and valid test compared to prior label-reading tasks.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Put",
+              "Putin",
+              "Close",
+              "Open",
+              "Grab"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 9,
+            "estimated_prologue_actions": 5,
+            "estimated_task_actions": 4,
+            "events": [],
+            "final_predicates": [
+              "inside"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 48.5,
+          "structural_signature": {
+            "evaluation": "ordered command trace and final containment",
+            "evidence": "hidden fridge contents",
+            "failure": "guessing without opening",
+            "operation": "semantic categorization of indicator items",
+            "response": "withhold and direct viewpoint change",
+            "temporal": "ask, instruct to open, open, instruct to route, route"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "the visual presence of mozzarella versus a club sandwich inside the newly opened fridges",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "semantic_turns": 2,
+              "strong_weak_distinct": true,
+              "ungrounded_physical_nouns": [],
+              "uses_only_grounded_assets": true,
+              "why_utterance_alone_fails": "The utterance does not specify which fridge contains the dairy indicator, and the fridges are identical from the outside."
+            },
+            "capability_fit": "The assistant actively directs the wearer to change the environment's state (opening doors) to acquire hidden visual evidence before providing substantive guidance.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "half_bleu",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "target item"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "mozzarella",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "dairy indicator"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "club_sandwich",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "prepared meal indicator"
+                  },
+                  {
+                    "affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "category": "fridge",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "storage containers"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "commercial_kitchen_table",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "starting surface"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [
+                  {
+                    "what": "storage containers"
+                  }
+                ],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "In the prologue, the wearer puts the mozzarella into fridge_1 and closes it. The wearer puts the club_sandwich into fridge_2 and closes it. The wearer puts the half_bleu on the commercial_kitchen_table. At action zero, the wearer asks the assistant which fridge is the dairy fridge so they can store the half_bleu. The assistant recognizes that the fridges are closed and their contents are hidden. It instructs the wearer to open both fridges. The wearer executes an [Open] action on fridge_1 and an [Open] action on fridge_2. The assistant observes the mozzarella in fridge_1 and the club_sandwich in fridge_2. It identifies fridge_1 as the dairy fridge and instructs the wearer to place the half_bleu inside it. The wearer executes a [Grab] action on the half_bleu and a [Putin] action to place it inside fridge_1.",
+                "scene": "restaurant_asian",
+                "why_scene": "Provides a commercial kitchen with multiple identical fridges for food storage."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+                  "counterfactual_failure": "The weak assistant guesses a fridge without asking to open them, resulting in the half_bleu being placed in the wrong fridge or the command trace lacking the required intermediate instruction.",
+                  "forbidden_changes": [
+                    "leaving the fridges open at the start"
+                  ],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "the mozzarella inside the opened fridge"
+                  ],
+                  "required_final_predicates": [
+                    "inside"
+                  ],
+                  "success_condition": "The half_bleu is inside the same fridge as the mozzarella.",
+                  "temporal_constraints": [
+                    "The assistant must instruct the wearer to open the fridges before providing the final routing instruction."
+                  ]
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "handled",
+                    "what": "target item",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "destination",
+                    "what": "dairy indicator",
+                    "when": "opening"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "destination",
+                    "what": "prepared meal indicator",
+                    "when": "opening"
+                  },
+                  {
+                    "count": 2,
+                    "needs_a_body_because": "drives_the_story",
+                    "required_affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "role_in_story": "drives_the_story",
+                    "what": "storage containers",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "handled",
+                    "what": "starting surface",
+                    "when": "opening"
+                  }
+                ],
+                "hinges_on": "the assistant must realize the fridges are closed and instruct the wearer to open them to identify the dairy fridge by its contents (mozzarella) before routing the half_bleu",
+                "look_alike": [
+                  {
+                    "must": "identical",
+                    "these": [
+                      "storage containers"
+                    ],
+                    "why": "so the wearer cannot distinguish them from the outside"
+                  }
+                ],
+                "opening": "The mozzarella is placed inside one fridge and it is closed. The club_sandwich is placed inside the other fridge and it is closed. The half_bleu is placed on the commercial_kitchen_table.",
+                "outcome": "The half_bleu is placed in the correct fridge after the assistant directs the wearer to open both.",
+                "place": "kitchen_0",
+                "printed": [],
+                "tests_what": "assistant's ability to recognize that required visual evidence is hidden inside closed containers and direct the wearer to reveal it before providing guidance"
+              }
+            },
+            "duplicate_of": null,
+            "reason": "The story perfectly matches the ACTIVE_VIEWPOINT_ACQUISITION capability by requiring the assistant to recognize that the critical evidence (the contents of the fridges) is hidden behind closed doors. It must withhold its final routing instruction and first direct the wearer to open the fridges. The cognitive operation of using semantic categorization of existing food items (mozzarella vs. club sandwich) to deduce the purpose of identical appliances provides a distinct and valid test compared to prior label-reading tasks.",
+            "requirements": [],
+            "runtime_requirements": {
+              "actions": [
+                "Put",
+                "Putin",
+                "Close",
+                "Open",
+                "Grab"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 9,
+              "estimated_prologue_actions": 5,
+              "estimated_task_actions": 4,
+              "events": [],
+              "final_predicates": [
+                "inside"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 48.5,
+            "structural_signature": {
+              "evaluation": "ordered command trace and final containment",
+              "evidence": "hidden fridge contents",
+              "failure": "guessing without opening",
+              "operation": "semantic categorization of indicator items",
+              "response": "withhold and direct viewpoint change",
+              "temporal": "ask, instruct to open, open, instruct to route, route"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "restaurant_asian",
+        "sha": "d0954068c7e2",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_prod120_quality_20260829c/rounds/round_001/compile_input/GUIDE/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gemini-3-1-pro-preview-tbd",
+        "judge_model": "gemini-3-1-pro-preview-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260829j"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_grounded_prod120_quality_20260829c-r001",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v19-grounded-physics-20260829",
+        "release_id": "sha256:34b86c296becbe4aeca1aeda58c0219f85ac552858fd347e5f46b61ac2c4087f",
+        "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "normalizations": [
+        {
+          "kind": "manual_story_revision",
+          "result": "guide26-story-refine-r2-20260912zl",
+          "source": "GUIDE-14018"
+        },
+        {
+          "kind": "canonicalize_required_evidence",
+          "source": "[\"This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me.\", \"A yellow Swiss-cheese wedge with visible holes waits on the preparation table.\", \"Two closed fridges marked only UNIT A and UNIT B are visible, with their contents hidden.\", \"Opening and inspecting the first fridge reveals milk.\", \"Opening and inspecting the second fridge reveals chicken rather than dairy.\", \"The Swiss cheese has been placed with the milk carton in the inferred dairy fridge.\"]",
+          "result": "[\"This Swiss cheese needs putting away, but neither fridge has a category label. Please work out which one is used for dairy from what is already stored inside, then guide me.\", \"A yellow Swiss-cheese wedge with visible holes waits on the preparation table.\", \"Two closed fridges marked only UNIT A and UNIT B are visible, with their contents hidden.\", \"Opening and inspecting the first fridge reveals milk.\", \"Opening and inspecting the second fridge reveals chicken rather than dairy.\", \"The Swiss cheese has been placed with the milk carton in the inferred dairy fridge.\", \"Inspect UNIT A and UNIT B one at a time, closing each after the check. UNIT A contains a milk carton, so reopen it, put the Swiss cheese with the dairy, and close it again.\"]"
+        }
+      ],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "GUIDE-14018",
+      "capability_id": "GUIDE.ACTIVE_VIEWPOINT_ACQUISITION",
+      "capability_notes": [],
+      "revision": "guide26-story-refine-r2-20260912zl"
+    },
+    "oracle_dialogue_override_ids": [
+      "guide14018_unit_a_locator",
+      "guide14018_unit_b_locator",
+      "guide14018_cheese_locator",
+      "guide14018_final_close_locator"
+    ]
+  }
+}

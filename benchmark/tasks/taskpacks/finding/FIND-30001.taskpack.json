@@ -1,0 +1,3168 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "FIND-30001",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "wallet",
+          "target": "surf_result"
+        },
+        {
+          "pred": "closed",
+          "subject": "cabinet_origin",
+          "target": "cabinet_origin"
+        },
+        {
+          "pred": "closed",
+          "subject": "cabinet_wrong",
+          "target": "cabinet_wrong"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "wallet",
+          "target": "surf_result"
+        },
+        {
+          "pred": "closed",
+          "subject": "cabinet_origin",
+          "target": "cabinet_origin"
+        },
+        {
+          "pred": "closed",
+          "subject": "cabinet_wrong",
+          "target": "cabinet_wrong"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "cabinet_origin",
+          "cabinet_wrong"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "phone",
+          "wallet"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The weak branch follows a salient decoy rather than the decisive episodic evidence.",
+        "assistant_must": "Yes, you went the wrong direction after the call. You carried the wallet from the living room to the matching cabinet in the kitchen; this bedroom is where you just put the phone. I'll retrieve the wallet and return it to the kitchen counter.",
+        "cue": "Isn't my wallet in this cabinet? Did I walk to the wrong room? Please put it on the kitchen counter after you find it.",
+        "premise": "Two visually identical metal cabinets are placed in the kitchen and bedroom, with the living room between them. The wearer sees a wallet and phone together on the living-room table, carries the wallet to the kitchen cabinet, returns to the middle room for a phone call, then walks the opposite way to the bedroom and stores the phone in the other cabinet before mistaking it for the wallet cabinet."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [
+        "The wallet starting on the exact same cabinet that it is placed into."
+      ],
+      "family": "FIND",
+      "grounding": {
+        "cite": "Isn't my wallet in this cabinet? Did I walk to the wrong room? Please put it on the kitchen counter after you find it.",
+        "kind": "authored",
+        "ref": "data_generate:FIND-30001"
+      },
+      "rule_table": "The wallet is retrieved and placed on the cabinet surface.",
+      "scene": "Wainscott_0_int",
+      "template": "the multi-room Wainscott_0_int scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 20,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 20,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_middle"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "wallet"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "cabinet_origin"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "cabinet_origin"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "wallet",
+            "cabinet_origin"
+          ],
+          "place_spot": [
+            -1.0,
+            0.0
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "cabinet_origin"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_middle"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "AnswerPhone",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "cabinet_wrong"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "cabinet_wrong"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "phone",
+            "cabinet_wrong"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "cabinet_wrong"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "cabinet_origin"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "cabinet_origin"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "wallet"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "cabinet_origin"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_result"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "wallet",
+            "surf_result"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "FIND",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Walk] <cabinet_origin> (1), [Open] <cabinet_origin> (1), [Grab] <wallet> (1), [Close] <cabinet_origin> (1), [Walk] <surf_result> (1), [PutOn] <wallet> (1) <surf_result> (1)",
+      "seed": 4284719926,
+      "source_task_id": "FIND-30001"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "wallet",
+          "target": "surf_result"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "cabinet_origin",
+          "target": "cabinet_origin"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "cabinet_wrong",
+          "target": "cabinet_wrong"
+        }
+      ],
+      "sub_steps": [
+        "on item_1 surf_1"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "FIND-30001",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 4284719926,
+      "containers": {
+        "cabinet_origin": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "metal_bottom_cabinet",
+            "model": "mvsgdm",
+            "source": "import"
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "kitchen_0"
+        },
+        "cabinet_wrong": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "metal_bottom_cabinet",
+            "model": "mvsgdm",
+            "source": "import"
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "decoy",
+          "room": "bedroom_0"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "surf_middle": {
+          "bind": {
+            "cat": "breakfast_table",
+            "source": "scene",
+            "pick": {
+              "name": "breakfast_table_skczfi_3",
+              "stage_prim_path": "/World/b_breakfast_table_skczfi_3",
+              "asset_sha256": "sha256:b5a4e2e9b46cb46fb2014b366cd79f0f892ff35fa9301e53d1b0677719bbe235",
+              "instance_digest": "sha256:bc058345e2559449f3f257b63105d9b0637e57ba7ad949b58cf9246c626b1bcf",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "living_room_1",
+          "seatable": false
+        },
+        "surf_result": {
+          "bind": {
+            "cat": "countertop",
+            "source": "scene",
+            "pick": {
+              "name": "countertop_tpuwys_1",
+              "stage_prim_path": "/World/b_countertop_tpuwys_1",
+              "asset_sha256": "sha256:1bf2a44fa9ee771fd7bc205c0db6203bf6565216f35ed621b10adbb95f87b894",
+              "instance_digest": "sha256:366e44a6c15ddcfd3b0dbfbe51654a49469f48b6833cdab0ab5265859bd69e53",
+              "by": "scene_instance",
+              "rank": 1
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {},
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "wallet": {
+          "cat": "wallet",
+          "model": "lagjae",
+          "needs_lookat": false,
+          "place": "on:surf_middle",
+          "room": "living_room_1",
+          "scored": true,
+          "spot": [
+            -0.4,
+            0.5
+          ]
+        },
+        "phone": {
+          "cat": "cell_phone",
+          "model": "dbhfuh",
+          "needs_lookat": false,
+          "place": "on:surf_middle",
+          "room": "living_room_1",
+          "scored": false,
+          "spot": [
+            0.4,
+            0.5
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "living_room_1",
+        "kitchen_0",
+        "bedroom_0"
+      ],
+      "scene": "Wainscott_0_int",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false,
+      "scene_omit_door_instances": [
+        "door_lvgliq_2"
+      ],
+      "initially_open_room_door_names": [
+        "door_lvgliq_5"
+      ],
+      "initially_open_room_door_passage_names": [
+        "door_lvgliq_5"
+      ]
+    }
+  },
+  "story": {
+    "premise": "Two visually identical metal cabinets are placed in the kitchen and bedroom, with the living room between them. The wearer sees a wallet and phone together on the living-room table, carries the wallet to the kitchen cabinet, returns to the middle room for a phone call, then walks the opposite way to the bedroom and stores the phone in the other cabinet before mistaking it for the wallet cabinet.",
+    "assistant_goal": "Isn't my wallet in this cabinet? Did I walk to the wrong room? Please put it on the kitchen counter after you find it.",
+    "assessment_contract": {
+      "assigned_capability_id": "FIND.OCCLUSION_AND_CONTAINER_PROPAGATION",
+      "assigned_scene": "Wainscott_0_int",
+      "core_question": "Isn't my wallet in this cabinet? Did I walk to the wrong room? Please put it on the kitchen counter after you find it.",
+      "counterfactual_failure": "The weak branch follows the most salient decoy or stops after the first search location and therefore fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Changing the decisive observed placement or object identity",
+        "Leaving any opened container open at a branch boundary"
+      ],
+      "knowledge_constraints": [],
+      "required_evidence": [
+        "Isn't my wallet in this cabinet? Did I walk to the wrong room? Please put it on the kitchen counter after you find it.",
+        "The wallet was carried from the living room and stored in the kitchen cabinet.",
+        "Only the phone was stored in the matching bedroom cabinet after the call.",
+        "Yes, you went the wrong direction after the call. You carried the wallet from the living room to the matching cabinet in the kitchen; this bedroom is where you just put the phone. I'll retrieve the wallet and return it to the kitchen counter."
+      ],
+      "required_final_predicates": [
+        "on",
+        "closed",
+        "closed"
+      ],
+      "success_condition": "on(wallet, surf_result); closed(cabinet_origin, cabinet_origin); closed(cabinet_wrong, cabinet_wrong)",
+      "temporal_constraints": [
+        "The question is asked only after all listed prologue actions complete."
+      ]
+    },
+    "source_contract": {
+      "task_id": "FIND-30001",
+      "family": "FIND",
+      "kind": "an office: cubicles, meeting space, supply and storage",
+      "assessment_contract": {
+        "assigned_capability_id": "FIND.OCCLUSION_AND_CONTAINER_PROPAGATION",
+        "assigned_scene": "Wainscott_0_int",
+        "core_question": "Isn't my wallet in this cabinet? Did I walk to the wrong room? Please put it on the kitchen counter after you find it.",
+        "counterfactual_failure": "The weak branch follows the most salient decoy or stops after the first search location and therefore fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Changing the decisive observed placement or object identity",
+          "Leaving any opened container open at a branch boundary"
+        ],
+        "knowledge_constraints": [],
+        "required_evidence": [
+          "Isn't my wallet in this cabinet? Did I walk to the wrong room? Please put it on the kitchen counter after you find it.",
+          "The wallet was carried from the living room and stored in the kitchen cabinet.",
+          "Only the phone was stored in the matching bedroom cabinet after the call.",
+          "Yes, you went the wrong direction after the call. You carried the wallet from the living room to the matching cabinet in the kitchen; this bedroom is where you just put the phone. I'll retrieve the wallet and return it to the kitchen counter."
+        ],
+        "required_final_predicates": [
+          "on",
+          "closed",
+          "closed"
+        ],
+        "success_condition": "on(wallet, surf_result); closed(cabinet_origin, cabinet_origin); closed(cabinet_wrong, cabinet_wrong)",
+        "temporal_constraints": [
+          "The question is asked only after all listed prologue actions complete."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "apple_pie",
+          "artichoke",
+          "baby_bottle",
+          "bean_curd",
+          "beeswax_candle",
+          "bottle_of_lemonade",
+          "bottle_of_water",
+          "box_of_corn_flakes",
+          "boxing_gloves",
+          "broccolini",
+          "candied_yam",
+          "cell_phone",
+          "chicken_soup_carton",
+          "coffee_grinder",
+          "cooking_oil_atomizer",
+          "cooking_oil_bottle",
+          "first_aid_kit",
+          "folder",
+          "gelatin_box",
+          "glue_stick",
+          "half_broccoli_rabe",
+          "half_chocolate_biscuit",
+          "half_cupcake",
+          "half_lime",
+          "half_papaya",
+          "half_pomegranate",
+          "half_ramen",
+          "holly_decoration",
+          "kiwi",
+          "license_plate",
+          "liquid_soap_bottle",
+          "mug",
+          "nativity_figurine",
+          "paper_sheet",
+          "plug",
+          "pomelo",
+          "pottable_cactus",
+          "pottable_daffodil",
+          "pottable_marigold",
+          "retainer",
+          "sliced_papaya",
+          "sodium_carbonate_jar",
+          "sponge",
+          "tenderloin",
+          "toothbrush",
+          "wallet"
+        ],
+        "allowed_surface_categories": [
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "breakfast_table",
+          "countertop"
+        ],
+        "capability_id": "FIND.OCCLUSION_AND_CONTAINER_PROPAGATION",
+        "coverage_categories": [
+          "half_chocolate_biscuit",
+          "pottable_cactus",
+          "half_ramen",
+          "glue_stick",
+          "liquid_soap_bottle",
+          "wallet",
+          "half_broccoli_rabe",
+          "holly_decoration",
+          "kiwi",
+          "baby_bottle",
+          "cooking_oil_bottle",
+          "cooking_oil_atomizer",
+          "tenderloin",
+          "toothbrush",
+          "candied_yam",
+          "broccolini",
+          "half_lime",
+          "plug",
+          "bottle_of_lemonade",
+          "bean_curd"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": true,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "FIND",
+        "limits": {
+          "max_authored_actions": 24,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 4,
+          "max_objects_per_surface": 5,
+          "max_prologue_actions": 14,
+          "max_small_label_characters": 24,
+          "max_task_actions": 6,
+          "max_meaningful_steps": 20,
+          "min_intervening_meaningful_actions": 8
+        },
+        "preferred_story_categories": [
+          "half_chocolate_biscuit",
+          "pottable_cactus",
+          "half_ramen",
+          "glue_stick",
+          "liquid_soap_bottle",
+          "wallet",
+          "half_broccoli_rabe",
+          "holly_decoration"
+        ],
+        "preferred_story_category_glosses": {
+          "glue_stick": "",
+          "half_broccoli_rabe": "",
+          "half_chocolate_biscuit": "",
+          "half_ramen": "",
+          "holly_decoration": "",
+          "liquid_soap_bottle": "",
+          "pottable_cactus": "",
+          "wallet": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 29.7,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "bottom_cabinet_no_top": 4,
+              "coffee_maker": 1,
+              "oven": 2
+            },
+            "scene_surfaces": {
+              "bottom_cabinet_no_top": 5,
+              "countertop": 7
+            },
+            "surface_max_area_m2": {
+              "bottom_cabinet_no_top": 0.141,
+              "countertop": 0.287
+            },
+            "surface_reference_capacity": {
+              "bottom_cabinet_no_top": 3,
+              "countertop": 3
+            }
+          },
+          {
+            "area_m2": 26.8,
+            "name": "living_room_1",
+            "scene_containers": {
+              "bottom_cabinet": 1
+            },
+            "scene_surfaces": {
+              "bottom_cabinet": 1,
+              "breakfast_table": 1
+            },
+            "surface_max_area_m2": {
+              "bottom_cabinet": 0.082,
+              "breakfast_table": 0.149
+            },
+            "surface_reference_capacity": {
+              "bottom_cabinet": 3,
+              "breakfast_table": 3
+            }
+          }
+        ],
+        "scene": "Wainscott_0_int",
+        "task_id": "FIND-30001",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "what": "wallet",
+            "category": "wallet",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "mobile phone",
+            "category": "cell_phone",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "matching cabinet in the kitchen",
+            "category": "metal_bottom_cabinet",
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "matching cabinet in the bedroom",
+            "category": "metal_bottom_cabinet",
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          }
+        ],
+        "distinct_by": [
+          "kitchen versus bedroom identity across the intervening living room"
+        ],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [],
+        "restaged_story": "Two visually identical metal cabinets are placed in the kitchen and bedroom, with the living room between them. The wearer sees a wallet and phone together on the living-room table, carries the wallet to the kitchen cabinet, returns to the middle room for a phone call, then walks the opposite way to the bedroom and stores the phone in the other cabinet before mistaking it for the wallet cabinet.",
+        "scene": "Wainscott_0_int",
+        "why_scene": "Wainscott_0_int provides the distinct rooms and physically grounded surfaces required by this revised episodic-memory story."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "cabinet_origin": {
+            "cat": "metal_bottom_cabinet",
+            "label": null,
+            "preload": [],
+            "role": "scored",
+            "room": "kitchen_0"
+          },
+          "cabinet_wrong": {
+            "cat": "metal_bottom_cabinet",
+            "label": null,
+            "preload": [],
+            "role": "decoy",
+            "room": "bedroom_0"
+          }
+        },
+        "items": {
+          "wallet": {
+            "affordances": [],
+            "cat": "wallet",
+            "initial_space": null,
+            "label": null,
+            "place": "on:surf_middle",
+            "scored": true,
+            "spot": [
+              -0.4,
+              0.5
+            ],
+            "tint": null
+          },
+          "phone": {
+            "affordances": [],
+            "cat": "cell_phone",
+            "initial_space": null,
+            "label": null,
+            "place": "on:surf_middle",
+            "scored": false,
+            "spot": [
+              0.4,
+              0.5
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <surf_middle> (1)",
+          "[Grab] <wallet> (1)",
+          "[Walk] <cabinet_origin> (1)",
+          "[Open] <cabinet_origin> (1)",
+          "[PutInside] <wallet> (1) <cabinet_origin> (1) @place_spot=-1.0:0.0",
+          "[Close] <cabinet_origin> (1)",
+          "[Walk] <surf_middle> (1)",
+          "[Grab] <phone> (1)",
+          "[AnswerPhone] <phone> (1)",
+          "[Wait]",
+          "[Walk] <cabinet_wrong> (1)",
+          "[Open] <cabinet_wrong> (1)",
+          "[PutInside] <phone> (1) <cabinet_wrong> (1)",
+          "[Close] <cabinet_wrong> (1)"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "living_room_1",
+          "kitchen_0",
+          "bedroom_0"
+        ],
+        "scene": "Wainscott_0_int",
+        "staging": {
+          "groups": "Two visually identical metal cabinets are placed in the kitchen and bedroom, with the living room between them. The wearer sees a wallet and phone together on the living-room table, carries the wallet to the kitchen cabinet, returns to the middle room for a phone call, then walks the opposite way to the bedroom and stores the phone in the other cabinet before mistaking it for the wallet cabinet.",
+          "labels_at_t0": "No printed labels are required.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "surf_middle": {
+            "cat": "breakfast_table",
+            "label": null,
+            "room": "living_room_1"
+          },
+          "surf_result": {
+            "cat": "countertop",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        },
+        "scene_omit_door_instances": [
+          "door_lvgliq_2"
+        ],
+        "initially_open_room_door_names": [
+          "door_lvgliq_5"
+        ],
+        "initially_open_room_door_passage_names": [
+          "door_lvgliq_5"
+        ]
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "Isn't my wallet in this cabinet? Did I walk to the wrong room? Please put it on the kitchen counter after you find it."
+        },
+        "fact_ledger": [
+          {
+            "id": "fact_001",
+            "fact": "Isn't my wallet in this cabinet? Did I walk to the wrong room? Please put it on the kitchen counter after you find it.",
+            "from": "utterance",
+            "source_phase": "turn0",
+            "source_index": null,
+            "derived_from": null
+          },
+          {
+            "id": "fact_002",
+            "fact": "The wallet was carried from the living room and stored in the kitchen cabinet.",
+            "from": "prologue",
+            "source_phase": "opening",
+            "source_index": 4,
+            "derived_from": null
+          },
+          {
+            "id": "fact_003",
+            "fact": "Only the phone was stored in the matching bedroom cabinet after the call.",
+            "from": "prologue",
+            "source_phase": "opening",
+            "source_index": 12,
+            "derived_from": null
+          },
+          {
+            "id": "fact_004",
+            "fact": "Yes, you went the wrong direction after the call. You carried the wallet from the living room to the matching cabinet in the kitchen; this bedroom is where you just put the phone. I'll retrieve the wallet and return it to the kitchen counter.",
+            "from": "derived",
+            "source_phase": "derived",
+            "source_index": null,
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "wallet",
+            "target": "surf_result"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "cabinet_origin",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "cabinet_wrong",
+            "target": null
+          }
+        ],
+        "guidance": null,
+        "hidden_fact": {
+          "what": "Yes, you went the wrong direction after the call. You carried the wallet from the living room to the matching cabinet in the kitchen; this bedroom is where you just put the phone. I'll retrieve the wallet and return it to the kitchen counter.",
+          "revealed_by": "[PutInside] <phone> (1) <cabinet_wrong> (1)",
+          "unavailable_because": "The decisive state is outside the current egocentric view at question time."
+        },
+        "human_own_script": "[Open] <cabinet_wrong> (1), [Wait], [Close] <cabinet_wrong> (1), [Confirm]",
+        "mates": [],
+        "oracle_program": "[Walk] <cabinet_origin> (1), [Open] <cabinet_origin> (1), [Grab] <wallet> (1), [Close] <cabinet_origin> (1), [Walk] <surf_result> (1), [PutOn] <wallet> (1) <surf_result> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": [
+          {
+            "index": 0,
+            "say": "Yes, you went the wrong direction after the call. You carried the wallet from the living room to the matching cabinet in the kitchen; this bedroom is where you just put the phone. I'll retrieve the wallet and return it to the kitchen counter.",
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "referents": [
+              "cabinet_origin",
+              "cabinet_wrong",
+              "surf_result",
+              "wallet"
+            ]
+          }
+        ],
+        "steps": null,
+        "story_check": "Two visually identical metal cabinets are placed in the kitchen and bedroom, with the living room between them. The wearer sees a wallet and phone together on the living-room table, carries the wallet to the kitchen cabinet, returns to the middle room for a phone call, then walks the opposite way to the bedroom and stores the phone in the other cabinet before mistaking it for the wallet cabinet.",
+        "utterance": "Isn't my wallet in this cabinet? Did I walk to the wrong room? Please put it on the kitchen counter after you find it."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "physical_preflight": {
+          "diagnostics": [],
+          "physical": {
+            "failures": [],
+            "ok": true,
+            "sited": true,
+            "staged": true,
+            "start": true,
+            "why_sited": "shared_office_0 @ body rung 0",
+            "why_staged": "",
+            "why_start": ""
+          },
+          "report_version": "compiler-physical-preflight/1.5",
+          "resolved": {
+            "binding_contract": {
+              "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+              "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+              "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+              "exact_asset_models": true,
+              "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+              "layout": "frozen",
+              "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+              "version": "compiler-asset-capabilities/1.5"
+            },
+            "objects": [
+              {
+                "category": "wallet",
+                "key": "item_1",
+                "model": "lagjae"
+              }
+            ],
+            "parts": [],
+            "room": "shared_office_0",
+            "scene": "office_cubicles_left",
+            "units": [
+              {
+                "category": "bottom_cabinet",
+                "key": "unit_a",
+                "model": "ojceew",
+                "room": "shared_office_0"
+              }
+            ]
+          },
+          "seconds": 2.42,
+          "status": "PASS",
+          "task_id": "FIND-30001",
+          "taskpack_digest": "sha256:fbf29725d71a8ad15bdda137980b9f0695c7b5e6eee56cdc360c8157aa85a205"
+        },
+        "sim_debt": [],
+        "soft": [],
+        "traces": {
+          "human": [
+            {
+              "primitive": "look_around",
+              "source": "[LookAround]",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 0
+            }
+          ],
+          "opening": [
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 0
+            },
+            {
+              "primitive": "open",
+              "source": "[Open] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 1
+            },
+            {
+              "primitive": "place_inside",
+              "source": "[PutInside] <item_1> (1) <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 2
+            },
+            {
+              "primitive": "close",
+              "source": "[Close] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 3
+            },
+            {
+              "primitive": "wait",
+              "source": "[Wait]",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 4
+            },
+            {
+              "primitive": "open",
+              "source": "[Open] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 5
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_2> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": "item_2",
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "held",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 6
+            },
+            {
+              "primitive": "close",
+              "source": "[Close] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": "item_2",
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "held",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": "item_2",
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "held",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 7
+            },
+            {
+              "primitive": "place",
+              "source": "[PutOn] <item_2> (1) <surf_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": "item_2",
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "held",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 8
+            }
+          ],
+          "oracle": [
+            {
+              "primitive": "open",
+              "source": "[Open] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 0
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 1
+            },
+            {
+              "primitive": "place",
+              "source": "[PutOn] <item_1> (1) <surf_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:shared_office_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 2
+            }
+          ]
+        }
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <surf_middle> (1)",
+        "[Grab] <wallet> (1)",
+        "[Walk] <cabinet_origin> (1)",
+        "[Open] <cabinet_origin> (1)",
+        "[PutInside] <wallet> (1) <cabinet_origin> (1) @place_spot=-1.0:0.0",
+        "[Close] <cabinet_origin> (1)",
+        "[Walk] <surf_middle> (1)",
+        "[Grab] <phone> (1)",
+        "[AnswerPhone] <phone> (1)",
+        "[Wait]",
+        "[Walk] <cabinet_wrong> (1)",
+        "[Open] <cabinet_wrong> (1)",
+        "[PutInside] <phone> (1) <cabinet_wrong> (1)",
+        "[Close] <cabinet_wrong> (1)"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_middle"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_middle"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "wallet"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "wallet"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "cabinet_origin"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "cabinet_origin"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "cabinet_origin"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "wallet",
+            "cabinet_origin"
+          ],
+          "place_spot": [
+            -1.0,
+            0.0
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "wallet",
+            "target": "cabinet_origin"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The wallet was carried from the living room and stored in the kitchen cabinet.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "Yes, you went the wrong direction after the call. You carried the wallet from the living room to the matching cabinet in the kitchen; this bedroom is where you just put the phone. I'll retrieve the wallet and return it to the kitchen counter.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "cabinet_origin"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_middle"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_middle"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "phone"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "AnswerPhone",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "cabinet_wrong"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "cabinet_wrong"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p011",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "cabinet_wrong"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p012",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "phone",
+            "cabinet_wrong"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "phone",
+            "target": "cabinet_wrong"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "Only the phone was stored in the matching bedroom cabinet after the call.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "Yes, you went the wrong direction after the call. You carried the wallet from the living room to the matching cabinet in the kitchen; this bedroom is where you just put the phone. I'll retrieve the wallet and return it to the kitchen counter.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p013",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "cabinet_wrong"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "Isn't my wallet in this cabinet? Did I walk to the wrong room? Please put it on the kitchen counter after you find it.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "Isn't my wallet in this cabinet? Did I walk to the wrong room? Please put it on the kitchen counter after you find it.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "Yes, you went the wrong direction after the call. You carried the wallet from the living room to the matching cabinet in the kitchen; this bedroom is where you just put the phone. I'll retrieve the wallet and return it to the kitchen counter.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Yes, you went the wrong direction after the call. You carried the wallet from the living room to the matching cabinet in the kitchen; this bedroom is where you just put the phone. I'll retrieve the wallet and return it to the kitchen counter.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "cabinet_wrong"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "cabinet_wrong"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Confirm",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "cabinet_origin"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "cabinet_origin"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "cabinet_origin"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "wallet"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "wallet"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "cabinet_origin"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_result"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_result"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "wallet",
+            "surf_result"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "Isn't my wallet in this cabinet? Did I walk to the wrong room? Please put it on the kitchen counter after you find it.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The wallet was carried from the living room and stored in the kitchen cabinet.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p004"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 4
+      },
+      {
+        "id": "fact_003",
+        "statement": "Only the phone was stored in the matching bedroom cabinet after the call.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p012"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 12
+      },
+      {
+        "id": "fact_004",
+        "statement": "Yes, you went the wrong direction after the call. You carried the wallet from the living room to the matching cabinet in the kitchen; this bedroom is where you just put the phone. I'll retrieve the wallet and return it to the kitchen counter.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p004",
+          "p012"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "The person wants to find the wallet and place it on the kitchen counter without being led toward a particular room.",
+      "human_task_context": "After asking the question, follow the Assistant's explicit directions to retrieve the wallet and put it on the kitchen counter. Leave the phone stored where it is and close any cabinet you open. Do not infer the wallet's source from private state or internal object identifiers.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <surf_middle> (1)",
+          "[Grab] <wallet> (1)",
+          "[Walk] <cabinet_origin> (1)",
+          "[Open] <cabinet_origin> (1)",
+          "[PutInside] <wallet> (1) <cabinet_origin> (1) @place_spot=-1.0:0.0",
+          "[Close] <cabinet_origin> (1)",
+          "[Walk] <surf_middle> (1)",
+          "[Grab] <phone> (1)",
+          "[AnswerPhone] <phone> (1)",
+          "[Wait]",
+          "[Walk] <cabinet_wrong> (1)",
+          "[Open] <cabinet_wrong> (1)",
+          "[PutInside] <phone> (1) <cabinet_wrong> (1)",
+          "[Close] <cabinet_wrong> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 14,
+            "say": "Hey, Assistant, I think I've mixed something up. Where did I leave my wallet? Can you help me find it and put it on the kitchen counter?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, I think I've mixed something up. Where did I leave my wallet? Can you help me find it and put it on the kitchen counter?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "wallet_and_kitchen_counter",
+            "required_phrases": [
+              "where did I leave my wallet",
+              "put it on the kitchen counter"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "verification_points": [
+          {
+            "id": "wallet_on_kitchen_counter",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "wallet",
+            "target": "surf_result",
+            "description": "The wallet is on the kitchen counter."
+          },
+          {
+            "id": "phone_remains_stored",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "phone",
+            "target": "cabinet_wrong",
+            "description": "The phone remains inside the other cabinet."
+          },
+          {
+            "id": "wallet_cabinet_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "cabinet_origin",
+            "target": "cabinet_origin",
+            "description": "The cabinet that held the wallet is closed."
+          },
+          {
+            "id": "phone_cabinet_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "cabinet_wrong",
+            "target": "cabinet_wrong",
+            "description": "The cabinet holding the phone remains closed."
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 24,
+    "dialogue_budget": 1,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "cabinet_wrong",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "cabinet_origin",
+              "cabinet_wrong",
+              "surf_result",
+              "wallet"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "wallet",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "cabinet_origin",
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "wallet",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "surf_result",
+            "truth": true
+          },
+          "next_beat": "o005"
+        }
+      ],
+      "terminal_beats": [
+        "h003",
+        "o005"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "cabinet_origin"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "cabinet_origin"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "wallet"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "cabinet_origin"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_result"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "wallet",
+          "surf_result"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Open",
+        "args": [
+          "cabinet_wrong"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "cabinet_wrong"
+        ]
+      },
+      {
+        "verb": "Confirm",
+        "args": []
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Yes, you went the wrong direction after the call. You carried the wallet from the living room to the matching cabinet in the kitchen; this bedroom is where you just put the phone. I'll retrieve the wallet and return it to the kitchen counter.",
+        "relation": "at",
+        "anchor_beat_id": "o000",
+        "source": "speaks_at",
+        "source_index": 0
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    }
+  },
+  "lineage": {
+    "source": "find17_interaction_assembly",
+    "compile_input_digest": "sha256:3090601337e64277160091eff3aea88c13c9adde10f4e0aec8c8b1692565eb86",
+    "source_contract_digest": "sha256:0aa038af173f64523dac7b6be12c22a9076fa23dab06c82779c03bc03a272a0d",
+    "executable_spec_digest": "sha256:9afdd6130d29b1a1f737691675de0c96ba87a48f73728118322ff40537fc5a66",
+    "invention": {
+      "attempt": 1,
+      "author_prose": "In the busy shared_office_0, an employee is securing their personal items and tidying up before heading out for a lunch break. The wearer approaches a row of low storage units and opens the left bottom_cabinet. They place their wallet inside for safekeeping and close the door, completely hiding the item from view. A moment later, they realize their workspace is still slightly cluttered. They reopen the exact same left bottom_cabinet, place a glue_stick inside alongside the hidden wallet, and close the door again. Moving to the adjacent storage unit, the wearer opens the right bottom_cabinet, retrieves their cell_phone, closes the right door, and places the phone on the top surface of the bottom_cabinet.\n\nReady to leave the building, the wearer realizes they need their payment cards for lunch and asks the smart glasses, \"Where did I put my wallet?\"\n\nThe assistant must rely entirely on the egocentric video history to answer. A strong assistant successfully propagates the containment state of the wallet through the subsequent distracting events. It understands that reopening the left cabinet to insert the glue stick did not alter the wallet's location, and that the extraction event from the right cabinet involved an entirely different container and object. It confidently directs the wearer to search inside the left bottom cabinet. A weak assistant fails this tracking task; it might lose the wallet's state when the container is reopened, confuse the extraction of the phone with the wallet, or simply guess the right cabinet due to location recency bias.\n\nFollowing the correct guidance, the wearer opens the left bottom_cabinet, successfully grabs the wallet, and places it on the bottom_cabinet surface to verify their ID is still inside before leaving the office.",
+      "author_prose_sha256": "sha256:a243cfc4ed9875690787d751c1cf0c92cb23860f883032cf83acc1d2e276ab27",
+      "capability": {
+        "boundary": "The target must become hidden while its fixed container changes state; do not move a loaded bag, box, tray, drawer, or other carrier. Direct last-frame recall or an event-qualified query alone is insufficient. Initial inside placement plus supported Open/Close actions already represent visual occlusion; never request an `occlude` simulator event.",
+        "few_shot": "In a maintenance room, the wearer watches a technician put a distinctive meter probe inside the left drawer of a fixed tool cabinet and close it. The probe is no longer visible. Later the technician opens the right drawer, removes an unrelated cable, closes that drawer, and leaves. When the wearer asks where the probe is, the assistant must preserve the hidden containment state through the intervening drawer events, direct the wearer to open the left drawer, and identify the probe there. The wearer retrieves it and places it on the fixed workbench. Choosing the most recently opened right drawer is the characteristic failure. The executable history uses only supported look, put-inside, open, and close beats; no loaded portable container moves.",
+        "id": "FIND.OCCLUSION_AND_CONTAINER_PROPAGATION",
+        "name_zh": "遮挡与固定容器状态追踪",
+        "target": "Track that an object remains in a fixed container after it becomes occluded by supported open/close actions and after distracting container events."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "FIND.OCCLUSION_AND_CONTAINER_PROPAGATION",
+        "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+        "evaluation_status": "PASS",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": false,
+        "owner": null,
+        "reason": null,
+        "reason_code": null,
+        "recommended_work": null,
+        "version": "capability-support/1.0",
+        "workstream": null
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "cell_phone",
+          "sponge",
+          "mug",
+          "bottle_of_water",
+          "half_chocolate_biscuit",
+          "pottable_cactus",
+          "half_ramen",
+          "glue_stick",
+          "liquid_soap_bottle",
+          "wallet",
+          "half_broccoli_rabe",
+          "holly_decoration",
+          "kiwi",
+          "baby_bottle",
+          "cooking_oil_bottle",
+          "cooking_oil_atomizer",
+          "tenderloin",
+          "toothbrush",
+          "candied_yam",
+          "broccolini",
+          "half_lime",
+          "plug",
+          "bottle_of_lemonade",
+          "bean_curd"
+        ],
+        "allowed_surface_categories": [
+          "bottom_cabinet"
+        ],
+        "capability_id": "FIND.OCCLUSION_AND_CONTAINER_PROPAGATION",
+        "coverage_categories": [
+          "half_chocolate_biscuit",
+          "pottable_cactus",
+          "half_ramen",
+          "glue_stick",
+          "liquid_soap_bottle",
+          "wallet",
+          "half_broccoli_rabe",
+          "holly_decoration",
+          "kiwi",
+          "baby_bottle",
+          "cooking_oil_bottle",
+          "cooking_oil_atomizer",
+          "tenderloin",
+          "toothbrush",
+          "candied_yam",
+          "broccolini",
+          "half_lime",
+          "plug",
+          "bottle_of_lemonade",
+          "bean_curd"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "FIND",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "half_chocolate_biscuit",
+          "pottable_cactus",
+          "half_ramen",
+          "glue_stick",
+          "liquid_soap_bottle",
+          "wallet",
+          "half_broccoli_rabe",
+          "holly_decoration"
+        ],
+        "preferred_story_category_glosses": {
+          "glue_stick": "",
+          "half_broccoli_rabe": "",
+          "half_chocolate_biscuit": "",
+          "half_ramen": "",
+          "holly_decoration": "",
+          "liquid_soap_bottle": "",
+          "pottable_cactus": "",
+          "wallet": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 205.2,
+            "name": "shared_office_0",
+            "scene_containers": {
+              "bottom_cabinet": 49
+            },
+            "scene_surfaces": {
+              "bottom_cabinet": 31
+            },
+            "surface_max_area_m2": {
+              "bottom_cabinet": 0.072
+            },
+            "surface_reference_capacity": {
+              "bottom_cabinet": 3
+            }
+          }
+        ],
+        "scene": "office_cubicles_left",
+        "task_id": "FIND-30001",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "prompt_sha": "f2d86ca168a1",
+      "prompt_sha256": "sha256:f2d86ca168a1d59b077b070cd468b12d49ddec6a27e3c26b1b0e63c12e7c56a6",
+      "prompt_version": "capability-v23-contextual-believability-20260831",
+      "prose_sha256": "sha256:a9b4d37e829548953a1d675ec8b95cebc5662d129394b0e89dafb30f018aeae3",
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "The visual confirmation that the wallet was placed in the cabinet and not removed when the cell phone was extracted.",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "semantic_turns": 1,
+          "strong_weak_distinct": true,
+          "ungrounded_physical_nouns": [],
+          "uses_only_grounded_assets": true,
+          "why_utterance_alone_fails": "The utterance 'Where did I put my wallet?' provides no location information."
+        },
+        "capability_fit": "The task requires tracking an occluded object's location through a subsequent reopening and extraction event on the same container.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "wallet",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "target object"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "cell_phone",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "distractor object"
+              },
+              {
+                "affordances": [
+                  "container",
+                  "surface",
+                  "openable"
+                ],
+                "category": "bottom_cabinet",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "storage unit"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "During the prologue, the wearer is in shared_office_0. They grab their wallet from the top of a bottom_cabinet, open the cabinet, place the wallet inside, and close the door. A moment later, they reopen the exact same bottom_cabinet, grab a cell_phone that was already inside, close the door, and place the cell_phone on top of the bottom_cabinet. At the start of the task, the wearer asks where they put their wallet. The assistant must track that the wallet remains inside the cabinet despite the subsequent reopening and extraction of a different object. Following the assistant's correct guidance, the wearer opens the bottom_cabinet, grabs the wallet, and places it on the bottom_cabinet's surface.",
+            "scene": "office_cubicles_left",
+            "why_scene": "Provides the shared_office_0 with bottom cabinets suitable for the storage and extraction events."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "Can the assistant track an occluded object through a distracting extraction event on its container?",
+              "counterfactual_failure": "A weak assistant might claim the wallet was removed or lose its location when the cabinet is reopened, leading to a failed retrieval.",
+              "forbidden_changes": [
+                "Do not move the wallet during the prologue after its initial placement."
+              ],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "The Putin event of the wallet into the cabinet.",
+                "The Grab event of the cell phone, confirming the wallet was not removed."
+              ],
+              "required_final_predicates": [
+                "on"
+              ],
+              "success_condition": "The wallet is retrieved and placed on the cabinet surface.",
+              "temporal_constraints": []
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "The item the wearer stores and later needs to find.",
+                "what": "target object",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "The item extracted from the cabinet to create a distracting event.",
+                "what": "distractor object",
+                "when": "opening"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container",
+                  "surface",
+                  "openable"
+                ],
+                "role_in_story": "The container where the wallet is stored and the cell phone is extracted from.",
+                "what": "storage unit",
+                "when": "both"
+              }
+            ],
+            "hinges_on": "Tracking that the wallet remains in the cabinet despite the door being reopened to extract a different object.",
+            "look_alike": [],
+            "opening": "The wearer puts the wallet in the cabinet, closes it, then reopens it to extract a cell phone, and closes it again.",
+            "outcome": "The wearer retrieves the wallet from the cabinet and places it on top.",
+            "place": "shared_office_0",
+            "printed": [],
+            "tests_what": "FIND.OCCLUSION_AND_CONTAINER_PROPAGATION"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The candidate perfectly targets the OCCLUSION_AND_CONTAINER_PROPAGATION capability. By having the wearer store the wallet in a cabinet, close it, and then reopen the same cabinet to extract a different object (the cell phone), the task rigorously tests the assistant's ability to maintain the occluded state of the target object through distracting container events. The action sequence is streamlined to fit well within the prologue limits.",
+        "requirements": [
+          "Streamline the prologue to use a single cabinet for both the insertion of the wallet and the extraction of the cell phone, ensuring the action count remains under the limit while strengthening the container propagation test."
+        ],
+        "runtime_requirements": {
+          "actions": [
+            "Grab",
+            "Open",
+            "Putin",
+            "Close",
+            "Put"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 11,
+          "estimated_prologue_actions": 8,
+          "estimated_task_actions": 3,
+          "events": [],
+          "final_predicates": [
+            "on"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 57.9,
+        "structural_signature": {
+          "evaluation": "successful retrieval and placement",
+          "evidence": "egocentric video history of insertion and extraction",
+          "failure": "losing occluded state during distracting extraction",
+          "operation": "container state propagation",
+          "response": "direct location recall",
+          "temporal": "prologue event tracking"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The specific bottom_cabinet the wallet was placed in and the fact it was not removed during subsequent interactions.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The utterance 'Where did I put my wallet?' contains no location information."
+          },
+          "capability_fit": "Tests tracking of an occluded object through both same-container state changes and adjacent-container distracting events.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "wallet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "glue_stick",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "distractor_added"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cell_phone",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "distractor_extracted"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable",
+                    "surface"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target_container"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "distractor_container"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [
+                [
+                  "target_container",
+                  "distractor_container"
+                ]
+              ],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "During the prologue, the wearer opens target_container, puts the target inside, and closes it. They then reopen target_container, put the distractor_added inside, and close it again. Next, they open distractor_container, grab the distractor_extracted from inside, and close distractor_container. At the start of the task, the wearer asks where they put their wallet. The assistant must track that the wallet is still in target_container despite the reopening and the extraction from distractor_container. Following the assistant's guidance, the wearer opens target_container, grabs the target, and puts it on the target_container surface.",
+              "scene": "office_cubicles_left",
+              "why_scene": "Provides shared_office_0 with multiple identical bottom_cabinets."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "Can the assistant track an occluded object through subsequent container interactions?",
+                "counterfactual_failure": "Wearer searches the distractor container and fails to find the wallet.",
+                "forbidden_changes": [
+                  "changing the container types to be distinct"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "video of wallet placement",
+                  "video of glue stick placement",
+                  "video of cell phone extraction"
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "wallet is on the bottom_cabinet surface",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "the object to be found",
+                  "what": "target",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "object added to the same container",
+                  "what": "distractor_added",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "object extracted from adjacent container",
+                  "what": "distractor_extracted",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable",
+                    "surface"
+                  ],
+                  "role_in_story": "container holding the target",
+                  "what": "target_container",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "adjacent container",
+                  "what": "distractor_container",
+                  "when": "opening"
+                }
+              ],
+              "hinges_on": "tracking that the wallet remained in the left cabinet despite it being reopened and a different object being extracted from the right cabinet",
+              "look_alike": [
+                {
+                  "must": "identical",
+                  "these": [
+                    "target_container",
+                    "distractor_container"
+                  ],
+                  "why": "to ensure the assistant must track the specific instance rather than just the category"
+                }
+              ],
+              "opening": "Wearer puts wallet in left cabinet, closes it, reopens it to put glue stick in, closes it, then opens right cabinet and grabs cell phone, closing it.",
+              "outcome": "Wearer retrieves wallet from target container and places it on a surface.",
+              "place": "shared_office_0",
+              "printed": [],
+              "tests_what": "FIND.OCCLUSION_AND_CONTAINER_PROPAGATION"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The story perfectly matches the OCCLUSION_AND_CONTAINER_PROPAGATION capability by requiring the assistant to track the target's location through a subsequent reopening of its container (to add a distractor) and a distracting extraction event from an adjacent identical container.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Open",
+              "Putin",
+              "Close",
+              "Grab",
+              "Put"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 12,
+            "estimated_prologue_actions": 9,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 38.6,
+          "structural_signature": {
+            "evaluation": "target retrieved and placed on surface",
+            "evidence": "video history of placement and container interactions",
+            "failure": "loses track due to reopening or adjacent extraction",
+            "operation": "tracking occluded state through distracting events",
+            "response": "identify correct container",
+            "temporal": "past events"
+          },
+          "verdict": "KEEP"
+        },
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The visual confirmation that the wallet was placed in the cabinet and not removed when the cell phone was extracted.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The utterance 'Where did I put my wallet?' provides no location information."
+          },
+          "capability_fit": "The task requires tracking an occluded object's location through a subsequent reopening and extraction event on the same container.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "wallet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target object"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cell_phone",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "distractor object"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "surface",
+                    "openable"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "storage unit"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "During the prologue, the wearer is in shared_office_0. They grab their wallet from the top of a bottom_cabinet, open the cabinet, place the wallet inside, and close the door. A moment later, they reopen the exact same bottom_cabinet, grab a cell_phone that was already inside, close the door, and place the cell_phone on top of the bottom_cabinet. At the start of the task, the wearer asks where they put their wallet. The assistant must track that the wallet remains inside the cabinet despite the subsequent reopening and extraction of a different object. Following the assistant's correct guidance, the wearer opens the bottom_cabinet, grabs the wallet, and places it on the bottom_cabinet's surface.",
+              "scene": "office_cubicles_left",
+              "why_scene": "Provides the shared_office_0 with bottom cabinets suitable for the storage and extraction events."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "Can the assistant track an occluded object through a distracting extraction event on its container?",
+                "counterfactual_failure": "A weak assistant might claim the wallet was removed or lose its location when the cabinet is reopened, leading to a failed retrieval.",
+                "forbidden_changes": [
+                  "Do not move the wallet during the prologue after its initial placement."
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "The Putin event of the wallet into the cabinet.",
+                  "The Grab event of the cell phone, confirming the wallet was not removed."
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "The wallet is retrieved and placed on the cabinet surface.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "The item the wearer stores and later needs to find.",
+                  "what": "target object",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "The item extracted from the cabinet to create a distracting event.",
+                  "what": "distractor object",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "surface",
+                    "openable"
+                  ],
+                  "role_in_story": "The container where the wallet is stored and the cell phone is extracted from.",
+                  "what": "storage unit",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "Tracking that the wallet remains in the cabinet despite the door being reopened to extract a different object.",
+              "look_alike": [],
+              "opening": "The wearer puts the wallet in the cabinet, closes it, then reopens it to extract a cell phone, and closes it again.",
+              "outcome": "The wearer retrieves the wallet from the cabinet and places it on top.",
+              "place": "shared_office_0",
+              "printed": [],
+              "tests_what": "FIND.OCCLUSION_AND_CONTAINER_PROPAGATION"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate perfectly targets the OCCLUSION_AND_CONTAINER_PROPAGATION capability. By having the wearer store the wallet in a cabinet, close it, and then reopen the same cabinet to extract a different object (the cell phone), the task rigorously tests the assistant's ability to maintain the occluded state of the target object through distracting container events. The action sequence is streamlined to fit well within the prologue limits.",
+          "requirements": [
+            "Streamline the prologue to use a single cabinet for both the insertion of the wallet and the extraction of the cell phone, ensuring the action count remains under the limit while strengthening the container propagation test."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "Open",
+              "Putin",
+              "Close",
+              "Put"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 11,
+            "estimated_prologue_actions": 8,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 57.9,
+          "structural_signature": {
+            "evaluation": "successful retrieval and placement",
+            "evidence": "egocentric video history of insertion and extraction",
+            "failure": "losing occluded state during distracting extraction",
+            "operation": "container state propagation",
+            "response": "direct location recall",
+            "temporal": "prologue event tracking"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "office_cubicles_left",
+      "sha": "a9b4d37e8295",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_manual_batch_20260831q/compile_input/FIND/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gemini-3-1-pro-preview-tbd",
+      "judge_model": "gemini-3-1-pro-preview-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260831m"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_grounded_manual_batch_20260831q",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v23-contextual-believability-20260831",
+      "release_id": "sha256:83105a197ddcd8cbaaff3cc85c2e68c4fa707cb99986ebd8e1e676070a264986",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "source": "FIND-30001",
+        "result": "find16-story-refine-20260910v"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "FIND-30001",
+    "revision": "find17-interaction-20260912",
+    "physical_taskpack_sha256": "sha256:353f89617f2d9e5bc1d12af40d79cc80c1cff7178f0522b1fb554c6deeae0c1f"
+  }
+}

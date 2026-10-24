@@ -1,0 +1,4348 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-14003",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "bread",
+          "target": "promo_rack"
+        },
+        {
+          "pred": "on",
+          "subject": "bread_price",
+          "target": "promo_rack"
+        },
+        {
+          "pred": "on",
+          "subject": "candy",
+          "target": "promo_rack"
+        },
+        {
+          "pred": "on",
+          "subject": "candy_price",
+          "target": "promo_rack"
+        },
+        {
+          "pred": "on",
+          "subject": "chocolate",
+          "target": "promo_rack"
+        },
+        {
+          "pred": "on",
+          "subject": "chocolate_price",
+          "target": "promo_rack"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "bread",
+          "target": "promo_rack"
+        },
+        {
+          "pred": "on",
+          "subject": "bread_price",
+          "target": "promo_rack"
+        },
+        {
+          "pred": "on",
+          "subject": "candy",
+          "target": "promo_rack"
+        },
+        {
+          "pred": "on",
+          "subject": "candy_price",
+          "target": "promo_rack"
+        },
+        {
+          "pred": "on",
+          "subject": "chocolate",
+          "target": "promo_rack"
+        },
+        {
+          "pred": "on",
+          "subject": "chocolate_price",
+          "target": "promo_rack"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "stock_cart"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "bread",
+          "bread_price",
+          "candy",
+          "candy_price",
+          "chocolate",
+          "chocolate_price",
+          "stocking_order"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "First inspect all three physical price cards in the cart. They establish the ascending order: bread at $2, candy at $4, then chocolate at $6. For each one, stock the product and immediately post its matching card before starting the next product.",
+        "cue": "I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.",
+        "premise": "A new grocery worker reads a visible stocking-order placard, then reaches a cart whose open top tray holds three products and their three physical price cards. The assistant must inspect every card, infer the ascending price order, and enforce the local stock-then-sign dependency before moving to the next product."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.",
+        "kind": "authored",
+        "ref": "data_generate:GUIDE-14003"
+      },
+      "rule_table": "on(bread, promo_rack); on(bread_price, promo_rack); on(candy, promo_rack); on(candy_price, promo_rack); on(chocolate, promo_rack); on(chocolate_price, promo_rack)",
+      "scene": "grocery_store_half_stocked",
+      "template": "the grounded grocery_store_half_stocked scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 31,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 31,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "stocking_order"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "stocking_order"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "stock_cart"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "stock_cart"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "bread_price"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "candy_price"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "chocolate_price"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "bread"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "promo_rack"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "bread",
+            "promo_rack"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "stock_cart"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "bread_price"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "promo_rack"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "bread_price",
+            "promo_rack"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "stock_cart"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "candy"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "promo_rack"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "candy",
+            "promo_rack"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "stock_cart"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "candy_price"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "promo_rack"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "candy_price",
+            "promo_rack"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "stock_cart"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "chocolate"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "promo_rack"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "chocolate",
+            "promo_rack"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "stock_cart"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "chocolate_price"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "promo_rack"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "chocolate_price",
+            "promo_rack"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[LookAt] <bread_price> (1), [LookAt] <candy_price> (1), [LookAt] <chocolate_price> (1), [Grab] <bread> (1), [Walk] <promo_rack> (1), [PutOn] <bread> (1) <promo_rack> (1), [Walk] <stock_cart> (1), [Grab] <bread_price> (1), [Walk] <promo_rack> (1), [PutOn] <bread_price> (1) <promo_rack> (1), [Walk] <stock_cart> (1), [Grab] <candy> (1), [Walk] <promo_rack> (1), [PutOn] <candy> (1) <promo_rack> (1), [Walk] <stock_cart> (1), [Grab] <candy_price> (1), [Walk] <promo_rack> (1), [PutOn] <candy_price> (1) <promo_rack> (1), [Walk] <stock_cart> (1), [Grab] <chocolate> (1), [Walk] <promo_rack> (1), [PutOn] <chocolate> (1) <promo_rack> (1), [Walk] <stock_cart> (1), [Grab] <chocolate_price> (1), [Walk] <promo_rack> (1), [PutOn] <chocolate_price> (1) <promo_rack> (1)",
+      "seed": 1798581550,
+      "source_task_id": "GUIDE-14003"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "bread",
+          "target": "promo_rack"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "bread_price",
+          "target": "promo_rack"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "candy",
+          "target": "promo_rack"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "candy_price",
+          "target": "promo_rack"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 4,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "chocolate",
+          "target": "promo_rack"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 5,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "chocolate_price",
+          "target": "promo_rack"
+        }
+      ],
+      "sub_steps": [
+        "on(bread, promo_rack)",
+        "on(bread_price, promo_rack)",
+        "on(candy, promo_rack)",
+        "on(candy_price, promo_rack)",
+        "on(chocolate, promo_rack)",
+        "on(chocolate_price, promo_rack)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-14003",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 1798581550,
+      "containers": {
+        "stock_cart": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "serving_cart",
+            "model": "revrxw",
+            "source": "import"
+          },
+          "door": {
+            "required": false
+          },
+          "kind": "open_bin",
+          "role": "hold",
+          "room": "grocery_store_0"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "price_counter": {
+          "bind": {
+            "cat": "countertop",
+            "source": "scene"
+          },
+          "room": "grocery_store_0",
+          "seatable": false
+        },
+        "promo_rack": {
+          "bind": {
+            "cat": "shelf",
+            "source": "scene"
+          },
+          "room": "grocery_store_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_stocking_order": {
+          "content": {
+            "args": {
+              "renderer": "instruction_sheet",
+              "rows": [
+                "1|STOCK THE CHEAPEST ITEM FIRST",
+                "2|POST ITS MATCHING PRICE CARD",
+                "3|ONLY THEN START THE NEXT ITEM"
+              ],
+              "sub": "",
+              "title": "STOCKING ORDER"
+            },
+            "lines": [
+              "1|STOCK THE CHEAPEST ITEM FIRST",
+              "2|POST ITS MATCHING PRICE CARD",
+              "3|ONLY THEN START THE NEXT ITEM"
+            ],
+            "text": "STOCKING ORDER"
+          },
+          "kind": "range_card",
+          "mount": {
+            "on": "stocking_order",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_14003_guide26_story_refine_20260910w_stocking_order_3baf793cd8d6"
+        },
+        "label_bread_price": {
+          "content": {
+            "args": {
+              "renderer": "price_tag",
+              "sub": "",
+              "title": ""
+            },
+            "text": "BREAD $2"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "bread_price",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_14003_guide26_story_refine_20260910w_bread_price_8cf18c57f83e"
+        },
+        "label_candy_price": {
+          "content": {
+            "args": {
+              "renderer": "price_tag",
+              "sub": "",
+              "title": ""
+            },
+            "text": "CANDY $4"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "candy_price",
+            "surface": "item_decal",
+            "face": "top"
+          },
+          "per_seed": false,
+          "png": "guide_14003_guide26_story_refine_20260910w_candy_price_4ed500830e5f"
+        },
+        "label_chocolate_price": {
+          "content": {
+            "args": {
+              "renderer": "price_tag",
+              "sub": "",
+              "title": ""
+            },
+            "text": "CHOC $6"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "chocolate_price",
+            "surface": "item_decal",
+            "face": "top"
+          },
+          "per_seed": false,
+          "png": "guide_14003_guide26_story_refine_20260910w_chocolate_price_0298c77f8cc5"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "stocking_order": {
+          "cat": "clipboard",
+          "model": "gmxyfo",
+          "needs_lookat": true,
+          "place": "on:price_counter",
+          "room": "grocery_store_0",
+          "scored": false,
+          "spot": [
+            -0.75,
+            0.3
+          ],
+          "decal": "STOCKING ORDER"
+        },
+        "bread": {
+          "cat": "bread_slice",
+          "model": "pfggnm",
+          "needs_lookat": false,
+          "place": "in:stock_cart",
+          "room": "grocery_store_0",
+          "scored": true,
+          "initial_space": "stock_cart_space1"
+        },
+        "candy": {
+          "cat": "peppermint_candy",
+          "model": "dqpiet",
+          "needs_lookat": false,
+          "place": "in:stock_cart",
+          "room": "grocery_store_0",
+          "scored": true,
+          "initial_space": "stock_cart_space1"
+        },
+        "chocolate": {
+          "cat": "pack_of_chocolate_bar",
+          "model": "bxgewr",
+          "needs_lookat": false,
+          "place": "in:stock_cart",
+          "room": "grocery_store_0",
+          "scored": true,
+          "initial_space": "stock_cart_space1"
+        },
+        "bread_price": {
+          "cat": "name_tag",
+          "model": "xmncvq",
+          "needs_lookat": true,
+          "place": "in:stock_cart",
+          "room": "grocery_store_0",
+          "scored": true,
+          "initial_space": "stock_cart_space1",
+          "decal": "BREAD $2"
+        },
+        "candy_price": {
+          "cat": "folderal",
+          "model": "ydrlth",
+          "needs_lookat": true,
+          "place": "in:stock_cart",
+          "room": "grocery_store_0",
+          "scored": true,
+          "initial_space": "stock_cart_space1",
+          "decal": "CANDY $4"
+        },
+        "chocolate_price": {
+          "cat": "notepad",
+          "model": "rvevdj",
+          "needs_lookat": true,
+          "place": "in:stock_cart",
+          "room": "grocery_store_0",
+          "scored": true,
+          "initial_space": "stock_cart_space1",
+          "decal": "CHOC $6"
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "grocery_store_0"
+      ],
+      "scene": "grocery_store_half_stocked",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "A new grocery worker reads a visible stocking-order placard, then reaches a cart whose open top tray holds three products and their three physical price cards. The assistant must inspect every card, infer the ascending price order, and enforce the local stock-then-sign dependency before moving to the next product.",
+    "assistant_goal": "I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.DEPENDENCY_GRAPH",
+      "assigned_scene": "grocery_store_half_stocked",
+      "core_question": "I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "A new grocery worker reads a visible stocking-order placard, then reaches a cart whose open top tray holds three products and their three physical price cards. The assistant must inspect every card, infer the ascending price order, and enforce the local stock-then-sign dependency before moving to the next product."
+      ],
+      "required_evidence": [
+        "I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.",
+        "The stocking-order clipboard visibly requires ascending price order and a stock-then-sign sequence for every item.",
+        "The cart's open top tray visibly contains three products and three separate, non-overlapping price cards.",
+        "Reading all three physical cards establishes bread as $2, candy as $4, and chocolate as $6.",
+        "The bread and its matching price card were placed before another product was started.",
+        "The candy and its matching price card were placed after the bread pair.",
+        "First inspect all three physical price cards in the cart. They establish the ascending order: bread at $2, candy at $4, then chocolate at $6. For each one, stock the product and immediately post its matching card before starting the next product."
+      ],
+      "required_final_predicates": [
+        "on",
+        "on",
+        "on",
+        "on",
+        "on",
+        "on"
+      ],
+      "success_condition": "on(bread, promo_rack); on(bread_price, promo_rack); on(candy, promo_rack); on(candy_price, promo_rack); on(chocolate, promo_rack); on(chocolate_price, promo_rack)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-14003",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.DEPENDENCY_GRAPH",
+        "assigned_scene": "grocery_store_half_stocked",
+        "core_question": "I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "A new grocery worker reads a visible stocking-order placard, then reaches a cart whose open top tray holds three products and their three physical price cards. The assistant must inspect every card, infer the ascending price order, and enforce the local stock-then-sign dependency before moving to the next product."
+        ],
+        "required_evidence": [
+          "I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.",
+          "The stocking-order clipboard visibly requires ascending price order and a stock-then-sign sequence for every item.",
+          "The cart's open top tray visibly contains three products and three separate, non-overlapping price cards.",
+          "Reading all three physical cards establishes bread as $2, candy as $4, and chocolate as $6.",
+          "The bread and its matching price card were placed before another product was started.",
+          "The candy and its matching price card were placed after the bread pair.",
+          "First inspect all three physical price cards in the cart. They establish the ascending order: bread at $2, candy at $4, then chocolate at $6. For each one, stock the product and immediately post its matching card before starting the next product."
+        ],
+        "required_final_predicates": [
+          "on",
+          "on",
+          "on",
+          "on",
+          "on",
+          "on"
+        ],
+        "success_condition": "on(bread, promo_rack); on(bread_price, promo_rack); on(candy, promo_rack); on(candy_price, promo_rack); on(chocolate, promo_rack); on(chocolate_price, promo_rack)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "bag_of_chips",
+          "baseball_glove",
+          "blanket",
+          "bottle_of_maple_syrup",
+          "bottle_of_onion_powder",
+          "bottle_of_water",
+          "bread_slice",
+          "broken_glass",
+          "casserole",
+          "cat_food_tin",
+          "clipboard",
+          "conditioner_atomizer",
+          "cotton_ball",
+          "diaper",
+          "dishtowel",
+          "doll",
+          "fire_alarm",
+          "folderal",
+          "funnel",
+          "half_bean_curd",
+          "half_bleu",
+          "half_parsnip",
+          "half_prosciutto",
+          "hamper",
+          "hard_candy",
+          "jar_of_honey",
+          "jar_of_strawberry_jam",
+          "jeans",
+          "jug_of_milk",
+          "kitchen_analog_scale",
+          "marigold",
+          "mug",
+          "name_tag",
+          "notepad",
+          "oat_box",
+          "pack_of_chocolate_bar",
+          "paper_sheet",
+          "peppermint_candy",
+          "pitcher",
+          "poker",
+          "polish_bottle",
+          "postcard",
+          "putty_knife",
+          "roasting_pan",
+          "rum_bottle",
+          "saucepot",
+          "sock",
+          "sponge",
+          "spotlight",
+          "toy_car",
+          "wineglass"
+        ],
+        "allowed_surface_categories": [
+          "countertop",
+          "shelf",
+          "snack_rack"
+        ],
+        "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+        "coverage_categories": [
+          "jug_of_milk",
+          "oat_box",
+          "hamper",
+          "dishtowel",
+          "roasting_pan",
+          "bag_of_chips",
+          "poker",
+          "putty_knife",
+          "hard_candy",
+          "kitchen_analog_scale",
+          "fire_alarm",
+          "jeans",
+          "polish_bottle",
+          "conditioner_atomizer",
+          "wineglass",
+          "sock",
+          "pitcher",
+          "funnel",
+          "bottle_of_maple_syrup",
+          "marigold"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 4,
+          "required_semantic_turns": 4,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 35,
+          "max_document_characters": 106,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 7,
+          "max_objects_per_container": 7,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 5,
+          "max_small_label_characters": 40,
+          "max_task_actions": 26,
+          "max_meaningful_steps": 31,
+          "min_intervening_meaningful_actions": 5
+        },
+        "preferred_story_categories": [
+          "jug_of_milk",
+          "oat_box",
+          "hamper",
+          "dishtowel",
+          "roasting_pan",
+          "bag_of_chips",
+          "poker",
+          "putty_knife"
+        ],
+        "preferred_story_category_glosses": {
+          "bag_of_chips": "",
+          "dishtowel": "a towel for drying dishes",
+          "hamper": "a basket usually with a cover",
+          "jug_of_milk": "",
+          "oat_box": "",
+          "poker": "",
+          "putty_knife": "",
+          "roasting_pan": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 123.9,
+            "name": "grocery_store_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "countertop": 1,
+              "shelf": 2,
+              "snack_rack": 1
+            },
+            "surface_max_area_m2": {
+              "countertop": 1.256,
+              "shelf": 0.573,
+              "snack_rack": 1.659
+            },
+            "surface_reference_capacity": {
+              "countertop": 3,
+              "shelf": 3,
+              "snack_rack": 3
+            }
+          }
+        ],
+        "scene": "grocery_store_half_stocked",
+        "task_id": "GUIDE-14003",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "clipboard",
+            "changed": false,
+            "costs": null,
+            "label": "STOCKING ORDER",
+            "tint": null,
+            "what": "stocking-order clipboard"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bread_slice",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "wrapped bread slice"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "peppermint_candy",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "wrapped peppermint candy"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "pack_of_chocolate_bar",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "pack of chocolate bars"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "name_tag",
+            "changed": false,
+            "costs": null,
+            "label": "BREAD $2",
+            "tint": null,
+            "what": "BREAD $2 price card"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "folderal",
+            "changed": false,
+            "costs": null,
+            "label": "CANDY $4",
+            "tint": null,
+            "what": "CANDY $4 price card"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "notepad",
+            "changed": false,
+            "costs": null,
+            "label": "CHOC $6",
+            "tint": null,
+            "what": "CHOC $6 price card"
+          },
+          {
+            "affordances": [
+              "container"
+            ],
+            "category": "serving_cart",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "stocking cart"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "countertop",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "price-card counter beside the stocking cart"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "shelf",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "promotional grocery rack"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "stocking-order clipboard",
+            "text": "STOCKING ORDER",
+            "what": "document",
+            "which": null
+          },
+          {
+            "rides": "BREAD $2 price card",
+            "text": "BREAD $2",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "CANDY $4 price card",
+            "text": "CANDY $4",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "CHOC $6 price card",
+            "text": "CHOC $6",
+            "what": "label",
+            "which": null
+          }
+        ],
+        "restaged_story": "A new grocery worker reads a visible stocking-order placard, then reaches a cart whose open top tray holds three products and their three physical price cards. The assistant must inspect every card, infer the ascending price order, and enforce the local stock-then-sign dependency before moving to the next product.",
+        "scene": "grocery_store_half_stocked",
+        "why_scene": "grocery_store_half_stocked supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "stock_cart": {
+            "cat": "serving_cart",
+            "initially_open": false,
+            "label": null,
+            "preload": [
+              "bread",
+              "candy",
+              "chocolate",
+              "bread_price",
+              "candy_price",
+              "chocolate_price"
+            ],
+            "role": "hold",
+            "room": "grocery_store_0"
+          }
+        },
+        "items": {
+          "stocking_order": {
+            "affordances": [],
+            "cat": "clipboard",
+            "front_facing": false,
+            "initial_space": null,
+            "label": "STOCKING ORDER",
+            "place": "on:price_counter",
+            "scored": false,
+            "spot": [
+              -0.75,
+              0.3
+            ],
+            "tint": null
+          },
+          "bread": {
+            "affordances": [],
+            "cat": "bread_slice",
+            "front_facing": false,
+            "initial_space": "stock_cart_space1",
+            "label": null,
+            "place": "in:stock_cart",
+            "scored": true,
+            "spot": null,
+            "tint": null
+          },
+          "candy": {
+            "affordances": [],
+            "cat": "peppermint_candy",
+            "front_facing": false,
+            "initial_space": "stock_cart_space1",
+            "label": null,
+            "place": "in:stock_cart",
+            "scored": true,
+            "spot": null,
+            "tint": null
+          },
+          "chocolate": {
+            "affordances": [],
+            "cat": "pack_of_chocolate_bar",
+            "front_facing": false,
+            "initial_space": "stock_cart_space1",
+            "label": null,
+            "place": "in:stock_cart",
+            "scored": true,
+            "spot": null,
+            "tint": null
+          },
+          "bread_price": {
+            "affordances": [],
+            "cat": "name_tag",
+            "front_facing": false,
+            "initial_space": "stock_cart_space1",
+            "label": "BREAD $2",
+            "place": "in:stock_cart",
+            "scored": true,
+            "spot": null,
+            "tint": null
+          },
+          "candy_price": {
+            "affordances": [],
+            "cat": "folderal",
+            "front_facing": false,
+            "initial_space": "stock_cart_space1",
+            "label": "CANDY $4",
+            "place": "in:stock_cart",
+            "scored": true,
+            "spot": null,
+            "tint": null
+          },
+          "chocolate_price": {
+            "affordances": [],
+            "cat": "notepad",
+            "front_facing": false,
+            "initial_space": "stock_cart_space1",
+            "label": "CHOC $6",
+            "place": "in:stock_cart",
+            "scored": true,
+            "spot": null,
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <stocking_order> (1)",
+          "[LookAt] <stocking_order> (1)",
+          "[Walk] <stock_cart> (1)",
+          "[LookAt] <stock_cart> (1)",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "grocery_store_0"
+        ],
+        "scene": "grocery_store_half_stocked",
+        "staging": {
+          "groups": "A new grocery worker reads a visible stocking-order placard, then reaches a cart whose open top tray holds three products and their three physical price cards. The assistant must inspect every card, infer the ascending price order, and enforce the local stock-then-sign dependency before moving to the next product.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "price_counter": {
+            "cat": "countertop",
+            "label": null,
+            "room": "grocery_store_0"
+          },
+          "promo_rack": {
+            "cat": "shelf",
+            "label": null,
+            "room": "grocery_store_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The stocking-order clipboard visibly requires ascending price order and a stock-then-sign sequence for every item.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The cart's open top tray visibly contains three products and three separate, non-overlapping price cards.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 3,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Reading all three physical cards establishes bread as $2, candy as $4, and chocolate as $6.",
+            "from": "live",
+            "id": "fact_004",
+            "source_index": 2,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The bread and its matching price card were placed before another product was started.",
+            "from": "live",
+            "id": "fact_005",
+            "source_index": 9,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The candy and its matching price card were placed after the bread pair.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 17,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ],
+            "fact": "First inspect all three physical price cards in the cart. They establish the ascending order: bread at $2, candy at $4, then chocolate at $6. For each one, stock the product and immediately post its matching card before starting the next product.",
+            "from": "derived",
+            "id": "fact_007",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "bread",
+            "target": "promo_rack"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "bread_price",
+            "target": "promo_rack"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "candy",
+            "target": "promo_rack"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "candy_price",
+            "target": "promo_rack"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "chocolate",
+            "target": "promo_rack"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "chocolate_price",
+            "target": "promo_rack"
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "Before choosing a product, show me each of the three physical price cards in the cart so I can compare their prices.",
+            "referents": [
+              "bread_price",
+              "candy_price",
+              "chocolate_price"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 3,
+            "say": "Bread is cheapest at $2. Stock the bread first, then post its matching $2 card before touching the next product.",
+            "referents": [
+              "bread",
+              "bread_price",
+              "promo_rack"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_004"
+            ]
+          },
+          {
+            "before_index": 11,
+            "say": "The bread pair is complete. Candy is next at $4: stock the candy, then post its price card.",
+            "referents": [
+              "candy",
+              "candy_price",
+              "promo_rack"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_005"
+            ]
+          },
+          {
+            "before_index": 19,
+            "say": "Now finish with the $6 chocolate, again placing the product before its price card.",
+            "referents": [
+              "chocolate",
+              "chocolate_price",
+              "promo_rack"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_006"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[LookAt] <bread_price> (1), [LookAt] <candy_price> (1), [LookAt] <chocolate_price> (1), [Grab] <bread_price> (1), [Walk] <promo_rack> (1), [PutOn] <bread_price> (1) <promo_rack> (1)",
+        "mates": [],
+        "oracle_program": "[LookAt] <bread_price> (1), [LookAt] <candy_price> (1), [LookAt] <chocolate_price> (1), [Grab] <bread> (1), [Walk] <promo_rack> (1), [PutOn] <bread> (1) <promo_rack> (1), [Walk] <stock_cart> (1), [Grab] <bread_price> (1), [Walk] <promo_rack> (1), [PutOn] <bread_price> (1) <promo_rack> (1), [Walk] <stock_cart> (1), [Grab] <candy> (1), [Walk] <promo_rack> (1), [PutOn] <candy> (1) <promo_rack> (1), [Walk] <stock_cart> (1), [Grab] <candy_price> (1), [Walk] <promo_rack> (1), [PutOn] <candy_price> (1) <promo_rack> (1), [Walk] <stock_cart> (1), [Grab] <chocolate> (1), [Walk] <promo_rack> (1), [PutOn] <chocolate> (1) <promo_rack> (1), [Walk] <stock_cart> (1), [Grab] <chocolate_price> (1), [Walk] <promo_rack> (1), [PutOn] <chocolate_price> (1) <promo_rack> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "A new grocery worker reads a visible stocking-order placard, then reaches a cart whose open top tray holds three products and their three physical price cards. The assistant must inspect every card, infer the ascending price order, and enforce the local stock-then-sign dependency before moving to the next product.",
+        "utterance": "I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <stocking_order> (1)",
+        "[LookAt] <stocking_order> (1)",
+        "[Walk] <stock_cart> (1)",
+        "[LookAt] <stock_cart> (1)",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "stocking_order"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "stocking_order"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "stocking_order"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The stocking-order clipboard visibly requires ascending price order and a stock-then-sign sequence for every item.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "First inspect all three physical price cards in the cart. They establish the ascending order: bread at $2, candy at $4, then chocolate at $6. For each one, stock the product and immediately post its matching card before starting the next product.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "stock_cart"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "stock_cart"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "stock_cart"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The cart's open top tray visibly contains three products and three separate, non-overlapping price cards.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "First inspect all three physical price cards in the cart. They establish the ascending order: bread at $2, candy at $4, then chocolate at $6. For each one, stock the product and immediately post its matching card before starting the next product.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "First inspect all three physical price cards in the cart. They establish the ascending order: bread at $2, candy at $4, then chocolate at $6. For each one, stock the product and immediately post its matching card before starting the next product.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Before choosing a product, show me each of the three physical price cards in the cart so I can compare their prices.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Bread is cheapest at $2. Stock the bread first, then post its matching $2 card before touching the next product.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The bread pair is complete. Candy is next at $4: stock the candy, then post its price card.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_003",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Now finish with the $6 chocolate, again placing the product before its price card.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "bread_price"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "candy_price"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "chocolate_price"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "bread_price"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "bread_price"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "promo_rack"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "promo_rack"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "bread_price",
+            "promo_rack"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "bread_price"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "candy_price"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "chocolate_price"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "Reading all three physical cards establishes bread as $2, candy as $4, and chocolate as $6.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "First inspect all three physical price cards in the cart. They establish the ascending order: bread at $2, candy at $4, then chocolate at $6. For each one, stock the product and immediately post its matching card before starting the next product.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "bread"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "bread"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "promo_rack"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "promo_rack"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "bread",
+            "promo_rack"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "stock_cart"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "stock_cart"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "bread_price"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "bread_price"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "promo_rack"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "promo_rack"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "bread_price",
+            "promo_rack"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The bread and its matching price card were placed before another product was started.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "First inspect all three physical price cards in the cart. They establish the ascending order: bread at $2, candy at $4, then chocolate at $6. For each one, stock the product and immediately post its matching card before starting the next product.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o010",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "stock_cart"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "stock_cart"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o011",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "candy"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "candy"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o012",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "promo_rack"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "promo_rack"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o013",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "candy",
+            "promo_rack"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o014",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "stock_cart"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "stock_cart"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o015",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "candy_price"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "candy_price"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o016",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "promo_rack"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "promo_rack"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o017",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "candy_price",
+            "promo_rack"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The candy and its matching price card were placed after the bread pair.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "First inspect all three physical price cards in the cart. They establish the ascending order: bread at $2, candy at $4, then chocolate at $6. For each one, stock the product and immediately post its matching card before starting the next product.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o018",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "stock_cart"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "stock_cart"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o019",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "chocolate"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "chocolate"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o020",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "promo_rack"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "promo_rack"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o021",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "chocolate",
+            "promo_rack"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o022",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "stock_cart"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "stock_cart"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o023",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "chocolate_price"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "chocolate_price"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o024",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "promo_rack"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "promo_rack"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o025",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "chocolate_price",
+            "promo_rack"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The stocking-order clipboard visibly requires ascending price order and a stock-then-sign sequence for every item.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "The cart's open top tray visibly contains three products and three separate, non-overlapping price cards.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p003"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 3
+      },
+      {
+        "id": "fact_004",
+        "statement": "Reading all three physical cards establishes bread as $2, candy as $4, and chocolate as $6.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o002"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 2
+      },
+      {
+        "id": "fact_005",
+        "statement": "The bread and its matching price card were placed before another product was started.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o009"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 9
+      },
+      {
+        "id": "fact_006",
+        "statement": "The candy and its matching price card were placed after the bread pair.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o017"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 17
+      },
+      {
+        "id": "fact_007",
+        "statement": "First inspect all three physical price cards in the cart. They establish the ascending order: bread at $2, candy at $4, then chocolate at $6. For each one, stock the product and immediately post its matching card before starting the next product.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "p003",
+          "o002",
+          "o009",
+          "o017"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the posted stocking rule and the individual price cards to guide the person through the complete display one step at a time.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <stocking_order> (1)",
+          "[LookAt] <stocking_order> (1)",
+          "[Walk] <stock_cart> (1)",
+          "[LookAt] <stock_cart> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 4,
+            "say": "I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time."
+          }
+        ],
+        "handoff_say": "I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "stocking_rule_request",
+            "required_phrases": [
+              "new on this aisle",
+              "posted rule",
+              "individual price cards",
+              "one step at a time"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [],
+        "required_command_sequences": [],
+        "verification_points": [
+          {
+            "id": "bread_on_promo_rack",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "bread",
+            "target": "promo_rack"
+          },
+          {
+            "id": "bread_price_on_promo_rack",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "bread_price",
+            "target": "promo_rack"
+          },
+          {
+            "id": "candy_on_promo_rack",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "candy",
+            "target": "promo_rack"
+          },
+          {
+            "id": "candy_price_on_promo_rack",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "candy_price",
+            "target": "promo_rack"
+          },
+          {
+            "id": "chocolate_on_promo_rack",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "chocolate",
+            "target": "promo_rack"
+          },
+          {
+            "id": "chocolate_price_on_promo_rack",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "chocolate_price",
+            "target": "promo_rack"
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 68,
+    "dialogue_budget": 4,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "stock_cart",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "bread_price",
+              "candy_price",
+              "chocolate_price"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "bread",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "bread",
+              "bread_price",
+              "promo_rack"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "bread",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "bread",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "promo_rack",
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "stock_cart",
+            "truth": true
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "bread_price",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "promo_rack",
+            "truth": true
+          },
+          "next_beat": "o009"
+        },
+        {
+          "after_beat": "o009",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o010"
+        },
+        {
+          "after_beat": "o010",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "candy",
+              "candy_price",
+              "promo_rack"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "bread",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o011"
+        },
+        {
+          "after_beat": "o011",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "candy",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o012"
+        },
+        {
+          "after_beat": "o012",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "promo_rack",
+            "truth": true
+          },
+          "next_beat": "o013"
+        },
+        {
+          "after_beat": "o013",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o014"
+        },
+        {
+          "after_beat": "o014",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "stock_cart",
+            "truth": true
+          },
+          "next_beat": "o015"
+        },
+        {
+          "after_beat": "o015",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "candy_price",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o016"
+        },
+        {
+          "after_beat": "o016",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "promo_rack",
+            "truth": true
+          },
+          "next_beat": "o017"
+        },
+        {
+          "after_beat": "o017",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o018"
+        },
+        {
+          "after_beat": "o018",
+          "intervention_beat": "assistant_003",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "chocolate",
+              "chocolate_price",
+              "promo_rack"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "bread",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o019"
+        },
+        {
+          "after_beat": "o019",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "chocolate",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o020"
+        },
+        {
+          "after_beat": "o020",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "promo_rack",
+            "truth": true
+          },
+          "next_beat": "o021"
+        },
+        {
+          "after_beat": "o021",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o022"
+        },
+        {
+          "after_beat": "o022",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "stock_cart",
+            "truth": true
+          },
+          "next_beat": "o023"
+        },
+        {
+          "after_beat": "o023",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "chocolate_price",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o024"
+        },
+        {
+          "after_beat": "o024",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "promo_rack",
+            "truth": true
+          },
+          "next_beat": "o025"
+        }
+      ],
+      "terminal_beats": [
+        "h005",
+        "o025"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "LookAt",
+        "args": [
+          "bread_price"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "candy_price"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "chocolate_price"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "bread"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "promo_rack"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "bread",
+          "promo_rack"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "stock_cart"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "bread_price"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "promo_rack"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "bread_price",
+          "promo_rack"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "stock_cart"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "candy"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "promo_rack"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "candy",
+          "promo_rack"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "stock_cart"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "candy_price"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "promo_rack"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "candy_price",
+          "promo_rack"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "stock_cart"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "chocolate"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "promo_rack"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "chocolate",
+          "promo_rack"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "stock_cart"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "chocolate_price"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "promo_rack"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "chocolate_price",
+          "promo_rack"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "LookAt",
+        "args": [
+          "bread_price"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "candy_price"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "chocolate_price"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "bread_price"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "promo_rack"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "bread_price",
+          "promo_rack"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Before choosing a product, show me each of the three physical price cards in the cart so I can compare their prices.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "Bread is cheapest at $2. Stock the bread first, then post its matching $2 card before touching the next product.",
+        "relation": "before",
+        "anchor_beat_id": "o003",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "The bread pair is complete. Candy is next at $4: stock the candy, then post its price card.",
+        "relation": "before",
+        "anchor_beat_id": "o011",
+        "source": "guidance",
+        "source_index": 2
+      },
+      {
+        "id": "assistant_003",
+        "say": "Now finish with the $6 chocolate, again placing the product before its price card.",
+        "relation": "before",
+        "anchor_beat_id": "o019",
+        "source": "guidance",
+        "source_index": 3
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "source": "guide26_missing4_interaction_assembly",
+    "compile_input_digest": "sha256:bd077f843055c6a6a68c0e676154051441d4092cefa7b7bc9d5039752d43317c",
+    "source_contract_digest": "sha256:57a6bf69e6903b4d9a42d9d070cdcf678ef8d80879272cd9702425d4abac4021",
+    "executable_spec_digest": "sha256:15cbc87f97ef39ee065f9566c550af813ad0007571366e7fcc50baa38ae72246",
+    "invention": {
+      "attempt": 2,
+      "author_prose": "A novice retail employee is tasked with assembling a new promotional display on a `snack_rack` in the grocery store. According to the store's standard operating procedure, setting up this display follows a strict partial-order dependency graph. Stocking the `bag_of_chips` and stocking the `hard_candy` are independent parallel tasks that can be completed in any order. However, both products must be fully stocked on the rack before the `clipboard`—which holds the promotional pricing sign—can be placed. This dependency rule ensures that a live pricing sign is never displayed on a partially empty rack, which would violate retail policy and confuse customers.\n\nThe episode begins with the `bag_of_chips`, the `hard_candy`, and the `clipboard` staged inside a `shopping_cart`. The wearer begins the task by grabbing the `bag_of_chips` and placing it onto the `snack_rack`. With one branch of the prerequisite graph complete, the wearer reaches into the cart, grabs the `clipboard`, and asks the smart glasses, \"The chips are on the rack. Should I put the pricing sign up now?\"\n\nTo answer correctly, the assistant must rely on the egocentric camera feed. It scans the `shopping_cart` and visually confirms that the `hard_candy` is still resting unmoved inside it. Evaluating the partial-order task graph, the assistant recognizes that the terminal merge node (placing the sign) cannot be executed because a parallel prerequisite (stocking the candy) is incomplete. The assistant explicitly refuses the wearer's request, directing them to set the clipboard aside and stock the hard candy first.\n\nA weak assistant fails by treating the task as a loose checklist rather than a strict dependency graph. It might blindly agree to the wearer's proposal because the sign is part of the overall task, or recite the remaining items without enforcing the correct order, leading to premature signage and a policy violation.\n\nFollowing the strong assistant's guidance, the wearer places the clipboard back into the cart, grabs the `hard_candy`, and puts it on the `snack_rack`. Finally, they retrieve the `clipboard` and place it on the rack to complete the display. Success is verified by the ordered command trace capturing the correct sequence of placements, and the final scorable state confirming all three items are securely resting on the snack rack.",
+      "author_prose_sha256": "sha256:001c2a07f1403f878b2c614e40869008cd36a5d94b1a4f771e258af135fb9423",
+      "capability": {
+        "boundary": "The core is dependency reasoning, not memorising one rigid total sequence and not sorting ingredients by label.",
+        "few_shot": "A novice is assembling a small display stand. Attaching the left foot and attaching the right foot are independent, but both must be secured before the upright can be raised. After completing only the left foot, the wearer asks whether they can raise the frame now. The assistant identifies the unmet right-foot prerequisite, directs that attachment first, and only then permits the raise. The beat-bound guidance and ordered command trace preserve the dependency decision, while the final attached and raised predicates verify the completed stand. A weak guide that merely recites a memorised total sequence either rejects a legal branch order or allows the irreversible raise too early.",
+        "id": "GUIDE.DEPENDENCY_GRAPH",
+        "name_zh": "依赖图推理与排序",
+        "target": "Guide a novice through a partial-order task graph, choosing a legal next step and refusing a requested step whose prerequisites are incomplete."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+        "evaluation_mode": "TRACE_AND_OUTCOME",
+        "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": true,
+        "owner": "SIMULATOR_EVALUATION",
+        "reason": "The chosen legal trace runs, but there is no generic scorer for alternative valid topological orders and rejected illegal steps.",
+        "reason_code": "DEPENDENCY_ORDER_EVALUATOR",
+        "recommended_work": "Add dependency-graph and legal-next-step evaluation over the command trace.",
+        "version": "capability-support/1.0",
+        "workstream": "EVALUATOR"
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "mug",
+          "apple",
+          "paper_sheet",
+          "clipboard",
+          "jug_of_milk",
+          "oat_box",
+          "hamper",
+          "dishtowel",
+          "roasting_pan",
+          "bag_of_chips",
+          "poker",
+          "putty_knife",
+          "hard_candy",
+          "kitchen_analog_scale",
+          "fire_alarm",
+          "jeans",
+          "polish_bottle",
+          "conditioner_atomizer",
+          "wineglass",
+          "sock",
+          "pitcher",
+          "funnel",
+          "bottle_of_maple_syrup",
+          "marigold"
+        ],
+        "allowed_surface_categories": [
+          "countertop",
+          "shelf",
+          "snack_rack"
+        ],
+        "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+        "coverage_categories": [
+          "jug_of_milk",
+          "oat_box",
+          "hamper",
+          "dishtowel",
+          "roasting_pan",
+          "bag_of_chips",
+          "poker",
+          "putty_knife",
+          "hard_candy",
+          "kitchen_analog_scale",
+          "fire_alarm",
+          "jeans",
+          "polish_bottle",
+          "conditioner_atomizer",
+          "wineglass",
+          "sock",
+          "pitcher",
+          "funnel",
+          "bottle_of_maple_syrup",
+          "marigold"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "jug_of_milk",
+          "oat_box",
+          "hamper",
+          "dishtowel",
+          "roasting_pan",
+          "bag_of_chips",
+          "poker",
+          "putty_knife"
+        ],
+        "preferred_story_category_glosses": {
+          "bag_of_chips": "",
+          "dishtowel": "a towel for drying dishes",
+          "hamper": "a basket usually with a cover",
+          "jug_of_milk": "",
+          "oat_box": "",
+          "poker": "",
+          "putty_knife": "",
+          "roasting_pan": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 123.9,
+            "name": "grocery_store_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "countertop": 1,
+              "shelf": 2,
+              "snack_rack": 1
+            },
+            "surface_max_area_m2": {
+              "countertop": 1.256,
+              "shelf": 0.573,
+              "snack_rack": 1.659
+            },
+            "surface_reference_capacity": {
+              "countertop": 3,
+              "shelf": 3,
+              "snack_rack": 3
+            }
+          }
+        ],
+        "scene": "grocery_store_half_stocked",
+        "task_id": "GUIDE-14003",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "prompt_sha": "2084dc7bf0ae",
+      "prompt_sha256": "sha256:2084dc7bf0aecc661a9a82070e94e1584eb4b5dafd1c4eb4f5701485ce93ea63",
+      "prompt_version": "capability-v19-grounded-physics-20260829",
+      "prose_sha256": "sha256:cecb797ba1ba79661a2c0447f0d00c36d55f0bc7923c99ff1a7b889bf7d3ba19",
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "The hard_candy is still resting unmoved inside the shopping_cart.",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "semantic_turns": 1,
+          "strong_weak_distinct": true,
+          "ungrounded_physical_nouns": [],
+          "uses_only_grounded_assets": true,
+          "why_utterance_alone_fails": "The wearer's utterance only mentions the chips and the sign, omitting the status of the hard candy, which the assistant must visually verify."
+        },
+        "capability_fit": "The assistant evaluates a proposed action against a partial-order dependency graph and refuses a terminal step because a parallel prerequisite remains incomplete.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "bag_of_chips",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "bag_of_chips"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "hard_candy",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "hard_candy"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "clipboard",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "clipboard"
+              },
+              {
+                "affordances": [
+                  "container"
+                ],
+                "category": "shopping_cart",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "shopping_cart"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "snack_rack",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "snack_rack"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "The bag_of_chips and hard_candy start inside the shopping_cart. The clipboard starts on the countertop. In the prologue, the wearer grabs the bag_of_chips from the shopping_cart and puts it on the snack_rack. The wearer then grabs the clipboard from the countertop. At action zero, the wearer asks if they should put the pricing sign up now. The assistant observes the hard_candy still inside the shopping_cart, recognizing that the parallel prerequisite of stocking the candy is incomplete. The assistant refuses the request and instructs the wearer to put the clipboard back, stock the hard candy, and then place the clipboard. In the main actions, the wearer puts the clipboard on the countertop. The wearer grabs the hard_candy from the shopping_cart and puts it on the snack_rack. Finally, the wearer grabs the clipboard from the countertop and puts it on the snack_rack.",
+            "scene": "grocery_store_half_stocked",
+            "why_scene": "Provides a retail environment with a snack rack."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "Can the assistant refuse a terminal step when a parallel prerequisite is incomplete?",
+              "counterfactual_failure": "The weak assistant allows the clipboard to be placed prematurely, leaving the hard candy in the cart.",
+              "forbidden_changes": [
+                "changing the dependency rules"
+              ],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "hard_candy inside shopping_cart"
+              ],
+              "required_final_predicates": [
+                "on"
+              ],
+              "success_condition": "The hard candy is stocked before the clipboard is placed.",
+              "temporal_constraints": []
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "first parallel prerequisite",
+                "what": "bag_of_chips",
+                "when": "opening"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "second parallel prerequisite",
+                "what": "hard_candy",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "terminal step item",
+                "what": "clipboard",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container"
+                ],
+                "role_in_story": "initial staging area",
+                "what": "shopping_cart",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "display fixture",
+                "what": "snack_rack",
+                "when": "both"
+              }
+            ],
+            "hinges_on": "recognizing that the hard candy has not yet been stocked, making the placement of the pricing sign illegal",
+            "look_alike": [],
+            "opening": "The wearer stocks the chips and grabs the clipboard.",
+            "outcome": "All three items are correctly placed on the snack rack in the required order.",
+            "place": "grocery store",
+            "printed": [],
+            "tests_what": "ability to enforce a partial-order dependency graph"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The candidate successfully implements the DEPENDENCY_GRAPH capability by presenting a partial-order task where a terminal step (placing the pricing sign) is requested before a parallel prerequisite (stocking the hard candy) is complete. The assistant must use egocentric vision to verify the incomplete prerequisite and refuse the premature action. A minor adjustment was made to the starting locations to respect the 2-item container limit.",
+        "requirements": [],
+        "runtime_requirements": {
+          "actions": [
+            "Grab",
+            "Put"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 8,
+          "estimated_prologue_actions": 3,
+          "estimated_task_actions": 5,
+          "events": [],
+          "final_predicates": [
+            "on"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 52.0,
+        "structural_signature": {
+          "evaluation": "ordered command trace and final state",
+          "evidence": "hard candy in cart",
+          "failure": "premature terminal step",
+          "operation": "evaluate partial-order graph",
+          "response": "refuse and redirect",
+          "temporal": "interrupted sequence"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The hard_candy is still resting unmoved inside the shopping_cart.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The wearer's utterance only mentions the chips and the sign, omitting the status of the hard candy, which the assistant must visually verify."
+          },
+          "capability_fit": "The assistant evaluates a proposed action against a partial-order dependency graph and refuses a terminal step because a parallel prerequisite remains incomplete.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "bag_of_chips",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "bag_of_chips"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "hard_candy",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "hard_candy"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "clipboard",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "clipboard"
+                },
+                {
+                  "affordances": [
+                    "container"
+                  ],
+                  "category": "shopping_cart",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "shopping_cart"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "snack_rack",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "snack_rack"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "The bag_of_chips and hard_candy start inside the shopping_cart. The clipboard starts on the countertop. In the prologue, the wearer grabs the bag_of_chips from the shopping_cart and puts it on the snack_rack. The wearer then grabs the clipboard from the countertop. At action zero, the wearer asks if they should put the pricing sign up now. The assistant observes the hard_candy still inside the shopping_cart, recognizing that the parallel prerequisite of stocking the candy is incomplete. The assistant refuses the request and instructs the wearer to put the clipboard back, stock the hard candy, and then place the clipboard. In the main actions, the wearer puts the clipboard on the countertop. The wearer grabs the hard_candy from the shopping_cart and puts it on the snack_rack. Finally, the wearer grabs the clipboard from the countertop and puts it on the snack_rack.",
+              "scene": "grocery_store_half_stocked",
+              "why_scene": "Provides a retail environment with a snack rack."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "Can the assistant refuse a terminal step when a parallel prerequisite is incomplete?",
+                "counterfactual_failure": "The weak assistant allows the clipboard to be placed prematurely, leaving the hard candy in the cart.",
+                "forbidden_changes": [
+                  "changing the dependency rules"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "hard_candy inside shopping_cart"
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "The hard candy is stocked before the clipboard is placed.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "first parallel prerequisite",
+                  "what": "bag_of_chips",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "second parallel prerequisite",
+                  "what": "hard_candy",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "terminal step item",
+                  "what": "clipboard",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container"
+                  ],
+                  "role_in_story": "initial staging area",
+                  "what": "shopping_cart",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "display fixture",
+                  "what": "snack_rack",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "recognizing that the hard candy has not yet been stocked, making the placement of the pricing sign illegal",
+              "look_alike": [],
+              "opening": "The wearer stocks the chips and grabs the clipboard.",
+              "outcome": "All three items are correctly placed on the snack rack in the required order.",
+              "place": "grocery store",
+              "printed": [],
+              "tests_what": "ability to enforce a partial-order dependency graph"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate successfully implements the DEPENDENCY_GRAPH capability by presenting a partial-order task where a terminal step (placing the pricing sign) is requested before a parallel prerequisite (stocking the hard candy) is complete. The assistant must use egocentric vision to verify the incomplete prerequisite and refuse the premature action. A minor adjustment was made to the starting locations to respect the 2-item container limit.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "Put"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 8,
+            "estimated_prologue_actions": 3,
+            "estimated_task_actions": 5,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 52.0,
+          "structural_signature": {
+            "evaluation": "ordered command trace and final state",
+            "evidence": "hard candy in cart",
+            "failure": "premature terminal step",
+            "operation": "evaluate partial-order graph",
+            "response": "refuse and redirect",
+            "temporal": "interrupted sequence"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "grocery_store_half_stocked",
+      "sha": "cecb797ba1ba",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_prod120_quality_20260829c/rounds/round_001/compile_input/GUIDE/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gemini-3-1-pro-preview-tbd",
+      "judge_model": "gemini-3-1-pro-preview-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260829j"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_grounded_prod120_quality_20260829c-r001",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v19-grounded-physics-20260829",
+      "release_id": "sha256:34b86c296becbe4aeca1aeda58c0219f85ac552858fd347e5f46b61ac2c4087f",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "result": "guide26-story-refine-20260910w",
+        "source": "GUIDE-14003"
+      },
+      {
+        "kind": "canonicalize_required_evidence",
+        "source": "[\"I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.\", \"The stocking-order clipboard visibly requires ascending price order and a stock-then-sign sequence for every item.\", \"The cart's open top tray visibly contains three products and three separate, non-overlapping price cards.\", \"Reading all three physical cards establishes bread as $2, candy as $4, and chocolate as $6.\", \"The bread and its matching price card were placed before another product was started.\", \"The candy and its matching price card were placed after the bread pair.\"]",
+        "result": "[\"I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.\", \"The stocking-order clipboard visibly requires ascending price order and a stock-then-sign sequence for every item.\", \"The cart's open top tray visibly contains three products and three separate, non-overlapping price cards.\", \"Reading all three physical cards establishes bread as $2, candy as $4, and chocolate as $6.\", \"The bread and its matching price card were placed before another product was started.\", \"The candy and its matching price card were placed after the bread pair.\", \"First inspect all three physical price cards in the cart. They establish the ascending order: bread at $2, candy at $4, then chocolate at $6. For each one, stock the product and immediately post its matching card before starting the next product.\"]"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "GUIDE-14003",
+    "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+    "capability_notes": [
+      "The cart, instruction counter, and rack must share one close operator anchor so the three card inspections and all placements remain reachable.",
+      "All six source objects occupy the open top tray of serving_cart/revrxw. The bread tag is compact, while the candy and chocolate cards use wider top-facing paper carriers placed near the tray centre/front so every price remains readable without leaning into the cart.",
+      "The six-object final display uses the scene's larger reachable shelf and is checked by sequential surface preflight.",
+      "The current final-state scorer cannot prove stock-before-sign precedence; the weak branch therefore stops immediately after the premature sign placement."
+    ],
+    "revision": "guide26-missing4-interaction-20260915",
+    "benchmark_split": "production",
+    "physical_revision": "guide26-first-round-passed-20260910",
+    "physical_taskpack_sha256": "sha256:796b828ef3ed6e3d859c7585ae0f89fb233ba831355f43e226e46e8d05ac8169",
+    "parent_lineage": {
+      "source": "manual_story_revision",
+      "compile_input_digest": "sha256:bd077f843055c6a6a68c0e676154051441d4092cefa7b7bc9d5039752d43317c",
+      "source_contract_digest": "sha256:57a6bf69e6903b4d9a42d9d070cdcf678ef8d80879272cd9702425d4abac4021",
+      "executable_spec_digest": "sha256:15cbc87f97ef39ee065f9566c550af813ad0007571366e7fcc50baa38ae72246",
+      "invention": {
+        "attempt": 2,
+        "author_prose": "A novice retail employee is tasked with assembling a new promotional display on a `snack_rack` in the grocery store. According to the store's standard operating procedure, setting up this display follows a strict partial-order dependency graph. Stocking the `bag_of_chips` and stocking the `hard_candy` are independent parallel tasks that can be completed in any order. However, both products must be fully stocked on the rack before the `clipboard`—which holds the promotional pricing sign—can be placed. This dependency rule ensures that a live pricing sign is never displayed on a partially empty rack, which would violate retail policy and confuse customers.\n\nThe episode begins with the `bag_of_chips`, the `hard_candy`, and the `clipboard` staged inside a `shopping_cart`. The wearer begins the task by grabbing the `bag_of_chips` and placing it onto the `snack_rack`. With one branch of the prerequisite graph complete, the wearer reaches into the cart, grabs the `clipboard`, and asks the smart glasses, \"The chips are on the rack. Should I put the pricing sign up now?\"\n\nTo answer correctly, the assistant must rely on the egocentric camera feed. It scans the `shopping_cart` and visually confirms that the `hard_candy` is still resting unmoved inside it. Evaluating the partial-order task graph, the assistant recognizes that the terminal merge node (placing the sign) cannot be executed because a parallel prerequisite (stocking the candy) is incomplete. The assistant explicitly refuses the wearer's request, directing them to set the clipboard aside and stock the hard candy first.\n\nA weak assistant fails by treating the task as a loose checklist rather than a strict dependency graph. It might blindly agree to the wearer's proposal because the sign is part of the overall task, or recite the remaining items without enforcing the correct order, leading to premature signage and a policy violation.\n\nFollowing the strong assistant's guidance, the wearer places the clipboard back into the cart, grabs the `hard_candy`, and puts it on the `snack_rack`. Finally, they retrieve the `clipboard` and place it on the rack to complete the display. Success is verified by the ordered command trace capturing the correct sequence of placements, and the final scorable state confirming all three items are securely resting on the snack rack.",
+        "author_prose_sha256": "sha256:001c2a07f1403f878b2c614e40869008cd36a5d94b1a4f771e258af135fb9423",
+        "capability": {
+          "boundary": "The core is dependency reasoning, not memorising one rigid total sequence and not sorting ingredients by label.",
+          "few_shot": "A novice is assembling a small display stand. Attaching the left foot and attaching the right foot are independent, but both must be secured before the upright can be raised. After completing only the left foot, the wearer asks whether they can raise the frame now. The assistant identifies the unmet right-foot prerequisite, directs that attachment first, and only then permits the raise. The beat-bound guidance and ordered command trace preserve the dependency decision, while the final attached and raised predicates verify the completed stand. A weak guide that merely recites a memorised total sequence either rejects a legal branch order or allows the irreversible raise too early.",
+          "id": "GUIDE.DEPENDENCY_GRAPH",
+          "name_zh": "依赖图推理与排序",
+          "target": "Guide a novice through a partial-order task graph, choosing a legal next step and refusing a requested step whose prerequisites are incomplete."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+          "evaluation_mode": "TRACE_AND_OUTCOME",
+          "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": true,
+          "owner": "SIMULATOR_EVALUATION",
+          "reason": "The chosen legal trace runs, but there is no generic scorer for alternative valid topological orders and rejected illegal steps.",
+          "reason_code": "DEPENDENCY_ORDER_EVALUATOR",
+          "recommended_work": "Add dependency-graph and legal-next-step evaluation over the command trace.",
+          "version": "capability-support/1.0",
+          "workstream": "EVALUATOR"
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "candy_dispenser_shelf",
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "compost_bin",
+            "dessert_stand",
+            "dish_rack_cart",
+            "dishwasher",
+            "display_case",
+            "display_fridge",
+            "dry_food_dispenser_shelf",
+            "free_weight_rack",
+            "freezer",
+            "fridge",
+            "grocery_fridge",
+            "grocery_shelf",
+            "locker",
+            "magazine_stand",
+            "metal_bottom_cabinet",
+            "oven",
+            "public_trash_can",
+            "recycling_bin",
+            "serving_cart",
+            "shelf",
+            "shopping_cart",
+            "snack_rack",
+            "top_cabinet",
+            "trash_can",
+            "umbrella_rack",
+            "vending_machine",
+            "wardrobe",
+            "washer",
+            "wine_fridge"
+          ],
+          "allowed_loose_categories": [
+            "mug",
+            "apple",
+            "paper_sheet",
+            "clipboard",
+            "jug_of_milk",
+            "oat_box",
+            "hamper",
+            "dishtowel",
+            "roasting_pan",
+            "bag_of_chips",
+            "poker",
+            "putty_knife",
+            "hard_candy",
+            "kitchen_analog_scale",
+            "fire_alarm",
+            "jeans",
+            "polish_bottle",
+            "conditioner_atomizer",
+            "wineglass",
+            "sock",
+            "pitcher",
+            "funnel",
+            "bottle_of_maple_syrup",
+            "marigold"
+          ],
+          "allowed_surface_categories": [
+            "countertop",
+            "shelf",
+            "snack_rack"
+          ],
+          "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+          "coverage_categories": [
+            "jug_of_milk",
+            "oat_box",
+            "hamper",
+            "dishtowel",
+            "roasting_pan",
+            "bag_of_chips",
+            "poker",
+            "putty_knife",
+            "hard_candy",
+            "kitchen_analog_scale",
+            "fire_alarm",
+            "jeans",
+            "polish_bottle",
+            "conditioner_atomizer",
+            "wineglass",
+            "sock",
+            "pitcher",
+            "funnel",
+            "bottle_of_maple_syrup",
+            "marigold"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 1,
+            "required_semantic_turns": 1,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": false,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_reselection": false,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "GUIDE",
+          "limits": {
+            "max_authored_actions": 18,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 10,
+            "max_small_label_characters": 8,
+            "max_task_actions": 10
+          },
+          "preferred_story_categories": [
+            "jug_of_milk",
+            "oat_box",
+            "hamper",
+            "dishtowel",
+            "roasting_pan",
+            "bag_of_chips",
+            "poker",
+            "putty_knife"
+          ],
+          "preferred_story_category_glosses": {
+            "bag_of_chips": "",
+            "dishtowel": "a towel for drying dishes",
+            "hamper": "a basket usually with a cover",
+            "jug_of_milk": "",
+            "oat_box": "",
+            "poker": "",
+            "putty_knife": "",
+            "roasting_pan": ""
+          },
+          "rooms": [
+            {
+              "area_m2": 123.9,
+              "name": "grocery_store_0",
+              "scene_containers": {},
+              "scene_surfaces": {
+                "countertop": 1,
+                "shelf": 2,
+                "snack_rack": 1
+              },
+              "surface_max_area_m2": {
+                "countertop": 1.256,
+                "shelf": 0.573,
+                "snack_rack": 1.659
+              },
+              "surface_reference_capacity": {
+                "countertop": 3,
+                "shelf": 3,
+                "snack_rack": 3
+              }
+            }
+          ],
+          "scene": "grocery_store_half_stocked",
+          "task_id": "GUIDE-14003",
+          "version": "grounded-authoring/2.5-20260829"
+        },
+        "prompt_sha": "2084dc7bf0ae",
+        "prompt_sha256": "sha256:2084dc7bf0aecc661a9a82070e94e1584eb4b5dafd1c4eb4f5701485ce93ea63",
+        "prompt_version": "capability-v19-grounded-physics-20260829",
+        "prose_sha256": "sha256:cecb797ba1ba79661a2c0447f0d00c36d55f0bc7923c99ff1a7b889bf7d3ba19",
+        "review": {
+          "benchmark_check": {
+            "egocentric_evidence": "The hard_candy is still resting unmoved inside the shopping_cart.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The wearer's utterance only mentions the chips and the sign, omitting the status of the hard candy, which the assistant must visually verify."
+          },
+          "capability_fit": "The assistant evaluates a proposed action against a partial-order dependency graph and refuses a terminal step because a parallel prerequisite remains incomplete.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "bag_of_chips",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "bag_of_chips"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "hard_candy",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "hard_candy"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "clipboard",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "clipboard"
+                },
+                {
+                  "affordances": [
+                    "container"
+                  ],
+                  "category": "shopping_cart",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "shopping_cart"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "snack_rack",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "snack_rack"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "The bag_of_chips and hard_candy start inside the shopping_cart. The clipboard starts on the countertop. In the prologue, the wearer grabs the bag_of_chips from the shopping_cart and puts it on the snack_rack. The wearer then grabs the clipboard from the countertop. At action zero, the wearer asks if they should put the pricing sign up now. The assistant observes the hard_candy still inside the shopping_cart, recognizing that the parallel prerequisite of stocking the candy is incomplete. The assistant refuses the request and instructs the wearer to put the clipboard back, stock the hard candy, and then place the clipboard. In the main actions, the wearer puts the clipboard on the countertop. The wearer grabs the hard_candy from the shopping_cart and puts it on the snack_rack. Finally, the wearer grabs the clipboard from the countertop and puts it on the snack_rack.",
+              "scene": "grocery_store_half_stocked",
+              "why_scene": "Provides a retail environment with a snack rack."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "Can the assistant refuse a terminal step when a parallel prerequisite is incomplete?",
+                "counterfactual_failure": "The weak assistant allows the clipboard to be placed prematurely, leaving the hard candy in the cart.",
+                "forbidden_changes": [
+                  "changing the dependency rules"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "hard_candy inside shopping_cart"
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "The hard candy is stocked before the clipboard is placed.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "first parallel prerequisite",
+                  "what": "bag_of_chips",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "second parallel prerequisite",
+                  "what": "hard_candy",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "terminal step item",
+                  "what": "clipboard",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container"
+                  ],
+                  "role_in_story": "initial staging area",
+                  "what": "shopping_cart",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "display fixture",
+                  "what": "snack_rack",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "recognizing that the hard candy has not yet been stocked, making the placement of the pricing sign illegal",
+              "look_alike": [],
+              "opening": "The wearer stocks the chips and grabs the clipboard.",
+              "outcome": "All three items are correctly placed on the snack rack in the required order.",
+              "place": "grocery store",
+              "printed": [],
+              "tests_what": "ability to enforce a partial-order dependency graph"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate successfully implements the DEPENDENCY_GRAPH capability by presenting a partial-order task where a terminal step (placing the pricing sign) is requested before a parallel prerequisite (stocking the hard candy) is complete. The assistant must use egocentric vision to verify the incomplete prerequisite and refuse the premature action. A minor adjustment was made to the starting locations to respect the 2-item container limit.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "Put"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 8,
+            "estimated_prologue_actions": 3,
+            "estimated_task_actions": 5,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 52.0,
+          "structural_signature": {
+            "evaluation": "ordered command trace and final state",
+            "evidence": "hard candy in cart",
+            "failure": "premature terminal step",
+            "operation": "evaluate partial-order graph",
+            "response": "refuse and redirect",
+            "temporal": "interrupted sequence"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "The hard_candy is still resting unmoved inside the shopping_cart.",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "semantic_turns": 1,
+              "strong_weak_distinct": true,
+              "ungrounded_physical_nouns": [],
+              "uses_only_grounded_assets": true,
+              "why_utterance_alone_fails": "The wearer's utterance only mentions the chips and the sign, omitting the status of the hard candy, which the assistant must visually verify."
+            },
+            "capability_fit": "The assistant evaluates a proposed action against a partial-order dependency graph and refuses a terminal step because a parallel prerequisite remains incomplete.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "bag_of_chips",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "bag_of_chips"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "hard_candy",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "hard_candy"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "clipboard",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "clipboard"
+                  },
+                  {
+                    "affordances": [
+                      "container"
+                    ],
+                    "category": "shopping_cart",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "shopping_cart"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "snack_rack",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "snack_rack"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "The bag_of_chips and hard_candy start inside the shopping_cart. The clipboard starts on the countertop. In the prologue, the wearer grabs the bag_of_chips from the shopping_cart and puts it on the snack_rack. The wearer then grabs the clipboard from the countertop. At action zero, the wearer asks if they should put the pricing sign up now. The assistant observes the hard_candy still inside the shopping_cart, recognizing that the parallel prerequisite of stocking the candy is incomplete. The assistant refuses the request and instructs the wearer to put the clipboard back, stock the hard candy, and then place the clipboard. In the main actions, the wearer puts the clipboard on the countertop. The wearer grabs the hard_candy from the shopping_cart and puts it on the snack_rack. Finally, the wearer grabs the clipboard from the countertop and puts it on the snack_rack.",
+                "scene": "grocery_store_half_stocked",
+                "why_scene": "Provides a retail environment with a snack rack."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "Can the assistant refuse a terminal step when a parallel prerequisite is incomplete?",
+                  "counterfactual_failure": "The weak assistant allows the clipboard to be placed prematurely, leaving the hard candy in the cart.",
+                  "forbidden_changes": [
+                    "changing the dependency rules"
+                  ],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "hard_candy inside shopping_cart"
+                  ],
+                  "required_final_predicates": [
+                    "on"
+                  ],
+                  "success_condition": "The hard candy is stocked before the clipboard is placed.",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "first parallel prerequisite",
+                    "what": "bag_of_chips",
+                    "when": "opening"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "second parallel prerequisite",
+                    "what": "hard_candy",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "terminal step item",
+                    "what": "clipboard",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "container"
+                    ],
+                    "role_in_story": "initial staging area",
+                    "what": "shopping_cart",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "display fixture",
+                    "what": "snack_rack",
+                    "when": "both"
+                  }
+                ],
+                "hinges_on": "recognizing that the hard candy has not yet been stocked, making the placement of the pricing sign illegal",
+                "look_alike": [],
+                "opening": "The wearer stocks the chips and grabs the clipboard.",
+                "outcome": "All three items are correctly placed on the snack rack in the required order.",
+                "place": "grocery store",
+                "printed": [],
+                "tests_what": "ability to enforce a partial-order dependency graph"
+              }
+            },
+            "duplicate_of": null,
+            "reason": "The candidate successfully implements the DEPENDENCY_GRAPH capability by presenting a partial-order task where a terminal step (placing the pricing sign) is requested before a parallel prerequisite (stocking the hard candy) is complete. The assistant must use egocentric vision to verify the incomplete prerequisite and refuse the premature action. A minor adjustment was made to the starting locations to respect the 2-item container limit.",
+            "requirements": [],
+            "runtime_requirements": {
+              "actions": [
+                "Grab",
+                "Put"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 8,
+              "estimated_prologue_actions": 3,
+              "estimated_task_actions": 5,
+              "events": [],
+              "final_predicates": [
+                "on"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 52.0,
+            "structural_signature": {
+              "evaluation": "ordered command trace and final state",
+              "evidence": "hard candy in cart",
+              "failure": "premature terminal step",
+              "operation": "evaluate partial-order graph",
+              "response": "refuse and redirect",
+              "temporal": "interrupted sequence"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "grocery_store_half_stocked",
+        "sha": "cecb797ba1ba",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_prod120_quality_20260829c/rounds/round_001/compile_input/GUIDE/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gemini-3-1-pro-preview-tbd",
+        "judge_model": "gemini-3-1-pro-preview-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260829j"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_grounded_prod120_quality_20260829c-r001",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v19-grounded-physics-20260829",
+        "release_id": "sha256:34b86c296becbe4aeca1aeda58c0219f85ac552858fd347e5f46b61ac2c4087f",
+        "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "normalizations": [
+        {
+          "kind": "manual_story_revision",
+          "result": "guide26-story-refine-20260910w",
+          "source": "GUIDE-14003"
+        },
+        {
+          "kind": "canonicalize_required_evidence",
+          "source": "[\"I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.\", \"The stocking-order clipboard visibly requires ascending price order and a stock-then-sign sequence for every item.\", \"The cart's open top tray visibly contains three products and three separate, non-overlapping price cards.\", \"Reading all three physical cards establishes bread as $2, candy as $4, and chocolate as $6.\", \"The bread and its matching price card were placed before another product was started.\", \"The candy and its matching price card were placed after the bread pair.\"]",
+          "result": "[\"I'm new on this aisle. Please use the posted rule and the individual price cards in this cart to guide me through the whole display one step at a time.\", \"The stocking-order clipboard visibly requires ascending price order and a stock-then-sign sequence for every item.\", \"The cart's open top tray visibly contains three products and three separate, non-overlapping price cards.\", \"Reading all three physical cards establishes bread as $2, candy as $4, and chocolate as $6.\", \"The bread and its matching price card were placed before another product was started.\", \"The candy and its matching price card were placed after the bread pair.\", \"First inspect all three physical price cards in the cart. They establish the ascending order: bread at $2, candy at $4, then chocolate at $6. For each one, stock the product and immediately post its matching card before starting the next product.\"]"
+        }
+      ],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "GUIDE-14003",
+      "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+      "capability_notes": [
+        "The cart, instruction counter, and rack must share one close operator anchor so the three card inspections and all placements remain reachable.",
+        "All six source objects occupy the open top tray of serving_cart/revrxw. The bread tag is compact, while the candy and chocolate cards use wider top-facing paper carriers placed near the tray centre/front so every price remains readable without leaning into the cart.",
+        "The six-object final display uses the scene's larger reachable shelf and is checked by sequential surface preflight.",
+        "The current final-state scorer cannot prove stock-before-sign precedence; the weak branch therefore stops immediately after the premature sign placement."
+      ],
+      "revision": "guide26-story-refine-20260910w"
+    }
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": "interactiveworld-external-dependencies/1.0",
+  "runtime": {
+    "isaac_sim": "5.1",
+    "python": "3.11 (Isaac Sim environment)",
+    "launcher_environment": {
+      "ISAAC_ENV_DIR": "optional environment root used to prepend lib/",
+      "ISAAC_PYTHON": "required absolute path to the Isaac Sim Python executable"
+    }
+  },
+  "python_packages": [
+    "numpy",
+    "Pillow",
+    "scipy",
+    "torch",
+    "trimesh",
+    "opencv-python",
+    "imageio",
+    "imageio-ffmpeg"
+  ],
+  "isaac_provided_modules": [
+    "carb",
+    "isaacsim",
+    "omni",
+    "pxr"
+  ],
+  "optional_system_tools": [
+    {
+      "name": "ffmpeg",
+      "command": "ffmpeg",
+      "bundled": false,
+      "required_for": [
+        "benchmark video mode failures",
+        "benchmark video mode all"
+      ],
+      "purpose": "Post-process existing FPV video or captured observation frames into an MP4; it is not required when video mode is off."
+    }
+  ],
+  "model_api_configuration": {
+    "credential_values_bundled": false,
+    "api_key_environment_variable_names": [
+      "INTERACTIVEWORLD_ASSISTANT_API_KEY",
+      "INTERACTIVEWORLD_HUMAN_API_KEY",
+      "OPENAI_API_KEY",
+      "ANTHROPIC_API_KEY",
+      "GEMINI_API_KEY",
+      "GOOGLE_API_KEY"
+    ],
+    "api_key_name_fields": [
+      "assistant.api_key_env",
+      "human.api_key_env"
+    ],
+    "endpoint_fields": [
+      "assistant.base_url",
+      "human.base_url"
+    ],
+    "endpoint_policy": "Remote endpoints require HTTPS; cleartext HTTP is accepted only for loopback self-hosted endpoints.",
+    "provider_endpoints": {
+      "http-json": "Role-specific base_url using the provider-neutral /generate contract; loopback defaults are available.",
+      "openai-compatible": "Role-specific base_url for a self-hosted OpenAI-compatible Chat Completions endpoint.",
+      "openai": "Hosted OpenAI endpoint, or an explicit compatible base_url.",
+      "anthropic": "Hosted Anthropic Messages endpoint, or an explicit base_url.",
+      "gemini": "Hosted Google Gemini generateContent endpoint, or an explicit base_url."
+    }
+  },
+  "required_external_assets": [
+    {
+      "name": "BEHAVIOR-1K baked USD cache",
+      "environment_variable": "INTERACTIVEWORLD_BEHAVIOR_CACHE",
+      "default_path": "/opt/interactiveworld/behavior-cache",
+      "required_subdirectories": [
+        "usd",
+        "spec"
+      ],
+      "bundled": false,
+      "reason": "The full BEHAVIOR-1K asset corpus is too large and separately licensed."
+    },
+    {
+      "name": "BEHAVIOR-1K source data",
+      "environment_variable": "INTERACTIVEWORLD_BEHAVIOR_DATA",
+      "default_path": "/opt/interactiveworld/behavior-data",
+      "required_subdirectories": [
+        "behavior-1k-assets/scenes",
+        "behavior-1k-assets/objects"
+      ],
+      "bundled": false,
+      "reason": "Scene graphs and source asset metadata are distributed separately."
+    },
+    {
+      "name": "MANO Python software",
+      "environment_variable": "INTERACTIVEWORLD_MANO_PYTHON",
+      "default_path": "",
+      "required_subdirectories": [
+        "mano"
+      ],
+      "bundled": false,
+      "license_policy": "No Distribution; each user must obtain it from the licensor."
+    },
+    {
+      "name": "SMPL+H male body model",
+      "environment_variable": "INTERACTIVEWORLD_SMPLH_MODEL",
+      "default_path": "",
+      "required_sha256": "769f26557ec36cf09518feacc9801740d7ea38a3f992366532fcfd8180128cba",
+      "bundled": false,
+      "license_policy": "No Distribution; each user must obtain it from the licensor."
+    },
+    {
+      "name": "ACCAD/AMASS forward walk clip",
+      "environment_variable": "INTERACTIVEWORLD_WALK_CLIP",
+      "default_path": "",
+      "required_sha256": "fbe0bb5edd4e72c711777c00fee107e6038830659a8097f1ca53bbe449a3eedf",
+      "bundled": false,
+      "license_policy": "No Distribution; each user must obtain it from the licensor."
+    },
+    {
+      "name": "Licensed human grasp assets",
+      "environment_variable": "INTERACTIVEWORLD_HUMAN_ASSET_ROOT",
+      "default_path": "",
+      "required_subdirectories": [
+        "atlas/objects"
+      ],
+      "required_files": [
+        "atlas/pinch_family.npz",
+        "atlas/round_wrap_family.npz",
+        "atlas/side_wrap_family.npz"
+      ],
+      "bundled": false,
+      "license_policy": "Not redistributed; install only from an authorized local asset source."
+    }
+  ],
+  "bundled_human_assets": [],
+  "optional_environment": {
+    "ISAAC_FRAMES_PER_SEG": "Number of rendered observations sampled across each semantic action; SimulatorConfig.frames_per_action defaults to 4",
+    "ISAAC_RENDER_SELECTED_ONLY": "Render only selected observation frames instead of rendering a dense trajectory and discarding frames",
+    "ISAAC_VIS_GATE": "Restrict actionable object keys to the measured egocentric visible set",
+    "ISAAC_VISCHECK": "Enable observation-only visibility diagnostics",
+    "INTERACTIVEWORLD_RUN_ROOT": "Optional benchmark-run parent directory; defaults to the platform temporary directory/interactiveworld-runs",
+    "INTERACTIVEWORLD_OUTPUT_DIR": "Low-level TaskPack runner output directory; defaults to /tmp/interactiveworld-output",
+    "INTERACTIVEWORLD_LABEL_ASSET_ROOT": "Optional absolute override for benchmark/tasks/assets/labels",
+    "INTERACTIVEWORLD_GENERATED_LABEL_CACHE": "/tmp/interactiveworld-output/labels",
+    "INTERACTIVEWORLD_ISAAC_ASSET_ROOT": "/opt/isaac-sim/Assets/Isaac/5.1/Isaac (only needed by non-TaskPack procedural scenes)",
+    "INTERACTIVEWORLD_FONT_BOLD": "/usr/share/fonts/dejavu-sans-fonts/DejaVuSans-Bold.ttf",
+    "INTERACTIVEWORLD_FONT_REG": "/usr/share/fonts/dejavu-sans-fonts/DejaVuSans.ttf"
+  }
+}

@@ -1,0 +1,3880 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "FIND-101000",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "sponge",
+          "target": "surf_result"
+        },
+        {
+          "pred": "closed",
+          "subject": "cabinet_kitchen",
+          "target": "cabinet_kitchen"
+        },
+        {
+          "pred": "closed",
+          "subject": "cabinet_living",
+          "target": "cabinet_living"
+        },
+        {
+          "pred": "closed",
+          "subject": "cabinet_bedroom",
+          "target": "cabinet_bedroom"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "sponge",
+          "target": "surf_result"
+        },
+        {
+          "pred": "closed",
+          "subject": "cabinet_kitchen",
+          "target": "cabinet_kitchen"
+        },
+        {
+          "pred": "closed",
+          "subject": "cabinet_living",
+          "target": "cabinet_living"
+        },
+        {
+          "pred": "closed",
+          "subject": "cabinet_bedroom",
+          "target": "cabinet_bedroom"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "cabinet_bedroom",
+          "cabinet_kitchen",
+          "cabinet_living"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "sponge"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The weak branch follows a salient decoy rather than the decisive episodic evidence.",
+        "assistant_must": "Its starting cabinet was never visible, so I cannot name it from memory. Let's search the matching cabinets systematically: kitchen first, then living room, then the innermost living room, closing each one after checking.",
+        "cue": "I remember putting the cleaning sponge in a cabinet like this one, but not which room it was in. Can you guide me to find it and put it on this kitchen counter?",
+        "premise": "The cleaning sponge begins inside a closed cabinet that was never shown to the wearer. Three matching cabinets are physically separated across the kitchen and two successive living rooms. The wearer naturally passes all three while walking from the innermost living room to the kitchen, without inspecting them individually, then asks at the kitchen cabinet. A capable assistant must state the uncertainty and conduct an adaptive room-by-room search."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "FIND",
+      "grounding": {
+        "cite": "I remember putting the cleaning sponge in a cabinet like this one, but not which room it was in. Can you guide me to find it and put it on this kitchen counter?",
+        "kind": "authored",
+        "ref": "data_generate:FIND-101000"
+      },
+      "rule_table": "sponge on the bedroom desk after adaptive search",
+      "scene": "Wainscott_0_int",
+      "template": "the multi-room Wainscott_0_int scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 15,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 15,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "cabinet_bedroom"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "cabinet_living"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "cabinet_kitchen"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "cabinet_kitchen"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "cabinet_kitchen"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "cabinet_living"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "cabinet_living"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "cabinet_bedroom"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "sponge"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "cabinet_bedroom"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_result"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "sponge",
+            "surf_result"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "FIND",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Open] <cabinet_kitchen> (1), [Wait], [Close] <cabinet_kitchen> (1), [Open] <cabinet_living> (1), [Wait], [Close] <cabinet_living> (1), [Open] <cabinet_bedroom> (1), [Grab] <sponge> (1), [Close] <cabinet_bedroom> (1), [Walk] <surf_result> (1), [PutOn] <sponge> (1) <surf_result> (1)",
+      "seed": 1141589868,
+      "source_task_id": "FIND-101000"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "sponge",
+          "target": "surf_result"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "cabinet_kitchen",
+          "target": "cabinet_kitchen"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "cabinet_living",
+          "target": "cabinet_living"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "cabinet_bedroom",
+          "target": "cabinet_bedroom"
+        }
+      ],
+      "sub_steps": [
+        "on item_1 surf_1"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "FIND-101000",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 1141589868,
+      "containers": {
+        "cabinet_kitchen": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "bottom_cabinet",
+            "model": "immwzb",
+            "source": "import"
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "decoy",
+          "room": "kitchen_0"
+        },
+        "cabinet_living": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "bottom_cabinet",
+            "model": "immwzb",
+            "source": "import"
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "decoy",
+          "room": "living_room_1"
+        },
+        "cabinet_bedroom": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "bottom_cabinet",
+            "model": "immwzb",
+            "source": "import"
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "living_room_0"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "surf_result": {
+          "bind": {
+            "cat": "countertop",
+            "source": "scene",
+            "pick": {
+              "name": "countertop_tpuwys_1",
+              "stage_prim_path": "/World/b_countertop_tpuwys_1",
+              "asset_sha256": "sha256:1bf2a44fa9ee771fd7bc205c0db6203bf6565216f35ed621b10adbb95f87b894",
+              "instance_digest": "sha256:366e44a6c15ddcfd3b0dbfbe51654a49469f48b6833cdab0ab5265859bd69e53",
+              "by": "scene_instance",
+              "rank": 1
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {},
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "sponge": {
+          "cat": "sponge",
+          "model": "aewrov",
+          "needs_lookat": false,
+          "place": "in:cabinet_bedroom",
+          "room": "living_room_0",
+          "scored": true,
+          "initial_space": "cabinet_bedroom_space2",
+          "tint": "yellow"
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "living_room_0",
+        "living_room_1",
+        "kitchen_0"
+      ],
+      "scene": "Wainscott_0_int",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "The cleaning sponge begins inside a closed cabinet that was never shown to the wearer. Three matching cabinets are physically separated across the kitchen and two successive living rooms. The wearer naturally passes all three while walking from the innermost living room to the kitchen, without inspecting them individually, then asks at the kitchen cabinet. A capable assistant must state the uncertainty and conduct an adaptive room-by-room search.",
+    "assistant_goal": "I remember putting the cleaning sponge in a cabinet like this one, but not which room it was in. Can you guide me to find it and put it on this kitchen counter?",
+    "assessment_contract": {
+      "assigned_capability_id": "FIND.PARTIAL_OBSERVABILITY_SEARCH",
+      "assigned_scene": "Wainscott_0_int",
+      "core_question": "I remember putting the cleaning sponge in a cabinet like this one, but not which room it was in. Can you guide me to find it and put it on this kitchen counter?",
+      "counterfactual_failure": "The weak branch follows the most salient decoy or stops after the first search location and therefore fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Changing the decisive observed placement or object identity",
+        "Leaving any opened container open at a branch boundary"
+      ],
+      "knowledge_constraints": [
+        "location was never observed; assistant must state uncertainty"
+      ],
+      "required_evidence": [
+        "I remember putting the cleaning sponge in a cabinet like this one, but not which room it was in. Can you guide me to find it and put it on this kitchen counter?",
+        "No cabinet interior or sponge location was visible before the question.",
+        "Its starting cabinet was never visible, so I cannot name it from memory. Let's search the matching cabinets systematically: kitchen first, then living room, then the innermost living room, closing each one after checking."
+      ],
+      "required_final_predicates": [
+        "on",
+        "closed",
+        "closed",
+        "closed"
+      ],
+      "success_condition": "on(sponge, surf_result); closed(cabinet_kitchen, cabinet_kitchen); closed(cabinet_living, cabinet_living); closed(cabinet_bedroom, cabinet_bedroom)",
+      "temporal_constraints": [
+        "The question is asked only after all listed prologue actions complete."
+      ]
+    },
+    "source_contract": {
+      "task_id": "FIND-101000",
+      "family": "FIND",
+      "kind": "a flat or apartment: kitchen, living room, bedrooms, utility",
+      "assessment_contract": {
+        "assigned_capability_id": "FIND.PARTIAL_OBSERVABILITY_SEARCH",
+        "assigned_scene": "Wainscott_0_int",
+        "core_question": "I remember putting the cleaning sponge in a cabinet like this one, but not which room it was in. Can you guide me to find it and put it on this kitchen counter?",
+        "counterfactual_failure": "The weak branch follows the most salient decoy or stops after the first search location and therefore fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Changing the decisive observed placement or object identity",
+          "Leaving any opened container open at a branch boundary"
+        ],
+        "knowledge_constraints": [
+          "location was never observed; assistant must state uncertainty"
+        ],
+        "required_evidence": [
+          "I remember putting the cleaning sponge in a cabinet like this one, but not which room it was in. Can you guide me to find it and put it on this kitchen counter?",
+          "No cabinet interior or sponge location was visible before the question.",
+          "Its starting cabinet was never visible, so I cannot name it from memory. Let's search the matching cabinets systematically: kitchen first, then living room, then the innermost living room, closing each one after checking."
+        ],
+        "required_final_predicates": [
+          "on",
+          "closed",
+          "closed",
+          "closed"
+        ],
+        "success_condition": "on(sponge, surf_result); closed(cabinet_kitchen, cabinet_kitchen); closed(cabinet_living, cabinet_living); closed(cabinet_bedroom, cabinet_bedroom)",
+        "temporal_constraints": [
+          "The question is asked only after all listed prologue actions complete."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "apple_pie",
+          "artichoke",
+          "baby_bottle",
+          "beeswax_candle",
+          "bottle_of_cocoa",
+          "bottle_of_peanut_butter",
+          "bottle_of_powder",
+          "bottle_of_soup",
+          "box_of_baking_soda",
+          "box_of_corn_flakes",
+          "boxing_gloves",
+          "can_of_baking_mix",
+          "chicken_soup_carton",
+          "clipboard",
+          "cocoa_powder_jar",
+          "coffee_grinder",
+          "dumpling",
+          "first_aid_kit",
+          "folder",
+          "gelatin_box",
+          "goalkeeper_gloves",
+          "half_carrot",
+          "half_cupcake",
+          "half_papaya",
+          "half_pomegranate",
+          "half_tortilla_chip",
+          "iron",
+          "jar_of_puree",
+          "license_plate",
+          "light_bulb",
+          "meat_thermometer",
+          "nativity_figurine",
+          "pack_of_bread",
+          "paper_sheet",
+          "pomelo",
+          "pottable_daffodil",
+          "pottable_marigold",
+          "retainer",
+          "sliced_papaya",
+          "sodium_carbonate_jar",
+          "sponge",
+          "water_filter",
+          "whipped_cream_atomizer"
+        ],
+        "allowed_surface_categories": [
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "breakfast_table",
+          "countertop",
+          "desk",
+          "shelf"
+        ],
+        "capability_id": "FIND.PARTIAL_OBSERVABILITY_SEARCH",
+        "coverage_categories": [
+          "dumpling",
+          "iron",
+          "whipped_cream_atomizer",
+          "baby_bottle",
+          "box_of_baking_soda",
+          "cocoa_powder_jar",
+          "half_tortilla_chip",
+          "meat_thermometer",
+          "bottle_of_peanut_butter",
+          "apple",
+          "half_carrot",
+          "goalkeeper_gloves",
+          "water_filter",
+          "bottle_of_powder",
+          "pack_of_bread",
+          "bottle_of_soup",
+          "jar_of_puree",
+          "can_of_baking_mix",
+          "bottle_of_cocoa",
+          "light_bulb"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 4,
+          "required_semantic_turns": 2,
+          "requires_cross_room_transition": true,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "FIND",
+        "limits": {
+          "max_authored_actions": 19,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 4,
+          "max_objects_per_surface": 5,
+          "max_prologue_actions": 4,
+          "max_small_label_characters": 24,
+          "max_task_actions": 11,
+          "min_intervening_meaningful_actions": 4,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "folder",
+          "paper_sheet",
+          "sponge",
+          "clipboard"
+        ],
+        "preferred_story_category_glosses": {
+          "clipboard": "",
+          "folder": "",
+          "paper_sheet": "",
+          "sponge": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 29.7,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "bottom_cabinet_no_top": 4,
+              "coffee_maker": 1,
+              "oven": 2
+            },
+            "scene_surfaces": {
+              "bottom_cabinet_no_top": 5,
+              "countertop": 7
+            },
+            "surface_max_area_m2": {
+              "bottom_cabinet_no_top": 0.141,
+              "countertop": 0.287
+            },
+            "surface_reference_capacity": {
+              "bottom_cabinet_no_top": 3,
+              "countertop": 3
+            }
+          },
+          {
+            "area_m2": 26.8,
+            "name": "living_room_1",
+            "scene_containers": {
+              "bottom_cabinet": 1
+            },
+            "scene_surfaces": {
+              "bottom_cabinet": 1,
+              "breakfast_table": 1
+            },
+            "surface_max_area_m2": {
+              "bottom_cabinet": 0.082,
+              "breakfast_table": 0.149
+            },
+            "surface_reference_capacity": {
+              "bottom_cabinet": 3,
+              "breakfast_table": 3
+            }
+          }
+        ],
+        "scene": "Wainscott_0_int",
+        "task_id": "FIND-101000",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "what": "unseen cleaning sponge",
+            "category": "sponge",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": "yellow",
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "matching low kitchen cabinet",
+            "category": "bottom_cabinet",
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "matching low living-room cabinet",
+            "category": "bottom_cabinet",
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "matching low cabinet in the innermost living room",
+            "category": "bottom_cabinet",
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          }
+        ],
+        "distinct_by": [
+          "matching cabinet instances in three successive rooms"
+        ],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [],
+        "restaged_story": "The cleaning sponge begins inside a closed cabinet that was never shown to the wearer. Three matching cabinets are physically separated across the kitchen and two successive living rooms. The wearer naturally passes all three while walking from the innermost living room to the kitchen, without inspecting them individually, then asks at the kitchen cabinet. A capable assistant must state the uncertainty and conduct an adaptive room-by-room search.",
+        "scene": "Wainscott_0_int",
+        "why_scene": "Wainscott_0_int provides the distinct rooms and physically grounded surfaces required by this revised episodic-memory story."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "cabinet_kitchen": {
+            "cat": "bottom_cabinet",
+            "label": null,
+            "preload": [],
+            "role": "decoy",
+            "room": "kitchen_0"
+          },
+          "cabinet_living": {
+            "cat": "bottom_cabinet",
+            "label": null,
+            "preload": [],
+            "role": "decoy",
+            "room": "living_room_1"
+          },
+          "cabinet_bedroom": {
+            "cat": "bottom_cabinet",
+            "label": null,
+            "preload": [
+              "sponge"
+            ],
+            "role": "scored",
+            "room": "living_room_0"
+          }
+        },
+        "items": {
+          "sponge": {
+            "affordances": [],
+            "cat": "sponge",
+            "initial_space": "cabinet_bedroom_space2",
+            "label": null,
+            "place": "in:cabinet_bedroom",
+            "scored": true,
+            "spot": null,
+            "tint": "yellow"
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <cabinet_bedroom> (1)",
+          "[Walk] <cabinet_living> (1)",
+          "[Walk] <cabinet_kitchen> (1)",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "living_room_0",
+          "living_room_1",
+          "kitchen_0"
+        ],
+        "scene": "Wainscott_0_int",
+        "staging": {
+          "groups": "The cleaning sponge begins inside a closed cabinet that was never shown to the wearer. Three matching cabinets are physically separated across the kitchen and two successive living rooms. The wearer naturally passes all three while walking from the innermost living room to the kitchen, without inspecting them individually, then asks at the kitchen cabinet. A capable assistant must state the uncertainty and conduct an adaptive room-by-room search.",
+          "labels_at_t0": "No printed labels are required.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "surf_result": {
+            "cat": "countertop",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I remember putting the cleaning sponge in a cabinet like this one, but not which room it was in. Can you guide me to find it and put it on this kitchen counter?"
+        },
+        "fact_ledger": [
+          {
+            "id": "fact_001",
+            "fact": "I remember putting the cleaning sponge in a cabinet like this one, but not which room it was in. Can you guide me to find it and put it on this kitchen counter?",
+            "from": "utterance",
+            "source_phase": "turn0",
+            "source_index": null,
+            "derived_from": null
+          },
+          {
+            "id": "fact_002",
+            "fact": "No cabinet interior or sponge location was visible before the question.",
+            "from": "prologue",
+            "source_phase": "opening",
+            "source_index": 1,
+            "derived_from": null
+          },
+          {
+            "id": "fact_003",
+            "fact": "Its starting cabinet was never visible, so I cannot name it from memory. Let's search the matching cabinets systematically: kitchen first, then living room, then the innermost living room, closing each one after checking.",
+            "from": "derived",
+            "source_phase": "derived",
+            "source_index": null,
+            "derived_from": [
+              "fact_001",
+              "fact_002"
+            ]
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "sponge",
+            "target": "surf_result"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "cabinet_kitchen",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "cabinet_living",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "cabinet_bedroom",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 3,
+            "say": "The kitchen cabinet is empty. Close it and continue to the matching cabinet in the living room.",
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "referents": [
+              "cabinet_bedroom",
+              "cabinet_kitchen",
+              "cabinet_living"
+            ]
+          },
+          {
+            "before_index": 6,
+            "say": "The living-room cabinet is empty too. Close it and check the matching cabinet in the innermost living room next.",
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "referents": [
+              "cabinet_bedroom",
+              "cabinet_kitchen",
+              "cabinet_living"
+            ]
+          }
+        ],
+        "hidden_fact": {
+          "what": "Its starting cabinet was never visible, so I cannot name it from memory. Let's search the matching cabinets systematically: kitchen first, then living room, then the innermost living room, closing each one after checking.",
+          "revealed_by": "[Walk] <cabinet_living> (1)",
+          "unavailable_because": "The decisive state is outside the current egocentric view at question time."
+        },
+        "human_own_script": "[Open] <cabinet_kitchen> (1), [Wait], [Close] <cabinet_kitchen> (1), [Confirm]",
+        "mates": [],
+        "oracle_program": "[Open] <cabinet_kitchen> (1), [Wait], [Close] <cabinet_kitchen> (1), [Open] <cabinet_living> (1), [Wait], [Close] <cabinet_living> (1), [Open] <cabinet_bedroom> (1), [Grab] <sponge> (1), [Close] <cabinet_bedroom> (1), [Walk] <surf_result> (1), [PutOn] <sponge> (1) <surf_result> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": [
+          {
+            "index": 0,
+            "say": "Its starting cabinet was never visible, so I cannot name it from memory. Let's search the matching cabinets systematically: kitchen first, then living room, then the innermost living room, closing each one after checking.",
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "referents": [
+              "cabinet_bedroom",
+              "cabinet_kitchen",
+              "cabinet_living",
+              "sponge",
+              "surf_result"
+            ]
+          }
+        ],
+        "steps": null,
+        "story_check": "The cleaning sponge begins inside a closed cabinet that was never shown to the wearer. Three matching cabinets are physically separated across the kitchen and two successive living rooms. The wearer naturally passes all three while walking from the innermost living room to the kitchen, without inspecting them individually, then asks at the kitchen cabinet. A capable assistant must state the uncertainty and conduct an adaptive room-by-room search.",
+        "utterance": "I remember putting the cleaning sponge in a cabinet like this one, but not which room it was in. Can you guide me to find it and put it on this kitchen counter?"
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "physical_preflight": {
+          "diagnostics": [],
+          "physical": {
+            "failures": [],
+            "ok": true,
+            "sited": true,
+            "staged": true,
+            "start": true,
+            "why_sited": "bedroom_0 @ body rung 0",
+            "why_staged": "all graspable objects are preloaded into resolved containers; container fit was checked during recipe resolution",
+            "why_start": "skipped because layout or staging is unsatisfied"
+          },
+          "report_version": "compiler-physical-preflight/1.6",
+          "resolved": {
+            "binding_contract": {
+              "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+              "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+              "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+              "exact_asset_models": true,
+              "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+              "layout": "frozen",
+              "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+              "version": "compiler-asset-capabilities/1.5"
+            },
+            "objects": [],
+            "parts": [],
+            "room": "bedroom_0",
+            "scene": "hotel_suite_large",
+            "units": [
+              {
+                "category": "bottom_cabinet_no_top",
+                "key": "unit_a",
+                "model": "spojpj",
+                "room": "bedroom_0"
+              },
+              {
+                "category": "wardrobe",
+                "key": "unit_b",
+                "model": "uzdupi",
+                "room": "bedroom_0"
+              },
+              {
+                "category": "bottom_cabinet",
+                "key": "unit_c",
+                "model": "ojceew",
+                "room": "bedroom_0"
+              },
+              {
+                "category": "locker",
+                "key": "unit_d",
+                "model": "gemgfz",
+                "room": "bedroom_0"
+              }
+            ]
+          },
+          "seconds": 1.51,
+          "status": "PASS",
+          "task_id": "FIND-101000",
+          "taskpack_digest": "sha256:76d53360c8896f7016318b6c8ccf247bb0605a81d6e737f07c495f4f6e8ab845"
+        },
+        "sim_debt": [],
+        "soft": [],
+        "traces": {
+          "human": [
+            {
+              "primitive": "open",
+              "source": "[Open] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 0
+            },
+            {
+              "primitive": "look_at",
+              "source": "[LookAt] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 1
+            },
+            {
+              "primitive": "navigate_to",
+              "source": "[Walk] <unit_c> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 2
+            },
+            {
+              "primitive": "open",
+              "source": "[Open] <unit_c> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 3
+            },
+            {
+              "primitive": "look_at",
+              "source": "[LookAt] <unit_c> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 4
+            },
+            {
+              "primitive": "navigate_to",
+              "source": "[Walk] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 5
+            },
+            {
+              "primitive": "look_at",
+              "source": "[LookAt] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 6
+            }
+          ],
+          "opening": [
+            {
+              "primitive": "navigate_to",
+              "source": "[Walk] <surf_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 0
+            },
+            {
+              "primitive": "wait",
+              "source": "[Wait]",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 1
+            }
+          ],
+          "oracle": [
+            {
+              "primitive": "open",
+              "source": "[Open] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 0
+            },
+            {
+              "primitive": "look_at",
+              "source": "[LookAt] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 1
+            },
+            {
+              "primitive": "navigate_to",
+              "source": "[Walk] <unit_c> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 2
+            },
+            {
+              "primitive": "open",
+              "source": "[Open] <unit_c> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 3
+            },
+            {
+              "primitive": "look_at",
+              "source": "[LookAt] <unit_c> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 4
+            },
+            {
+              "primitive": "navigate_to",
+              "source": "[Walk] <unit_d> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 5
+            },
+            {
+              "primitive": "open",
+              "source": "[Open] <unit_d> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c",
+                  "unit_d"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 6
+            },
+            {
+              "primitive": "look_at",
+              "source": "[LookAt] <unit_d> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c",
+                  "unit_d"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c",
+                  "unit_d"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 7
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c",
+                  "unit_d"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_d",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c",
+                  "unit_d"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 8
+            },
+            {
+              "primitive": "navigate_to",
+              "source": "[Walk] <surf_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c",
+                  "unit_d"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c",
+                  "unit_d"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 9
+            },
+            {
+              "primitive": "place",
+              "source": "[Put] <item_1> (1) <surf_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c",
+                  "unit_d"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0",
+                  "unit_c": "floor:bedroom_0",
+                  "unit_d": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a",
+                  "unit_c",
+                  "unit_d"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 10
+            }
+          ]
+        }
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <cabinet_bedroom> (1)",
+        "[Walk] <cabinet_living> (1)",
+        "[Walk] <cabinet_kitchen> (1)",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "cabinet_bedroom"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "cabinet_bedroom"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "cabinet_living"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "cabinet_living"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "No cabinet interior or sponge location was visible before the question.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "Its starting cabinet was never visible, so I cannot name it from memory. Let's search the matching cabinets systematically: kitchen first, then living room, then the innermost living room, closing each one after checking.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "cabinet_kitchen"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "cabinet_kitchen"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "I remember putting the cleaning sponge in a cabinet like this one, but not which room it was in. Can you guide me to find it and put it on this kitchen counter?",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "I remember putting the cleaning sponge in a cabinet like this one, but not which room it was in. Can you guide me to find it and put it on this kitchen counter?",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "Its starting cabinet was never visible, so I cannot name it from memory. Let's search the matching cabinets systematically: kitchen first, then living room, then the innermost living room, closing each one after checking.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Its starting cabinet was never visible, so I cannot name it from memory. Let's search the matching cabinets systematically: kitchen first, then living room, then the innermost living room, closing each one after checking.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The kitchen cabinet is empty. Close it and continue to the matching cabinet in the living room.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The living-room cabinet is empty too. Close it and check the matching cabinet in the innermost living room next.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "cabinet_kitchen"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "cabinet_kitchen"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Confirm",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "cabinet_kitchen"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "cabinet_kitchen"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "cabinet_living"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "cabinet_living"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "cabinet_bedroom"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "sponge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "sponge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "cabinet_bedroom"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_result"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_result"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o010",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "sponge",
+            "surf_result"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "I remember putting the cleaning sponge in a cabinet like this one, but not which room it was in. Can you guide me to find it and put it on this kitchen counter?",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "No cabinet interior or sponge location was visible before the question.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "Its starting cabinet was never visible, so I cannot name it from memory. Let's search the matching cabinets systematically: kitchen first, then living room, then the innermost living room, closing each one after checking.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "The person has no prior view of which room's matching low cabinet contains the cleaning sponge and wants guided search followed by placement on the kitchen counter.",
+      "human_task_context": "After asking the question, search only in the order and rooms the Assistant explicitly directs. Report or act on each observed result, put the sponge on the kitchen counter once found, and close every cabinet checked. Do not use private state or internal object identifiers to skip the visual search.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <cabinet_bedroom> (1)",
+          "[Walk] <cabinet_living> (1)",
+          "[Walk] <cabinet_kitchen> (1)",
+          "[Wait]",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 4,
+            "say": "Hey, Assistant, I know I put the cleaning sponge in a low cabinet like this, but I can't remember which room. Can you guide me while I look, then help me put it on the kitchen counter?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, I know I put the cleaning sponge in a low cabinet like this, but I can't remember which room. Can you guide me while I look, then help me put it on the kitchen counter?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "unknown_room_search",
+            "required_phrases": [
+              "can't remember which room",
+              "guide me while I look",
+              "put it on the kitchen counter"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "verification_points": [
+          {
+            "id": "sponge_on_kitchen_counter",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "sponge",
+            "target": "surf_result",
+            "description": "The cleaning sponge is on the kitchen counter."
+          },
+          {
+            "id": "kitchen_cabinet_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "cabinet_kitchen",
+            "target": "cabinet_kitchen",
+            "description": "The kitchen cabinet is closed."
+          },
+          {
+            "id": "living_room_cabinet_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "cabinet_living",
+            "target": "cabinet_living",
+            "description": "The living-room cabinet is closed."
+          },
+          {
+            "id": "inner_living_room_cabinet_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "cabinet_bedroom",
+            "target": "cabinet_bedroom",
+            "description": "The innermost living-room cabinet is closed."
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 34,
+    "dialogue_budget": 3,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "cabinet_kitchen",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "cabinet_bedroom",
+              "cabinet_kitchen",
+              "cabinet_living",
+              "sponge",
+              "surf_result"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "sponge",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "cabinet_bedroom",
+              "cabinet_kitchen",
+              "cabinet_living"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "sponge",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "cabinet_bedroom",
+              "cabinet_kitchen",
+              "cabinet_living"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "sponge",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "sponge",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o009"
+        },
+        {
+          "after_beat": "o009",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "surf_result",
+            "truth": true
+          },
+          "next_beat": "o010"
+        }
+      ],
+      "terminal_beats": [
+        "h003",
+        "o010"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Open",
+        "args": [
+          "cabinet_kitchen"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "cabinet_kitchen"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "cabinet_living"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "cabinet_living"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "cabinet_bedroom"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "sponge"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "cabinet_bedroom"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_result"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "sponge",
+          "surf_result"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Open",
+        "args": [
+          "cabinet_kitchen"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "cabinet_kitchen"
+        ]
+      },
+      {
+        "verb": "Confirm",
+        "args": []
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Its starting cabinet was never visible, so I cannot name it from memory. Let's search the matching cabinets systematically: kitchen first, then living room, then the innermost living room, closing each one after checking.",
+        "relation": "at",
+        "anchor_beat_id": "o000",
+        "source": "speaks_at",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The kitchen cabinet is empty. Close it and continue to the matching cabinet in the living room.",
+        "relation": "before",
+        "anchor_beat_id": "o003",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_002",
+        "say": "The living-room cabinet is empty too. Close it and check the matching cabinet in the innermost living room next.",
+        "relation": "before",
+        "anchor_beat_id": "o006",
+        "source": "guidance",
+        "source_index": 1
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    }
+  },
+  "lineage": {
+    "source": "find17_interaction_assembly",
+    "compile_input_digest": "sha256:3a4880227b1af21b4cea4010b9d774b7bc447c3f9ce58094f36846a8508d9cd6",
+    "source_contract_digest": "sha256:8ef6d3d989239ef77a1d158296f25bf2b487ad480417ef072a300b328a4b813e",
+    "executable_spec_digest": "sha256:9a512c8e89d9ee5603261c78939c484ca90192eb980007226093bbadb5066c37",
+    "invention": {
+      "attempt": 3,
+      "author_prose": "In bedroom_0 of hotel_suite_large, a low-vision hotel worker needs a spare sponge to clean a guest desk. The sponge is hidden before the episode inside one of four distinct storage locations: a side cabinet, wardrobe, bottom cabinet, or locker. Neither the wearer nor the glasses observes where it was placed. From the desk the wearer names those four plausible locations and asks for help finding the sponge and bringing it back. The assistant admits the location is unknown and starts with one named candidate, the side cabinet. After the wearer opens it and the live view shows it is empty, the assistant rules it out and directs the next check at the bottom cabinet. That inspection is also empty, so the assistant updates again and sends the wearer to the locker, leaving the wardrobe as the final fallback. The locker inspection reveals the sponge; the wearer retrieves it and returns it to the desk. A weak assistant guesses before observing evidence or repeats an already failed location, so the sponge never reaches the desk.",
+      "author_prose_sha256": "sha256:ea8c6eba98c7e437bb4b11af803105afb26576c713018db4a6a6cb72f08a7d32",
+      "capability": {
+        "boundary": "Do not pretend the assistant knows the answer. The assessed product is a calibrated search policy, not direct recall. Every proposed location must be a credible place for that object, and the initial ordering must be justified by visible context, a note, recency, room function, or another explicit clue; arbitrary enumeration of implausible bins is not assistance. Never rank locations as nearer, farther, adjacent, or on the way unless that relation is explicitly encoded. Stage the hidden target initially inside one grounded fixed container through preload; never put an action on that target in the observed prologue, never use an `occlude` simulator event, and never encode an initial `inside` relation outside container preload. Use an actual opening command such as `[Wait]` as the hidden-fact anchor, then put each inspection and evidence-conditioned follow-up in the oracle dialogue trace.",
+        "few_shot": "Before the episode begins, a remote is already hidden inside one of three grounded fixed containers while the glasses did not observe which one; the target is staged by container preload rather than by a prologue action. The opening may contain a neutral `[Wait]` that anchors the unobserved interval, but it never moves, grabs, places, opens, or otherwise exposes the remote. When asked, the assistant explicitly states its uncertainty and proposes the first plausible container. The wearer opens it and waits for the view to establish that it is empty. Only after that negative evidence does the assistant name the second container; another explicit open-and-observe beat rules it out, so the assistant updates again and directs the final check. The target becomes visible in the last container, is retrieved, and is placed at a scored destination. The task uses no invented occlusion event, the hidden-fact anchor names a command that really occurs in the opening, and every later assistant turn follows new inspection evidence. An overconfident assistant that names the final location before looking or repeats the same search after negative evidence takes the wrong branch.",
+        "id": "FIND.PARTIAL_OBSERVABILITY_SEARCH",
+        "name_zh": "部分可观测下的搜索策略",
+        "target": "When the final location was never observed, state that uncertainty and guide an evidence-based, adaptive search whose next step changes after each failed inspection."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "FIND.PARTIAL_OBSERVABILITY_SEARCH",
+        "evaluation_mode": "TRACE_AND_OUTCOME",
+        "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": true,
+        "owner": "SIMULATOR_EVALUATION",
+        "reason": "Execution is supported, but search calibration, cost, and observation-conditioned replanning lack a dedicated scorer.",
+        "reason_code": "SEARCH_POLICY_EVALUATOR",
+        "recommended_work": "Add a search-policy evaluator over uncertainty claims, inspected locations, and branch updates.",
+        "version": "capability-support/1.0",
+        "workstream": "EVALUATOR"
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "folder",
+          "paper_sheet",
+          "sponge",
+          "clipboard",
+          "dumpling",
+          "iron",
+          "whipped_cream_atomizer",
+          "baby_bottle",
+          "box_of_baking_soda",
+          "cocoa_powder_jar",
+          "half_tortilla_chip",
+          "meat_thermometer",
+          "bottle_of_peanut_butter",
+          "apple",
+          "half_carrot",
+          "goalkeeper_gloves",
+          "water_filter",
+          "bottle_of_powder",
+          "pack_of_bread",
+          "bottle_of_soup",
+          "jar_of_puree",
+          "can_of_baking_mix",
+          "bottle_of_cocoa",
+          "light_bulb"
+        ],
+        "allowed_surface_categories": [
+          "desk",
+          "shelf"
+        ],
+        "capability_id": "FIND.PARTIAL_OBSERVABILITY_SEARCH",
+        "coverage_categories": [
+          "dumpling",
+          "iron",
+          "whipped_cream_atomizer",
+          "baby_bottle",
+          "box_of_baking_soda",
+          "cocoa_powder_jar",
+          "half_tortilla_chip",
+          "meat_thermometer",
+          "bottle_of_peanut_butter",
+          "apple",
+          "half_carrot",
+          "goalkeeper_gloves",
+          "water_filter",
+          "bottle_of_powder",
+          "pack_of_bread",
+          "bottle_of_soup",
+          "jar_of_puree",
+          "can_of_baking_mix",
+          "bottle_of_cocoa",
+          "light_bulb"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 4,
+          "required_semantic_turns": 2,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "FIND",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 12,
+          "min_intervening_meaningful_actions": 0,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "folder",
+          "paper_sheet",
+          "sponge",
+          "clipboard"
+        ],
+        "preferred_story_category_glosses": {
+          "clipboard": "",
+          "folder": "",
+          "paper_sheet": "",
+          "sponge": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 39.7,
+            "name": "bedroom_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "desk": 1,
+              "shelf": 1
+            },
+            "surface_max_area_m2": {
+              "desk": 0.227,
+              "shelf": 0.263
+            },
+            "surface_reference_capacity": {
+              "desk": 3,
+              "shelf": 3
+            }
+          }
+        ],
+        "scene": "hotel_suite_large",
+        "task_id": "FIND-101000",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "prompt_sha": "ca082fb51012",
+      "prompt_sha256": "sha256:ca082fb51012f892450e7310900b72778b85c2c9b03bb5fce6d2c4482c7419cd",
+      "prompt_version": "capability-v40-template-cap3-20260901",
+      "prose_sha256": "sha256:eb467904021befbe873cd08b6db22d13c84aba11d4c589424cbdf239f9e74097",
+      "review": {
+        "benchmark_check": {
+          "actor_scope": {
+            "live_physical_actors": [
+              "wearer"
+            ],
+            "other_person_changes_world": false
+          },
+          "core_claims": [
+            {
+              "available_before_turn": 0,
+              "claim": "the sponge's placement was never observed, so the assistant cannot assert a location",
+              "derived_from": [],
+              "established_by": "preload inside a container plus only a neutral [Wait] opening with no target action",
+              "runtime_support": "hidden preload and [Wait] anchor",
+              "source": "prior_action"
+            },
+            {
+              "available_before_turn": 0,
+              "claim": "the assistant changes its next recommendation only after an observed empty inspection",
+              "derived_from": [],
+              "established_by": "assistant dialogue after the observed empty inspection",
+              "runtime_support": "assistant spoken room-function rationale in the oracle trace",
+              "source": "utterance"
+            },
+            {
+              "available_before_turn": 0,
+              "claim": "after two negative inspections, only the locker and wardrobe remain, so the locker is the next check",
+              "derived_from": [
+                "the sponge's placement was never observed, so the assistant cannot assert a location"
+              ],
+              "established_by": "elimination of side cabinet and bottom_cabinet by observed empty views",
+              "runtime_support": "two enacted open+look negative observations",
+              "source": "derived"
+            }
+          ],
+          "counterfactual_contract": {
+            "allowed_other_differences": [],
+            "operator": "assert a location before inspection or re-recommend an emptied container",
+            "shared_obligations": [
+              "g1"
+            ],
+            "target_difference": "strong reaches the locker and places the sponge on the desk; weak stalls on an empty container and never completes placement"
+          },
+          "cross_field_consistency": {
+            "conflicts": [],
+            "consistent": true
+          },
+          "decisive_fact_absent_from_utterance": true,
+          "egocentric_evidence": "the live empty views inside the side cabinet and the bedroom bottom_cabinet after opening them",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "meaningful_steps": [
+            "state uncertainty and recommend side cabinet first",
+            "open and inspect side cabinet; empty",
+            "re-rank to bedroom bottom_cabinet and inspect; empty",
+            "change recommendation to bedroom locker; find sponge",
+            "retrieve sponge and place on bedroom desk"
+          ],
+          "memory_gap": {
+            "intervening_meaningful_actions": 0,
+            "reason": "this is a search-policy task, not memory-dependent; the location was never observed so no memory gap is required",
+            "required": false,
+            "wearer_just_established_answer": false
+          },
+          "physical_plausibility": {
+            "credible": true,
+            "issues": []
+          },
+          "semantic_turns": 3,
+          "story_world_mismatches": [],
+          "strong_completes_user_goal": true,
+          "strong_weak_distinct": true,
+          "turn0_access": {
+            "answer_fully_visible": false,
+            "assistant_need": "partial-observability search planning under a low-vision accessibility constraint",
+            "wearer_can_self_serve": false
+          },
+          "ungrounded_physical_nouns": [],
+          "unmodeled_claims": [],
+          "user_goal_obligations": [
+            {
+              "covered_by": [
+                "Put sponge on desk",
+                "on predicate scorer"
+              ],
+              "description": "the spare sponge ends up on the bedroom desk",
+              "grounded_in": "'help me find it and bring it back here'",
+              "id": "g1",
+              "kind": "physical"
+            }
+          ],
+          "uses_only_grounded_assets": true,
+          "utterance_policy": {
+            "prescribes_assistant_words_or_trigger": false,
+            "reason": "the wearer lists candidate containers and asks for help finding and returning the sponge, leaving the ranking and target inference to the assistant",
+            "states_goal_not_solution": true
+          },
+          "weak_shared_work_complete": true,
+          "why_user_needs_assistant": "the low-vision worker cannot quickly search by sight and needs hands-free guidance on which container to open next after each failure",
+          "why_utterance_alone_fails": "the utterance names four possible containers but does not say which one holds the sponge; only the enacted negative inspections narrow it down"
+        },
+        "capability_fit": "An unobserved target is located via a calibrated, evidence-updated search whose next candidate changes after each failed inspection, matching FIND.PARTIAL_OBSERVABILITY_SEARCH.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "sponge",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "spare sponge"
+              },
+              {
+                "affordances": [
+                  "container",
+                  "openable"
+                ],
+                "category": "bookcase",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "bedroom side cabinet"
+              },
+              {
+                "affordances": [
+                  "container",
+                  "openable"
+                ],
+                "category": "wardrobe",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "bedroom wardrobe"
+              },
+              {
+                "affordances": [
+                  "container",
+                  "openable"
+                ],
+                "category": "bottom_cabinet",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "bedroom bottom_cabinet"
+              },
+              {
+                "affordances": [
+                  "container",
+                  "openable"
+                ],
+                "category": "locker",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "bedroom locker"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "desk",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "bedroom desk"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "In bedroom_0 of hotel_suite_large, a low-vision hotel worker needs a spare sponge to clean a guest desk. The sponge is hidden before the episode inside one of four distinct storage locations: a side cabinet, wardrobe, bottom cabinet, or locker. Neither the wearer nor the glasses observes where it was placed. From the desk the wearer names those four plausible locations and asks for help finding the sponge and bringing it back. The assistant admits the location is unknown and starts with one named candidate, the side cabinet. After the wearer opens it and the live view shows it is empty, the assistant rules it out and directs the next check at the bottom cabinet. That inspection is also empty, so the assistant updates again and sends the wearer to the locker, leaving the wardrobe as the final fallback. The locker inspection reveals the sponge; the wearer retrieves it and returns it to the desk. A weak assistant guesses before observing evidence or repeats an already failed location, so the sponge never reaches the desk.",
+            "scene": "hotel_suite_large",
+            "why_scene": "the assigned scene provides bedroom_0 and bedroom_0, both of which support imported containers and the required desk surface."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "can the assistant admit non-observation and guide an evidence-updated search whose next candidate changes after each failure",
+              "counterfactual_failure": "weak assistant asserts the first guess as certain or re-sends the wearer to an already-empty container, so the sponge never reaches the desk",
+              "forbidden_changes": [
+                "asserting a location before inspection",
+                "re-recommending an emptied container",
+                "claiming direct recall of the placement"
+              ],
+              "knowledge_constraints": [
+                "location was never observed; assistant must state uncertainty"
+              ],
+              "required_evidence": [
+                "neutral [Wait] anchor with no observed target placement",
+                "enacted open+look negative view of the side cabinet",
+                "enacted open+look negative view of the bedroom bottom_cabinet",
+                "find of the sponge in the bedroom locker"
+              ],
+              "required_final_predicates": [
+                "on"
+              ],
+              "success_condition": "sponge on the bedroom desk after adaptive search",
+              "temporal_constraints": [
+                "each ruled-out claim must follow the corresponding inspection"
+              ]
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "the searched-for target retrieved to the desk",
+                "what": "spare sponge",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "drives_the_story",
+                "required_affordances": [
+                  "container",
+                  "openable"
+                ],
+                "role_in_story": "first inspected candidate, empty",
+                "what": "bedroom side cabinet",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "drives_the_story",
+                "required_affordances": [
+                  "container",
+                  "openable"
+                ],
+                "role_in_story": "lowest-ranked remaining candidate",
+                "what": "bedroom wardrobe",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "drives_the_story",
+                "required_affordances": [
+                  "container",
+                  "openable"
+                ],
+                "role_in_story": "second inspected candidate, empty",
+                "what": "bedroom bottom_cabinet",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "drives_the_story",
+                "required_affordances": [
+                  "container",
+                  "openable"
+                ],
+                "role_in_story": "third inspected candidate holding the sponge",
+                "what": "bedroom locker",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "final destination surface",
+                "what": "bedroom desk",
+                "when": "both"
+              }
+            ],
+            "hinges_on": "updating the next inspection after each failed open based on stated uncertainty and a purpose-related ranking clue",
+            "look_alike": [],
+            "opening": "sponge preloaded inside the bedroom locker; wearer stands near bedroom desk and executes a neutral [Wait] with no target action observed",
+            "outcome": "the sponge is retrieved from the bedroom locker and placed on the bedroom desk",
+            "place": "hotel_suite_large bedroom_0 and bedroom_0",
+            "printed": [],
+            "tests_what": "calibrated adaptive search for an unobserved target across four candidate containers"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The candidate stages a genuine partial-observability search: the sponge is preloaded inside one of four imported fixed containers, never observed, with a neutral [Wait] as hidden-fact anchor. The assistant openly states it never saw the placement, then gives an evidence-conditioned adaptive policy whose recommendation changes after each failed inspection (side cabinet -> bedroom bottom_cabinet -> bedroom locker), with each next recommendation grounded in the accumulated empty inspections. Each negative follows an actual open+look, the target is inside a candidate, the destination (bedroom desk) matches the executable story, and the weak branch fails by premature certainty or re-checking emptied containers. All four candidate categories (side cabinet, wardrobe, bottom_cabinet, locker), the sponge, and the desk surface are in the grounding contract, and the rooms bedroom_0/bedroom_0 are allowed. Within action budget.",
+        "requirements": [
+          "Ensure every changed recommendation follows a live empty-container observation.",
+          "Confirm each negative observation follows an actual [Open] then [LookAt] of that exact container before the assistant rules it out.",
+          "Keep the accessibility rationale (low-vision, cannot search quickly by sight) in the wearer utterance to justify hands-free assisted search."
+        ],
+        "runtime_requirements": {
+          "actions": [
+            "Wait",
+            "Open",
+            "LookAt",
+            "Walk",
+            "Grab",
+            "Put"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 10,
+          "estimated_prologue_actions": 1,
+          "estimated_task_actions": 9,
+          "events": [],
+          "final_predicates": [
+            "on"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 93.0,
+        "structural_signature": {
+          "evaluation": "ordered inspection trace, changed third recommendation, final on-desk placement",
+          "evidence": "live negative inspections of candidate containers",
+          "failure": "premature certainty or re-recommending an emptied container",
+          "operation": "calibrated evidence-updated re-ranking of candidates",
+          "response": "stated uncertainty plus changing next-candidate recommendation",
+          "template_class": "unobserved_target_adaptive_container_search",
+          "temporal": "hidden preload anchored by neutral wait, then sequential inspection"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "the sponge's placement was never observed by the glasses",
+                "derived_from": [],
+                "established_by": "preload inside a closed container with only a neutral [Wait] opening",
+                "runtime_support": "preloaded inside relation with no observed placement action",
+                "source": "prior_action"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "the bedroom side cabinet is empty of the sponge",
+                "derived_from": [],
+                "established_by": "Open side cabinet then LookAt inside",
+                "runtime_support": "live container-contents view after opening",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "the bedroom bottom_cabinet is empty of the sponge",
+                "derived_from": [],
+                "established_by": "Open bottom_cabinet then LookAt inside",
+                "runtime_support": "live container-contents view after opening",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "the third recommendation must change to the bedroom locker after two negatives",
+                "derived_from": [
+                  "the bedroom side cabinet is empty of the sponge",
+                  "the bedroom bottom_cabinet is empty of the sponge"
+                ],
+                "established_by": "eliminating the two inspected empty candidates leaves locker and wardrobe",
+                "runtime_support": "two negative live inspections narrow the candidate set",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "assert certainty or re-recommend an emptied container instead of re-ranking",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "strong adapts after each negative and finds the sponge; weak stalls and never places it on the desk"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "the live empty views after opening the side cabinet and bottom_cabinet drive the changed third recommendation",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "assistant states uncertainty and recommends bedroom side cabinet",
+              "open side cabinet and see empty",
+              "assistant re-ranks to bedroom bottom_cabinet",
+              "open bottom_cabinet and see empty",
+              "assistant re-ranks to bedroom locker",
+              "open locker and find sponge",
+              "grab sponge and place on bedroom desk"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 0,
+              "reason": "placement was never observed, so this is a search-policy task rather than a memory-recall task",
+              "required": false,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 2,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": false,
+              "assistant_need": "accessibility (low-vision hands-free search) plus partial observability of an unobserved placement",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "Put sponge on desk",
+                  "on predicate scorer"
+                ],
+                "description": "the spare sponge ends up on the bedroom desk",
+                "grounded_in": "'I need the spare sponge for this desk ... bring it back here'",
+                "id": "g1",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "the wearer states the goal and candidate list but leaves the search ordering and find to the assistant",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "the low-vision worker cannot quickly visually search four separated containers and needs hands-free calibrated guidance that adapts to each failed look",
+            "why_utterance_alone_fails": "the utterance names four candidates but does not say which holds the sponge; only successive inspection results determine the order and the find"
+          },
+          "capability_fit": "The task requires calibrated uncertainty and an adaptive evidence-conditioned search whose next step changes after each failed inspection, matching FIND.PARTIAL_OBSERVABILITY_SEARCH.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "sponge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "spare sponge"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "bookcase",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "bedroom side cabinet"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "wardrobe",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "bedroom wardrobe"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "bedroom bottom_cabinet"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "locker",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "bedroom locker"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In bedroom_0 of hotel_suite_large, a low-vision hotel worker needs a spare sponge to clean a guest desk. The sponge is hidden before the episode inside one of four distinct storage locations: a side cabinet, wardrobe, bottom cabinet, or locker. Neither the wearer nor the glasses observes where it was placed. From the desk the wearer names those four plausible locations and asks for help finding the sponge and bringing it back. The assistant admits the location is unknown and starts with one named candidate, the side cabinet. After the wearer opens it and the live view shows it is empty, the assistant rules it out and directs the next check at the bottom cabinet. That inspection is also empty, so the assistant updates again and sends the wearer to the locker, leaving the wardrobe as the final fallback. The locker inspection reveals the sponge; the wearer retrieves it and returns it to the desk. A weak assistant guesses before observing evidence or repeats an already failed location, so the sponge never reaches the desk.",
+              "scene": "hotel_suite_large",
+              "why_scene": "the assigned scene provides bedroom_0 with a desk and bedroom_0, both allowed interactive rooms for staging imported containers."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "does the assistant express uncertainty and adapt its container recommendation after each failed inspection until the sponge is found",
+                "counterfactual_failure": "weak assistant asserts certainty or re-recommends an emptied container, so the sponge never reaches the desk",
+                "forbidden_changes": [
+                  "encoding an initial inside relation outside container preload",
+                  "using an occlude event",
+                  "ranking candidates by unencoded adjacency or distance"
+                ],
+                "knowledge_constraints": [
+                  "assistant never claims to know the location before inspection"
+                ],
+                "required_evidence": [
+                  "neutral [Wait] hidden-fact anchor with unobserved placement",
+                  "empty side cabinet after opening",
+                  "empty bottom_cabinet after opening",
+                  "sponge visible in locker after opening"
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "sponge is on the bedroom desk after adaptive search",
+                "temporal_constraints": [
+                  "each negative claim follows its Open+LookAt",
+                  "third recommendation follows the second negative"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "hidden search target retrieved to desk",
+                  "what": "spare sponge",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "first candidate, empty",
+                  "what": "bedroom side cabinet",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "remaining unchecked candidate",
+                  "what": "bedroom wardrobe",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "second candidate, empty",
+                  "what": "bedroom bottom_cabinet",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "third candidate holding the sponge",
+                  "what": "bedroom locker",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "changing the recommendation only after each live negative inspection",
+              "look_alike": [],
+              "opening": "sponge preloaded inside one closed imported container; wearer stands at bedroom desk and executes neutral [Wait]",
+              "outcome": "the sponge is retrieved from the bedroom locker and placed on the bedroom desk",
+              "place": "hotel suite, bedroom_0 with bedroom_0",
+              "printed": [],
+              "tests_what": "calibrated uncertainty and adaptive evidence-conditioned container search under partial observability"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "This is a valid partial-observability adaptive search: the sponge is preloaded inside one of four grounded imported containers, never observed placed, anchored by a neutral [Wait], and the assistant issues calibrated uncertainty plus an evidence-conditioned ordering with two negative inspections before the third re-ranked recommendation. Candidate classes are named in the wearer's utterance, four distinct storage fixtures creates a real search-cost distinction, and a stated low-vision accessibility reason justifies the hands-free search help. The final placement on the bedroom desk is scorable and the weak branch fails by asserting certainty or re-recommending an emptied container. All fixtures (side cabinet, wardrobe imported into bedroom_0; bottom_cabinet, locker imported into bedroom_0; desk is scene-owned in bedroom_0) fit the exact scene and grounding contract.",
+          "requirements": [
+            "Ensure the assistant's ordering justification for the bedroom bottom_cabinet ('more purpose-related than the bedroom wardrobe') is expressed only as a room-function/cleaning-supply prior, never as adjacency or relative position, which is not encoded.",
+            "Ensure no 'nearest to the work area' phrasing implies encoded distance; restate the bedroom side cabinet preference as same-room, checkable-before-leaving room-function reasoning only.",
+            "Keep each negative inspection strictly after the corresponding Open+look, and issue the third re-ranked recommendation only after the second negative."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Wait",
+              "Open",
+              "LookAt",
+              "Grab",
+              "Walk",
+              "Put"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 12,
+            "estimated_prologue_actions": 1,
+            "estimated_task_actions": 11,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 46.8,
+          "structural_signature": {
+            "evaluation": "ordered inspection trace plus final on-desk placement",
+            "evidence": "live negative inspections of opened containers",
+            "failure": "premature certainty or re-checking emptied container",
+            "operation": "calibrated uncertainty plus evidence-conditioned re-ranking",
+            "response": "adaptive search guidance and retrieval",
+            "template_class": "partial_observability_adaptive_container_search",
+            "temporal": "neutral wait anchor then sequential inspections"
+          },
+          "verdict": "KEEP"
+        },
+        {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "the sponge's placement was never observed, so the assistant cannot assert a location",
+                "derived_from": [],
+                "established_by": "preload inside a container plus only a neutral [Wait] opening with no target action",
+                "runtime_support": "hidden preload and [Wait] anchor",
+                "source": "prior_action"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "the assistant changes its next recommendation only after an observed empty inspection",
+                "derived_from": [],
+                "established_by": "assistant dialogue after the observed empty inspection",
+                "runtime_support": "assistant spoken room-function rationale in the oracle trace",
+                "source": "utterance"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "after two negative inspections, only the locker and wardrobe remain, so the locker is the next check",
+                "derived_from": [
+                  "the sponge's placement was never observed, so the assistant cannot assert a location"
+                ],
+                "established_by": "elimination of side cabinet and bottom_cabinet by observed empty views",
+                "runtime_support": "two enacted open+look negative observations",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "assert a location before inspection or re-recommend an emptied container",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "strong reaches the locker and places the sponge on the desk; weak stalls on an empty container and never completes placement"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "the live empty views inside the side cabinet and the bedroom bottom_cabinet after opening them",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "state uncertainty and recommend side cabinet first",
+              "open and inspect side cabinet; empty",
+              "re-rank to bedroom bottom_cabinet and inspect; empty",
+              "change recommendation to bedroom locker; find sponge",
+              "retrieve sponge and place on bedroom desk"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 0,
+              "reason": "this is a search-policy task, not memory-dependent; the location was never observed so no memory gap is required",
+              "required": false,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 3,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": false,
+              "assistant_need": "partial-observability search planning under a low-vision accessibility constraint",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "Put sponge on desk",
+                  "on predicate scorer"
+                ],
+                "description": "the spare sponge ends up on the bedroom desk",
+                "grounded_in": "'help me find it and bring it back here'",
+                "id": "g1",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "the wearer lists candidate containers and asks for help finding and returning the sponge, leaving the ranking and target inference to the assistant",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "the low-vision worker cannot quickly search by sight and needs hands-free guidance on which container to open next after each failure",
+            "why_utterance_alone_fails": "the utterance names four possible containers but does not say which one holds the sponge; only the enacted negative inspections narrow it down"
+          },
+          "capability_fit": "An unobserved target is located via a calibrated, evidence-updated search whose next candidate changes after each failed inspection, matching FIND.PARTIAL_OBSERVABILITY_SEARCH.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "sponge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "spare sponge"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "bookcase",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "bedroom side cabinet"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "wardrobe",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "bedroom wardrobe"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "bedroom bottom_cabinet"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "locker",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "bedroom locker"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "desk",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "bedroom desk"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In bedroom_0 of hotel_suite_large, a low-vision hotel worker needs a spare sponge to clean a guest desk. The sponge is hidden before the episode inside one of four distinct storage locations: a side cabinet, wardrobe, bottom cabinet, or locker. Neither the wearer nor the glasses observes where it was placed. From the desk the wearer names those four plausible locations and asks for help finding the sponge and bringing it back. The assistant admits the location is unknown and starts with one named candidate, the side cabinet. After the wearer opens it and the live view shows it is empty, the assistant rules it out and directs the next check at the bottom cabinet. That inspection is also empty, so the assistant updates again and sends the wearer to the locker, leaving the wardrobe as the final fallback. The locker inspection reveals the sponge; the wearer retrieves it and returns it to the desk. A weak assistant guesses before observing evidence or repeats an already failed location, so the sponge never reaches the desk.",
+              "scene": "hotel_suite_large",
+              "why_scene": "the assigned scene provides bedroom_0 and bedroom_0, both of which support imported containers and the required desk surface."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "can the assistant admit non-observation and guide an evidence-updated search whose next candidate changes after each failure",
+                "counterfactual_failure": "weak assistant asserts the first guess as certain or re-sends the wearer to an already-empty container, so the sponge never reaches the desk",
+                "forbidden_changes": [
+                  "asserting a location before inspection",
+                  "re-recommending an emptied container",
+                  "claiming direct recall of the placement"
+                ],
+                "knowledge_constraints": [
+                  "location was never observed; assistant must state uncertainty"
+                ],
+                "required_evidence": [
+                  "neutral [Wait] anchor with no observed target placement",
+                  "enacted open+look negative view of the side cabinet",
+                  "enacted open+look negative view of the bedroom bottom_cabinet",
+                  "find of the sponge in the bedroom locker"
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "sponge on the bedroom desk after adaptive search",
+                "temporal_constraints": [
+                  "each ruled-out claim must follow the corresponding inspection"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "the searched-for target retrieved to the desk",
+                  "what": "spare sponge",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "first inspected candidate, empty",
+                  "what": "bedroom side cabinet",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "lowest-ranked remaining candidate",
+                  "what": "bedroom wardrobe",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "second inspected candidate, empty",
+                  "what": "bedroom bottom_cabinet",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "third inspected candidate holding the sponge",
+                  "what": "bedroom locker",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "final destination surface",
+                  "what": "bedroom desk",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "updating the next inspection after each failed open based on stated uncertainty and a purpose-related ranking clue",
+              "look_alike": [],
+              "opening": "sponge preloaded inside the bedroom locker; wearer stands near bedroom desk and executes a neutral [Wait] with no target action observed",
+              "outcome": "the sponge is retrieved from the bedroom locker and placed on the bedroom desk",
+              "place": "hotel_suite_large bedroom_0 and bedroom_0",
+              "printed": [],
+              "tests_what": "calibrated adaptive search for an unobserved target across four candidate containers"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate stages a genuine partial-observability search: the sponge is preloaded inside one of four imported fixed containers, never observed, with a neutral [Wait] as hidden-fact anchor. The assistant openly states it never saw the placement, then gives an evidence-conditioned adaptive policy whose recommendation changes after each failed inspection (side cabinet -> bedroom bottom_cabinet -> bedroom locker), with each next recommendation grounded in the accumulated empty inspections. Each negative follows an actual open+look, the target is inside a candidate, the destination (bedroom desk) matches the executable story, and the weak branch fails by premature certainty or re-checking emptied containers. All four candidate categories (side cabinet, wardrobe, bottom_cabinet, locker), the sponge, and the desk surface are in the grounding contract, and the rooms bedroom_0/bedroom_0 are allowed. Within action budget.",
+          "requirements": [
+            "Ensure every changed recommendation follows a live empty-container observation.",
+            "Confirm each negative observation follows an actual [Open] then [LookAt] of that exact container before the assistant rules it out.",
+            "Keep the accessibility rationale (low-vision, cannot search quickly by sight) in the wearer utterance to justify hands-free assisted search."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Wait",
+              "Open",
+              "LookAt",
+              "Walk",
+              "Grab",
+              "Put"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 10,
+            "estimated_prologue_actions": 1,
+            "estimated_task_actions": 9,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 93.0,
+          "structural_signature": {
+            "evaluation": "ordered inspection trace, changed third recommendation, final on-desk placement",
+            "evidence": "live negative inspections of candidate containers",
+            "failure": "premature certainty or re-recommending an emptied container",
+            "operation": "calibrated evidence-updated re-ranking of candidates",
+            "response": "stated uncertainty plus changing next-candidate recommendation",
+            "template_class": "unobserved_target_adaptive_container_search",
+            "temporal": "hidden preload anchored by neutral wait, then sequential inspection"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "hotel_suite_large",
+      "sha": "eb467904021b",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v59_balanced_gpt55_opus_20260902a/compile_input/FIND/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gpt-5-5-genai-responses",
+      "judge_model": "claude-4-8-opus-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260901s"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_micro24_v59_balanced_gpt55_opus_20260902a",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v40-template-cap3-20260901",
+      "release_id": "sha256:6dfaa553bbca94cc7d25a42661f9f71827f6df829ad4349880ed4f2d304b1f24",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "source": "FIND-101000",
+        "result": "find16-story-refine-20260910w"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "FIND-101000",
+    "revision": "find17-interaction-20260912",
+    "physical_taskpack_sha256": "sha256:fb7768bd74c179988af76f0c336693cae50a450b3f98821e4e7f573d29ae4177"
+  }
+}

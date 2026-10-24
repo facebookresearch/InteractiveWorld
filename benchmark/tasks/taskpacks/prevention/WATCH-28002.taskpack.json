@@ -1,0 +1,3419 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "WATCH-28002",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "inside",
+          "subject": "sponge_used",
+          "target": "used_bin"
+        },
+        {
+          "pred": "inside",
+          "subject": "sponge_clean",
+          "target": "clean_cabinet"
+        },
+        {
+          "pred": "closed",
+          "subject": "clean_cabinet",
+          "target": "clean_cabinet"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "inside",
+          "subject": "sponge_used",
+          "target": "used_bin"
+        },
+        {
+          "pred": "inside",
+          "subject": "sponge_clean",
+          "target": "clean_cabinet"
+        },
+        {
+          "pred": "closed",
+          "subject": "clean_cabinet",
+          "target": "clean_cabinet"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "clean_cabinet",
+          "used_bin"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "folder",
+          "mug",
+          "sponge_clean",
+          "sponge_used"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The weak branch continues the imminent mistake instead of applying the earlier evidence.",
+        "assistant_must": "That is the sponge you used on the desk. Put it in the USED SPONGES bin; the untouched sponge belongs in CLEAN SPONGES.",
+        "cue": "I'll return this sponge to the clean-supplies cabinet.",
+        "premise": "Two identical sponges begin together. One visibly wipes the desk and is returned beside the untouched one. After two unrelated room-reset moves, the wearer selects the used sponge for the clearly labeled clean cabinet."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [
+        "The exact placement 'next to' the clean sponge is left to the simulator's default placement logic for the desk."
+      ],
+      "family": "WATCH",
+      "grounding": {
+        "cite": "I'll return this sponge to the clean-supplies cabinet.",
+        "kind": "authored",
+        "ref": "data_generate:WATCH-28002"
+      },
+      "rule_table": "inside(sponge_used, used_bin); inside(sponge_clean, clean_cabinet); closed(clean_cabinet, clean_cabinet)",
+      "scene": "hotel_suite_large",
+      "template": "the grounded hotel_suite_large scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 17,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 17,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "clean_cabinet"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "clean_cabinet"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "used_bin"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "used_bin"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "sponge_used"
+          ]
+        },
+        {
+          "verb": "Wipe",
+          "args": [
+            "desk",
+            "sponge_used"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "sponge_used",
+            "desk"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "mug",
+            "shelf"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "folder"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "folder",
+            "shelf"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "clean_cabinet"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "sponge_used"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "sponge_used",
+            "used_bin"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "sponge_clean"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "sponge_clean",
+            "clean_cabinet"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "clean_cabinet"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "WATCH",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[PutInside] <sponge_used> (1) <used_bin> (1), [Grab] <sponge_clean> (1), [PutInside] <sponge_clean> (1) <clean_cabinet> (1), [Close] <clean_cabinet> (1)",
+      "seed": 3116444707,
+      "source_task_id": "WATCH-28002"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "sponge_used",
+          "target": "used_bin"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "sponge_clean",
+          "target": "clean_cabinet"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "clean_cabinet",
+          "target": "clean_cabinet"
+        }
+      ],
+      "sub_steps": [
+        "inside sponge_used used_bin",
+        "inside sponge_clean clean_cabinet",
+        "closed clean_cabinet clean_cabinet"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "WATCH-28002",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 3116444707,
+      "containers": {
+        "clean_cabinet": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "bottom_cabinet",
+            "model": "ojceew",
+            "source": "import"
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "bedroom_0",
+          "label": "CLEAN SPONGES"
+        },
+        "used_bin": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "trash_can",
+            "model": "ifzxzj",
+            "source": "import"
+          },
+          "door": {
+            "required": false
+          },
+          "kind": "open_bin",
+          "role": "scored",
+          "room": "bedroom_0",
+          "label": "USED SPONGES"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "desk": {
+          "bind": {
+            "cat": "desk",
+            "source": "scene",
+            "pick": {
+              "name": "desk_ohjotf_0",
+              "stage_prim_path": "/World/b_desk_ohjotf_0",
+              "asset_sha256": "sha256:7854f013d5703692ad0e972a2a3a85a4c8bf1d3e03be61c15824651d30510c2d",
+              "instance_digest": "sha256:810df95523e2baacc3c16f6b4fbdf40b808b3e3631fa89e346ec7086a1091418",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "bedroom_0",
+          "seatable": false
+        },
+        "shelf": {
+          "bind": {
+            "cat": "shelf",
+            "source": "scene",
+            "pick": {
+              "name": "shelf_aqtmhm_0",
+              "stage_prim_path": "/World/b_shelf_aqtmhm_0",
+              "asset_sha256": "sha256:1facff74f8a5a95f9cfc795420f7453f5c85a4e007130fddaa57ab4d8de6c937",
+              "instance_digest": "sha256:8e5fbca5f673cb86f5926bb046977805e500ddd3114d0d23a62b0aa31efb6b16",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "bedroom_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_clean_cabinet": {
+          "content": {
+            "text": "CLEAN SPONGES",
+            "args": {
+              "renderer": "short_string",
+              "title": "",
+              "sub": "",
+              "mount_style": "adhesive"
+            }
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "clean_cabinet",
+            "surface": "container_sign"
+          },
+          "per_seed": false,
+          "png": "watch_28002_watch7_review_refine_20260910b_clean_cabinet_bd731971b677"
+        },
+        "label_used_bin": {
+          "content": {
+            "text": "USED SPONGES",
+            "args": {
+              "renderer": "short_string",
+              "title": "",
+              "sub": "",
+              "mount_style": "adhesive"
+            }
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "used_bin",
+            "surface": "container_sign"
+          },
+          "per_seed": false,
+          "png": "watch_28002_watch7_review_refine_20260910b_used_bin_d1264cbb8ac0"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "sponge_used": {
+          "cat": "sponge",
+          "model": "aewrov",
+          "needs_lookat": false,
+          "place": "on:desk",
+          "room": "bedroom_0",
+          "scored": true,
+          "spot": [
+            -0.45,
+            0.55
+          ]
+        },
+        "sponge_clean": {
+          "cat": "sponge",
+          "model": "aewrov",
+          "needs_lookat": false,
+          "place": "on:desk",
+          "room": "bedroom_0",
+          "scored": true,
+          "spot": [
+            0.45,
+            0.55
+          ]
+        },
+        "mug": {
+          "cat": "mug",
+          "model": "dhnxww",
+          "needs_lookat": false,
+          "place": "on:desk",
+          "room": "bedroom_0",
+          "scored": false
+        },
+        "folder": {
+          "cat": "folder",
+          "model": "guhatz",
+          "needs_lookat": false,
+          "place": "on:desk",
+          "room": "bedroom_0",
+          "scored": false
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "bedroom_0"
+      ],
+      "scene": "hotel_suite_large",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "Two identical sponges begin together. One visibly wipes the desk and is returned beside the untouched one. After two unrelated room-reset moves, the wearer selects the used sponge for the clearly labeled clean cabinet.",
+    "assistant_goal": "I'll return this sponge to the clean-supplies cabinet.",
+    "assessment_contract": {
+      "assigned_capability_id": "WATCH.OBJECT_IDENTITY_ERROR",
+      "assigned_scene": "hotel_suite_large",
+      "core_question": "I'll return this sponge to the clean-supplies cabinet.",
+      "counterfactual_failure": "The weak branch continues the stated mistaken action and violates at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the decisive observed history or printed instruction",
+        "Making an identity-memory target visually unique",
+        "Moving an assistant turn away from its impending-error boundary"
+      ],
+      "knowledge_constraints": [
+        "Two identical sponges begin together. One visibly wipes the desk and is returned beside the untouched one. After two unrelated room-reset moves, the wearer selects the used sponge for the clearly labeled clean cabinet."
+      ],
+      "required_evidence": [
+        "I'll return this sponge to the clean-supplies cabinet.",
+        "The clean and used destinations were visibly labeled.",
+        "Only the first sponge wiped the desk.",
+        "The wearer later selected that same used sponge.",
+        "That is the sponge you used on the desk. Put it in the USED SPONGES bin; the untouched sponge belongs in CLEAN SPONGES."
+      ],
+      "required_final_predicates": [
+        "inside",
+        "inside",
+        "closed"
+      ],
+      "success_condition": "inside(sponge_used, used_bin); inside(sponge_clean, clean_cabinet); closed(clean_cabinet, clean_cabinet)",
+      "temporal_constraints": [
+        "Every assistant intervention occurs after its evidence and before the corresponding invalid state transition."
+      ]
+    },
+    "source_contract": {
+      "task_id": "WATCH-28002",
+      "family": "WATCH",
+      "kind": "a flat or apartment: kitchen, living room, bedrooms, utility",
+      "assessment_contract": {
+        "assigned_capability_id": "WATCH.OBJECT_IDENTITY_ERROR",
+        "assigned_scene": "hotel_suite_large",
+        "core_question": "I'll return this sponge to the clean-supplies cabinet.",
+        "counterfactual_failure": "The weak branch continues the stated mistaken action and violates at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the decisive observed history or printed instruction",
+          "Making an identity-memory target visually unique",
+          "Moving an assistant turn away from its impending-error boundary"
+        ],
+        "knowledge_constraints": [
+          "Two identical sponges begin together. One visibly wipes the desk and is returned beside the untouched one. After two unrelated room-reset moves, the wearer selects the used sponge for the clearly labeled clean cabinet."
+        ],
+        "required_evidence": [
+          "I'll return this sponge to the clean-supplies cabinet.",
+          "The clean and used destinations were visibly labeled.",
+          "Only the first sponge wiped the desk.",
+          "The wearer later selected that same used sponge.",
+          "That is the sponge you used on the desk. Put it in the USED SPONGES bin; the untouched sponge belongs in CLEAN SPONGES."
+        ],
+        "required_final_predicates": [
+          "inside",
+          "inside",
+          "closed"
+        ],
+        "success_condition": "inside(sponge_used, used_bin); inside(sponge_clean, clean_cabinet); closed(clean_cabinet, clean_cabinet)",
+        "temporal_constraints": [
+          "Every assistant intervention occurs after its evidence and before the corresponding invalid state transition."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "beet",
+          "bottle_of_cranberry_juice",
+          "bottle_of_face_cream",
+          "bottle_of_glass_cleaner",
+          "bottle_of_water",
+          "bottle_of_whiskey",
+          "box_of_milk",
+          "box_of_wagashi",
+          "boxed_ink_cartridge",
+          "casserole",
+          "cell_phone",
+          "clipboard",
+          "corkscrew",
+          "cucumber",
+          "denture",
+          "desk_organizer",
+          "digital_camera",
+          "durian",
+          "electric_kettle",
+          "erlenmeyer_flask",
+          "flask_clamp",
+          "folder",
+          "gift_box",
+          "half_avocado",
+          "half_brownie",
+          "half_chanterelle",
+          "half_chicken_tender",
+          "half_chocolate_biscuit",
+          "half_snapper",
+          "heap_of_raisins",
+          "kebab",
+          "light_bulb",
+          "mug",
+          "octopus",
+          "open_end_wrench",
+          "parsley",
+          "peppermint",
+          "pineapple_juice_carton",
+          "pita",
+          "rolled_yoga_mat",
+          "rolling_pin",
+          "shoe_box",
+          "sock",
+          "sound_system",
+          "sponge",
+          "taco",
+          "wine_sauce_bottle"
+        ],
+        "allowed_surface_categories": [
+          "desk",
+          "shelf"
+        ],
+        "capability_id": "WATCH.OBJECT_IDENTITY_ERROR",
+        "coverage_categories": [
+          "pineapple_juice_carton",
+          "light_bulb",
+          "shoe_box",
+          "denture",
+          "parsley",
+          "bottle_of_face_cream",
+          "wine_sauce_bottle",
+          "rolled_yoga_mat",
+          "pita",
+          "box_of_wagashi",
+          "half_chicken_tender",
+          "open_end_wrench",
+          "sound_system",
+          "beet",
+          "casserole",
+          "half_brownie",
+          "durian",
+          "electric_kettle",
+          "taco",
+          "octopus"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "WATCH",
+        "limits": {
+          "max_authored_actions": 21,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 13,
+          "max_small_label_characters": 40,
+          "max_task_actions": 4,
+          "max_meaningful_steps": 17,
+          "min_intervening_meaningful_actions": 8
+        },
+        "preferred_story_categories": [
+          "pineapple_juice_carton",
+          "light_bulb",
+          "shoe_box",
+          "denture",
+          "parsley",
+          "bottle_of_face_cream",
+          "wine_sauce_bottle",
+          "rolled_yoga_mat"
+        ],
+        "preferred_story_category_glosses": {
+          "bottle_of_face_cream": "",
+          "denture": "",
+          "light_bulb": "electric lamp consisting of a transparent or translucent glass housing containing a wire filament (usually tungsten) that emits light when heated by electricity",
+          "parsley": "aromatic herb with flat or crinkly leaves that are cut finely and used to garnish food",
+          "pineapple_juice_carton": "",
+          "rolled_yoga_mat": "",
+          "shoe_box": "",
+          "wine_sauce_bottle": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 39.7,
+            "name": "bedroom_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "desk": 1,
+              "shelf": 1
+            },
+            "surface_max_area_m2": {
+              "desk": 0.227,
+              "shelf": 0.263
+            },
+            "surface_reference_capacity": {
+              "desk": 3,
+              "shelf": 3
+            }
+          }
+        ],
+        "scene": "hotel_suite_large",
+        "task_id": "WATCH-28002",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "what": "sponge that wiped the desk",
+            "category": "sponge",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "unused matching sponge",
+            "category": "sponge",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "guest mug",
+            "category": "mug",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "guest folder",
+            "category": "folder",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "cabinet labeled CLEAN SPONGES",
+            "category": "bottom_cabinet",
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "tint": null,
+            "label": "CLEAN SPONGES",
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "bin labeled USED SPONGES",
+            "category": "trash_can",
+            "affordances": [
+              "container"
+            ],
+            "tint": null,
+            "label": "USED SPONGES",
+            "changed": false,
+            "costs": null
+          }
+        ],
+        "distinct_by": [
+          "observed wipe history only"
+        ],
+        "identical_groups": [
+          [
+            "sponge_used",
+            "sponge_clean"
+          ]
+        ],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "cabinet labeled CLEAN SPONGES",
+            "text": "CLEAN SPONGES",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "bin labeled USED SPONGES",
+            "text": "USED SPONGES",
+            "what": "label",
+            "which": null
+          }
+        ],
+        "restaged_story": "Two identical sponges begin together. One visibly wipes the desk and is returned beside the untouched one. After two unrelated room-reset moves, the wearer selects the used sponge for the clearly labeled clean cabinet.",
+        "scene": "hotel_suite_large",
+        "why_scene": "hotel_suite_large supplies the exact rooms and fixtures used by this revised WATCH story."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "clean_cabinet": {
+            "cat": "bottom_cabinet",
+            "label": "CLEAN SPONGES",
+            "preload": [],
+            "role": "scored",
+            "room": "bedroom_0"
+          },
+          "used_bin": {
+            "cat": "trash_can",
+            "label": "USED SPONGES",
+            "preload": [],
+            "role": "scored",
+            "room": "bedroom_0"
+          }
+        },
+        "items": {
+          "sponge_used": {
+            "affordances": [],
+            "cat": "sponge",
+            "label": null,
+            "place": "on:desk",
+            "scored": true,
+            "spot": [
+              -0.45,
+              0.55
+            ],
+            "tint": null
+          },
+          "sponge_clean": {
+            "affordances": [],
+            "cat": "sponge",
+            "label": null,
+            "place": "on:desk",
+            "scored": true,
+            "spot": [
+              0.45,
+              0.55
+            ],
+            "tint": null
+          },
+          "mug": {
+            "affordances": [],
+            "cat": "mug",
+            "label": null,
+            "place": "on:desk",
+            "scored": false,
+            "spot": null,
+            "tint": null
+          },
+          "folder": {
+            "affordances": [],
+            "cat": "folder",
+            "label": null,
+            "place": "on:desk",
+            "scored": false,
+            "spot": null,
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <clean_cabinet> (1)",
+          "[LookAt] <clean_cabinet> (1)",
+          "[Walk] <used_bin> (1)",
+          "[LookAt] <used_bin> (1)",
+          "[Grab] <sponge_used> (1)",
+          "[Wipe] <desk> (1) <sponge_used> (1)",
+          "[PutOn] <sponge_used> (1) <desk> (1)",
+          "[Grab] <mug> (1)",
+          "[PutOn] <mug> (1) <shelf> (1)",
+          "[Grab] <folder> (1)",
+          "[PutOn] <folder> (1) <shelf> (1)",
+          "[Open] <clean_cabinet> (1)",
+          "[Grab] <sponge_used> (1)"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "bedroom_0"
+        ],
+        "scene": "hotel_suite_large",
+        "staging": {
+          "groups": "Two identical sponges begin together. One visibly wipes the desk and is returned beside the untouched one. After two unrelated room-reset moves, the wearer selects the used sponge for the clearly labeled clean cabinet.",
+          "labels_at_t0": "All task documents and routing labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "desk": {
+            "cat": "desk",
+            "label": null,
+            "room": "bedroom_0"
+          },
+          "shelf": {
+            "cat": "shelf",
+            "label": null,
+            "room": "bedroom_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I'll return this sponge to the clean-supplies cabinet."
+        },
+        "fact_ledger": [
+          {
+            "id": "fact_001",
+            "fact": "I'll return this sponge to the clean-supplies cabinet.",
+            "from": "utterance",
+            "source_phase": "turn0",
+            "source_index": null,
+            "derived_from": null
+          },
+          {
+            "id": "fact_002",
+            "fact": "The clean and used destinations were visibly labeled.",
+            "from": "prologue",
+            "source_phase": "opening",
+            "source_index": 3,
+            "derived_from": null
+          },
+          {
+            "id": "fact_003",
+            "fact": "Only the first sponge wiped the desk.",
+            "from": "prologue",
+            "source_phase": "opening",
+            "source_index": 5,
+            "derived_from": null
+          },
+          {
+            "id": "fact_004",
+            "fact": "The wearer later selected that same used sponge.",
+            "from": "prologue",
+            "source_phase": "opening",
+            "source_index": 12,
+            "derived_from": null
+          },
+          {
+            "id": "fact_005",
+            "fact": "That is the sponge you used on the desk. Put it in the USED SPONGES bin; the untouched sponge belongs in CLEAN SPONGES.",
+            "from": "derived",
+            "source_phase": "derived",
+            "source_index": null,
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ]
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "sponge_used",
+            "target": "used_bin"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "sponge_clean",
+            "target": "clean_cabinet"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "clean_cabinet",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "That sponge just wiped the desk, so it goes in USED SPONGES. The other one is still clean.",
+            "referents": [
+              "sponge_used",
+              "used_bin",
+              "sponge_clean"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ]
+          }
+        ],
+        "hidden_fact": {
+          "what": "That is the sponge you used on the desk. Put it in the USED SPONGES bin; the untouched sponge belongs in CLEAN SPONGES.",
+          "revealed_by": "[Grab] <sponge_used> (1)",
+          "unavailable_because": "The decisive earlier event or persistent state is no longer in the current view."
+        },
+        "human_own_script": "[PutInside] <sponge_used> (1) <clean_cabinet> (1), [Close] <clean_cabinet> (1)",
+        "mates": [],
+        "oracle_program": "[PutInside] <sponge_used> (1) <used_bin> (1), [Grab] <sponge_clean> (1), [PutInside] <sponge_clean> (1) <clean_cabinet> (1), [Close] <clean_cabinet> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "Two identical sponges begin together. One visibly wipes the desk and is returned beside the untouched one. After two unrelated room-reset moves, the wearer selects the used sponge for the clearly labeled clean cabinet.",
+        "utterance": "I'll return this sponge to the clean-supplies cabinet."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "physical_preflight": {
+          "diagnostics": [],
+          "physical": {
+            "failures": [],
+            "ok": true,
+            "sited": true,
+            "staged": true,
+            "start": true,
+            "why_sited": "bedroom_0 @ body rung 0",
+            "why_staged": "",
+            "why_start": ""
+          },
+          "report_version": "compiler-physical-preflight/1.5",
+          "resolved": {
+            "binding_contract": {
+              "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+              "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+              "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+              "exact_asset_models": true,
+              "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+              "layout": "frozen",
+              "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+              "version": "compiler-asset-capabilities/1.5"
+            },
+            "objects": [
+              {
+                "category": "sponge",
+                "key": "item_1",
+                "model": "qewotb"
+              },
+              {
+                "category": "sponge",
+                "key": "item_2",
+                "model": "qewotb"
+              }
+            ],
+            "parts": [],
+            "room": "bedroom_0",
+            "scene": "hotel_suite_small",
+            "units": [
+              {
+                "category": "bottom_cabinet",
+                "key": "unit_a",
+                "model": "ccjinv",
+                "room": "bedroom_0"
+              },
+              {
+                "category": "trash_can",
+                "key": "unit_b",
+                "model": "rbqckd",
+                "room": "bedroom_0"
+              }
+            ]
+          },
+          "seconds": 1.44,
+          "status": "PASS",
+          "task_id": "WATCH-28002",
+          "taskpack_digest": "sha256:6cde1095319736df4c26c43567fd5a4ba1cb244bcb8f67c0e5a57c7b0cc898de"
+        },
+        "sim_debt": [],
+        "soft": [],
+        "traces": {
+          "human": [
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 0
+            },
+            {
+              "primitive": "place_inside",
+              "source": "[PutInside] <item_1> (1) <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 1
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_2> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": "item_2",
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "held",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 2
+            },
+            {
+              "primitive": "place_inside",
+              "source": "[PutInside] <item_2> (1) <unit_b> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "in:unit_b",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": "item_2",
+                "locations": {
+                  "item_1": "in:unit_a",
+                  "item_2": "held",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 3
+            }
+          ],
+          "opening": [
+            {
+              "primitive": "navigate_to",
+              "source": "[Walk] <item_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 0
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 1
+            },
+            {
+              "primitive": "wipe",
+              "source": "[Wipe] <surf_1> (1) <item_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 2
+            },
+            {
+              "primitive": "place",
+              "source": "[PutOn] <item_1> (1) <surf_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 3
+            },
+            {
+              "primitive": "navigate_to",
+              "source": "[Walk] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 4
+            },
+            {
+              "primitive": "open",
+              "source": "[Open] <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 5
+            },
+            {
+              "primitive": "navigate_to",
+              "source": "[Walk] <surf_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 6
+            },
+            {
+              "primitive": "wait",
+              "source": "[Wait]",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 7
+            }
+          ],
+          "oracle": [
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 0
+            },
+            {
+              "primitive": "place",
+              "source": "[PutOn] <item_1> (1) <surf_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 1
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_2> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": "item_2",
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "held",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 2
+            },
+            {
+              "primitive": "place_inside",
+              "source": "[PutInside] <item_2> (1) <unit_a> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": "item_2",
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "held",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 3
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 4
+            },
+            {
+              "primitive": "place_inside",
+              "source": "[PutInside] <item_1> (1) <unit_b> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "in:unit_b",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "in:unit_a",
+                  "unit_a": "floor:bedroom_0",
+                  "unit_b": "floor:bedroom_0"
+                },
+                "open": [
+                  "unit_a"
+                ],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 5
+            }
+          ]
+        }
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <clean_cabinet> (1)",
+        "[LookAt] <clean_cabinet> (1)",
+        "[Walk] <used_bin> (1)",
+        "[LookAt] <used_bin> (1)",
+        "[Grab] <sponge_used> (1)",
+        "[Wipe] <desk> (1) <sponge_used> (1)",
+        "[PutOn] <sponge_used> (1) <desk> (1)",
+        "[Grab] <mug> (1)",
+        "[PutOn] <mug> (1) <shelf> (1)",
+        "[Grab] <folder> (1)",
+        "[PutOn] <folder> (1) <shelf> (1)",
+        "[Open] <clean_cabinet> (1)",
+        "[Grab] <sponge_used> (1)"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "clean_cabinet"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "clean_cabinet"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "clean_cabinet"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "used_bin"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "used_bin"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "used_bin"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The clean and used destinations were visibly labeled.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "That is the sponge you used on the desk. Put it in the USED SPONGES bin; the untouched sponge belongs in CLEAN SPONGES.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "sponge_used"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "sponge_used"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wipe",
+          "args": [
+            "desk",
+            "sponge_used"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "Only the first sponge wiped the desk.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "That is the sponge you used on the desk. Put it in the USED SPONGES bin; the untouched sponge belongs in CLEAN SPONGES.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "sponge_used",
+            "desk"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "mug"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "mug",
+            "shelf"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "folder"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "folder"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "folder",
+            "shelf"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p011",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "clean_cabinet"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p012",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "sponge_used"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "sponge_used"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The wearer later selected that same used sponge.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "That is the sponge you used on the desk. Put it in the USED SPONGES bin; the untouched sponge belongs in CLEAN SPONGES.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "I'll return this sponge to the clean-supplies cabinet.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "I'll return this sponge to the clean-supplies cabinet.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "That is the sponge you used on the desk. Put it in the USED SPONGES bin; the untouched sponge belongs in CLEAN SPONGES.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "That sponge just wiped the desk, so it goes in USED SPONGES. The other one is still clean.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "sponge_used",
+            "clean_cabinet"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "sponge_used",
+            "target": "clean_cabinet"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "clean_cabinet"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "sponge_used",
+            "used_bin"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "sponge_used",
+            "target": "used_bin"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "sponge_clean"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "sponge_clean"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "sponge_clean",
+            "clean_cabinet"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "sponge_clean",
+            "target": "clean_cabinet"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "clean_cabinet"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "I'll return this sponge to the clean-supplies cabinet.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The clean and used destinations were visibly labeled.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p003"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 3
+      },
+      {
+        "id": "fact_003",
+        "statement": "Only the first sponge wiped the desk.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p005"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 5
+      },
+      {
+        "id": "fact_004",
+        "statement": "The wearer later selected that same used sponge.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p012"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 12
+      },
+      {
+        "id": "fact_005",
+        "statement": "That is the sponge you used on the desk. Put it in the USED SPONGES bin; the untouched sponge belongs in CLEAN SPONGES.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p003",
+          "p005",
+          "p012"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004"
+        ]
+      }
+    ]
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "public_preparation": {
+      "mode": "continuous_watch"
+    },
+    "tick_budget": 16,
+    "dialogue_budget": 1,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "used_bin",
+        "held": [
+          "sponge_used"
+        ],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "halt",
+            "expected_referents": [
+              "sponge_used",
+              "used_bin",
+              "sponge_clean"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "sponge_used",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "sponge_used",
+            "target": "used_bin",
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "sponge_clean",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "sponge_clean",
+            "target": "clean_cabinet",
+            "truth": true
+          },
+          "next_beat": "o003"
+        }
+      ],
+      "terminal_beats": [
+        "h001",
+        "o003"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "PutInside",
+        "args": [
+          "sponge_used",
+          "used_bin"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "sponge_clean"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "sponge_clean",
+          "clean_cabinet"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "clean_cabinet"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "PutInside",
+        "args": [
+          "sponge_used",
+          "clean_cabinet"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "clean_cabinet"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "That sponge just wiped the desk, so it goes in USED SPONGES. The other one is still clean.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    }
+  },
+  "lineage": {
+    "source": "manual_story_revision",
+    "compile_input_digest": "sha256:a262d0b9abeae3fdebcba1be906a92abec6aeda80b685bc2e9ae1e6e66a64554",
+    "source_contract_digest": "sha256:11f25a5b7d1873fd8d58038b4f7e34f62914916a5df031a9dc1a11ea0e1bcc6c",
+    "executable_spec_digest": "sha256:d2480daef09a1da3b3e72ca4e234a762d55e5461c0730991c0ad200ce25893ef",
+    "invention": {
+      "attempt": 1,
+      "author_prose": "In `bedroom_0` of a small hotel suite, the wearer is tidying up their space. On the `desk` rest two visually identical `sponge`s. An imported `bottom_cabinet` and a `trash_can` stand nearby on the floor. \n\nThe wearer begins by grabbing the left `sponge` and using it to wipe a sticky patch on the `desk`. After finishing the task, they place the used `sponge` back onto the `desk`, setting it down right next to the identical clean `sponge`. The wearer then turns away from the desk, walks over to the `bottom_cabinet`, and opens its door to prepare for storing their reusable cleaning supplies.\n\nReturning to the `desk`, both sponges look exactly alike. The wearer reaches out and grabs the used `sponge`, intending to save the pristine spare by storing it in the cabinet. \n\nThe smart glasses observed the earlier wiping action and continuously tracked the spatial positions of both items when they were placed side-by-side. Recognizing the identity error, the assistant proactively intervenes before the wearer can walk away. It warns the wearer that they are holding the dirty sponge and advises them to take the other one for storage. \n\nCorrected, the wearer puts the dirty sponge back down on the desk. They grab the clean `sponge` and place it safely inside the `bottom_cabinet`. Finally, they pick up the dirty `sponge` again and deposit it into the `trash_can`.\n\nA weak assistant fails to maintain object identity across spatial rearrangement and use history. Because the two sponges are categorically identical and the task does not rely on invented microscopic scratches or hidden labels, the weak assistant loses track of which one is dirty once they are placed together. It remains silent, allowing the wearer to mistakenly store the used sponge in the cabinet and throw away the clean spare. Success requires the strong assistant's intervention, resulting in a final state where the clean `sponge` is inside the `bottom_cabinet` and the dirty `sponge` is inside the `trash_can`.",
+      "author_prose_sha256": "sha256:2d2bef432cbd5dcc4a8fed713f29981eedb5970bcc5f221beebe58cff0cad040",
+      "capability": {
+        "boundary": "This is one capability among five, not the default WATCH template. Prefer event-based identity over invented microscopic scratches.",
+        "few_shot": "Two matching rechargeable batteries lie beside a small radio. Earlier, the glasses saw the wearer remove the depleted battery from the radio and place it on the left side of the worktable, then take a charged spare from its fixed charger and place it on the right. After an interruption, both look alike and the wearer reaches for the depleted one to reinstall it. The assistant uses the observed use history—not an invented scratch—to intervene, directs the charged battery into the radio, and has the depleted one returned to the charger. The changed objects were released among a same-category alternative before reselection, and the final attachment and containment relations distinguish the corrected branch.",
+        "id": "WATCH.OBJECT_IDENTITY_ERROR",
+        "name_zh": "物体同一性错误",
+        "target": "Track which of two or more similar objects acquired a consequential identity through earlier use, then stop selection of the wrong instance."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "WATCH.OBJECT_IDENTITY_ERROR",
+        "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+        "evaluation_status": "PASS",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": false,
+        "owner": null,
+        "reason": null,
+        "reason_code": null,
+        "recommended_work": null,
+        "version": "capability-support/1.0",
+        "workstream": null
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "bottle_of_water",
+          "sponge",
+          "gift_box",
+          "cell_phone",
+          "pineapple_juice_carton",
+          "light_bulb",
+          "shoe_box",
+          "denture",
+          "parsley",
+          "bottle_of_face_cream",
+          "wine_sauce_bottle",
+          "rolled_yoga_mat",
+          "pita",
+          "box_of_wagashi",
+          "half_chicken_tender",
+          "open_end_wrench",
+          "sound_system",
+          "beet",
+          "casserole",
+          "half_brownie",
+          "durian",
+          "electric_kettle",
+          "taco",
+          "octopus"
+        ],
+        "allowed_surface_categories": [
+          "desk"
+        ],
+        "capability_id": "WATCH.OBJECT_IDENTITY_ERROR",
+        "coverage_categories": [
+          "pineapple_juice_carton",
+          "light_bulb",
+          "shoe_box",
+          "denture",
+          "parsley",
+          "bottle_of_face_cream",
+          "wine_sauce_bottle",
+          "rolled_yoga_mat",
+          "pita",
+          "box_of_wagashi",
+          "half_chicken_tender",
+          "open_end_wrench",
+          "sound_system",
+          "beet",
+          "casserole",
+          "half_brownie",
+          "durian",
+          "electric_kettle",
+          "taco",
+          "octopus"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": false,
+          "requires_reselection": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "WATCH",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "pineapple_juice_carton",
+          "light_bulb",
+          "shoe_box",
+          "denture",
+          "parsley",
+          "bottle_of_face_cream",
+          "wine_sauce_bottle",
+          "rolled_yoga_mat"
+        ],
+        "preferred_story_category_glosses": {
+          "bottle_of_face_cream": "",
+          "denture": "",
+          "light_bulb": "electric lamp consisting of a transparent or translucent glass housing containing a wire filament (usually tungsten) that emits light when heated by electricity",
+          "parsley": "aromatic herb with flat or crinkly leaves that are cut finely and used to garnish food",
+          "pineapple_juice_carton": "",
+          "rolled_yoga_mat": "",
+          "shoe_box": "",
+          "wine_sauce_bottle": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 33.6,
+            "name": "bedroom_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "desk": 1
+            },
+            "surface_max_area_m2": {
+              "desk": 0.416
+            },
+            "surface_reference_capacity": {
+              "desk": 3
+            }
+          }
+        ],
+        "scene": "hotel_suite_small",
+        "task_id": "WATCH-28002",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "prompt_sha": "c2e0b5cb0166",
+      "prompt_sha256": "sha256:c2e0b5cb0166125693a581b3cc477cf1eb4531cd2ee5a52b66f90ce8f6f426e8",
+      "prompt_version": "capability-v23-contextual-believability-20260831",
+      "prose_sha256": "sha256:37af75f98f1f47f039c75f22c03c24a76500643b2d931af3d0f3d0952057ae61",
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "the continuous spatial position of the two identical sponges after one is used and placed back on the desk",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "semantic_turns": 1,
+          "strong_weak_distinct": true,
+          "ungrounded_physical_nouns": [],
+          "uses_only_grounded_assets": true,
+          "why_utterance_alone_fails": "the wearer does not speak, and a text-only assistant cannot see which of the two identical sponges the wearer grabbed after returning from the cabinet"
+        },
+        "capability_fit": "The assistant tracks which of two identical sponges was used to wipe the desk and intervenes when the wearer grabs the dirty one to store it.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "sponge",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "dirty sponge"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "sponge",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "clean sponge"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "desk",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "desk"
+              },
+              {
+                "affordances": [
+                  "container",
+                  "openable"
+                ],
+                "category": "bottom_cabinet",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "bottom_cabinet"
+              },
+              {
+                "affordances": [
+                  "container"
+                ],
+                "category": "trash_can",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "trash_can"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [
+              [
+                "dirty sponge",
+                "clean sponge"
+              ]
+            ],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "The wearer grabs the dirty sponge from the desk and wipes the desk with it. The wearer puts the dirty sponge back on the desk next to the clean sponge. The wearer walks to the bottom_cabinet and opens it. The wearer walks back to the desk. The wearer grabs the dirty sponge, intending to store it. The assistant intervenes, warning the wearer that they grabbed the used sponge. The wearer puts the dirty sponge back on the desk. The wearer grabs the clean sponge and puts it inside the bottom_cabinet. The wearer grabs the dirty sponge and puts it inside the trash_can. In the failure branch, the assistant remains silent. The wearer puts the dirty sponge inside the bottom_cabinet, then grabs the clean sponge and puts it inside the trash_can.",
+            "scene": "hotel_suite_small",
+            "why_scene": "It provides the required bedroom with a desk to support the wiping and storage scenario."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "WATCH.OBJECT_IDENTITY_ERROR",
+              "counterfactual_failure": "The dirty sponge is inside the bottom_cabinet and the clean sponge is inside the trash_can.",
+              "forbidden_changes": [
+                "making the sponges visually distinct"
+              ],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "the wiping action",
+                "the placement of the used sponge next to the clean one"
+              ],
+              "required_final_predicates": [
+                "inside"
+              ],
+              "success_condition": "The clean sponge is inside the bottom_cabinet and the dirty sponge is inside the trash_can.",
+              "temporal_constraints": []
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "used cleaning tool",
+                "what": "dirty sponge",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "pristine spare",
+                "what": "clean sponge",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "surface to be wiped and to hold the sponges",
+                "what": "desk",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container",
+                  "openable"
+                ],
+                "role_in_story": "storage for the clean sponge",
+                "what": "bottom_cabinet",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container"
+                ],
+                "role_in_story": "disposal for the dirty sponge",
+                "what": "trash_can",
+                "when": "main"
+              }
+            ],
+            "hinges_on": "remembering which identical sponge was used to wipe the desk after the wearer looks away and returns",
+            "look_alike": [
+              {
+                "must": "identical",
+                "these": [
+                  "dirty sponge",
+                  "clean sponge"
+                ],
+                "why": "so the wearer can confuse them after looking away"
+              }
+            ],
+            "opening": "The wearer wipes the desk with one sponge, puts it next to the clean one, walks to open the cabinet, and returns to the desk.",
+            "outcome": "The clean sponge is stored in the cabinet and the dirty sponge is thrown away.",
+            "place": "bedroom_0",
+            "printed": [],
+            "tests_what": "WATCH.OBJECT_IDENTITY_ERROR"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The story perfectly captures the OBJECT_IDENTITY_ERROR capability by having the wearer use one of two identical objects, place them together, look away to prepare a container, and then mistakenly grab the used one. The spatial tracking requirement is strictly egocentric and the outcome is clearly scorable.",
+        "requirements": [],
+        "runtime_requirements": {
+          "actions": [
+            "Grab",
+            "Wipe",
+            "Put",
+            "Walk",
+            "Open",
+            "Putin"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 13,
+          "estimated_prologue_actions": 6,
+          "estimated_task_actions": 7,
+          "events": [],
+          "final_predicates": [
+            "inside"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 29.6,
+        "structural_signature": {
+          "evaluation": "final containment state",
+          "evidence": "spatial tracking of identical objects",
+          "failure": "wrong object stored and right object discarded",
+          "operation": "identity tracking across spatial rearrangement",
+          "response": "correction of object selection",
+          "temporal": "proactive intervention before irreversible placement"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The continuous spatial tracking of the two identical sponges after one is used and placed back on the desk.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The wearer does not speak, and a text-only assistant cannot see which of the two identical sponges was used earlier or which one the wearer is currently holding."
+          },
+          "capability_fit": "The assistant tracks which of two identical sponges was used to wipe the desk, intervening when the wearer later grabs the dirty one to store it in the cabinet.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "sponge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "dirty_sponge"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "sponge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "clean_sponge"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "desk",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "desk"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "bottom_cabinet"
+                },
+                {
+                  "affordances": [
+                    "container"
+                  ],
+                  "category": "trash_can",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "trash_can"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [
+                [
+                  "dirty_sponge",
+                  "clean_sponge"
+                ]
+              ],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "Prologue: The wearer grabs the dirty_sponge from the desk. The wearer wipes the desk with the dirty_sponge. The wearer puts the dirty_sponge on the desk next to the clean_sponge. The wearer opens the bottom_cabinet.\n\nTask: The wearer grabs the dirty_sponge. The assistant intervenes, warning the wearer that they grabbed the used sponge and should store the clean one instead. The wearer puts the dirty_sponge on the desk. The wearer grabs the clean_sponge. The wearer puts the clean_sponge inside the bottom_cabinet. The wearer grabs the dirty_sponge. The wearer puts the dirty_sponge inside the trash_can.\n\nIn the failure branch, the assistant remains silent. The wearer puts the dirty_sponge inside the bottom_cabinet. The wearer grabs the clean_sponge. The wearer puts the clean_sponge inside the trash_can.",
+              "scene": "hotel_suite_small",
+              "why_scene": "Provides the required bedroom desk and space for imported containers."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "WATCH.OBJECT_IDENTITY_ERROR",
+                "counterfactual_failure": "inside(dirty_sponge, bottom_cabinet) and inside(clean_sponge, trash_can)",
+                "forbidden_changes": [
+                  "making the sponges visually distinct"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "the wiping action applied to the dirty_sponge"
+                ],
+                "required_final_predicates": [
+                  "inside"
+                ],
+                "success_condition": "inside(clean_sponge, bottom_cabinet) and inside(dirty_sponge, trash_can)",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "the object that acquires a used identity",
+                  "what": "dirty_sponge",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "the identical spare object",
+                  "what": "clean_sponge",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "the surface being wiped and where the sponges rest",
+                  "what": "desk",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "the storage location for the clean sponge",
+                  "what": "bottom_cabinet",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container"
+                  ],
+                  "role_in_story": "the disposal location for the dirty sponge",
+                  "what": "trash_can",
+                  "when": "main"
+                }
+              ],
+              "hinges_on": "remembering which identical sponge was used to wipe the desk after the wearer places it back down",
+              "look_alike": [
+                {
+                  "must": "identical",
+                  "these": [
+                    "dirty_sponge",
+                    "clean_sponge"
+                  ],
+                  "why": "so the wearer can confuse them and the assistant must rely on continuous tracking"
+                }
+              ],
+              "opening": "The wearer grabs the dirty_sponge, wipes the desk, puts it back on the desk, and opens the bottom_cabinet.",
+              "outcome": "The clean sponge is stored in the cabinet and the dirty sponge is thrown away.",
+              "place": "bedroom_0",
+              "printed": [],
+              "tests_what": "WATCH.OBJECT_IDENTITY_ERROR"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate perfectly executes the WATCH.OBJECT_IDENTITY_ERROR capability by having the wearer use one of two identical objects, release it, and then mistakenly reselect it for a storage action meant for the clean spare. The wiping action establishes the consequential identity, and the spatial tracking requirement ensures the task is strictly egocentric. The action budget is well within limits after moving the setup steps to the prologue, and the weak branch produces a clearly scorable divergence.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "Wipe",
+              "Put",
+              "Open",
+              "Putin"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 10,
+            "estimated_prologue_actions": 4,
+            "estimated_task_actions": 6,
+            "events": [],
+            "final_predicates": [
+              "inside"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 67.4,
+          "structural_signature": {
+            "evaluation": "final containment state of both objects",
+            "evidence": "observed wiping event and spatial tracking",
+            "failure": "silent allowance of incorrect storage",
+            "operation": "identity tracking across spatial rearrangement",
+            "response": "corrective instruction",
+            "temporal": "proactive intervention before incorrect placement"
+          },
+          "verdict": "KEEP"
+        },
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "the continuous spatial position of the two identical sponges after one is used and placed back on the desk",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "the wearer does not speak, and a text-only assistant cannot see which of the two identical sponges the wearer grabbed after returning from the cabinet"
+          },
+          "capability_fit": "The assistant tracks which of two identical sponges was used to wipe the desk and intervenes when the wearer grabs the dirty one to store it.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "sponge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "dirty sponge"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "sponge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "clean sponge"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "desk",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "desk"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "bottom_cabinet"
+                },
+                {
+                  "affordances": [
+                    "container"
+                  ],
+                  "category": "trash_can",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "trash_can"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [
+                [
+                  "dirty sponge",
+                  "clean sponge"
+                ]
+              ],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "The wearer grabs the dirty sponge from the desk and wipes the desk with it. The wearer puts the dirty sponge back on the desk next to the clean sponge. The wearer walks to the bottom_cabinet and opens it. The wearer walks back to the desk. The wearer grabs the dirty sponge, intending to store it. The assistant intervenes, warning the wearer that they grabbed the used sponge. The wearer puts the dirty sponge back on the desk. The wearer grabs the clean sponge and puts it inside the bottom_cabinet. The wearer grabs the dirty sponge and puts it inside the trash_can. In the failure branch, the assistant remains silent. The wearer puts the dirty sponge inside the bottom_cabinet, then grabs the clean sponge and puts it inside the trash_can.",
+              "scene": "hotel_suite_small",
+              "why_scene": "It provides the required bedroom with a desk to support the wiping and storage scenario."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "WATCH.OBJECT_IDENTITY_ERROR",
+                "counterfactual_failure": "The dirty sponge is inside the bottom_cabinet and the clean sponge is inside the trash_can.",
+                "forbidden_changes": [
+                  "making the sponges visually distinct"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "the wiping action",
+                  "the placement of the used sponge next to the clean one"
+                ],
+                "required_final_predicates": [
+                  "inside"
+                ],
+                "success_condition": "The clean sponge is inside the bottom_cabinet and the dirty sponge is inside the trash_can.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "used cleaning tool",
+                  "what": "dirty sponge",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "pristine spare",
+                  "what": "clean sponge",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surface to be wiped and to hold the sponges",
+                  "what": "desk",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "storage for the clean sponge",
+                  "what": "bottom_cabinet",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container"
+                  ],
+                  "role_in_story": "disposal for the dirty sponge",
+                  "what": "trash_can",
+                  "when": "main"
+                }
+              ],
+              "hinges_on": "remembering which identical sponge was used to wipe the desk after the wearer looks away and returns",
+              "look_alike": [
+                {
+                  "must": "identical",
+                  "these": [
+                    "dirty sponge",
+                    "clean sponge"
+                  ],
+                  "why": "so the wearer can confuse them after looking away"
+                }
+              ],
+              "opening": "The wearer wipes the desk with one sponge, puts it next to the clean one, walks to open the cabinet, and returns to the desk.",
+              "outcome": "The clean sponge is stored in the cabinet and the dirty sponge is thrown away.",
+              "place": "bedroom_0",
+              "printed": [],
+              "tests_what": "WATCH.OBJECT_IDENTITY_ERROR"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The story perfectly captures the OBJECT_IDENTITY_ERROR capability by having the wearer use one of two identical objects, place them together, look away to prepare a container, and then mistakenly grab the used one. The spatial tracking requirement is strictly egocentric and the outcome is clearly scorable.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "Wipe",
+              "Put",
+              "Walk",
+              "Open",
+              "Putin"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 13,
+            "estimated_prologue_actions": 6,
+            "estimated_task_actions": 7,
+            "events": [],
+            "final_predicates": [
+              "inside"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 29.6,
+          "structural_signature": {
+            "evaluation": "final containment state",
+            "evidence": "spatial tracking of identical objects",
+            "failure": "wrong object stored and right object discarded",
+            "operation": "identity tracking across spatial rearrangement",
+            "response": "correction of object selection",
+            "temporal": "proactive intervention before irreversible placement"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "hotel_suite_small",
+      "sha": "37af75f98f1f",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_manual_batch_20260831p/compile_input/WATCH/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gemini-3-1-pro-preview-tbd",
+      "judge_model": "gemini-3-1-pro-preview-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260831m"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_grounded_manual_batch_20260831p",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v23-contextual-believability-20260831",
+      "release_id": "sha256:0d66cf2cd5315164856042333fb61b77347ab6b58c3027274cfe9b29b66569e0",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "source": "WATCH-28002",
+        "result": "watch7-review-refine-20260910b"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "WATCH-28002",
+    "revision": "watch7-review-refine-20260910b",
+    "capability_notes": []
+  }
+}

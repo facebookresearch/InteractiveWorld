@@ -1,0 +1,177 @@
+{
+  "schema_version": "interactiveworld-release/1.0",
+  "release_id": "InteractiveWorld-Balanced120",
+  "release_version": "1.0.0",
+  "release_date": "2026-09-29",
+  "source_revision": "abae8431cac92d1633cb335f56067570576673a2",
+  "distribution": {
+    "status": "release_candidate",
+    "external_publication_requires_code_owner_and_license_review": true,
+    "restricted_human_assets_bundled": false
+  },
+  "benchmark": {
+    "task_count": 120,
+    "assigned_categories": {
+      "Accessibility": 20,
+      "Decision": 20,
+      "Finding": 20,
+      "Guidance": 20,
+      "Planning": 20,
+      "Prevention": 20
+    },
+    "taskpack_version": "data-generate-taskpack/1.0",
+    "runtime_contract_version": "compiled-runtime-contract/1.8",
+    "watch_interaction_openings": 22,
+    "bundled_label_assets": 85,
+    "oracle_video_count": 120,
+    "oracle_video_manifest": "benchmark/oracle_videos/manifest.json",
+    "oracle_videos_distributed_as_companion_bundle": true
+  },
+  "evaluation": {
+    "criteria_count": 464,
+    "protocols": [
+      "StateScore-v2",
+      "StateBundle-v1",
+      "CFSS-StateScore",
+      "ASK-PCS",
+      "WATCH-binary",
+      "FIND-C-pass-binary"
+    ],
+    "native_taskpack_and_release_scores_are_separate": true,
+    "trace_adjudication_must_be_complete_before_scoring": true,
+    "adjudication_is_bound_to_run_evidence_sha256": true
+  },
+  "benchmark_runner": {
+    "config_schema_version": "interactiveworld-runner-config/1.0",
+    "participant_roles": [
+      "human",
+      "assistant"
+    ],
+    "providers": [
+      "http-json",
+      "openai-compatible",
+      "openai",
+      "anthropic",
+      "gemini"
+    ],
+    "task_selection": {
+      "all_120_by_default": true,
+      "supports_exact_task_ids": true,
+      "supports_six_categories": true
+    },
+    "gpu_execution": {
+      "selection_flags": [
+        "--gpus",
+        "--num-gpus"
+      ],
+      "physical_indices": true,
+      "requires_cuda_visible_devices_unset": true,
+      "one_worker_per_selected_gpu": true,
+      "deterministic_round_robin_sharding": true
+    },
+    "video": {
+      "modes": [
+        "off",
+        "failures",
+        "all"
+      ],
+      "caption_modes": [
+        "off",
+        "speaker",
+        "full"
+      ],
+      "encoder": "ffmpeg",
+      "uses_existing_run_artifacts": true,
+      "requires_io_capture_without_existing_fpv_video": true,
+      "requested_video_failure_fails_run": true
+    },
+    "evidence": {
+      "schema_version": "interactiveworld-evidence/1.1",
+      "native_and_release_scores_are_separate": true,
+      "complete_trace_adjudication_required": true,
+      "run_evidence_sha256_binding_required": true,
+      "pending_directory": "evidence/pending",
+      "adjudicated_directory": "evidence/adjudicated"
+    }
+  },
+  "simulator": {
+    "isaac_sim_version": "5.1",
+    "protocol_version": "interactiveworld-sim/1.0",
+    "python_api": "simulator.api:Simulator",
+    "task_catalog": "simulator.catalog:TaskCatalog",
+    "process_isolated_by_default": true,
+    "supports_task_free_worlds": true,
+    "supports_bundled_and_custom_taskpacks": true,
+    "task_preparation_modes": [
+      "prologue",
+      "continuous_watch"
+    ],
+    "observation_profiles": [
+      "agent",
+      "debug"
+    ],
+    "external_assets_declared_in": "simulator/external_dependencies.json"
+  },
+  "entrypoints": {
+    "validate_release": "validate_release.py",
+    "validate_install": "launch/check_install.py",
+    "run_benchmark": "launch/interactiveworld.sh",
+    "run_benchmark_python": "launch/interactiveworld.py",
+    "runner_config": "benchmark/runner/config.example.json",
+    "run_taskpack": "launch/run_taskpack.sh",
+    "run_taskpack_python": "launch/run_taskpack.py",
+    "run_simulator_server": "launch/run_sim_server.py",
+    "run_simulator": "launch/simulator.sh",
+    "run_simulator_python": "launch/simulator.py",
+    "evaluate": "benchmark/evaluation/__main__.py"
+  },
+  "frozen_artifacts": {
+    "task_manifest": {
+      "path": "benchmark/tasks/manifest.json",
+      "sha256": "sha256:0259ff551410aa27b9f34d0e0fb2cd14f3f577875b940916b8fdb7facfe47081"
+    },
+    "task_manifest_schema": {
+      "path": "benchmark/tasks/manifest.schema.json",
+      "sha256": "sha256:a4df9abc8d47bdddc66f8eda5da38cb6c6bb49fcbefb0b5865acd806a7893f99"
+    },
+    "interaction_openings": {
+      "path": "benchmark/tasks/interaction_openings.json",
+      "sha256": "sha256:a9c92de7bbc460fc15fcbcf7486dbc37ebda8ba156381d1c29a43f709c8dd485"
+    },
+    "task_assets": {
+      "path": "benchmark/tasks/assets/manifest.json",
+      "sha256": "sha256:963e5c88f2c1b54f25476b5b4a7c2fb5b6cf4ae6ecb486e4e1d23e4de8661754"
+    },
+    "evaluation_rubric": {
+      "path": "benchmark/evaluation/rubric.json",
+      "sha256": "sha256:6ae4ad2f90d43e6fdbe14dbec6c00418c9ac37d54fbf6a49a9fda880bd15a7df"
+    },
+    "oracle_videos": {
+      "path": "benchmark/oracle_videos/manifest.json",
+      "sha256": "sha256:fc0877cf50613a371e29e15c34174c6772b9c3831d610c70db04e701888a883e"
+    },
+    "evaluation_evidence_schema": {
+      "path": "benchmark/evaluation/evidence.schema.json",
+      "sha256": "sha256:2b35d639ea7c2acddc1c815b9fe6d1c2a08d3294d265a186cff08e997332e323"
+    },
+    "simulator_components": {
+      "path": "simulator/component_manifest.json",
+      "sha256": "sha256:f42da37594074419a30e20f2f931d02bbb9e6799506328b4308547fad4422ab7"
+    },
+    "external_dependencies": {
+      "path": "simulator/external_dependencies.json",
+      "sha256": "sha256:43f46eb26ae2f108ef55ad8370c0e73b4f02eecddc73b55c29a313610057a262"
+    }
+  },
+  "tree_integrity": {
+    "algorithm": "sha256 over every regular file recursively under the release root, sorted by POSIX relative path; for each file hash UTF-8(relative_path), NUL, ASCII(decimal_byte_length), NUL, then raw file bytes",
+    "excluded": [
+      "release_manifest.json",
+      "all .git path components",
+      "all __pycache__ path components",
+      "all .pyc files"
+    ],
+    "file_count": 380,
+    "sha256": "ee1f476c68f2f0389ec6b75bb1ec0459ee040d68a6048264a0cc108d30b7e7e4"
+  }
+}

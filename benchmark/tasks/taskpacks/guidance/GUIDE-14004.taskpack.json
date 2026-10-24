@@ -1,0 +1,4299 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-14004",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "cut",
+          "subject": "tomato",
+          "target": "tomato"
+        },
+        {
+          "pred": "cooked",
+          "subject": "sliced_tomato",
+          "target": "sliced_tomato"
+        },
+        {
+          "pred": "on",
+          "subject": "cooked_tomato",
+          "target": "plate"
+        },
+        {
+          "pred": "held",
+          "subject": "plate",
+          "target": "plate"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "cut",
+          "subject": "tomato",
+          "target": "tomato"
+        },
+        {
+          "pred": "cooked",
+          "subject": "sliced_tomato",
+          "target": "sliced_tomato"
+        },
+        {
+          "pred": "on",
+          "subject": "cooked_tomato",
+          "target": "plate"
+        },
+        {
+          "pred": "held",
+          "subject": "plate",
+          "target": "plate"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [],
+        "nested_containers": [
+          "plate"
+        ],
+        "objects": [
+          "cooked_tomato",
+          "knife",
+          "plate",
+          "recipe",
+          "sliced_tomato",
+          "spatula",
+          "tomato"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "Follow the card in order: slice the tomato, return the knife, move the tomato to the switched-on flat top, stir it with the spatula, return that tool, cook the tomato, and turn the flat top off. Finally put the blackened slices on the plate and lift the plate to serve.",
+        "cue": "I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time.",
+        "premise": "The wearer enters a commercial kitchen, reads a complete griddled-tomato recipe, and asks for guidance without proposing a solution. The assistant must preserve the recipe's slice, tool-return, griddle, stir, cook, and power dependencies before plating the visibly blackened slices and lifting the serving plate."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time.",
+        "kind": "authored",
+        "ref": "data_generate:GUIDE-14004"
+      },
+      "rule_table": "cut(tomato); cooked(sliced_tomato); on(cooked_tomato, plate); held(plate)",
+      "scene": "restaurant_diner",
+      "template": "the grounded restaurant_diner scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 28,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 28,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "recipe"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "recipe"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "recipe"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "prep"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "tomato"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "knife"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "tool_table"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "spatula"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "service_pass"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "plate"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "prep"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "cooktop"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "knife"
+          ]
+        },
+        {
+          "verb": "Cut",
+          "args": [
+            "tomato",
+            "knife"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "knife",
+            "prep"
+          ]
+        },
+        {
+          "verb": "TurnOn",
+          "args": [
+            "cooktop"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "sliced_tomato"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "sliced_tomato",
+            "cooktop"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "spatula"
+          ]
+        },
+        {
+          "verb": "Stir",
+          "args": [
+            "cooktop",
+            "spatula"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "spatula",
+            "tool_table"
+          ]
+        },
+        {
+          "verb": "Cook",
+          "args": [
+            "sliced_tomato"
+          ]
+        },
+        {
+          "verb": "TurnOff",
+          "args": [
+            "cooktop"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "cooked_tomato"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "service_pass"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "cooked_tomato",
+            "plate"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "plate"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Grab] <knife> (1), [Cut] <tomato> (1) <knife> (1), [PutOn] <knife> (1) <prep> (1), [TurnOn] <cooktop> (1), [Grab] <sliced_tomato> (1), [PutOn] <sliced_tomato> (1) <cooktop> (1), [Grab] <spatula> (1), [Stir] <cooktop> (1) <spatula> (1), [PutOn] <spatula> (1) <tool_table> (1), [Cook] <sliced_tomato> (1), [TurnOff] <cooktop> (1), [Grab] <cooked_tomato> (1), [Walk] <service_pass> (1), [PutOn] <cooked_tomato> (1) <plate> (1), [Grab] <plate> (1)",
+      "seed": 4183809571,
+      "source_task_id": "GUIDE-14004"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "cut",
+          "label": null,
+          "neg_kind": null,
+          "subject": "tomato",
+          "target": "tomato"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "cooked",
+          "label": null,
+          "neg_kind": null,
+          "subject": "sliced_tomato",
+          "target": "sliced_tomato"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "cooked_tomato",
+          "target": "plate"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "held",
+          "label": null,
+          "neg_kind": null,
+          "subject": "plate",
+          "target": "plate"
+        }
+      ],
+      "sub_steps": [
+        "cut(tomato)",
+        "cooked(sliced_tomato)",
+        "on(cooked_tomato, plate)",
+        "held(plate)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-14004",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 4183809571,
+      "containers": {},
+      "decor": [],
+      "fixtures": {
+        "recipe_table": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene",
+            "pick": {
+              "name": "commercial_kitchen_table_vxvtec_0",
+              "stage_prim_path": "/World/b_commercial_kitchen_table_vxvtec_0",
+              "asset_sha256": "sha256:8d509b608a7979fcf7faff9aea0cc4df74003de8a02de8382ab4a3e1cedee263",
+              "instance_digest": "sha256:470ddae3339172a4b0448f8f760c15ab69a09515fb505c9be3cfe4dfaf9c929f",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "prep": {
+          "bind": {
+            "cat": "metal_bottom_cabinet",
+            "source": "scene",
+            "pick": {
+              "name": "metal_bottom_cabinet_bbjuqu_1",
+              "stage_prim_path": "/World/b_metal_bottom_cabinet_bbjuqu_1",
+              "asset_sha256": "sha256:5a7210cb142e6509bdb498a64b25d9fe8e314e2e74916fe6dfca55ef28b4cb1f",
+              "instance_digest": "sha256:7f3e93b8eab3f4c82f737714660bf4956031472d33474c68030df57b7141c7f7",
+              "by": "scene_instance",
+              "rank": 1
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "cooktop": {
+          "bind": {
+            "cat": "flat_top_grill",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "tool_table": {
+          "bind": {
+            "cat": "metal_bottom_cabinet",
+            "source": "scene",
+            "pick": {
+              "name": "metal_bottom_cabinet_bbjuqu_2",
+              "stage_prim_path": "/World/b_metal_bottom_cabinet_bbjuqu_2",
+              "asset_sha256": "sha256:5a7210cb142e6509bdb498a64b25d9fe8e314e2e74916fe6dfca55ef28b4cb1f",
+              "instance_digest": "sha256:a914039f691dafa2af0937ff00e48618e86a90bb1d4862ccdf4b499fa01a91e2",
+              "by": "scene_instance",
+              "rank": 2
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "service_pass": {
+          "bind": {
+            "cat": "metal_bottom_cabinet",
+            "source": "scene",
+            "pick": {
+              "name": "metal_bottom_cabinet_bbjuqu_3",
+              "stage_prim_path": "/World/b_metal_bottom_cabinet_bbjuqu_3",
+              "asset_sha256": "sha256:5a7210cb142e6509bdb498a64b25d9fe8e314e2e74916fe6dfca55ef28b4cb1f",
+              "instance_digest": "sha256:57ce9372726853a7b30e7d854f696b2488fbf134d4c868998fb5ca1b5b97de16",
+              "by": "scene_instance",
+              "rank": 3
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_recipe": {
+          "content": {
+            "args": {
+              "renderer": "recipe_card",
+              "rows": [
+                "1|SLICE THE TOMATO",
+                "2|RETURN KNIFE TO PREP TABLE",
+                "3|TURN ON FLAT TOP; ADD TOMATO",
+                "4|STIR WITH SPATULA; RETURN TOOL",
+                "5|COOK TOMATO; TURN OFF FLAT TOP",
+                "6|PLATE TOMATO; LIFT PLATE TO SERVE"
+              ],
+              "sub": "",
+              "title": "GRIDDLED TOMATO RECIPE"
+            },
+            "lines": [
+              "1|SLICE THE TOMATO",
+              "2|RETURN KNIFE TO PREP TABLE",
+              "3|TURN ON FLAT TOP; ADD TOMATO",
+              "4|STIR WITH SPATULA; RETURN TOOL",
+              "5|COOK TOMATO; TURN OFF FLAT TOP",
+              "6|PLATE TOMATO; LIFT PLATE TO SERVE"
+            ],
+            "text": "GRIDDLED TOMATO RECIPE"
+          },
+          "kind": "range_card",
+          "mount": {
+            "on": "recipe",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_14004_guide26_story_refine_r2_20260912zl_recipe_20cd63ef2b2b"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "recipe": {
+          "cat": "clipboard",
+          "model": "gmxyfo",
+          "needs_lookat": true,
+          "place": "on:recipe_table",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.0,
+            0.5
+          ],
+          "decal": "GRIDDLED TOMATO RECIPE"
+        },
+        "tomato": {
+          "cat": "beefsteak_tomato",
+          "model": "altlfz",
+          "needs_lookat": false,
+          "place": "on:prep",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.55,
+            0.5
+          ]
+        },
+        "sliced_tomato": {
+          "cat": "sliced_tomato",
+          "model": "bgcdjr",
+          "needs_lookat": false,
+          "place": "on:prep",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.15,
+            0.5
+          ],
+          "scale": 1.6
+        },
+        "cooked_tomato": {
+          "cat": "sliced_tomato",
+          "model": "bgcdjr",
+          "needs_lookat": false,
+          "place": "on:cooktop",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            -0.15
+          ],
+          "tint": "black",
+          "scale": 1.6
+        },
+        "knife": {
+          "cat": "table_knife",
+          "model": "jxdfyy",
+          "needs_lookat": false,
+          "place": "on:prep",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.35,
+            0.5
+          ]
+        },
+        "spatula": {
+          "cat": "spatula",
+          "model": "iktnwh",
+          "needs_lookat": false,
+          "place": "on:tool_table",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.0,
+            0.5
+          ]
+        },
+        "plate": {
+          "cat": "plate",
+          "model": "bgxzec",
+          "needs_lookat": false,
+          "place": "on:service_pass",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            0.5
+          ],
+          "affordances": [
+            "surface",
+            "container"
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "kitchen_0"
+      ],
+      "scene": "restaurant_diner",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "The wearer enters a commercial kitchen, reads a complete griddled-tomato recipe, and asks for guidance without proposing a solution. The assistant must preserve the recipe's slice, tool-return, griddle, stir, cook, and power dependencies before plating the visibly blackened slices and lifting the serving plate.",
+    "assistant_goal": "I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.DEPENDENCY_GRAPH",
+      "assigned_scene": "restaurant_diner",
+      "core_question": "I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "The wearer enters a commercial kitchen, reads a complete griddled-tomato recipe, and asks for guidance without proposing a solution. The assistant must preserve the recipe's slice, tool-return, griddle, stir, cook, and power dependencies before plating the visibly blackened slices and lifting the serving plate."
+      ],
+      "required_evidence": [
+        "I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time.",
+        "The recipe visibly specifies all six preparation and cooking steps.",
+        "The whole beefsteak tomato and its knife are on the preparation table.",
+        "The required spatula is visible on a separate tool table.",
+        "A clean plain plate is visible on the service pass.",
+        "Fresh tomato slices are visible and the knife is back on the prep table.",
+        "The tomato has been stirred, the spatula returned, and blackened charred slices are now visible.",
+        "The flat top is off, the blackened tomato is plated, and the wearer is holding the serving plate.",
+        "Follow the card in order: slice the tomato, return the knife, move the tomato to the switched-on flat top, stir it with the spatula, return that tool, cook the tomato, and turn the flat top off. Finally put the blackened slices on the plate and lift the plate to serve."
+      ],
+      "required_final_predicates": [
+        "cut",
+        "cooked",
+        "on",
+        "held"
+      ],
+      "success_condition": "cut(tomato); cooked(sliced_tomato); on(cooked_tomato, plate); held(plate)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-14004",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.DEPENDENCY_GRAPH",
+        "assigned_scene": "restaurant_diner",
+        "core_question": "I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "The wearer enters a commercial kitchen, reads a complete griddled-tomato recipe, and asks for guidance without proposing a solution. The assistant must preserve the recipe's slice, tool-return, griddle, stir, cook, and power dependencies before plating the visibly blackened slices and lifting the serving plate."
+        ],
+        "required_evidence": [
+          "I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time.",
+          "The recipe visibly specifies all six preparation and cooking steps.",
+          "The whole beefsteak tomato and its knife are on the preparation table.",
+          "The required spatula is visible on a separate tool table.",
+          "A clean plain plate is visible on the service pass.",
+          "Fresh tomato slices are visible and the knife is back on the prep table.",
+          "The tomato has been stirred, the spatula returned, and blackened charred slices are now visible.",
+          "The flat top is off, the blackened tomato is plated, and the wearer is holding the serving plate.",
+          "Follow the card in order: slice the tomato, return the knife, move the tomato to the switched-on flat top, stir it with the spatula, return that tool, cook the tomato, and turn the flat top off. Finally put the blackened slices on the plate and lift the plate to serve."
+        ],
+        "required_final_predicates": [
+          "cut",
+          "cooked",
+          "on",
+          "held"
+        ],
+        "success_condition": "cut(tomato); cooked(sliced_tomato); on(cooked_tomato, plate); held(plate)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "beefsteak_tomato",
+          "blanket",
+          "blender",
+          "board_game",
+          "bottle_of_lubricant",
+          "bottle_of_molasses",
+          "bottle_of_tequila",
+          "bottle_of_water",
+          "box_of_apple_juice",
+          "brussels_sprouts",
+          "cell_phone",
+          "chess_set",
+          "chickpea_can",
+          "chives",
+          "clipboard",
+          "date",
+          "deodorant_stick",
+          "dog_food_can",
+          "folder",
+          "french_toast",
+          "gift_box",
+          "gravy_boat",
+          "half_apricot",
+          "half_artichoke",
+          "half_bagel_dough",
+          "half_buttermilk_pancake",
+          "half_crab",
+          "half_kiwi",
+          "half_omelet",
+          "half_rhubarb",
+          "hand_towel",
+          "hotdog_bun",
+          "ice_tray",
+          "jar_of_grains",
+          "jar_of_orange_sauce",
+          "lasagna",
+          "menu",
+          "mug",
+          "nativity_figurine",
+          "pack_of_kielbasa",
+          "paper_sheet",
+          "pencil",
+          "plate",
+          "pork",
+          "scraper",
+          "shears",
+          "sliced_tomato",
+          "spatula",
+          "table_knife",
+          "utility_knife",
+          "whole_fennel",
+          "wine_bottle"
+        ],
+        "allowed_surface_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "breakfast_table",
+          "commercial_kitchen_table",
+          "flat_top_grill",
+          "freezer",
+          "metal_bottom_cabinet"
+        ],
+        "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+        "coverage_categories": [
+          "half_bagel_dough",
+          "chess_set",
+          "date",
+          "lasagna",
+          "jar_of_orange_sauce",
+          "gravy_boat",
+          "half_artichoke",
+          "board_game",
+          "french_toast",
+          "blender",
+          "half_kiwi",
+          "half_apricot",
+          "pencil",
+          "half_buttermilk_pancake",
+          "ice_tray",
+          "pork",
+          "nativity_figurine",
+          "half_omelet",
+          "pack_of_kielbasa",
+          "scraper"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 4,
+          "required_semantic_turns": 4,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 32,
+          "max_document_characters": 197,
+          "max_fixed_destinations": 5,
+          "max_movable_objects": 7,
+          "max_objects_per_container": 7,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 13,
+          "max_small_label_characters": 40,
+          "max_task_actions": 15,
+          "max_meaningful_steps": 28,
+          "min_intervening_meaningful_actions": 8
+        },
+        "preferred_story_categories": [
+          "half_bagel_dough",
+          "chess_set",
+          "date",
+          "lasagna",
+          "jar_of_orange_sauce",
+          "gravy_boat",
+          "half_artichoke",
+          "board_game"
+        ],
+        "preferred_story_category_glosses": {
+          "board_game": "",
+          "chess_set": "",
+          "date": "",
+          "gravy_boat": "",
+          "half_artichoke": "",
+          "half_bagel_dough": "",
+          "jar_of_orange_sauce": "",
+          "lasagna": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 55.5,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "fridge": 2,
+              "metal_bottom_cabinet": 4,
+              "oven": 1
+            },
+            "scene_surfaces": {
+              "commercial_kitchen_table": 2,
+              "freezer": 1,
+              "metal_bottom_cabinet": 4
+            },
+            "surface_max_area_m2": {
+              "commercial_kitchen_table": 0.565,
+              "freezer": 0.508,
+              "metal_bottom_cabinet": 0.216
+            },
+            "surface_reference_capacity": {
+              "commercial_kitchen_table": 3,
+              "freezer": 3,
+              "metal_bottom_cabinet": 3
+            }
+          }
+        ],
+        "scene": "restaurant_diner",
+        "task_id": "GUIDE-14004",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "clipboard",
+            "changed": false,
+            "costs": null,
+            "label": "GRIDDLED TOMATO RECIPE",
+            "tint": null,
+            "what": "griddled-tomato recipe clipboard"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "beefsteak_tomato",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "whole beefsteak tomato"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "sliced_tomato",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "fresh tomato slices"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "sliced_tomato",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": "black",
+            "what": "blackened charred tomato slices"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "table_knife",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "tomato knife"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "spatula",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "flat-top spatula"
+          },
+          {
+            "affordances": [
+              "graspable",
+              "surface",
+              "container"
+            ],
+            "category": "plate",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "plain serving plate"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "wide stainless recipe-reading table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "metal_bottom_cabinet",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "ingredient preparation table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "flat_top_grill",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "flat-top griddle"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "metal_bottom_cabinet",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "flat-top tool table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "metal_bottom_cabinet",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "clean service pass holding the plate"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "griddled-tomato recipe clipboard",
+            "text": "GRIDDLED TOMATO RECIPE",
+            "what": "document",
+            "which": null
+          }
+        ],
+        "restaged_story": "The wearer enters a commercial kitchen, reads a complete griddled-tomato recipe, and asks for guidance without proposing a solution. The assistant must preserve the recipe's slice, tool-return, griddle, stir, cook, and power dependencies before plating the visibly blackened slices and lifting the serving plate.",
+        "scene": "restaurant_diner",
+        "why_scene": "restaurant_diner supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {},
+        "items": {
+          "recipe": {
+            "affordances": [],
+            "cat": "clipboard",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "GRIDDLED TOMATO RECIPE",
+            "place": "on:recipe_table",
+            "scored": false,
+            "spot": [
+              0.0,
+              0.5
+            ],
+            "tint": null
+          },
+          "tomato": {
+            "affordances": [],
+            "cat": "beefsteak_tomato",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:prep",
+            "scored": true,
+            "spot": [
+              -0.55,
+              0.5
+            ],
+            "tint": null
+          },
+          "sliced_tomato": {
+            "affordances": [],
+            "cat": "sliced_tomato",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:prep",
+            "scored": true,
+            "spot": [
+              -0.15,
+              0.5
+            ],
+            "tint": null
+          },
+          "cooked_tomato": {
+            "affordances": [],
+            "cat": "sliced_tomato",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:cooktop",
+            "scored": true,
+            "spot": [
+              0.0,
+              -0.15
+            ],
+            "tint": "black"
+          },
+          "knife": {
+            "affordances": [],
+            "cat": "table_knife",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:prep",
+            "scored": false,
+            "spot": [
+              0.35,
+              0.5
+            ],
+            "tint": null
+          },
+          "spatula": {
+            "affordances": [],
+            "cat": "spatula",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:tool_table",
+            "scored": false,
+            "spot": [
+              0.0,
+              0.5
+            ],
+            "tint": null
+          },
+          "plate": {
+            "affordances": [
+              "surface",
+              "container"
+            ],
+            "cat": "plate",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:service_pass",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.5
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <recipe> (1)",
+          "[Grab] <recipe> (1)",
+          "[LookAt] <recipe> (1)",
+          "[Walk] <prep> (1)",
+          "[LookAt] <tomato> (1)",
+          "[LookAt] <knife> (1)",
+          "[Walk] <tool_table> (1)",
+          "[LookAt] <spatula> (1)",
+          "[Walk] <service_pass> (1)",
+          "[LookAt] <plate> (1)",
+          "[Walk] <prep> (1)",
+          "[LookAt] <cooktop> (1)",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0"
+        ],
+        "scene": "restaurant_diner",
+        "staging": {
+          "groups": "The wearer enters a commercial kitchen, reads a complete griddled-tomato recipe, and asks for guidance without proposing a solution. The assistant must preserve the recipe's slice, tool-return, griddle, stir, cook, and power dependencies before plating the visibly blackened slices and lifting the serving plate.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "recipe_table": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "prep": {
+            "cat": "metal_bottom_cabinet",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "cooktop": {
+            "cat": "flat_top_grill",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "tool_table": {
+            "cat": "metal_bottom_cabinet",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "service_pass": {
+            "cat": "metal_bottom_cabinet",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The recipe visibly specifies all six preparation and cooking steps.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 2,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The whole beefsteak tomato and its knife are on the preparation table.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 5,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The required spatula is visible on a separate tool table.",
+            "from": "prologue",
+            "id": "fact_004",
+            "source_index": 7,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "A clean plain plate is visible on the service pass.",
+            "from": "prologue",
+            "id": "fact_005",
+            "source_index": 9,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Fresh tomato slices are visible and the knife is back on the prep table.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 2,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The tomato has been stirred, the spatula returned, and blackened charred slices are now visible.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 9,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The flat top is off, the blackened tomato is plated, and the wearer is holding the serving plate.",
+            "from": "live",
+            "id": "fact_008",
+            "source_index": 14,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007",
+              "fact_008"
+            ],
+            "fact": "Follow the card in order: slice the tomato, return the knife, move the tomato to the switched-on flat top, stir it with the spatula, return that tool, cook the tomato, and turn the flat top off. Finally put the blackened slices on the plate and lift the plate to serve.",
+            "from": "derived",
+            "id": "fact_009",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "cut",
+            "scorable": true,
+            "subject": "tomato",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "cooked",
+            "scorable": true,
+            "subject": "sliced_tomato",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "cooked_tomato",
+            "target": "plate"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "held",
+            "scorable": true,
+            "subject": "plate",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "At the prep counter, pick up the knife and use it to slice the tomato on that same counter, then set the knife back there.",
+            "referents": [
+              "recipe",
+              "knife",
+              "tomato",
+              "prep"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ]
+          },
+          {
+            "before_index": 3,
+            "say": "The tomato is sliced and the knife is back on the prep counter. Turn on the flat top you inspected at the end of your earlier scan, then move the sliced tomato from the prep counter onto that flat top.",
+            "referents": [
+              "knife",
+              "sliced_tomato",
+              "cooktop"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_005"
+            ]
+          },
+          {
+            "before_index": 6,
+            "say": "Take the spatula from the tool table. Use `[Stir] <cooktop> (1) <spatula> (1)`—the flat top, not the tomato, is the Stir target. Return the spatula to that tool table. Then use `[Cook] <sliced_tomato> (1)`—the food, not the appliance, is the Cook target.",
+            "referents": [
+              "spatula",
+              "sliced_tomato",
+              "cooktop",
+              "tool_table"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_005"
+            ]
+          },
+          {
+            "before_index": 10,
+            "say": "The tomato slices are visibly blackened. Turn off the flat top, move the cooked slices from it onto the plate at the service pass, then lift the whole plate to serve.",
+            "referents": [
+              "cooked_tomato",
+              "plate",
+              "service_pass"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_006"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Grab] <knife> (1), [Cut] <tomato> (1) <knife> (1), [PutOn] <knife> (1) <prep> (1), [TurnOn] <cooktop> (1), [Grab] <sliced_tomato> (1), [PutOn] <sliced_tomato> (1) <cooktop> (1), [Cook] <sliced_tomato> (1), [TurnOff] <cooktop> (1), [Grab] <cooked_tomato> (1), [PutOn] <cooked_tomato> (1) <plate> (1)",
+        "mates": [],
+        "oracle_program": "[Grab] <knife> (1), [Cut] <tomato> (1) <knife> (1), [PutOn] <knife> (1) <prep> (1), [TurnOn] <cooktop> (1), [Grab] <sliced_tomato> (1), [PutOn] <sliced_tomato> (1) <cooktop> (1), [Grab] <spatula> (1), [Stir] <cooktop> (1) <spatula> (1), [PutOn] <spatula> (1) <tool_table> (1), [Cook] <sliced_tomato> (1), [TurnOff] <cooktop> (1), [Grab] <cooked_tomato> (1), [Walk] <service_pass> (1), [PutOn] <cooked_tomato> (1) <plate> (1), [Grab] <plate> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "The wearer enters a commercial kitchen, reads a complete griddled-tomato recipe, and asks for guidance without proposing a solution. The assistant must preserve the recipe's slice, tool-return, griddle, stir, cook, and power dependencies before plating the visibly blackened slices and lifting the serving plate.",
+        "utterance": "I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <recipe> (1)",
+        "[Grab] <recipe> (1)",
+        "[LookAt] <recipe> (1)",
+        "[Walk] <prep> (1)",
+        "[LookAt] <tomato> (1)",
+        "[LookAt] <knife> (1)",
+        "[Walk] <tool_table> (1)",
+        "[LookAt] <spatula> (1)",
+        "[Walk] <service_pass> (1)",
+        "[LookAt] <plate> (1)",
+        "[Walk] <prep> (1)",
+        "[LookAt] <cooktop> (1)",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "recipe"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "recipe"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "recipe"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "recipe"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "recipe"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The recipe visibly specifies all six preparation and cooking steps.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "Follow the card in order: slice the tomato, return the knife, move the tomato to the switched-on flat top, stir it with the spatula, return that tool, cook the tomato, and turn the flat top off. Finally put the blackened slices on the plate and lift the plate to serve.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "prep"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "prep"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "tomato"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "knife"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The whole beefsteak tomato and its knife are on the preparation table.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "Follow the card in order: slice the tomato, return the knife, move the tomato to the switched-on flat top, stir it with the spatula, return that tool, cook the tomato, and turn the flat top off. Finally put the blackened slices on the plate and lift the plate to serve.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "tool_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "tool_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "spatula"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The required spatula is visible on a separate tool table.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "Follow the card in order: slice the tomato, return the knife, move the tomato to the switched-on flat top, stir it with the spatula, return that tool, cook the tomato, and turn the flat top off. Finally put the blackened slices on the plate and lift the plate to serve.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "service_pass"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "service_pass"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "plate"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "A clean plain plate is visible on the service pass.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "Follow the card in order: slice the tomato, return the knife, move the tomato to the switched-on flat top, stir it with the spatula, return that tool, cook the tomato, and turn the flat top off. Finally put the blackened slices on the plate and lift the plate to serve.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "prep"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "prep"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p011",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "cooktop"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p012",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "Follow the card in order: slice the tomato, return the knife, move the tomato to the switched-on flat top, stir it with the spatula, return that tool, cook the tomato, and turn the flat top off. Finally put the blackened slices on the plate and lift the plate to serve.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "At the prep counter, pick up the knife and use it to slice the tomato on that same counter, then set the knife back there.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The tomato is sliced and the knife is back on the prep counter. Turn on the flat top you inspected at the end of your earlier scan, then move the sliced tomato from the prep counter onto that flat top.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Take the spatula from the tool table. Use `[Stir] <cooktop> (1) <spatula> (1)`—the flat top, not the tomato, is the Stir target. Return the spatula to that tool table. Then use `[Cook] <sliced_tomato> (1)`—the food, not the appliance, is the Cook target.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_003",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The tomato slices are visibly blackened. Turn off the flat top, move the cooked slices from it onto the plate at the service pass, then lift the whole plate to serve.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "knife"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "knife"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Cut",
+          "args": [
+            "tomato",
+            "knife"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "knife",
+            "prep"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "TurnOn",
+          "args": [
+            "cooktop"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "sliced_tomato"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "sliced_tomato"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "sliced_tomato",
+            "cooktop"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Cook",
+          "args": [
+            "sliced_tomato"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "TurnOff",
+          "args": [
+            "cooktop"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "cooked_tomato"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "cooked_tomato"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "cooked_tomato",
+            "plate"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "knife"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "knife"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Cut",
+          "args": [
+            "tomato",
+            "knife"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "knife",
+            "prep"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "Fresh tomato slices are visible and the knife is back on the prep table.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "Follow the card in order: slice the tomato, return the knife, move the tomato to the switched-on flat top, stir it with the spatula, return that tool, cook the tomato, and turn the flat top off. Finally put the blackened slices on the plate and lift the plate to serve.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "TurnOn",
+          "args": [
+            "cooktop"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "sliced_tomato"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "sliced_tomato"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "sliced_tomato",
+            "cooktop"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "spatula"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "spatula"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Stir",
+          "args": [
+            "cooktop",
+            "spatula"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "spatula",
+            "tool_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Cook",
+          "args": [
+            "sliced_tomato"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The tomato has been stirred, the spatula returned, and blackened charred slices are now visible.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "Follow the card in order: slice the tomato, return the knife, move the tomato to the switched-on flat top, stir it with the spatula, return that tool, cook the tomato, and turn the flat top off. Finally put the blackened slices on the plate and lift the plate to serve.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o010",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "TurnOff",
+          "args": [
+            "cooktop"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o011",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "cooked_tomato"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "cooked_tomato"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o012",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "service_pass"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "service_pass"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o013",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "cooked_tomato",
+            "plate"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o014",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "plate"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "plate"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The flat top is off, the blackened tomato is plated, and the wearer is holding the serving plate.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "Follow the card in order: slice the tomato, return the knife, move the tomato to the switched-on flat top, stir it with the spatula, return that tool, cook the tomato, and turn the flat top off. Finally put the blackened slices on the plate and lift the plate to serve.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The recipe visibly specifies all six preparation and cooking steps.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p002"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 2
+      },
+      {
+        "id": "fact_003",
+        "statement": "The whole beefsteak tomato and its knife are on the preparation table.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p005"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 5
+      },
+      {
+        "id": "fact_004",
+        "statement": "The required spatula is visible on a separate tool table.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p007"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 7
+      },
+      {
+        "id": "fact_005",
+        "statement": "A clean plain plate is visible on the service pass.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p009"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 9
+      },
+      {
+        "id": "fact_006",
+        "statement": "Fresh tomato slices are visible and the knife is back on the prep table.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o002"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 2
+      },
+      {
+        "id": "fact_007",
+        "statement": "The tomato has been stirred, the spatula returned, and blackened charred slices are now visible.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o009"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 9
+      },
+      {
+        "id": "fact_008",
+        "statement": "The flat top is off, the blackened tomato is plated, and the wearer is holding the serving plate.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o014"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 14
+      },
+      {
+        "id": "fact_009",
+        "statement": "Follow the card in order: slice the tomato, return the knife, move the tomato to the switched-on flat top, stir it with the spatula, return that tool, cook the tomato, and turn the flat top off. Finally put the blackened slices on the plate and lift the plate to serve.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p002",
+          "p005",
+          "p007",
+          "p009",
+          "o002",
+          "o009",
+          "o014"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007",
+          "fact_008"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the recipe and preceding first-person evidence to guide the person through preparing and serving the dish one meaningful step at a time.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <recipe> (1)",
+          "[Grab] <recipe> (1)",
+          "[LookAt] <recipe> (1)",
+          "[Walk] <prep> (1)",
+          "[LookAt] <tomato> (1)",
+          "[LookAt] <knife> (1)",
+          "[Walk] <tool_table> (1)",
+          "[LookAt] <spatula> (1)",
+          "[Walk] <service_pass> (1)",
+          "[LookAt] <plate> (1)",
+          "[Walk] <prep> (1)",
+          "[LookAt] <cooktop> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 12,
+            "say": "Hey, Assistant, I haven't made this dish before. Can you use the recipe I just read and walk me through it one step at a time?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, I haven't made this dish before. Can you use the recipe I just read and walk me through it one step at a time?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "recipe_guidance_request",
+            "required_phrases": [
+              "recipe I just read",
+              "one step at a time"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[Cut] <tomato> (1) <knife> (1)",
+          "[PutOn] <knife> (1) <prep> (1)",
+          "[TurnOn] <cooktop> (1)",
+          "[PutOn] <sliced_tomato> (1) <cooktop> (1)",
+          "[Stir] <cooktop> (1) <spatula> (1)",
+          "[PutOn] <spatula> (1) <tool_table> (1)",
+          "[Cook] <sliced_tomato> (1)",
+          "[TurnOff] <cooktop> (1)",
+          "[PutOn] <cooked_tomato> (1) <plate> (1)",
+          "[Grab] <plate> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[Cut] <tomato> (1) <knife> (1)",
+            "[PutOn] <knife> (1) <prep> (1)",
+            "[TurnOn] <cooktop> (1)",
+            "[PutOn] <sliced_tomato> (1) <cooktop> (1)",
+            "[Stir] <cooktop> (1) <spatula> (1)",
+            "[PutOn] <spatula> (1) <tool_table> (1)",
+            "[Cook] <sliced_tomato> (1)",
+            "[TurnOff] <cooktop> (1)",
+            "[PutOn] <cooked_tomato> (1) <plate> (1)",
+            "[Grab] <plate> (1)"
+          ]
+        ],
+        "verification_points": [
+          {
+            "id": "tomato_cut",
+            "kind": "world_state",
+            "pred": "cut",
+            "subject": "tomato",
+            "target": "tomato"
+          },
+          {
+            "id": "tomato_cooked",
+            "kind": "world_state",
+            "pred": "cooked",
+            "subject": "sliced_tomato",
+            "target": "sliced_tomato"
+          },
+          {
+            "id": "tomato_plated",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "cooked_tomato",
+            "target": "plate"
+          },
+          {
+            "id": "serving_plate_held",
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "plate",
+            "target": "plate"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "prep": [
+          "prep counter"
+        ],
+        "tool_table": [
+          "tool table"
+        ],
+        "service_pass": [
+          "service pass"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 54,
+    "dialogue_budget": 4,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "cooktop",
+        "held": [
+          "recipe"
+        ],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005",
+        "h006",
+        "h007",
+        "h008",
+        "h009"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "recipe",
+              "knife",
+              "tomato",
+              "prep"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "recipe",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "knife",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "knife",
+              "sliced_tomato",
+              "cooktop"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "tomato",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "sliced_tomato",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "spatula",
+              "sliced_tomato",
+              "cooktop",
+              "tool_table"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "tomato",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "spatula",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o009"
+        },
+        {
+          "after_beat": "o009",
+          "intervention_beat": "assistant_003",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "cooked_tomato",
+              "plate",
+              "service_pass"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "tomato",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o010"
+        },
+        {
+          "after_beat": "o010",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o011"
+        },
+        {
+          "after_beat": "o011",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "cooked_tomato",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o012"
+        },
+        {
+          "after_beat": "o012",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "service_pass",
+            "truth": true
+          },
+          "next_beat": "o013"
+        },
+        {
+          "after_beat": "o013",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o014"
+        }
+      ],
+      "terminal_beats": [
+        "h009",
+        "o014"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "knife"
+        ]
+      },
+      {
+        "verb": "Cut",
+        "args": [
+          "tomato",
+          "knife"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "knife",
+          "prep"
+        ]
+      },
+      {
+        "verb": "TurnOn",
+        "args": [
+          "cooktop"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "sliced_tomato"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "sliced_tomato",
+          "cooktop"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "spatula"
+        ]
+      },
+      {
+        "verb": "Stir",
+        "args": [
+          "cooktop",
+          "spatula"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "spatula",
+          "tool_table"
+        ]
+      },
+      {
+        "verb": "Cook",
+        "args": [
+          "sliced_tomato"
+        ]
+      },
+      {
+        "verb": "TurnOff",
+        "args": [
+          "cooktop"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "cooked_tomato"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "service_pass"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "cooked_tomato",
+          "plate"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "plate"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "knife"
+        ]
+      },
+      {
+        "verb": "Cut",
+        "args": [
+          "tomato",
+          "knife"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "knife",
+          "prep"
+        ]
+      },
+      {
+        "verb": "TurnOn",
+        "args": [
+          "cooktop"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "sliced_tomato"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "sliced_tomato",
+          "cooktop"
+        ]
+      },
+      {
+        "verb": "Cook",
+        "args": [
+          "sliced_tomato"
+        ]
+      },
+      {
+        "verb": "TurnOff",
+        "args": [
+          "cooktop"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "cooked_tomato"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "cooked_tomato",
+          "plate"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "At the prep counter, pick up the knife and use it to slice the tomato on that same counter, then set the knife back there.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The tomato is sliced and the knife is back on the prep counter. Turn on the flat top you inspected at the end of your earlier scan, then move the sliced tomato from the prep counter onto that flat top.",
+        "relation": "before",
+        "anchor_beat_id": "o003",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "Take the spatula from the tool table. Use `[Stir] <cooktop> (1) <spatula> (1)`—the flat top, not the tomato, is the Stir target. Return the spatula to that tool table. Then use `[Cook] <sliced_tomato> (1)`—the food, not the appliance, is the Cook target.",
+        "relation": "before",
+        "anchor_beat_id": "o006",
+        "source": "guidance",
+        "source_index": 2
+      },
+      {
+        "id": "assistant_003",
+        "say": "The tomato slices are visibly blackened. Turn off the flat top, move the cooked slices from it onto the plate at the service pass, then lift the whole plate to serve.",
+        "relation": "before",
+        "anchor_beat_id": "o010",
+        "source": "guidance",
+        "source_index": 3
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": [
+      {
+        "type": "entity_visibility",
+        "entities": [
+          "tomato"
+        ],
+        "visible": false,
+        "initially_visible": true,
+        "after_command": "[Cut] <tomato> (1) <knife> (1)",
+        "occurrence": 1,
+        "require_offscreen": false
+      },
+      {
+        "type": "entity_visibility",
+        "entities": [
+          "sliced_tomato"
+        ],
+        "pose_from": [
+          "tomato"
+        ],
+        "visible": true,
+        "initially_visible": false,
+        "after_command": "[Cut] <tomato> (1) <knife> (1)",
+        "occurrence": 1,
+        "require_offscreen": false
+      },
+      {
+        "type": "entity_visibility",
+        "entities": [
+          "sliced_tomato"
+        ],
+        "visible": false,
+        "initially_visible": false,
+        "after_command": "[Cook] <sliced_tomato> (1)",
+        "occurrence": 1,
+        "require_offscreen": false
+      },
+      {
+        "type": "entity_visibility",
+        "entities": [
+          "cooked_tomato"
+        ],
+        "pose_from": [
+          "sliced_tomato"
+        ],
+        "visible": true,
+        "initially_visible": false,
+        "after_command": "[Cook] <sliced_tomato> (1)",
+        "occurrence": 1,
+        "require_offscreen": false
+      }
+    ]
+  },
+  "lineage": {
+    "source": "guide22_interaction_assembly",
+    "compile_input_digest": "sha256:54d537830cf755ad5e7d1694efc6dae37be1aaefa1eb6fcfa3b59e5a1d4c26d4",
+    "source_contract_digest": "sha256:7bf023d9f9151fba7617d68211854a3410d36ec04e2c8f599a6b5b26ef449c68",
+    "executable_spec_digest": "sha256:4422ad1ac78cf5e3cb4ba4b9483bd9279cc31f2a1c03e13ebb76db91db20df58",
+    "invention": {
+      "attempt": 2,
+      "author_prose": "A novice baker is preparing a snack in a studio apartment's living room, using the breakfast table as a prep station. A freestanding oven has been set up nearby for baking. On the breakfast table rests a portion of raw half bagel dough and a plastic bench scraper. \n\nThe wearer is following a specific recipe to make toasted bagel bites, which strictly requires dividing the raw dough into smaller portions before applying heat. The wearer walks up to the breakfast table, looks down at the ingredients, and asks the smart glasses, \"I am ready to make the bagel bites. Should I go ahead and cook this dough now?\"\n\nThe assistant relies on the egocentric camera feed, which clearly shows the half bagel dough resting on the table in a single, uncut piece. To succeed, the assistant must evaluate the task's dependency graph and recognize a strict linear requirement: the dough must undergo a physical transformation prerequisite before it can be baked. If the dough is cooked first, the exterior will harden, making it impossible to cleanly cut into the required bite-sized pieces later. \n\nA strong assistant refuses the premature terminal step. It explains the dependency rule and explicitly redirects the wearer to cut the dough first. Following this guidance, the wearer grabs the scraper, cuts the half bagel dough, and returns the scraper to the breakfast table. Only then do they grab the prepared dough, walk to the oven, open the door, place the dough inside, close the oven, and execute the cook action. \n\nA weak assistant acts as a naive chatbot, matching the user's prompt about cooking dough to generic baking instructions and approving the step without checking the physical state. This causes the wearer to prematurely cook the dough whole, permanently ruining the intended recipe. \n\nSuccess is evaluated through the ordered command trace, which must verify that the cut action was performed on the dough strictly before the cook action. Additionally, the final scorable state must confirm that the half bagel dough possesses both the cut and cooked predicates while resting inside the closed oven.",
+      "author_prose_sha256": "sha256:31419597abefe02089ce116ee7a1f540ec9f8a906ff6a866edf6ca735913800c",
+      "capability": {
+        "boundary": "The core is dependency reasoning, not memorising one rigid total sequence and not sorting ingredients by label.",
+        "few_shot": "A novice is assembling a small display stand. Attaching the left foot and attaching the right foot are independent, but both must be secured before the upright can be raised. After completing only the left foot, the wearer asks whether they can raise the frame now. The assistant identifies the unmet right-foot prerequisite, directs that attachment first, and only then permits the raise. The beat-bound guidance and ordered command trace preserve the dependency decision, while the final attached and raised predicates verify the completed stand. A weak guide that merely recites a memorised total sequence either rejects a legal branch order or allows the irreversible raise too early.",
+        "id": "GUIDE.DEPENDENCY_GRAPH",
+        "name_zh": "依赖图推理与排序",
+        "target": "Guide a novice through a partial-order task graph, choosing a legal next step and refusing a requested step whose prerequisites are incomplete."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+        "evaluation_mode": "TRACE_AND_OUTCOME",
+        "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": true,
+        "owner": "SIMULATOR_EVALUATION",
+        "reason": "The chosen legal trace runs, but there is no generic scorer for alternative valid topological orders and rejected illegal steps.",
+        "reason_code": "DEPENDENCY_ORDER_EVALUATOR",
+        "recommended_work": "Add dependency-graph and legal-next-step evaluation over the command trace.",
+        "version": "capability-support/1.0",
+        "workstream": "EVALUATOR"
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "gift_box",
+          "clipboard",
+          "folder",
+          "mug",
+          "half_bagel_dough",
+          "chess_set",
+          "date",
+          "lasagna",
+          "jar_of_orange_sauce",
+          "gravy_boat",
+          "half_artichoke",
+          "board_game",
+          "french_toast",
+          "blender",
+          "half_kiwi",
+          "half_apricot",
+          "pencil",
+          "half_buttermilk_pancake",
+          "ice_tray",
+          "pork",
+          "nativity_figurine",
+          "half_omelet",
+          "pack_of_kielbasa",
+          "scraper"
+        ],
+        "allowed_surface_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "breakfast_table"
+        ],
+        "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+        "coverage_categories": [
+          "half_bagel_dough",
+          "chess_set",
+          "date",
+          "lasagna",
+          "jar_of_orange_sauce",
+          "gravy_boat",
+          "half_artichoke",
+          "board_game",
+          "french_toast",
+          "blender",
+          "half_kiwi",
+          "half_apricot",
+          "pencil",
+          "half_buttermilk_pancake",
+          "ice_tray",
+          "pork",
+          "nativity_figurine",
+          "half_omelet",
+          "pack_of_kielbasa",
+          "scraper"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "half_bagel_dough",
+          "chess_set",
+          "date",
+          "lasagna",
+          "jar_of_orange_sauce",
+          "gravy_boat",
+          "half_artichoke",
+          "board_game"
+        ],
+        "preferred_story_category_glosses": {
+          "board_game": "",
+          "chess_set": "",
+          "date": "",
+          "gravy_boat": "",
+          "half_artichoke": "",
+          "half_bagel_dough": "",
+          "jar_of_orange_sauce": "",
+          "lasagna": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 22.7,
+            "name": "living_room_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "bookcase": 1,
+              "bottom_cabinet": 1,
+              "breakfast_table": 2
+            },
+            "surface_max_area_m2": {
+              "bookcase": 0.085,
+              "bottom_cabinet": 0.234,
+              "breakfast_table": 0.185
+            },
+            "surface_reference_capacity": {
+              "bookcase": 3,
+              "bottom_cabinet": 3,
+              "breakfast_table": 3
+            }
+          }
+        ],
+        "scene": "Rs_int",
+        "task_id": "GUIDE-14004",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "prompt_sha": "2c9dfe75c544",
+      "prompt_sha256": "sha256:2c9dfe75c544a4c9fe4b9c11420b6ad05851ebc7a5ac18e18c302e7644f48ea8",
+      "prompt_version": "capability-v19-grounded-physics-20260829",
+      "prose_sha256": "sha256:b134ee9e51066f5cdf88d5eff742e4bb3018f646988682b7368579fb1e05d714",
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "The visual confirmation that the half_bagel_dough is a single, uncut piece.",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "semantic_turns": 1,
+          "strong_weak_distinct": true,
+          "ungrounded_physical_nouns": [],
+          "uses_only_grounded_assets": true,
+          "why_utterance_alone_fails": "A text-only assistant cannot see the physical state of the dough and would blindly approve the cooking step based on generic baking instructions."
+        },
+        "capability_fit": "Evaluates dependency graph reasoning by requiring the assistant to refuse a terminal cooking step until a physical cutting prerequisite is met.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "half_bagel_dough",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "ingredient"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "scraper",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "tool"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "breakfast_table",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "prep station"
+              },
+              {
+                "affordances": [
+                  "container",
+                  "openable"
+                ],
+                "category": "oven",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "appliance"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "The wearer starts in living_room_0 facing the breakfast_table. The half_bagel_dough and scraper are on the breakfast_table. The oven is in the room. At action zero, the wearer asks if they should cook the dough now. The assistant observes the dough is whole and refuses, instructing the wearer to cut it first. The wearer grabs the scraper, executes a cut action on the half_bagel_dough using the scraper, and puts the scraper back on the breakfast_table. The wearer then grabs the half_bagel_dough, walks to the oven, opens the oven, puts the half_bagel_dough inside, closes the oven, and executes a cook action on the half_bagel_dough.",
+            "scene": "Rs_int",
+            "why_scene": "Provides a living room with a breakfast table to serve as the prep station."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "GUIDE.DEPENDENCY_GRAPH",
+              "counterfactual_failure": "The weak assistant approves the cooking step immediately, resulting in the dough being cooked without being cut.",
+              "forbidden_changes": [],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "uncut state of the dough"
+              ],
+              "required_final_predicates": [
+                "cut",
+                "cooked",
+                "inside",
+                "closed"
+              ],
+              "success_condition": "The dough is cut, cooked, and inside the closed oven.",
+              "temporal_constraints": [
+                "The cut action must occur before the cook action."
+              ]
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item to be prepared",
+                "what": "ingredient",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "cutting implement",
+                "what": "tool",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "surface",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "starting surface",
+                "what": "prep station",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container",
+                  "openable"
+                ],
+                "role_in_story": "cooking destination",
+                "what": "appliance",
+                "when": "main"
+              }
+            ],
+            "hinges_on": "Recognizing from the visual state of the half_bagel_dough that it has not yet been cut, which is a prerequisite for cooking.",
+            "look_alike": [],
+            "opening": "The half_bagel_dough and scraper rest on the breakfast_table. The oven is nearby.",
+            "outcome": "The dough is cut and then cooked inside the oven.",
+            "place": "living_room_0",
+            "printed": [],
+            "tests_what": "The assistant's ability to enforce a strict physical dependency graph."
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The story perfectly isolates a linear dependency graph where a physical transformation (cutting) must precede a terminal step (cooking). The egocentric vision is strictly required to determine that the dough is currently whole and the prerequisite is unmet, making it a clean and direct test of the assigned capability.",
+        "requirements": [],
+        "runtime_requirements": {
+          "actions": [
+            "Grab",
+            "Cut",
+            "Put",
+            "Walk",
+            "Open",
+            "Putin",
+            "Close",
+            "Cook"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 9,
+          "estimated_prologue_actions": 0,
+          "estimated_task_actions": 9,
+          "events": [],
+          "final_predicates": [
+            "cut",
+            "cooked",
+            "inside",
+            "closed"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 34.3,
+        "structural_signature": {
+          "evaluation": "ordered command trace and final state",
+          "evidence": "visual state of dough",
+          "failure": "premature terminal action",
+          "operation": "dependency evaluation",
+          "response": "refusal and redirection",
+          "temporal": "current state vs required prerequisite"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The visual confirmation that the half_bagel_dough is a single, uncut piece.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "A text-only assistant cannot see the physical state of the dough and would blindly approve the cooking step based on generic baking instructions."
+          },
+          "capability_fit": "Evaluates dependency graph reasoning by requiring the assistant to refuse a terminal cooking step until a physical cutting prerequisite is met.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "half_bagel_dough",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "ingredient"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "scraper",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "tool"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "breakfast_table",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "prep station"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "oven",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "appliance"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "The wearer starts in living_room_0 facing the breakfast_table. The half_bagel_dough and scraper are on the breakfast_table. The oven is in the room. At action zero, the wearer asks if they should cook the dough now. The assistant observes the dough is whole and refuses, instructing the wearer to cut it first. The wearer grabs the scraper, executes a cut action on the half_bagel_dough using the scraper, and puts the scraper back on the breakfast_table. The wearer then grabs the half_bagel_dough, walks to the oven, opens the oven, puts the half_bagel_dough inside, closes the oven, and executes a cook action on the half_bagel_dough.",
+              "scene": "Rs_int",
+              "why_scene": "Provides a living room with a breakfast table to serve as the prep station."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "GUIDE.DEPENDENCY_GRAPH",
+                "counterfactual_failure": "The weak assistant approves the cooking step immediately, resulting in the dough being cooked without being cut.",
+                "forbidden_changes": [],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "uncut state of the dough"
+                ],
+                "required_final_predicates": [
+                  "cut",
+                  "cooked",
+                  "inside",
+                  "closed"
+                ],
+                "success_condition": "The dough is cut, cooked, and inside the closed oven.",
+                "temporal_constraints": [
+                  "The cut action must occur before the cook action."
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be prepared",
+                  "what": "ingredient",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "cutting implement",
+                  "what": "tool",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "surface",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "starting surface",
+                  "what": "prep station",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "cooking destination",
+                  "what": "appliance",
+                  "when": "main"
+                }
+              ],
+              "hinges_on": "Recognizing from the visual state of the half_bagel_dough that it has not yet been cut, which is a prerequisite for cooking.",
+              "look_alike": [],
+              "opening": "The half_bagel_dough and scraper rest on the breakfast_table. The oven is nearby.",
+              "outcome": "The dough is cut and then cooked inside the oven.",
+              "place": "living_room_0",
+              "printed": [],
+              "tests_what": "The assistant's ability to enforce a strict physical dependency graph."
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The story perfectly isolates a linear dependency graph where a physical transformation (cutting) must precede a terminal step (cooking). The egocentric vision is strictly required to determine that the dough is currently whole and the prerequisite is unmet, making it a clean and direct test of the assigned capability.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "Cut",
+              "Put",
+              "Walk",
+              "Open",
+              "Putin",
+              "Close",
+              "Cook"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 9,
+            "estimated_prologue_actions": 0,
+            "estimated_task_actions": 9,
+            "events": [],
+            "final_predicates": [
+              "cut",
+              "cooked",
+              "inside",
+              "closed"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 34.3,
+          "structural_signature": {
+            "evaluation": "ordered command trace and final state",
+            "evidence": "visual state of dough",
+            "failure": "premature terminal action",
+            "operation": "dependency evaluation",
+            "response": "refusal and redirection",
+            "temporal": "current state vs required prerequisite"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "Rs_int",
+      "sha": "b134ee9e5106",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_prod120_quality_20260829c/rounds/round_001/compile_input/GUIDE/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gemini-3-1-pro-preview-tbd",
+      "judge_model": "gemini-3-1-pro-preview-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260829j"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_grounded_prod120_quality_20260829c-r001",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v19-grounded-physics-20260829",
+      "release_id": "sha256:34b86c296becbe4aeca1aeda58c0219f85ac552858fd347e5f46b61ac2c4087f",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "result": "guide26-story-refine-r2-20260912zl",
+        "source": "GUIDE-14004"
+      },
+      {
+        "kind": "canonicalize_required_evidence",
+        "source": "[\"I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time.\", \"The recipe visibly specifies all six preparation and cooking steps.\", \"The whole beefsteak tomato and its knife are on the preparation table.\", \"The required spatula is visible on a separate tool table.\", \"A clean plain plate is visible on the service pass.\", \"Fresh tomato slices are visible and the knife is back on the prep table.\", \"The tomato has been stirred, the spatula returned, and blackened charred slices are now visible.\", \"The flat top is off, the blackened tomato is plated, and the wearer is holding the serving plate.\"]",
+        "result": "[\"I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time.\", \"The recipe visibly specifies all six preparation and cooking steps.\", \"The whole beefsteak tomato and its knife are on the preparation table.\", \"The required spatula is visible on a separate tool table.\", \"A clean plain plate is visible on the service pass.\", \"Fresh tomato slices are visible and the knife is back on the prep table.\", \"The tomato has been stirred, the spatula returned, and blackened charred slices are now visible.\", \"The flat top is off, the blackened tomato is plated, and the wearer is holding the serving plate.\", \"Follow the card in order: slice the tomato, return the knife, move the tomato to the switched-on flat top, stir it with the spatula, return that tool, cook the tomato, and turn the flat top off. Finally put the blackened slices on the plate and lift the plate to serve.\"]"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "GUIDE-14004",
+    "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+    "capability_notes": [
+      "restaurant_diner's generic flat-top binding deterministically selects one of its two shallow, waist-height griddles.",
+      "Both hidden variants use the only sliced-tomato mesh with a real red cross-section and a thin slice silhouette, enlarged 1.6x for legibility; the cooked variant receives an explicit black tint so the requested charred state is unmistakable.",
+      "The sliced and blackened variants are pre-staged at safe fixed sites, then inherit the source food's center and base at each command-triggered swap before the next Grab is planned.",
+      "The recipe sits alone on the scene's wide commercial_kitchen_table/vxvtec worktop, whose spare surface lets the wearer return the clipboard after lifting it to read. Three exact wall-aligned metal_bottom_cabinet/bbjuqu worktops keep prep, tools, and plated service separate."
+    ],
+    "revision": "guide22-interaction-20260913",
+    "benchmark_split": "production",
+    "physical_revision": "guide26-story-refine-r2-20260912zl",
+    "physical_taskpack_sha256": "sha256:0bf42a0b1ef03650cd343866e884dcc8eb7511ec66e5ab94ae1e5f8fbb588a9c",
+    "parent_lineage": {
+      "source": "manual_story_revision",
+      "compile_input_digest": "sha256:54d537830cf755ad5e7d1694efc6dae37be1aaefa1eb6fcfa3b59e5a1d4c26d4",
+      "source_contract_digest": "sha256:5a351cad5e68a7f80b331feb0918f4ab701e77e920e3a97d909118cc289a9ca8",
+      "executable_spec_digest": "sha256:4422ad1ac78cf5e3cb4ba4b9483bd9279cc31f2a1c03e13ebb76db91db20df58",
+      "invention": {
+        "attempt": 2,
+        "author_prose": "A novice baker is preparing a snack in a studio apartment's living room, using the breakfast table as a prep station. A freestanding oven has been set up nearby for baking. On the breakfast table rests a portion of raw half bagel dough and a plastic bench scraper. \n\nThe wearer is following a specific recipe to make toasted bagel bites, which strictly requires dividing the raw dough into smaller portions before applying heat. The wearer walks up to the breakfast table, looks down at the ingredients, and asks the smart glasses, \"I am ready to make the bagel bites. Should I go ahead and cook this dough now?\"\n\nThe assistant relies on the egocentric camera feed, which clearly shows the half bagel dough resting on the table in a single, uncut piece. To succeed, the assistant must evaluate the task's dependency graph and recognize a strict linear requirement: the dough must undergo a physical transformation prerequisite before it can be baked. If the dough is cooked first, the exterior will harden, making it impossible to cleanly cut into the required bite-sized pieces later. \n\nA strong assistant refuses the premature terminal step. It explains the dependency rule and explicitly redirects the wearer to cut the dough first. Following this guidance, the wearer grabs the scraper, cuts the half bagel dough, and returns the scraper to the breakfast table. Only then do they grab the prepared dough, walk to the oven, open the door, place the dough inside, close the oven, and execute the cook action. \n\nA weak assistant acts as a naive chatbot, matching the user's prompt about cooking dough to generic baking instructions and approving the step without checking the physical state. This causes the wearer to prematurely cook the dough whole, permanently ruining the intended recipe. \n\nSuccess is evaluated through the ordered command trace, which must verify that the cut action was performed on the dough strictly before the cook action. Additionally, the final scorable state must confirm that the half bagel dough possesses both the cut and cooked predicates while resting inside the closed oven.",
+        "author_prose_sha256": "sha256:31419597abefe02089ce116ee7a1f540ec9f8a906ff6a866edf6ca735913800c",
+        "capability": {
+          "boundary": "The core is dependency reasoning, not memorising one rigid total sequence and not sorting ingredients by label.",
+          "few_shot": "A novice is assembling a small display stand. Attaching the left foot and attaching the right foot are independent, but both must be secured before the upright can be raised. After completing only the left foot, the wearer asks whether they can raise the frame now. The assistant identifies the unmet right-foot prerequisite, directs that attachment first, and only then permits the raise. The beat-bound guidance and ordered command trace preserve the dependency decision, while the final attached and raised predicates verify the completed stand. A weak guide that merely recites a memorised total sequence either rejects a legal branch order or allows the irreversible raise too early.",
+          "id": "GUIDE.DEPENDENCY_GRAPH",
+          "name_zh": "依赖图推理与排序",
+          "target": "Guide a novice through a partial-order task graph, choosing a legal next step and refusing a requested step whose prerequisites are incomplete."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+          "evaluation_mode": "TRACE_AND_OUTCOME",
+          "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": true,
+          "owner": "SIMULATOR_EVALUATION",
+          "reason": "The chosen legal trace runs, but there is no generic scorer for alternative valid topological orders and rejected illegal steps.",
+          "reason_code": "DEPENDENCY_ORDER_EVALUATOR",
+          "recommended_work": "Add dependency-graph and legal-next-step evaluation over the command trace.",
+          "version": "capability-support/1.0",
+          "workstream": "EVALUATOR"
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "candy_dispenser_shelf",
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "compost_bin",
+            "dessert_stand",
+            "dish_rack_cart",
+            "dishwasher",
+            "display_case",
+            "display_fridge",
+            "dry_food_dispenser_shelf",
+            "free_weight_rack",
+            "freezer",
+            "fridge",
+            "grocery_fridge",
+            "grocery_shelf",
+            "locker",
+            "magazine_stand",
+            "metal_bottom_cabinet",
+            "oven",
+            "public_trash_can",
+            "recycling_bin",
+            "serving_cart",
+            "shelf",
+            "shopping_cart",
+            "snack_rack",
+            "top_cabinet",
+            "trash_can",
+            "umbrella_rack",
+            "vending_machine",
+            "wardrobe",
+            "washer",
+            "wine_fridge"
+          ],
+          "allowed_loose_categories": [
+            "gift_box",
+            "clipboard",
+            "folder",
+            "mug",
+            "half_bagel_dough",
+            "chess_set",
+            "date",
+            "lasagna",
+            "jar_of_orange_sauce",
+            "gravy_boat",
+            "half_artichoke",
+            "board_game",
+            "french_toast",
+            "blender",
+            "half_kiwi",
+            "half_apricot",
+            "pencil",
+            "half_buttermilk_pancake",
+            "ice_tray",
+            "pork",
+            "nativity_figurine",
+            "half_omelet",
+            "pack_of_kielbasa",
+            "scraper"
+          ],
+          "allowed_surface_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "breakfast_table"
+          ],
+          "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+          "coverage_categories": [
+            "half_bagel_dough",
+            "chess_set",
+            "date",
+            "lasagna",
+            "jar_of_orange_sauce",
+            "gravy_boat",
+            "half_artichoke",
+            "board_game",
+            "french_toast",
+            "blender",
+            "half_kiwi",
+            "half_apricot",
+            "pencil",
+            "half_buttermilk_pancake",
+            "ice_tray",
+            "pork",
+            "nativity_figurine",
+            "half_omelet",
+            "pack_of_kielbasa",
+            "scraper"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 1,
+            "required_semantic_turns": 1,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": false,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_reselection": false,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "GUIDE",
+          "limits": {
+            "max_authored_actions": 18,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 10,
+            "max_small_label_characters": 8,
+            "max_task_actions": 10
+          },
+          "preferred_story_categories": [
+            "half_bagel_dough",
+            "chess_set",
+            "date",
+            "lasagna",
+            "jar_of_orange_sauce",
+            "gravy_boat",
+            "half_artichoke",
+            "board_game"
+          ],
+          "preferred_story_category_glosses": {
+            "board_game": "",
+            "chess_set": "",
+            "date": "",
+            "gravy_boat": "",
+            "half_artichoke": "",
+            "half_bagel_dough": "",
+            "jar_of_orange_sauce": "",
+            "lasagna": ""
+          },
+          "rooms": [
+            {
+              "area_m2": 22.7,
+              "name": "living_room_0",
+              "scene_containers": {},
+              "scene_surfaces": {
+                "bookcase": 1,
+                "bottom_cabinet": 1,
+                "breakfast_table": 2
+              },
+              "surface_max_area_m2": {
+                "bookcase": 0.085,
+                "bottom_cabinet": 0.234,
+                "breakfast_table": 0.185
+              },
+              "surface_reference_capacity": {
+                "bookcase": 3,
+                "bottom_cabinet": 3,
+                "breakfast_table": 3
+              }
+            }
+          ],
+          "scene": "Rs_int",
+          "task_id": "GUIDE-14004",
+          "version": "grounded-authoring/2.5-20260829"
+        },
+        "prompt_sha": "2c9dfe75c544",
+        "prompt_sha256": "sha256:2c9dfe75c544a4c9fe4b9c11420b6ad05851ebc7a5ac18e18c302e7644f48ea8",
+        "prompt_version": "capability-v19-grounded-physics-20260829",
+        "prose_sha256": "sha256:b134ee9e51066f5cdf88d5eff742e4bb3018f646988682b7368579fb1e05d714",
+        "review": {
+          "benchmark_check": {
+            "egocentric_evidence": "The visual confirmation that the half_bagel_dough is a single, uncut piece.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "A text-only assistant cannot see the physical state of the dough and would blindly approve the cooking step based on generic baking instructions."
+          },
+          "capability_fit": "Evaluates dependency graph reasoning by requiring the assistant to refuse a terminal cooking step until a physical cutting prerequisite is met.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "half_bagel_dough",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "ingredient"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "scraper",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "tool"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "breakfast_table",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "prep station"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "oven",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "appliance"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "The wearer starts in living_room_0 facing the breakfast_table. The half_bagel_dough and scraper are on the breakfast_table. The oven is in the room. At action zero, the wearer asks if they should cook the dough now. The assistant observes the dough is whole and refuses, instructing the wearer to cut it first. The wearer grabs the scraper, executes a cut action on the half_bagel_dough using the scraper, and puts the scraper back on the breakfast_table. The wearer then grabs the half_bagel_dough, walks to the oven, opens the oven, puts the half_bagel_dough inside, closes the oven, and executes a cook action on the half_bagel_dough.",
+              "scene": "Rs_int",
+              "why_scene": "Provides a living room with a breakfast table to serve as the prep station."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "GUIDE.DEPENDENCY_GRAPH",
+                "counterfactual_failure": "The weak assistant approves the cooking step immediately, resulting in the dough being cooked without being cut.",
+                "forbidden_changes": [],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "uncut state of the dough"
+                ],
+                "required_final_predicates": [
+                  "cut",
+                  "cooked",
+                  "inside",
+                  "closed"
+                ],
+                "success_condition": "The dough is cut, cooked, and inside the closed oven.",
+                "temporal_constraints": [
+                  "The cut action must occur before the cook action."
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be prepared",
+                  "what": "ingredient",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "cutting implement",
+                  "what": "tool",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "surface",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "starting surface",
+                  "what": "prep station",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "cooking destination",
+                  "what": "appliance",
+                  "when": "main"
+                }
+              ],
+              "hinges_on": "Recognizing from the visual state of the half_bagel_dough that it has not yet been cut, which is a prerequisite for cooking.",
+              "look_alike": [],
+              "opening": "The half_bagel_dough and scraper rest on the breakfast_table. The oven is nearby.",
+              "outcome": "The dough is cut and then cooked inside the oven.",
+              "place": "living_room_0",
+              "printed": [],
+              "tests_what": "The assistant's ability to enforce a strict physical dependency graph."
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The story perfectly isolates a linear dependency graph where a physical transformation (cutting) must precede a terminal step (cooking). The egocentric vision is strictly required to determine that the dough is currently whole and the prerequisite is unmet, making it a clean and direct test of the assigned capability.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "Cut",
+              "Put",
+              "Walk",
+              "Open",
+              "Putin",
+              "Close",
+              "Cook"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 9,
+            "estimated_prologue_actions": 0,
+            "estimated_task_actions": 9,
+            "events": [],
+            "final_predicates": [
+              "cut",
+              "cooked",
+              "inside",
+              "closed"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 34.3,
+          "structural_signature": {
+            "evaluation": "ordered command trace and final state",
+            "evidence": "visual state of dough",
+            "failure": "premature terminal action",
+            "operation": "dependency evaluation",
+            "response": "refusal and redirection",
+            "temporal": "current state vs required prerequisite"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "The visual confirmation that the half_bagel_dough is a single, uncut piece.",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "semantic_turns": 1,
+              "strong_weak_distinct": true,
+              "ungrounded_physical_nouns": [],
+              "uses_only_grounded_assets": true,
+              "why_utterance_alone_fails": "A text-only assistant cannot see the physical state of the dough and would blindly approve the cooking step based on generic baking instructions."
+            },
+            "capability_fit": "Evaluates dependency graph reasoning by requiring the assistant to refuse a terminal cooking step until a physical cutting prerequisite is met.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "half_bagel_dough",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "ingredient"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "scraper",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "tool"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "breakfast_table",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "prep station"
+                  },
+                  {
+                    "affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "category": "oven",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "appliance"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "The wearer starts in living_room_0 facing the breakfast_table. The half_bagel_dough and scraper are on the breakfast_table. The oven is in the room. At action zero, the wearer asks if they should cook the dough now. The assistant observes the dough is whole and refuses, instructing the wearer to cut it first. The wearer grabs the scraper, executes a cut action on the half_bagel_dough using the scraper, and puts the scraper back on the breakfast_table. The wearer then grabs the half_bagel_dough, walks to the oven, opens the oven, puts the half_bagel_dough inside, closes the oven, and executes a cook action on the half_bagel_dough.",
+                "scene": "Rs_int",
+                "why_scene": "Provides a living room with a breakfast table to serve as the prep station."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "GUIDE.DEPENDENCY_GRAPH",
+                  "counterfactual_failure": "The weak assistant approves the cooking step immediately, resulting in the dough being cooked without being cut.",
+                  "forbidden_changes": [],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "uncut state of the dough"
+                  ],
+                  "required_final_predicates": [
+                    "cut",
+                    "cooked",
+                    "inside",
+                    "closed"
+                  ],
+                  "success_condition": "The dough is cut, cooked, and inside the closed oven.",
+                  "temporal_constraints": [
+                    "The cut action must occur before the cook action."
+                  ]
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item to be prepared",
+                    "what": "ingredient",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "cutting implement",
+                    "what": "tool",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "surface",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "starting surface",
+                    "what": "prep station",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "role_in_story": "cooking destination",
+                    "what": "appliance",
+                    "when": "main"
+                  }
+                ],
+                "hinges_on": "Recognizing from the visual state of the half_bagel_dough that it has not yet been cut, which is a prerequisite for cooking.",
+                "look_alike": [],
+                "opening": "The half_bagel_dough and scraper rest on the breakfast_table. The oven is nearby.",
+                "outcome": "The dough is cut and then cooked inside the oven.",
+                "place": "living_room_0",
+                "printed": [],
+                "tests_what": "The assistant's ability to enforce a strict physical dependency graph."
+              }
+            },
+            "duplicate_of": null,
+            "reason": "The story perfectly isolates a linear dependency graph where a physical transformation (cutting) must precede a terminal step (cooking). The egocentric vision is strictly required to determine that the dough is currently whole and the prerequisite is unmet, making it a clean and direct test of the assigned capability.",
+            "requirements": [],
+            "runtime_requirements": {
+              "actions": [
+                "Grab",
+                "Cut",
+                "Put",
+                "Walk",
+                "Open",
+                "Putin",
+                "Close",
+                "Cook"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 9,
+              "estimated_prologue_actions": 0,
+              "estimated_task_actions": 9,
+              "events": [],
+              "final_predicates": [
+                "cut",
+                "cooked",
+                "inside",
+                "closed"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 34.3,
+            "structural_signature": {
+              "evaluation": "ordered command trace and final state",
+              "evidence": "visual state of dough",
+              "failure": "premature terminal action",
+              "operation": "dependency evaluation",
+              "response": "refusal and redirection",
+              "temporal": "current state vs required prerequisite"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "Rs_int",
+        "sha": "b134ee9e5106",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_prod120_quality_20260829c/rounds/round_001/compile_input/GUIDE/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gemini-3-1-pro-preview-tbd",
+        "judge_model": "gemini-3-1-pro-preview-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260829j"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_grounded_prod120_quality_20260829c-r001",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v19-grounded-physics-20260829",
+        "release_id": "sha256:34b86c296becbe4aeca1aeda58c0219f85ac552858fd347e5f46b61ac2c4087f",
+        "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "normalizations": [
+        {
+          "kind": "manual_story_revision",
+          "result": "guide26-story-refine-r2-20260912zl",
+          "source": "GUIDE-14004"
+        },
+        {
+          "kind": "canonicalize_required_evidence",
+          "source": "[\"I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time.\", \"The recipe visibly specifies all six preparation and cooking steps.\", \"The whole beefsteak tomato and its knife are on the preparation table.\", \"The required spatula is visible on a separate tool table.\", \"A clean plain plate is visible on the service pass.\", \"Fresh tomato slices are visible and the knife is back on the prep table.\", \"The tomato has been stirred, the spatula returned, and blackened charred slices are now visible.\", \"The flat top is off, the blackened tomato is plated, and the wearer is holding the serving plate.\"]",
+          "result": "[\"I haven't made this dish before. Using the recipe card and the materials in front of me, please guide me from here one step at a time.\", \"The recipe visibly specifies all six preparation and cooking steps.\", \"The whole beefsteak tomato and its knife are on the preparation table.\", \"The required spatula is visible on a separate tool table.\", \"A clean plain plate is visible on the service pass.\", \"Fresh tomato slices are visible and the knife is back on the prep table.\", \"The tomato has been stirred, the spatula returned, and blackened charred slices are now visible.\", \"The flat top is off, the blackened tomato is plated, and the wearer is holding the serving plate.\", \"Follow the card in order: slice the tomato, return the knife, move the tomato to the switched-on flat top, stir it with the spatula, return that tool, cook the tomato, and turn the flat top off. Finally put the blackened slices on the plate and lift the plate to serve.\"]"
+        }
+      ],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "GUIDE-14004",
+      "capability_id": "GUIDE.DEPENDENCY_GRAPH",
+      "capability_notes": [
+        "restaurant_diner's generic flat-top binding deterministically selects one of its two shallow, waist-height griddles.",
+        "Both hidden variants use the only sliced-tomato mesh with a real red cross-section and a thin slice silhouette, enlarged 1.6x for legibility; the cooked variant receives an explicit black tint so the requested charred state is unmistakable.",
+        "The sliced and blackened variants are pre-staged at safe fixed sites, then inherit the source food's center and base at each command-triggered swap before the next Grab is planned.",
+        "The recipe sits alone on the scene's wide commercial_kitchen_table/vxvtec worktop, whose spare surface lets the wearer return the clipboard after lifting it to read. Three exact wall-aligned metal_bottom_cabinet/bbjuqu worktops keep prep, tools, and plated service separate."
+      ],
+      "revision": "guide26-story-refine-r2-20260912zl"
+    },
+    "oracle_dialogue_override_ids": [
+      "guide14004_cutting_locators",
+      "guide14004_cooktop_locators",
+      "guide14004_spatula_locators",
+      "guide14004_plating_locators"
+    ]
+  }
+}

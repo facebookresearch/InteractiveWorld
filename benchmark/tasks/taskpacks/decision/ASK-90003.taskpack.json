@@ -1,0 +1,3504 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "ASK-90003",
+  "executable_spec": {
+    "spec_version": "bts/1.0",
+    "task_id": "ASK-90003",
+    "variant": null,
+    "meta": {
+      "family": "ASK",
+      "template": "a flat or apartment: kitchen, living room, bedrooms, utility",
+      "scene": "Rs_int",
+      "wave": 1,
+      "difficulty": "hard",
+      "rule_table": "on(reed_diffuser, entryway bottom_cabinet)",
+      "grounding": {
+        "kind": "authored",
+        "ref": "data_generate:ASK-90003",
+        "cite": "I want the thing that will make the entryway smell pleasant on its own while I do other chores. I can't tell these bottles apart from here - which one should I take?"
+      },
+      "design": {
+        "premise": "In the Rs_int flat, the low-near-vision wearer stands at a living-room breakfast table after tidying. On it sit two similar slim bottles, a reed diffuser with thin sticks protruding from an open neck and a conditioner atomizer with a spray head, plus a sponge left from cleaning that is not part of the choice. Before asking, the wearer looks at the reed diffuser, the atomizer, and the sponge so the visual features are reliable. At turn zero they ask the original entryway-fragrance question. The assistant maps reed sticks to passive fragrance and selects the reed diffuser.",
+        "cue": "I want the thing that will make the entryway smell pleasant on its own while I do other chores. I can't tell these bottles apart from here - which one should I take?",
+        "assistant_must": "on(reed_diffuser, entryway bottom_cabinet)",
+        "anti_shortcut": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)"
+      },
+      "engine_deltas": []
+    },
+    "world": {
+      "scene": "Rs_int",
+      "instance": 0,
+      "layout": "frozen",
+      "authoring_seed": 517009090,
+      "seed_scope": "model",
+      "rooms": [
+        "living_room_0"
+      ],
+      "roles": {},
+      "fixtures": {
+        "surf_1": {
+          "bind": {
+            "source": "scene",
+            "cat": "breakfast_table"
+          },
+          "room": "living_room_0",
+          "seatable": false
+        },
+        "surf_2": {
+          "bind": {
+            "source": "scene",
+            "cat": "bottom_cabinet"
+          },
+          "room": "living_room_0",
+          "seatable": false
+        }
+      },
+      "containers": {},
+      "objects": {
+        "item_1": {
+          "cat": "reed_diffuser",
+          "model": "ngcvaw",
+          "place": "on:surf_1",
+          "room": "living_room_0",
+          "scored": true,
+          "needs_lookat": true,
+          "tint": "clear",
+          "spot": [
+            -0.12,
+            0.58
+          ]
+        },
+        "item_2": {
+          "cat": "conditioner_atomizer",
+          "model": "quqgcu",
+          "place": "on:surf_1",
+          "room": "living_room_0",
+          "scored": false,
+          "needs_lookat": true,
+          "tint": "clear",
+          "spot": [
+            0.22,
+            0.58
+          ]
+        },
+        "item_3": {
+          "cat": "sponge",
+          "model": "aewrov",
+          "place": "on:surf_1",
+          "room": "living_room_0",
+          "scored": false,
+          "needs_lookat": true,
+          "tint": "yellow",
+          "spot": [
+            -0.65,
+            0.24
+          ]
+        }
+      },
+      "parts": {},
+      "labels": {},
+      "initial_attachments": [],
+      "object_groups": [],
+      "preload": {},
+      "permutations": [],
+      "start": {
+        "policy": "seeded_grid",
+        "forbid_rooms": [],
+        "forbid_near": [],
+        "resample_ladder": true
+      },
+      "decor": [],
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "decoys_constrained": true,
+        "permutation_within_model": true,
+        "key_is_derived": true
+      },
+      "auto_support_labels": false
+    },
+    "goal": {
+      "roster": {
+        "containers": [],
+        "objects": [
+          "item_1",
+          "item_2",
+          "item_3"
+        ],
+        "nested_containers": []
+      },
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "item_1",
+          "target": "surf_2"
+        }
+      ],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "item_1",
+          "target": "surf_2"
+        }
+      ],
+      "aggregate_goals": [],
+      "negatives": [],
+      "trace_outcomes": [],
+      "rule_table": null,
+      "arms": null
+    },
+    "program": {
+      "generator": "explicit",
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_1"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_2"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_3"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_1"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        {
+          "verb": "Put",
+          "args": [
+            "item_1",
+            "surf_2"
+          ]
+        }
+      ],
+      "budget": {
+        "grammar_cmds": 7,
+        "grammar_source": "from_program",
+        "expanded_cmds": 7,
+        "expanded_source": "oracle_cmds",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      }
+    },
+    "report": {
+      "sub_goals": [
+        {
+          "id": 0,
+          "kind": "on",
+          "subject": "item_1",
+          "target": "surf_2",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        }
+      ],
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ]
+      ],
+      "sub_steps": [
+        "on item_1 surf_2"
+      ],
+      "control": null,
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "human_frames_withheld": false,
+      "arms_reporting": null
+    },
+    "provenance": {
+      "source_task_id": "ASK-90003",
+      "human_program_raw": "[Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "seed": 517009090,
+      "arm": "ASK"
+    }
+  },
+  "story": {
+    "premise": "In the Rs_int flat, the low-near-vision wearer stands at a living-room breakfast table after tidying. On it sit two similar slim bottles, a reed diffuser with thin sticks protruding from an open neck and a conditioner atomizer with a spray head, plus a sponge left from cleaning that is not part of the choice. Before asking, the wearer looks at the reed diffuser, the atomizer, and the sponge so the visual features are reliable. At turn zero they ask the original entryway-fragrance question. The assistant maps reed sticks to passive fragrance and selects the reed diffuser.",
+    "assistant_goal": "Hey, Assistant, which one should I take if I want the entryway to smell nice on its own while I do the other chores? I'll put whichever one we choose on the entryway cabinet.",
+    "assessment_contract": {
+      "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+      "assigned_scene": "Rs_int",
+      "core_question": "I want the thing that will make the entryway smell pleasant on its own while I do other chores. I can't tell these bottles apart from here - which one should I take?",
+      "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+      "forbidden_changes": [
+        "adding a label that names the diffuser",
+        "making the two bottles visually identical"
+      ],
+      "knowledge_constraints": [
+        "decision must rest on visible feature plus object-purpose knowledge, not a label"
+      ],
+      "required_evidence": [
+        "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.",
+        "item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.",
+        "item_2 is a similar slim clear bottle body with a visible spray head.",
+        "Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.",
+        "A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance."
+      ],
+      "required_final_predicates": [
+        "on"
+      ],
+      "success_condition": "on(reed_diffuser, entryway bottom_cabinet)",
+      "temporal_constraints": []
+    },
+    "source_contract": {
+      "task_id": "ASK-90003",
+      "family": "ASK",
+      "kind": "a flat or apartment: kitchen, living room, bedrooms, utility",
+      "assessment_contract": {
+        "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "assigned_scene": "Rs_int",
+        "core_question": "I want the thing that will make the entryway smell pleasant on its own while I do other chores. I can't tell these bottles apart from here - which one should I take?",
+        "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+        "forbidden_changes": [
+          "adding a label that names the diffuser",
+          "making the two bottles visually identical"
+        ],
+        "knowledge_constraints": [
+          "decision must rest on visible feature plus object-purpose knowledge, not a label"
+        ],
+        "required_evidence": [
+          "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.",
+          "item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.",
+          "item_2 is a similar slim clear bottle body with a visible spray head.",
+          "Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.",
+          "A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance."
+        ],
+        "required_final_predicates": [
+          "on"
+        ],
+        "success_condition": "on(reed_diffuser, entryway bottom_cabinet)",
+        "temporal_constraints": []
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [],
+        "allowed_loose_categories": [
+          "conditioner_atomizer",
+          "reed_diffuser",
+          "sponge"
+        ],
+        "allowed_surface_categories": [
+          "bottom_cabinet",
+          "breakfast_table"
+        ],
+        "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "coverage_categories": [
+          "conditioner_atomizer",
+          "reed_diffuser",
+          "sponge"
+        ],
+        "evaluation": {
+          "common_sense_allowed": true,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "ASK",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 12,
+          "min_intervening_meaningful_actions": 0,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "conditioner_atomizer",
+          "reed_diffuser",
+          "sponge"
+        ],
+        "preferred_story_category_glosses": {
+          "conditioner_atomizer": "",
+          "reed_diffuser": "",
+          "sponge": ""
+        },
+        "rooms": [
+          {
+            "name": "living_room_0"
+          }
+        ],
+        "scene": "Rs_int",
+        "task_id": "ASK-90003",
+        "version": "grounded-authoring/3.0-validity-20260831"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "reed_diffuser",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": "clear",
+            "what": "item_1 reed_diffuser"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "conditioner_atomizer",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": "clear",
+            "what": "item_2 conditioner_atomizer"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "sponge",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": "yellow",
+            "what": "item_3 sponge"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "breakfast_table",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_1 breakfast_table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "bottom_cabinet",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_2 bottom_cabinet"
+          }
+        ],
+        "distinct_by": [
+          "reed sticks versus spray head functional features"
+        ],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [],
+        "restaged_story": "In the Rs_int flat, the low-near-vision wearer stands at a living-room breakfast table after tidying. On it sit two similar slim bottles, a reed diffuser with thin sticks protruding from an open neck and a conditioner atomizer with a spray head, plus a sponge left from cleaning that is not part of the choice. Before asking, the wearer looks at the reed diffuser, the atomizer, and the sponge so the visual features are reliable. At turn zero they ask the original entryway-fragrance question. The assistant maps reed sticks to passive fragrance and selects the reed diffuser.",
+        "scene": "Rs_int",
+        "why_scene": "Provides living-room and entryway staging surfaces."
+      },
+      "world": {
+        "boards": {},
+        "containers": {},
+        "items": {
+          "item_1": {
+            "affordances": [
+              "similar_slim_bottle_body",
+              "thin_reed_sticks_protrude_from_open_neck"
+            ],
+            "cat": "reed_diffuser",
+            "label": null,
+            "place": "on:surf_1",
+            "scored": true,
+            "spot": [
+              -0.12,
+              0.58
+            ],
+            "tint": "clear"
+          },
+          "item_2": {
+            "affordances": [
+              "similar_slim_bottle_body",
+              "spray_head_visible"
+            ],
+            "cat": "conditioner_atomizer",
+            "label": null,
+            "place": "on:surf_1",
+            "scored": false,
+            "spot": [
+              0.22,
+              0.58
+            ],
+            "tint": "clear"
+          },
+          "item_3": {
+            "affordances": [
+              "cleaning_leftover_visible"
+            ],
+            "cat": "sponge",
+            "label": null,
+            "place": "on:surf_1",
+            "scored": false,
+            "spot": [
+              -0.65,
+              0.24
+            ],
+            "tint": "yellow"
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <surf_1> (1)",
+          "[LookAt] <item_1> (1)",
+          "[LookAt] <item_2> (1)",
+          "[LookAt] <item_3> (1)"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "living_room_0"
+        ],
+        "scene": "Rs_int",
+        "staging": {
+          "groups": "on:surf_1 holds item_1 reed_diffuser, item_2 conditioner_atomizer, item_3 sponge.",
+          "labels_at_t0": "No printed labels or boards are present.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "surf_1": {
+            "cat": "breakfast_table",
+            "label": null,
+            "room": "living_room_0"
+          },
+          "surf_2": {
+            "cat": "bottom_cabinet",
+            "label": null,
+            "room": "living_room_0"
+          }
+        },
+        "auto_support_labels": false
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I want the thing that will make the entryway smell pleasant on its own while I do other chores. I can't tell these bottles apart from here - which one should I take?"
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "item_2 is a similar slim clear bottle body with a visible spray head.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 2,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.",
+            "from": "common_sense",
+            "id": "fact_004",
+            "source_index": null,
+            "source_phase": "compiler_knowledge"
+          },
+          {
+            "derived_from": null,
+            "fact": "A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+            "from": "common_sense",
+            "id": "fact_005",
+            "source_index": null,
+            "source_phase": "compiler_knowledge"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "item_1",
+            "target": "surf_2"
+          }
+        ],
+        "guidance": null,
+        "hidden_fact": null,
+        "human_own_script": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+        "mates": [],
+        "oracle_program": "[Grab] <item_1> (1), [Walk] <surf_2> (1), [PutOn] <item_1> (1) <surf_2> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": [
+          {
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ],
+            "index": 0,
+            "referents": [
+              "item_1",
+              "item_2"
+            ],
+            "say": "Take the bottle with the reed sticks, the reed diffuser. The reeds release scent passively, while the spray-headed bottle only atomizes liquid when it is sprayed."
+          }
+        ],
+        "steps": null,
+        "story_check": "Everything fits the built world. The decision is grounded in the initial egocentric visible features: reed sticks versus spray head, with no added labels or invented objects. The destination is the available Rs_int living_room_0 bottom_cabinet used as the entryway-side cabinet.",
+        "utterance": "I want the thing that will make the entryway smell pleasant on its own while I do other chores. I can't tell these bottles apart from here - which one should I take?"
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "physical_preflight": {
+          "diagnostics": [],
+          "physical": {
+            "failures": [],
+            "ok": true,
+            "sited": true,
+            "staged": true,
+            "start": true,
+            "why_sited": "living_room_0",
+            "why_staged": "Manual group-C repaired staging.",
+            "why_start": ""
+          },
+          "report_version": "manual-group-c-metadata-sync/1.0",
+          "resolved": {
+            "objects": [
+              {
+                "category": "reed_diffuser",
+                "key": "item_1",
+                "model": ""
+              },
+              {
+                "category": "conditioner_atomizer",
+                "key": "item_2",
+                "model": ""
+              },
+              {
+                "category": "sponge",
+                "key": "item_3",
+                "model": ""
+              }
+            ],
+            "parts": [],
+            "room": "living_room_0",
+            "scene": "Rs_int",
+            "surfaces": [
+              {
+                "category": "breakfast_table",
+                "key": "surf_1",
+                "model": ""
+              },
+              {
+                "category": "bottom_cabinet",
+                "key": "surf_2",
+                "model": ""
+              }
+            ],
+            "units": []
+          },
+          "seconds": 0.0,
+          "status": "PASS",
+          "task_id": "ASK-90003"
+        },
+        "sim_debt": [],
+        "soft": [],
+        "traces": {}
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <surf_1> (1)",
+        "[LookAt] <item_1> (1)",
+        "[LookAt] <item_2> (1)",
+        "[LookAt] <item_3> (1)"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.",
+            "channel": "common_sense"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+            "channel": "common_sense"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_1"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.",
+            "channel": "prologue"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "item_2 is a similar slim clear bottle body with a visible spray head.",
+            "channel": "prologue"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_3"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "Hey, Assistant, which one should I take if I want the entryway to smell nice on its own while I do the other chores? I'll put whichever one we choose on the entryway cabinet.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.",
+            "channel": "utterance"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Take the bottle with the reed sticks, the reed diffuser. The reeds release scent passively, while the spray-headed bottle only atomizes liquid when it is sprayed.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "item_2",
+            "surf_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "item_1",
+            "surf_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "item_2 is a similar slim clear bottle body with a visible spray head.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p002"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 2
+      },
+      {
+        "id": "fact_004",
+        "statement": "Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.",
+        "channel": "common_sense",
+        "source_beat_ids": [
+          "reset"
+        ],
+        "grounding": "compiler_knowledge",
+        "source_phase": "compiler_knowledge",
+        "source_index": null
+      },
+      {
+        "id": "fact_005",
+        "statement": "A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+        "channel": "common_sense",
+        "source_beat_ids": [
+          "reset"
+        ],
+        "grounding": "compiler_knowledge",
+        "source_phase": "compiler_knowledge",
+        "source_index": null
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the visible affordances of the inspected items to choose what can scent the entryway without active operation.",
+      "human_task_context": "Wait for the Assistant to explicitly select one item. Carry only that item to the entryway cabinet and leave the other inspected items on the original table. Do not make the functional choice yourself.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <surf_1> (1)",
+          "[LookAt] <item_1> (1)",
+          "[LookAt] <item_2> (1)",
+          "[LookAt] <item_3> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 4,
+            "say": "Hey, Assistant, which one should I take if I want the entryway to smell nice on its own while I do the other chores? I'll put whichever one we choose on the entryway cabinet."
+          }
+        ],
+        "handoff_say": "Hey, Assistant, which one should I take if I want the entryway to smell nice on its own while I do the other chores? I'll put whichever one we choose on the entryway cabinet.",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "passive_scent_question",
+            "required_phrases": [
+              "entryway to smell nice on its own",
+              "while I do the other chores"
+            ]
+          },
+          {
+            "id": "final_destination",
+            "required_phrases": [
+              "entryway cabinet"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "forbidden_successful_commands": [
+          "[Grab] <item_2> (1)",
+          "[Grab] <item_3> (1)"
+        ],
+        "verification_points": [
+          {
+            "id": "selected_scent_item_on_entryway_cabinet",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "item_1",
+            "target": "surf_2"
+          },
+          {
+            "id": "spray_bottle_stays",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "item_2",
+            "target": "surf_1"
+          },
+          {
+            "id": "sponge_stays",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "item_3",
+            "target": "surf_1"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "item_1": [
+          "bottle with reed sticks",
+          "clear reed stick bottle"
+        ],
+        "item_2": [
+          "spray-headed bottle",
+          "clear bottle with spray head"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 16,
+    "dialogue_budget": 1,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "item_3",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "item_1",
+              "item_2"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "item_1",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "item_1",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "surf_2",
+            "truth": true
+          },
+          "next_beat": "o002"
+        }
+      ],
+      "terminal_beats": [
+        "h002",
+        "o002"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "item_1"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_2"
+        ]
+      },
+      {
+        "verb": "Put",
+        "args": [
+          "item_1",
+          "surf_2"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "item_2"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_2"
+        ]
+      },
+      {
+        "verb": "Put",
+        "args": [
+          "item_2",
+          "surf_2"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Take the bottle with the reed sticks, the reed diffuser. The reeds release scent passively, while the spray-headed bottle only atomizes liquid when it is sprayed.",
+        "relation": "at",
+        "anchor_beat_id": "o000",
+        "source": "speaks_at",
+        "source_index": 0
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    }
+  },
+  "lineage": {
+    "source": "ask_destination_clarity_derivation",
+    "compile_input_digest": "sha256:083134e7346c3ec4a393faeba7b5c0160e88fc0a5d48af5dbaaf1f0005a513df",
+    "source_contract_digest": "sha256:b355d34c99a57cad1c7f8bdac9d8d66179ecec183cc8bb81174cb1adde6c4fef",
+    "executable_spec_digest": "sha256:17a53aab619aeceae196fdfb859d56ebbebdee225e9bdeadd52cefaf0537aedd",
+    "invention": {
+      "attempt": 4,
+      "author_prose": "In the Rs_int flat, the low-near-vision wearer stands at a living-room breakfast table after tidying. On it sit two similar slim bottles, a reed diffuser with thin sticks protruding from an open neck and a conditioner atomizer with a spray head, plus a sponge left from cleaning that is not part of the choice. Before asking, the wearer looks at the reed diffuser, the atomizer, and the sponge so the visual features are reliable. At turn zero they ask the original entryway-fragrance question. The assistant maps reed sticks to passive fragrance and selects the reed diffuser.",
+      "author_prose_sha256": "sha256:438d426d6b79edb98da8dbc4fd9e2047eaba787c4accb071eff7bd7f301a0fdb",
+      "capability": {
+        "boundary": "The decisive rule is prior knowledge applied to a visually identified feature, not a remembered local document, arbitrary label mapping, or invented preference. Keep claims safe, broadly established, low stakes, and appropriate to the assigned room. Prefer ordinary tool-purpose, object-use, or household-organisation knowledge. Use food only in a real kitchen, grocery, or restaurant context, and do not make debatable storage-life or food-safety claims. Do not use diagnosis, treatment, wound care, child dosing, pesticide dosing, or ambiguous chemical advice.",
+        "few_shot": "A wearer is assembling a small desk accessory and holds the bracket steady with one hand. On the work surface are a cross-head screw, a flat-head screwdriver, and a cross-head screwdriver. They ask the glasses which tool to use. The assistant identifies the visible screw-head shape and applies ordinary tool knowledge to name the cross-head screwdriver; no label or earlier document supplies the answer. The wearer uses that tool to attach the bracket and returns the unused driver to the fixed tool drawer. A weak assistant that chooses by proximity uses the wrong tool. The visible fastener feature, ordinary functional rule, and final attachment make the decision both situated and low stakes.",
+        "id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "name_zh": "功能与世界知识推理",
+        "target": "Apply ordinary functional or domain knowledge to a present scene in order to answer where, how, or with what the wearer should act."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+        "evaluation_status": "PASS",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": false,
+        "owner": null,
+        "reason": null,
+        "reason_code": null,
+        "recommended_work": null,
+        "version": "capability-support/1.0",
+        "workstream": null
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [],
+        "allowed_loose_categories": [
+          "conditioner_atomizer",
+          "reed_diffuser",
+          "sponge"
+        ],
+        "allowed_surface_categories": [
+          "bottom_cabinet",
+          "breakfast_table"
+        ],
+        "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "coverage_categories": [
+          "conditioner_atomizer",
+          "reed_diffuser",
+          "sponge"
+        ],
+        "evaluation": {
+          "common_sense_allowed": true,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "ASK",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 12,
+          "min_intervening_meaningful_actions": 0,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "conditioner_atomizer",
+          "reed_diffuser",
+          "sponge"
+        ],
+        "preferred_story_category_glosses": {
+          "conditioner_atomizer": "",
+          "reed_diffuser": "",
+          "sponge": ""
+        },
+        "rooms": [
+          {
+            "name": "living_room_0"
+          }
+        ],
+        "scene": "Rs_int",
+        "task_id": "ASK-90003",
+        "version": "grounded-authoring/3.0-validity-20260831"
+      },
+      "prompt_sha": "88d251c17891",
+      "prompt_sha256": "sha256:88d251c17891d6f4278b378074897c95f0fb3643793a1d8af0ff87610b115ee6",
+      "prompt_version": "capability-v36-closed-loop-realism-20260901",
+      "prose_sha256": "sha256:438d426d6b79edb98da8dbc4fd9e2047eaba787c4accb071eff7bd7f301a0fdb",
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+          "semantic_turns": 1,
+          "story_world_mismatches": [],
+          "strong_weak_distinct": true,
+          "uses_only_grounded_assets": true
+        },
+        "capability_fit": "Manual group-C repair for ASK-90003.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "reed_diffuser",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": "clear",
+                "what": "item_1 reed_diffuser"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "conditioner_atomizer",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": "clear",
+                "what": "item_2 conditioner_atomizer"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "sponge",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": "yellow",
+                "what": "item_3 sponge"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "breakfast_table",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "surf_1 breakfast_table"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "bottom_cabinet",
+                "changed": true,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "surf_2 bottom_cabinet"
+              }
+            ],
+            "distinct_by": [
+              "reed sticks versus spray head functional features"
+            ],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "In the Rs_int flat, the low-near-vision wearer stands at a living-room breakfast table after tidying. On it sit two similar slim bottles, a reed diffuser with thin sticks protruding from an open neck and a conditioner atomizer with a spray head, plus a sponge left from cleaning that is not part of the choice. Before asking, the wearer looks at the reed diffuser, the atomizer, and the sponge so the visual features are reliable. At turn zero they ask the original entryway-fragrance question. The assistant maps reed sticks to passive fragrance and selects the reed diffuser.",
+            "scene": "Rs_int",
+            "why_scene": "Provides living-room and entryway staging surfaces."
+          },
+          "needs": {
+            "assessment_contract": {
+              "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+              "assigned_scene": "Rs_int",
+              "core_question": "I want the thing that will make the entryway smell pleasant on its own while I do other chores. I can't tell these bottles apart from here - which one should I take?",
+              "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+              "forbidden_changes": [
+                "adding a label that names the diffuser",
+                "making the two bottles visually identical"
+              ],
+              "knowledge_constraints": [
+                "decision must rest on visible feature plus object-purpose knowledge, not a label"
+              ],
+              "required_evidence": [
+                "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.",
+                "item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.",
+                "item_2 is a similar slim clear bottle body with a visible spray head.",
+                "Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.",
+                "A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance."
+              ],
+              "required_final_predicates": [
+                "on"
+              ],
+              "success_condition": "on(reed_diffuser, entryway bottom_cabinet)",
+              "temporal_constraints": []
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_1 reed_diffuser",
+                "what": "item_1 reed_diffuser",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_2 conditioner_atomizer",
+                "what": "item_2 conditioner_atomizer",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item_3 sponge",
+                "what": "item_3 sponge",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "surf_1 breakfast_table",
+                "what": "surf_1 breakfast_table",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "manual group-C repaired story uses it",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "surf_2 bottom_cabinet",
+                "what": "surf_2 bottom_cabinet",
+                "when": "both"
+              }
+            ]
+          }
+        },
+        "reason": "Manual group-C metadata synchronized to the repaired story.",
+        "runtime_requirements": {
+          "actions": [
+            "Grab",
+            "LookAt",
+            "PutOn",
+            "Walk"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 7,
+          "estimated_prologue_actions": 4,
+          "estimated_task_actions": 3,
+          "events": [],
+          "final_predicates": [
+            "on"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "structural_signature": {
+          "evaluation": "on(reed_diffuser, entryway bottom_cabinet)",
+          "evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+          "failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+          "operation": "manual repaired ASK task",
+          "response": "Take the bottle with the reed sticks, the reed diffuser. The reeds release scent passively, while the spray-headed bottle only atomizes liquid when it is sprayed.",
+          "temporal": "repaired prologue before turn0"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_weak_distinct": true,
+            "uses_only_grounded_assets": true
+          },
+          "capability_fit": "Manual group-C repair for ASK-90003.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "reed_diffuser",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": "clear",
+                  "what": "item_1 reed_diffuser"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "conditioner_atomizer",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": "clear",
+                  "what": "item_2 conditioner_atomizer"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "sponge",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": "yellow",
+                  "what": "item_3 sponge"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "breakfast_table",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_1 breakfast_table"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_2 bottom_cabinet"
+                }
+              ],
+              "distinct_by": [
+                "reed sticks versus spray head functional features"
+              ],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In the Rs_int flat, the low-near-vision wearer stands at a living-room breakfast table after tidying. On it sit two similar slim bottles, a reed diffuser with thin sticks protruding from an open neck and a conditioner atomizer with a spray head, plus a sponge left from cleaning that is not part of the choice. Before asking, the wearer looks at the reed diffuser, the atomizer, and the sponge so the visual features are reliable. At turn zero they ask the original entryway-fragrance question. The assistant maps reed sticks to passive fragrance and selects the reed diffuser.",
+              "scene": "Rs_int",
+              "why_scene": "Provides living-room and entryway staging surfaces."
+            },
+            "needs": {
+              "assessment_contract": {
+                "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                "assigned_scene": "Rs_int",
+                "core_question": "I want the thing that will make the entryway smell pleasant on its own while I do other chores. I can't tell these bottles apart from here - which one should I take?",
+                "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+                "forbidden_changes": [
+                  "adding a label that names the diffuser",
+                  "making the two bottles visually identical"
+                ],
+                "knowledge_constraints": [
+                  "decision must rest on visible feature plus object-purpose knowledge, not a label"
+                ],
+                "required_evidence": [
+                  "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.",
+                  "item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.",
+                  "item_2 is a similar slim clear bottle body with a visible spray head.",
+                  "Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.",
+                  "A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance."
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "on(reed_diffuser, entryway bottom_cabinet)",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_1 reed_diffuser",
+                  "what": "item_1 reed_diffuser",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_2 conditioner_atomizer",
+                  "what": "item_2 conditioner_atomizer",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_3 sponge",
+                  "what": "item_3 sponge",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_1 breakfast_table",
+                  "what": "surf_1 breakfast_table",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_2 bottom_cabinet",
+                  "what": "surf_2 bottom_cabinet",
+                  "when": "both"
+                }
+              ]
+            }
+          },
+          "reason": "Manual group-C metadata synchronized to the repaired story.",
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "LookAt",
+              "PutOn",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 7,
+            "estimated_prologue_actions": 4,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "structural_signature": {
+            "evaluation": "on(reed_diffuser, entryway bottom_cabinet)",
+            "evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+            "failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+            "operation": "manual repaired ASK task",
+            "response": "Take the bottle with the reed sticks, the reed diffuser. The reeds release scent passively, while the spray-headed bottle only atomizes liquid when it is sprayed.",
+            "temporal": "repaired prologue before turn0"
+          },
+          "verdict": "KEEP"
+        },
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_weak_distinct": true,
+            "uses_only_grounded_assets": true
+          },
+          "capability_fit": "Manual group-C repair for ASK-90003.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "reed_diffuser",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": "clear",
+                  "what": "item_1 reed_diffuser"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "conditioner_atomizer",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": "clear",
+                  "what": "item_2 conditioner_atomizer"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "sponge",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": "yellow",
+                  "what": "item_3 sponge"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "breakfast_table",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_1 breakfast_table"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_2 bottom_cabinet"
+                }
+              ],
+              "distinct_by": [
+                "reed sticks versus spray head functional features"
+              ],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In the Rs_int flat, the low-near-vision wearer stands at a living-room breakfast table after tidying. On it sit two similar slim bottles, a reed diffuser with thin sticks protruding from an open neck and a conditioner atomizer with a spray head, plus a sponge left from cleaning that is not part of the choice. Before asking, the wearer looks at the reed diffuser, the atomizer, and the sponge so the visual features are reliable. At turn zero they ask the original entryway-fragrance question. The assistant maps reed sticks to passive fragrance and selects the reed diffuser.",
+              "scene": "Rs_int",
+              "why_scene": "Provides living-room and entryway staging surfaces."
+            },
+            "needs": {
+              "assessment_contract": {
+                "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                "assigned_scene": "Rs_int",
+                "core_question": "I want the thing that will make the entryway smell pleasant on its own while I do other chores. I can't tell these bottles apart from here - which one should I take?",
+                "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+                "forbidden_changes": [
+                  "adding a label that names the diffuser",
+                  "making the two bottles visually identical"
+                ],
+                "knowledge_constraints": [
+                  "decision must rest on visible feature plus object-purpose knowledge, not a label"
+                ],
+                "required_evidence": [
+                  "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.",
+                  "item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.",
+                  "item_2 is a similar slim clear bottle body with a visible spray head.",
+                  "Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.",
+                  "A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance."
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "on(reed_diffuser, entryway bottom_cabinet)",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_1 reed_diffuser",
+                  "what": "item_1 reed_diffuser",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_2 conditioner_atomizer",
+                  "what": "item_2 conditioner_atomizer",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_3 sponge",
+                  "what": "item_3 sponge",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_1 breakfast_table",
+                  "what": "surf_1 breakfast_table",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_2 bottom_cabinet",
+                  "what": "surf_2 bottom_cabinet",
+                  "when": "both"
+                }
+              ]
+            }
+          },
+          "reason": "Manual group-C metadata synchronized to the repaired story.",
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "LookAt",
+              "PutOn",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 7,
+            "estimated_prologue_actions": 4,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "structural_signature": {
+            "evaluation": "on(reed_diffuser, entryway bottom_cabinet)",
+            "evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+            "failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+            "operation": "manual repaired ASK task",
+            "response": "Take the bottle with the reed sticks, the reed diffuser. The reeds release scent passively, while the spray-headed bottle only atomizes liquid when it is sprayed.",
+            "temporal": "repaired prologue before turn0"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "Rs_int",
+      "sha": "sha256:438d426d6b79edb98da8dbc4fd9e2047eaba787c4accb071eff7bd7f301a0fdb",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v36_closedloop_20260901a/compile_input/ASK/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gpt-5-5-genai-responses",
+      "judge_model": "claude-4-8-opus-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260831q"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_micro24_v36_closedloop_20260901a",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v36-closed-loop-realism-20260901",
+      "release_id": "sha256:42f8ae9137c54a64407f30befedcf9da9a5bf984288e1ad111e4a7e3a42483d3",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "ASK-90003",
+    "revision": "ask-destination-clarity-20260914",
+    "benchmark_split": "production",
+    "physical_taskpack_sha256": "sha256:ea8e8d2934d38203bc2c39d9288366770eb4c3f1f0b3a87931142dd8b531e68f",
+    "metadata_repairs": [],
+    "parent_lineage": {
+      "source": "ask17_interaction_assembly",
+      "compile_input_digest": "sha256:083134e7346c3ec4a393faeba7b5c0160e88fc0a5d48af5dbaaf1f0005a513df",
+      "source_contract_digest": "sha256:b355d34c99a57cad1c7f8bdac9d8d66179ecec183cc8bb81174cb1adde6c4fef",
+      "executable_spec_digest": "sha256:17a53aab619aeceae196fdfb859d56ebbebdee225e9bdeadd52cefaf0537aedd",
+      "invention": {
+        "attempt": 4,
+        "author_prose": "In the Rs_int flat, the low-near-vision wearer stands at a living-room breakfast table after tidying. On it sit two similar slim bottles, a reed diffuser with thin sticks protruding from an open neck and a conditioner atomizer with a spray head, plus a sponge left from cleaning that is not part of the choice. Before asking, the wearer looks at the reed diffuser, the atomizer, and the sponge so the visual features are reliable. At turn zero they ask the original entryway-fragrance question. The assistant maps reed sticks to passive fragrance and selects the reed diffuser.",
+        "author_prose_sha256": "sha256:438d426d6b79edb98da8dbc4fd9e2047eaba787c4accb071eff7bd7f301a0fdb",
+        "capability": {
+          "boundary": "The decisive rule is prior knowledge applied to a visually identified feature, not a remembered local document, arbitrary label mapping, or invented preference. Keep claims safe, broadly established, low stakes, and appropriate to the assigned room. Prefer ordinary tool-purpose, object-use, or household-organisation knowledge. Use food only in a real kitchen, grocery, or restaurant context, and do not make debatable storage-life or food-safety claims. Do not use diagnosis, treatment, wound care, child dosing, pesticide dosing, or ambiguous chemical advice.",
+          "few_shot": "A wearer is assembling a small desk accessory and holds the bracket steady with one hand. On the work surface are a cross-head screw, a flat-head screwdriver, and a cross-head screwdriver. They ask the glasses which tool to use. The assistant identifies the visible screw-head shape and applies ordinary tool knowledge to name the cross-head screwdriver; no label or earlier document supplies the answer. The wearer uses that tool to attach the bracket and returns the unused driver to the fixed tool drawer. A weak assistant that chooses by proximity uses the wrong tool. The visible fastener feature, ordinary functional rule, and final attachment make the decision both situated and low stakes.",
+          "id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+          "name_zh": "功能与世界知识推理",
+          "target": "Apply ordinary functional or domain knowledge to a present scene in order to answer where, how, or with what the wearer should act."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+          "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+          "evaluation_status": "PASS",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": false,
+          "owner": null,
+          "reason": null,
+          "reason_code": null,
+          "recommended_work": null,
+          "version": "capability-support/1.0",
+          "workstream": null
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [],
+          "allowed_loose_categories": [
+            "conditioner_atomizer",
+            "reed_diffuser",
+            "sponge"
+          ],
+          "allowed_surface_categories": [
+            "bottom_cabinet",
+            "breakfast_table"
+          ],
+          "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+          "coverage_categories": [
+            "conditioner_atomizer",
+            "reed_diffuser",
+            "sponge"
+          ],
+          "evaluation": {
+            "common_sense_allowed": true,
+            "document_carrier_required": false,
+            "max_semantic_turns": 1,
+            "required_semantic_turns": 1,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": false,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_memory_gap": false,
+            "requires_reselection": false,
+            "single_wearer_only": true,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "ASK",
+          "limits": {
+            "max_authored_actions": 18,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_meaningful_steps": 15,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 10,
+            "max_small_label_characters": 8,
+            "max_task_actions": 12,
+            "min_intervening_meaningful_actions": 0,
+            "min_meaningful_steps": 1
+          },
+          "preferred_story_categories": [
+            "conditioner_atomizer",
+            "reed_diffuser",
+            "sponge"
+          ],
+          "preferred_story_category_glosses": {
+            "conditioner_atomizer": "",
+            "reed_diffuser": "",
+            "sponge": ""
+          },
+          "rooms": [
+            {
+              "name": "living_room_0"
+            }
+          ],
+          "scene": "Rs_int",
+          "task_id": "ASK-90003",
+          "version": "grounded-authoring/3.0-validity-20260831"
+        },
+        "prompt_sha": "88d251c17891",
+        "prompt_sha256": "sha256:88d251c17891d6f4278b378074897c95f0fb3643793a1d8af0ff87610b115ee6",
+        "prompt_version": "capability-v36-closed-loop-realism-20260901",
+        "prose_sha256": "sha256:438d426d6b79edb98da8dbc4fd9e2047eaba787c4accb071eff7bd7f301a0fdb",
+        "review": {
+          "benchmark_check": {
+            "egocentric_evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_weak_distinct": true,
+            "uses_only_grounded_assets": true
+          },
+          "capability_fit": "Manual group-C repair for ASK-90003.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "reed_diffuser",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": "clear",
+                  "what": "item_1 reed_diffuser"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "conditioner_atomizer",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": "clear",
+                  "what": "item_2 conditioner_atomizer"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "sponge",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": "yellow",
+                  "what": "item_3 sponge"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "breakfast_table",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_1 breakfast_table"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": true,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "surf_2 bottom_cabinet"
+                }
+              ],
+              "distinct_by": [
+                "reed sticks versus spray head functional features"
+              ],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In the Rs_int flat, the low-near-vision wearer stands at a living-room breakfast table after tidying. On it sit two similar slim bottles, a reed diffuser with thin sticks protruding from an open neck and a conditioner atomizer with a spray head, plus a sponge left from cleaning that is not part of the choice. Before asking, the wearer looks at the reed diffuser, the atomizer, and the sponge so the visual features are reliable. At turn zero they ask the original entryway-fragrance question. The assistant maps reed sticks to passive fragrance and selects the reed diffuser.",
+              "scene": "Rs_int",
+              "why_scene": "Provides living-room and entryway staging surfaces."
+            },
+            "needs": {
+              "assessment_contract": {
+                "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                "assigned_scene": "Rs_int",
+                "core_question": "I want the thing that will make the entryway smell pleasant on its own while I do other chores. I can't tell these bottles apart from here - which one should I take?",
+                "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+                "forbidden_changes": [
+                  "adding a label that names the diffuser",
+                  "making the two bottles visually identical"
+                ],
+                "knowledge_constraints": [
+                  "decision must rest on visible feature plus object-purpose knowledge, not a label"
+                ],
+                "required_evidence": [
+                  "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.",
+                  "item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.",
+                  "item_2 is a similar slim clear bottle body with a visible spray head.",
+                  "Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.",
+                  "A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance."
+                ],
+                "required_final_predicates": [
+                  "on"
+                ],
+                "success_condition": "on(reed_diffuser, entryway bottom_cabinet)",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_1 reed_diffuser",
+                  "what": "item_1 reed_diffuser",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_2 conditioner_atomizer",
+                  "what": "item_2 conditioner_atomizer",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item_3 sponge",
+                  "what": "item_3 sponge",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_1 breakfast_table",
+                  "what": "surf_1 breakfast_table",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "manual group-C repaired story uses it",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surf_2 bottom_cabinet",
+                  "what": "surf_2 bottom_cabinet",
+                  "when": "both"
+                }
+              ]
+            }
+          },
+          "reason": "Manual group-C metadata synchronized to the repaired story.",
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "LookAt",
+              "PutOn",
+              "Walk"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 7,
+            "estimated_prologue_actions": 4,
+            "estimated_task_actions": 3,
+            "events": [],
+            "final_predicates": [
+              "on"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "structural_signature": {
+            "evaluation": "on(reed_diffuser, entryway bottom_cabinet)",
+            "evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+            "failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+            "operation": "manual repaired ASK task",
+            "response": "Take the bottle with the reed sticks, the reed diffuser. The reeds release scent passively, while the spray-headed bottle only atomizes liquid when it is sprayed.",
+            "temporal": "repaired prologue before turn0"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+              "semantic_turns": 1,
+              "story_world_mismatches": [],
+              "strong_weak_distinct": true,
+              "uses_only_grounded_assets": true
+            },
+            "capability_fit": "Manual group-C repair for ASK-90003.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "reed_diffuser",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": "clear",
+                    "what": "item_1 reed_diffuser"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "conditioner_atomizer",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": "clear",
+                    "what": "item_2 conditioner_atomizer"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "sponge",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": "yellow",
+                    "what": "item_3 sponge"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "breakfast_table",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_1 breakfast_table"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "bottom_cabinet",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_2 bottom_cabinet"
+                  }
+                ],
+                "distinct_by": [
+                  "reed sticks versus spray head functional features"
+                ],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "In the Rs_int flat, the low-near-vision wearer stands at a living-room breakfast table after tidying. On it sit two similar slim bottles, a reed diffuser with thin sticks protruding from an open neck and a conditioner atomizer with a spray head, plus a sponge left from cleaning that is not part of the choice. Before asking, the wearer looks at the reed diffuser, the atomizer, and the sponge so the visual features are reliable. At turn zero they ask the original entryway-fragrance question. The assistant maps reed sticks to passive fragrance and selects the reed diffuser.",
+                "scene": "Rs_int",
+                "why_scene": "Provides living-room and entryway staging surfaces."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                  "assigned_scene": "Rs_int",
+                  "core_question": "I want the thing that will make the entryway smell pleasant on its own while I do other chores. I can't tell these bottles apart from here - which one should I take?",
+                  "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+                  "forbidden_changes": [
+                    "adding a label that names the diffuser",
+                    "making the two bottles visually identical"
+                  ],
+                  "knowledge_constraints": [
+                    "decision must rest on visible feature plus object-purpose knowledge, not a label"
+                  ],
+                  "required_evidence": [
+                    "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.",
+                    "item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.",
+                    "item_2 is a similar slim clear bottle body with a visible spray head.",
+                    "Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.",
+                    "A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance."
+                  ],
+                  "required_final_predicates": [
+                    "on"
+                  ],
+                  "success_condition": "on(reed_diffuser, entryway bottom_cabinet)",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_1 reed_diffuser",
+                    "what": "item_1 reed_diffuser",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_2 conditioner_atomizer",
+                    "what": "item_2 conditioner_atomizer",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_3 sponge",
+                    "what": "item_3 sponge",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_1 breakfast_table",
+                    "what": "surf_1 breakfast_table",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_2 bottom_cabinet",
+                    "what": "surf_2 bottom_cabinet",
+                    "when": "both"
+                  }
+                ]
+              }
+            },
+            "reason": "Manual group-C metadata synchronized to the repaired story.",
+            "runtime_requirements": {
+              "actions": [
+                "Grab",
+                "LookAt",
+                "PutOn",
+                "Walk"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 7,
+              "estimated_prologue_actions": 4,
+              "estimated_task_actions": 3,
+              "events": [],
+              "final_predicates": [
+                "on"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "structural_signature": {
+              "evaluation": "on(reed_diffuser, entryway bottom_cabinet)",
+              "evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+              "failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+              "operation": "manual repaired ASK task",
+              "response": "Take the bottle with the reed sticks, the reed diffuser. The reeds release scent passively, while the spray-headed bottle only atomizes liquid when it is sprayed.",
+              "temporal": "repaired prologue before turn0"
+            },
+            "verdict": "KEEP"
+          },
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+              "semantic_turns": 1,
+              "story_world_mismatches": [],
+              "strong_weak_distinct": true,
+              "uses_only_grounded_assets": true
+            },
+            "capability_fit": "Manual group-C repair for ASK-90003.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "reed_diffuser",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": "clear",
+                    "what": "item_1 reed_diffuser"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "conditioner_atomizer",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": "clear",
+                    "what": "item_2 conditioner_atomizer"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "sponge",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": "yellow",
+                    "what": "item_3 sponge"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "breakfast_table",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_1 breakfast_table"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "bottom_cabinet",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_2 bottom_cabinet"
+                  }
+                ],
+                "distinct_by": [
+                  "reed sticks versus spray head functional features"
+                ],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "In the Rs_int flat, the low-near-vision wearer stands at a living-room breakfast table after tidying. On it sit two similar slim bottles, a reed diffuser with thin sticks protruding from an open neck and a conditioner atomizer with a spray head, plus a sponge left from cleaning that is not part of the choice. Before asking, the wearer looks at the reed diffuser, the atomizer, and the sponge so the visual features are reliable. At turn zero they ask the original entryway-fragrance question. The assistant maps reed sticks to passive fragrance and selects the reed diffuser.",
+                "scene": "Rs_int",
+                "why_scene": "Provides living-room and entryway staging surfaces."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                  "assigned_scene": "Rs_int",
+                  "core_question": "I want the thing that will make the entryway smell pleasant on its own while I do other chores. I can't tell these bottles apart from here - which one should I take?",
+                  "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+                  "forbidden_changes": [
+                    "adding a label that names the diffuser",
+                    "making the two bottles visually identical"
+                  ],
+                  "knowledge_constraints": [
+                    "decision must rest on visible feature plus object-purpose knowledge, not a label"
+                  ],
+                  "required_evidence": [
+                    "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.",
+                    "item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.",
+                    "item_2 is a similar slim clear bottle body with a visible spray head.",
+                    "Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.",
+                    "A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance."
+                  ],
+                  "required_final_predicates": [
+                    "on"
+                  ],
+                  "success_condition": "on(reed_diffuser, entryway bottom_cabinet)",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_1 reed_diffuser",
+                    "what": "item_1 reed_diffuser",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_2 conditioner_atomizer",
+                    "what": "item_2 conditioner_atomizer",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_3 sponge",
+                    "what": "item_3 sponge",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_1 breakfast_table",
+                    "what": "surf_1 breakfast_table",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_2 bottom_cabinet",
+                    "what": "surf_2 bottom_cabinet",
+                    "when": "both"
+                  }
+                ]
+              }
+            },
+            "reason": "Manual group-C metadata synchronized to the repaired story.",
+            "runtime_requirements": {
+              "actions": [
+                "Grab",
+                "LookAt",
+                "PutOn",
+                "Walk"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 7,
+              "estimated_prologue_actions": 4,
+              "estimated_task_actions": 3,
+              "events": [],
+              "final_predicates": [
+                "on"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "structural_signature": {
+              "evaluation": "on(reed_diffuser, entryway bottom_cabinet)",
+              "evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+              "failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+              "operation": "manual repaired ASK task",
+              "response": "Take the bottle with the reed sticks, the reed diffuser. The reeds release scent passively, while the spray-headed bottle only atomizes liquid when it is sprayed.",
+              "temporal": "repaired prologue before turn0"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "Rs_int",
+        "sha": "sha256:438d426d6b79edb98da8dbc4fd9e2047eaba787c4accb071eff7bd7f301a0fdb",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v36_closedloop_20260901a/compile_input/ASK/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gpt-5-5-genai-responses",
+        "judge_model": "claude-4-8-opus-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260831q"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_micro24_v36_closedloop_20260901a",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v36-closed-loop-realism-20260901",
+        "release_id": "sha256:42f8ae9137c54a64407f30befedcf9da9a5bf984288e1ad111e4a7e3a42483d3",
+        "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "normalizations": [],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "ASK-90003",
+      "revision": "ask17-interaction-20260912",
+      "benchmark_split": "production",
+      "physical_taskpack_sha256": "sha256:ea8e8d2934d38203bc2c39d9288366770eb4c3f1f0b3a87931142dd8b531e68f",
+      "metadata_repairs": [],
+      "parent_lineage": {
+        "source": "data_generate.compile_v2",
+        "compile_input_digest": "sha256:083134e7346c3ec4a393faeba7b5c0160e88fc0a5d48af5dbaaf1f0005a513df",
+        "source_contract_digest": "sha256:b355d34c99a57cad1c7f8bdac9d8d66179ecec183cc8bb81174cb1adde6c4fef",
+        "executable_spec_digest": "sha256:17a53aab619aeceae196fdfb859d56ebbebdee225e9bdeadd52cefaf0537aedd",
+        "invention": {
+          "attempt": 4,
+          "author_prose": "In the Rs_int flat, the low-near-vision wearer stands at a living-room breakfast table after tidying. On it sit two similar slim bottles, a reed diffuser with thin sticks protruding from an open neck and a conditioner atomizer with a spray head, plus a sponge left from cleaning that is not part of the choice. Before asking, the wearer looks at the reed diffuser, the atomizer, and the sponge so the visual features are reliable. At turn zero they ask the original entryway-fragrance question. The assistant maps reed sticks to passive fragrance and selects the reed diffuser.",
+          "author_prose_sha256": "sha256:438d426d6b79edb98da8dbc4fd9e2047eaba787c4accb071eff7bd7f301a0fdb",
+          "capability": {
+            "boundary": "The decisive rule is prior knowledge applied to a visually identified feature, not a remembered local document, arbitrary label mapping, or invented preference. Keep claims safe, broadly established, low stakes, and appropriate to the assigned room. Prefer ordinary tool-purpose, object-use, or household-organisation knowledge. Use food only in a real kitchen, grocery, or restaurant context, and do not make debatable storage-life or food-safety claims. Do not use diagnosis, treatment, wound care, child dosing, pesticide dosing, or ambiguous chemical advice.",
+            "few_shot": "A wearer is assembling a small desk accessory and holds the bracket steady with one hand. On the work surface are a cross-head screw, a flat-head screwdriver, and a cross-head screwdriver. They ask the glasses which tool to use. The assistant identifies the visible screw-head shape and applies ordinary tool knowledge to name the cross-head screwdriver; no label or earlier document supplies the answer. The wearer uses that tool to attach the bracket and returns the unused driver to the fixed tool drawer. A weak assistant that chooses by proximity uses the wrong tool. The visible fastener feature, ordinary functional rule, and final attachment make the decision both situated and low stakes.",
+            "id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+            "name_zh": "功能与世界知识推理",
+            "target": "Apply ordinary functional or domain knowledge to a present scene in order to answer where, how, or with what the wearer should act."
+          },
+          "capability_support": {
+            "blocking": false,
+            "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+            "evaluation_mode": "DIRECT_RUNTIME_OUTCOME",
+            "evaluation_status": "PASS",
+            "execution_status": "SUPPORTED",
+            "needs_simulator_work": false,
+            "owner": null,
+            "reason": null,
+            "reason_code": null,
+            "recommended_work": null,
+            "version": "capability-support/1.0",
+            "workstream": null
+          },
+          "grounding_contract": {
+            "allowed_container_categories": [],
+            "allowed_loose_categories": [
+              "conditioner_atomizer",
+              "reed_diffuser",
+              "sponge"
+            ],
+            "allowed_surface_categories": [
+              "bottom_cabinet",
+              "breakfast_table"
+            ],
+            "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+            "coverage_categories": [
+              "conditioner_atomizer",
+              "reed_diffuser",
+              "sponge"
+            ],
+            "evaluation": {
+              "common_sense_allowed": true,
+              "document_carrier_required": false,
+              "max_semantic_turns": 1,
+              "required_semantic_turns": 1,
+              "requires_cross_room_transition": false,
+              "requires_dynamic_evidence": false,
+              "requires_egocentric_evidence": true,
+              "requires_initial_dialogue_at_zero": true,
+              "requires_memory_gap": false,
+              "requires_reselection": false,
+              "single_wearer_only": true,
+              "text_evidence_required": false,
+              "weak_branch_must_fail": true
+            },
+            "family": "ASK",
+            "limits": {
+              "max_authored_actions": 18,
+              "max_document_characters": 32,
+              "max_fixed_destinations": 3,
+              "max_meaningful_steps": 15,
+              "max_movable_objects": 4,
+              "max_objects_per_container": 2,
+              "max_objects_per_surface": 3,
+              "max_prologue_actions": 10,
+              "max_small_label_characters": 8,
+              "max_task_actions": 12,
+              "min_intervening_meaningful_actions": 0,
+              "min_meaningful_steps": 1
+            },
+            "preferred_story_categories": [
+              "conditioner_atomizer",
+              "reed_diffuser",
+              "sponge"
+            ],
+            "preferred_story_category_glosses": {
+              "conditioner_atomizer": "",
+              "reed_diffuser": "",
+              "sponge": ""
+            },
+            "rooms": [
+              {
+                "name": "living_room_0"
+              }
+            ],
+            "scene": "Rs_int",
+            "task_id": "ASK-90003",
+            "version": "grounded-authoring/3.0-validity-20260831"
+          },
+          "prompt_sha": "88d251c17891",
+          "prompt_sha256": "sha256:88d251c17891d6f4278b378074897c95f0fb3643793a1d8af0ff87610b115ee6",
+          "prompt_version": "capability-v36-closed-loop-realism-20260901",
+          "prose_sha256": "sha256:438d426d6b79edb98da8dbc4fd9e2047eaba787c4accb071eff7bd7f301a0fdb",
+          "review": {
+            "benchmark_check": {
+              "egocentric_evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+              "semantic_turns": 1,
+              "story_world_mismatches": [],
+              "strong_weak_distinct": true,
+              "uses_only_grounded_assets": true
+            },
+            "capability_fit": "Manual group-C repair for ASK-90003.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "reed_diffuser",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": "clear",
+                    "what": "item_1 reed_diffuser"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "conditioner_atomizer",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": "clear",
+                    "what": "item_2 conditioner_atomizer"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "sponge",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": "yellow",
+                    "what": "item_3 sponge"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "breakfast_table",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_1 breakfast_table"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "bottom_cabinet",
+                    "changed": true,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "surf_2 bottom_cabinet"
+                  }
+                ],
+                "distinct_by": [
+                  "reed sticks versus spray head functional features"
+                ],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "In the Rs_int flat, the low-near-vision wearer stands at a living-room breakfast table after tidying. On it sit two similar slim bottles, a reed diffuser with thin sticks protruding from an open neck and a conditioner atomizer with a spray head, plus a sponge left from cleaning that is not part of the choice. Before asking, the wearer looks at the reed diffuser, the atomizer, and the sponge so the visual features are reliable. At turn zero they ask the original entryway-fragrance question. The assistant maps reed sticks to passive fragrance and selects the reed diffuser.",
+                "scene": "Rs_int",
+                "why_scene": "Provides living-room and entryway staging surfaces."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                  "assigned_scene": "Rs_int",
+                  "core_question": "I want the thing that will make the entryway smell pleasant on its own while I do other chores. I can't tell these bottles apart from here - which one should I take?",
+                  "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+                  "forbidden_changes": [
+                    "adding a label that names the diffuser",
+                    "making the two bottles visually identical"
+                  ],
+                  "knowledge_constraints": [
+                    "decision must rest on visible feature plus object-purpose knowledge, not a label"
+                  ],
+                  "required_evidence": [
+                    "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.",
+                    "item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.",
+                    "item_2 is a similar slim clear bottle body with a visible spray head.",
+                    "Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.",
+                    "A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance."
+                  ],
+                  "required_final_predicates": [
+                    "on"
+                  ],
+                  "success_condition": "on(reed_diffuser, entryway bottom_cabinet)",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_1 reed_diffuser",
+                    "what": "item_1 reed_diffuser",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_2 conditioner_atomizer",
+                    "what": "item_2 conditioner_atomizer",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item_3 sponge",
+                    "what": "item_3 sponge",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_1 breakfast_table",
+                    "what": "surf_1 breakfast_table",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "manual group-C repaired story uses it",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surf_2 bottom_cabinet",
+                    "what": "surf_2 bottom_cabinet",
+                    "when": "both"
+                  }
+                ]
+              }
+            },
+            "reason": "Manual group-C metadata synchronized to the repaired story.",
+            "runtime_requirements": {
+              "actions": [
+                "Grab",
+                "LookAt",
+                "PutOn",
+                "Walk"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 7,
+              "estimated_prologue_actions": 4,
+              "estimated_task_actions": 3,
+              "events": [],
+              "final_predicates": [
+                "on"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "structural_signature": {
+              "evaluation": "on(reed_diffuser, entryway bottom_cabinet)",
+              "evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+              "failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+              "operation": "manual repaired ASK task",
+              "response": "Take the bottle with the reed sticks, the reed diffuser. The reeds release scent passively, while the spray-headed bottle only atomizes liquid when it is sprayed.",
+              "temporal": "repaired prologue before turn0"
+            },
+            "verdict": "KEEP"
+          },
+          "reviews": [
+            {
+              "benchmark_check": {
+                "egocentric_evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+                "semantic_turns": 1,
+                "story_world_mismatches": [],
+                "strong_weak_distinct": true,
+                "uses_only_grounded_assets": true
+              },
+              "capability_fit": "Manual group-C repair for ASK-90003.",
+              "compiler_blueprint": {
+                "cast": {
+                  "assembly": [],
+                  "bindings": [
+                    {
+                      "affordances": [
+                        "graspable"
+                      ],
+                      "category": "reed_diffuser",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": "clear",
+                      "what": "item_1 reed_diffuser"
+                    },
+                    {
+                      "affordances": [
+                        "graspable"
+                      ],
+                      "category": "conditioner_atomizer",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": "clear",
+                      "what": "item_2 conditioner_atomizer"
+                    },
+                    {
+                      "affordances": [
+                        "graspable"
+                      ],
+                      "category": "sponge",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": "yellow",
+                      "what": "item_3 sponge"
+                    },
+                    {
+                      "affordances": [
+                        "surface"
+                      ],
+                      "category": "breakfast_table",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": null,
+                      "what": "surf_1 breakfast_table"
+                    },
+                    {
+                      "affordances": [
+                        "surface"
+                      ],
+                      "category": "bottom_cabinet",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": null,
+                      "what": "surf_2 bottom_cabinet"
+                    }
+                  ],
+                  "distinct_by": [
+                    "reed sticks versus spray head functional features"
+                  ],
+                  "identical_groups": [],
+                  "impossible": [],
+                  "printed": [],
+                  "restaged_story": "In the Rs_int flat, the low-near-vision wearer stands at a living-room breakfast table after tidying. On it sit two similar slim bottles, a reed diffuser with thin sticks protruding from an open neck and a conditioner atomizer with a spray head, plus a sponge left from cleaning that is not part of the choice. Before asking, the wearer looks at the reed diffuser, the atomizer, and the sponge so the visual features are reliable. At turn zero they ask the original entryway-fragrance question. The assistant maps reed sticks to passive fragrance and selects the reed diffuser.",
+                  "scene": "Rs_int",
+                  "why_scene": "Provides living-room and entryway staging surfaces."
+                },
+                "needs": {
+                  "assessment_contract": {
+                    "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                    "assigned_scene": "Rs_int",
+                    "core_question": "I want the thing that will make the entryway smell pleasant on its own while I do other chores. I can't tell these bottles apart from here - which one should I take?",
+                    "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+                    "forbidden_changes": [
+                      "adding a label that names the diffuser",
+                      "making the two bottles visually identical"
+                    ],
+                    "knowledge_constraints": [
+                      "decision must rest on visible feature plus object-purpose knowledge, not a label"
+                    ],
+                    "required_evidence": [
+                      "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.",
+                      "item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.",
+                      "item_2 is a similar slim clear bottle body with a visible spray head.",
+                      "Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.",
+                      "A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance."
+                    ],
+                    "required_final_predicates": [
+                      "on"
+                    ],
+                    "success_condition": "on(reed_diffuser, entryway bottom_cabinet)",
+                    "temporal_constraints": []
+                  },
+                  "entities": [
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-C repaired story uses it",
+                      "required_affordances": [
+                        "graspable"
+                      ],
+                      "role_in_story": "item_1 reed_diffuser",
+                      "what": "item_1 reed_diffuser",
+                      "when": "both"
+                    },
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-C repaired story uses it",
+                      "required_affordances": [
+                        "graspable"
+                      ],
+                      "role_in_story": "item_2 conditioner_atomizer",
+                      "what": "item_2 conditioner_atomizer",
+                      "when": "both"
+                    },
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-C repaired story uses it",
+                      "required_affordances": [
+                        "graspable"
+                      ],
+                      "role_in_story": "item_3 sponge",
+                      "what": "item_3 sponge",
+                      "when": "both"
+                    },
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-C repaired story uses it",
+                      "required_affordances": [
+                        "surface"
+                      ],
+                      "role_in_story": "surf_1 breakfast_table",
+                      "what": "surf_1 breakfast_table",
+                      "when": "both"
+                    },
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-C repaired story uses it",
+                      "required_affordances": [
+                        "surface"
+                      ],
+                      "role_in_story": "surf_2 bottom_cabinet",
+                      "what": "surf_2 bottom_cabinet",
+                      "when": "both"
+                    }
+                  ]
+                }
+              },
+              "reason": "Manual group-C metadata synchronized to the repaired story.",
+              "runtime_requirements": {
+                "actions": [
+                  "Grab",
+                  "LookAt",
+                  "PutOn",
+                  "Walk"
+                ],
+                "continuous_control": false,
+                "estimated_authored_actions": 7,
+                "estimated_prologue_actions": 4,
+                "estimated_task_actions": 3,
+                "events": [],
+                "final_predicates": [
+                  "on"
+                ],
+                "moves_loaded_carrier": false,
+                "portable_container_or_surface": false,
+                "requires_exact_pose": false,
+                "requires_unscorable_state": false,
+                "unsupported_observations": []
+              },
+              "structural_signature": {
+                "evaluation": "on(reed_diffuser, entryway bottom_cabinet)",
+                "evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+                "failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+                "operation": "manual repaired ASK task",
+                "response": "Take the bottle with the reed sticks, the reed diffuser. The reeds release scent passively, while the spray-headed bottle only atomizes liquid when it is sprayed.",
+                "temporal": "repaired prologue before turn0"
+              },
+              "verdict": "KEEP"
+            },
+            {
+              "benchmark_check": {
+                "egocentric_evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+                "semantic_turns": 1,
+                "story_world_mismatches": [],
+                "strong_weak_distinct": true,
+                "uses_only_grounded_assets": true
+              },
+              "capability_fit": "Manual group-C repair for ASK-90003.",
+              "compiler_blueprint": {
+                "cast": {
+                  "assembly": [],
+                  "bindings": [
+                    {
+                      "affordances": [
+                        "graspable"
+                      ],
+                      "category": "reed_diffuser",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": "clear",
+                      "what": "item_1 reed_diffuser"
+                    },
+                    {
+                      "affordances": [
+                        "graspable"
+                      ],
+                      "category": "conditioner_atomizer",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": "clear",
+                      "what": "item_2 conditioner_atomizer"
+                    },
+                    {
+                      "affordances": [
+                        "graspable"
+                      ],
+                      "category": "sponge",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": "yellow",
+                      "what": "item_3 sponge"
+                    },
+                    {
+                      "affordances": [
+                        "surface"
+                      ],
+                      "category": "breakfast_table",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": null,
+                      "what": "surf_1 breakfast_table"
+                    },
+                    {
+                      "affordances": [
+                        "surface"
+                      ],
+                      "category": "bottom_cabinet",
+                      "changed": true,
+                      "costs": null,
+                      "label": null,
+                      "tint": null,
+                      "what": "surf_2 bottom_cabinet"
+                    }
+                  ],
+                  "distinct_by": [
+                    "reed sticks versus spray head functional features"
+                  ],
+                  "identical_groups": [],
+                  "impossible": [],
+                  "printed": [],
+                  "restaged_story": "In the Rs_int flat, the low-near-vision wearer stands at a living-room breakfast table after tidying. On it sit two similar slim bottles, a reed diffuser with thin sticks protruding from an open neck and a conditioner atomizer with a spray head, plus a sponge left from cleaning that is not part of the choice. Before asking, the wearer looks at the reed diffuser, the atomizer, and the sponge so the visual features are reliable. At turn zero they ask the original entryway-fragrance question. The assistant maps reed sticks to passive fragrance and selects the reed diffuser.",
+                  "scene": "Rs_int",
+                  "why_scene": "Provides living-room and entryway staging surfaces."
+                },
+                "needs": {
+                  "assessment_contract": {
+                    "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+                    "assigned_scene": "Rs_int",
+                    "core_question": "I want the thing that will make the entryway smell pleasant on its own while I do other chores. I can't tell these bottles apart from here - which one should I take?",
+                    "counterfactual_failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+                    "forbidden_changes": [
+                      "adding a label that names the diffuser",
+                      "making the two bottles visually identical"
+                    ],
+                    "knowledge_constraints": [
+                      "decision must rest on visible feature plus object-purpose knowledge, not a label"
+                    ],
+                    "required_evidence": [
+                      "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.",
+                      "item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.",
+                      "item_2 is a similar slim clear bottle body with a visible spray head.",
+                      "Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.",
+                      "A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance."
+                    ],
+                    "required_final_predicates": [
+                      "on"
+                    ],
+                    "success_condition": "on(reed_diffuser, entryway bottom_cabinet)",
+                    "temporal_constraints": []
+                  },
+                  "entities": [
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-C repaired story uses it",
+                      "required_affordances": [
+                        "graspable"
+                      ],
+                      "role_in_story": "item_1 reed_diffuser",
+                      "what": "item_1 reed_diffuser",
+                      "when": "both"
+                    },
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-C repaired story uses it",
+                      "required_affordances": [
+                        "graspable"
+                      ],
+                      "role_in_story": "item_2 conditioner_atomizer",
+                      "what": "item_2 conditioner_atomizer",
+                      "when": "both"
+                    },
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-C repaired story uses it",
+                      "required_affordances": [
+                        "graspable"
+                      ],
+                      "role_in_story": "item_3 sponge",
+                      "what": "item_3 sponge",
+                      "when": "both"
+                    },
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-C repaired story uses it",
+                      "required_affordances": [
+                        "surface"
+                      ],
+                      "role_in_story": "surf_1 breakfast_table",
+                      "what": "surf_1 breakfast_table",
+                      "when": "both"
+                    },
+                    {
+                      "count": 1,
+                      "needs_a_body_because": "manual group-C repaired story uses it",
+                      "required_affordances": [
+                        "surface"
+                      ],
+                      "role_in_story": "surf_2 bottom_cabinet",
+                      "what": "surf_2 bottom_cabinet",
+                      "when": "both"
+                    }
+                  ]
+                }
+              },
+              "reason": "Manual group-C metadata synchronized to the repaired story.",
+              "runtime_requirements": {
+                "actions": [
+                  "Grab",
+                  "LookAt",
+                  "PutOn",
+                  "Walk"
+                ],
+                "continuous_control": false,
+                "estimated_authored_actions": 7,
+                "estimated_prologue_actions": 4,
+                "estimated_task_actions": 3,
+                "events": [],
+                "final_predicates": [
+                  "on"
+                ],
+                "moves_loaded_carrier": false,
+                "portable_container_or_surface": false,
+                "requires_exact_pose": false,
+                "requires_unscorable_state": false,
+                "unsupported_observations": []
+              },
+              "structural_signature": {
+                "evaluation": "on(reed_diffuser, entryway bottom_cabinet)",
+                "evidence": "The wearer wants an object that will make the entryway smell pleasant on its own while they do other chores.; item_1 is a similar slim clear bottle body with thin reed sticks protruding from an open neck.; item_2 is a similar slim clear bottle body with a visible spray head.; Thin reeds protruding from an open liquid bottle are used as wicks that continuously release fragrance into the air.; A spray head indicates on-demand atomizing when someone pumps or sprays it, not passive continuous room fragrance.",
+                "failure": "[Grab] <item_2> (1), [Walk] <surf_2> (1), [PutOn] <item_2> (1) <surf_2> (1)",
+                "operation": "manual repaired ASK task",
+                "response": "Take the bottle with the reed sticks, the reed diffuser. The reeds release scent passively, while the spray-headed bottle only atomizes liquid when it is sprayed.",
+                "temporal": "repaired prologue before turn0"
+              },
+              "verdict": "KEEP"
+            }
+          ],
+          "scene": "Rs_int",
+          "sha": "sha256:438d426d6b79edb98da8dbc4fd9e2047eaba787c4accb071eff7bd7f301a0fdb",
+          "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v36_closedloop_20260901a/compile_input/ASK/run.json"
+        },
+        "compiler_contract": {
+          "asset_contract": {
+            "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+            "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+            "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+            "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+            "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+            "version": "compiler-asset-capabilities/1.5"
+          },
+          "author_model": "gpt-5-5-genai-responses",
+          "judge_model": "claude-4-8-opus-genai",
+          "retrieval": {
+            "lexical_version": "catalog-idf-ancestry/1.0",
+            "mode": "lexical",
+            "semantic_index": null
+          },
+          "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+          "version": "compile-v2-grounded-20260831q"
+        },
+        "production_release": {
+          "campaign_id": "egocentric_micro24_v36_closedloop_20260901a",
+          "production_version": "egocentric-grounded-production/3.0-20260829",
+          "prompt_version": "capability-v36-closed-loop-realism-20260901",
+          "release_id": "sha256:42f8ae9137c54a64407f30befedcf9da9a5bf984288e1ad111e4a7e3a42483d3",
+          "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+        },
+        "normalizations": [],
+        "consumption_ledger": [
+          {
+            "source": "story.source_contract.assessment_contract",
+            "consumer": "story and final semantic audit"
+          },
+          {
+            "source": "story.source_contract.grounding_contract",
+            "consumer": "scene, asset, interaction, and evaluation constraints"
+          },
+          {
+            "source": "story.source_contract.world",
+            "consumer": "executable_spec builder"
+          },
+          {
+            "source": "story.source_contract.world.staging",
+            "consumer": "evidence and layout audit"
+          },
+          {
+            "source": "story.source_contract.world.prologue",
+            "consumer": "story.prologue and simulator opening"
+          },
+          {
+            "source": "story.source_contract.task.oracle_program",
+            "consumer": "runtime oracle branch"
+          },
+          {
+            "source": "story.source_contract.task.human_own_script",
+            "consumer": "runtime default branch"
+          },
+          {
+            "source": "story.source_contract.task.final_state",
+            "consumer": "shared scorer"
+          },
+          {
+            "source": "story.source_contract.task.fact_ledger",
+            "consumer": "story evidence contract"
+          },
+          {
+            "source": "story.source_contract.task.asks_at",
+            "consumer": "turn-zero human request"
+          },
+          {
+            "source": "story.source_contract.task.speaks_at",
+            "consumer": "beat-bound assistant dialogue"
+          },
+          {
+            "source": "story.source_contract.task.guidance",
+            "consumer": "beat-bound assistant guidance"
+          },
+          {
+            "source": "story.source_contract.task.hidden_fact",
+            "consumer": "evidence availability audit"
+          },
+          {
+            "source": "story.source_contract.task.steps",
+            "consumer": "ordering audit"
+          },
+          {
+            "source": "story.source_contract.task.simulator_events",
+            "consumer": "runtime state transitions"
+          }
+        ]
+      }
+    },
+    "parent_taskpack_sha256": "sha256:df686113a136f02dec97c329080f872aed47d16d6a7b0b46f4b7fd04654243bd",
+    "destination_clarity_required_phrases": [
+      "entryway cabinet"
+    ]
+  }
+}

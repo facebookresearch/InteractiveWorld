@@ -1,0 +1,4861 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-94001",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "apple",
+          "target": "setup_table"
+        },
+        {
+          "pred": "on",
+          "subject": "mug",
+          "target": "supply_a"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "apple",
+          "target": "setup_table"
+        },
+        {
+          "pred": "on",
+          "subject": "mug",
+          "target": "supply_a"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [],
+        "nested_containers": [],
+        "objects": [
+          "apple",
+          "mug",
+          "phone",
+          "plan",
+          "towel",
+          "water"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+        "cue": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+        "premise": "The wearer reads a four-step afternoon service plan and completes its first half by staging the water and towel. A real mobile-phone call at the planning table interrupts the sequence. After returning to the supply area, the assistant reconstructs progress and guides only the apple and mug steps."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [
+        "No audible incoming ring is simulated."
+      ],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+        "kind": "authored",
+        "ref": "data_generate:GUIDE-94001"
+      },
+      "rule_table": "on(apple, setup_table); on(mug, supply_a)",
+      "scene": "restaurant_hotel",
+      "template": "the grounded restaurant_hotel scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 24,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 24,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "plan"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "plan"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "supply_a"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "water"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "setup_table"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "water",
+            "setup_table"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "supply_a"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "towel"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "setup_table"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "towel",
+            "setup_table"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "AnswerPhone",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "plan_table"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "supply_b"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "apple"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "setup_table"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "apple",
+            "setup_table"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "supply_a"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "mug",
+            "supply_a"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Grab] <apple> (1), [Walk] <setup_table> (1), [PutOn] <apple> (1) <setup_table> (1), [Grab] <mug> (1), [Walk] <supply_a> (1), [PutOn] <mug> (1) <supply_a> (1), [Wait]",
+      "seed": 1509420924,
+      "source_task_id": "GUIDE-94001"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "apple",
+          "target": "setup_table"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "mug",
+          "target": "supply_a"
+        }
+      ],
+      "sub_steps": [
+        "on(apple, setup_table)",
+        "on(mug, supply_a)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-94001",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 1509420924,
+      "containers": {},
+      "decor": [],
+      "fixtures": {
+        "plan_table": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "supply_a": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "supply_b": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "setup_table": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_plan": {
+          "content": {
+            "args": {
+              "renderer": "instruction_sheet",
+              "rows": [
+                "1|WATER TO SETUP TABLE",
+                "2|TOWEL TO SETUP TABLE",
+                "3|APPLE BESIDE THE WATER",
+                "4|MUG TO CLEARED SUPPLY TABLE"
+              ],
+              "sub": "",
+              "title": "AFTERNOON PLAN"
+            },
+            "lines": [
+              "1|WATER TO SETUP TABLE",
+              "2|TOWEL TO SETUP TABLE",
+              "3|APPLE BESIDE THE WATER",
+              "4|MUG TO CLEARED SUPPLY TABLE"
+            ],
+            "text": "AFTERNOON PLAN"
+          },
+          "kind": "range_card",
+          "mount": {
+            "on": "plan",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_94001_guide26_story_refine_20260910s_plan_96352b232249"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "plan": {
+          "cat": "clipboard",
+          "model": "gmxyfo",
+          "needs_lookat": true,
+          "place": "on:plan_table",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            -0.35,
+            0.5
+          ],
+          "decal": "AFTERNOON PLAN"
+        },
+        "water": {
+          "cat": "bottle_of_water",
+          "model": "atvnqy",
+          "needs_lookat": false,
+          "place": "on:supply_a",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            -0.35,
+            0.5
+          ]
+        },
+        "towel": {
+          "cat": "hand_towel",
+          "model": "klevhj",
+          "needs_lookat": false,
+          "place": "on:supply_a",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.35,
+            0.5
+          ]
+        },
+        "apple": {
+          "cat": "apple",
+          "model": "agveuv",
+          "needs_lookat": false,
+          "place": "on:supply_b",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.35,
+            0.5
+          ],
+          "tint": "red"
+        },
+        "mug": {
+          "cat": "mug",
+          "model": "ntgftr",
+          "needs_lookat": false,
+          "place": "on:supply_b",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.35,
+            0.5
+          ]
+        },
+        "phone": {
+          "cat": "cell_phone",
+          "model": "dbhfuh",
+          "needs_lookat": false,
+          "place": "on:plan_table",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.35,
+            0.5
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "kitchen_0"
+      ],
+      "scene": "restaurant_hotel",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "The wearer reads a four-step afternoon service plan and completes its first half by staging the water and towel. A real mobile-phone call at the planning table interrupts the sequence. After returning to the supply area, the assistant reconstructs progress and guides only the apple and mug steps.",
+    "assistant_goal": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+      "assigned_scene": "restaurant_hotel",
+      "core_question": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "The wearer reads a four-step afternoon service plan and completes its first half by staging the water and towel. A real mobile-phone call at the planning table interrupts the sequence. After returning to the supply area, the assistant reconstructs progress and guides only the apple and mug steps."
+      ],
+      "required_evidence": [
+        "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+        "The plan visibly fixes the four ordered placements for the water, towel, apple, and mug.",
+        "The water was placed on the setup table.",
+        "The towel joined it there, completing the plan's first half.",
+        "A real phone-to-ear interruption occurred and the phone was returned to the planning table.",
+        "The apple has joined the water and towel on the setup table.",
+        "The mug is on the supply table cleared by the completed first half.",
+        "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared."
+      ],
+      "required_final_predicates": [
+        "on",
+        "on"
+      ],
+      "success_condition": "on(apple, setup_table); on(mug, supply_a)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-94001",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "assigned_scene": "restaurant_hotel",
+        "core_question": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "The wearer reads a four-step afternoon service plan and completes its first half by staging the water and towel. A real mobile-phone call at the planning table interrupts the sequence. After returning to the supply area, the assistant reconstructs progress and guides only the apple and mug steps."
+        ],
+        "required_evidence": [
+          "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+          "The plan visibly fixes the four ordered placements for the water, towel, apple, and mug.",
+          "The water was placed on the setup table.",
+          "The towel joined it there, completing the plan's first half.",
+          "A real phone-to-ear interruption occurred and the phone was returned to the planning table.",
+          "The apple has joined the water and towel on the setup table.",
+          "The mug is on the supply table cleared by the completed first half.",
+          "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared."
+        ],
+        "required_final_predicates": [
+          "on",
+          "on"
+        ],
+        "success_condition": "on(apple, setup_table); on(mug, supply_a)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "asparagus",
+          "batting_gloves",
+          "bottle_of_aspirin",
+          "bottle_of_fruit_punch",
+          "bottle_of_poppy_seeds",
+          "bottle_of_water",
+          "box_of_cereal",
+          "box_of_tissues",
+          "box_of_yogurt",
+          "burlap_bag",
+          "carafe",
+          "cell_phone",
+          "clipboard",
+          "cream_of_tartar_shaker",
+          "credit_card_terminal",
+          "desk_phone",
+          "folder",
+          "granulated_sugar_jar",
+          "half_apple_pie",
+          "half_butter_cookie",
+          "half_doughnut",
+          "half_fried_chicken",
+          "half_meat_loaf",
+          "half_peach",
+          "hamster_wheel",
+          "hand_towel",
+          "hard_drive",
+          "heap_of_gravel",
+          "jade_roller",
+          "juicer",
+          "mint",
+          "mug",
+          "notepad",
+          "orange",
+          "paper_sheet",
+          "pasta_server",
+          "pastry",
+          "petri_dish",
+          "pillar_candle",
+          "pipe",
+          "pottable_marigold",
+          "saddle_soap_bottle",
+          "seashell",
+          "sliced_lemon",
+          "soda_cup",
+          "soy_sauce_bottle",
+          "sponge",
+          "vidalia_onion",
+          "waffle_maker"
+        ],
+        "allowed_surface_categories": [
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "breakfast_table",
+          "commercial_kitchen_table",
+          "countertop",
+          "desk",
+          "flat_top_grill",
+          "metal_bottom_cabinet"
+        ],
+        "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "coverage_categories": [
+          "pillar_candle",
+          "credit_card_terminal",
+          "petri_dish",
+          "desk_phone",
+          "soy_sauce_bottle",
+          "bottle_of_poppy_seeds",
+          "half_doughnut",
+          "half_apple_pie",
+          "jade_roller",
+          "burlap_bag",
+          "sliced_lemon",
+          "bottle_of_aspirin",
+          "hard_drive",
+          "pasta_server",
+          "hamster_wheel",
+          "cream_of_tartar_shaker",
+          "heap_of_gravel",
+          "vidalia_onion",
+          "orange",
+          "half_butter_cookie"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 2,
+          "required_semantic_turns": 2,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": true,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 28,
+          "max_document_characters": 111,
+          "max_fixed_destinations": 4,
+          "max_meaningful_steps": 24,
+          "max_movable_objects": 6,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 17,
+          "max_small_label_characters": 40,
+          "max_task_actions": 7,
+          "min_intervening_meaningful_actions": 8,
+          "min_meaningful_steps": 5
+        },
+        "preferred_story_categories": [
+          "apple",
+          "bottle_of_water",
+          "carafe",
+          "pasta_server",
+          "paper_sheet",
+          "folder"
+        ],
+        "preferred_story_category_glosses": {
+          "apple": "fruit with red or yellow or green skin and sweet to tart crisp whitish flesh",
+          "bottle_of_water": "",
+          "folder": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 59.2,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "fridge": 3,
+              "metal_bottom_cabinet": 5,
+              "oven": 1
+            },
+            "scene_surfaces": {
+              "commercial_kitchen_table": 7,
+              "flat_top_grill": 4,
+              "metal_bottom_cabinet": 9
+            },
+            "surface_max_area_m2": {
+              "commercial_kitchen_table": 0.2,
+              "flat_top_grill": 0.265,
+              "metal_bottom_cabinet": 0.253
+            },
+            "surface_reference_capacity": {
+              "commercial_kitchen_table": 3,
+              "flat_top_grill": 3,
+              "metal_bottom_cabinet": 3
+            }
+          }
+        ],
+        "scene": "restaurant_hotel",
+        "task_id": "GUIDE-94001",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "clipboard",
+            "changed": false,
+            "costs": null,
+            "label": "AFTERNOON PLAN",
+            "tint": null,
+            "what": "afternoon service plan"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_water",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "water bottle"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "hand_towel",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "folded service towel"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "apple",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": "red",
+            "what": "red apple"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "mug",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "clean service mug"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "cell_phone",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "mobile phone"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "planning table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "first service supply table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "remaining-item supply table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "afternoon setup table"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "afternoon service plan",
+            "text": "AFTERNOON PLAN",
+            "what": "document",
+            "which": null
+          }
+        ],
+        "restaged_story": "The wearer reads a four-step afternoon service plan and completes its first half by staging the water and towel. A real mobile-phone call at the planning table interrupts the sequence. After returning to the supply area, the assistant reconstructs progress and guides only the apple and mug steps.",
+        "scene": "restaurant_hotel",
+        "why_scene": "restaurant_hotel supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {},
+        "items": {
+          "plan": {
+            "affordances": [],
+            "cat": "clipboard",
+            "initial_space": null,
+            "label": "AFTERNOON PLAN",
+            "place": "on:plan_table",
+            "scored": false,
+            "spot": [
+              -0.35,
+              0.5
+            ],
+            "tint": null
+          },
+          "water": {
+            "affordances": [],
+            "cat": "bottle_of_water",
+            "initial_space": null,
+            "label": null,
+            "place": "on:supply_a",
+            "scored": false,
+            "spot": [
+              -0.35,
+              0.5
+            ],
+            "tint": null
+          },
+          "towel": {
+            "affordances": [],
+            "cat": "hand_towel",
+            "initial_space": null,
+            "label": null,
+            "place": "on:supply_a",
+            "scored": false,
+            "spot": [
+              0.35,
+              0.5
+            ],
+            "tint": null
+          },
+          "apple": {
+            "affordances": [],
+            "cat": "apple",
+            "initial_space": null,
+            "label": null,
+            "place": "on:supply_b",
+            "scored": true,
+            "spot": [
+              -0.35,
+              0.5
+            ],
+            "tint": "red"
+          },
+          "mug": {
+            "affordances": [],
+            "cat": "mug",
+            "initial_space": null,
+            "label": null,
+            "place": "on:supply_b",
+            "scored": true,
+            "spot": [
+              0.35,
+              0.5
+            ],
+            "tint": null
+          },
+          "phone": {
+            "affordances": [],
+            "cat": "cell_phone",
+            "initial_space": null,
+            "label": null,
+            "place": "on:plan_table",
+            "scored": false,
+            "spot": [
+              0.35,
+              0.5
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <plan> (1)",
+          "[LookAt] <plan> (1)",
+          "[Walk] <supply_a> (1)",
+          "[Grab] <water> (1)",
+          "[Walk] <setup_table> (1)",
+          "[PutOn] <water> (1) <setup_table> (1)",
+          "[Walk] <supply_a> (1)",
+          "[Grab] <towel> (1)",
+          "[Walk] <setup_table> (1)",
+          "[PutOn] <towel> (1) <setup_table> (1)",
+          "[Walk] <phone> (1)",
+          "[Grab] <phone> (1)",
+          "[AnswerPhone] <phone> (1)",
+          "[Wait]",
+          "[PutOn] <phone> (1) <plan_table> (1)",
+          "[Walk] <supply_b> (1)",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0"
+        ],
+        "scene": "restaurant_hotel",
+        "staging": {
+          "groups": "The wearer reads a four-step afternoon service plan and completes its first half by staging the water and towel. A real mobile-phone call at the planning table interrupts the sequence. After returning to the supply area, the assistant reconstructs progress and guides only the apple and mug steps.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "plan_table": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "supply_a": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "supply_b": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "setup_table": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The plan visibly fixes the four ordered placements for the water, towel, apple, and mug.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The water was placed on the setup table.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 5,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The towel joined it there, completing the plan's first half.",
+            "from": "prologue",
+            "id": "fact_004",
+            "source_index": 9,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "A real phone-to-ear interruption occurred and the phone was returned to the planning table.",
+            "from": "prologue",
+            "id": "fact_005",
+            "source_index": 14,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The apple has joined the water and towel on the setup table.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 2,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The mug is on the supply table cleared by the completed first half.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 5,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007"
+            ],
+            "fact": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "from": "derived",
+            "id": "fact_008",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "apple",
+            "target": "setup_table"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "mug",
+            "target": "supply_a"
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "You completed steps one and two before the call: the water and towel are on the setup table. Resume at step three by placing the apple beside the water.",
+            "referents": [
+              "plan",
+              "water",
+              "towel",
+              "apple",
+              "setup_table"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ]
+          },
+          {
+            "before_index": 3,
+            "say": "The apple step is complete. Finish with the clean mug: move it to the supply table cleared by the water and towel, then stop.",
+            "referents": [
+              "apple",
+              "mug",
+              "water",
+              "towel",
+              "supply_a"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_006"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Grab] <apple> (1), [Walk] <supply_a> (1), [PutOn] <apple> (1) <supply_a> (1), [Wait]",
+        "mates": [],
+        "oracle_program": "[Grab] <apple> (1), [Walk] <setup_table> (1), [PutOn] <apple> (1) <setup_table> (1), [Grab] <mug> (1), [Walk] <supply_a> (1), [PutOn] <mug> (1) <supply_a> (1), [Wait]",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "The wearer reads a four-step afternoon service plan and completes its first half by staging the water and towel. A real mobile-phone call at the planning table interrupts the sequence. After returning to the supply area, the assistant reconstructs progress and guides only the apple and mug steps.",
+        "utterance": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <plan> (1)",
+        "[LookAt] <plan> (1)",
+        "[Walk] <supply_a> (1)",
+        "[Grab] <water> (1)",
+        "[Walk] <setup_table> (1)",
+        "[PutOn] <water> (1) <setup_table> (1)",
+        "[Walk] <supply_a> (1)",
+        "[Grab] <towel> (1)",
+        "[Walk] <setup_table> (1)",
+        "[PutOn] <towel> (1) <setup_table> (1)",
+        "[Walk] <phone> (1)",
+        "[Grab] <phone> (1)",
+        "[AnswerPhone] <phone> (1)",
+        "[Wait]",
+        "[PutOn] <phone> (1) <plan_table> (1)",
+        "[Walk] <supply_b> (1)",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "plan"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "plan"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "plan"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The plan visibly fixes the four ordered placements for the water, towel, apple, and mug.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "supply_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "supply_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "water"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "water"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "setup_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "setup_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "water",
+            "setup_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The water was placed on the setup table.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "supply_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "supply_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "towel"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "towel"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "setup_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "setup_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "towel",
+            "setup_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The towel joined it there, completing the plan's first half.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "phone"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p011",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "phone"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p012",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "AnswerPhone",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p013",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p014",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "plan_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "A real phone-to-ear interruption occurred and the phone was returned to the planning table.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p015",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "supply_b"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "supply_b"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p016",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "You completed steps one and two before the call: the water and towel are on the setup table. Resume at step three by placing the apple beside the water.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The apple step is complete. Finish with the clean mug: move it to the supply table cleared by the water and towel, then stop.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "apple"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "apple"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "supply_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "supply_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "apple",
+            "supply_a"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "apple"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "apple"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "setup_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "setup_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "apple",
+            "setup_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The apple has joined the water and towel on the setup table.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "mug"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "supply_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "supply_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "mug",
+            "supply_a"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The mug is on the supply table cleared by the completed first half.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The plan visibly fixes the four ordered placements for the water, towel, apple, and mug.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "The water was placed on the setup table.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p005"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 5
+      },
+      {
+        "id": "fact_004",
+        "statement": "The towel joined it there, completing the plan's first half.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p009"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 9
+      },
+      {
+        "id": "fact_005",
+        "statement": "A real phone-to-ear interruption occurred and the phone was returned to the planning table.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p014"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 14
+      },
+      {
+        "id": "fact_006",
+        "statement": "The apple has joined the water and towel on the setup table.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o002"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 2
+      },
+      {
+        "id": "fact_007",
+        "statement": "The mug is on the supply table cleared by the completed first half.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o005"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 5
+      },
+      {
+        "id": "fact_008",
+        "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "p005",
+          "p009",
+          "p014",
+          "o002",
+          "o005"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Reconstruct the person's progress after the phone interruption and guide the unfinished service-plan steps to completion.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <plan> (1)",
+          "[LookAt] <plan> (1)",
+          "[Walk] <supply_a> (1)",
+          "[Grab] <water> (1)",
+          "[Walk] <setup_table> (1)",
+          "[PutOn] <water> (1) <setup_table> (1)",
+          "[Walk] <supply_a> (1)",
+          "[Grab] <towel> (1)",
+          "[Walk] <setup_table> (1)",
+          "[PutOn] <towel> (1) <setup_table> (1)",
+          "[Walk] <phone> (1)",
+          "[Grab] <phone> (1)",
+          "[AnswerPhone] <phone> (1)",
+          "[Wait]",
+          "[PutOn] <phone> (1) <plan_table> (1)",
+          "[Walk] <supply_b> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 16,
+            "say": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end."
+          }
+        ],
+        "handoff_say": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "service_plan_recovery_request",
+            "required_phrases": [
+              "call broke my place",
+              "what is already done",
+              "next unfinished step"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [],
+        "required_command_sequences": [],
+        "verification_points": [
+          {
+            "id": "apple_on_setup_table",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "apple",
+            "target": "setup_table"
+          },
+          {
+            "id": "mug_on_supply_a",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "mug",
+            "target": "supply_a"
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 26,
+    "dialogue_budget": 2,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "supply_b",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "plan",
+              "water",
+              "towel",
+              "apple",
+              "setup_table"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "apple",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "apple",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "setup_table",
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "apple",
+              "mug",
+              "water",
+              "towel",
+              "supply_a"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "apple",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "mug",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "supply_a",
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o006"
+        }
+      ],
+      "terminal_beats": [
+        "h003",
+        "o006"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "apple"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "setup_table"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "apple",
+          "setup_table"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "mug"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "supply_a"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "mug",
+          "supply_a"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "apple"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "supply_a"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "apple",
+          "supply_a"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "You completed steps one and two before the call: the water and towel are on the setup table. Resume at step three by placing the apple beside the water.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The apple step is complete. Finish with the clean mug: move it to the supply table cleared by the water and towel, then stop.",
+        "relation": "before",
+        "anchor_beat_id": "o003",
+        "source": "guidance",
+        "source_index": 1
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "source": "guide26_missing4_interaction_assembly",
+    "compile_input_digest": "sha256:ceeb13831ae81d11dde53061be01b0f5f046a2e25a33a4a6d2ec293e84c4b04d",
+    "source_contract_digest": "sha256:9a60739fb1557bfd3b3bcd92a5b840b4b70e8489161ac181178b8d26573e2bc9",
+    "executable_spec_digest": "sha256:4a8c572e91f27dee746fa259343fdc3bef1b505ae9fbb370e7d42c619c41b6d6",
+    "invention": {
+      "attempt": 1,
+      "capability": {
+        "boundary": "The procedural instructions may be known, but the hard question is current progress after interruption.",
+        "few_shot": "A first-time builder follows a bookcase manual, attaches the two side panels to the base, and then leaves for ten minutes to answer a delivery. On returning, the parts are spread across the floor and the wearer asks where they stopped. The assistant reconstructs progress from the observed opening actions, confirms the base-and-sides subassembly is already complete, and starts with the unattached back panel rather than repeating the first steps or jumping to the top. The frozen opening trace establishes completed work, the oracle contains only the remaining attachments, and the finished bookcase has every supported panel attached to its fixed mate. A weak guide that restarts from page one conflicts with the established state and cannot follow the executable remaining plan.",
+        "id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "name_zh": "进度重建与断点续做",
+        "target": "Infer completed, omitted, and next steps from the observed action history, then resume without repeating work or skipping a prerequisite."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "evaluation_mode": "TRACE_AND_OUTCOME",
+        "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": true,
+        "owner": "SIMULATOR_EVALUATION",
+        "reason": "Opening state and remaining actions run, but redundant repetition and skipped completed work lack a dedicated metric.",
+        "reason_code": "PROGRESS_EFFICIENCY_EVALUATOR",
+        "recommended_work": "Add progress reconstruction and unnecessary-repeat scoring.",
+        "version": "capability-support/1.0",
+        "workstream": "EVALUATOR"
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "bottle_of_aspirin",
+          "bottle_of_poppy_seeds",
+          "bottle_of_water",
+          "burlap_bag",
+          "carafe",
+          "cream_of_tartar_shaker",
+          "credit_card_terminal",
+          "desk_phone",
+          "folder",
+          "half_apple_pie",
+          "half_butter_cookie",
+          "half_doughnut",
+          "hamster_wheel",
+          "hard_drive",
+          "heap_of_gravel",
+          "jade_roller",
+          "orange",
+          "paper_sheet",
+          "pasta_server",
+          "petri_dish",
+          "pillar_candle",
+          "sliced_lemon",
+          "soy_sauce_bottle",
+          "vidalia_onion",
+          "hand_towel"
+        ],
+        "allowed_surface_categories": [
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "breakfast_table",
+          "countertop",
+          "desk"
+        ],
+        "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "coverage_categories": [
+          "pillar_candle",
+          "credit_card_terminal",
+          "petri_dish",
+          "desk_phone",
+          "soy_sauce_bottle",
+          "bottle_of_poppy_seeds",
+          "half_doughnut",
+          "half_apple_pie",
+          "jade_roller",
+          "burlap_bag",
+          "sliced_lemon",
+          "bottle_of_aspirin",
+          "hard_drive",
+          "pasta_server",
+          "hamster_wheel",
+          "cream_of_tartar_shaker",
+          "heap_of_gravel",
+          "vidalia_onion",
+          "orange",
+          "half_butter_cookie"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 4,
+          "required_semantic_turns": 3,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": true,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 32,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 18,
+          "max_small_label_characters": 8,
+          "max_task_actions": 24,
+          "min_intervening_meaningful_actions": 3,
+          "min_meaningful_steps": 5
+        },
+        "preferred_story_categories": [
+          "apple",
+          "bottle_of_water",
+          "carafe",
+          "pasta_server",
+          "paper_sheet",
+          "folder"
+        ],
+        "preferred_story_category_glosses": {
+          "apple": "fruit with red or yellow or green skin and sweet to tart crisp whitish flesh",
+          "bottle_of_water": "",
+          "folder": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 29.2,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "bottom_cabinet_no_top": 5,
+              "cedar_chest": 1,
+              "dishwasher": 1
+            },
+            "scene_surfaces": {
+              "bottom_cabinet_no_top": 7,
+              "breakfast_table": 1,
+              "countertop": 7
+            },
+            "surface_max_area_m2": {
+              "bottom_cabinet_no_top": 0.147,
+              "breakfast_table": 0.26,
+              "countertop": 0.642
+            },
+            "surface_reference_capacity": {
+              "bottom_cabinet_no_top": 3,
+              "breakfast_table": 3,
+              "countertop": 3
+            }
+          },
+          {
+            "area_m2": 12.6,
+            "name": "private_office_0",
+            "scene_containers": {
+              "bottom_cabinet": 1
+            },
+            "scene_surfaces": {
+              "bottom_cabinet": 2,
+              "desk": 2
+            },
+            "surface_max_area_m2": {
+              "bottom_cabinet": 0.119,
+              "desk": 0.223
+            },
+            "surface_reference_capacity": {
+              "bottom_cabinet": 3,
+              "desk": 3
+            }
+          }
+        ],
+        "scene": "Beechwood_0_int",
+        "task_id": "GUIDE-94001",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "prompt_version": "capability-v39-hard-context-20260901",
+      "prose_sha256": "sha256:b427d150c51cc94e0d576d9d00d230927d20dd27c8738cf429834c1f3b4361bb",
+      "review": {
+        "benchmark_check": {
+          "actor_scope": {
+            "live_physical_actors": [
+              "wearer"
+            ],
+            "other_person_changes_world": false
+          },
+          "core_claims": [
+            {
+              "available_before_turn": 0,
+              "claim": "The pasta server is already in the dishwasher.",
+              "derived_from": [],
+              "established_by": "Putin pasta_server dishwasher",
+              "runtime_support": "observed history of putting server in dishwasher",
+              "source": "prior_action"
+            },
+            {
+              "available_before_turn": 0,
+              "claim": "The water bottle was removed from the fridge and left on the office desk.",
+              "derived_from": [],
+              "established_by": "Put bottle_of_water desk",
+              "runtime_support": "observed history of putting water on desk",
+              "source": "prior_action"
+            }
+          ],
+          "counterfactual_contract": {
+            "allowed_other_differences": [],
+            "operator": "omits undone prerequisite",
+            "shared_obligations": [
+              "g1"
+            ],
+            "target_difference": "weak assistant fails to instruct retrieval of water bottle, leaving it in the office"
+          },
+          "cross_field_consistency": {
+            "conflicts": [],
+            "consistent": true
+          },
+          "decisive_fact_absent_from_utterance": true,
+          "egocentric_evidence": "observed history of the wearer removing the water bottle and leaving it in the office",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "meaningful_steps": [
+            "Initial placement of water and server (prologue)",
+            "Removal of water to office (prologue)",
+            "Retrieval of water and placement in fridge",
+            "Placement of apple in fridge",
+            "Closing and starting dishwasher"
+          ],
+          "memory_gap": {
+            "intervening_meaningful_actions": 4,
+            "reason": "The wearer performed other tasks in the office (handling a phone) and walked back, creating a memory gap regarding the water bottle's location.",
+            "required": true,
+            "wearer_just_established_answer": false
+          },
+          "physical_plausibility": {
+            "credible": true,
+            "issues": []
+          },
+          "semantic_turns": 3,
+          "story_world_mismatches": [],
+          "strong_completes_user_goal": true,
+          "strong_weak_distinct": true,
+          "turn0_access": {
+            "answer_fully_visible": false,
+            "assistant_need": "memory of the interrupted routine and the current location of the water bottle",
+            "wearer_can_self_serve": false
+          },
+          "ungrounded_physical_nouns": [],
+          "unmodeled_claims": [],
+          "user_goal_obligations": [
+            {
+              "covered_by": [
+                "supported action/effect"
+              ],
+              "description": "water and apple chilled, pasta server washed",
+              "grounded_in": "Before I leave, I need the water and apple chilled and the pasta server washed.",
+              "id": "g1",
+              "kind": "physical"
+            }
+          ],
+          "uses_only_grounded_assets": true,
+          "utterance_policy": {
+            "prescribes_assistant_words_or_trigger": false,
+            "reason": "The wearer asks what they have finished and what to do next, leaving the progress reconstruction to the assistant.",
+            "states_goal_not_solution": true
+          },
+          "weak_shared_work_complete": true,
+          "why_user_needs_assistant": "The wearer was distracted by a phone call and forgot the current state of their routine.",
+          "why_utterance_alone_fails": "The utterance states the goal but does not reveal that the water bottle was previously placed in the fridge and then removed and left in the office."
+        },
+        "capability_fit": "The assistant successfully reconstructs the progress of an interrupted routine, recognizing that a previously completed step was undone and must be repeated before moving on.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "bottle_of_water",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "water"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "pasta_server",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "server"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "apple",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "fruit"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "desk_phone",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "phone"
+              },
+              {
+                "affordances": [
+                  "container",
+                  "openable"
+                ],
+                "category": "fridge",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "cold_storage"
+              },
+              {
+                "affordances": [
+                  "container",
+                  "openable",
+                  "toggleable"
+                ],
+                "category": "dishwasher",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "washer"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "desk",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "office_surface"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "In kitchen_0, the wearer grabs the bottle_of_water, opens the fridge, puts it inside, and closes the fridge. They open the dishwasher, grab the pasta_server, put it inside, and leave the dishwasher open. An incoming call interrupts them. The wearer reopens the fridge, grabs the bottle_of_water, closes the fridge, and walks to private_office_0. They put the bottle_of_water on the desk. To take the call, they grab the desk_phone, flip it, and put it back on the desk. After the call, they walk back to kitchen_0 empty-handed. At turn zero, the wearer asks what they have finished and what to do next to get the water and apple chilled and the server washed. The strong assistant notes the server is loaded but the water was left in the office, instructing the wearer to retrieve it. The wearer walks to private_office_0, grabs the bottle_of_water, returns to kitchen_0, opens the fridge, puts the bottle inside, and closes it. The assistant then instructs them to chill the apple. The wearer grabs the apple, opens the fridge, puts it inside, and closes it. The assistant finally instructs them to start the dishwasher. The wearer closes the dishwasher and turns it on. The weak assistant incorrectly assumes the water is still in the fridge, skips its retrieval, and leaves it in the office.",
+            "scene": "Beechwood_0_int",
+            "why_scene": "Provides a kitchen with a fridge and dishwasher, and a separate private office for the interruption."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "GUIDE.PROGRESS_RECONSTRUCTION",
+              "counterfactual_failure": "weak assistant tells wearer to proceed with apple and starts dishwasher, leaving water bottle in office",
+              "forbidden_changes": [],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "observed history of water bottle removal and placement in office"
+              ],
+              "required_final_predicates": [
+                "inside",
+                "closed",
+                "running"
+              ],
+              "success_condition": "water and apple inside closed fridge, pasta server inside closed running dishwasher",
+              "temporal_constraints": []
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item to be chilled",
+                "what": "water",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item to be washed",
+                "what": "server",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item to be chilled",
+                "what": "fruit",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "item handled during interruption",
+                "what": "phone",
+                "when": "opening"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container",
+                  "openable"
+                ],
+                "role_in_story": "destination for chilling",
+                "what": "cold_storage",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container",
+                  "openable",
+                  "toggleable"
+                ],
+                "role_in_story": "destination for washing",
+                "what": "washer",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "surface in office",
+                "what": "office_surface",
+                "when": "both"
+              }
+            ],
+            "hinges_on": "the assistant remembering that the water bottle was removed from the fridge and left in the office during the interruption",
+            "look_alike": [],
+            "opening": "wearer puts water in fridge, puts server in dishwasher, then removes water, takes it to office, handles a phone, leaves water there, and returns to kitchen",
+            "outcome": "water and apple inside closed fridge, pasta server inside closed running dishwasher",
+            "place": "kitchen_0 and private_office_0",
+            "printed": [],
+            "tests_what": "GUIDE.PROGRESS_RECONSTRUCTION"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The story perfectly matches the GUIDE.PROGRESS_RECONSTRUCTION capability by requiring the assistant to infer which steps of a routine were completed and which were undone during an interruption. The previous entity budget issue is resolved by removing unnecessary fixed destinations and using a desk_phone to create the required memory gap within the allowed limits.",
+        "requirements": [
+          "To satisfy the memory gap rule (Rule 31) and stay within the entity budget, the wearer handles a desk_phone in the office during the phone call before returning to the kitchen."
+        ],
+        "runtime_requirements": {
+          "actions": [
+            "Walk",
+            "Grab",
+            "Putin",
+            "Put",
+            "Open",
+            "Close",
+            "TurnOn",
+            "Flip"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 28,
+          "estimated_prologue_actions": 16,
+          "estimated_task_actions": 12,
+          "events": [
+            "turnon"
+          ],
+          "final_predicates": [
+            "inside",
+            "closed",
+            "running"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 149.7,
+        "structural_signature": {
+          "evaluation": "final state of objects",
+          "evidence": "observed action history",
+          "failure": "omits undone prerequisite",
+          "operation": "infer completed and undone steps",
+          "response": "stepwise instructions",
+          "template_class": "progress_reconstruction_after_interruption",
+          "temporal": "resume interrupted routine"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "The pasta server is already in the dishwasher.",
+                "derived_from": [],
+                "established_by": "Putin(pasta_server, dishwasher)",
+                "runtime_support": "inside(pasta_server, dishwasher)",
+                "source": "prior_action"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "The water bottle was removed from the fridge and left on the office desk.",
+                "derived_from": [],
+                "established_by": "Put(bottle_of_water, desk)",
+                "runtime_support": "on(bottle_of_water, desk)",
+                "source": "prior_action"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "The water chilling step is incomplete and must be redone.",
+                "derived_from": [
+                  "The water bottle was removed from the fridge and left on the office desk."
+                ],
+                "established_by": "inference from the water bottle's current location outside the fridge",
+                "runtime_support": "on(bottle_of_water, desk)",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "false assumption of completion",
+              "shared_obligations": [
+                "g2"
+              ],
+              "target_difference": "The weak assistant fails to instruct the wearer to retrieve the water bottle, leaving it on the desk."
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "The wearer removed the water bottle from the fridge and left it in the office during the interruption.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "Initial placement of water in fridge",
+              "Initial placement of pasta server in dishwasher",
+              "Interruption that undoes the water placement",
+              "Recovery of the water bottle from the office",
+              "Placement of the apple in the fridge",
+              "Closing and starting the dishwasher"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 4,
+              "reason": "The wearer walked to another room, took a call, and returned empty-handed, creating a temporal and spatial gap from the initial kitchen actions.",
+              "required": true,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 3,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": false,
+              "assistant_need": "memory and planning assistance after an interruption",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "inside(bottle_of_water, fridge)",
+                  "inside(apple, fridge)",
+                  "closed(fridge)"
+                ],
+                "description": "The water and apple must be chilled in the fridge.",
+                "grounded_in": "I need the water and apple chilled",
+                "id": "g1",
+                "kind": "physical"
+              },
+              {
+                "covered_by": [
+                  "inside(pasta_server, dishwasher)",
+                  "closed(dishwasher)",
+                  "running(dishwasher)"
+                ],
+                "description": "The pasta server must be washed in the dishwasher.",
+                "grounded_in": "and the pasta server washed",
+                "id": "g2",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "The wearer asks what they have finished and what to do next, leaving the progress assessment and step sequencing to the assistant.",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "The wearer is low-vision, was distracted by a phone call in another room, and lost track of their physical progress upon returning to the kitchen.",
+            "why_utterance_alone_fails": "The utterance states the overall goal but does not reveal which items were already processed or that the water bottle was moved to the office."
+          },
+          "capability_fit": "The assistant must reconstruct progress from the observed history, recognizing that a previously completed step was undone during an interruption, and guide the wearer to recover and finish the routine.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "bottle_of_water",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "bottle_of_water"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "pasta_server",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "pasta_server"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "apple",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "apple"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "fridge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "fridge"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable",
+                    "toggleable"
+                  ],
+                  "category": "dishwasher",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "dishwasher"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "desk",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "desk"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In kitchen_0, a low-vision employee is finishing an ordinary closing reset. Before any dialogue, the glasses observe the wearer grab a bottle_of_water, open the fridge, place the bottle inside, and close the fridge. They then grab a pasta_server, open the dishwasher, place the server inside, and leave the dishwasher open. An incoming call interrupts the routine. To take it in private_office_0, the wearer reopens the fridge, removes the water bottle, closes the fridge, walks to the office desk, puts the bottle on the desk, waits through the call, and returns empty-handed to the kitchen. At turn zero, the wearer says, 'Before I leave, I need the water and apple chilled and the pasta server washed. That call threw me off--what have I actually finished, and what should I do next?' The strong assistant reconstructs the history: 'The server is already in the dishwasher, but your water is on the office desk. Bring it back and put it in the fridge.' The wearer walks to the desk, grabs the bottle, returns to the kitchen, opens the fridge, puts the bottle inside, and closes it. The assistant then says, 'The water is back. Put the apple in the fridge next.' The wearer grabs the apple, opens the fridge, puts it inside, and closes it. The assistant finally says, 'Both cold items are done. Close the loaded dishwasher and start it.' The wearer closes the dishwasher and turns it on. The weak branch incorrectly treats the first water placement as still complete, tells the wearer to proceed with the apple, and then starts the dishwasher, leaving the water bottle on the office desk.",
+              "scene": "Beechwood_0_int",
+              "why_scene": "Provides a kitchen with a fridge and dishwasher, and a separate private office with a desk for the interruption."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "GUIDE.PROGRESS_RECONSTRUCTION",
+                "counterfactual_failure": "The water bottle remains on the desk.",
+                "forbidden_changes": [],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "The water bottle was moved to the desk during the prologue."
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "closed",
+                  "running"
+                ],
+                "success_condition": "The water bottle is recovered and placed in the fridge.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be chilled that gets moved during interruption",
+                  "what": "bottle_of_water",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be washed",
+                  "what": "pasta_server",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "second item to be chilled",
+                  "what": "apple",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "chilling location",
+                  "what": "fridge",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable",
+                    "toggleable"
+                  ],
+                  "role_in_story": "washing location",
+                  "what": "dishwasher",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "interruption location",
+                  "what": "desk",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "recognizing that a previously completed step was undone during an interruption",
+              "look_alike": [],
+              "opening": [
+                "[Grab] bottle_of_water",
+                "[Open] fridge",
+                "[Putin] bottle_of_water, fridge",
+                "[Close] fridge",
+                "[Grab] pasta_server",
+                "[Open] dishwasher",
+                "[Putin] pasta_server, dishwasher",
+                "[Open] fridge",
+                "[Grab] bottle_of_water",
+                "[Close] fridge",
+                "[Walk] desk",
+                "[Put] bottle_of_water, desk",
+                "[Wait]",
+                "[Walk] kitchen_0"
+              ],
+              "outcome": "The water and apple are in the closed fridge, and the pasta server is in the closed, running dishwasher.",
+              "place": "Beechwood_0_int",
+              "printed": [],
+              "tests_what": "GUIDE.PROGRESS_RECONSTRUCTION"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The story perfectly matches the GUIDE.PROGRESS_RECONSTRUCTION capability by requiring the assistant to track a multi-step procedure across an interruption that undoes one of the steps. The memory gap is naturally created by the cross-room phone call, and the assistant correctly identifies the undone step and guides the wearer through the remaining tasks using closed-loop feedback.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Grab",
+              "Open",
+              "Putin",
+              "Close",
+              "Walk",
+              "Put",
+              "Wait",
+              "TurnOn"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 26,
+            "estimated_prologue_actions": 14,
+            "estimated_task_actions": 12,
+            "events": [
+              "turnon"
+            ],
+            "final_predicates": [
+              "inside",
+              "closed",
+              "running"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 51.0,
+          "structural_signature": {
+            "evaluation": "final scorable state",
+            "evidence": "observed action history",
+            "failure": "false assumption of completion",
+            "operation": "progress reconstruction",
+            "response": "stepwise recovery and completion instructions",
+            "template_class": "interrupted_routine_with_undone_step",
+            "temporal": "pre-turn interruption"
+          },
+          "verdict": "KEEP"
+        },
+        {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "The pasta server is already in the dishwasher.",
+                "derived_from": [],
+                "established_by": "Putin pasta_server dishwasher",
+                "runtime_support": "observed history of putting server in dishwasher",
+                "source": "prior_action"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "The water bottle was removed from the fridge and left on the office desk.",
+                "derived_from": [],
+                "established_by": "Put bottle_of_water desk",
+                "runtime_support": "observed history of putting water on desk",
+                "source": "prior_action"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "omits undone prerequisite",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "weak assistant fails to instruct retrieval of water bottle, leaving it in the office"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "observed history of the wearer removing the water bottle and leaving it in the office",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "Initial placement of water and server (prologue)",
+              "Removal of water to office (prologue)",
+              "Retrieval of water and placement in fridge",
+              "Placement of apple in fridge",
+              "Closing and starting dishwasher"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 4,
+              "reason": "The wearer performed other tasks in the office (handling a phone) and walked back, creating a memory gap regarding the water bottle's location.",
+              "required": true,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 3,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": false,
+              "assistant_need": "memory of the interrupted routine and the current location of the water bottle",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "supported action/effect"
+                ],
+                "description": "water and apple chilled, pasta server washed",
+                "grounded_in": "Before I leave, I need the water and apple chilled and the pasta server washed.",
+                "id": "g1",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "The wearer asks what they have finished and what to do next, leaving the progress reconstruction to the assistant.",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "The wearer was distracted by a phone call and forgot the current state of their routine.",
+            "why_utterance_alone_fails": "The utterance states the goal but does not reveal that the water bottle was previously placed in the fridge and then removed and left in the office."
+          },
+          "capability_fit": "The assistant successfully reconstructs the progress of an interrupted routine, recognizing that a previously completed step was undone and must be repeated before moving on.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "bottle_of_water",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "water"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "pasta_server",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "server"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "apple",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "fruit"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "desk_phone",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "phone"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "fridge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "cold_storage"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable",
+                    "toggleable"
+                  ],
+                  "category": "dishwasher",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "washer"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "desk",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "office_surface"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In kitchen_0, the wearer grabs the bottle_of_water, opens the fridge, puts it inside, and closes the fridge. They open the dishwasher, grab the pasta_server, put it inside, and leave the dishwasher open. An incoming call interrupts them. The wearer reopens the fridge, grabs the bottle_of_water, closes the fridge, and walks to private_office_0. They put the bottle_of_water on the desk. To take the call, they grab the desk_phone, flip it, and put it back on the desk. After the call, they walk back to kitchen_0 empty-handed. At turn zero, the wearer asks what they have finished and what to do next to get the water and apple chilled and the server washed. The strong assistant notes the server is loaded but the water was left in the office, instructing the wearer to retrieve it. The wearer walks to private_office_0, grabs the bottle_of_water, returns to kitchen_0, opens the fridge, puts the bottle inside, and closes it. The assistant then instructs them to chill the apple. The wearer grabs the apple, opens the fridge, puts it inside, and closes it. The assistant finally instructs them to start the dishwasher. The wearer closes the dishwasher and turns it on. The weak assistant incorrectly assumes the water is still in the fridge, skips its retrieval, and leaves it in the office.",
+              "scene": "Beechwood_0_int",
+              "why_scene": "Provides a kitchen with a fridge and dishwasher, and a separate private office for the interruption."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "GUIDE.PROGRESS_RECONSTRUCTION",
+                "counterfactual_failure": "weak assistant tells wearer to proceed with apple and starts dishwasher, leaving water bottle in office",
+                "forbidden_changes": [],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "observed history of water bottle removal and placement in office"
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "closed",
+                  "running"
+                ],
+                "success_condition": "water and apple inside closed fridge, pasta server inside closed running dishwasher",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be chilled",
+                  "what": "water",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be washed",
+                  "what": "server",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be chilled",
+                  "what": "fruit",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item handled during interruption",
+                  "what": "phone",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "destination for chilling",
+                  "what": "cold_storage",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable",
+                    "toggleable"
+                  ],
+                  "role_in_story": "destination for washing",
+                  "what": "washer",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surface in office",
+                  "what": "office_surface",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "the assistant remembering that the water bottle was removed from the fridge and left in the office during the interruption",
+              "look_alike": [],
+              "opening": "wearer puts water in fridge, puts server in dishwasher, then removes water, takes it to office, handles a phone, leaves water there, and returns to kitchen",
+              "outcome": "water and apple inside closed fridge, pasta server inside closed running dishwasher",
+              "place": "kitchen_0 and private_office_0",
+              "printed": [],
+              "tests_what": "GUIDE.PROGRESS_RECONSTRUCTION"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The story perfectly matches the GUIDE.PROGRESS_RECONSTRUCTION capability by requiring the assistant to infer which steps of a routine were completed and which were undone during an interruption. The previous entity budget issue is resolved by removing unnecessary fixed destinations and using a desk_phone to create the required memory gap within the allowed limits.",
+          "requirements": [
+            "To satisfy the memory gap rule (Rule 31) and stay within the entity budget, the wearer handles a desk_phone in the office during the phone call before returning to the kitchen."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Walk",
+              "Grab",
+              "Putin",
+              "Put",
+              "Open",
+              "Close",
+              "TurnOn",
+              "Flip"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 28,
+            "estimated_prologue_actions": 16,
+            "estimated_task_actions": 12,
+            "events": [
+              "turnon"
+            ],
+            "final_predicates": [
+              "inside",
+              "closed",
+              "running"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 149.7,
+          "structural_signature": {
+            "evaluation": "final state of objects",
+            "evidence": "observed action history",
+            "failure": "omits undone prerequisite",
+            "operation": "infer completed and undone steps",
+            "response": "stepwise instructions",
+            "template_class": "progress_reconstruction_after_interruption",
+            "temporal": "resume interrupted routine"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "Beechwood_0_int",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v41_briefed_hard_20260901a/repairs/guide_progress_v3_reviewed/compile_input/GUIDE/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gpt-5-5-genai-responses",
+      "judge_model": "gemini-3-1-pro-preview-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260901r"
+    },
+    "production_release": {},
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "result": "guide26-story-refine-20260910s",
+        "source": "GUIDE-94001"
+      },
+      {
+        "kind": "canonicalize_required_evidence",
+        "source": "[\"That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.\", \"The plan visibly fixes the four ordered placements for the water, towel, apple, and mug.\", \"The water was placed on the setup table.\", \"The towel joined it there, completing the plan's first half.\", \"A real phone-to-ear interruption occurred and the phone was returned to the planning table.\", \"The apple has joined the water and towel on the setup table.\", \"The mug is on the supply table cleared by the completed first half.\"]",
+        "result": "[\"That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.\", \"The plan visibly fixes the four ordered placements for the water, towel, apple, and mug.\", \"The water was placed on the setup table.\", \"The towel joined it there, completing the plan's first half.\", \"A real phone-to-ear interruption occurred and the phone was returned to the planning table.\", \"The apple has joined the water and towel on the setup table.\", \"The mug is on the supply table cleared by the completed first half.\", \"The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.\"]"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "GUIDE-94001",
+    "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+    "capability_notes": [
+      "The interruption uses the implemented cell-phone-specific AnswerPhone primitive rather than a generic Wait alone.",
+      "The resumed work uses stable tabletop placements in one open room, avoiding the washer and doorway geometry that obscured an otherwise successful oracle."
+    ],
+    "revision": "guide26-missing4-interaction-20260915",
+    "benchmark_split": "production",
+    "physical_revision": "guide26-first-round-passed-20260910",
+    "physical_taskpack_sha256": "sha256:c9b19b25edb9ea565a45ba4de3793aaa17bf7865f5a068bb318d538035896979",
+    "parent_lineage": {
+      "source": "manual_story_revision",
+      "compile_input_digest": "sha256:ceeb13831ae81d11dde53061be01b0f5f046a2e25a33a4a6d2ec293e84c4b04d",
+      "source_contract_digest": "sha256:9a60739fb1557bfd3b3bcd92a5b840b4b70e8489161ac181178b8d26573e2bc9",
+      "executable_spec_digest": "sha256:4a8c572e91f27dee746fa259343fdc3bef1b505ae9fbb370e7d42c619c41b6d6",
+      "invention": {
+        "attempt": 1,
+        "capability": {
+          "boundary": "The procedural instructions may be known, but the hard question is current progress after interruption.",
+          "few_shot": "A first-time builder follows a bookcase manual, attaches the two side panels to the base, and then leaves for ten minutes to answer a delivery. On returning, the parts are spread across the floor and the wearer asks where they stopped. The assistant reconstructs progress from the observed opening actions, confirms the base-and-sides subassembly is already complete, and starts with the unattached back panel rather than repeating the first steps or jumping to the top. The frozen opening trace establishes completed work, the oracle contains only the remaining attachments, and the finished bookcase has every supported panel attached to its fixed mate. A weak guide that restarts from page one conflicts with the established state and cannot follow the executable remaining plan.",
+          "id": "GUIDE.PROGRESS_RECONSTRUCTION",
+          "name_zh": "进度重建与断点续做",
+          "target": "Infer completed, omitted, and next steps from the observed action history, then resume without repeating work or skipping a prerequisite."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+          "evaluation_mode": "TRACE_AND_OUTCOME",
+          "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": true,
+          "owner": "SIMULATOR_EVALUATION",
+          "reason": "Opening state and remaining actions run, but redundant repetition and skipped completed work lack a dedicated metric.",
+          "reason_code": "PROGRESS_EFFICIENCY_EVALUATOR",
+          "recommended_work": "Add progress reconstruction and unnecessary-repeat scoring.",
+          "version": "capability-support/1.0",
+          "workstream": "EVALUATOR"
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "candy_dispenser_shelf",
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "compost_bin",
+            "dessert_stand",
+            "dish_rack_cart",
+            "dishwasher",
+            "display_case",
+            "display_fridge",
+            "dry_food_dispenser_shelf",
+            "free_weight_rack",
+            "freezer",
+            "fridge",
+            "grocery_fridge",
+            "grocery_shelf",
+            "locker",
+            "magazine_stand",
+            "metal_bottom_cabinet",
+            "oven",
+            "public_trash_can",
+            "recycling_bin",
+            "serving_cart",
+            "shelf",
+            "shopping_cart",
+            "snack_rack",
+            "top_cabinet",
+            "trash_can",
+            "umbrella_rack",
+            "vending_machine",
+            "wardrobe",
+            "washer",
+            "wine_fridge"
+          ],
+          "allowed_loose_categories": [
+            "apple",
+            "bottle_of_aspirin",
+            "bottle_of_poppy_seeds",
+            "bottle_of_water",
+            "burlap_bag",
+            "carafe",
+            "cream_of_tartar_shaker",
+            "credit_card_terminal",
+            "desk_phone",
+            "folder",
+            "half_apple_pie",
+            "half_butter_cookie",
+            "half_doughnut",
+            "hamster_wheel",
+            "hard_drive",
+            "heap_of_gravel",
+            "jade_roller",
+            "orange",
+            "paper_sheet",
+            "pasta_server",
+            "petri_dish",
+            "pillar_candle",
+            "sliced_lemon",
+            "soy_sauce_bottle",
+            "vidalia_onion",
+            "hand_towel"
+          ],
+          "allowed_surface_categories": [
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "breakfast_table",
+            "countertop",
+            "desk"
+          ],
+          "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+          "coverage_categories": [
+            "pillar_candle",
+            "credit_card_terminal",
+            "petri_dish",
+            "desk_phone",
+            "soy_sauce_bottle",
+            "bottle_of_poppy_seeds",
+            "half_doughnut",
+            "half_apple_pie",
+            "jade_roller",
+            "burlap_bag",
+            "sliced_lemon",
+            "bottle_of_aspirin",
+            "hard_drive",
+            "pasta_server",
+            "hamster_wheel",
+            "cream_of_tartar_shaker",
+            "heap_of_gravel",
+            "vidalia_onion",
+            "orange",
+            "half_butter_cookie"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 4,
+            "required_semantic_turns": 3,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": true,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_memory_gap": true,
+            "requires_reselection": false,
+            "single_wearer_only": true,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "GUIDE",
+          "limits": {
+            "max_authored_actions": 32,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_meaningful_steps": 15,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 18,
+            "max_small_label_characters": 8,
+            "max_task_actions": 24,
+            "min_intervening_meaningful_actions": 3,
+            "min_meaningful_steps": 5
+          },
+          "preferred_story_categories": [
+            "apple",
+            "bottle_of_water",
+            "carafe",
+            "pasta_server",
+            "paper_sheet",
+            "folder"
+          ],
+          "preferred_story_category_glosses": {
+            "apple": "fruit with red or yellow or green skin and sweet to tart crisp whitish flesh",
+            "bottle_of_water": "",
+            "folder": "",
+            "paper_sheet": ""
+          },
+          "rooms": [
+            {
+              "area_m2": 29.2,
+              "name": "kitchen_0",
+              "scene_containers": {
+                "bottom_cabinet_no_top": 5,
+                "cedar_chest": 1,
+                "dishwasher": 1
+              },
+              "scene_surfaces": {
+                "bottom_cabinet_no_top": 7,
+                "breakfast_table": 1,
+                "countertop": 7
+              },
+              "surface_max_area_m2": {
+                "bottom_cabinet_no_top": 0.147,
+                "breakfast_table": 0.26,
+                "countertop": 0.642
+              },
+              "surface_reference_capacity": {
+                "bottom_cabinet_no_top": 3,
+                "breakfast_table": 3,
+                "countertop": 3
+              }
+            },
+            {
+              "area_m2": 12.6,
+              "name": "private_office_0",
+              "scene_containers": {
+                "bottom_cabinet": 1
+              },
+              "scene_surfaces": {
+                "bottom_cabinet": 2,
+                "desk": 2
+              },
+              "surface_max_area_m2": {
+                "bottom_cabinet": 0.119,
+                "desk": 0.223
+              },
+              "surface_reference_capacity": {
+                "bottom_cabinet": 3,
+                "desk": 3
+              }
+            }
+          ],
+          "scene": "Beechwood_0_int",
+          "task_id": "GUIDE-94001",
+          "version": "grounded-authoring/3.1-hard-context-20260901"
+        },
+        "prompt_version": "capability-v39-hard-context-20260901",
+        "prose_sha256": "sha256:b427d150c51cc94e0d576d9d00d230927d20dd27c8738cf429834c1f3b4361bb",
+        "review": {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "The pasta server is already in the dishwasher.",
+                "derived_from": [],
+                "established_by": "Putin pasta_server dishwasher",
+                "runtime_support": "observed history of putting server in dishwasher",
+                "source": "prior_action"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "The water bottle was removed from the fridge and left on the office desk.",
+                "derived_from": [],
+                "established_by": "Put bottle_of_water desk",
+                "runtime_support": "observed history of putting water on desk",
+                "source": "prior_action"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "omits undone prerequisite",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "weak assistant fails to instruct retrieval of water bottle, leaving it in the office"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "observed history of the wearer removing the water bottle and leaving it in the office",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "Initial placement of water and server (prologue)",
+              "Removal of water to office (prologue)",
+              "Retrieval of water and placement in fridge",
+              "Placement of apple in fridge",
+              "Closing and starting dishwasher"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 4,
+              "reason": "The wearer performed other tasks in the office (handling a phone) and walked back, creating a memory gap regarding the water bottle's location.",
+              "required": true,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 3,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": false,
+              "assistant_need": "memory of the interrupted routine and the current location of the water bottle",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "supported action/effect"
+                ],
+                "description": "water and apple chilled, pasta server washed",
+                "grounded_in": "Before I leave, I need the water and apple chilled and the pasta server washed.",
+                "id": "g1",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "The wearer asks what they have finished and what to do next, leaving the progress reconstruction to the assistant.",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "The wearer was distracted by a phone call and forgot the current state of their routine.",
+            "why_utterance_alone_fails": "The utterance states the goal but does not reveal that the water bottle was previously placed in the fridge and then removed and left in the office."
+          },
+          "capability_fit": "The assistant successfully reconstructs the progress of an interrupted routine, recognizing that a previously completed step was undone and must be repeated before moving on.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "bottle_of_water",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "water"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "pasta_server",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "server"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "apple",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "fruit"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "desk_phone",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "phone"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "fridge",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "cold_storage"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable",
+                    "toggleable"
+                  ],
+                  "category": "dishwasher",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "washer"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "desk",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "office_surface"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In kitchen_0, the wearer grabs the bottle_of_water, opens the fridge, puts it inside, and closes the fridge. They open the dishwasher, grab the pasta_server, put it inside, and leave the dishwasher open. An incoming call interrupts them. The wearer reopens the fridge, grabs the bottle_of_water, closes the fridge, and walks to private_office_0. They put the bottle_of_water on the desk. To take the call, they grab the desk_phone, flip it, and put it back on the desk. After the call, they walk back to kitchen_0 empty-handed. At turn zero, the wearer asks what they have finished and what to do next to get the water and apple chilled and the server washed. The strong assistant notes the server is loaded but the water was left in the office, instructing the wearer to retrieve it. The wearer walks to private_office_0, grabs the bottle_of_water, returns to kitchen_0, opens the fridge, puts the bottle inside, and closes it. The assistant then instructs them to chill the apple. The wearer grabs the apple, opens the fridge, puts it inside, and closes it. The assistant finally instructs them to start the dishwasher. The wearer closes the dishwasher and turns it on. The weak assistant incorrectly assumes the water is still in the fridge, skips its retrieval, and leaves it in the office.",
+              "scene": "Beechwood_0_int",
+              "why_scene": "Provides a kitchen with a fridge and dishwasher, and a separate private office for the interruption."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "GUIDE.PROGRESS_RECONSTRUCTION",
+                "counterfactual_failure": "weak assistant tells wearer to proceed with apple and starts dishwasher, leaving water bottle in office",
+                "forbidden_changes": [],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "observed history of water bottle removal and placement in office"
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "closed",
+                  "running"
+                ],
+                "success_condition": "water and apple inside closed fridge, pasta server inside closed running dishwasher",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be chilled",
+                  "what": "water",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be washed",
+                  "what": "server",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item to be chilled",
+                  "what": "fruit",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "item handled during interruption",
+                  "what": "phone",
+                  "when": "opening"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "destination for chilling",
+                  "what": "cold_storage",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable",
+                    "toggleable"
+                  ],
+                  "role_in_story": "destination for washing",
+                  "what": "washer",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "surface in office",
+                  "what": "office_surface",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "the assistant remembering that the water bottle was removed from the fridge and left in the office during the interruption",
+              "look_alike": [],
+              "opening": "wearer puts water in fridge, puts server in dishwasher, then removes water, takes it to office, handles a phone, leaves water there, and returns to kitchen",
+              "outcome": "water and apple inside closed fridge, pasta server inside closed running dishwasher",
+              "place": "kitchen_0 and private_office_0",
+              "printed": [],
+              "tests_what": "GUIDE.PROGRESS_RECONSTRUCTION"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The story perfectly matches the GUIDE.PROGRESS_RECONSTRUCTION capability by requiring the assistant to infer which steps of a routine were completed and which were undone during an interruption. The previous entity budget issue is resolved by removing unnecessary fixed destinations and using a desk_phone to create the required memory gap within the allowed limits.",
+          "requirements": [
+            "To satisfy the memory gap rule (Rule 31) and stay within the entity budget, the wearer handles a desk_phone in the office during the phone call before returning to the kitchen."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Walk",
+              "Grab",
+              "Putin",
+              "Put",
+              "Open",
+              "Close",
+              "TurnOn",
+              "Flip"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 28,
+            "estimated_prologue_actions": 16,
+            "estimated_task_actions": 12,
+            "events": [
+              "turnon"
+            ],
+            "final_predicates": [
+              "inside",
+              "closed",
+              "running"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 149.7,
+          "structural_signature": {
+            "evaluation": "final state of objects",
+            "evidence": "observed action history",
+            "failure": "omits undone prerequisite",
+            "operation": "infer completed and undone steps",
+            "response": "stepwise instructions",
+            "template_class": "progress_reconstruction_after_interruption",
+            "temporal": "resume interrupted routine"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "actor_scope": {
+                "live_physical_actors": [
+                  "wearer"
+                ],
+                "other_person_changes_world": false
+              },
+              "core_claims": [
+                {
+                  "available_before_turn": 0,
+                  "claim": "The pasta server is already in the dishwasher.",
+                  "derived_from": [],
+                  "established_by": "Putin(pasta_server, dishwasher)",
+                  "runtime_support": "inside(pasta_server, dishwasher)",
+                  "source": "prior_action"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "The water bottle was removed from the fridge and left on the office desk.",
+                  "derived_from": [],
+                  "established_by": "Put(bottle_of_water, desk)",
+                  "runtime_support": "on(bottle_of_water, desk)",
+                  "source": "prior_action"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "The water chilling step is incomplete and must be redone.",
+                  "derived_from": [
+                    "The water bottle was removed from the fridge and left on the office desk."
+                  ],
+                  "established_by": "inference from the water bottle's current location outside the fridge",
+                  "runtime_support": "on(bottle_of_water, desk)",
+                  "source": "derived"
+                }
+              ],
+              "counterfactual_contract": {
+                "allowed_other_differences": [],
+                "operator": "false assumption of completion",
+                "shared_obligations": [
+                  "g2"
+                ],
+                "target_difference": "The weak assistant fails to instruct the wearer to retrieve the water bottle, leaving it on the desk."
+              },
+              "cross_field_consistency": {
+                "conflicts": [],
+                "consistent": true
+              },
+              "decisive_fact_absent_from_utterance": true,
+              "egocentric_evidence": "The wearer removed the water bottle from the fridge and left it in the office during the interruption.",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "meaningful_steps": [
+                "Initial placement of water in fridge",
+                "Initial placement of pasta server in dishwasher",
+                "Interruption that undoes the water placement",
+                "Recovery of the water bottle from the office",
+                "Placement of the apple in the fridge",
+                "Closing and starting the dishwasher"
+              ],
+              "memory_gap": {
+                "intervening_meaningful_actions": 4,
+                "reason": "The wearer walked to another room, took a call, and returned empty-handed, creating a temporal and spatial gap from the initial kitchen actions.",
+                "required": true,
+                "wearer_just_established_answer": false
+              },
+              "physical_plausibility": {
+                "credible": true,
+                "issues": []
+              },
+              "semantic_turns": 3,
+              "story_world_mismatches": [],
+              "strong_completes_user_goal": true,
+              "strong_weak_distinct": true,
+              "turn0_access": {
+                "answer_fully_visible": false,
+                "assistant_need": "memory and planning assistance after an interruption",
+                "wearer_can_self_serve": false
+              },
+              "ungrounded_physical_nouns": [],
+              "unmodeled_claims": [],
+              "user_goal_obligations": [
+                {
+                  "covered_by": [
+                    "inside(bottle_of_water, fridge)",
+                    "inside(apple, fridge)",
+                    "closed(fridge)"
+                  ],
+                  "description": "The water and apple must be chilled in the fridge.",
+                  "grounded_in": "I need the water and apple chilled",
+                  "id": "g1",
+                  "kind": "physical"
+                },
+                {
+                  "covered_by": [
+                    "inside(pasta_server, dishwasher)",
+                    "closed(dishwasher)",
+                    "running(dishwasher)"
+                  ],
+                  "description": "The pasta server must be washed in the dishwasher.",
+                  "grounded_in": "and the pasta server washed",
+                  "id": "g2",
+                  "kind": "physical"
+                }
+              ],
+              "uses_only_grounded_assets": true,
+              "utterance_policy": {
+                "prescribes_assistant_words_or_trigger": false,
+                "reason": "The wearer asks what they have finished and what to do next, leaving the progress assessment and step sequencing to the assistant.",
+                "states_goal_not_solution": true
+              },
+              "weak_shared_work_complete": true,
+              "why_user_needs_assistant": "The wearer is low-vision, was distracted by a phone call in another room, and lost track of their physical progress upon returning to the kitchen.",
+              "why_utterance_alone_fails": "The utterance states the overall goal but does not reveal which items were already processed or that the water bottle was moved to the office."
+            },
+            "capability_fit": "The assistant must reconstruct progress from the observed history, recognizing that a previously completed step was undone during an interruption, and guide the wearer to recover and finish the routine.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "bottle_of_water",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "bottle_of_water"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "pasta_server",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "pasta_server"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "apple",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "apple"
+                  },
+                  {
+                    "affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "category": "fridge",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "fridge"
+                  },
+                  {
+                    "affordances": [
+                      "container",
+                      "openable",
+                      "toggleable"
+                    ],
+                    "category": "dishwasher",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "dishwasher"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "desk",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "desk"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "In kitchen_0, a low-vision employee is finishing an ordinary closing reset. Before any dialogue, the glasses observe the wearer grab a bottle_of_water, open the fridge, place the bottle inside, and close the fridge. They then grab a pasta_server, open the dishwasher, place the server inside, and leave the dishwasher open. An incoming call interrupts the routine. To take it in private_office_0, the wearer reopens the fridge, removes the water bottle, closes the fridge, walks to the office desk, puts the bottle on the desk, waits through the call, and returns empty-handed to the kitchen. At turn zero, the wearer says, 'Before I leave, I need the water and apple chilled and the pasta server washed. That call threw me off--what have I actually finished, and what should I do next?' The strong assistant reconstructs the history: 'The server is already in the dishwasher, but your water is on the office desk. Bring it back and put it in the fridge.' The wearer walks to the desk, grabs the bottle, returns to the kitchen, opens the fridge, puts the bottle inside, and closes it. The assistant then says, 'The water is back. Put the apple in the fridge next.' The wearer grabs the apple, opens the fridge, puts it inside, and closes it. The assistant finally says, 'Both cold items are done. Close the loaded dishwasher and start it.' The wearer closes the dishwasher and turns it on. The weak branch incorrectly treats the first water placement as still complete, tells the wearer to proceed with the apple, and then starts the dishwasher, leaving the water bottle on the office desk.",
+                "scene": "Beechwood_0_int",
+                "why_scene": "Provides a kitchen with a fridge and dishwasher, and a separate private office with a desk for the interruption."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "GUIDE.PROGRESS_RECONSTRUCTION",
+                  "counterfactual_failure": "The water bottle remains on the desk.",
+                  "forbidden_changes": [],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "The water bottle was moved to the desk during the prologue."
+                  ],
+                  "required_final_predicates": [
+                    "inside",
+                    "closed",
+                    "running"
+                  ],
+                  "success_condition": "The water bottle is recovered and placed in the fridge.",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item to be chilled that gets moved during interruption",
+                    "what": "bottle_of_water",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item to be washed",
+                    "what": "pasta_server",
+                    "when": "opening"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "second item to be chilled",
+                    "what": "apple",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "role_in_story": "chilling location",
+                    "what": "fridge",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "container",
+                      "openable",
+                      "toggleable"
+                    ],
+                    "role_in_story": "washing location",
+                    "what": "dishwasher",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "interruption location",
+                    "what": "desk",
+                    "when": "both"
+                  }
+                ],
+                "hinges_on": "recognizing that a previously completed step was undone during an interruption",
+                "look_alike": [],
+                "opening": [
+                  "[Grab] bottle_of_water",
+                  "[Open] fridge",
+                  "[Putin] bottle_of_water, fridge",
+                  "[Close] fridge",
+                  "[Grab] pasta_server",
+                  "[Open] dishwasher",
+                  "[Putin] pasta_server, dishwasher",
+                  "[Open] fridge",
+                  "[Grab] bottle_of_water",
+                  "[Close] fridge",
+                  "[Walk] desk",
+                  "[Put] bottle_of_water, desk",
+                  "[Wait]",
+                  "[Walk] kitchen_0"
+                ],
+                "outcome": "The water and apple are in the closed fridge, and the pasta server is in the closed, running dishwasher.",
+                "place": "Beechwood_0_int",
+                "printed": [],
+                "tests_what": "GUIDE.PROGRESS_RECONSTRUCTION"
+              }
+            },
+            "duplicate_of": null,
+            "reason": "The story perfectly matches the GUIDE.PROGRESS_RECONSTRUCTION capability by requiring the assistant to track a multi-step procedure across an interruption that undoes one of the steps. The memory gap is naturally created by the cross-room phone call, and the assistant correctly identifies the undone step and guides the wearer through the remaining tasks using closed-loop feedback.",
+            "requirements": [],
+            "runtime_requirements": {
+              "actions": [
+                "Grab",
+                "Open",
+                "Putin",
+                "Close",
+                "Walk",
+                "Put",
+                "Wait",
+                "TurnOn"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 26,
+              "estimated_prologue_actions": 14,
+              "estimated_task_actions": 12,
+              "events": [
+                "turnon"
+              ],
+              "final_predicates": [
+                "inside",
+                "closed",
+                "running"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 51.0,
+            "structural_signature": {
+              "evaluation": "final scorable state",
+              "evidence": "observed action history",
+              "failure": "false assumption of completion",
+              "operation": "progress reconstruction",
+              "response": "stepwise recovery and completion instructions",
+              "template_class": "interrupted_routine_with_undone_step",
+              "temporal": "pre-turn interruption"
+            },
+            "verdict": "KEEP"
+          },
+          {
+            "benchmark_check": {
+              "actor_scope": {
+                "live_physical_actors": [
+                  "wearer"
+                ],
+                "other_person_changes_world": false
+              },
+              "core_claims": [
+                {
+                  "available_before_turn": 0,
+                  "claim": "The pasta server is already in the dishwasher.",
+                  "derived_from": [],
+                  "established_by": "Putin pasta_server dishwasher",
+                  "runtime_support": "observed history of putting server in dishwasher",
+                  "source": "prior_action"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "The water bottle was removed from the fridge and left on the office desk.",
+                  "derived_from": [],
+                  "established_by": "Put bottle_of_water desk",
+                  "runtime_support": "observed history of putting water on desk",
+                  "source": "prior_action"
+                }
+              ],
+              "counterfactual_contract": {
+                "allowed_other_differences": [],
+                "operator": "omits undone prerequisite",
+                "shared_obligations": [
+                  "g1"
+                ],
+                "target_difference": "weak assistant fails to instruct retrieval of water bottle, leaving it in the office"
+              },
+              "cross_field_consistency": {
+                "conflicts": [],
+                "consistent": true
+              },
+              "decisive_fact_absent_from_utterance": true,
+              "egocentric_evidence": "observed history of the wearer removing the water bottle and leaving it in the office",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "meaningful_steps": [
+                "Initial placement of water and server (prologue)",
+                "Removal of water to office (prologue)",
+                "Retrieval of water and placement in fridge",
+                "Placement of apple in fridge",
+                "Closing and starting dishwasher"
+              ],
+              "memory_gap": {
+                "intervening_meaningful_actions": 4,
+                "reason": "The wearer performed other tasks in the office (handling a phone) and walked back, creating a memory gap regarding the water bottle's location.",
+                "required": true,
+                "wearer_just_established_answer": false
+              },
+              "physical_plausibility": {
+                "credible": true,
+                "issues": []
+              },
+              "semantic_turns": 3,
+              "story_world_mismatches": [],
+              "strong_completes_user_goal": true,
+              "strong_weak_distinct": true,
+              "turn0_access": {
+                "answer_fully_visible": false,
+                "assistant_need": "memory of the interrupted routine and the current location of the water bottle",
+                "wearer_can_self_serve": false
+              },
+              "ungrounded_physical_nouns": [],
+              "unmodeled_claims": [],
+              "user_goal_obligations": [
+                {
+                  "covered_by": [
+                    "supported action/effect"
+                  ],
+                  "description": "water and apple chilled, pasta server washed",
+                  "grounded_in": "Before I leave, I need the water and apple chilled and the pasta server washed.",
+                  "id": "g1",
+                  "kind": "physical"
+                }
+              ],
+              "uses_only_grounded_assets": true,
+              "utterance_policy": {
+                "prescribes_assistant_words_or_trigger": false,
+                "reason": "The wearer asks what they have finished and what to do next, leaving the progress reconstruction to the assistant.",
+                "states_goal_not_solution": true
+              },
+              "weak_shared_work_complete": true,
+              "why_user_needs_assistant": "The wearer was distracted by a phone call and forgot the current state of their routine.",
+              "why_utterance_alone_fails": "The utterance states the goal but does not reveal that the water bottle was previously placed in the fridge and then removed and left in the office."
+            },
+            "capability_fit": "The assistant successfully reconstructs the progress of an interrupted routine, recognizing that a previously completed step was undone and must be repeated before moving on.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "bottle_of_water",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "water"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "pasta_server",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "server"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "apple",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "fruit"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "desk_phone",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "phone"
+                  },
+                  {
+                    "affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "category": "fridge",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "cold_storage"
+                  },
+                  {
+                    "affordances": [
+                      "container",
+                      "openable",
+                      "toggleable"
+                    ],
+                    "category": "dishwasher",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "washer"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "desk",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "office_surface"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "In kitchen_0, the wearer grabs the bottle_of_water, opens the fridge, puts it inside, and closes the fridge. They open the dishwasher, grab the pasta_server, put it inside, and leave the dishwasher open. An incoming call interrupts them. The wearer reopens the fridge, grabs the bottle_of_water, closes the fridge, and walks to private_office_0. They put the bottle_of_water on the desk. To take the call, they grab the desk_phone, flip it, and put it back on the desk. After the call, they walk back to kitchen_0 empty-handed. At turn zero, the wearer asks what they have finished and what to do next to get the water and apple chilled and the server washed. The strong assistant notes the server is loaded but the water was left in the office, instructing the wearer to retrieve it. The wearer walks to private_office_0, grabs the bottle_of_water, returns to kitchen_0, opens the fridge, puts the bottle inside, and closes it. The assistant then instructs them to chill the apple. The wearer grabs the apple, opens the fridge, puts it inside, and closes it. The assistant finally instructs them to start the dishwasher. The wearer closes the dishwasher and turns it on. The weak assistant incorrectly assumes the water is still in the fridge, skips its retrieval, and leaves it in the office.",
+                "scene": "Beechwood_0_int",
+                "why_scene": "Provides a kitchen with a fridge and dishwasher, and a separate private office for the interruption."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "GUIDE.PROGRESS_RECONSTRUCTION",
+                  "counterfactual_failure": "weak assistant tells wearer to proceed with apple and starts dishwasher, leaving water bottle in office",
+                  "forbidden_changes": [],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "observed history of water bottle removal and placement in office"
+                  ],
+                  "required_final_predicates": [
+                    "inside",
+                    "closed",
+                    "running"
+                  ],
+                  "success_condition": "water and apple inside closed fridge, pasta server inside closed running dishwasher",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item to be chilled",
+                    "what": "water",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item to be washed",
+                    "what": "server",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item to be chilled",
+                    "what": "fruit",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "item handled during interruption",
+                    "what": "phone",
+                    "when": "opening"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "role_in_story": "destination for chilling",
+                    "what": "cold_storage",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "container",
+                      "openable",
+                      "toggleable"
+                    ],
+                    "role_in_story": "destination for washing",
+                    "what": "washer",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "surface in office",
+                    "what": "office_surface",
+                    "when": "both"
+                  }
+                ],
+                "hinges_on": "the assistant remembering that the water bottle was removed from the fridge and left in the office during the interruption",
+                "look_alike": [],
+                "opening": "wearer puts water in fridge, puts server in dishwasher, then removes water, takes it to office, handles a phone, leaves water there, and returns to kitchen",
+                "outcome": "water and apple inside closed fridge, pasta server inside closed running dishwasher",
+                "place": "kitchen_0 and private_office_0",
+                "printed": [],
+                "tests_what": "GUIDE.PROGRESS_RECONSTRUCTION"
+              }
+            },
+            "duplicate_of": null,
+            "reason": "The story perfectly matches the GUIDE.PROGRESS_RECONSTRUCTION capability by requiring the assistant to infer which steps of a routine were completed and which were undone during an interruption. The previous entity budget issue is resolved by removing unnecessary fixed destinations and using a desk_phone to create the required memory gap within the allowed limits.",
+            "requirements": [
+              "To satisfy the memory gap rule (Rule 31) and stay within the entity budget, the wearer handles a desk_phone in the office during the phone call before returning to the kitchen."
+            ],
+            "runtime_requirements": {
+              "actions": [
+                "Walk",
+                "Grab",
+                "Putin",
+                "Put",
+                "Open",
+                "Close",
+                "TurnOn",
+                "Flip"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 28,
+              "estimated_prologue_actions": 16,
+              "estimated_task_actions": 12,
+              "events": [
+                "turnon"
+              ],
+              "final_predicates": [
+                "inside",
+                "closed",
+                "running"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 149.7,
+            "structural_signature": {
+              "evaluation": "final state of objects",
+              "evidence": "observed action history",
+              "failure": "omits undone prerequisite",
+              "operation": "infer completed and undone steps",
+              "response": "stepwise instructions",
+              "template_class": "progress_reconstruction_after_interruption",
+              "temporal": "resume interrupted routine"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "Beechwood_0_int",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v41_briefed_hard_20260901a/repairs/guide_progress_v3_reviewed/compile_input/GUIDE/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gpt-5-5-genai-responses",
+        "judge_model": "gemini-3-1-pro-preview-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260901r"
+      },
+      "production_release": {},
+      "normalizations": [
+        {
+          "kind": "manual_story_revision",
+          "result": "guide26-story-refine-20260910s",
+          "source": "GUIDE-94001"
+        },
+        {
+          "kind": "canonicalize_required_evidence",
+          "source": "[\"That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.\", \"The plan visibly fixes the four ordered placements for the water, towel, apple, and mug.\", \"The water was placed on the setup table.\", \"The towel joined it there, completing the plan's first half.\", \"A real phone-to-ear interruption occurred and the phone was returned to the planning table.\", \"The apple has joined the water and towel on the setup table.\", \"The mug is on the supply table cleared by the completed first half.\"]",
+          "result": "[\"That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.\", \"The plan visibly fixes the four ordered placements for the water, towel, apple, and mug.\", \"The water was placed on the setup table.\", \"The towel joined it there, completing the plan's first half.\", \"A real phone-to-ear interruption occurred and the phone was returned to the planning table.\", \"The apple has joined the water and towel on the setup table.\", \"The mug is on the supply table cleared by the completed first half.\", \"The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.\"]"
+        }
+      ],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "GUIDE-94001",
+      "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+      "capability_notes": [
+        "The interruption uses the implemented cell-phone-specific AnswerPhone primitive rather than a generic Wait alone.",
+        "The resumed work uses stable tabletop placements in one open room, avoiding the washer and doorway geometry that obscured an otherwise successful oracle."
+      ],
+      "revision": "guide26-story-refine-20260910s"
+    }
+  }
+}

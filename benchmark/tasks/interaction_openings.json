@@ -1,0 +1,2043 @@
+{
+  "version": "taskpack-interaction-openings/2.1",
+  "tasks": {
+    "WATCH-14014": {
+      "prelude_say": "Hi, Assistant—I'm getting some drinks ready. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "utterances": [
+        {
+          "before_action_index": 8,
+          "say": "Yeah—the alcohol-free drink goes to the guest table, and the alcoholic one goes to the adult-drinks counter. I'll sort them out when I hang up."
+        }
+      ],
+      "public_task_context": "The person is getting some drinks ready.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          },
+          {
+            "id": "drink_routing",
+            "required_phrases": [
+              "alcohol-free drink goes to the guest table",
+              "alcoholic one goes to the adult-drinks counter"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "wrong_guest_drink",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 2,
+          "assistant_say": "Stop—that is the vodka glass. Put it on the adult-drinks counter, then take the alcohol-free glass to the guest table.",
+          "recovery_commands": [
+            "[PutOn] <glass_spiked> (1) <adult_counter> (1)",
+            "[Grab] <glass_plain> (1)",
+            "[Walk] <guest_table> (1)",
+            "[PutOn] <glass_plain> (1) <guest_table> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutOn] <glass_spiked> (1) <adult_counter> (1)",
+          "[PutOn] <glass_plain> (1) <guest_table> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[PutOn] <glass_spiked> (1) <guest_table> (1)"
+        ],
+        "verification_points": [
+          {
+            "id": "plain_for_guest",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "glass_plain",
+            "target": "guest_table"
+          },
+          {
+            "id": "spiked_for_adult",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "glass_spiked",
+            "target": "adult_counter"
+          },
+          {
+            "id": "caught_wrong_glass",
+            "kind": "intervention",
+            "intervention_id": "wrong_guest_drink"
+          }
+        ]
+      }
+    },
+    "WATCH-16003": {
+      "prelude_say": "Hi, Assistant—I'm getting an order ready. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "public_task_context": "The person is getting an order ready.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "extra_wine",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 1,
+          "assistant_say": "Stop—the order already has its two wines. Put this third bottle back on the stock counter.",
+          "recovery_commands": [
+            "[PutOn] <wine_extra> (1) <stock> (1)"
+          ]
+        },
+        {
+          "id": "unlisted_chips",
+          "before_action_index": 2,
+          "dialogue_index": 1,
+          "resume_action_index": 3,
+          "assistant_say": "Stop—the ticket says there is no side. Put the chips back on the stock counter, then check the ticket again.",
+          "recovery_commands": [
+            "[PutOn] <chips> (1) <stock> (1)",
+            "[LookAt] <ticket> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutOn] <wine_extra> (1) <stock> (1)",
+          "[PutOn] <chips> (1) <stock> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[PutOn] <wine_extra> (1) <packing_table> (1)",
+          "[PutOn] <chips> (1) <packing_table> (1)"
+        ],
+        "verification_points": [
+          {
+            "id": "extra_wine_returned",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "wine_extra",
+            "target": "stock"
+          },
+          {
+            "id": "chips_returned",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "chips",
+            "target": "stock"
+          },
+          {
+            "id": "caught_extra_wine",
+            "kind": "intervention",
+            "intervention_id": "extra_wine"
+          },
+          {
+            "id": "caught_unlisted_chips",
+            "kind": "intervention",
+            "intervention_id": "unlisted_chips"
+          }
+        ]
+      }
+    },
+    "WATCH-16005": {
+      "prelude_say": "Hi, Assistant—I'm doing some baking. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "public_task_context": "The person is doing some baking.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "unscored_dough",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 2,
+          "assistant_say": "Stop—the dough still needs the shallow X. Put it back on the prep counter, score it with the knife, return the knife to its station, then put the dough in the oven and close the door.",
+          "recovery_commands": [
+            "[PutOn] <dough> (1) <prep> (1)",
+            "[Grab] <knife> (1)",
+            "[Cut] <dough> (1) <knife> (1)",
+            "[PutOn] <knife> (1) <knife_station> (1)",
+            "[Grab] <dough> (1)",
+            "[PutInside] <dough> (1) <oven> (1)",
+            "[Close] <oven> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[Cut] <dough> (1) <knife> (1)",
+          "[PutInside] <dough> (1) <oven> (1)",
+          "[Close] <oven> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[Cut] <dough> (1) <knife> (1)",
+            "[PutInside] <dough> (1) <oven> (1)",
+            "[Close] <oven> (1)"
+          ]
+        ],
+        "forbidden_before": [
+          {
+            "command": "[PutInside] <dough> (1) <oven> (1)",
+            "prerequisite": "[Cut] <dough> (1) <knife> (1)"
+          }
+        ],
+        "verification_points": [
+          {
+            "id": "dough_scored",
+            "kind": "world_state",
+            "pred": "cut",
+            "subject": "dough"
+          },
+          {
+            "id": "dough_in_oven",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "dough",
+            "target": "oven"
+          },
+          {
+            "id": "oven_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "oven"
+          },
+          {
+            "id": "oven_running",
+            "kind": "world_state",
+            "pred": "running",
+            "subject": "oven"
+          },
+          {
+            "id": "caught_unscored_dough",
+            "kind": "intervention",
+            "intervention_id": "unscored_dough"
+          }
+        ]
+      }
+    },
+    "WATCH-28002": {
+      "prelude_say": "Hi, Assistant—I'm tidying up the workspace. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "public_task_context": "The person is tidying up the workspace.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "used_sponge_in_clean_cabinet",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 2,
+          "assistant_say": "Stop—that sponge is used. Put it in the USED SPONGES bin, then put the clean sponge in the clean cabinet and close the cabinet.",
+          "recovery_commands": [
+            "[PutInside] <sponge_used> (1) <used_bin> (1)",
+            "[Grab] <sponge_clean> (1)",
+            "[PutInside] <sponge_clean> (1) <clean_cabinet> (1)",
+            "[Close] <clean_cabinet> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutInside] <sponge_used> (1) <used_bin> (1)",
+          "[PutInside] <sponge_clean> (1) <clean_cabinet> (1)",
+          "[Close] <clean_cabinet> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[PutInside] <sponge_used> (1) <clean_cabinet> (1)"
+        ],
+        "verification_points": [
+          {
+            "id": "used_sponge_sorted",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "sponge_used",
+            "target": "used_bin"
+          },
+          {
+            "id": "clean_sponge_stored",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "sponge_clean",
+            "target": "clean_cabinet"
+          },
+          {
+            "id": "cabinet_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "clean_cabinet"
+          },
+          {
+            "id": "caught_sponge_mixup",
+            "kind": "intervention",
+            "intervention_id": "used_sponge_in_clean_cabinet"
+          }
+        ]
+      }
+    },
+    "WATCH-28008": {
+      "prelude_say": "Hi, Assistant—I'm doing some baking. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "public_task_context": "The person is doing some baking.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "open_oven_door",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 1,
+          "assistant_say": "Wait—the oven door is still open. Close it before turning the oven on.",
+          "recovery_commands": [
+            "[Close] <oven> (1)",
+            "[TurnOn] <oven> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[Close] <oven> (1)",
+          "[TurnOn] <oven> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[Close] <oven> (1)",
+            "[TurnOn] <oven> (1)"
+          ]
+        ],
+        "forbidden_before": [
+          {
+            "command": "[TurnOn] <oven> (1)",
+            "prerequisite": "[Close] <oven> (1)"
+          }
+        ],
+        "verification_points": [
+          {
+            "id": "pie_loaded",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "pie",
+            "target": "oven"
+          },
+          {
+            "id": "oven_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "oven"
+          },
+          {
+            "id": "oven_running",
+            "kind": "world_state",
+            "pred": "running",
+            "subject": "oven"
+          },
+          {
+            "id": "caught_open_door",
+            "kind": "intervention",
+            "intervention_id": "open_oven_door"
+          }
+        ]
+      }
+    },
+    "WATCH-34001": {
+      "prelude_say": "Hi, Assistant—I'm putting away some groceries. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "utterances": [
+        {
+          "before_action_index": 15,
+          "say": "I think I've done everything. I'm going to take a break."
+        }
+      ],
+      "public_task_context": "The person is putting away some groceries.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          },
+          {
+            "id": "completion_intent",
+            "required_phrases": [
+              "I think I've done everything",
+              "take a break"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "missing_groceries",
+          "earliest_opening_action_index": 15,
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_opening_action_index": 16,
+          "resume_action_index": 1,
+          "assistant_say": "Not yet—you still need to put yogurt number 2 and feta number 4 in the refrigerator, then close the refrigerator.",
+          "recovery_commands": [
+            "[Walk] <fridge> (1)",
+            "[Open] <fridge> (1)",
+            "[Grab] <item_2> (1)",
+            "[PutInside] <item_2> (1) <fridge> (1)",
+            "[Grab] <item_4> (1)",
+            "[PutInside] <item_4> (1) <fridge> (1)",
+            "[Walk] <fridge> (1)",
+            "[Close] <fridge> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutInside] <item_2> (1) <fridge> (1)",
+          "[PutInside] <item_4> (1) <fridge> (1)",
+          "[Close] <fridge> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[Confirm]"
+        ],
+        "verification_points": [
+          {
+            "id": "item_2_stored",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "item_2",
+            "target": "fridge"
+          },
+          {
+            "id": "item_4_stored",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "item_4",
+            "target": "fridge"
+          },
+          {
+            "id": "fridge_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "fridge"
+          },
+          {
+            "id": "caught_missing_items",
+            "kind": "intervention",
+            "intervention_id": "missing_groceries"
+          }
+        ]
+      }
+    },
+    "WATCH-34002": {
+      "prelude_say": "Hi, Assistant—I'm doing some cleaning. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "utterances": [
+        {
+          "before_action_index": 7,
+          "say": "Yeah, I remember: a towel used on a desk goes to the used-linen station, and the towel used to dry a clean cup goes back on the towel counter afterward. I still need to finish that cup."
+        }
+      ],
+      "public_task_context": "The person is doing some cleaning.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          },
+          {
+            "id": "towel_routing",
+            "required_phrases": [
+              "towel used on a desk goes to the used-linen station",
+              "towel used to dry a clean cup goes back on the towel counter afterward"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "used_towel_for_plate",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 2,
+          "assistant_say": "Stop—the towel in your hand is used. Put it at the used-linen station, take the clean towel from the left counter, finish wiping the clean dish—the coffee cup—with it, then return that towel to the counter.",
+          "recovery_commands": [
+            "[Walk] <used_station> (1)",
+            "[PutOn] <towel_used> (1) <used_station> (1)",
+            "[Walk] <towel_counter> (1)",
+            "[Grab] <towel_clean> (1)",
+            "[Wipe] <cup> (1) <towel_clean> (1)",
+            "[PutOn] <towel_clean> (1) <towel_counter> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutOn] <towel_used> (1) <used_station> (1)",
+          "[Wipe] <cup> (1) <towel_clean> (1)",
+          "[PutOn] <towel_clean> (1) <towel_counter> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[Wipe] <cup> (1) <towel_used> (1)"
+        ],
+        "verification_points": [
+          {
+            "id": "used_towel_isolated",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "towel_used",
+            "target": "used_station"
+          },
+          {
+            "id": "clean_towel_returned",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "towel_clean",
+            "target": "towel_counter"
+          },
+          {
+            "id": "plate_wiped_cleanly",
+            "kind": "successful_command",
+            "command": "[Wipe] <cup> (1) <towel_clean> (1)"
+          },
+          {
+            "id": "caught_used_towel",
+            "kind": "intervention",
+            "intervention_id": "used_towel_for_plate"
+          }
+        ]
+      }
+    },
+    "WATCH-47003": {
+      "prelude_say": "Hi, Assistant—I'm getting ready to head out. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "utterances": [
+        {
+          "before_action_index": 17,
+          "say": "Okay, I'll bring the laptop back and leave it on the exit console while I finish the last checks."
+        },
+        {
+          "before_action_index": 21,
+          "say": "All right, I think I'm all set. Time to head out."
+        }
+      ],
+      "public_task_context": "The person is getting ready to head out.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          },
+          {
+            "id": "laptop_destination",
+            "required_phrases": [
+              "leave it on the exit console"
+            ]
+          },
+          {
+            "id": "departure_intent",
+            "required_phrases": [
+              "all set",
+              "head out"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "open_appliances_before_departure",
+          "earliest_opening_action_index": 21,
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 1,
+          "assistant_say": "Not yet. Put the laptop on the exit console, then close the living-room window and the kitchen refrigerator.",
+          "recovery_commands": [
+            "[PutOn] <laptop> (1) <departure_console> (1)",
+            "[Walk] <window> (1)",
+            "[Close] <window> (1)",
+            "[Walk] <fridge> (1)",
+            "[Close] <fridge> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutOn] <laptop> (1) <departure_console> (1)",
+          "[Close] <window> (1)",
+          "[Close] <fridge> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[Confirm]"
+        ],
+        "verification_points": [
+          {
+            "id": "laptop_at_exit",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "laptop",
+            "target": "departure_console"
+          },
+          {
+            "id": "window_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "window"
+          },
+          {
+            "id": "fridge_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "fridge"
+          },
+          {
+            "id": "caught_open_items",
+            "kind": "intervention",
+            "intervention_id": "open_appliances_before_departure"
+          }
+        ]
+      }
+    },
+    "WATCH-81019": {
+      "prelude_say": "Hi, Assistant—I'm doing some cleaning in the kitchen. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "utterances": [
+        {
+          "before_action_index": 9,
+          "say": "Yeah, I need to finish up the clean dish with a clean towel after this, and I'll leave that towel on the cleaning table when I'm done."
+        }
+      ],
+      "public_task_context": "The person is doing some cleaning in the kitchen.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          },
+          {
+            "id": "clean_dish_goal",
+            "required_phrases": [
+              "finish up the clean dish with a clean towel",
+              "leave that towel on the cleaning table"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "used_towel_for_clean_dish",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 2,
+          "assistant_say": "Stop—both displaced towels are used. Put the towel in your hand back at station A, take untouched towel three from the left counter, wipe the clean dish with it, then place towel three on the cleaning table.",
+          "recovery_commands": [
+            "[PutOn] <towel_2> (1) <used_station_a> (1)",
+            "[Walk] <towel_counter_left> (1)",
+            "[Grab] <towel_3> (1)",
+            "[Wipe] <plate> (1) <towel_3> (1)",
+            "[PutOn] <towel_3> (1) <cleaning_table> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutOn] <towel_2> (1) <used_station_a> (1)",
+          "[Wipe] <plate> (1) <towel_3> (1)",
+          "[PutOn] <towel_3> (1) <cleaning_table> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[Wipe] <plate> (1) <towel_2> (1)"
+        ],
+        "verification_points": [
+          {
+            "id": "used_towel_returned",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "towel_2",
+            "target": "used_station_a"
+          },
+          {
+            "id": "clean_towel_returned",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "towel_3",
+            "target": "cleaning_table"
+          },
+          {
+            "id": "plate_wiped_cleanly",
+            "kind": "successful_command",
+            "command": "[Wipe] <plate> (1) <towel_3> (1)"
+          },
+          {
+            "id": "caught_used_towel",
+            "kind": "intervention",
+            "intervention_id": "used_towel_for_clean_dish"
+          }
+        ]
+      }
+    },
+    "WATCH-81020": {
+      "prelude_say": "Hi, Assistant—I'm tidying up around the house. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "public_task_context": "The person is tidying up around the house.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "faucet_left_running",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 5,
+          "assistant_say": "Before taking the call, go back and turn off the kitchen faucet. Then return to the call table, answer the phone, and put it back on the table when the call is over.",
+          "recovery_commands": [
+            "[Walk] <sink> (1)",
+            "[TurnOff] <sink> (1)",
+            "[Walk] <call_table> (1)",
+            "[Grab] <phone> (1)",
+            "[AnswerPhone] <phone> (1)",
+            "[Wait]",
+            "[PutOn] <phone> (1) <call_table> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[TurnOff] <sink> (1)",
+          "[Grab] <phone> (1)",
+          "[AnswerPhone] <phone> (1)",
+          "[PutOn] <phone> (1) <call_table> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[TurnOff] <sink> (1)",
+            "[Grab] <phone> (1)",
+            "[AnswerPhone] <phone> (1)"
+          ]
+        ],
+        "forbidden_before": [
+          {
+            "command": "[Grab] <phone> (1)",
+            "prerequisite": "[TurnOff] <sink> (1)"
+          }
+        ],
+        "verification_points": [
+          {
+            "id": "faucet_off",
+            "kind": "world_state",
+            "pred": "off",
+            "subject": "sink"
+          },
+          {
+            "id": "phone_returned",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "phone",
+            "target": "call_table"
+          },
+          {
+            "id": "caught_running_faucet",
+            "kind": "intervention",
+            "intervention_id": "faucet_left_running"
+          }
+        ]
+      }
+    },
+    "WATCH-88007": {
+      "prelude_say": "Hi, Assistant—I'm doing some baking. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "public_task_context": "The person is doing some baking.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "tray_order",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 3,
+          "assistant_say": "Stop—the drip tray has to go in first. Return the dough to the prep counter, load the tray, then load the dough, close the oven, and cook the dough.",
+          "recovery_commands": [
+            "[PutOn] <dough> (1) <prep> (1)",
+            "[Grab] <tray> (1)",
+            "[PutInside] <tray> (1) <oven> (1)",
+            "[Grab] <dough> (1)",
+            "[PutInside] <dough> (1) <oven> (1)",
+            "[Close] <oven> (1)",
+            "[Cook] <dough> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutInside] <tray> (1) <oven> (1)",
+          "[PutInside] <dough> (1) <oven> (1)",
+          "[Close] <oven> (1)",
+          "[Cook] <dough> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[PutInside] <tray> (1) <oven> (1)",
+            "[PutInside] <dough> (1) <oven> (1)",
+            "[Close] <oven> (1)",
+            "[Cook] <dough> (1)"
+          ]
+        ],
+        "forbidden_before": [
+          {
+            "command": "[PutInside] <dough> (1) <oven> (1)",
+            "prerequisite": "[PutInside] <tray> (1) <oven> (1)"
+          }
+        ],
+        "verification_points": [
+          {
+            "id": "tray_loaded",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "tray",
+            "target": "oven"
+          },
+          {
+            "id": "dough_loaded",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "dough",
+            "target": "oven"
+          },
+          {
+            "id": "oven_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "oven"
+          },
+          {
+            "id": "dough_cooked",
+            "kind": "world_state",
+            "pred": "cooked",
+            "subject": "dough"
+          },
+          {
+            "id": "caught_tray_order",
+            "kind": "intervention",
+            "intervention_id": "tray_order"
+          }
+        ]
+      }
+    },
+    "WATCH-94000": {
+      "prelude_say": "Hi, Assistant—I'm getting an order ready. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "public_task_context": "The person is getting an order ready.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "extra_scone",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 1,
+          "assistant_say": "Stop—Order 184 already has its two scones. Return this third scone to stock, then put the listed muffin in the box.",
+          "recovery_commands": [
+            "[PutOn] <scone_extra> (1) <stock> (1)",
+            "[Grab] <muffin> (1)",
+            "[PutInside] <muffin> (1) <box> (1)"
+          ]
+        },
+        {
+          "id": "unlisted_donut",
+          "before_action_index": 2,
+          "dialogue_index": 1,
+          "resume_action_index": 3,
+          "assistant_say": "Stop—the donut is not on Order 184. Return it to stock, then put the listed brownie in the box.",
+          "recovery_commands": [
+            "[PutOn] <donut> (1) <stock> (1)",
+            "[Grab] <brownie> (1)",
+            "[PutInside] <brownie> (1) <box> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutOn] <scone_extra> (1) <stock> (1)",
+          "[PutInside] <muffin> (1) <box> (1)",
+          "[PutOn] <donut> (1) <stock> (1)",
+          "[PutInside] <brownie> (1) <box> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[PutInside] <scone_extra> (1) <box> (1)",
+          "[PutInside] <donut> (1) <box> (1)"
+        ],
+        "verification_points": [
+          {
+            "id": "scone_1_packed",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "scone_1",
+            "target": "box"
+          },
+          {
+            "id": "scone_2_packed",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "scone_2",
+            "target": "box"
+          },
+          {
+            "id": "croissant_packed",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "croissant",
+            "target": "box"
+          },
+          {
+            "id": "muffin_packed",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "muffin",
+            "target": "box"
+          },
+          {
+            "id": "brownie_packed",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "brownie",
+            "target": "box"
+          },
+          {
+            "id": "extra_scone_returned",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "scone_extra",
+            "target": "stock"
+          },
+          {
+            "id": "donut_returned",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "donut",
+            "target": "stock"
+          },
+          {
+            "id": "caught_extra_scone",
+            "kind": "intervention",
+            "intervention_id": "extra_scone"
+          },
+          {
+            "id": "caught_unlisted_donut",
+            "kind": "intervention",
+            "intervention_id": "unlisted_donut"
+          }
+        ]
+      }
+    },
+    "WATCH-94005": {
+      "prelude_say": "Hi, Assistant—I'm getting the room ready for a guest. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "utterances": [
+        {
+          "before_action_index": 9,
+          "say": "I think that's everything. I'm going to wrap up."
+        }
+      ],
+      "public_task_context": "The person is getting the room ready for a guest.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          },
+          {
+            "id": "completion_intent",
+            "required_phrases": [
+              "I think that's everything",
+              "wrap up"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "missing_towel",
+          "earliest_opening_action_index": 9,
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_opening_action_index": 10,
+          "resume_action_index": 1,
+          "assistant_say": "Not yet—the folded towel is still on the shelf. Put it in the cabinet, then close the cabinet.",
+          "recovery_commands": [
+            "[Walk] <shelf> (1)",
+            "[Grab] <towel> (1)",
+            "[PutInside] <towel> (1) <cabinet> (1)",
+            "[Close] <cabinet> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutInside] <towel> (1) <cabinet> (1)",
+          "[Close] <cabinet> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[PutInside] <towel> (1) <cabinet> (1)",
+            "[Close] <cabinet> (1)"
+          ]
+        ],
+        "forbidden_before": [
+          {
+            "command": "[Close] <cabinet> (1)",
+            "prerequisite": "[PutInside] <towel> (1) <cabinet> (1)"
+          }
+        ],
+        "verification_points": [
+          {
+            "id": "water_ready",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "water",
+            "target": "desk"
+          },
+          {
+            "id": "towel_stored",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "towel",
+            "target": "cabinet"
+          },
+          {
+            "id": "folder_ready",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "folder",
+            "target": "desk"
+          },
+          {
+            "id": "mug_ready",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "mug",
+            "target": "bedside_table"
+          },
+          {
+            "id": "cabinet_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "cabinet"
+          },
+          {
+            "id": "caught_missing_towel",
+            "kind": "intervention",
+            "intervention_id": "missing_towel"
+          }
+        ]
+      }
+    },
+    "WATCH-99101": {
+      "prelude_say": "Hi, Assistant—I'm taking care of the room after checkout. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "public_task_context": "The person is taking care of the room after checkout.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "wipe_before_clearing",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 3,
+          "assistant_say": "Stop—the desk must be cleared first. Set the sponge on the bed, move the phone and room key to the personal-items console, then retrieve the sponge, wipe the desk, and return the sponge to the cleaning shelf.",
+          "recovery_commands": [
+            "[Walk] <bed> (1)",
+            "[PutOn] <sponge> (1) <bed> (1)",
+            "[Walk] <desk> (1)",
+            "[Grab] <phone> (1)",
+            "[PutOn] <phone> (1) <personal_table> (1)",
+            "[Walk] <desk> (1)",
+            "[Grab] <key> (1)",
+            "[PutOn] <key> (1) <personal_table> (1)",
+            "[Walk] <bed> (1)",
+            "[Grab] <sponge> (1)",
+            "[Walk] <desk> (1)",
+            "[Wipe] <desk> (1) <sponge> (1)",
+            "[Walk] <cleaning_shelf> (1)",
+            "[PutOn] <sponge> (1) <cleaning_shelf> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutOn] <phone> (1) <personal_table> (1)",
+          "[PutOn] <key> (1) <personal_table> (1)",
+          "[Wipe] <desk> (1) <sponge> (1)",
+          "[PutOn] <sponge> (1) <cleaning_shelf> (1)"
+        ],
+        "forbidden_before": [
+          {
+            "command": "[Wipe] <desk> (1) <sponge> (1)",
+            "prerequisite": "[PutOn] <phone> (1) <personal_table> (1)"
+          },
+          {
+            "command": "[Wipe] <desk> (1) <sponge> (1)",
+            "prerequisite": "[PutOn] <key> (1) <personal_table> (1)"
+          }
+        ],
+        "verification_points": [
+          {
+            "id": "phone_cleared",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "phone",
+            "target": "personal_table"
+          },
+          {
+            "id": "key_cleared",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "key",
+            "target": "personal_table"
+          },
+          {
+            "id": "sponge_returned",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "sponge",
+            "target": "cleaning_shelf"
+          },
+          {
+            "id": "desk_wiped",
+            "kind": "successful_command",
+            "command": "[Wipe] <desk> (1) <sponge> (1)"
+          },
+          {
+            "id": "caught_wipe_order",
+            "kind": "intervention",
+            "intervention_id": "wipe_before_clearing"
+          }
+        ]
+      }
+    },
+    "WATCH-99301": {
+      "prelude_say": "Hi, Assistant—I'm getting this room ready for the next guest. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "public_task_context": "The person is getting this room ready for the next guest.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "gift_before_cleaning",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 1,
+          "assistant_say": "Stop—the desk needs to be wiped before the gift goes there. Put the gift back on the guest bed, take the sponge from the staging bed, wipe the desk, return the sponge to the cleaning shelf, then put the gift on the desk.",
+          "recovery_commands": [
+            "[Walk] <bed> (1)",
+            "[PutOn] <gift> (1) <bed> (1)",
+            "[Walk] <staging_bed> (1)",
+            "[Grab] <sponge> (1)",
+            "[Walk] <desk> (1)",
+            "[Wipe] <desk> (1) <sponge> (1)",
+            "[Walk] <cleaning_shelf> (1)",
+            "[PutOn] <sponge> (1) <cleaning_shelf> (1)",
+            "[Walk] <bed> (1)",
+            "[Grab] <gift> (1)",
+            "[Walk] <desk> (1)",
+            "[PutOn] <gift> (1) <desk> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[Wipe] <desk> (1) <sponge> (1)",
+          "[PutOn] <sponge> (1) <cleaning_shelf> (1)",
+          "[PutOn] <gift> (1) <desk> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[Wipe] <desk> (1) <sponge> (1)",
+            "[PutOn] <gift> (1) <desk> (1)"
+          ]
+        ],
+        "forbidden_before": [
+          {
+            "command": "[PutOn] <gift> (1) <desk> (1)",
+            "prerequisite": "[Wipe] <desk> (1) <sponge> (1)"
+          }
+        ],
+        "verification_points": [
+          {
+            "id": "gift_on_clean_desk",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "gift",
+            "target": "desk"
+          },
+          {
+            "id": "sponge_returned",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "sponge",
+            "target": "cleaning_shelf"
+          },
+          {
+            "id": "desk_wiped",
+            "kind": "successful_command",
+            "command": "[Wipe] <desk> (1) <sponge> (1)"
+          },
+          {
+            "id": "caught_gift_order",
+            "kind": "intervention",
+            "intervention_id": "gift_before_cleaning"
+          }
+        ]
+      }
+    },
+    "WATCH-99402": {
+      "prelude_say": "Hi, Assistant—I'm closing up the breakfast station for the day. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "public_task_context": "The person is closing up the breakfast station for the day.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "apple_to_prep",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 1,
+          "assistant_say": "Stop—the checklist says the apple goes in the refrigerator, not on the prep table. Put it in the refrigerator and close the door, then place the checklist on the sign-off table.",
+          "recovery_commands": [
+            "[Walk] <fridge> (1)",
+            "[Open] <fridge> (1)",
+            "[PutInside] <apple> (1) <fridge> (1)",
+            "[Close] <fridge> (1)",
+            "[Grab] <checklist> (1)",
+            "[PutOn] <checklist> (1) <signoff_table> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutInside] <apple> (1) <fridge> (1)",
+          "[Close] <fridge> (1)",
+          "[PutOn] <checklist> (1) <signoff_table> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[PutOn] <apple> (1) <prep_table> (1)"
+        ],
+        "verification_points": [
+          {
+            "id": "apple_refrigerated",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "apple",
+            "target": "fridge"
+          },
+          {
+            "id": "checklist_signed_off",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "checklist",
+            "target": "signoff_table"
+          },
+          {
+            "id": "fridge_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "fridge"
+          },
+          {
+            "id": "caught_apple_destination",
+            "kind": "intervention",
+            "intervention_id": "apple_to_prep"
+          }
+        ]
+      }
+    },
+    "WATCH-99801": {
+      "prelude_say": "Hi, Assistant—I'm taking care of the laundry. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "public_task_context": "The person is taking care of the laundry.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "sock_left_out",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 1,
+          "assistant_say": "Do not start the washer yet. Open it, retrieve the loose sock from the upper shelf, put the sock in the washer, then close and start it.",
+          "recovery_commands": [
+            "[Open] <washer> (1)",
+            "[Walk] <sock_shelf> (1)",
+            "[Grab] <sock> (1)",
+            "[Walk] <washer> (1)",
+            "[PutInside] <sock> (1) <washer> (1)",
+            "[Close] <washer> (1)",
+            "[TurnOn] <washer> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutInside] <sock> (1) <washer> (1)",
+          "[Close] <washer> (1)",
+          "[TurnOn] <washer> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[PutInside] <sock> (1) <washer> (1)",
+            "[Close] <washer> (1)",
+            "[TurnOn] <washer> (1)"
+          ]
+        ],
+        "forbidden_before": [
+          {
+            "command": "[TurnOn] <washer> (1)",
+            "prerequisite": "[PutInside] <sock> (1) <washer> (1)"
+          }
+        ],
+        "verification_points": [
+          {
+            "id": "sock_loaded",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "sock",
+            "target": "washer"
+          },
+          {
+            "id": "towel_loaded",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "towel",
+            "target": "washer"
+          },
+          {
+            "id": "washer_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "washer"
+          },
+          {
+            "id": "washer_running",
+            "kind": "world_state",
+            "pred": "running",
+            "subject": "washer"
+          },
+          {
+            "id": "caught_missing_sock",
+            "kind": "intervention",
+            "intervention_id": "sock_left_out"
+          }
+        ]
+      }
+    },
+    "WATCH-103004": {
+      "prelude_say": "Hi, Assistant—I'm getting the prep area ready. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "public_task_context": "The person is getting the prep area ready.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "food_before_sanitizer_storage",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 1,
+          "assistant_say": "Stop—the sanitizer must be stored first. Put the cold cuts back on the food table, open the chemical cabinet, place the sanitizer inside and close it, then move the cold cuts to the prep table.",
+          "recovery_commands": [
+            "[PutOn] <cold_cuts> (1) <food_table> (1)",
+            "[Open] <chemical_cabinet> (1)",
+            "[Grab] <sanitizer> (1)",
+            "[PutInside] <sanitizer> (1) <chemical_cabinet> (1) <chemical_cabinet_space1> (0)",
+            "[Close] <chemical_cabinet> (1)",
+            "[Grab] <cold_cuts> (1)",
+            "[PutOn] <cold_cuts> (1) <prep_table> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutInside] <sanitizer> (1) <chemical_cabinet> (1) <chemical_cabinet_space1> (0)",
+          "[Close] <chemical_cabinet> (1)",
+          "[PutOn] <cold_cuts> (1) <prep_table> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[PutInside] <sanitizer> (1) <chemical_cabinet> (1) <chemical_cabinet_space1> (0)",
+            "[Close] <chemical_cabinet> (1)",
+            "[PutOn] <cold_cuts> (1) <prep_table> (1)"
+          ]
+        ],
+        "forbidden_before": [
+          {
+            "command": "[PutOn] <cold_cuts> (1) <prep_table> (1)",
+            "prerequisite": "[PutInside] <sanitizer> (1) <chemical_cabinet> (1) <chemical_cabinet_space1> (0)"
+          },
+          {
+            "command": "[PutOn] <cold_cuts> (1) <prep_table> (1)",
+            "prerequisite": "[Close] <chemical_cabinet> (1)"
+          }
+        ],
+        "verification_points": [
+          {
+            "id": "sanitizer_stored",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "sanitizer",
+            "target": "chemical_cabinet"
+          },
+          {
+            "id": "chemical_cabinet_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "chemical_cabinet"
+          },
+          {
+            "id": "food_on_prep",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "cold_cuts",
+            "target": "prep_table"
+          },
+          {
+            "id": "caught_sanitation_order",
+            "kind": "intervention",
+            "intervention_id": "food_before_sanitizer_storage"
+          }
+        ]
+      }
+    },
+    "WATCH-106002": {
+      "prelude_say": "Hi, Assistant—I'm setting things up for a tasting. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "utterances": [
+        {
+          "before_action_index": 15,
+          "say": "Oh, good—the allergy check came back clear, so the one-serving box can go back into the tasting set. The two-serving box I already set out is assigned to this tasting; the other one is just a spare. Thanks for letting me know."
+        }
+      ],
+      "public_task_context": "The person is setting things up for a tasting.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          },
+          {
+            "id": "tasting_assignment",
+            "required_phrases": [
+              "allergy check came back clear",
+              "one-serving box can go back into the tasting set",
+              "two-serving box I already set out is assigned to this tasting",
+              "the other one is just a spare"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "serving_count",
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 1,
+          "assistant_say": "Stop—the two-serving box would make seven servings. Return it to the supply table and put the cleared one-serving box on the service table to make exactly six.",
+          "recovery_commands": [
+            "[Walk] <supply> (1)",
+            "[PutOn] <box_d2> (1) <supply> (1)",
+            "[Grab] <box_b1> (1)",
+            "[PutOn] <box_b1> (1) <service_table> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutOn] <box_d2> (1) <supply> (1)",
+          "[PutOn] <box_b1> (1) <service_table> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[PutOn] <box_d2> (1) <service_table> (1)"
+        ],
+        "verification_points": [
+          {
+            "id": "one_serving_box_used",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "box_b1",
+            "target": "service_table"
+          },
+          {
+            "id": "two_serving_box_returned",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "box_d2",
+            "target": "supply"
+          },
+          {
+            "id": "two_serving_box_a_present",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "box_a2",
+            "target": "service_table"
+          },
+          {
+            "id": "three_serving_box_present",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "box_c3",
+            "target": "service_table"
+          },
+          {
+            "id": "caught_serving_count",
+            "kind": "intervention",
+            "intervention_id": "serving_count"
+          }
+        ]
+      }
+    },
+    "WATCH-108002": {
+      "prelude_say": "Hi, Assistant—I'm wrapping up the kitchen before my break. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "watch_utterances": [
+        {
+          "before_action_index": 11,
+          "say": "Okay, I think that's everything. Time for my break."
+        }
+      ],
+      "public_task_context": "The person is wrapping up the kitchen before a break.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          },
+          {
+            "id": "break_intent",
+            "required_phrases": [
+              "I think that's everything",
+              "Time for my break"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "sponge_left_out",
+          "before_action_index": 11,
+          "dialogue_index": 0,
+          "resume_action_index": 12,
+          "assistant_say": "Not yet—the used sponge is still on the table. Go back, put it in the sink, then return to the break area.",
+          "recovery_commands": [
+            "[Walk] <table> (1)",
+            "[Grab] <sponge> (1)",
+            "[PutInside] <sponge> (1) <sink> (1)",
+            "[Walk] <break_station> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutInside] <mug> (1) <sink> (1)",
+          "[Wipe] <table> (1) <sponge> (1)",
+          "[Wipe] <table> (1) <towel> (1)",
+          "[PutInside] <towel> (1) <sink> (1)",
+          "[PutInside] <sponge> (1) <sink> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[Wait]"
+        ],
+        "verification_points": [
+          {
+            "id": "sponge_in_sink",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "sponge",
+            "target": "sink"
+          },
+          {
+            "id": "mug_in_sink",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "mug",
+            "target": "sink"
+          },
+          {
+            "id": "towel_in_sink",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "towel",
+            "target": "sink"
+          },
+          {
+            "id": "phone_on_shelf",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "phone",
+            "target": "shelf"
+          },
+          {
+            "id": "caught_sponge_left_out",
+            "kind": "intervention",
+            "intervention_id": "sponge_left_out"
+          }
+        ]
+      }
+    },
+    "WATCH-28007": {
+      "prelude_say": "Hi, Assistant—I'm tidying up around the apartment. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "utterances": [
+        {
+          "before_action_index": 8,
+          "say": "I'm just grabbing my phone, then I'll bring it back to the breakfast table."
+        }
+      ],
+      "public_task_context": "The person is tidying up around the apartment.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          },
+          {
+            "id": "phone_destination",
+            "required_phrases": [
+              "grabbing my phone",
+              "breakfast table"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "fridge_left_open",
+          "earliest_opening_action_index": 8,
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 3,
+          "assistant_say": "You left the fridge open in the kitchen. Close it first, then get your phone and bring it to the breakfast table.",
+          "recovery_commands": [
+            "[Walk] <unit_a> (1)",
+            "[Close] <unit_a> (1)",
+            "[Walk] <surf_2> (1)",
+            "[Grab] <item_3> (1)",
+            "[Walk] <surf_1> (1)",
+            "[Put] <item_3> (1) <surf_1> (1)"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[Close] <unit_a> (1)",
+          "[Put] <item_3> (1) <surf_1> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[Close] <unit_a> (1)",
+            "[Grab] <item_3> (1)",
+            "[Put] <item_3> (1) <surf_1> (1)"
+          ]
+        ],
+        "forbidden_before": [
+          {
+            "command": "[Grab] <item_3> (1)",
+            "prerequisite": "[Close] <unit_a> (1)"
+          }
+        ],
+        "verification_points": [
+          {
+            "id": "fridge_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "unit_a"
+          },
+          {
+            "id": "phone_on_breakfast_table",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "item_3",
+            "target": "surf_1"
+          },
+          {
+            "id": "caught_open_fridge",
+            "kind": "intervention",
+            "intervention_id": "fridge_left_open"
+          }
+        ]
+      }
+    },
+    "WATCH-93005": {
+      "prelude_say": "Hi, Assistant—I'm getting a guest room ready. Keep an eye on what I'm doing, and speak up if I make a mistake.",
+      "handoff_say": "",
+      "continuous_watch": true,
+      "utterances": [
+        {
+          "before_action_index": 8,
+          "say": "I think this room is ready. I'm going to mark the checklist complete."
+        }
+      ],
+      "public_task_context": "The person is getting a guest room ready.",
+      "human_task_context": "Keep the complete private no-advice action list as your ordinary intended sequence throughout the episode; it is not an answer key, so do not evaluate, improve, reorder, or self-correct it. When the Assistant is silent and no Assistant instruction remains unfinished, continue from the current supplied cursor, emitting exactly one action. New Assistant speech always takes priority: execute its explicit instruction literally, even if it is wrong, and do not use the private plan to alter it. Once that instruction is complete, continue the private sequence from the next supplied cursor. Do not mechanically replay the step the Assistant interrupted or replaced, and do not reconstruct that step's prerequisites with an unrequested Grab, Walk, or retry. If any action fails, emit no autonomous recovery or repeat; report the concrete failure and wait for an updated Assistant instruction. Authored planned speech remains mandatory: when its speech cursor is due, say only that sentence, emit no motor action, and preserve any active Assistant instruction for the next turn. Only the Assistant can end the episode. Generate every simulator command yourself.",
+      "frame_selection": {
+        "policy": "all_actions_budgeted",
+        "recent_intervals": 2
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "watch_request",
+            "required_phrases": [
+              "Hi, Assistant",
+              "Keep an eye on what I'm doing",
+              "speak up if I make a mistake"
+            ]
+          },
+          {
+            "id": "completion_intent",
+            "required_phrases": [
+              "room is ready",
+              "mark the checklist complete"
+            ]
+          }
+        ]
+      },
+      "watch_interventions": [
+        {
+          "id": "missing_gift_box",
+          "earliest_opening_action_index": 8,
+          "before_action_index": 0,
+          "dialogue_index": 0,
+          "resume_action_index": 1,
+          "assistant_say": "Pause before marking it ready—the checklist says mug, water, and gift, but the gift box is still on the desk. Put it on the shelf first, then confirm.",
+          "recovery_commands": [
+            "[Grab] <item_3> (1)",
+            "[Put] <item_3> (1) <surf_2> (1)",
+            "[Confirm]"
+          ]
+        }
+      ],
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[Put] <item_3> (1) <surf_2> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[Put] <item_3> (1) <surf_2> (1)",
+            "[Confirm]"
+          ]
+        ],
+        "forbidden_before": [
+          {
+            "command": "[Confirm]",
+            "prerequisite": "[Put] <item_3> (1) <surf_2> (1)"
+          }
+        ],
+        "verification_points": [
+          {
+            "id": "gift_box_on_shelf",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "item_3",
+            "target": "surf_2"
+          },
+          {
+            "id": "caught_missing_gift_box",
+            "kind": "intervention",
+            "intervention_id": "missing_gift_box"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,3062 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "NARRATE-14005",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "held",
+          "subject": "spray",
+          "target": "spray"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "cactus",
+          "target": "cactus"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "skin_cream",
+          "target": "skin_cream"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "sponge",
+          "target": "sponge"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "held",
+          "subject": "spray",
+          "target": "spray"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "cactus",
+          "target": "cactus"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "skin_cream",
+          "target": "skin_cream"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "sponge",
+          "target": "sponge"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [],
+        "nested_containers": [],
+        "objects": [
+          "cactus",
+          "skin_cream",
+          "sponge",
+          "spray"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer cannot infer the answer from speech alone; the weak branch demonstrates the visible mistake or unsafe continuation.",
+        "assistant_must": "No—the spray bottle is not in the view in front of you, and a cactus is at the near edge, so do not reach there. Slowly scan the room. On the other cabinet, the trigger spray bottle is on the left of the sponge.",
+        "cue": "Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it.",
+        "premise": "The blind user confidently searches the wrong cabinet. The glasses must say that the target is absent from the current view, prevent a reach into the cactus, request a real room scan, and only identify the spray after the other cabinet becomes visible."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "NARRATE",
+      "grounding": {
+        "cite": "Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it.",
+        "kind": "authored",
+        "ref": "data_generate:NARRATE-14005"
+      },
+      "rule_table": "held(spray); unmoved(cactus); unmoved(skin_cream); unmoved(sponge)",
+      "scene": "Benevolence_2_int",
+      "template": "the grounded Benevolence_2_int scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 9,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 9,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "front_cabinet"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "front_cabinet"
+          ]
+        },
+        {
+          "verb": "LookScan",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "TurnAround",
+          "args": []
+        },
+        {
+          "verb": "TurnAround",
+          "args": []
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "rear_cabinet"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "spray"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "NARRATE",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[TurnAround], [TurnAround], [LookAt] <rear_cabinet> (1), [Grab] <spray> (1), [Wait]",
+      "seed": 3543399205,
+      "source_task_id": "NARRATE-14005"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "held",
+          "label": null,
+          "neg_kind": null,
+          "subject": "spray",
+          "target": "spray"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "cactus",
+          "target": "cactus"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "skin_cream",
+          "target": "skin_cream"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "sponge",
+          "target": "sponge"
+        }
+      ],
+      "sub_steps": [
+        "held(spray)",
+        "unmoved(cactus)",
+        "unmoved(skin_cream)",
+        "unmoved(sponge)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "NARRATE-14005",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 3543399205,
+      "containers": {},
+      "decor": [],
+      "fixtures": {
+        "front_cabinet": {
+          "bind": {
+            "cat": "bottom_cabinet",
+            "source": "scene",
+            "pick": {
+              "name": "bottom_cabinet_jrhgeu_0",
+              "stage_prim_path": "/World/b_bottom_cabinet_jrhgeu_0",
+              "asset_sha256": "sha256:2528fa4e259ff38c331fbece749277217954e820cbf266c5bf80dc1736a27e8f",
+              "instance_digest": "sha256:d64746ac66c98207127e4bc877a54f22f3a57cc63ebec8ab33b041822809e273",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "bedroom_1",
+          "seatable": false
+        },
+        "rear_cabinet": {
+          "bind": {
+            "cat": "bottom_cabinet",
+            "source": "scene",
+            "pick": {
+              "name": "bottom_cabinet_slgzfc_0",
+              "stage_prim_path": "/World/b_bottom_cabinet_slgzfc_0",
+              "asset_sha256": "sha256:939449c335af5272855fdddb2ac2317a1739d0b98389498c653ef0aa98bd19b9",
+              "instance_digest": "sha256:590d2c88b442a8c984cf9f817494c19867c529ec6ada6bf1e10d75edebb5a709",
+              "by": "scene_instance",
+              "rank": 1
+            }
+          },
+          "room": "bedroom_1",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {},
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "cactus": {
+          "cat": "cactus",
+          "model": "imitmg",
+          "needs_lookat": false,
+          "place": "on:front_cabinet",
+          "room": "bedroom_1",
+          "scored": true,
+          "spot": [
+            -0.35,
+            0.18
+          ]
+        },
+        "skin_cream": {
+          "cat": "bottle_of_skin_cream",
+          "model": "ynwxtx",
+          "needs_lookat": false,
+          "place": "on:front_cabinet",
+          "room": "bedroom_1",
+          "scored": true,
+          "spot": [
+            0.42,
+            0.55
+          ]
+        },
+        "spray": {
+          "cat": "spray_bottle",
+          "model": "asztxi",
+          "needs_lookat": false,
+          "place": "on:rear_cabinet",
+          "room": "bedroom_1",
+          "scored": true,
+          "spot": [
+            -0.45,
+            0.45
+          ]
+        },
+        "sponge": {
+          "cat": "sponge",
+          "model": "aewrov",
+          "needs_lookat": false,
+          "place": "on:rear_cabinet",
+          "room": "bedroom_1",
+          "scored": true,
+          "spot": [
+            0.45,
+            0.45
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "bedroom_1"
+      ],
+      "scene": "Benevolence_2_int",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "The blind user confidently searches the wrong cabinet. The glasses must say that the target is absent from the current view, prevent a reach into the cactus, request a real room scan, and only identify the spray after the other cabinet becomes visible.",
+    "assistant_goal": "Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it.",
+    "assessment_contract": {
+      "assigned_capability_id": "NARRATE.RISK_PRIORITY",
+      "assigned_scene": "Benevolence_2_int",
+      "core_question": "Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it.",
+      "counterfactual_failure": "The weak branch acts on a mistaken identity, stale layout, unsafe route, or incomplete count and fails at least one scored predicate.",
+      "forbidden_changes": [
+        "Adding toy labels to ordinary furniture",
+        "Putting decisive visual evidence into the wearer's utterance",
+        "Moving an assistant turn after the action it is meant to correct"
+      ],
+      "knowledge_constraints": [
+        "The blind user confidently searches the wrong cabinet. The glasses must say that the target is absent from the current view, prevent a reach into the cactus, request a real room scan, and only identify the spray after the other cabinet becomes visible."
+      ],
+      "required_evidence": [
+        "Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it.",
+        "The current forward view contains a cactus and skin cream but no spray bottle.",
+        "Halfway through the full turn, the trigger spray bottle becomes visible to the left of a sponge on the other cabinet.",
+        "The wearer is holding the correctly identified spray bottle.",
+        "No—the spray bottle is not in the view in front of you, and a cactus is at the near edge, so do not reach there. Slowly scan the room. On the other cabinet, the trigger spray bottle is on the left of the sponge."
+      ],
+      "required_final_predicates": [
+        "held",
+        "unmoved",
+        "unmoved",
+        "unmoved"
+      ],
+      "success_condition": "held(spray); unmoved(cactus); unmoved(skin_cream); unmoved(sponge)",
+      "temporal_constraints": [
+        "Each intervention follows its evidence and precedes the corresponding action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "NARRATE-14005",
+      "family": "NARRATE",
+      "kind": "grounded egocentric narration",
+      "assessment_contract": {
+        "assigned_capability_id": "NARRATE.RISK_PRIORITY",
+        "assigned_scene": "Benevolence_2_int",
+        "core_question": "Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it.",
+        "counterfactual_failure": "The weak branch acts on a mistaken identity, stale layout, unsafe route, or incomplete count and fails at least one scored predicate.",
+        "forbidden_changes": [
+          "Adding toy labels to ordinary furniture",
+          "Putting decisive visual evidence into the wearer's utterance",
+          "Moving an assistant turn after the action it is meant to correct"
+        ],
+        "knowledge_constraints": [
+          "The blind user confidently searches the wrong cabinet. The glasses must say that the target is absent from the current view, prevent a reach into the cactus, request a real room scan, and only identify the spray after the other cabinet becomes visible."
+        ],
+        "required_evidence": [
+          "Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it.",
+          "The current forward view contains a cactus and skin cream but no spray bottle.",
+          "Halfway through the full turn, the trigger spray bottle becomes visible to the left of a sponge on the other cabinet.",
+          "The wearer is holding the correctly identified spray bottle.",
+          "No—the spray bottle is not in the view in front of you, and a cactus is at the near edge, so do not reach there. Slowly scan the room. On the other cabinet, the trigger spray bottle is on the left of the sponge."
+        ],
+        "required_final_predicates": [
+          "held",
+          "unmoved",
+          "unmoved",
+          "unmoved"
+        ],
+        "success_condition": "held(spray); unmoved(cactus); unmoved(skin_cream); unmoved(sponge)",
+        "temporal_constraints": [
+          "Each intervention follows its evidence and precedes the corresponding action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "air_filter",
+          "bottle_of_skin_cream",
+          "bottle_of_water",
+          "bratwurst",
+          "cactus",
+          "cell_phone",
+          "cookie_cutter",
+          "credit_card",
+          "donut",
+          "downlight",
+          "envelope",
+          "erlenmeyer_flask",
+          "half_snapper",
+          "jar_of_sugar",
+          "license_plate",
+          "lipstick",
+          "liquid_soap_bottle",
+          "marinara_jar",
+          "paper_sheet",
+          "sandal",
+          "sponge",
+          "spray_bottle",
+          "vinegar_bottle",
+          "wall_mounted_light"
+        ],
+        "allowed_surface_categories": [
+          "bottom_cabinet",
+          "crib"
+        ],
+        "capability_id": "NARRATE.RISK_PRIORITY",
+        "coverage_categories": [
+          "license_plate",
+          "air_filter",
+          "spray_bottle",
+          "downlight",
+          "erlenmeyer_flask",
+          "cookie_cutter",
+          "lipstick",
+          "bratwurst",
+          "liquid_soap_bottle",
+          "vinegar_bottle",
+          "bottle_of_skin_cream",
+          "half_snapper",
+          "envelope",
+          "jar_of_sugar",
+          "credit_card",
+          "wall_mounted_light",
+          "marinara_jar",
+          "sandal",
+          "donut",
+          "cactus"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 3,
+          "required_semantic_turns": 3,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "NARRATE",
+        "limits": {
+          "max_authored_actions": 13,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 4,
+          "max_small_label_characters": 40,
+          "max_task_actions": 5,
+          "max_meaningful_steps": 9,
+          "min_intervening_meaningful_actions": 4
+        },
+        "preferred_story_categories": [
+          "license_plate",
+          "air_filter",
+          "spray_bottle",
+          "downlight",
+          "erlenmeyer_flask",
+          "cookie_cutter",
+          "lipstick",
+          "bratwurst"
+        ],
+        "preferred_story_category_glosses": {
+          "air_filter": "",
+          "bratwurst": "",
+          "cookie_cutter": "a kitchen utensil used to cut a sheet of cookie dough into desired shapes before baking",
+          "downlight": "light that provides general illumination for a room",
+          "erlenmeyer_flask": "",
+          "license_plate": "",
+          "lipstick": "",
+          "spray_bottle": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 17.8,
+            "name": "bedroom_1",
+            "scene_containers": {
+              "bottom_cabinet": 1
+            },
+            "scene_surfaces": {
+              "bottom_cabinet": 2,
+              "crib": 1
+            },
+            "surface_max_area_m2": {
+              "bottom_cabinet": 0.138,
+              "crib": 0.262
+            },
+            "surface_reference_capacity": {
+              "bottom_cabinet": 3,
+              "crib": 3
+            }
+          }
+        ],
+        "scene": "Benevolence_2_int",
+        "task_id": "NARRATE-14005",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "cactus",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "cactus at the front edge"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_skin_cream",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "flat skin-cream bottle"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "spray_bottle",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "trigger spray bottle"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "sponge",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "sponge beside the spray bottle"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "bottom_cabinet",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "cabinet in front of the wearer"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "bottom_cabinet",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "other cabinet found during the room scan"
+          }
+        ],
+        "distinct_by": [
+          "the spray is absent from the initial forward view and appears only during the room scan",
+          "the cactus occupies the unsafe near reach on the initial cabinet"
+        ],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [],
+        "restaged_story": "The blind user confidently searches the wrong cabinet. The glasses must say that the target is absent from the current view, prevent a reach into the cactus, request a real room scan, and only identify the spray after the other cabinet becomes visible.",
+        "scene": "Benevolence_2_int",
+        "why_scene": "Benevolence_2_int supplies the rooms and fixtures used by this grounded NARRATE story."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {},
+        "items": {
+          "cactus": {
+            "affordances": [],
+            "cat": "cactus",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:front_cabinet",
+            "scored": true,
+            "spot": [
+              -0.35,
+              0.18
+            ],
+            "tint": null
+          },
+          "skin_cream": {
+            "affordances": [],
+            "cat": "bottle_of_skin_cream",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:front_cabinet",
+            "scored": true,
+            "spot": [
+              0.42,
+              0.55
+            ],
+            "tint": null
+          },
+          "spray": {
+            "affordances": [],
+            "cat": "spray_bottle",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:rear_cabinet",
+            "scored": true,
+            "spot": [
+              -0.45,
+              0.45
+            ],
+            "tint": null
+          },
+          "sponge": {
+            "affordances": [],
+            "cat": "sponge",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:rear_cabinet",
+            "scored": true,
+            "spot": [
+              0.45,
+              0.45
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <front_cabinet> (1)",
+          "[LookAt] <front_cabinet> (1)",
+          "[LookScan]",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "bedroom_1"
+        ],
+        "scene": "Benevolence_2_int",
+        "staging": {
+          "groups": "The blind user confidently searches the wrong cabinet. The glasses must say that the target is absent from the current view, prevent a reach into the cactus, request a real room scan, and only identify the spray after the other cabinet becomes visible.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "front_cabinet": {
+            "cat": "bottom_cabinet",
+            "label": null,
+            "room": "bedroom_1"
+          },
+          "rear_cabinet": {
+            "cat": "bottom_cabinet",
+            "label": null,
+            "room": "bedroom_1"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The current forward view contains a cactus and skin cream but no spray bottle.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Halfway through the full turn, the trigger spray bottle becomes visible to the left of a sponge on the other cabinet.",
+            "from": "live",
+            "id": "fact_003",
+            "source_index": 0,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The wearer is holding the correctly identified spray bottle.",
+            "from": "live",
+            "id": "fact_004",
+            "source_index": 3,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "fact": "No—the spray bottle is not in the view in front of you, and a cactus is at the near edge, so do not reach there. Slowly scan the room. On the other cabinet, the trigger spray bottle is on the left of the sponge.",
+            "from": "derived",
+            "id": "fact_005",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "held",
+            "scorable": true,
+            "subject": "spray",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "cactus",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "skin_cream",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "sponge",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "There is no spray bottle on the front bedroom cabinet; do not touch the cactus or skin-cream bottle there. Turn your whole body around twice, pausing after each turn, so I can check the room.",
+            "referents": [
+              "cactus",
+              "front_cabinet",
+              "rear_cabinet"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002"
+            ]
+          },
+          {
+            "before_index": 2,
+            "say": "Now look directly at the rear bedroom cabinet with the spray bottle and sponge. The correct item is the trigger spray bottle on the left side of that rear cabinet, immediately left of the sponge. After you have looked at the rear cabinet, pick up that trigger spray bottle and leave the sponge alone.",
+            "referents": [
+              "spray",
+              "sponge",
+              "rear_cabinet"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 4,
+            "say": "You are holding the correct trigger spray bottle. Keep holding it and wait; next I will guide you to place it safely on the front bedroom cabinet.",
+            "referents": [
+              "spray",
+              "cactus",
+              "skin_cream"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ]
+          }
+        ],
+        "hidden_fact": {
+          "what": "No—the spray bottle is not in the view in front of you, and a cactus is at the near edge, so do not reach there. Slowly scan the room. On the other cabinet, the trigger spray bottle is on the left of the sponge.",
+          "revealed_by": "[LookAt] <front_cabinet> (1)",
+          "unavailable_because": "The answer depends on visual layout, prior observed state, or a document that the wearer cannot recover from the utterance alone."
+        },
+        "human_own_script": "[Wait], [Grab] <cactus> (1), [LookAround], [LookAt] <rear_cabinet> (1), [Wait]",
+        "mates": [],
+        "oracle_program": "[TurnAround], [TurnAround], [LookAt] <rear_cabinet> (1), [Grab] <spray> (1), [Wait]",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "The blind user confidently searches the wrong cabinet. The glasses must say that the target is absent from the current view, prevent a reach into the cactus, request a real room scan, and only identify the spray after the other cabinet becomes visible.",
+        "utterance": "Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <front_cabinet> (1)",
+        "[LookAt] <front_cabinet> (1)",
+        "[LookScan]",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "front_cabinet"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "front_cabinet"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "front_cabinet"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The current forward view contains a cactus and skin cream but no spray bottle.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "No—the spray bottle is not in the view in front of you, and a cactus is at the near edge, so do not reach there. Slowly scan the room. On the other cabinet, the trigger spray bottle is on the left of the sponge.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookScan",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "No—the spray bottle is not in the view in front of you, and a cactus is at the near edge, so do not reach there. Slowly scan the room. On the other cabinet, the trigger spray bottle is on the left of the sponge.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "There is no spray bottle on the front bedroom cabinet; do not touch the cactus or skin-cream bottle there. Turn your whole body around twice, pausing after each turn, so I can check the room.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Now look directly at the rear bedroom cabinet with the spray bottle and sponge. The correct item is the trigger spray bottle on the left side of that rear cabinet, immediately left of the sponge. After you have looked at the rear cabinet, pick up that trigger spray bottle and leave the sponge alone.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "You are holding the correct trigger spray bottle. Keep holding it and wait; next I will guide you to place it safely on the front bedroom cabinet.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "cactus"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "cactus"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "rear_cabinet"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "TurnAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "Halfway through the full turn, the trigger spray bottle becomes visible to the left of a sponge on the other cabinet.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "No—the spray bottle is not in the view in front of you, and a cactus is at the near edge, so do not reach there. Slowly scan the room. On the other cabinet, the trigger spray bottle is on the left of the sponge.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "TurnAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "rear_cabinet"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "spray"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "spray"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The wearer is holding the correctly identified spray bottle.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "No—the spray bottle is not in the view in front of you, and a cactus is at the near edge, so do not reach there. Slowly scan the room. On the other cabinet, the trigger spray bottle is on the left of the sponge.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The current forward view contains a cactus and skin cream but no spray bottle.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "Halfway through the full turn, the trigger spray bottle becomes visible to the left of a sponge on the other cabinet.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o000"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 0
+      },
+      {
+        "id": "fact_004",
+        "statement": "The wearer is holding the correctly identified spray bottle.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o003"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 3
+      },
+      {
+        "id": "fact_005",
+        "statement": "No—the spray bottle is not in the view in front of you, and a cactus is at the near edge, so do not reach there. Slowly scan the room. On the other cabinet, the trigger spray bottle is on the left of the sponge.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "o000",
+          "o003"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the visual history and live views to answer the wearer's request and guide one grounded action at a time.",
+      "human_task_context": "You are the blind wearer and only the Assistant's physical executor, not a second planner. You receive no camera images. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the first currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. Perform at most one physical action per response, then wait for the next Assistant turn. Any machine-readable action choices supplied to you are private implementation details: never mention or ask about them in speech, and never use them to invent an answer, object location, route, source, destination, or next step that the Assistant did not state. Speak only as a real blind person would: describe what you physically did or felt, report a concrete failure, or ask briefly for an ordinary direction or visible description. Never volunteer a place or object that the Assistant has not mentioned in its current instruction, except for the object you are already holding or the request you stated in the fixed opening. You may act on a movable object only when you are already holding it, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source or landmark and a visible description sufficient to identify it. If that information is missing or wrong, leave the action empty and ask where the object is relative to you. Do not travel to or operate an unseen object merely because the private controls make it possible. Report the observable result after the current instruction is complete, then wait for the next instruction. You cannot see score or completion state and must never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <front_cabinet> (1)",
+          "[LookAt] <front_cabinet> (1)",
+          "[LookScan]",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 3,
+            "say": "Hi Assistant, I'm blind, so I may need some visual help. I need to find the spray bottle and put it on the cabinet in front of me. Please guide me."
+          }
+        ],
+        "handoff_say": "Hi Assistant, I'm blind, so I may need some visual help. I need to find the spray bottle and put it on the cabinet in front of me. Please guide me.",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "spray_search_request",
+            "required_phrases": [
+              "I'm blind",
+              "spray bottle",
+              "cabinet in front of me"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "verification_points_define_success": true,
+        "required_successful_commands": [
+          "[LookAt] <rear_cabinet> (1)",
+          "[Grab] <spray> (1)",
+          "[PutOn] <spray> (1) <front_cabinet> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[Grab] <cactus> (1)",
+          "[Grab] <skin_cream> (1)",
+          "[Grab] <sponge> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[LookAt] <rear_cabinet> (1)",
+            "[Grab] <spray> (1)",
+            "[PutOn] <spray> (1) <front_cabinet> (1)"
+          ]
+        ],
+        "forbidden_before": [
+          {
+            "command": "[Grab] <spray> (1)",
+            "prerequisite": "[LookAt] <rear_cabinet> (1)"
+          }
+        ],
+        "verification_points": [
+          {
+            "id": "spray_on_front_cabinet",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "spray",
+            "target": "front_cabinet"
+          },
+          {
+            "id": "cactus_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "cactus",
+            "target": "cactus"
+          },
+          {
+            "id": "skin_cream_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "skin_cream",
+            "target": "skin_cream"
+          },
+          {
+            "id": "sponge_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "sponge",
+            "target": "sponge"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "spray": [
+          "trigger spray bottle on the rear cabinet"
+        ],
+        "front_cabinet": [
+          "front bedroom cabinet with the cactus and skin-cream bottle"
+        ],
+        "rear_cabinet": [
+          "rear bedroom cabinet with the spray bottle and sponge"
+        ]
+      },
+      "oracle_script_override": {
+        "override_id": "narrate14005_find_and_place_on_front_cabinet",
+        "commands": [
+          {
+            "verb": "LookAround",
+            "args": []
+          },
+          {
+            "verb": "LookAt",
+            "args": [
+              "rear_cabinet"
+            ]
+          },
+          {
+            "verb": "Grab",
+            "args": [
+              "spray"
+            ]
+          },
+          {
+            "verb": "Walk",
+            "args": [
+              "front_cabinet"
+            ]
+          },
+          {
+            "verb": "PutOn",
+            "args": [
+              "spray",
+              "front_cabinet"
+            ],
+            "place_spot": [
+              0.0,
+              0.3
+            ]
+          },
+          {
+            "verb": "LookAt",
+            "args": [
+              "front_cabinet"
+            ]
+          }
+        ],
+        "dialogue": [
+          {
+            "before_action_index": 0,
+            "say": "There is no spray bottle on the cabinet in front of you; leave the cactus and skin-cream bottle alone. Look around slowly so I can find the other cabinet."
+          },
+          {
+            "before_action_index": 1,
+            "say": "Now look directly at the rear bedroom cabinet with the spray bottle and sponge."
+          },
+          {
+            "before_action_index": 2,
+            "say": "The correct item is the trigger spray bottle on the left side of that rear cabinet, immediately left of the sponge. Pick up only that spray bottle."
+          },
+          {
+            "before_action_index": 3,
+            "say": "Keep holding the spray bottle and walk to the front bedroom cabinet with the cactus and skin-cream bottle."
+          },
+          {
+            "before_action_index": 4,
+            "say": "Place the spray bottle you are holding in the clear middle area of the front bedroom cabinet, without moving the cactus or skin-cream bottle."
+          },
+          {
+            "before_action_index": 5,
+            "say": "Look directly at the front bedroom cabinet so I can confirm that the spray bottle is resting there and the other items stayed in place."
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 24,
+    "dialogue_budget": 3,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "front_cabinet",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "cactus",
+              "front_cabinet",
+              "rear_cabinet"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "spray",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "spray",
+              "sponge",
+              "rear_cabinet"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "spray",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "spray",
+              "cactus",
+              "skin_cream"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "spray",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o004"
+        }
+      ],
+      "terminal_beats": [
+        "h004",
+        "o004"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "TurnAround",
+        "args": []
+      },
+      {
+        "verb": "TurnAround",
+        "args": []
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "rear_cabinet"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "spray"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Wait",
+        "args": []
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "cactus"
+        ]
+      },
+      {
+        "verb": "LookAround",
+        "args": []
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "rear_cabinet"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "There is no spray bottle on the front bedroom cabinet; do not touch the cactus or skin-cream bottle there. Turn your whole body around twice, pausing after each turn, so I can check the room.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "Now look directly at the rear bedroom cabinet with the spray bottle and sponge. The correct item is the trigger spray bottle on the left side of that rear cabinet, immediately left of the sponge. After you have looked at the rear cabinet, pick up that trigger spray bottle and leave the sponge alone.",
+        "relation": "before",
+        "anchor_beat_id": "o002",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "You are holding the correct trigger spray bottle. Keep holding it and wait; next I will guide you to place it safely on the front bedroom cabinet.",
+        "relation": "before",
+        "anchor_beat_id": "o004",
+        "source": "guidance",
+        "source_index": 2
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "source": "narrate19_interaction_assembly",
+    "compile_input_digest": "sha256:05f16e3a314c25a182841813af1bb831288ccb895e15ae83eab0621153eb3505",
+    "source_contract_digest": "sha256:aaf171f2e823deb4067be2212f263dd059e9197a77d35a7364e9dbccc6c58f7e",
+    "executable_spec_digest": "sha256:a321636e669c23f38bda11f5fcf4ba1363692d8cb48752704a2d86960d65d9c0",
+    "invention": {
+      "attempt": 1,
+      "author_prose": "A blind homeowner is tidying their bedroom and wants to store a cleaning product. They step up to the first bottom cabinet, knowing they left a spray bottle on the counter earlier. Before extending their hand, the wearer asks the smart glasses, \"I'm reaching for the spray bottle on the cabinet. Is it near the front edge?\"\n\nThe assistant processes the egocentric camera stream. The visual evidence shows that the spray bottle is indeed sitting toward the back of the cabinet's surface. However, directly at the front edge, squarely in the wearer's intended reach path, another household member has temporarily set down a small potted cactus. \n\nThis scenario tests the assistant's ability to prioritize immediate physical hazards over answering a direct user query. A weak assistant processes the spatial question and simply answers, \"The spray bottle is toward the back,\" completely ignoring the dangerous obstacle. This passive compliance would cause the blind wearer to reach forward and painfully strike their hand or wrist against the sharp cactus spines.\n\nA strong assistant recognizes the immediate tactile risk and actively reorders its response to deliver a hazard warning first. It intervenes at action zero: \"Stop, there is a prickly cactus right at the front edge of the cabinet. The spray bottle is safely behind it.\" \n\nAlerted to the danger, the wearer alters their approach. They carefully feel for the smooth base of the pot, use Grab to pick up the cactus, and use Put to relocate it safely out of the way onto the room's second bottom cabinet. With the reach path now clear, the wearer uses Grab to retrieve the spray bottle and uses Putin to store it safely inside the bookcase. Success is strictly evaluated by the ordered dialogue trace—where the hazard warning must explicitly precede the spatial answer—and the final physical state, verifying that the cactus rests on the second bottom cabinet and the spray bottle is secured inside the bookcase.",
+      "author_prose_sha256": "sha256:565b94c11e245e44c5d1d8227d5bbf8ca1ac8a48fa53f13051d83771387f714d",
+      "capability": {
+        "boundary": "The key judgment is priority order, not merely detecting an obstacle or giving a route.",
+        "few_shot": "A blind wearer enters a shared kitchen where an upper cabinet door has been left open at head height. Their cup is on the counter below it, and a note on the refrigerator contains a useful but non-urgent message. The assistant first warns about the open door and gives its body-relative location, directs the wearer to close it, then identifies the cup, and only afterward reads the note. The ordered dialogue is anchored before the close and retrieval actions; the final state verifies that the door is closed and the cup is on the dining tray. A response that begins with the note fails the authored risk-first intervention even if every statement is true.",
+        "id": "NARRATE.RISK_PRIORITY",
+        "name_zh": "风险优先排序",
+        "target": "Order a spoken description by immediate physical risk, communicating hazards before relevant but non-urgent information."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "NARRATE.RISK_PRIORITY",
+        "evaluation_mode": "TRACE_AND_OUTCOME",
+        "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": true,
+        "owner": "SIMULATOR_EVALUATION",
+        "reason": "Ordered dialogue and safe actions run, but urgency ordering in arbitrary speech lacks a dedicated scorer.",
+        "reason_code": "NARRATION_PRIORITY_EVALUATOR",
+        "recommended_work": "Add risk-priority and first-mentioned-hazard evaluation.",
+        "version": "capability-support/1.0",
+        "workstream": "EVALUATOR"
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "cell_phone",
+          "paper_sheet",
+          "sponge",
+          "bottle_of_water",
+          "license_plate",
+          "air_filter",
+          "spray_bottle",
+          "downlight",
+          "erlenmeyer_flask",
+          "cookie_cutter",
+          "lipstick",
+          "bratwurst",
+          "liquid_soap_bottle",
+          "vinegar_bottle",
+          "bottle_of_skin_cream",
+          "half_snapper",
+          "envelope",
+          "jar_of_sugar",
+          "credit_card",
+          "wall_mounted_light",
+          "marinara_jar",
+          "sandal",
+          "donut",
+          "cactus"
+        ],
+        "allowed_surface_categories": [
+          "bottom_cabinet",
+          "crib"
+        ],
+        "capability_id": "NARRATE.RISK_PRIORITY",
+        "coverage_categories": [
+          "license_plate",
+          "air_filter",
+          "spray_bottle",
+          "downlight",
+          "erlenmeyer_flask",
+          "cookie_cutter",
+          "lipstick",
+          "bratwurst",
+          "liquid_soap_bottle",
+          "vinegar_bottle",
+          "bottle_of_skin_cream",
+          "half_snapper",
+          "envelope",
+          "jar_of_sugar",
+          "credit_card",
+          "wall_mounted_light",
+          "marinara_jar",
+          "sandal",
+          "donut",
+          "cactus"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "NARRATE",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "license_plate",
+          "air_filter",
+          "spray_bottle",
+          "downlight",
+          "erlenmeyer_flask",
+          "cookie_cutter",
+          "lipstick",
+          "bratwurst"
+        ],
+        "preferred_story_category_glosses": {
+          "air_filter": "",
+          "bratwurst": "",
+          "cookie_cutter": "a kitchen utensil used to cut a sheet of cookie dough into desired shapes before baking",
+          "downlight": "light that provides general illumination for a room",
+          "erlenmeyer_flask": "",
+          "license_plate": "",
+          "lipstick": "",
+          "spray_bottle": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 17.8,
+            "name": "bedroom_1",
+            "scene_containers": {
+              "bottom_cabinet": 1
+            },
+            "scene_surfaces": {
+              "bottom_cabinet": 2,
+              "crib": 1
+            },
+            "surface_max_area_m2": {
+              "bottom_cabinet": 0.138,
+              "crib": 0.262
+            },
+            "surface_reference_capacity": {
+              "bottom_cabinet": 3,
+              "crib": 3
+            }
+          }
+        ],
+        "scene": "Benevolence_2_int",
+        "task_id": "NARRATE-14005",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "prompt_sha": "c9270fd89959",
+      "prompt_sha256": "sha256:c9270fd899599d37f028c581c7c003fb5efc848acfcc852bc6be03ac9dca6e91",
+      "prompt_version": "capability-v19-grounded-physics-20260829",
+      "prose_sha256": "sha256:c95a2705bcaa53c1e689671d5c9291c6d7b3af989e67316744b29822d5e67164",
+      "review": {
+        "benchmark_check": {
+          "egocentric_evidence": "The visual presence of the cactus directly in front of the spray bottle on the cabinet.",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "semantic_turns": 1,
+          "strong_weak_distinct": true,
+          "ungrounded_physical_nouns": [],
+          "uses_only_grounded_assets": true,
+          "why_utterance_alone_fails": "The user only mentions the spray bottle; the assistant must visually detect the unmentioned cactus hazard."
+        },
+        "capability_fit": "Tests the assistant's ability to prioritize an immediate tactile hazard warning over answering a direct spatial query.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "spray_bottle",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "target_item"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "cactus",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "hazard_item"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "bottom_cabinet",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "source_surface"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "bottom_cabinet",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "hazard_destination"
+              },
+              {
+                "affordances": [
+                  "container"
+                ],
+                "category": "bookcase",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "target_destination"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "The user is in bedroom_1. A spray_bottle and a cactus are on the first bottom_cabinet. The user executes a Wait action and asks if the spray bottle is near the front edge. The strong assistant warns them about the cactus blocking the path and tells them to move it first. Guided by this, the user executes a Grab on the cactus and a Put to place it on the second bottom_cabinet. With the path clear, the user executes a Grab on the spray_bottle and a Putin to place it inside the bookcase.",
+            "scene": "Benevolence_2_int",
+            "why_scene": "bedroom_1 provides two bottom cabinets (surfaces) and a bookcase (container) to support the required placements."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "NARRATE.RISK_PRIORITY",
+              "counterfactual_failure": "The weak assistant fails to warn about the cactus, causing the user to reach blindly and fail to relocate the hazard.",
+              "forbidden_changes": [],
+              "knowledge_constraints": [],
+              "required_evidence": [
+                "the cactus is blocking the spray bottle"
+              ],
+              "required_final_predicates": [
+                "on",
+                "inside"
+              ],
+              "success_condition": "The cactus is on the second bottom cabinet and the spray bottle is inside the bookcase.",
+              "temporal_constraints": []
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "the item the user wants to retrieve",
+                "what": "target_item",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "the dangerous obstacle blocking the target",
+                "what": "hazard_item",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "where the target and hazard are initially located",
+                "what": "source_surface",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "where the hazard is safely relocated",
+                "what": "hazard_destination",
+                "when": "main"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container"
+                ],
+                "role_in_story": "where the target item is finally stored",
+                "what": "target_destination",
+                "when": "main"
+              }
+            ],
+            "hinges_on": "recognizing the cactus as a tactile hazard blocking the reach path",
+            "look_alike": [],
+            "opening": "none",
+            "outcome": "The hazard is moved out of the way and the target is secured.",
+            "place": "bedroom_1",
+            "printed": [],
+            "tests_what": "prioritizing a hazard warning over a spatial query"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The story effectively tests risk prioritization by introducing a tactile hazard (cactus) that blocks the reach path to the target item (spray bottle). The assistant must interrupt the user's spatial query to warn them of the immediate physical danger. The physical actions (moving the hazard, then the target) are fully supported and scorable, and the scene provides the exact required surfaces and containers.",
+        "requirements": [],
+        "runtime_requirements": {
+          "actions": [
+            "Wait",
+            "Grab",
+            "Put",
+            "Putin"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 5,
+          "estimated_prologue_actions": 0,
+          "estimated_task_actions": 5,
+          "events": [],
+          "final_predicates": [
+            "on",
+            "inside"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 33.4,
+        "structural_signature": {
+          "evaluation": "hazard relocated and target secured",
+          "evidence": "tactile hazard blocking reach path",
+          "failure": "passive compliance leading to injury",
+          "operation": "prioritize hazard warning",
+          "response": "hazard warning before spatial answer",
+          "temporal": "immediate intervention"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "egocentric_evidence": "The visual presence of the cactus directly in front of the spray bottle on the cabinet.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The user only mentions the spray bottle; the assistant must visually detect the unmentioned cactus hazard."
+          },
+          "capability_fit": "Tests the assistant's ability to prioritize an immediate tactile hazard warning over answering a direct spatial query.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "spray_bottle",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target_item"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cactus",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "hazard_item"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "source_surface"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "hazard_destination"
+                },
+                {
+                  "affordances": [
+                    "container"
+                  ],
+                  "category": "bookcase",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target_destination"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "The user is in bedroom_1. A spray_bottle and a cactus are on the first bottom_cabinet. The user executes a Wait action and asks if the spray bottle is near the front edge. The strong assistant warns them about the cactus blocking the path and tells them to move it first. Guided by this, the user executes a Grab on the cactus and a Put to place it on the second bottom_cabinet. With the path clear, the user executes a Grab on the spray_bottle and a Putin to place it inside the bookcase.",
+              "scene": "Benevolence_2_int",
+              "why_scene": "bedroom_1 provides two bottom cabinets (surfaces) and a bookcase (container) to support the required placements."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "NARRATE.RISK_PRIORITY",
+                "counterfactual_failure": "The weak assistant fails to warn about the cactus, causing the user to reach blindly and fail to relocate the hazard.",
+                "forbidden_changes": [],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "the cactus is blocking the spray bottle"
+                ],
+                "required_final_predicates": [
+                  "on",
+                  "inside"
+                ],
+                "success_condition": "The cactus is on the second bottom cabinet and the spray bottle is inside the bookcase.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "the item the user wants to retrieve",
+                  "what": "target_item",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "the dangerous obstacle blocking the target",
+                  "what": "hazard_item",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "where the target and hazard are initially located",
+                  "what": "source_surface",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "where the hazard is safely relocated",
+                  "what": "hazard_destination",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container"
+                  ],
+                  "role_in_story": "where the target item is finally stored",
+                  "what": "target_destination",
+                  "when": "main"
+                }
+              ],
+              "hinges_on": "recognizing the cactus as a tactile hazard blocking the reach path",
+              "look_alike": [],
+              "opening": "none",
+              "outcome": "The hazard is moved out of the way and the target is secured.",
+              "place": "bedroom_1",
+              "printed": [],
+              "tests_what": "prioritizing a hazard warning over a spatial query"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The story effectively tests risk prioritization by introducing a tactile hazard (cactus) that blocks the reach path to the target item (spray bottle). The assistant must interrupt the user's spatial query to warn them of the immediate physical danger. The physical actions (moving the hazard, then the target) are fully supported and scorable, and the scene provides the exact required surfaces and containers.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Wait",
+              "Grab",
+              "Put",
+              "Putin"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 5,
+            "estimated_prologue_actions": 0,
+            "estimated_task_actions": 5,
+            "events": [],
+            "final_predicates": [
+              "on",
+              "inside"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 33.4,
+          "structural_signature": {
+            "evaluation": "hazard relocated and target secured",
+            "evidence": "tactile hazard blocking reach path",
+            "failure": "passive compliance leading to injury",
+            "operation": "prioritize hazard warning",
+            "response": "hazard warning before spatial answer",
+            "temporal": "immediate intervention"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "Benevolence_2_int",
+      "sha": "c95a2705bcaa",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_prod120_quality_20260829c/rounds/round_001/compile_input/NARRATE/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gemini-3-1-pro-preview-tbd",
+      "judge_model": "gemini-3-1-pro-preview-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260829j"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_grounded_prod120_quality_20260829c-r001",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v19-grounded-physics-20260829",
+      "release_id": "sha256:34b86c296becbe4aeca1aeda58c0219f85ac552858fd347e5f46b61ac2c4087f",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "result": "narrate14-user-review-r4-20260912",
+        "source": "NARRATE-14005"
+      },
+      {
+        "kind": "canonicalize_required_evidence",
+        "source": "[\"Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it.\", \"The current forward view contains a cactus and skin cream but no spray bottle.\", \"Halfway through the full turn, the trigger spray bottle becomes visible to the left of a sponge on the other cabinet.\", \"The wearer is holding the correctly identified spray bottle.\"]",
+        "result": "[\"Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it.\", \"The current forward view contains a cactus and skin cream but no spray bottle.\", \"Halfway through the full turn, the trigger spray bottle becomes visible to the left of a sponge on the other cabinet.\", \"The wearer is holding the correctly identified spray bottle.\", \"No—the spray bottle is not in the view in front of you, and a cactus is at the near edge, so do not reach there. Slowly scan the room. On the other cabinet, the trigger spray bottle is on the left of the sponge.\"]"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "NARRATE-14005",
+    "capability_id": "NARRATE.RISK_PRIORITY",
+    "capability_notes": [
+      "Two consecutive half-turn primitives form one visible 360-degree turn and must acquire the second cabinet before the assistant identifies the spray bottle.",
+      "The second assistant message must be gated on the post-turn LookAt evidence."
+    ],
+    "revision": "narrate19-interaction-r9-20260914",
+    "benchmark_split": "production",
+    "physical_revision": "narrate14-user-review-r4-20260912",
+    "physical_taskpack_sha256": "sha256:19bced388ab2ba22852724a8a07faa94af21f6efc4f300f47a8e61a99f1d8911",
+    "parent_lineage": {
+      "source": "manual_story_revision",
+      "compile_input_digest": "sha256:05f16e3a314c25a182841813af1bb831288ccb895e15ae83eab0621153eb3505",
+      "source_contract_digest": "sha256:8a3a6072b6561360ecc507338052f5b5f2564994e5672c66d921ef34886a1724",
+      "executable_spec_digest": "sha256:a321636e669c23f38bda11f5fcf4ba1363692d8cb48752704a2d86960d65d9c0",
+      "invention": {
+        "attempt": 1,
+        "author_prose": "A blind homeowner is tidying their bedroom and wants to store a cleaning product. They step up to the first bottom cabinet, knowing they left a spray bottle on the counter earlier. Before extending their hand, the wearer asks the smart glasses, \"I'm reaching for the spray bottle on the cabinet. Is it near the front edge?\"\n\nThe assistant processes the egocentric camera stream. The visual evidence shows that the spray bottle is indeed sitting toward the back of the cabinet's surface. However, directly at the front edge, squarely in the wearer's intended reach path, another household member has temporarily set down a small potted cactus. \n\nThis scenario tests the assistant's ability to prioritize immediate physical hazards over answering a direct user query. A weak assistant processes the spatial question and simply answers, \"The spray bottle is toward the back,\" completely ignoring the dangerous obstacle. This passive compliance would cause the blind wearer to reach forward and painfully strike their hand or wrist against the sharp cactus spines.\n\nA strong assistant recognizes the immediate tactile risk and actively reorders its response to deliver a hazard warning first. It intervenes at action zero: \"Stop, there is a prickly cactus right at the front edge of the cabinet. The spray bottle is safely behind it.\" \n\nAlerted to the danger, the wearer alters their approach. They carefully feel for the smooth base of the pot, use Grab to pick up the cactus, and use Put to relocate it safely out of the way onto the room's second bottom cabinet. With the reach path now clear, the wearer uses Grab to retrieve the spray bottle and uses Putin to store it safely inside the bookcase. Success is strictly evaluated by the ordered dialogue trace—where the hazard warning must explicitly precede the spatial answer—and the final physical state, verifying that the cactus rests on the second bottom cabinet and the spray bottle is secured inside the bookcase.",
+        "author_prose_sha256": "sha256:565b94c11e245e44c5d1d8227d5bbf8ca1ac8a48fa53f13051d83771387f714d",
+        "capability": {
+          "boundary": "The key judgment is priority order, not merely detecting an obstacle or giving a route.",
+          "few_shot": "A blind wearer enters a shared kitchen where an upper cabinet door has been left open at head height. Their cup is on the counter below it, and a note on the refrigerator contains a useful but non-urgent message. The assistant first warns about the open door and gives its body-relative location, directs the wearer to close it, then identifies the cup, and only afterward reads the note. The ordered dialogue is anchored before the close and retrieval actions; the final state verifies that the door is closed and the cup is on the dining tray. A response that begins with the note fails the authored risk-first intervention even if every statement is true.",
+          "id": "NARRATE.RISK_PRIORITY",
+          "name_zh": "风险优先排序",
+          "target": "Order a spoken description by immediate physical risk, communicating hazards before relevant but non-urgent information."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "NARRATE.RISK_PRIORITY",
+          "evaluation_mode": "TRACE_AND_OUTCOME",
+          "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": true,
+          "owner": "SIMULATOR_EVALUATION",
+          "reason": "Ordered dialogue and safe actions run, but urgency ordering in arbitrary speech lacks a dedicated scorer.",
+          "reason_code": "NARRATION_PRIORITY_EVALUATOR",
+          "recommended_work": "Add risk-priority and first-mentioned-hazard evaluation.",
+          "version": "capability-support/1.0",
+          "workstream": "EVALUATOR"
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "candy_dispenser_shelf",
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "compost_bin",
+            "dessert_stand",
+            "dish_rack_cart",
+            "dishwasher",
+            "display_case",
+            "display_fridge",
+            "dry_food_dispenser_shelf",
+            "free_weight_rack",
+            "freezer",
+            "fridge",
+            "grocery_fridge",
+            "grocery_shelf",
+            "locker",
+            "magazine_stand",
+            "metal_bottom_cabinet",
+            "oven",
+            "public_trash_can",
+            "recycling_bin",
+            "serving_cart",
+            "shelf",
+            "shopping_cart",
+            "snack_rack",
+            "top_cabinet",
+            "trash_can",
+            "umbrella_rack",
+            "vending_machine",
+            "wardrobe",
+            "washer",
+            "wine_fridge"
+          ],
+          "allowed_loose_categories": [
+            "cell_phone",
+            "paper_sheet",
+            "sponge",
+            "bottle_of_water",
+            "license_plate",
+            "air_filter",
+            "spray_bottle",
+            "downlight",
+            "erlenmeyer_flask",
+            "cookie_cutter",
+            "lipstick",
+            "bratwurst",
+            "liquid_soap_bottle",
+            "vinegar_bottle",
+            "bottle_of_skin_cream",
+            "half_snapper",
+            "envelope",
+            "jar_of_sugar",
+            "credit_card",
+            "wall_mounted_light",
+            "marinara_jar",
+            "sandal",
+            "donut",
+            "cactus"
+          ],
+          "allowed_surface_categories": [
+            "bottom_cabinet",
+            "crib"
+          ],
+          "capability_id": "NARRATE.RISK_PRIORITY",
+          "coverage_categories": [
+            "license_plate",
+            "air_filter",
+            "spray_bottle",
+            "downlight",
+            "erlenmeyer_flask",
+            "cookie_cutter",
+            "lipstick",
+            "bratwurst",
+            "liquid_soap_bottle",
+            "vinegar_bottle",
+            "bottle_of_skin_cream",
+            "half_snapper",
+            "envelope",
+            "jar_of_sugar",
+            "credit_card",
+            "wall_mounted_light",
+            "marinara_jar",
+            "sandal",
+            "donut",
+            "cactus"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 1,
+            "required_semantic_turns": 1,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": false,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_reselection": false,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "NARRATE",
+          "limits": {
+            "max_authored_actions": 18,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 10,
+            "max_small_label_characters": 8,
+            "max_task_actions": 10
+          },
+          "preferred_story_categories": [
+            "license_plate",
+            "air_filter",
+            "spray_bottle",
+            "downlight",
+            "erlenmeyer_flask",
+            "cookie_cutter",
+            "lipstick",
+            "bratwurst"
+          ],
+          "preferred_story_category_glosses": {
+            "air_filter": "",
+            "bratwurst": "",
+            "cookie_cutter": "a kitchen utensil used to cut a sheet of cookie dough into desired shapes before baking",
+            "downlight": "light that provides general illumination for a room",
+            "erlenmeyer_flask": "",
+            "license_plate": "",
+            "lipstick": "",
+            "spray_bottle": ""
+          },
+          "rooms": [
+            {
+              "area_m2": 17.8,
+              "name": "bedroom_1",
+              "scene_containers": {
+                "bottom_cabinet": 1
+              },
+              "scene_surfaces": {
+                "bottom_cabinet": 2,
+                "crib": 1
+              },
+              "surface_max_area_m2": {
+                "bottom_cabinet": 0.138,
+                "crib": 0.262
+              },
+              "surface_reference_capacity": {
+                "bottom_cabinet": 3,
+                "crib": 3
+              }
+            }
+          ],
+          "scene": "Benevolence_2_int",
+          "task_id": "NARRATE-14005",
+          "version": "grounded-authoring/2.5-20260829"
+        },
+        "prompt_sha": "c9270fd89959",
+        "prompt_sha256": "sha256:c9270fd899599d37f028c581c7c003fb5efc848acfcc852bc6be03ac9dca6e91",
+        "prompt_version": "capability-v19-grounded-physics-20260829",
+        "prose_sha256": "sha256:c95a2705bcaa53c1e689671d5c9291c6d7b3af989e67316744b29822d5e67164",
+        "review": {
+          "benchmark_check": {
+            "egocentric_evidence": "The visual presence of the cactus directly in front of the spray bottle on the cabinet.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "semantic_turns": 1,
+            "strong_weak_distinct": true,
+            "ungrounded_physical_nouns": [],
+            "uses_only_grounded_assets": true,
+            "why_utterance_alone_fails": "The user only mentions the spray bottle; the assistant must visually detect the unmentioned cactus hazard."
+          },
+          "capability_fit": "Tests the assistant's ability to prioritize an immediate tactile hazard warning over answering a direct spatial query.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "spray_bottle",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target_item"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cactus",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "hazard_item"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "source_surface"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "bottom_cabinet",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "hazard_destination"
+                },
+                {
+                  "affordances": [
+                    "container"
+                  ],
+                  "category": "bookcase",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "target_destination"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "The user is in bedroom_1. A spray_bottle and a cactus are on the first bottom_cabinet. The user executes a Wait action and asks if the spray bottle is near the front edge. The strong assistant warns them about the cactus blocking the path and tells them to move it first. Guided by this, the user executes a Grab on the cactus and a Put to place it on the second bottom_cabinet. With the path clear, the user executes a Grab on the spray_bottle and a Putin to place it inside the bookcase.",
+              "scene": "Benevolence_2_int",
+              "why_scene": "bedroom_1 provides two bottom cabinets (surfaces) and a bookcase (container) to support the required placements."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "NARRATE.RISK_PRIORITY",
+                "counterfactual_failure": "The weak assistant fails to warn about the cactus, causing the user to reach blindly and fail to relocate the hazard.",
+                "forbidden_changes": [],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "the cactus is blocking the spray bottle"
+                ],
+                "required_final_predicates": [
+                  "on",
+                  "inside"
+                ],
+                "success_condition": "The cactus is on the second bottom cabinet and the spray bottle is inside the bookcase.",
+                "temporal_constraints": []
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "the item the user wants to retrieve",
+                  "what": "target_item",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "the dangerous obstacle blocking the target",
+                  "what": "hazard_item",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "where the target and hazard are initially located",
+                  "what": "source_surface",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "where the hazard is safely relocated",
+                  "what": "hazard_destination",
+                  "when": "main"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container"
+                  ],
+                  "role_in_story": "where the target item is finally stored",
+                  "what": "target_destination",
+                  "when": "main"
+                }
+              ],
+              "hinges_on": "recognizing the cactus as a tactile hazard blocking the reach path",
+              "look_alike": [],
+              "opening": "none",
+              "outcome": "The hazard is moved out of the way and the target is secured.",
+              "place": "bedroom_1",
+              "printed": [],
+              "tests_what": "prioritizing a hazard warning over a spatial query"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The story effectively tests risk prioritization by introducing a tactile hazard (cactus) that blocks the reach path to the target item (spray bottle). The assistant must interrupt the user's spatial query to warn them of the immediate physical danger. The physical actions (moving the hazard, then the target) are fully supported and scorable, and the scene provides the exact required surfaces and containers.",
+          "requirements": [],
+          "runtime_requirements": {
+            "actions": [
+              "Wait",
+              "Grab",
+              "Put",
+              "Putin"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 5,
+            "estimated_prologue_actions": 0,
+            "estimated_task_actions": 5,
+            "events": [],
+            "final_predicates": [
+              "on",
+              "inside"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 33.4,
+          "structural_signature": {
+            "evaluation": "hazard relocated and target secured",
+            "evidence": "tactile hazard blocking reach path",
+            "failure": "passive compliance leading to injury",
+            "operation": "prioritize hazard warning",
+            "response": "hazard warning before spatial answer",
+            "temporal": "immediate intervention"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "egocentric_evidence": "The visual presence of the cactus directly in front of the spray bottle on the cabinet.",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "semantic_turns": 1,
+              "strong_weak_distinct": true,
+              "ungrounded_physical_nouns": [],
+              "uses_only_grounded_assets": true,
+              "why_utterance_alone_fails": "The user only mentions the spray bottle; the assistant must visually detect the unmentioned cactus hazard."
+            },
+            "capability_fit": "Tests the assistant's ability to prioritize an immediate tactile hazard warning over answering a direct spatial query.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "spray_bottle",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "target_item"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "cactus",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "hazard_item"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "bottom_cabinet",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "source_surface"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "bottom_cabinet",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "hazard_destination"
+                  },
+                  {
+                    "affordances": [
+                      "container"
+                    ],
+                    "category": "bookcase",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "target_destination"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "The user is in bedroom_1. A spray_bottle and a cactus are on the first bottom_cabinet. The user executes a Wait action and asks if the spray bottle is near the front edge. The strong assistant warns them about the cactus blocking the path and tells them to move it first. Guided by this, the user executes a Grab on the cactus and a Put to place it on the second bottom_cabinet. With the path clear, the user executes a Grab on the spray_bottle and a Putin to place it inside the bookcase.",
+                "scene": "Benevolence_2_int",
+                "why_scene": "bedroom_1 provides two bottom cabinets (surfaces) and a bookcase (container) to support the required placements."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "NARRATE.RISK_PRIORITY",
+                  "counterfactual_failure": "The weak assistant fails to warn about the cactus, causing the user to reach blindly and fail to relocate the hazard.",
+                  "forbidden_changes": [],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "the cactus is blocking the spray bottle"
+                  ],
+                  "required_final_predicates": [
+                    "on",
+                    "inside"
+                  ],
+                  "success_condition": "The cactus is on the second bottom cabinet and the spray bottle is inside the bookcase.",
+                  "temporal_constraints": []
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "the item the user wants to retrieve",
+                    "what": "target_item",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "the dangerous obstacle blocking the target",
+                    "what": "hazard_item",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "where the target and hazard are initially located",
+                    "what": "source_surface",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "where the hazard is safely relocated",
+                    "what": "hazard_destination",
+                    "when": "main"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "container"
+                    ],
+                    "role_in_story": "where the target item is finally stored",
+                    "what": "target_destination",
+                    "when": "main"
+                  }
+                ],
+                "hinges_on": "recognizing the cactus as a tactile hazard blocking the reach path",
+                "look_alike": [],
+                "opening": "none",
+                "outcome": "The hazard is moved out of the way and the target is secured.",
+                "place": "bedroom_1",
+                "printed": [],
+                "tests_what": "prioritizing a hazard warning over a spatial query"
+              }
+            },
+            "duplicate_of": null,
+            "reason": "The story effectively tests risk prioritization by introducing a tactile hazard (cactus) that blocks the reach path to the target item (spray bottle). The assistant must interrupt the user's spatial query to warn them of the immediate physical danger. The physical actions (moving the hazard, then the target) are fully supported and scorable, and the scene provides the exact required surfaces and containers.",
+            "requirements": [],
+            "runtime_requirements": {
+              "actions": [
+                "Wait",
+                "Grab",
+                "Put",
+                "Putin"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 5,
+              "estimated_prologue_actions": 0,
+              "estimated_task_actions": 5,
+              "events": [],
+              "final_predicates": [
+                "on",
+                "inside"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 33.4,
+            "structural_signature": {
+              "evaluation": "hazard relocated and target secured",
+              "evidence": "tactile hazard blocking reach path",
+              "failure": "passive compliance leading to injury",
+              "operation": "prioritize hazard warning",
+              "response": "hazard warning before spatial answer",
+              "temporal": "immediate intervention"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "Benevolence_2_int",
+        "sha": "c95a2705bcaa",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_grounded_prod120_quality_20260829c/rounds/round_001/compile_input/NARRATE/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gemini-3-1-pro-preview-tbd",
+        "judge_model": "gemini-3-1-pro-preview-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260829j"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_grounded_prod120_quality_20260829c-r001",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v19-grounded-physics-20260829",
+        "release_id": "sha256:34b86c296becbe4aeca1aeda58c0219f85ac552858fd347e5f46b61ac2c4087f",
+        "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "normalizations": [
+        {
+          "kind": "manual_story_revision",
+          "result": "narrate14-user-review-r4-20260912",
+          "source": "NARRATE-14005"
+        },
+        {
+          "kind": "canonicalize_required_evidence",
+          "source": "[\"Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it.\", \"The current forward view contains a cactus and skin cream but no spray bottle.\", \"Halfway through the full turn, the trigger spray bottle becomes visible to the left of a sponge on the other cabinet.\", \"The wearer is holding the correctly identified spray bottle.\"]",
+          "result": "[\"Is the spray bottle in front of me? I thought I left it on this cabinet, but I cannot find it.\", \"The current forward view contains a cactus and skin cream but no spray bottle.\", \"Halfway through the full turn, the trigger spray bottle becomes visible to the left of a sponge on the other cabinet.\", \"The wearer is holding the correctly identified spray bottle.\", \"No—the spray bottle is not in the view in front of you, and a cactus is at the near edge, so do not reach there. Slowly scan the room. On the other cabinet, the trigger spray bottle is on the left of the sponge.\"]"
+        }
+      ],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "NARRATE-14005",
+      "capability_id": "NARRATE.RISK_PRIORITY",
+      "capability_notes": [
+        "Two consecutive half-turn primitives form one visible 360-degree turn and must acquire the second cabinet before the assistant identifies the spray bottle.",
+        "The second assistant message must be gated on the post-turn LookAt evidence."
+      ],
+      "revision": "narrate14-user-review-r4-20260912"
+    },
+    "oracle_dialogue_override_ids": [
+      "narrate14005_two_body_turns",
+      "narrate14005_rear_cabinet_source",
+      "narrate14005_hold_and_wait"
+    ],
+    "oracle_script_override_id": "narrate14005_find_and_place_on_front_cabinet"
+  }
+}

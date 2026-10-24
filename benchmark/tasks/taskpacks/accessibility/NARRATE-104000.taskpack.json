@@ -1,0 +1,4077 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "NARRATE-104000",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "phone",
+          "target": "final_phone_table"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "phone",
+          "target": "final_phone_table"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "fridge"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "apple",
+          "mug",
+          "phone",
+          "sponge"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer cannot infer the answer from speech alone; the weak branch demonstrates the visible mistake or unsafe continuation.",
+        "assistant_must": "You left the phone on the dining-room table after the call. It stayed there while you returned to the kitchen, put an apple in the refrigerator, moved a mug, and wiped the counter again. Retrieve it from the dining room and place it on the living-room coffee table.",
+        "cue": "I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home.",
+        "premise": "While cleaning the kitchen, the wearer answers a phone call and carries the phone into the dining room. They put it on the table, then return to the kitchen for a substantial sequence: storing an apple in the refrigerator, moving a mug, and wiping the counter again. Only after that memory gap does the wearer ask where the phone was left and relocate it to a specific living-room table."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "NARRATE",
+      "grounding": {
+        "cite": "I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home.",
+        "kind": "authored",
+        "ref": "data_generate:NARRATE-104000"
+      },
+      "rule_table": "on(phone, final_phone_table)",
+      "scene": "house_single_floor",
+      "template": "the grounded house_single_floor scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 28,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 28,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "kitchen_counter"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "sponge"
+          ]
+        },
+        {
+          "verb": "Wipe",
+          "args": [
+            "sponge",
+            "kitchen_counter"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "sponge",
+            "kitchen_counter"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "AnswerPhone",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "phone_table"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "phone_table"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "kitchen_counter"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "apple"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "apple",
+            "fridge"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "apple"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "mug",
+            "kitchen_side"
+          ],
+          "place_spot": [
+            0.55,
+            0.5
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "kitchen_counter"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "sponge"
+          ]
+        },
+        {
+          "verb": "Wipe",
+          "args": [
+            "sponge",
+            "kitchen_counter"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "sponge",
+            "kitchen_counter"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "kitchen_counter"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "phone_table"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "final_phone_table"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "final_phone_table"
+          ],
+          "place_spot": [
+            0.0,
+            0.45
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "final_phone_table"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "NARRATE",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Walk] <phone_table> (1), [Grab] <phone> (1), [Walk] <final_phone_table> (1), [PutOn] <phone> (1) <final_phone_table> (1) @place_spot=0.0:0.45, [LookAt] <final_phone_table> (1)",
+      "seed": 700448,
+      "source_task_id": "NARRATE-104000"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "phone",
+          "target": "final_phone_table"
+        }
+      ],
+      "sub_steps": [
+        "on(phone, final_phone_table)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "NARRATE-104000",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 700448,
+      "containers": {
+        "fridge": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "fridge",
+            "source": "scene",
+            "pick": {
+              "name": "fridge_dszchb_0",
+              "stage_prim_path": "/World/b_fridge_dszchb_0",
+              "asset_sha256": "sha256:ffcdc68d33e823239a36c64e293e9e4ed2f6de870a4859ddbb5e3dc51e6b27cf",
+              "instance_digest": "sha256:36288ad94c3c6c274b365899671d37ad2d827bce7ed77ba66f4f6fad0fb156b6",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "kitchen_0"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "kitchen_counter": {
+          "bind": {
+            "cat": "countertop",
+            "source": "scene",
+            "pick": {
+              "name": "countertop_kelker_0",
+              "stage_prim_path": "/World/b_countertop_kelker_0",
+              "asset_sha256": "sha256:8d1be4a4d069ea186721bc8e87e7e2eb867102b060b8b62df6909d0797d4f0c9",
+              "instance_digest": "sha256:ad24da0cf2b643c5f98025e0287f912bfb347c85239e912d1e8ea7616bd4c04d",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "kitchen_side": {
+          "bind": {
+            "cat": "countertop",
+            "source": "scene",
+            "pick": {
+              "name": "countertop_kelzer_0",
+              "stage_prim_path": "/World/b_countertop_kelzer_0",
+              "asset_sha256": "sha256:6dee3e465bef6f5e786dd17c06769b059b62d1a49442a4f6cf7de39dfb93cacc",
+              "instance_digest": "sha256:15ca56872cfab4fc598a3f5af072c7a57a99d38c02cbeeeedf161307a2d897ed",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "phone_table": {
+          "bind": {
+            "cat": "breakfast_table",
+            "source": "scene",
+            "pick": {
+              "name": "breakfast_table_rhjoby_0",
+              "stage_prim_path": "/World/b_breakfast_table_rhjoby_0",
+              "asset_sha256": "sha256:2631947c5c8e3efce414bf7c2ca0ac9b4cf7f8f20d421e09e8108e4dd4f74853",
+              "instance_digest": "sha256:df1bd25cee79277057c87624f7fd4b9d13f06f1d6d8118afe3982ae9d6e8bd87",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "dining_room_0",
+          "seatable": false
+        },
+        "final_phone_table": {
+          "bind": {
+            "cat": "coffee_table",
+            "source": "scene",
+            "pick": {
+              "name": "coffee_table_rlsebe_0",
+              "stage_prim_path": "/World/b_coffee_table_rlsebe_0",
+              "asset_sha256": "sha256:c915b740c07fd30dc84af4753af3c4e2d2f2398536da641a01410f9cbddb1dce",
+              "instance_digest": "sha256:258b232e56cf166e5ac2b2150a6dd2e1121ad2b8cc39b7e1b5252aeb6fd4926c",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "living_room_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {},
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "sponge": {
+          "cat": "sponge",
+          "model": "aewrov",
+          "needs_lookat": false,
+          "place": "on:kitchen_counter",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            -0.65,
+            0.55
+          ]
+        },
+        "phone": {
+          "cat": "cell_phone",
+          "model": "dbhfuh",
+          "needs_lookat": false,
+          "place": "on:kitchen_counter",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            0.55
+          ],
+          "tint": "orange"
+        },
+        "apple": {
+          "cat": "apple",
+          "model": "agveuv",
+          "needs_lookat": false,
+          "place": "on:kitchen_counter",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.62,
+            0.55
+          ]
+        },
+        "mug": {
+          "cat": "coffee_cup",
+          "model": "nbhcgu",
+          "needs_lookat": false,
+          "place": "on:kitchen_counter",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.38,
+            -0.35
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "kitchen_0",
+        "dining_room_0",
+        "living_room_0"
+      ],
+      "scene": "house_single_floor",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "While cleaning the kitchen, the wearer answers a phone call and carries the phone into the dining room. They put it on the table, then return to the kitchen for a substantial sequence: storing an apple in the refrigerator, moving a mug, and wiping the counter again. Only after that memory gap does the wearer ask where the phone was left and relocate it to a specific living-room table.",
+    "assistant_goal": "I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home.",
+    "assessment_contract": {
+      "assigned_capability_id": "NARRATE.EPISODIC_OBJECT_MEMORY",
+      "assigned_scene": "house_single_floor",
+      "core_question": "I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home.",
+      "counterfactual_failure": "The weak branch acts on a mistaken identity, stale layout, unsafe route, or incomplete count and fails at least one scored predicate.",
+      "forbidden_changes": [
+        "Adding toy labels to ordinary furniture",
+        "Putting decisive visual evidence into the wearer's utterance",
+        "Moving an assistant turn after the action it is meant to correct"
+      ],
+      "knowledge_constraints": [
+        "While cleaning the kitchen, the wearer answers a phone call and carries the phone into the dining room. They put it on the table, then return to the kitchen for a substantial sequence: storing an apple in the refrigerator, moving a mug, and wiping the counter again. Only after that memory gap does the wearer ask where the phone was left and relocate it to a specific living-room table."
+      ],
+      "required_evidence": [
+        "I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home.",
+        "The phone was visibly placed on the dining-room table.",
+        "The wearer visibly stores the apple in the built-in refrigerator without the phone.",
+        "Many concrete kitchen actions and a pause separate the phone placement from the memory question.",
+        "The wearer has returned to the dining-room table and recovered the phone.",
+        "The phone is visibly resting on its specific living-room coffee table.",
+        "You left the phone on the dining-room table after the call. It stayed there while you returned to the kitchen, put an apple in the refrigerator, moved a mug, and wiped the counter again. Retrieve it from the dining room and place it on the living-room coffee table."
+      ],
+      "required_final_predicates": [
+        "on"
+      ],
+      "success_condition": "on(phone, final_phone_table)",
+      "temporal_constraints": [
+        "Each intervention follows its evidence and precedes the corresponding action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "NARRATE-104000",
+      "family": "NARRATE",
+      "kind": "grounded egocentric narration",
+      "assessment_contract": {
+        "assigned_capability_id": "NARRATE.EPISODIC_OBJECT_MEMORY",
+        "assigned_scene": "house_single_floor",
+        "core_question": "I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home.",
+        "counterfactual_failure": "The weak branch acts on a mistaken identity, stale layout, unsafe route, or incomplete count and fails at least one scored predicate.",
+        "forbidden_changes": [
+          "Adding toy labels to ordinary furniture",
+          "Putting decisive visual evidence into the wearer's utterance",
+          "Moving an assistant turn after the action it is meant to correct"
+        ],
+        "knowledge_constraints": [
+          "While cleaning the kitchen, the wearer answers a phone call and carries the phone into the dining room. They put it on the table, then return to the kitchen for a substantial sequence: storing an apple in the refrigerator, moving a mug, and wiping the counter again. Only after that memory gap does the wearer ask where the phone was left and relocate it to a specific living-room table."
+        ],
+        "required_evidence": [
+          "I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home.",
+          "The phone was visibly placed on the dining-room table.",
+          "The wearer visibly stores the apple in the built-in refrigerator without the phone.",
+          "Many concrete kitchen actions and a pause separate the phone placement from the memory question.",
+          "The wearer has returned to the dining-room table and recovered the phone.",
+          "The phone is visibly resting on its specific living-room coffee table.",
+          "You left the phone on the dining-room table after the call. It stayed there while you returned to the kitchen, put an apple in the refrigerator, moved a mug, and wiped the counter again. Retrieve it from the dining room and place it on the living-room coffee table."
+        ],
+        "required_final_predicates": [
+          "on"
+        ],
+        "success_condition": "on(phone, final_phone_table)",
+        "temporal_constraints": [
+          "Each intervention follows its evidence and precedes the corresponding action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "bell_pepper",
+          "birdcage",
+          "biscuit",
+          "bottle_of_black_pepper",
+          "bottle_of_champagne",
+          "bottle_of_solvent",
+          "box_of_lemons",
+          "boxed_cpu_board",
+          "cell_phone",
+          "chicken_breast",
+          "clout_nail",
+          "coffee_cup",
+          "cucumber",
+          "decorative_sign",
+          "gift_box",
+          "half_agave",
+          "half_bok_choy",
+          "half_buttermilk_pancake",
+          "half_kiwi",
+          "half_pita",
+          "half_shiitake",
+          "half_virginia_ham",
+          "hand_towel",
+          "jar_of_tumeric",
+          "kielbasa",
+          "lampshade",
+          "lint_screen",
+          "lipstick",
+          "maillot",
+          "marker",
+          "modem",
+          "mug",
+          "orange_juice_carton",
+          "outline_vase",
+          "pattypan_squash",
+          "peach",
+          "postcard",
+          "pottable_beefsteak_tomato",
+          "roasting_pan",
+          "salad",
+          "sliced_melon",
+          "sponge",
+          "syringe",
+          "taco",
+          "trowel"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "bottom_cabinet_no_top",
+          "breakfast_table",
+          "coffee_table",
+          "countertop",
+          "desk",
+          "shelf"
+        ],
+        "capability_id": "NARRATE.EPISODIC_OBJECT_MEMORY",
+        "coverage_categories": [
+          "box_of_lemons",
+          "half_buttermilk_pancake",
+          "half_virginia_ham",
+          "sliced_melon",
+          "decorative_sign",
+          "half_pita",
+          "salad",
+          "boxed_cpu_board",
+          "postcard",
+          "trowel",
+          "taco",
+          "kielbasa",
+          "lipstick",
+          "biscuit",
+          "marker",
+          "syringe",
+          "half_agave",
+          "bottle_of_black_pepper",
+          "bell_pepper",
+          "bottle_of_champagne"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 3,
+          "required_semantic_turns": 3,
+          "requires_cross_room_transition": true,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": true,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "NARRATE",
+        "limits": {
+          "max_authored_actions": 34,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 5,
+          "max_meaningful_steps": 28,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 23,
+          "max_small_label_characters": 40,
+          "max_task_actions": 7,
+          "min_intervening_meaningful_actions": 8,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "mug",
+          "cell_phone",
+          "gift_box",
+          "hand_towel"
+        ],
+        "preferred_story_category_glosses": {
+          "cell_phone": "",
+          "gift_box": "",
+          "hand_towel": "",
+          "mug": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 23.8,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "bottom_cabinet": 1,
+              "dishwasher": 1,
+              "fridge": 1
+            },
+            "scene_surfaces": {
+              "bar": 1,
+              "bottom_cabinet_no_top": 2,
+              "countertop": 2
+            },
+            "surface_max_area_m2": {
+              "bar": 0.864,
+              "bottom_cabinet_no_top": 0.533,
+              "countertop": 1.116
+            },
+            "surface_reference_capacity": {
+              "bar": 3,
+              "bottom_cabinet_no_top": 3,
+              "countertop": 3
+            }
+          }
+        ],
+        "scene": "house_single_floor",
+        "task_id": "NARRATE-104000",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "sponge",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "kitchen cleaning sponge"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "cell_phone",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": "orange",
+            "what": "cell phone answered during the work"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "apple",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "apple stored during the kitchen work"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "coffee_cup",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "mug moved to the kitchen side counter"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "fridge",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "scene-built kitchen refrigerator"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "countertop",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "kitchen work counter"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "countertop",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "kitchen side counter"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "breakfast_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "dining-room table where the phone was set down"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "coffee_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "living-room coffee table chosen as the phone's home"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [],
+        "restaged_story": "While cleaning the kitchen, the wearer answers a phone call and carries the phone into the dining room. They put it on the table, then return to the kitchen for a substantial sequence: storing an apple in the refrigerator, moving a mug, and wiping the counter again. Only after that memory gap does the wearer ask where the phone was left and relocate it to a specific living-room table.",
+        "scene": "house_single_floor",
+        "why_scene": "house_single_floor supplies the rooms and fixtures used by this grounded NARRATE story."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "fridge": {
+            "cat": "fridge",
+            "initially_open": false,
+            "label": null,
+            "preload": [],
+            "role": "scored",
+            "room": "kitchen_0"
+          }
+        },
+        "items": {
+          "sponge": {
+            "affordances": [],
+            "cat": "sponge",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:kitchen_counter",
+            "scored": false,
+            "spot": [
+              -0.65,
+              0.55
+            ],
+            "tint": null
+          },
+          "phone": {
+            "affordances": [],
+            "cat": "cell_phone",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:kitchen_counter",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.55
+            ],
+            "tint": "orange"
+          },
+          "apple": {
+            "affordances": [],
+            "cat": "apple",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:kitchen_counter",
+            "scored": false,
+            "spot": [
+              0.62,
+              0.55
+            ],
+            "tint": null
+          },
+          "mug": {
+            "affordances": [],
+            "cat": "coffee_cup",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:kitchen_counter",
+            "scored": false,
+            "spot": [
+              0.38,
+              -0.35
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <kitchen_counter> (1)",
+          "[Grab] <sponge> (1)",
+          "[Wipe] <sponge> (1) <kitchen_counter> (1)",
+          "[PutOn] <sponge> (1) <kitchen_counter> (1)",
+          "[Grab] <phone> (1)",
+          "[AnswerPhone] <phone> (1)",
+          "[Walk] <phone_table> (1)",
+          "[PutOn] <phone> (1) <phone_table> (1)",
+          "[Walk] <kitchen_counter> (1)",
+          "[Grab] <apple> (1)",
+          "[Walk] <fridge> (1)",
+          "[Open] <fridge> (1)",
+          "[PutInside] <apple> (1) <fridge> (1)",
+          "[LookAt] <apple> (1)",
+          "[Close] <fridge> (1)",
+          "[Grab] <mug> (1)",
+          "[PutOn] <mug> (1) <kitchen_side> (1) @place_spot=0.55:0.5",
+          "[Walk] <kitchen_counter> (1)",
+          "[Grab] <sponge> (1)",
+          "[Wipe] <sponge> (1) <kitchen_counter> (1)",
+          "[PutOn] <sponge> (1) <kitchen_counter> (1)",
+          "[LookAt] <kitchen_counter> (1)",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0",
+          "dining_room_0",
+          "living_room_0"
+        ],
+        "scene": "house_single_floor",
+        "staging": {
+          "groups": "While cleaning the kitchen, the wearer answers a phone call and carries the phone into the dining room. They put it on the table, then return to the kitchen for a substantial sequence: storing an apple in the refrigerator, moving a mug, and wiping the counter again. Only after that memory gap does the wearer ask where the phone was left and relocate it to a specific living-room table.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "kitchen_counter": {
+            "cat": "countertop",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "kitchen_side": {
+            "cat": "countertop",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "phone_table": {
+            "cat": "breakfast_table",
+            "label": null,
+            "room": "dining_room_0"
+          },
+          "final_phone_table": {
+            "cat": "coffee_table",
+            "label": null,
+            "room": "living_room_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The phone was visibly placed on the dining-room table.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 7,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The wearer visibly stores the apple in the built-in refrigerator without the phone.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 13,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Many concrete kitchen actions and a pause separate the phone placement from the memory question.",
+            "from": "prologue",
+            "id": "fact_004",
+            "source_index": 22,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The wearer has returned to the dining-room table and recovered the phone.",
+            "from": "live",
+            "id": "fact_005",
+            "source_index": 1,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The phone is visibly resting on its specific living-room coffee table.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 4,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ],
+            "fact": "You left the phone on the dining-room table after the call. It stayed there while you returned to the kitchen, put an apple in the refrigerator, moved a mug, and wiped the counter again. Retrieve it from the dining room and place it on the living-room coffee table.",
+            "from": "derived",
+            "id": "fact_007",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "phone",
+            "target": "final_phone_table"
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "You left the orange cell phone on the dining-room call table where you ended the call. Walk to that dining-room call table now.",
+            "referents": [
+              "phone",
+              "phone_table"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ]
+          },
+          {
+            "before_index": 1,
+            "say": "The orange cell phone is on the dining-room call table in front of you. Pick up that phone, then walk to the living-room coffee table where the phone belongs.",
+            "referents": [
+              "phone",
+              "phone_table",
+              "final_phone_table"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ]
+          },
+          {
+            "before_index": 3,
+            "say": "Place the orange phone in the open center of the living-room coffee table, then look directly at that coffee table to confirm the phone is resting there.",
+            "referents": [
+              "phone",
+              "final_phone_table"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ]
+          }
+        ],
+        "hidden_fact": {
+          "what": "You left the phone on the dining-room table after the call. It stayed there while you returned to the kitchen, put an apple in the refrigerator, moved a mug, and wiped the counter again. Retrieve it from the dining room and place it on the living-room coffee table.",
+          "revealed_by": "[Wait]",
+          "unavailable_because": "The answer depends on visual layout, prior observed state, or a document that the wearer cannot recover from the utterance alone."
+        },
+        "human_own_script": "[Walk] <kitchen_counter> (1), [LookAround], [Walk] <kitchen_side> (1), [LookAround], [Walk] <phone_table> (1), [LookAround], [Wait]",
+        "mates": [],
+        "oracle_program": "[Walk] <phone_table> (1), [Grab] <phone> (1), [Walk] <final_phone_table> (1), [PutOn] <phone> (1) <final_phone_table> (1) @place_spot=0.0:0.45, [LookAt] <final_phone_table> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "While cleaning the kitchen, the wearer answers a phone call and carries the phone into the dining room. They put it on the table, then return to the kitchen for a substantial sequence: storing an apple in the refrigerator, moving a mug, and wiping the counter again. Only after that memory gap does the wearer ask where the phone was left and relocate it to a specific living-room table.",
+        "utterance": "I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <kitchen_counter> (1)",
+        "[Grab] <sponge> (1)",
+        "[Wipe] <sponge> (1) <kitchen_counter> (1)",
+        "[PutOn] <sponge> (1) <kitchen_counter> (1)",
+        "[Grab] <phone> (1)",
+        "[AnswerPhone] <phone> (1)",
+        "[Walk] <phone_table> (1)",
+        "[PutOn] <phone> (1) <phone_table> (1)",
+        "[Walk] <kitchen_counter> (1)",
+        "[Grab] <apple> (1)",
+        "[Walk] <fridge> (1)",
+        "[Open] <fridge> (1)",
+        "[PutInside] <apple> (1) <fridge> (1)",
+        "[LookAt] <apple> (1)",
+        "[Close] <fridge> (1)",
+        "[Grab] <mug> (1)",
+        "[PutOn] <mug> (1) <kitchen_side> (1) @place_spot=0.55:0.5",
+        "[Walk] <kitchen_counter> (1)",
+        "[Grab] <sponge> (1)",
+        "[Wipe] <sponge> (1) <kitchen_counter> (1)",
+        "[PutOn] <sponge> (1) <kitchen_counter> (1)",
+        "[LookAt] <kitchen_counter> (1)",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "kitchen_counter"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "kitchen_counter"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "sponge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "sponge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wipe",
+          "args": [
+            "sponge",
+            "kitchen_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "sponge",
+            "kitchen_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "phone"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "AnswerPhone",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "phone_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "phone_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "phone_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The phone was visibly placed on the dining-room table.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "You left the phone on the dining-room table after the call. It stayed there while you returned to the kitchen, put an apple in the refrigerator, moved a mug, and wiped the counter again. Retrieve it from the dining room and place it on the living-room coffee table.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "kitchen_counter"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "kitchen_counter"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "apple"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "apple"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p011",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p012",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "apple",
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "apple",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p013",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "apple"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The wearer visibly stores the apple in the built-in refrigerator without the phone.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "You left the phone on the dining-room table after the call. It stayed there while you returned to the kitchen, put an apple in the refrigerator, moved a mug, and wiped the counter again. Retrieve it from the dining room and place it on the living-room coffee table.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p014",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p015",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "mug"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p016",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "mug",
+            "kitchen_side"
+          ],
+          "place_spot": [
+            0.55,
+            0.5
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p017",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "kitchen_counter"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "kitchen_counter"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p018",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "sponge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "sponge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p019",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wipe",
+          "args": [
+            "sponge",
+            "kitchen_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p020",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "sponge",
+            "kitchen_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p021",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "kitchen_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p022",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "Many concrete kitchen actions and a pause separate the phone placement from the memory question.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "You left the phone on the dining-room table after the call. It stayed there while you returned to the kitchen, put an apple in the refrigerator, moved a mug, and wiped the counter again. Retrieve it from the dining room and place it on the living-room coffee table.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "You left the phone on the dining-room table after the call. It stayed there while you returned to the kitchen, put an apple in the refrigerator, moved a mug, and wiped the counter again. Retrieve it from the dining room and place it on the living-room coffee table.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "You left the orange cell phone on the dining-room call table where you ended the call. Walk to that dining-room call table now.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The orange cell phone is on the dining-room call table in front of you. Pick up that phone, then walk to the living-room coffee table where the phone belongs.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Place the orange phone in the open center of the living-room coffee table, then look directly at that coffee table to confirm the phone is resting there.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "kitchen_counter"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "kitchen_counter"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "kitchen_side"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "kitchen_side"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "phone_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "phone_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "phone_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "phone_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "phone"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The wearer has returned to the dining-room table and recovered the phone.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "You left the phone on the dining-room table after the call. It stayed there while you returned to the kitchen, put an apple in the refrigerator, moved a mug, and wiped the counter again. Retrieve it from the dining room and place it on the living-room coffee table.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "final_phone_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "final_phone_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "final_phone_table"
+          ],
+          "place_spot": [
+            0.0,
+            0.45
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "final_phone_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The phone is visibly resting on its specific living-room coffee table.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "You left the phone on the dining-room table after the call. It stayed there while you returned to the kitchen, put an apple in the refrigerator, moved a mug, and wiped the counter again. Retrieve it from the dining room and place it on the living-room coffee table.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The phone was visibly placed on the dining-room table.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p007"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 7
+      },
+      {
+        "id": "fact_003",
+        "statement": "The wearer visibly stores the apple in the built-in refrigerator without the phone.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p013"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 13
+      },
+      {
+        "id": "fact_004",
+        "statement": "Many concrete kitchen actions and a pause separate the phone placement from the memory question.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p022"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 22
+      },
+      {
+        "id": "fact_005",
+        "statement": "The wearer has returned to the dining-room table and recovered the phone.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o001"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 1
+      },
+      {
+        "id": "fact_006",
+        "statement": "The phone is visibly resting on its specific living-room coffee table.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o004"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 4
+      },
+      {
+        "id": "fact_007",
+        "statement": "You left the phone on the dining-room table after the call. It stayed there while you returned to the kitchen, put an apple in the refrigerator, moved a mug, and wiped the counter again. Retrieve it from the dining room and place it on the living-room coffee table.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p007",
+          "p013",
+          "p022",
+          "o001",
+          "o004"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the visual history and live views to answer the wearer's request and guide one grounded action at a time.",
+      "human_task_context": "You are the blind wearer and only the Assistant's physical executor, not a second planner. You receive no camera images. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the first currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. Perform at most one physical action per response, then wait for the next Assistant turn. Any machine-readable action choices supplied to you are private implementation details: never mention or ask about them in speech, and never use them to invent an answer, object location, route, source, destination, or next step that the Assistant did not state. Speak only as a real blind person would: describe what you physically did or felt, report a concrete failure, or ask briefly for an ordinary direction or visible description. Never volunteer a place or object that the Assistant has not mentioned in its current instruction, except for the object you are already holding or the request you stated in the fixed opening. You may act on a movable object only when you are already holding it, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source or landmark and a visible description sufficient to identify it. If that information is missing or wrong, leave the action empty and ask where the object is relative to you. Do not travel to or operate an unseen object merely because the private controls make it possible. Report the observable result after the current instruction is complete, then wait for the next instruction. You cannot see score or completion state and must never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <kitchen_counter> (1)",
+          "[Grab] <sponge> (1)",
+          "[Wipe] <sponge> (1) <kitchen_counter> (1)",
+          "[PutOn] <sponge> (1) <kitchen_counter> (1)",
+          "[Grab] <phone> (1)",
+          "[AnswerPhone] <phone> (1)",
+          "[Walk] <phone_table> (1)",
+          "[PutOn] <phone> (1) <phone_table> (1)",
+          "[Walk] <kitchen_counter> (1)",
+          "[Grab] <apple> (1)",
+          "[Walk] <fridge> (1)",
+          "[Open] <fridge> (1)",
+          "[PutInside] <apple> (1) <fridge> (1)",
+          "[LookAt] <apple> (1)",
+          "[Close] <fridge> (1)",
+          "[Grab] <mug> (1)",
+          "[PutOn] <mug> (1) <kitchen_side> (1) @place_spot=0.55:0.5",
+          "[Walk] <kitchen_counter> (1)",
+          "[Grab] <sponge> (1)",
+          "[Wipe] <sponge> (1) <kitchen_counter> (1)",
+          "[PutOn] <sponge> (1) <kitchen_counter> (1)",
+          "[LookAt] <kitchen_counter> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 22,
+            "say": "Hi Assistant, I'm blind, so I may need some visual help. I can't remember where I left my phone. Please help me find it and put it on the living-room coffee table."
+          }
+        ],
+        "handoff_say": "Hi Assistant, I'm blind, so I may need some visual help. I can't remember where I left my phone. Please help me find it and put it on the living-room coffee table.",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "phone_memory_request",
+            "required_phrases": [
+              "I'm blind",
+              "where I left my phone",
+              "living-room coffee table"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[Walk] <phone_table> (1)",
+          "[Grab] <phone> (1)",
+          "[Walk] <final_phone_table> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[Walk] <kitchen_counter> (1)",
+          "[Walk] <kitchen_side> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[Walk] <phone_table> (1)",
+            "[Grab] <phone> (1)",
+            "[Walk] <final_phone_table> (1)"
+          ]
+        ],
+        "verification_points": [
+          {
+            "id": "phone_on_living_room_table",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "phone",
+            "target": "final_phone_table"
+          },
+          {
+            "id": "phone_table_reached",
+            "kind": "successful_command",
+            "command": "[Walk] <phone_table> (1)"
+          },
+          {
+            "id": "phone_retrieved",
+            "kind": "successful_command",
+            "command": "[Grab] <phone> (1)"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "phone": [
+          "phone",
+          "orange phone",
+          "orange cell phone on the dining-room call table"
+        ],
+        "phone_table": [
+          "dining-room call table where you ended the call"
+        ],
+        "final_phone_table": [
+          "living-room coffee table where the phone belongs"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 28,
+    "dialogue_budget": 3,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "kitchen_counter",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005",
+        "h006"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "phone",
+              "phone_table"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "phone",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "phone",
+              "phone_table",
+              "final_phone_table"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "phone",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "phone",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "phone",
+              "final_phone_table"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "phone",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o004"
+        }
+      ],
+      "terminal_beats": [
+        "h006",
+        "o004"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "phone_table"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "phone"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "final_phone_table"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "phone",
+          "final_phone_table"
+        ],
+        "place_spot": [
+          0.0,
+          0.45
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "final_phone_table"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "kitchen_counter"
+        ]
+      },
+      {
+        "verb": "LookAround",
+        "args": []
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "kitchen_side"
+        ]
+      },
+      {
+        "verb": "LookAround",
+        "args": []
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "phone_table"
+        ]
+      },
+      {
+        "verb": "LookAround",
+        "args": []
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "You left the orange cell phone on the dining-room call table where you ended the call. Walk to that dining-room call table now.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The orange cell phone is on the dining-room call table in front of you. Pick up that phone, then walk to the living-room coffee table where the phone belongs.",
+        "relation": "before",
+        "anchor_beat_id": "o001",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "Place the orange phone in the open center of the living-room coffee table, then look directly at that coffee table to confirm the phone is resting there.",
+        "relation": "before",
+        "anchor_beat_id": "o003",
+        "source": "guidance",
+        "source_index": 2
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "source": "narrate19_interaction_assembly",
+    "compile_input_digest": "sha256:3bd4deec0fa94172c032d1889ebf7e5b6cba536b97a696301bd3dd5a074ccd6b",
+    "source_contract_digest": "sha256:6a3633a3b09371b09ed8de3a546c1abe47f48dc7617fcc3e065e7b278ad67026",
+    "executable_spec_digest": "sha256:f8e6165633382dc2ecae546fb9b840236e982bd07db34c4f98fa840fe5da956d",
+    "invention": {
+      "attempt": 2,
+      "author_prose": "A low-vision hotel turnover worker first lets the glasses scan the bedroom desk and shelf before continuing a room reset. The observed baseline has a phone, mug, and hand towel on the desk and a welcome gift on the shelf. After reviewing the layout, the worker is briefly interrupted by a headset call. While resuming, they absentmindedly lift the phone out of the way and set it beside the gift without noticing that its location has changed. They then carry the hand towel to the bathroom shelf as intended, check the shelf, and spend several minutes finishing the call and reviewing the room-reset instructions. On returning to the bedroom they scan the current desk and ask only, 'I've finished taking the towel to the bathroom. Did anything else in the bedroom get moved that I need to put back?' The assistant compares the current view with the earlier baseline and reports only the unintended change: the phone moved from the desk to the shelf. It correctly excludes the intended towel move and the unchanged mug and gift, allowing the worker to restore just the phone. A weak narration merely lists the current scene or flags the intentional towel move, leaving the phone misplaced.",
+      "author_prose_sha256": "sha256:b434cfd49ccfeca19d8c85b9af5311bc668e2e856358731affbf478eebbc7c57",
+      "capability": {
+        "boundary": "Do not replay a full room inventory. The core operation is a visual diff across time.",
+        "few_shot": "A blind tenant returns to a shared workroom whose baseline the glasses observed earlier: a storage cabinet was closed and a supply basket was on the rear shelf. Now the cabinet is open and the basket has been moved to the central table; the other visible furniture is unchanged. The assistant reports only those two changes, mentioning the open cabinet first because it affects the immediate reach. The wearer closes the cabinet and returns the basket to its shelf. Earlier evidence anchors the baseline, the authored response records the change-only description, and the closed and on predicates expose whether the useful consequences were completed.",
+        "id": "NARRATE.CHANGE_DESCRIPTION",
+        "name_zh": "变化检测叙述",
+        "target": "Compare the present scene with a known baseline and report only meaningful changes, prioritising any change that affects safety or the current goal."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "NARRATE.CHANGE_DESCRIPTION",
+        "evaluation_mode": "TRACE_AND_OUTCOME",
+        "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": true,
+        "owner": "SIMULATOR_EVALUATION",
+        "reason": "Baseline and changed states run, but spoken change precision and recall lack a dedicated scorer.",
+        "reason_code": "CHANGE_DESCRIPTION_EVALUATOR",
+        "recommended_work": "Add baseline-diff narration precision, recall, and priority evaluation.",
+        "version": "capability-support/1.0",
+        "workstream": "EVALUATOR"
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "mug",
+          "cell_phone",
+          "gift_box",
+          "hand_towel",
+          "box_of_lemons",
+          "half_buttermilk_pancake",
+          "half_virginia_ham",
+          "sliced_melon",
+          "decorative_sign",
+          "half_pita",
+          "salad",
+          "boxed_cpu_board",
+          "postcard",
+          "trowel",
+          "taco",
+          "kielbasa",
+          "lipstick",
+          "biscuit",
+          "marker",
+          "syringe",
+          "half_agave",
+          "bottle_of_black_pepper",
+          "bell_pepper",
+          "bottle_of_champagne"
+        ],
+        "allowed_surface_categories": [
+          "desk",
+          "shelf"
+        ],
+        "capability_id": "NARRATE.CHANGE_DESCRIPTION",
+        "coverage_categories": [
+          "box_of_lemons",
+          "half_buttermilk_pancake",
+          "half_virginia_ham",
+          "sliced_melon",
+          "decorative_sign",
+          "half_pita",
+          "salad",
+          "boxed_cpu_board",
+          "postcard",
+          "trowel",
+          "taco",
+          "kielbasa",
+          "lipstick",
+          "biscuit",
+          "marker",
+          "syringe",
+          "half_agave",
+          "bottle_of_black_pepper",
+          "bell_pepper",
+          "bottle_of_champagne"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": true,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "NARRATE",
+        "limits": {
+          "max_authored_actions": 26,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 18,
+          "max_small_label_characters": 8,
+          "max_task_actions": 12,
+          "min_intervening_meaningful_actions": 3,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "mug",
+          "cell_phone",
+          "gift_box",
+          "hand_towel"
+        ],
+        "preferred_story_category_glosses": {
+          "cell_phone": "",
+          "gift_box": "",
+          "hand_towel": "",
+          "mug": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 39.7,
+            "name": "bedroom_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "desk": 1,
+              "shelf": 1
+            },
+            "surface_max_area_m2": {
+              "desk": 0.227,
+              "shelf": 0.263
+            },
+            "surface_reference_capacity": {
+              "desk": 3,
+              "shelf": 3
+            }
+          },
+          {
+            "area_m2": 23.2,
+            "name": "bathroom_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "shelf": 2
+            },
+            "surface_max_area_m2": {
+              "shelf": 0.211
+            },
+            "surface_reference_capacity": {
+              "shelf": 3
+            }
+          }
+        ],
+        "scene": "hotel_suite_large",
+        "task_id": "NARRATE-104000",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "prompt_sha": "8145f28ea17f",
+      "prompt_sha256": "sha256:8145f28ea17f6b57d3f2f26635846b3d8d90509d31f1d7c1430d093e650ea31f",
+      "prompt_version": "capability-v40-template-cap3-20260901",
+      "prose_sha256": "sha256:4d71b1010c05a11cf2f8210477c10567367a44be26a34699eacf4a268c3bbd04",
+      "review": {
+        "benchmark_check": {
+          "actor_scope": {
+            "live_physical_actors": [
+              "wearer"
+            ],
+            "other_person_changes_world": false
+          },
+          "core_claims": [
+            {
+              "available_before_turn": 0,
+              "claim": "the phone was on the bedroom desk in the baseline",
+              "derived_from": [],
+              "established_by": "LookAt/LookScan of desk and shelf at the baseline beat",
+              "runtime_support": "observed on(cell_phone, desk) at inspection",
+              "source": "prior_action"
+            },
+            {
+              "available_before_turn": 0,
+              "claim": "the phone is now on the bedroom shelf",
+              "derived_from": [],
+              "established_by": "the enacted Put cell_phone on shelf while clearing space",
+              "runtime_support": "on(cell_phone, shelf) after the move",
+              "source": "prior_action"
+            },
+            {
+              "available_before_turn": 0,
+              "claim": "only the phone needs restoring; the towel move was intended",
+              "derived_from": [
+                "the phone was on the bedroom desk in the baseline",
+                "the phone is now on the bedroom shelf"
+              ],
+              "established_by": "comparing observed baseline against current state and against the stated intended towel move",
+              "runtime_support": "baseline observation plus enacted moves plus utterance intent",
+              "source": "derived"
+            }
+          ],
+          "counterfactual_contract": {
+            "allowed_other_differences": [],
+            "operator": "report current scene instead of a baseline diff",
+            "shared_obligations": [
+              "g1"
+            ],
+            "target_difference": "strong names only the shifted phone and restores it; weak recites current state and leaves phone on shelf"
+          },
+          "cross_field_consistency": {
+            "conflicts": [],
+            "consistent": true
+          },
+          "decisive_fact_absent_from_utterance": true,
+          "egocentric_evidence": "the observed baseline that the phone was on the desk, versus the current view where it sits on the shelf beside the gift box",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "meaningful_steps": [
+            "observe bedroom baseline",
+            "accidentally move phone to shelf while clearing space",
+            "carry towel to bathroom and place it",
+            "return and query the change",
+            "restore phone to desk"
+          ],
+          "memory_gap": {
+            "intervening_meaningful_actions": 4,
+            "reason": "the phone shift is separated from the query by carrying the towel to the bathroom, placing it, confirming it, and walking back",
+            "required": true,
+            "wearer_just_established_answer": false
+          },
+          "physical_plausibility": {
+            "credible": true,
+            "issues": []
+          },
+          "semantic_turns": 1,
+          "story_world_mismatches": [],
+          "strong_completes_user_goal": true,
+          "strong_weak_distinct": true,
+          "turn0_access": {
+            "answer_fully_visible": false,
+            "assistant_need": "memory of the observed baseline plus a visual diff the low-vision wearer cannot perform",
+            "wearer_can_self_serve": false
+          },
+          "ungrounded_physical_nouns": [],
+          "unmodeled_claims": [],
+          "user_goal_obligations": [
+            {
+              "covered_by": [
+                "assistant diff dialogue",
+                "Put cell_phone on desk",
+                "on(cell_phone, desk) scorer"
+              ],
+              "description": "restore the accidentally shifted phone to the desk",
+              "grounded_in": "tell me only what changed that I need to put back",
+              "id": "g1",
+              "kind": "physical"
+            }
+          ],
+          "uses_only_grounded_assets": true,
+          "utterance_policy": {
+            "prescribes_assistant_words_or_trigger": false,
+            "reason": "the wearer asks only for what changed that needs restoring, leaving the diff inference to the assistant",
+            "states_goal_not_solution": true
+          },
+          "weak_shared_work_complete": true,
+          "why_user_needs_assistant": "the low-vision wearer cannot visually resolve the changed layout and did not consciously register moving the phone while clearing space",
+          "why_utterance_alone_fails": "the wearer only names an intent to move the towel and does not state that the phone was accidentally shifted, so a text-only assistant cannot know the phone changed"
+        },
+        "capability_fit": "The task requires comparing a remembered observed baseline against the current occluded scene and reporting only the accidentally-shifted phone while filtering the intended towel move, which is exactly NARRATE.CHANGE_DESCRIPTION.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "cell_phone",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "cell phone accidentally shifted"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "mug",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "mug unchanged distractor"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "gift_box",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "gift box unchanged distractor"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "hand_towel",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "hand towel intended move"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "A low-vision hotel turnover worker first lets the glasses scan the bedroom desk and shelf before continuing a room reset. The observed baseline has a phone, mug, and hand towel on the desk and a welcome gift on the shelf. After reviewing the layout, the worker is briefly interrupted by a headset call. While resuming, they absentmindedly lift the phone out of the way and set it beside the gift without noticing that its location has changed. They then carry the hand towel to the bathroom shelf as intended, check the shelf, and spend several minutes finishing the call and reviewing the room-reset instructions. On returning to the bedroom they scan the current desk and ask only, 'I've finished taking the towel to the bathroom. Did anything else in the bedroom get moved that I need to put back?' The assistant compares the current view with the earlier baseline and reports only the unintended change: the phone moved from the desk to the shelf. It correctly excludes the intended towel move and the unchanged mug and gift, allowing the worker to restore just the phone. A weak narration merely lists the current scene or flags the intentional towel move, leaving the phone misplaced.",
+            "scene": "hotel_suite_large",
+            "why_scene": "the assigned scene provides bedroom_0 with a desk and shelf and bathroom_0 with shelves, matching the baseline-and-move structure."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "can the assistant report only the meaningful accidental change against the observed baseline",
+              "counterfactual_failure": "weak assistant narrates the current scene, misses the shifted phone, and the wearer leaves it on the shelf",
+              "forbidden_changes": [
+                "treating the intended towel move as a change to restore",
+                "moving the mug or gift box"
+              ],
+              "knowledge_constraints": [
+                "no common sense; rely on observed baseline and enacted moves"
+              ],
+              "required_evidence": [
+                "baseline LookAt of desk and shelf before the phone move",
+                "enacted Put of phone onto shelf",
+                "enacted towel move to bathroom"
+              ],
+              "required_final_predicates": [
+                "on",
+                "unmoved"
+              ],
+              "success_condition": "phone on desk after restoration",
+              "temporal_constraints": [
+                "baseline observed before change",
+                "at least three intervening meaningful actions before query"
+              ]
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "the changed object to restore",
+                "what": "cell phone accidentally shifted",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "drives_the_story",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "unchanged desk item",
+                "what": "mug unchanged distractor",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "drives_the_story",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "unchanged shelf item",
+                "what": "gift box unchanged distractor",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "the deliberately relocated item",
+                "what": "hand towel intended move",
+                "when": "both"
+              }
+            ],
+            "hinges_on": "identifying that the phone shifted from desk to shelf while filtering the intended towel move",
+            "look_alike": [],
+            "opening": "wearer states baseline-remember goal at turn zero, inspects desk and shelf baseline, accidentally moves phone to shelf, grabs towel",
+            "outcome": "the phone is restored to the desk while mug, gift box, and bathroom towel remain untouched",
+            "place": "bedroom_0 and bathroom_0 of hotel_suite_large",
+            "printed": [],
+            "tests_what": "comparing an observed baseline to the current scene and reporting only the meaningful accidental change"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "This is a clean change-description task: the wearer explicitly establishes a baseline (phone and mug on desk, gift box on shelf, towel on desk) via camera inspection, then unknowingly shifts the phone from desk to shelf while clearing space, moves the towel out as the intended change, and after three-plus intervening meaningful actions asks what changed. The strong assistant produces a filtered visual diff naming only the phone as the accidental change and directs restoration; the weak assistant recites current state or misclassifies the intended towel move, leaving the phone on the shelf. The baseline is observed in an explicit earlier beat, not asserted at turn zero, the memory gap is genuine, and all props (mug, cell_phone, gift_box, hand_towel) and surfaces (desk, shelf) bind exactly to the grounding contract. Final restoration is scorable via on(cell_phone, desk).",
+        "requirements": [
+          "Keep the baseline observation as an explicit LookAt/LookScan beat before the phone is moved, not a turn-zero assertion.",
+          "Ensure at least three meaningful intervening actions separate the phone shift from the final question (towel carry, place, look, walk back, look qualify).",
+          "Keep the weak branch physical work identical up to the diff so the distinguishing channel is the diff dialogue plus final phone-on-desk state."
+        ],
+        "runtime_requirements": {
+          "actions": [
+            "Walk",
+            "Grab",
+            "Put",
+            "LookAt",
+            "LookScan"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 14,
+          "estimated_prologue_actions": 8,
+          "estimated_task_actions": 6,
+          "events": [],
+          "final_predicates": [
+            "on",
+            "unmoved"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 79.9,
+        "structural_signature": {
+          "evaluation": "final phone-on-desk state plus diff dialogue channel",
+          "evidence": "observed baseline plus current occluded view",
+          "failure": "current-scene narration misses shifted phone",
+          "operation": "visual diff filtering intended from accidental change",
+          "response": "single filtered restoration instruction",
+          "template_class": "baseline_diff_accidental_shift_restore",
+          "temporal": "baseline observed, change enacted, memory gap, then query"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "the phone was on the bedroom desk in the baseline",
+                "derived_from": [],
+                "established_by": "LookAt/LookScan of desk and shelf at the baseline beat",
+                "runtime_support": "observed on(cell_phone, desk) at inspection",
+                "source": "prior_action"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "the phone is now on the bedroom shelf",
+                "derived_from": [],
+                "established_by": "the enacted Put cell_phone on shelf while clearing space",
+                "runtime_support": "on(cell_phone, shelf) after the move",
+                "source": "prior_action"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "only the phone needs restoring; the towel move was intended",
+                "derived_from": [
+                  "the phone was on the bedroom desk in the baseline",
+                  "the phone is now on the bedroom shelf"
+                ],
+                "established_by": "comparing observed baseline against current state and against the stated intended towel move",
+                "runtime_support": "baseline observation plus enacted moves plus utterance intent",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "report current scene instead of a baseline diff",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "strong names only the shifted phone and restores it; weak recites current state and leaves phone on shelf"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "the observed baseline that the phone was on the desk, versus the current view where it sits on the shelf beside the gift box",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "observe bedroom baseline",
+              "accidentally move phone to shelf while clearing space",
+              "carry towel to bathroom and place it",
+              "return and query the change",
+              "restore phone to desk"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 4,
+              "reason": "the phone shift is separated from the query by carrying the towel to the bathroom, placing it, confirming it, and walking back",
+              "required": true,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": false,
+              "assistant_need": "memory of the observed baseline plus a visual diff the low-vision wearer cannot perform",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "assistant diff dialogue",
+                  "Put cell_phone on desk",
+                  "on(cell_phone, desk) scorer"
+                ],
+                "description": "restore the accidentally shifted phone to the desk",
+                "grounded_in": "tell me only what changed that I need to put back",
+                "id": "g1",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "the wearer asks only for what changed that needs restoring, leaving the diff inference to the assistant",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "the low-vision wearer cannot visually resolve the changed layout and did not consciously register moving the phone while clearing space",
+            "why_utterance_alone_fails": "the wearer only names an intent to move the towel and does not state that the phone was accidentally shifted, so a text-only assistant cannot know the phone changed"
+          },
+          "capability_fit": "The task requires comparing a remembered observed baseline against the current occluded scene and reporting only the accidentally-shifted phone while filtering the intended towel move, which is exactly NARRATE.CHANGE_DESCRIPTION.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cell_phone",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "cell phone accidentally shifted"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "mug",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "mug unchanged distractor"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "gift_box",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "gift box unchanged distractor"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "hand_towel",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "hand towel intended move"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "A low-vision hotel turnover worker first lets the glasses scan the bedroom desk and shelf before continuing a room reset. The observed baseline has a phone, mug, and hand towel on the desk and a welcome gift on the shelf. After reviewing the layout, the worker is briefly interrupted by a headset call. While resuming, they absentmindedly lift the phone out of the way and set it beside the gift without noticing that its location has changed. They then carry the hand towel to the bathroom shelf as intended, check the shelf, and spend several minutes finishing the call and reviewing the room-reset instructions. On returning to the bedroom they scan the current desk and ask only, 'I've finished taking the towel to the bathroom. Did anything else in the bedroom get moved that I need to put back?' The assistant compares the current view with the earlier baseline and reports only the unintended change: the phone moved from the desk to the shelf. It correctly excludes the intended towel move and the unchanged mug and gift, allowing the worker to restore just the phone. A weak narration merely lists the current scene or flags the intentional towel move, leaving the phone misplaced.",
+              "scene": "hotel_suite_large",
+              "why_scene": "the assigned scene provides bedroom_0 with a desk and shelf and bathroom_0 with shelves, matching the baseline-and-move structure."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "can the assistant report only the meaningful accidental change against the observed baseline",
+                "counterfactual_failure": "weak assistant narrates the current scene, misses the shifted phone, and the wearer leaves it on the shelf",
+                "forbidden_changes": [
+                  "treating the intended towel move as a change to restore",
+                  "moving the mug or gift box"
+                ],
+                "knowledge_constraints": [
+                  "no common sense; rely on observed baseline and enacted moves"
+                ],
+                "required_evidence": [
+                  "baseline LookAt of desk and shelf before the phone move",
+                  "enacted Put of phone onto shelf",
+                  "enacted towel move to bathroom"
+                ],
+                "required_final_predicates": [
+                  "on",
+                  "unmoved"
+                ],
+                "success_condition": "phone on desk after restoration",
+                "temporal_constraints": [
+                  "baseline observed before change",
+                  "at least three intervening meaningful actions before query"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "the changed object to restore",
+                  "what": "cell phone accidentally shifted",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "unchanged desk item",
+                  "what": "mug unchanged distractor",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "unchanged shelf item",
+                  "what": "gift box unchanged distractor",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "the deliberately relocated item",
+                  "what": "hand towel intended move",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "identifying that the phone shifted from desk to shelf while filtering the intended towel move",
+              "look_alike": [],
+              "opening": "wearer states baseline-remember goal at turn zero, inspects desk and shelf baseline, accidentally moves phone to shelf, grabs towel",
+              "outcome": "the phone is restored to the desk while mug, gift box, and bathroom towel remain untouched",
+              "place": "bedroom_0 and bathroom_0 of hotel_suite_large",
+              "printed": [],
+              "tests_what": "comparing an observed baseline to the current scene and reporting only the meaningful accidental change"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "This is a clean change-description task: the wearer explicitly establishes a baseline (phone and mug on desk, gift box on shelf, towel on desk) via camera inspection, then unknowingly shifts the phone from desk to shelf while clearing space, moves the towel out as the intended change, and after three-plus intervening meaningful actions asks what changed. The strong assistant produces a filtered visual diff naming only the phone as the accidental change and directs restoration; the weak assistant recites current state or misclassifies the intended towel move, leaving the phone on the shelf. The baseline is observed in an explicit earlier beat, not asserted at turn zero, the memory gap is genuine, and all props (mug, cell_phone, gift_box, hand_towel) and surfaces (desk, shelf) bind exactly to the grounding contract. Final restoration is scorable via on(cell_phone, desk).",
+          "requirements": [
+            "Keep the baseline observation as an explicit LookAt/LookScan beat before the phone is moved, not a turn-zero assertion.",
+            "Ensure at least three meaningful intervening actions separate the phone shift from the final question (towel carry, place, look, walk back, look qualify).",
+            "Keep the weak branch physical work identical up to the diff so the distinguishing channel is the diff dialogue plus final phone-on-desk state."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Walk",
+              "Grab",
+              "Put",
+              "LookAt",
+              "LookScan"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 14,
+            "estimated_prologue_actions": 8,
+            "estimated_task_actions": 6,
+            "events": [],
+            "final_predicates": [
+              "on",
+              "unmoved"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 79.9,
+          "structural_signature": {
+            "evaluation": "final phone-on-desk state plus diff dialogue channel",
+            "evidence": "observed baseline plus current occluded view",
+            "failure": "current-scene narration misses shifted phone",
+            "operation": "visual diff filtering intended from accidental change",
+            "response": "single filtered restoration instruction",
+            "template_class": "baseline_diff_accidental_shift_restore",
+            "temporal": "baseline observed, change enacted, memory gap, then query"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "hotel_suite_large",
+      "sha": "4d71b1010c05",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v62_gapfill_gpt55_opus_20260902a/compile_input/NARRATE/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gpt-5-5-genai-responses",
+      "judge_model": "claude-4-8-opus-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260901s"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_micro24_v62_gapfill_gpt55_opus_20260902a",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v40-template-cap3-20260901",
+      "release_id": "sha256:60a52a875602723acc847e9f6cb705448c53d0040cc54b78fb041490adb022d6",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "result": "narrate14-user-review-r4-20260912",
+        "source": "NARRATE-104000"
+      },
+      {
+        "kind": "canonicalize_required_evidence",
+        "source": "[\"I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home.\", \"The phone was visibly placed on the dining-room table.\", \"The wearer visibly stores the apple in the built-in refrigerator without the phone.\", \"Many concrete kitchen actions and a pause separate the phone placement from the memory question.\", \"The wearer has returned to the dining-room table and recovered the phone.\", \"The phone is visibly resting on its specific living-room coffee table.\"]",
+        "result": "[\"I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home.\", \"The phone was visibly placed on the dining-room table.\", \"The wearer visibly stores the apple in the built-in refrigerator without the phone.\", \"Many concrete kitchen actions and a pause separate the phone placement from the memory question.\", \"The wearer has returned to the dining-room table and recovered the phone.\", \"The phone is visibly resting on its specific living-room coffee table.\", \"You left the phone on the dining-room table after the call. It stayed there while you returned to the kitchen, put an apple in the refrigerator, moved a mug, and wiped the counter again. Retrieve it from the dining room and place it on the living-room coffee table.\"]"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "NARRATE-104000",
+    "capability_id": "NARRATE.EPISODIC_OBJECT_MEMORY",
+    "capability_notes": [
+      "After the phone placement, the wearer performs a concrete refrigerator task, a mug transfer, and a second counter-cleaning pass entirely in the kitchen.",
+      "The phone ends visibly on an exact scene-native living-room coffee table rather than remaining in the wearer's hand.",
+      "The answer depends on observed episode history rather than a text label or engine memory primitive."
+    ],
+    "revision": "narrate19-interaction-r9-20260914",
+    "benchmark_split": "production",
+    "physical_revision": "narrate14-user-review-r4-20260912",
+    "physical_taskpack_sha256": "sha256:bbe83616c1653c3a32b2bec10864d423793e2d4dbcb5d1190377884055a7ee12",
+    "parent_lineage": {
+      "source": "manual_story_revision",
+      "compile_input_digest": "sha256:3bd4deec0fa94172c032d1889ebf7e5b6cba536b97a696301bd3dd5a074ccd6b",
+      "source_contract_digest": "sha256:2af6af68af205aeb367b58cbf9f3ad6027c02af171039404e00252bf1fa25064",
+      "executable_spec_digest": "sha256:f8e6165633382dc2ecae546fb9b840236e982bd07db34c4f98fa840fe5da956d",
+      "invention": {
+        "attempt": 2,
+        "author_prose": "A low-vision hotel turnover worker first lets the glasses scan the bedroom desk and shelf before continuing a room reset. The observed baseline has a phone, mug, and hand towel on the desk and a welcome gift on the shelf. After reviewing the layout, the worker is briefly interrupted by a headset call. While resuming, they absentmindedly lift the phone out of the way and set it beside the gift without noticing that its location has changed. They then carry the hand towel to the bathroom shelf as intended, check the shelf, and spend several minutes finishing the call and reviewing the room-reset instructions. On returning to the bedroom they scan the current desk and ask only, 'I've finished taking the towel to the bathroom. Did anything else in the bedroom get moved that I need to put back?' The assistant compares the current view with the earlier baseline and reports only the unintended change: the phone moved from the desk to the shelf. It correctly excludes the intended towel move and the unchanged mug and gift, allowing the worker to restore just the phone. A weak narration merely lists the current scene or flags the intentional towel move, leaving the phone misplaced.",
+        "author_prose_sha256": "sha256:b434cfd49ccfeca19d8c85b9af5311bc668e2e856358731affbf478eebbc7c57",
+        "capability": {
+          "boundary": "Do not replay a full room inventory. The core operation is a visual diff across time.",
+          "few_shot": "A blind tenant returns to a shared workroom whose baseline the glasses observed earlier: a storage cabinet was closed and a supply basket was on the rear shelf. Now the cabinet is open and the basket has been moved to the central table; the other visible furniture is unchanged. The assistant reports only those two changes, mentioning the open cabinet first because it affects the immediate reach. The wearer closes the cabinet and returns the basket to its shelf. Earlier evidence anchors the baseline, the authored response records the change-only description, and the closed and on predicates expose whether the useful consequences were completed.",
+          "id": "NARRATE.CHANGE_DESCRIPTION",
+          "name_zh": "变化检测叙述",
+          "target": "Compare the present scene with a known baseline and report only meaningful changes, prioritising any change that affects safety or the current goal."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "NARRATE.CHANGE_DESCRIPTION",
+          "evaluation_mode": "TRACE_AND_OUTCOME",
+          "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": true,
+          "owner": "SIMULATOR_EVALUATION",
+          "reason": "Baseline and changed states run, but spoken change precision and recall lack a dedicated scorer.",
+          "reason_code": "CHANGE_DESCRIPTION_EVALUATOR",
+          "recommended_work": "Add baseline-diff narration precision, recall, and priority evaluation.",
+          "version": "capability-support/1.0",
+          "workstream": "EVALUATOR"
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "candy_dispenser_shelf",
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "compost_bin",
+            "dessert_stand",
+            "dish_rack_cart",
+            "dishwasher",
+            "display_case",
+            "display_fridge",
+            "dry_food_dispenser_shelf",
+            "free_weight_rack",
+            "freezer",
+            "fridge",
+            "grocery_fridge",
+            "grocery_shelf",
+            "locker",
+            "magazine_stand",
+            "metal_bottom_cabinet",
+            "oven",
+            "public_trash_can",
+            "recycling_bin",
+            "serving_cart",
+            "shelf",
+            "shopping_cart",
+            "snack_rack",
+            "top_cabinet",
+            "trash_can",
+            "umbrella_rack",
+            "vending_machine",
+            "wardrobe",
+            "washer",
+            "wine_fridge"
+          ],
+          "allowed_loose_categories": [
+            "mug",
+            "cell_phone",
+            "gift_box",
+            "hand_towel",
+            "box_of_lemons",
+            "half_buttermilk_pancake",
+            "half_virginia_ham",
+            "sliced_melon",
+            "decorative_sign",
+            "half_pita",
+            "salad",
+            "boxed_cpu_board",
+            "postcard",
+            "trowel",
+            "taco",
+            "kielbasa",
+            "lipstick",
+            "biscuit",
+            "marker",
+            "syringe",
+            "half_agave",
+            "bottle_of_black_pepper",
+            "bell_pepper",
+            "bottle_of_champagne"
+          ],
+          "allowed_surface_categories": [
+            "desk",
+            "shelf"
+          ],
+          "capability_id": "NARRATE.CHANGE_DESCRIPTION",
+          "coverage_categories": [
+            "box_of_lemons",
+            "half_buttermilk_pancake",
+            "half_virginia_ham",
+            "sliced_melon",
+            "decorative_sign",
+            "half_pita",
+            "salad",
+            "boxed_cpu_board",
+            "postcard",
+            "trowel",
+            "taco",
+            "kielbasa",
+            "lipstick",
+            "biscuit",
+            "marker",
+            "syringe",
+            "half_agave",
+            "bottle_of_black_pepper",
+            "bell_pepper",
+            "bottle_of_champagne"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 1,
+            "required_semantic_turns": 1,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": false,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_memory_gap": true,
+            "requires_reselection": false,
+            "single_wearer_only": true,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "NARRATE",
+          "limits": {
+            "max_authored_actions": 26,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_meaningful_steps": 15,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 18,
+            "max_small_label_characters": 8,
+            "max_task_actions": 12,
+            "min_intervening_meaningful_actions": 3,
+            "min_meaningful_steps": 1
+          },
+          "preferred_story_categories": [
+            "mug",
+            "cell_phone",
+            "gift_box",
+            "hand_towel"
+          ],
+          "preferred_story_category_glosses": {
+            "cell_phone": "",
+            "gift_box": "",
+            "hand_towel": "",
+            "mug": ""
+          },
+          "rooms": [
+            {
+              "area_m2": 39.7,
+              "name": "bedroom_0",
+              "scene_containers": {},
+              "scene_surfaces": {
+                "desk": 1,
+                "shelf": 1
+              },
+              "surface_max_area_m2": {
+                "desk": 0.227,
+                "shelf": 0.263
+              },
+              "surface_reference_capacity": {
+                "desk": 3,
+                "shelf": 3
+              }
+            },
+            {
+              "area_m2": 23.2,
+              "name": "bathroom_0",
+              "scene_containers": {},
+              "scene_surfaces": {
+                "shelf": 2
+              },
+              "surface_max_area_m2": {
+                "shelf": 0.211
+              },
+              "surface_reference_capacity": {
+                "shelf": 3
+              }
+            }
+          ],
+          "scene": "hotel_suite_large",
+          "task_id": "NARRATE-104000",
+          "version": "grounded-authoring/3.1-hard-context-20260901"
+        },
+        "prompt_sha": "8145f28ea17f",
+        "prompt_sha256": "sha256:8145f28ea17f6b57d3f2f26635846b3d8d90509d31f1d7c1430d093e650ea31f",
+        "prompt_version": "capability-v40-template-cap3-20260901",
+        "prose_sha256": "sha256:4d71b1010c05a11cf2f8210477c10567367a44be26a34699eacf4a268c3bbd04",
+        "review": {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "the phone was on the bedroom desk in the baseline",
+                "derived_from": [],
+                "established_by": "LookAt/LookScan of desk and shelf at the baseline beat",
+                "runtime_support": "observed on(cell_phone, desk) at inspection",
+                "source": "prior_action"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "the phone is now on the bedroom shelf",
+                "derived_from": [],
+                "established_by": "the enacted Put cell_phone on shelf while clearing space",
+                "runtime_support": "on(cell_phone, shelf) after the move",
+                "source": "prior_action"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "only the phone needs restoring; the towel move was intended",
+                "derived_from": [
+                  "the phone was on the bedroom desk in the baseline",
+                  "the phone is now on the bedroom shelf"
+                ],
+                "established_by": "comparing observed baseline against current state and against the stated intended towel move",
+                "runtime_support": "baseline observation plus enacted moves plus utterance intent",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "report current scene instead of a baseline diff",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "strong names only the shifted phone and restores it; weak recites current state and leaves phone on shelf"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "the observed baseline that the phone was on the desk, versus the current view where it sits on the shelf beside the gift box",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "observe bedroom baseline",
+              "accidentally move phone to shelf while clearing space",
+              "carry towel to bathroom and place it",
+              "return and query the change",
+              "restore phone to desk"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 4,
+              "reason": "the phone shift is separated from the query by carrying the towel to the bathroom, placing it, confirming it, and walking back",
+              "required": true,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": false,
+              "assistant_need": "memory of the observed baseline plus a visual diff the low-vision wearer cannot perform",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "assistant diff dialogue",
+                  "Put cell_phone on desk",
+                  "on(cell_phone, desk) scorer"
+                ],
+                "description": "restore the accidentally shifted phone to the desk",
+                "grounded_in": "tell me only what changed that I need to put back",
+                "id": "g1",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "the wearer asks only for what changed that needs restoring, leaving the diff inference to the assistant",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "the low-vision wearer cannot visually resolve the changed layout and did not consciously register moving the phone while clearing space",
+            "why_utterance_alone_fails": "the wearer only names an intent to move the towel and does not state that the phone was accidentally shifted, so a text-only assistant cannot know the phone changed"
+          },
+          "capability_fit": "The task requires comparing a remembered observed baseline against the current occluded scene and reporting only the accidentally-shifted phone while filtering the intended towel move, which is exactly NARRATE.CHANGE_DESCRIPTION.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cell_phone",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "cell phone accidentally shifted"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "mug",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "mug unchanged distractor"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "gift_box",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "gift box unchanged distractor"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "hand_towel",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "hand towel intended move"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "A low-vision hotel turnover worker first lets the glasses scan the bedroom desk and shelf before continuing a room reset. The observed baseline has a phone, mug, and hand towel on the desk and a welcome gift on the shelf. After reviewing the layout, the worker is briefly interrupted by a headset call. While resuming, they absentmindedly lift the phone out of the way and set it beside the gift without noticing that its location has changed. They then carry the hand towel to the bathroom shelf as intended, check the shelf, and spend several minutes finishing the call and reviewing the room-reset instructions. On returning to the bedroom they scan the current desk and ask only, 'I've finished taking the towel to the bathroom. Did anything else in the bedroom get moved that I need to put back?' The assistant compares the current view with the earlier baseline and reports only the unintended change: the phone moved from the desk to the shelf. It correctly excludes the intended towel move and the unchanged mug and gift, allowing the worker to restore just the phone. A weak narration merely lists the current scene or flags the intentional towel move, leaving the phone misplaced.",
+              "scene": "hotel_suite_large",
+              "why_scene": "the assigned scene provides bedroom_0 with a desk and shelf and bathroom_0 with shelves, matching the baseline-and-move structure."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "can the assistant report only the meaningful accidental change against the observed baseline",
+                "counterfactual_failure": "weak assistant narrates the current scene, misses the shifted phone, and the wearer leaves it on the shelf",
+                "forbidden_changes": [
+                  "treating the intended towel move as a change to restore",
+                  "moving the mug or gift box"
+                ],
+                "knowledge_constraints": [
+                  "no common sense; rely on observed baseline and enacted moves"
+                ],
+                "required_evidence": [
+                  "baseline LookAt of desk and shelf before the phone move",
+                  "enacted Put of phone onto shelf",
+                  "enacted towel move to bathroom"
+                ],
+                "required_final_predicates": [
+                  "on",
+                  "unmoved"
+                ],
+                "success_condition": "phone on desk after restoration",
+                "temporal_constraints": [
+                  "baseline observed before change",
+                  "at least three intervening meaningful actions before query"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "the changed object to restore",
+                  "what": "cell phone accidentally shifted",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "unchanged desk item",
+                  "what": "mug unchanged distractor",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "unchanged shelf item",
+                  "what": "gift box unchanged distractor",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "the deliberately relocated item",
+                  "what": "hand towel intended move",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "identifying that the phone shifted from desk to shelf while filtering the intended towel move",
+              "look_alike": [],
+              "opening": "wearer states baseline-remember goal at turn zero, inspects desk and shelf baseline, accidentally moves phone to shelf, grabs towel",
+              "outcome": "the phone is restored to the desk while mug, gift box, and bathroom towel remain untouched",
+              "place": "bedroom_0 and bathroom_0 of hotel_suite_large",
+              "printed": [],
+              "tests_what": "comparing an observed baseline to the current scene and reporting only the meaningful accidental change"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "This is a clean change-description task: the wearer explicitly establishes a baseline (phone and mug on desk, gift box on shelf, towel on desk) via camera inspection, then unknowingly shifts the phone from desk to shelf while clearing space, moves the towel out as the intended change, and after three-plus intervening meaningful actions asks what changed. The strong assistant produces a filtered visual diff naming only the phone as the accidental change and directs restoration; the weak assistant recites current state or misclassifies the intended towel move, leaving the phone on the shelf. The baseline is observed in an explicit earlier beat, not asserted at turn zero, the memory gap is genuine, and all props (mug, cell_phone, gift_box, hand_towel) and surfaces (desk, shelf) bind exactly to the grounding contract. Final restoration is scorable via on(cell_phone, desk).",
+          "requirements": [
+            "Keep the baseline observation as an explicit LookAt/LookScan beat before the phone is moved, not a turn-zero assertion.",
+            "Ensure at least three meaningful intervening actions separate the phone shift from the final question (towel carry, place, look, walk back, look qualify).",
+            "Keep the weak branch physical work identical up to the diff so the distinguishing channel is the diff dialogue plus final phone-on-desk state."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Walk",
+              "Grab",
+              "Put",
+              "LookAt",
+              "LookScan"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 14,
+            "estimated_prologue_actions": 8,
+            "estimated_task_actions": 6,
+            "events": [],
+            "final_predicates": [
+              "on",
+              "unmoved"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 79.9,
+          "structural_signature": {
+            "evaluation": "final phone-on-desk state plus diff dialogue channel",
+            "evidence": "observed baseline plus current occluded view",
+            "failure": "current-scene narration misses shifted phone",
+            "operation": "visual diff filtering intended from accidental change",
+            "response": "single filtered restoration instruction",
+            "template_class": "baseline_diff_accidental_shift_restore",
+            "temporal": "baseline observed, change enacted, memory gap, then query"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "actor_scope": {
+                "live_physical_actors": [
+                  "wearer"
+                ],
+                "other_person_changes_world": false
+              },
+              "core_claims": [
+                {
+                  "available_before_turn": 0,
+                  "claim": "the phone was on the bedroom desk in the baseline",
+                  "derived_from": [],
+                  "established_by": "LookAt/LookScan of desk and shelf at the baseline beat",
+                  "runtime_support": "observed on(cell_phone, desk) at inspection",
+                  "source": "prior_action"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "the phone is now on the bedroom shelf",
+                  "derived_from": [],
+                  "established_by": "the enacted Put cell_phone on shelf while clearing space",
+                  "runtime_support": "on(cell_phone, shelf) after the move",
+                  "source": "prior_action"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "only the phone needs restoring; the towel move was intended",
+                  "derived_from": [
+                    "the phone was on the bedroom desk in the baseline",
+                    "the phone is now on the bedroom shelf"
+                  ],
+                  "established_by": "comparing observed baseline against current state and against the stated intended towel move",
+                  "runtime_support": "baseline observation plus enacted moves plus utterance intent",
+                  "source": "derived"
+                }
+              ],
+              "counterfactual_contract": {
+                "allowed_other_differences": [],
+                "operator": "report current scene instead of a baseline diff",
+                "shared_obligations": [
+                  "g1"
+                ],
+                "target_difference": "strong names only the shifted phone and restores it; weak recites current state and leaves phone on shelf"
+              },
+              "cross_field_consistency": {
+                "conflicts": [],
+                "consistent": true
+              },
+              "decisive_fact_absent_from_utterance": true,
+              "egocentric_evidence": "the observed baseline that the phone was on the desk, versus the current view where it sits on the shelf beside the gift box",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "meaningful_steps": [
+                "observe bedroom baseline",
+                "accidentally move phone to shelf while clearing space",
+                "carry towel to bathroom and place it",
+                "return and query the change",
+                "restore phone to desk"
+              ],
+              "memory_gap": {
+                "intervening_meaningful_actions": 4,
+                "reason": "the phone shift is separated from the query by carrying the towel to the bathroom, placing it, confirming it, and walking back",
+                "required": true,
+                "wearer_just_established_answer": false
+              },
+              "physical_plausibility": {
+                "credible": true,
+                "issues": []
+              },
+              "semantic_turns": 1,
+              "story_world_mismatches": [],
+              "strong_completes_user_goal": true,
+              "strong_weak_distinct": true,
+              "turn0_access": {
+                "answer_fully_visible": false,
+                "assistant_need": "memory of the observed baseline plus a visual diff the low-vision wearer cannot perform",
+                "wearer_can_self_serve": false
+              },
+              "ungrounded_physical_nouns": [],
+              "unmodeled_claims": [],
+              "user_goal_obligations": [
+                {
+                  "covered_by": [
+                    "assistant diff dialogue",
+                    "Put cell_phone on desk",
+                    "on(cell_phone, desk) scorer"
+                  ],
+                  "description": "restore the accidentally shifted phone to the desk",
+                  "grounded_in": "tell me only what changed that I need to put back",
+                  "id": "g1",
+                  "kind": "physical"
+                }
+              ],
+              "uses_only_grounded_assets": true,
+              "utterance_policy": {
+                "prescribes_assistant_words_or_trigger": false,
+                "reason": "the wearer asks only for what changed that needs restoring, leaving the diff inference to the assistant",
+                "states_goal_not_solution": true
+              },
+              "weak_shared_work_complete": true,
+              "why_user_needs_assistant": "the low-vision wearer cannot visually resolve the changed layout and did not consciously register moving the phone while clearing space",
+              "why_utterance_alone_fails": "the wearer only names an intent to move the towel and does not state that the phone was accidentally shifted, so a text-only assistant cannot know the phone changed"
+            },
+            "capability_fit": "The task requires comparing a remembered observed baseline against the current occluded scene and reporting only the accidentally-shifted phone while filtering the intended towel move, which is exactly NARRATE.CHANGE_DESCRIPTION.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "cell_phone",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "cell phone accidentally shifted"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "mug",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "mug unchanged distractor"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "gift_box",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "gift box unchanged distractor"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "hand_towel",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "hand towel intended move"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "A low-vision hotel turnover worker first lets the glasses scan the bedroom desk and shelf before continuing a room reset. The observed baseline has a phone, mug, and hand towel on the desk and a welcome gift on the shelf. After reviewing the layout, the worker is briefly interrupted by a headset call. While resuming, they absentmindedly lift the phone out of the way and set it beside the gift without noticing that its location has changed. They then carry the hand towel to the bathroom shelf as intended, check the shelf, and spend several minutes finishing the call and reviewing the room-reset instructions. On returning to the bedroom they scan the current desk and ask only, 'I've finished taking the towel to the bathroom. Did anything else in the bedroom get moved that I need to put back?' The assistant compares the current view with the earlier baseline and reports only the unintended change: the phone moved from the desk to the shelf. It correctly excludes the intended towel move and the unchanged mug and gift, allowing the worker to restore just the phone. A weak narration merely lists the current scene or flags the intentional towel move, leaving the phone misplaced.",
+                "scene": "hotel_suite_large",
+                "why_scene": "the assigned scene provides bedroom_0 with a desk and shelf and bathroom_0 with shelves, matching the baseline-and-move structure."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "can the assistant report only the meaningful accidental change against the observed baseline",
+                  "counterfactual_failure": "weak assistant narrates the current scene, misses the shifted phone, and the wearer leaves it on the shelf",
+                  "forbidden_changes": [
+                    "treating the intended towel move as a change to restore",
+                    "moving the mug or gift box"
+                  ],
+                  "knowledge_constraints": [
+                    "no common sense; rely on observed baseline and enacted moves"
+                  ],
+                  "required_evidence": [
+                    "baseline LookAt of desk and shelf before the phone move",
+                    "enacted Put of phone onto shelf",
+                    "enacted towel move to bathroom"
+                  ],
+                  "required_final_predicates": [
+                    "on",
+                    "unmoved"
+                  ],
+                  "success_condition": "phone on desk after restoration",
+                  "temporal_constraints": [
+                    "baseline observed before change",
+                    "at least three intervening meaningful actions before query"
+                  ]
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "the changed object to restore",
+                    "what": "cell phone accidentally shifted",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "drives_the_story",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "unchanged desk item",
+                    "what": "mug unchanged distractor",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "drives_the_story",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "unchanged shelf item",
+                    "what": "gift box unchanged distractor",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "the deliberately relocated item",
+                    "what": "hand towel intended move",
+                    "when": "both"
+                  }
+                ],
+                "hinges_on": "identifying that the phone shifted from desk to shelf while filtering the intended towel move",
+                "look_alike": [],
+                "opening": "wearer states baseline-remember goal at turn zero, inspects desk and shelf baseline, accidentally moves phone to shelf, grabs towel",
+                "outcome": "the phone is restored to the desk while mug, gift box, and bathroom towel remain untouched",
+                "place": "bedroom_0 and bathroom_0 of hotel_suite_large",
+                "printed": [],
+                "tests_what": "comparing an observed baseline to the current scene and reporting only the meaningful accidental change"
+              }
+            },
+            "duplicate_of": null,
+            "reason": "This is a clean change-description task: the wearer explicitly establishes a baseline (phone and mug on desk, gift box on shelf, towel on desk) via camera inspection, then unknowingly shifts the phone from desk to shelf while clearing space, moves the towel out as the intended change, and after three-plus intervening meaningful actions asks what changed. The strong assistant produces a filtered visual diff naming only the phone as the accidental change and directs restoration; the weak assistant recites current state or misclassifies the intended towel move, leaving the phone on the shelf. The baseline is observed in an explicit earlier beat, not asserted at turn zero, the memory gap is genuine, and all props (mug, cell_phone, gift_box, hand_towel) and surfaces (desk, shelf) bind exactly to the grounding contract. Final restoration is scorable via on(cell_phone, desk).",
+            "requirements": [
+              "Keep the baseline observation as an explicit LookAt/LookScan beat before the phone is moved, not a turn-zero assertion.",
+              "Ensure at least three meaningful intervening actions separate the phone shift from the final question (towel carry, place, look, walk back, look qualify).",
+              "Keep the weak branch physical work identical up to the diff so the distinguishing channel is the diff dialogue plus final phone-on-desk state."
+            ],
+            "runtime_requirements": {
+              "actions": [
+                "Walk",
+                "Grab",
+                "Put",
+                "LookAt",
+                "LookScan"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 14,
+              "estimated_prologue_actions": 8,
+              "estimated_task_actions": 6,
+              "events": [],
+              "final_predicates": [
+                "on",
+                "unmoved"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 79.9,
+            "structural_signature": {
+              "evaluation": "final phone-on-desk state plus diff dialogue channel",
+              "evidence": "observed baseline plus current occluded view",
+              "failure": "current-scene narration misses shifted phone",
+              "operation": "visual diff filtering intended from accidental change",
+              "response": "single filtered restoration instruction",
+              "template_class": "baseline_diff_accidental_shift_restore",
+              "temporal": "baseline observed, change enacted, memory gap, then query"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "hotel_suite_large",
+        "sha": "4d71b1010c05",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v62_gapfill_gpt55_opus_20260902a/compile_input/NARRATE/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gpt-5-5-genai-responses",
+        "judge_model": "claude-4-8-opus-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260901s"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_micro24_v62_gapfill_gpt55_opus_20260902a",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v40-template-cap3-20260901",
+        "release_id": "sha256:60a52a875602723acc847e9f6cb705448c53d0040cc54b78fb041490adb022d6",
+        "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "normalizations": [
+        {
+          "kind": "manual_story_revision",
+          "result": "narrate14-user-review-r4-20260912",
+          "source": "NARRATE-104000"
+        },
+        {
+          "kind": "canonicalize_required_evidence",
+          "source": "[\"I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home.\", \"The phone was visibly placed on the dining-room table.\", \"The wearer visibly stores the apple in the built-in refrigerator without the phone.\", \"Many concrete kitchen actions and a pause separate the phone placement from the memory question.\", \"The wearer has returned to the dining-room table and recovered the phone.\", \"The phone is visibly resting on its specific living-room coffee table.\"]",
+          "result": "[\"I can't remember where I left my phone after that call. Where did I put it? Please retrieve it and put it on the living-room coffee table so it has a clear home.\", \"The phone was visibly placed on the dining-room table.\", \"The wearer visibly stores the apple in the built-in refrigerator without the phone.\", \"Many concrete kitchen actions and a pause separate the phone placement from the memory question.\", \"The wearer has returned to the dining-room table and recovered the phone.\", \"The phone is visibly resting on its specific living-room coffee table.\", \"You left the phone on the dining-room table after the call. It stayed there while you returned to the kitchen, put an apple in the refrigerator, moved a mug, and wiped the counter again. Retrieve it from the dining room and place it on the living-room coffee table.\"]"
+        }
+      ],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "NARRATE-104000",
+      "capability_id": "NARRATE.EPISODIC_OBJECT_MEMORY",
+      "capability_notes": [
+        "After the phone placement, the wearer performs a concrete refrigerator task, a mug transfer, and a second counter-cleaning pass entirely in the kitchen.",
+        "The phone ends visibly on an exact scene-native living-room coffee table rather than remaining in the wearer's hand.",
+        "The answer depends on observed episode history rather than a text label or engine memory primitive."
+      ],
+      "revision": "narrate14-user-review-r4-20260912"
+    },
+    "oracle_dialogue_override_ids": [
+      "narrate104000_phone_location",
+      "narrate104000_phone_transfer",
+      "narrate104000_phone_placement"
+    ]
+  }
+}

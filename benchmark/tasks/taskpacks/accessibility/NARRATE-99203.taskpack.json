@@ -1,0 +1,4148 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "NARRATE-99203",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "shoe",
+          "target": "kitchen_counter"
+        },
+        {
+          "pred": "inside",
+          "subject": "milk",
+          "target": "fridge"
+        },
+        {
+          "pred": "closed",
+          "subject": "fridge",
+          "target": "fridge"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "shoe",
+          "target": "kitchen_counter"
+        },
+        {
+          "pred": "inside",
+          "subject": "milk",
+          "target": "fridge"
+        },
+        {
+          "pred": "closed",
+          "subject": "fridge",
+          "target": "fridge"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "fridge"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "milk",
+          "shoe"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer cannot infer the answer from speech alone; the weak branch demonstrates the visible mistake or unsafe continuation.",
+        "assistant_must": "Not yet. A bright red gym shoe is plainly visible on the open refrigerator shelf and does not belong there. Set the milk on the counter, remove the shoe to that counter, then put the milk inside and close the door.",
+        "cue": "I opened the refrigerator to put this milk away. Is it clear to use?",
+        "premise": "The wearer picks up milk, opens the kitchen's built-in refrigerator, and immediately sees a large high-contrast red gym shoe on the reachable shelf. The wrong object is obvious from the normal standing view and must be removed before the milk is stored."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "NARRATE",
+      "grounding": {
+        "cite": "I opened the refrigerator to put this milk away. Is it clear to use?",
+        "kind": "authored",
+        "ref": "data_generate:NARRATE-99203"
+      },
+      "rule_table": "on(shoe, kitchen_counter); inside(milk, fridge); closed(fridge)",
+      "scene": "house_single_floor",
+      "template": "the grounded house_single_floor scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 13,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 13,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "kitchen_counter"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "milk"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "shoe"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "milk",
+            "kitchen_counter"
+          ],
+          "place_spot": [
+            0.42,
+            0.45
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "shoe"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "shoe",
+            "kitchen_counter"
+          ],
+          "place_spot": [
+            -0.42,
+            0.45
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "milk"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "milk",
+            "fridge",
+            "fridge_space1"
+          ],
+          "place_spot": [
+            0.45,
+            0.5
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "milk"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "fridge"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "NARRATE",
+      "authored_by": "data_generate.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[PutOn] <milk> (1) <kitchen_counter> (1) @place_spot=0.42:0.45, [Grab] <shoe> (1), [PutOn] <shoe> (1) <kitchen_counter> (1) @place_spot=-0.42:0.45, [Grab] <milk> (1), [PutInside] <milk> (1) <fridge> (1) <fridge_space1> (1) @place_spot=0.45:0.5, [LookAt] <milk> (1), [Close] <fridge> (1)",
+      "seed": 3762605817,
+      "source_task_id": "NARRATE-99203"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "shoe",
+          "target": "kitchen_counter"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "milk",
+          "target": "fridge"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "fridge",
+          "target": "fridge"
+        }
+      ],
+      "sub_steps": [
+        "on(shoe, kitchen_counter)",
+        "inside(milk, fridge)",
+        "closed(fridge)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "NARRATE-99203",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 3762605817,
+      "containers": {
+        "fridge": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "fridge",
+            "source": "scene",
+            "pick": {
+              "name": "fridge_dszchb_0",
+              "stage_prim_path": "/World/b_fridge_dszchb_0",
+              "asset_sha256": "sha256:ffcdc68d33e823239a36c64e293e9e4ed2f6de870a4859ddbb5e3dc51e6b27cf",
+              "instance_digest": "sha256:36288ad94c3c6c274b365899671d37ad2d827bce7ed77ba66f4f6fad0fb156b6",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "kitchen_0"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "kitchen_counter": {
+          "bind": {
+            "cat": "countertop",
+            "source": "scene",
+            "pick": {
+              "name": "countertop_kelker_0",
+              "stage_prim_path": "/World/b_countertop_kelker_0",
+              "asset_sha256": "sha256:8d1be4a4d069ea186721bc8e87e7e2eb867102b060b8b62df6909d0797d4f0c9",
+              "instance_digest": "sha256:ad24da0cf2b643c5f98025e0287f912bfb347c85239e912d1e8ea7616bd4c04d",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {},
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "shoe": {
+          "cat": "gym_shoe",
+          "model": "mcfcwq",
+          "needs_lookat": false,
+          "place": "in:fridge",
+          "room": "kitchen_0",
+          "scored": true,
+          "initial_space": "fridge_space1",
+          "tint": "red"
+        },
+        "milk": {
+          "cat": "box_of_milk",
+          "model": "ahmgjv",
+          "needs_lookat": false,
+          "place": "on:kitchen_counter",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            0.45
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "kitchen_0"
+      ],
+      "scene": "house_single_floor",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "The wearer picks up milk, opens the kitchen's built-in refrigerator, and immediately sees a large high-contrast red gym shoe on the reachable shelf. The wrong object is obvious from the normal standing view and must be removed before the milk is stored.",
+    "assistant_goal": "I opened the refrigerator to put this milk away. Is it clear to use?",
+    "assessment_contract": {
+      "assigned_capability_id": "NARRATE.HIDDEN_HAZARD_INSPECTION",
+      "assigned_scene": "house_single_floor",
+      "core_question": "I opened the refrigerator to put this milk away. Is it clear to use?",
+      "counterfactual_failure": "The weak branch acts on a mistaken identity, stale layout, unsafe route, or incomplete count and fails at least one scored predicate.",
+      "forbidden_changes": [
+        "Adding toy labels to ordinary furniture",
+        "Putting decisive visual evidence into the wearer's utterance",
+        "Moving an assistant turn after the action it is meant to correct"
+      ],
+      "knowledge_constraints": [
+        "The wearer picks up milk, opens the kitchen's built-in refrigerator, and immediately sees a large high-contrast red gym shoe on the reachable shelf. The wrong object is obvious from the normal standing view and must be removed before the milk is stored."
+      ],
+      "required_evidence": [
+        "I opened the refrigerator to put this milk away. Is it clear to use?",
+        "The wearer is holding the milk carton intended for the refrigerator.",
+        "The open refrigerator view plainly shows a large bright red gym shoe on the shelf.",
+        "The milk has been set safely on the counter.",
+        "The red shoe is out of the refrigerator and resting on the counter.",
+        "The milk is visibly inside while the shoe remains safely outside.",
+        "The refrigerator door is closed after the correction.",
+        "Not yet. A bright red gym shoe is plainly visible on the open refrigerator shelf and does not belong there. Set the milk on the counter, remove the shoe to that counter, then put the milk inside and close the door."
+      ],
+      "required_final_predicates": [
+        "on",
+        "inside",
+        "closed"
+      ],
+      "success_condition": "on(shoe, kitchen_counter); inside(milk, fridge); closed(fridge)",
+      "temporal_constraints": [
+        "Each intervention follows its evidence and precedes the corresponding action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "NARRATE-99203",
+      "family": "NARRATE",
+      "kind": "grounded egocentric narration",
+      "assessment_contract": {
+        "assigned_capability_id": "NARRATE.HIDDEN_HAZARD_INSPECTION",
+        "assigned_scene": "house_single_floor",
+        "core_question": "I opened the refrigerator to put this milk away. Is it clear to use?",
+        "counterfactual_failure": "The weak branch acts on a mistaken identity, stale layout, unsafe route, or incomplete count and fails at least one scored predicate.",
+        "forbidden_changes": [
+          "Adding toy labels to ordinary furniture",
+          "Putting decisive visual evidence into the wearer's utterance",
+          "Moving an assistant turn after the action it is meant to correct"
+        ],
+        "knowledge_constraints": [
+          "The wearer picks up milk, opens the kitchen's built-in refrigerator, and immediately sees a large high-contrast red gym shoe on the reachable shelf. The wrong object is obvious from the normal standing view and must be removed before the milk is stored."
+        ],
+        "required_evidence": [
+          "I opened the refrigerator to put this milk away. Is it clear to use?",
+          "The wearer is holding the milk carton intended for the refrigerator.",
+          "The open refrigerator view plainly shows a large bright red gym shoe on the shelf.",
+          "The milk has been set safely on the counter.",
+          "The red shoe is out of the refrigerator and resting on the counter.",
+          "The milk is visibly inside while the shoe remains safely outside.",
+          "The refrigerator door is closed after the correction.",
+          "Not yet. A bright red gym shoe is plainly visible on the open refrigerator shelf and does not belong there. Set the milk on the counter, remove the shoe to that counter, then put the milk inside and close the door."
+        ],
+        "required_final_predicates": [
+          "on",
+          "inside",
+          "closed"
+        ],
+        "success_condition": "on(shoe, kitchen_counter); inside(milk, fridge); closed(fridge)",
+        "temporal_constraints": [
+          "Each intervention follows its evidence and precedes the corresponding action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "baseball_cap",
+          "birdcage",
+          "bleu",
+          "bottle_of_lime_juice",
+          "bottle_of_solvent",
+          "bottle_of_tonic",
+          "box_of_milk",
+          "cell_phone",
+          "chicken_breast",
+          "clout_nail",
+          "cucumber",
+          "curry_powder_shaker",
+          "doll",
+          "fire_alarm",
+          "folder",
+          "gift_box",
+          "gym_shoe",
+          "half_bok_choy",
+          "half_gourd",
+          "half_kiwi",
+          "half_lime",
+          "half_macaroon",
+          "half_orange",
+          "half_shiitake",
+          "hand_towel",
+          "jar_of_tumeric",
+          "lampshade",
+          "lint_screen",
+          "maillot",
+          "modem",
+          "mug",
+          "oat_box",
+          "orange_juice_carton",
+          "outline_vase",
+          "oyster",
+          "pack_of_cigarettes",
+          "package",
+          "pattypan_squash",
+          "peach",
+          "postcard",
+          "pottable_beefsteak_tomato",
+          "roasting_pan",
+          "scanner",
+          "sponge",
+          "tassel",
+          "whetstone"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "bottom_cabinet_no_top",
+          "countertop"
+        ],
+        "capability_id": "NARRATE.HIDDEN_HAZARD_INSPECTION",
+        "coverage_categories": [
+          "whetstone",
+          "bottle_of_tonic",
+          "baseball_cap",
+          "fire_alarm",
+          "pack_of_cigarettes",
+          "oat_box",
+          "half_macaroon",
+          "tassel",
+          "bottle_of_lime_juice",
+          "half_lime",
+          "half_orange",
+          "hand_towel",
+          "package",
+          "half_gourd",
+          "scanner",
+          "modem",
+          "bleu",
+          "curry_powder_shaker",
+          "doll",
+          "oyster"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 4,
+          "required_semantic_turns": 4,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "NARRATE",
+        "limits": {
+          "max_authored_actions": 17,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_meaningful_steps": 13,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 6,
+          "max_small_label_characters": 40,
+          "max_task_actions": 7,
+          "min_intervening_meaningful_actions": 6,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "cell_phone",
+          "apple",
+          "folder",
+          "mug"
+        ],
+        "preferred_story_category_glosses": {
+          "apple": "fruit with red or yellow or green skin and sweet to tart crisp whitish flesh",
+          "cell_phone": "",
+          "folder": "",
+          "mug": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 23.8,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "bottom_cabinet": 1,
+              "dishwasher": 1,
+              "fridge": 1
+            },
+            "scene_surfaces": {
+              "bar": 1,
+              "bottom_cabinet_no_top": 2,
+              "countertop": 2
+            },
+            "surface_max_area_m2": {
+              "bar": 0.864,
+              "bottom_cabinet_no_top": 0.533,
+              "countertop": 1.116
+            },
+            "surface_reference_capacity": {
+              "bar": 3,
+              "bottom_cabinet_no_top": 3,
+              "countertop": 3
+            }
+          }
+        ],
+        "scene": "house_single_floor",
+        "task_id": "NARRATE-99203",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "gym_shoe",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": "red",
+            "what": "bright red gym shoe plainly visible on the refrigerator shelf"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "box_of_milk",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "milk carton to put away"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "fridge",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "scene-built kitchen refrigerator"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "countertop",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "counter beside the refrigerator"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [],
+        "restaged_story": "The wearer picks up milk, opens the kitchen's built-in refrigerator, and immediately sees a large high-contrast red gym shoe on the reachable shelf. The wrong object is obvious from the normal standing view and must be removed before the milk is stored.",
+        "scene": "house_single_floor",
+        "why_scene": "house_single_floor supplies the rooms and fixtures used by this grounded NARRATE story."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "fridge": {
+            "cat": "fridge",
+            "initially_open": false,
+            "label": null,
+            "preload": [
+              "shoe"
+            ],
+            "role": "scored",
+            "room": "kitchen_0"
+          }
+        },
+        "items": {
+          "shoe": {
+            "affordances": [],
+            "cat": "gym_shoe",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": "fridge_space1",
+            "label": null,
+            "place": "in:fridge",
+            "scored": true,
+            "spot": null,
+            "tint": "red"
+          },
+          "milk": {
+            "affordances": [],
+            "cat": "box_of_milk",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:kitchen_counter",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.45
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <kitchen_counter> (1)",
+          "[Grab] <milk> (1)",
+          "[Walk] <fridge> (1)",
+          "[Open] <fridge> (1)",
+          "[LookAt] <shoe> (1)",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0"
+        ],
+        "scene": "house_single_floor",
+        "staging": {
+          "groups": "The wearer picks up milk, opens the kitchen's built-in refrigerator, and immediately sees a large high-contrast red gym shoe on the reachable shelf. The wrong object is obvious from the normal standing view and must be removed before the milk is stored.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "kitchen_counter": {
+            "cat": "countertop",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I opened the refrigerator to put this milk away. Is it clear to use?"
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "I opened the refrigerator to put this milk away. Is it clear to use?",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The wearer is holding the milk carton intended for the refrigerator.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The open refrigerator view plainly shows a large bright red gym shoe on the shelf.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 4,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The milk has been set safely on the counter.",
+            "from": "live",
+            "id": "fact_004",
+            "source_index": 0,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The red shoe is out of the refrigerator and resting on the counter.",
+            "from": "live",
+            "id": "fact_005",
+            "source_index": 2,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The milk is visibly inside while the shoe remains safely outside.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 5,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The refrigerator door is closed after the correction.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 6,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007"
+            ],
+            "fact": "Not yet. A bright red gym shoe is plainly visible on the open refrigerator shelf and does not belong there. Set the milk on the counter, remove the shoe to that counter, then put the milk inside and close the door.",
+            "from": "derived",
+            "id": "fact_008",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "shoe",
+            "target": "kitchen_counter"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "milk",
+            "target": "fridge"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "fridge",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "Stop: a bright red gym shoe is on the open refrigerator shelf. First place the milk carton you are holding on the kitchen counter where you picked it up, before reaching into the refrigerator.",
+            "referents": [
+              "shoe",
+              "fridge",
+              "milk",
+              "kitchen_counter"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 1,
+            "say": "Pick up the bright red gym shoe from inside the open kitchen refrigerator, then place that shoe on the kitchen counter beside the milk carton.",
+            "referents": [
+              "shoe",
+              "fridge",
+              "kitchen_counter",
+              "milk"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ]
+          },
+          {
+            "before_index": 3,
+            "say": "The refrigerator shelf is clear. Pick up the milk carton from the kitchen counter, put it inside the still-open kitchen refrigerator, and look directly at the milk on the shelf to confirm it. Keep the refrigerator door open until I tell you to close it.",
+            "referents": [
+              "shoe",
+              "milk",
+              "fridge"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ]
+          },
+          {
+            "before_index": 6,
+            "say": "The milk is visibly on the refrigerator shelf and the red shoe is on the kitchen counter. Close the refrigerator door now.",
+            "referents": [
+              "milk",
+              "shoe",
+              "fridge",
+              "kitchen_counter"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ]
+          }
+        ],
+        "hidden_fact": {
+          "what": "Not yet. A bright red gym shoe is plainly visible on the open refrigerator shelf and does not belong there. Set the milk on the counter, remove the shoe to that counter, then put the milk inside and close the door.",
+          "revealed_by": "[LookAt] <shoe> (1)",
+          "unavailable_because": "The answer depends on visual layout, prior observed state, or a document that the wearer cannot recover from the utterance alone."
+        },
+        "human_own_script": "[PutOn] <milk> (1) <kitchen_counter> (1), [Close] <fridge> (1)",
+        "mates": [],
+        "oracle_program": "[PutOn] <milk> (1) <kitchen_counter> (1) @place_spot=0.42:0.45, [Grab] <shoe> (1), [PutOn] <shoe> (1) <kitchen_counter> (1) @place_spot=-0.42:0.45, [Grab] <milk> (1), [PutInside] <milk> (1) <fridge> (1) <fridge_space1> (1) @place_spot=0.45:0.5, [LookAt] <milk> (1), [Close] <fridge> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "The wearer picks up milk, opens the kitchen's built-in refrigerator, and immediately sees a large high-contrast red gym shoe on the reachable shelf. The wrong object is obvious from the normal standing view and must be removed before the milk is stored.",
+        "utterance": "I opened the refrigerator to put this milk away. Is it clear to use?"
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <kitchen_counter> (1)",
+        "[Grab] <milk> (1)",
+        "[Walk] <fridge> (1)",
+        "[Open] <fridge> (1)",
+        "[LookAt] <shoe> (1)",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "kitchen_counter"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "kitchen_counter"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "milk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "milk"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The wearer is holding the milk carton intended for the refrigerator.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Not yet. A bright red gym shoe is plainly visible on the open refrigerator shelf and does not belong there. Set the milk on the counter, remove the shoe to that counter, then put the milk inside and close the door.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "shoe"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The open refrigerator view plainly shows a large bright red gym shoe on the shelf.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Not yet. A bright red gym shoe is plainly visible on the open refrigerator shelf and does not belong there. Set the milk on the counter, remove the shoe to that counter, then put the milk inside and close the door.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "I opened the refrigerator to put this milk away. Is it clear to use?",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "I opened the refrigerator to put this milk away. Is it clear to use?",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Not yet. A bright red gym shoe is plainly visible on the open refrigerator shelf and does not belong there. Set the milk on the counter, remove the shoe to that counter, then put the milk inside and close the door.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Stop: a bright red gym shoe is on the open refrigerator shelf. First place the milk carton you are holding on the kitchen counter where you picked it up, before reaching into the refrigerator.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Pick up the bright red gym shoe from inside the open kitchen refrigerator, then place that shoe on the kitchen counter beside the milk carton.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The refrigerator shelf is clear. Pick up the milk carton from the kitchen counter, put it inside the still-open kitchen refrigerator, and look directly at the milk on the shelf to confirm it. Keep the refrigerator door open until I tell you to close it.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_003",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The milk is visibly on the refrigerator shelf and the red shoe is on the kitchen counter. Close the refrigerator door now.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "milk",
+            "kitchen_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "milk",
+            "kitchen_counter"
+          ],
+          "place_spot": [
+            0.42,
+            0.45
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The milk has been set safely on the counter.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Not yet. A bright red gym shoe is plainly visible on the open refrigerator shelf and does not belong there. Set the milk on the counter, remove the shoe to that counter, then put the milk inside and close the door.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "shoe"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "shoe"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "shoe",
+            "kitchen_counter"
+          ],
+          "place_spot": [
+            -0.42,
+            0.45
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The red shoe is out of the refrigerator and resting on the counter.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Not yet. A bright red gym shoe is plainly visible on the open refrigerator shelf and does not belong there. Set the milk on the counter, remove the shoe to that counter, then put the milk inside and close the door.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "milk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "milk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "milk",
+            "fridge",
+            "fridge_space1"
+          ],
+          "place_spot": [
+            0.45,
+            0.5
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "milk",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "milk"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The milk is visibly inside while the shoe remains safely outside.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Not yet. A bright red gym shoe is plainly visible on the open refrigerator shelf and does not belong there. Set the milk on the counter, remove the shoe to that counter, then put the milk inside and close the door.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The refrigerator door is closed after the correction.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Not yet. A bright red gym shoe is plainly visible on the open refrigerator shelf and does not belong there. Set the milk on the counter, remove the shoe to that counter, then put the milk inside and close the door.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "I opened the refrigerator to put this milk away. Is it clear to use?",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The wearer is holding the milk carton intended for the refrigerator.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "The open refrigerator view plainly shows a large bright red gym shoe on the shelf.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p004"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 4
+      },
+      {
+        "id": "fact_004",
+        "statement": "The milk has been set safely on the counter.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o000"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 0
+      },
+      {
+        "id": "fact_005",
+        "statement": "The red shoe is out of the refrigerator and resting on the counter.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o002"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 2
+      },
+      {
+        "id": "fact_006",
+        "statement": "The milk is visibly inside while the shoe remains safely outside.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o005"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 5
+      },
+      {
+        "id": "fact_007",
+        "statement": "The refrigerator door is closed after the correction.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o006"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 6
+      },
+      {
+        "id": "fact_008",
+        "statement": "Not yet. A bright red gym shoe is plainly visible on the open refrigerator shelf and does not belong there. Set the milk on the counter, remove the shoe to that counter, then put the milk inside and close the door.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "p004",
+          "o000",
+          "o002",
+          "o005",
+          "o006"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the visual history and live views to answer the wearer's request and guide one grounded action at a time.",
+      "human_task_context": "You are the blind wearer and only the Assistant's physical executor, not a second planner. You receive no camera images. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the first currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. Perform at most one physical action per response, then wait for the next Assistant turn. Any machine-readable action choices supplied to you are private implementation details: never mention or ask about them in speech, and never use them to invent an answer, object location, route, source, destination, or next step that the Assistant did not state. Speak only as a real blind person would: describe what you physically did or felt, report a concrete failure, or ask briefly for an ordinary direction or visible description. Never volunteer a place or object that the Assistant has not mentioned in its current instruction, except for the object you are already holding or the request you stated in the fixed opening. You may act on a movable object only when you are already holding it, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source or landmark and a visible description sufficient to identify it. If that information is missing or wrong, leave the action empty and ask where the object is relative to you. Do not travel to or operate an unseen object merely because the private controls make it possible. Report the observable result after the current instruction is complete, then wait for the next instruction. You cannot see score or completion state and must never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <kitchen_counter> (1)",
+          "[Grab] <milk> (1)",
+          "[Walk] <fridge> (1)",
+          "[Open] <fridge> (1)",
+          "[LookAt] <shoe> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 5,
+            "say": "Hi Assistant, I'm blind, so I may need some visual help. I need to put this milk in the fridge. Does everything look okay?"
+          }
+        ],
+        "handoff_say": "Hi Assistant, I'm blind, so I may need some visual help. I need to put this milk in the fridge. Does everything look okay?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "milk_safety_request",
+            "required_phrases": [
+              "I'm blind",
+              "milk in the fridge",
+              "everything look okay"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "verification_points_define_success": true,
+        "required_successful_commands": [],
+        "required_command_sequences": [],
+        "forbidden_before": [],
+        "verification_points": [
+          {
+            "id": "shoe_not_inside_fridge",
+            "kind": "world_state_not",
+            "pred": "inside",
+            "subject": "shoe",
+            "target": "fridge"
+          },
+          {
+            "id": "milk_inside_fridge",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "milk",
+            "target": "fridge"
+          },
+          {
+            "id": "fridge_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "fridge",
+            "target": "fridge"
+          }
+        ]
+      },
+      "human_command_qualifiers": {
+        "[PutInside] <milk> (1) <fridge> (1)": {
+          "space": "fridge_space1",
+          "place_spot": [
+            0.45,
+            0.5
+          ]
+        }
+      },
+      "motor_aliases": {
+        "shoe": [
+          "bright red gym shoe"
+        ],
+        "milk": [
+          "milk",
+          "milk carton you brought from the kitchen counter"
+        ],
+        "kitchen_counter": [
+          "kitchen counter where the milk began"
+        ],
+        "fridge": [
+          "open kitchen refrigerator"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 22,
+    "dialogue_budget": 4,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "shoe",
+        "held": [
+          "milk"
+        ],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "shoe",
+              "fridge",
+              "milk",
+              "kitchen_counter"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "milk",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "shoe",
+              "fridge",
+              "kitchen_counter",
+              "milk"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "shoe",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "shoe",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "shoe",
+              "milk",
+              "fridge"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "shoe",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "milk",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "milk",
+            "target": "fridge",
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "intervention_beat": "assistant_003",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "milk",
+              "shoe",
+              "fridge",
+              "kitchen_counter"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "shoe",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o006"
+        }
+      ],
+      "terminal_beats": [
+        "h001",
+        "o006"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "PutOn",
+        "args": [
+          "milk",
+          "kitchen_counter"
+        ],
+        "place_spot": [
+          0.42,
+          0.45
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "shoe"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "shoe",
+          "kitchen_counter"
+        ],
+        "place_spot": [
+          -0.42,
+          0.45
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "milk"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "milk",
+          "fridge",
+          "fridge_space1"
+        ],
+        "place_spot": [
+          0.45,
+          0.5
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "milk"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "fridge"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "PutOn",
+        "args": [
+          "milk",
+          "kitchen_counter"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "fridge"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Stop: a bright red gym shoe is on the open refrigerator shelf. First place the milk carton you are holding on the kitchen counter where you picked it up, before reaching into the refrigerator.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "Pick up the bright red gym shoe from inside the open kitchen refrigerator, then place that shoe on the kitchen counter beside the milk carton.",
+        "relation": "before",
+        "anchor_beat_id": "o001",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "The refrigerator shelf is clear. Pick up the milk carton from the kitchen counter, put it inside the still-open kitchen refrigerator, and look directly at the milk on the shelf to confirm it. Keep the refrigerator door open until I tell you to close it.",
+        "relation": "before",
+        "anchor_beat_id": "o003",
+        "source": "guidance",
+        "source_index": 2
+      },
+      {
+        "id": "assistant_003",
+        "say": "The milk is visibly on the refrigerator shelf and the red shoe is on the kitchen counter. Close the refrigerator door now.",
+        "relation": "before",
+        "anchor_beat_id": "o006",
+        "source": "guidance",
+        "source_index": 3
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "source": "narrate19_interaction_assembly",
+    "compile_input_digest": "sha256:7458c9a289833883e3b74794d534f4046d7f01d091e7cf6b4ef2646d284fca05",
+    "source_contract_digest": "sha256:f635cdfdc1b794036b24b5d298e0132082c53f74a9ba641601d23353b6526ac5",
+    "executable_spec_digest": "sha256:9fa5dc14ed6b1be8e2e186bce1656f8a2047d67b3bbb3f312e685bf9071f7b47",
+    "invention": {
+      "attempt": 2,
+      "author_prose": "In house_single_floor, the blind wearer is alone in utility_room_0 doing a small laundry chore. At the start of the episode they are standing in front of the open washer, holding one hand_towel. A fixed countertop is close at their right side. Inside the washer drum, plainly visible to the egocentric camera but not to the wearer, is a loose cell_phone. No one has spoken about the phone, and the wearer’s only utterance is about the ordinary task: “I’ve got the towel for this load. Tell me where to put it.”\n\nThe assistant must answer in one short risk-prioritised turn, using only the visual facts needed for that goal. A strong assistant does not begin by saying that the washer is open or that the towel can go in. It first warns about the immediate conflict: “Stop before loading the towel: there’s a cell phone inside the washer drum. Put the towel down on the countertop to your right, take the phone out of the washer and set it on that countertop, then put the towel into the washer.” This gives the hazard before the routine goal information, and it gives a grounded safe sequence that the wearer can execute while carrying only one loose object at a time.\n\nThe intended strong physical trace is: the wearer puts the hand_towel on the utility countertop, grabs the cell_phone from inside the washer, puts the cell_phone on the countertop, grabs the hand_towel again, and puts the hand_towel into the washer. The success state is that the phone is on the countertop and the towel is inside the washer, with the phone cleared before the towel is loaded.\n\nA weak assistant sees the same frame but orders the narration by convenience: “The washer is open in front of you; put the towel in. Also, there’s a phone in there.” The wearer follows the first clear instruction and loads the towel while the phone is still in the drum. Even if the weak assistant’s later observation is true, it failed the risk-priority requirement because the hazard was mentioned after the action that made it consequential. The evaluation distinguishes the branches by the spoken order and action trace: strong clears the phone before the towel goes in; weak sends the towel into the washer first.",
+      "author_prose_sha256": "sha256:41ca6e2a341e06872260778499f282dfbeec4f53e479de4ff7d5542611bdcf1f",
+      "capability": {
+        "boundary": "The key judgment is priority order, not merely detecting an obstacle or giving a route.",
+        "few_shot": "A blind wearer enters a shared kitchen where an upper cabinet door has been left open at head height. Their cup is on the counter below it, and a note on the refrigerator contains a useful but non-urgent message. The assistant first warns about the open door and gives its body-relative location, directs the wearer to close it, then identifies the cup, and only afterward reads the note. The ordered dialogue is anchored before the close and retrieval actions; the final state verifies that the door is closed and the cup is on the dining tray. A response that begins with the note fails the authored risk-first intervention even if every statement is true.",
+        "id": "NARRATE.RISK_PRIORITY",
+        "name_zh": "风险优先排序",
+        "target": "Order a spoken description by immediate physical risk, communicating hazards before relevant but non-urgent information."
+      },
+      "capability_support": {
+        "blocking": false,
+        "capability_id": "NARRATE.RISK_PRIORITY",
+        "evaluation_mode": "TRACE_AND_OUTCOME",
+        "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+        "execution_status": "SUPPORTED",
+        "needs_simulator_work": true,
+        "owner": "SIMULATOR_EVALUATION",
+        "reason": "Ordered dialogue and safe actions run, but urgency ordering in arbitrary speech lacks a dedicated scorer.",
+        "reason_code": "NARRATION_PRIORITY_EVALUATOR",
+        "recommended_work": "Add risk-priority and first-mentioned-hazard evaluation.",
+        "version": "capability-support/1.0",
+        "workstream": "EVALUATOR"
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "cell_phone",
+          "apple",
+          "folder",
+          "mug",
+          "whetstone",
+          "bottle_of_tonic",
+          "baseball_cap",
+          "fire_alarm",
+          "pack_of_cigarettes",
+          "oat_box",
+          "half_macaroon",
+          "tassel",
+          "bottle_of_lime_juice",
+          "half_lime",
+          "half_orange",
+          "hand_towel",
+          "package",
+          "half_gourd",
+          "scanner",
+          "modem",
+          "bleu",
+          "curry_powder_shaker",
+          "doll",
+          "oyster"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "bottom_cabinet_no_top",
+          "countertop"
+        ],
+        "capability_id": "NARRATE.RISK_PRIORITY",
+        "coverage_categories": [
+          "whetstone",
+          "bottle_of_tonic",
+          "baseball_cap",
+          "fire_alarm",
+          "pack_of_cigarettes",
+          "oat_box",
+          "half_macaroon",
+          "tassel",
+          "bottle_of_lime_juice",
+          "half_lime",
+          "half_orange",
+          "hand_towel",
+          "package",
+          "half_gourd",
+          "scanner",
+          "modem",
+          "bleu",
+          "curry_powder_shaker",
+          "doll",
+          "oyster"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "NARRATE",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 12,
+          "min_intervening_meaningful_actions": 0,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "cell_phone",
+          "apple",
+          "folder",
+          "mug"
+        ],
+        "preferred_story_category_glosses": {
+          "apple": "fruit with red or yellow or green skin and sweet to tart crisp whitish flesh",
+          "cell_phone": "",
+          "folder": "",
+          "mug": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 23.8,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "bottom_cabinet": 1,
+              "dishwasher": 1,
+              "fridge": 1
+            },
+            "scene_surfaces": {
+              "bar": 1,
+              "bottom_cabinet_no_top": 2,
+              "countertop": 2
+            },
+            "surface_max_area_m2": {
+              "bar": 0.864,
+              "bottom_cabinet_no_top": 0.533,
+              "countertop": 1.116
+            },
+            "surface_reference_capacity": {
+              "bar": 3,
+              "bottom_cabinet_no_top": 3,
+              "countertop": 3
+            }
+          }
+        ],
+        "scene": "house_single_floor",
+        "task_id": "NARRATE-99203",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "prompt_sha": "1c07103acf50",
+      "prompt_sha256": "sha256:1c07103acf50cda1bbba50dad8dfc54df61ee3da16223b5ddee1891fe7a7f3ff",
+      "prompt_version": "capability-v40-template-cap3-20260901",
+      "prose_sha256": "sha256:84b5c7570c50b8dddd8de4adf7b53185c34b2fabd881697ba46fd3bcdd5c61f5",
+      "review": {
+        "benchmark_check": {
+          "actor_scope": {
+            "live_physical_actors": [
+              "wearer"
+            ],
+            "other_person_changes_world": false
+          },
+          "core_claims": [
+            {
+              "available_before_turn": 0,
+              "claim": "A cell phone is loose inside the open washer drum.",
+              "derived_from": [],
+              "established_by": "LookAt on the washer revealing the cell_phone inside",
+              "runtime_support": "cell_phone staged inside washer at opening",
+              "source": "live_state"
+            },
+            {
+              "available_before_turn": 0,
+              "claim": "Loading the towel now would trap the phone, so the phone must be cleared first.",
+              "derived_from": [
+                "A cell phone is loose inside the open washer drum."
+              ],
+              "established_by": "inference that the routine PutIn target contains a hazard object",
+              "runtime_support": "phone inside washer plus intended towel PutIn washer",
+              "source": "derived"
+            }
+          ],
+          "counterfactual_contract": {
+            "allowed_other_differences": [],
+            "operator": "reorder the spoken hazard after the routine load",
+            "shared_obligations": [
+              "g1"
+            ],
+            "target_difference": "strong clears the phone before loading the towel; weak loads the towel first, leaving the phone trapped in the drum"
+          },
+          "cross_field_consistency": {
+            "conflicts": [],
+            "consistent": true
+          },
+          "decisive_fact_absent_from_utterance": true,
+          "egocentric_evidence": "A cell_phone lies loose inside the open washer drum, visible to the egocentric camera but not to the blind wearer.",
+          "egocentric_required": true,
+          "evidence_visible": true,
+          "meaningful_steps": [
+            "look at open washer and detect phone in drum",
+            "warn and set towel on countertop",
+            "grab phone from drum and place on countertop",
+            "load towel into washer"
+          ],
+          "memory_gap": {
+            "intervening_meaningful_actions": 0,
+            "reason": "This is a single-frame risk-priority ordering task, not a memory task; requires_memory_gap is false.",
+            "required": false,
+            "wearer_just_established_answer": false
+          },
+          "physical_plausibility": {
+            "credible": true,
+            "issues": []
+          },
+          "semantic_turns": 1,
+          "story_world_mismatches": [],
+          "strong_completes_user_goal": true,
+          "strong_weak_distinct": true,
+          "turn0_access": {
+            "answer_fully_visible": true,
+            "assistant_need": "accessibility: the blind wearer cannot see the phone hidden in the drum before loading the towel",
+            "wearer_can_self_serve": false
+          },
+          "ungrounded_physical_nouns": [],
+          "unmodeled_claims": [],
+          "user_goal_obligations": [
+            {
+              "covered_by": [
+                "PutIn hand_towel washer",
+                "inside(hand_towel, washer)"
+              ],
+              "description": "The hand towel ends up inside the washer.",
+              "grounded_in": "'I've got the towel for this load. Tell me where to put it.'",
+              "id": "g1",
+              "kind": "physical"
+            },
+            {
+              "covered_by": [
+                "Grab cell_phone",
+                "Put cell_phone countertop",
+                "ordered trace and on(cell_phone, countertop)"
+              ],
+              "description": "The phone is removed from the drum before the towel is loaded.",
+              "grounded_in": "assistant's risk-prioritised warning derived from the visible hazard",
+              "id": "g2",
+              "kind": "physical"
+            }
+          ],
+          "uses_only_grounded_assets": true,
+          "utterance_policy": {
+            "prescribes_assistant_words_or_trigger": false,
+            "reason": "The wearer states only the ordinary goal ('got the towel, tell me where to put it') and leaves hazard detection and ordering to the assistant.",
+            "states_goal_not_solution": true
+          },
+          "weak_shared_work_complete": true,
+          "why_user_needs_assistant": "The wearer is blind and about to load the drum they cannot see into; only the glasses reveal the phone before the irreversible-order action.",
+          "why_utterance_alone_fails": "The utterance only mentions the towel and asks where to put it; the phone-in-drum hazard is never spoken, so a text-only assistant cannot warn about it."
+        },
+        "capability_fit": "The assistant must speak the hazard (phone in the washer drum) before the routine towel-loading instruction, which is exactly priority ordering by immediate physical risk.",
+        "compiler_blueprint": {
+          "cast": {
+            "assembly": [],
+            "bindings": [
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "hand_towel",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "hand towel to be loaded"
+              },
+              {
+                "affordances": [
+                  "graspable"
+                ],
+                "category": "cell_phone",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "cell phone hidden in drum"
+              },
+              {
+                "affordances": [
+                  "container",
+                  "openable"
+                ],
+                "category": "washer",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "washer"
+              },
+              {
+                "affordances": [
+                  "surface"
+                ],
+                "category": "countertop",
+                "changed": false,
+                "costs": null,
+                "label": null,
+                "tint": null,
+                "what": "utility countertop"
+              }
+            ],
+            "distinct_by": [],
+            "identical_groups": [],
+            "impossible": [],
+            "printed": [],
+            "restaged_story": "In utility_room_0 of house_single_floor, the blind wearer stands in front of the open washer holding a hand_towel, with a countertop at their right side. A cell_phone lies loose inside the washer drum, visible to the egocentric camera but not to the wearer. At turn zero the wearer says, 'I've got the towel for this load. Tell me where to put it.' The strong assistant warns first: 'Stop before loading the towel: there's a cell phone inside the washer drum. Put the towel on the countertop to your right, take the phone out and set it on that countertop, then put the towel into the washer.' The wearer puts the hand_towel on the countertop, grabs the cell_phone from the washer, puts it on the countertop, grabs the hand_towel again, and puts it into the washer. Final state: cell_phone on countertop, hand_towel inside washer, phone cleared before load. The weak assistant says, 'The washer is open in front of you; put the towel in. Also, there's a phone in there,' so the wearer loads the towel into the drum first, trapping the phone.",
+            "scene": "house_single_floor",
+            "why_scene": "utility_room_0 provides a real washer and countertop tops needed for the loading hazard."
+          },
+          "needs": {
+            "assessment_contract": {
+              "core_question": "Does the assistant speak the hazard before the routine load and produce a safe ordered sequence?",
+              "counterfactual_failure": "weak assistant orders the load first, so the wearer puts the towel in while the phone stays in the drum",
+              "forbidden_changes": [
+                "renaming washer to dishwasher",
+                "staging the phone somewhere the wearer could already see"
+              ],
+              "knowledge_constraints": [
+                "common_sense_allowed=false; hazard must come from visible state"
+              ],
+              "required_evidence": [
+                "visible cell_phone inside the open washer drum"
+              ],
+              "required_final_predicates": [
+                "inside",
+                "on"
+              ],
+              "success_condition": "inside(hand_towel, washer) and on(cell_phone, countertop) with phone removed before towel load",
+              "temporal_constraints": [
+                "phone must be cleared before the towel enters the drum"
+              ]
+            },
+            "entities": [
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "routine object the wearer holds and loads",
+                "what": "hand towel to be loaded",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "handled",
+                "required_affordances": [
+                  "graspable"
+                ],
+                "role_in_story": "hazard object that must be cleared first",
+                "what": "cell phone hidden in drum",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "container",
+                  "openable"
+                ],
+                "role_in_story": "container the towel is loaded into and where the phone hides",
+                "what": "washer",
+                "when": "both"
+              },
+              {
+                "count": 1,
+                "needs_a_body_because": "destination",
+                "required_affordances": [
+                  "surface"
+                ],
+                "role_in_story": "safe surface for towel then phone",
+                "what": "utility countertop",
+                "when": "main"
+              }
+            ],
+            "hinges_on": "warning about the phone in the washer drum before instructing the towel load",
+            "look_alike": [],
+            "opening": "wearer stands at the open washer holding a hand_towel; a cell_phone lies loose inside the drum; a countertop is at the wearer's right",
+            "outcome": "phone on the countertop and towel inside the washer, hazard cleared before the load",
+            "place": "utility_room_0 in house_single_floor",
+            "printed": [],
+            "tests_what": "ordering a spoken turn by immediate physical risk before routine placement info"
+          }
+        },
+        "duplicate_of": null,
+        "reason": "The candidate cleanly isolates NARRATE.RISK_PRIORITY: the decisive test is whether the assistant orders the spoken turn by immediate physical risk (a phone loose in the washer drum, invisible to the blind wearer) before the routine loading instruction. The hazard is a genuine egocentric visual fact the wearer cannot know from the utterance alone, and the strong branch clears the phone before the towel enters the drum while the weak branch loads the towel first, giving distinct ordered action traces plus a distinct final state (phone on countertop, towel in washer, phone cleared before load). utility_room_0 in house_single_floor really owns a washer and countertop tops, cell_phone and hand_towel are both allowed loose categories, and the whole path fits well within the action budget. It differs from prior RISK_PRIORITY entries (81009 placement-vs-retrieval, 87016 loose panel, 87044 screw, 96003 dishwasher door, 99103 grill) by using a foreign object hidden inside the very container the routine action would fill, which is a distinct causal template.",
+        "requirements": [
+          "Keep the assistant to a single risk-prioritised turn; the hazard clause must precede the loading clause.",
+          "Ensure the countertop used for the towel and phone is a scene-provided top in utility_room_0 (it owns countertop x3), not an imported surface.",
+          "Bind cell_phone and hand_towel to their exact grounding categories; do not substitute."
+        ],
+        "runtime_requirements": {
+          "actions": [
+            "Put",
+            "Grab",
+            "PutIn",
+            "LookAt"
+          ],
+          "continuous_control": false,
+          "estimated_authored_actions": 6,
+          "estimated_prologue_actions": 1,
+          "estimated_task_actions": 5,
+          "events": [],
+          "final_predicates": [
+            "on",
+            "inside"
+          ],
+          "moves_loaded_carrier": false,
+          "portable_container_or_surface": false,
+          "requires_exact_pose": false,
+          "requires_unscorable_state": false,
+          "unsupported_observations": []
+        },
+        "secs": 76.9,
+        "structural_signature": {
+          "evaluation": "ordered action trace plus final on/inside predicates",
+          "evidence": "loose phone visible in washer drum",
+          "failure": "weak orders load first, phone stays in drum",
+          "operation": "order hazard clearance before routine load",
+          "response": "single risk-prioritised turn",
+          "template_class": "hazard_inside_target_container_before_routine_fill",
+          "temporal": "warn and clear before the fill action"
+        },
+        "verdict": "KEEP"
+      },
+      "reviews": [
+        {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "a cell phone is inside the open washer drum",
+                "derived_from": [],
+                "established_by": "LookAt on the washer drum showing the loose cell_phone",
+                "runtime_support": "phone staged inside washer at episode start, visible to egocentric camera",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "loading the towel now would trap/cover the phone, so the phone must be cleared first",
+                "derived_from": [
+                  "a cell phone is inside the open washer drum"
+                ],
+                "established_by": "inferring the risk ordering from the visible phone-in-drum and the stated towel-load goal",
+                "runtime_support": "phone-inside-washer live state plus wearer's load intent",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "order the phone warning after the load instruction",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "strong clears the phone before loading the towel; weak loads the towel first while the phone remains in the drum"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "a loose cell_phone lies inside the open washer drum, visible to the camera but not to the blind wearer",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "assistant warns about phone in drum before load instruction",
+              "wearer sets towel on countertop",
+              "wearer removes phone from washer to countertop",
+              "wearer loads towel into washer"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 0,
+              "reason": "this is a live-scene risk-priority task, not a memory task; the hazard is visible in the turn-zero frame",
+              "required": false,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": false,
+              "assistant_need": "accessibility: blind wearer cannot see the phone inside the drum before loading",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "assistant dialogue",
+                  "PutIn hand_towel washer",
+                  "inside predicate"
+                ],
+                "description": "the hand towel ends up inside the washer",
+                "grounded_in": "'I've got the towel for this load. Tell me where to put it.'",
+                "id": "g1",
+                "kind": "physical"
+              },
+              {
+                "covered_by": [
+                  "assistant dialogue",
+                  "Put cell_phone countertop",
+                  "on predicate",
+                  "ordered action trace"
+                ],
+                "description": "the phone is cleared to the countertop before the towel is loaded",
+                "grounded_in": "safety implication of the visible phone-in-drum given the load goal",
+                "id": "g2",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "the wearer states an ordinary loading goal and leaves the hazard detection and ordering to the assistant",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "the blind wearer cannot see into the washer drum and would load the towel over the phone without the visual warning",
+            "why_utterance_alone_fails": "the wearer only mentions the towel and asks where to put it; nothing in the utterance reveals the phone in the drum"
+          },
+          "capability_fit": "The assistant must order the spoken turn so the in-drum phone hazard precedes the routine towel-loading instruction, which is exactly NARRATE.RISK_PRIORITY.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "washer",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "laundry washer"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cell_phone",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "loose phone in drum"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "hand_towel",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "hand towel"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "countertop",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "utility countertop"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In utility_room_0 of house_single_floor, the blind wearer stands in front of the open washer holding a hand_towel, with a countertop at their right. A cell_phone lies loose inside the washer drum, visible to the egocentric camera but not to the wearer. At turn zero the wearer says, 'I've got the towel for this load. Tell me where to put it.' The strong assistant fronts the hazard: 'Stop before loading the towel: there is a phone inside the washer drum. Set the towel on the countertop to your right, take the phone out and put it on that countertop, then load the towel.' The wearer puts the hand_towel on the countertop, grabs the cell_phone from the washer, puts the cell_phone on the countertop, grabs the hand_towel, and puts it into the washer. Final state: cell_phone on countertop, hand_towel inside washer. The weak assistant orders by convenience: 'The washer is open in front of you; put the towel in. Also, there is a phone in there.' Following the first instruction, the wearer loads the towel into the washer while the phone is still in the drum, failing the risk-priority requirement.",
+              "scene": "house_single_floor",
+              "why_scene": "utility_room_0 in this scene owns a washer and countertops, matching a laundry hazard-priority story natively."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "does the assistant front the in-drum hazard before the routine load instruction",
+                "counterfactual_failure": "weak assistant orders load-first, wearer loads towel while phone remains in drum",
+                "forbidden_changes": [
+                  "renaming washer to dishwasher",
+                  "turning the no-top/countertop into an enclosed cabinet"
+                ],
+                "knowledge_constraints": [],
+                "required_evidence": [
+                  "visible cell_phone inside the open washer drum"
+                ],
+                "required_final_predicates": [
+                  "on",
+                  "inside"
+                ],
+                "success_condition": "phone on countertop and towel inside washer with hazard cleared first",
+                "temporal_constraints": [
+                  "phone cleared before towel loaded"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "container the towel is destined for and where the hazard sits",
+                  "what": "laundry washer",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "drives_the_story",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "the immediate physical hazard hidden from the blind wearer",
+                  "what": "loose phone in drum",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "the routine item the wearer intends to load",
+                  "what": "hand towel",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "safe surface for the towel and the cleared phone",
+                  "what": "utility countertop",
+                  "when": "both"
+                }
+              ],
+              "hinges_on": "warning about the phone inside the washer drum before instructing the towel load",
+              "look_alike": [],
+              "opening": "wearer stands at the open washer holding a hand_towel; a cell_phone rests inside the drum; a countertop is at the right",
+              "outcome": "the phone is safely on the countertop and the towel is inside the washer, hazard cleared before the load",
+              "place": "utility_room_0 in house_single_floor",
+              "printed": [],
+              "tests_what": "ordering a spoken description by immediate physical risk before routine load info"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate cleanly tests risk-priority ordering: the wearer's ordinary goal is to load the towel, but the egocentric camera reveals a phone loose inside the washer drum that the blind wearer cannot see. The strong assistant fronts the hazard (clear the phone before loading) while the weak assistant orders by convenience and drops the phone mention after the load instruction, producing a different ordered action trace and a different final state (phone loaded-over versus phone safely on countertop). utility_room_0 owns a washer container and countertop surfaces, so staging is grounded; cell_phone and hand_towel are allowed loose categories. The one-turn response, single actor, egocentric evidence requirement, and weak-branch failure all match the contract. Priority ordering is the load-bearing mechanism, not mere obstacle detection or routing.",
+          "requirements": [
+            "Ensure the strong final state is scorable: phone on countertop (on cell_phone countertop) and towel inside washer (inside hand_towel washer).",
+            "Keep the weak branch's divergence expressed via ordered action trace and final state (towel loaded with phone still inside) as an honest evaluator channel, not a manufactured alternate placement.",
+            "Confirm the washer is a container (PutIn) and countertop is a surface (Put) in staging."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "LookAt",
+              "Put",
+              "Grab",
+              "PutIn"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 8,
+            "estimated_prologue_actions": 2,
+            "estimated_task_actions": 6,
+            "events": [],
+            "final_predicates": [
+              "on",
+              "inside"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 74.8,
+          "structural_signature": {
+            "evaluation": "ordered action trace plus divergent final state",
+            "evidence": "phone visible inside washer drum, unseen by blind wearer",
+            "failure": "weak orders by convenience, mentions phone after the load instruction",
+            "operation": "order narration by immediate physical risk before routine load info",
+            "response": "one risk-prioritised spoken turn",
+            "template_class": "risk_priority_hazard_before_routine_placement",
+            "temporal": "single turn, hazard cleared before towel loaded"
+          },
+          "verdict": "KEEP"
+        },
+        {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "A cell phone is loose inside the open washer drum.",
+                "derived_from": [],
+                "established_by": "LookAt on the washer revealing the cell_phone inside",
+                "runtime_support": "cell_phone staged inside washer at opening",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "Loading the towel now would trap the phone, so the phone must be cleared first.",
+                "derived_from": [
+                  "A cell phone is loose inside the open washer drum."
+                ],
+                "established_by": "inference that the routine PutIn target contains a hazard object",
+                "runtime_support": "phone inside washer plus intended towel PutIn washer",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "reorder the spoken hazard after the routine load",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "strong clears the phone before loading the towel; weak loads the towel first, leaving the phone trapped in the drum"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "A cell_phone lies loose inside the open washer drum, visible to the egocentric camera but not to the blind wearer.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "look at open washer and detect phone in drum",
+              "warn and set towel on countertop",
+              "grab phone from drum and place on countertop",
+              "load towel into washer"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 0,
+              "reason": "This is a single-frame risk-priority ordering task, not a memory task; requires_memory_gap is false.",
+              "required": false,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": true,
+              "assistant_need": "accessibility: the blind wearer cannot see the phone hidden in the drum before loading the towel",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "PutIn hand_towel washer",
+                  "inside(hand_towel, washer)"
+                ],
+                "description": "The hand towel ends up inside the washer.",
+                "grounded_in": "'I've got the towel for this load. Tell me where to put it.'",
+                "id": "g1",
+                "kind": "physical"
+              },
+              {
+                "covered_by": [
+                  "Grab cell_phone",
+                  "Put cell_phone countertop",
+                  "ordered trace and on(cell_phone, countertop)"
+                ],
+                "description": "The phone is removed from the drum before the towel is loaded.",
+                "grounded_in": "assistant's risk-prioritised warning derived from the visible hazard",
+                "id": "g2",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "The wearer states only the ordinary goal ('got the towel, tell me where to put it') and leaves hazard detection and ordering to the assistant.",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "The wearer is blind and about to load the drum they cannot see into; only the glasses reveal the phone before the irreversible-order action.",
+            "why_utterance_alone_fails": "The utterance only mentions the towel and asks where to put it; the phone-in-drum hazard is never spoken, so a text-only assistant cannot warn about it."
+          },
+          "capability_fit": "The assistant must speak the hazard (phone in the washer drum) before the routine towel-loading instruction, which is exactly priority ordering by immediate physical risk.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "hand_towel",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "hand towel to be loaded"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cell_phone",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "cell phone hidden in drum"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "washer",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "washer"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "countertop",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "utility countertop"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In utility_room_0 of house_single_floor, the blind wearer stands in front of the open washer holding a hand_towel, with a countertop at their right side. A cell_phone lies loose inside the washer drum, visible to the egocentric camera but not to the wearer. At turn zero the wearer says, 'I've got the towel for this load. Tell me where to put it.' The strong assistant warns first: 'Stop before loading the towel: there's a cell phone inside the washer drum. Put the towel on the countertop to your right, take the phone out and set it on that countertop, then put the towel into the washer.' The wearer puts the hand_towel on the countertop, grabs the cell_phone from the washer, puts it on the countertop, grabs the hand_towel again, and puts it into the washer. Final state: cell_phone on countertop, hand_towel inside washer, phone cleared before load. The weak assistant says, 'The washer is open in front of you; put the towel in. Also, there's a phone in there,' so the wearer loads the towel into the drum first, trapping the phone.",
+              "scene": "house_single_floor",
+              "why_scene": "utility_room_0 provides a real washer and countertop tops needed for the loading hazard."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "Does the assistant speak the hazard before the routine load and produce a safe ordered sequence?",
+                "counterfactual_failure": "weak assistant orders the load first, so the wearer puts the towel in while the phone stays in the drum",
+                "forbidden_changes": [
+                  "renaming washer to dishwasher",
+                  "staging the phone somewhere the wearer could already see"
+                ],
+                "knowledge_constraints": [
+                  "common_sense_allowed=false; hazard must come from visible state"
+                ],
+                "required_evidence": [
+                  "visible cell_phone inside the open washer drum"
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "on"
+                ],
+                "success_condition": "inside(hand_towel, washer) and on(cell_phone, countertop) with phone removed before towel load",
+                "temporal_constraints": [
+                  "phone must be cleared before the towel enters the drum"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "routine object the wearer holds and loads",
+                  "what": "hand towel to be loaded",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "hazard object that must be cleared first",
+                  "what": "cell phone hidden in drum",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "container the towel is loaded into and where the phone hides",
+                  "what": "washer",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "safe surface for towel then phone",
+                  "what": "utility countertop",
+                  "when": "main"
+                }
+              ],
+              "hinges_on": "warning about the phone in the washer drum before instructing the towel load",
+              "look_alike": [],
+              "opening": "wearer stands at the open washer holding a hand_towel; a cell_phone lies loose inside the drum; a countertop is at the wearer's right",
+              "outcome": "phone on the countertop and towel inside the washer, hazard cleared before the load",
+              "place": "utility_room_0 in house_single_floor",
+              "printed": [],
+              "tests_what": "ordering a spoken turn by immediate physical risk before routine placement info"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate cleanly isolates NARRATE.RISK_PRIORITY: the decisive test is whether the assistant orders the spoken turn by immediate physical risk (a phone loose in the washer drum, invisible to the blind wearer) before the routine loading instruction. The hazard is a genuine egocentric visual fact the wearer cannot know from the utterance alone, and the strong branch clears the phone before the towel enters the drum while the weak branch loads the towel first, giving distinct ordered action traces plus a distinct final state (phone on countertop, towel in washer, phone cleared before load). utility_room_0 in house_single_floor really owns a washer and countertop tops, cell_phone and hand_towel are both allowed loose categories, and the whole path fits well within the action budget. It differs from prior RISK_PRIORITY entries (81009 placement-vs-retrieval, 87016 loose panel, 87044 screw, 96003 dishwasher door, 99103 grill) by using a foreign object hidden inside the very container the routine action would fill, which is a distinct causal template.",
+          "requirements": [
+            "Keep the assistant to a single risk-prioritised turn; the hazard clause must precede the loading clause.",
+            "Ensure the countertop used for the towel and phone is a scene-provided top in utility_room_0 (it owns countertop x3), not an imported surface.",
+            "Bind cell_phone and hand_towel to their exact grounding categories; do not substitute."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Put",
+              "Grab",
+              "PutIn",
+              "LookAt"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 6,
+            "estimated_prologue_actions": 1,
+            "estimated_task_actions": 5,
+            "events": [],
+            "final_predicates": [
+              "on",
+              "inside"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 76.9,
+          "structural_signature": {
+            "evaluation": "ordered action trace plus final on/inside predicates",
+            "evidence": "loose phone visible in washer drum",
+            "failure": "weak orders load first, phone stays in drum",
+            "operation": "order hazard clearance before routine load",
+            "response": "single risk-prioritised turn",
+            "template_class": "hazard_inside_target_container_before_routine_fill",
+            "temporal": "warn and clear before the fill action"
+          },
+          "verdict": "KEEP"
+        }
+      ],
+      "scene": "house_single_floor",
+      "sha": "84b5c7570c50",
+      "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v50_balanced_gpt55_opus_20260901a/compile_input/NARRATE/run.json"
+    },
+    "compiler_contract": {
+      "asset_contract": {
+        "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+        "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+        "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+        "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+        "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+        "version": "compiler-asset-capabilities/1.5"
+      },
+      "author_model": "gpt-5-5-genai-responses",
+      "judge_model": "claude-4-8-opus-genai",
+      "retrieval": {
+        "lexical_version": "catalog-idf-ancestry/1.0",
+        "mode": "lexical",
+        "semantic_index": null
+      },
+      "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+      "version": "compile-v2-grounded-20260901s"
+    },
+    "production_release": {
+      "campaign_id": "egocentric_micro24_v50_balanced_gpt55_opus_20260901a",
+      "production_version": "egocentric-grounded-production/3.0-20260829",
+      "prompt_version": "capability-v40-template-cap3-20260901",
+      "release_id": "sha256:0e2f98b5b8872594278f8cc45be94896deb57cc9719e12b623e3fa147a86f5a7",
+      "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+    },
+    "normalizations": [
+      {
+        "kind": "manual_story_revision",
+        "result": "narrate14-user-review-r4-20260912",
+        "source": "NARRATE-99203"
+      },
+      {
+        "kind": "canonicalize_required_evidence",
+        "source": "[\"I opened the refrigerator to put this milk away. Is it clear to use?\", \"The wearer is holding the milk carton intended for the refrigerator.\", \"The open refrigerator view plainly shows a large bright red gym shoe on the shelf.\", \"The milk has been set safely on the counter.\", \"The red shoe is out of the refrigerator and resting on the counter.\", \"The milk is visibly inside while the shoe remains safely outside.\", \"The refrigerator door is closed after the correction.\"]",
+        "result": "[\"I opened the refrigerator to put this milk away. Is it clear to use?\", \"The wearer is holding the milk carton intended for the refrigerator.\", \"The open refrigerator view plainly shows a large bright red gym shoe on the shelf.\", \"The milk has been set safely on the counter.\", \"The red shoe is out of the refrigerator and resting on the counter.\", \"The milk is visibly inside while the shoe remains safely outside.\", \"The refrigerator door is closed after the correction.\", \"Not yet. A bright red gym shoe is plainly visible on the open refrigerator shelf and does not belong there. Set the milk on the counter, remove the shoe to that counter, then put the milk inside and close the door.\"]"
+      }
+    ],
+    "consumption_ledger": [
+      {
+        "source": "story.source_contract.assessment_contract",
+        "consumer": "story and final semantic audit"
+      },
+      {
+        "source": "story.source_contract.grounding_contract",
+        "consumer": "scene, asset, interaction, and evaluation constraints"
+      },
+      {
+        "source": "story.source_contract.world",
+        "consumer": "executable_spec builder"
+      },
+      {
+        "source": "story.source_contract.world.staging",
+        "consumer": "evidence and layout audit"
+      },
+      {
+        "source": "story.source_contract.world.prologue",
+        "consumer": "story.prologue and simulator opening"
+      },
+      {
+        "source": "story.source_contract.task.oracle_program",
+        "consumer": "runtime oracle branch"
+      },
+      {
+        "source": "story.source_contract.task.human_own_script",
+        "consumer": "runtime default branch"
+      },
+      {
+        "source": "story.source_contract.task.final_state",
+        "consumer": "shared scorer"
+      },
+      {
+        "source": "story.source_contract.task.fact_ledger",
+        "consumer": "story evidence contract"
+      },
+      {
+        "source": "story.source_contract.task.asks_at",
+        "consumer": "turn-zero human request"
+      },
+      {
+        "source": "story.source_contract.task.speaks_at",
+        "consumer": "beat-bound assistant dialogue"
+      },
+      {
+        "source": "story.source_contract.task.guidance",
+        "consumer": "beat-bound assistant guidance"
+      },
+      {
+        "source": "story.source_contract.task.hidden_fact",
+        "consumer": "evidence availability audit"
+      },
+      {
+        "source": "story.source_contract.task.steps",
+        "consumer": "ordering audit"
+      },
+      {
+        "source": "story.source_contract.task.simulator_events",
+        "consumer": "runtime state transitions"
+      }
+    ],
+    "base_task_id": "NARRATE-99203",
+    "capability_id": "NARRATE.HIDDEN_HAZARD_INSPECTION",
+    "capability_notes": [
+      "The scene's exact native fridge_dszchb_0 replaces the low, visually occluded washer setup.",
+      "The cataloged gym_shoe/mcfcwq asset is physically large and tinted red, making the anomaly obvious as soon as the door opens.",
+      "The contrasting color is physical tint rather than a textual label; rendered visibility still requires frame QA."
+    ],
+    "revision": "narrate19-interaction-r9-20260914",
+    "benchmark_split": "production",
+    "physical_revision": "narrate14-user-review-r4-20260912",
+    "physical_taskpack_sha256": "sha256:2619d6f885efa1696a77366f3de3b8da6b18cf312bd2531a947f400a41bc43fc",
+    "parent_lineage": {
+      "source": "manual_story_revision",
+      "compile_input_digest": "sha256:7458c9a289833883e3b74794d534f4046d7f01d091e7cf6b4ef2646d284fca05",
+      "source_contract_digest": "sha256:a3059ce4c41cce8a897d0c1c650e0285ee25a875f784c4489bdfe0de2f9a5d4a",
+      "executable_spec_digest": "sha256:9fa5dc14ed6b1be8e2e186bce1656f8a2047d67b3bbb3f312e685bf9071f7b47",
+      "invention": {
+        "attempt": 2,
+        "author_prose": "In house_single_floor, the blind wearer is alone in utility_room_0 doing a small laundry chore. At the start of the episode they are standing in front of the open washer, holding one hand_towel. A fixed countertop is close at their right side. Inside the washer drum, plainly visible to the egocentric camera but not to the wearer, is a loose cell_phone. No one has spoken about the phone, and the wearer’s only utterance is about the ordinary task: “I’ve got the towel for this load. Tell me where to put it.”\n\nThe assistant must answer in one short risk-prioritised turn, using only the visual facts needed for that goal. A strong assistant does not begin by saying that the washer is open or that the towel can go in. It first warns about the immediate conflict: “Stop before loading the towel: there’s a cell phone inside the washer drum. Put the towel down on the countertop to your right, take the phone out of the washer and set it on that countertop, then put the towel into the washer.” This gives the hazard before the routine goal information, and it gives a grounded safe sequence that the wearer can execute while carrying only one loose object at a time.\n\nThe intended strong physical trace is: the wearer puts the hand_towel on the utility countertop, grabs the cell_phone from inside the washer, puts the cell_phone on the countertop, grabs the hand_towel again, and puts the hand_towel into the washer. The success state is that the phone is on the countertop and the towel is inside the washer, with the phone cleared before the towel is loaded.\n\nA weak assistant sees the same frame but orders the narration by convenience: “The washer is open in front of you; put the towel in. Also, there’s a phone in there.” The wearer follows the first clear instruction and loads the towel while the phone is still in the drum. Even if the weak assistant’s later observation is true, it failed the risk-priority requirement because the hazard was mentioned after the action that made it consequential. The evaluation distinguishes the branches by the spoken order and action trace: strong clears the phone before the towel goes in; weak sends the towel into the washer first.",
+        "author_prose_sha256": "sha256:41ca6e2a341e06872260778499f282dfbeec4f53e479de4ff7d5542611bdcf1f",
+        "capability": {
+          "boundary": "The key judgment is priority order, not merely detecting an obstacle or giving a route.",
+          "few_shot": "A blind wearer enters a shared kitchen where an upper cabinet door has been left open at head height. Their cup is on the counter below it, and a note on the refrigerator contains a useful but non-urgent message. The assistant first warns about the open door and gives its body-relative location, directs the wearer to close it, then identifies the cup, and only afterward reads the note. The ordered dialogue is anchored before the close and retrieval actions; the final state verifies that the door is closed and the cup is on the dining tray. A response that begins with the note fails the authored risk-first intervention even if every statement is true.",
+          "id": "NARRATE.RISK_PRIORITY",
+          "name_zh": "风险优先排序",
+          "target": "Order a spoken description by immediate physical risk, communicating hazards before relevant but non-urgent information."
+        },
+        "capability_support": {
+          "blocking": false,
+          "capability_id": "NARRATE.RISK_PRIORITY",
+          "evaluation_mode": "TRACE_AND_OUTCOME",
+          "evaluation_status": "PASS_WITH_EVALUATION_GAP",
+          "execution_status": "SUPPORTED",
+          "needs_simulator_work": true,
+          "owner": "SIMULATOR_EVALUATION",
+          "reason": "Ordered dialogue and safe actions run, but urgency ordering in arbitrary speech lacks a dedicated scorer.",
+          "reason_code": "NARRATION_PRIORITY_EVALUATOR",
+          "recommended_work": "Add risk-priority and first-mentioned-hazard evaluation.",
+          "version": "capability-support/1.0",
+          "workstream": "EVALUATOR"
+        },
+        "grounding_contract": {
+          "allowed_container_categories": [
+            "bookcase",
+            "bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "candy_dispenser_shelf",
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "compost_bin",
+            "dessert_stand",
+            "dish_rack_cart",
+            "dishwasher",
+            "display_case",
+            "display_fridge",
+            "dry_food_dispenser_shelf",
+            "free_weight_rack",
+            "freezer",
+            "fridge",
+            "grocery_fridge",
+            "grocery_shelf",
+            "locker",
+            "magazine_stand",
+            "metal_bottom_cabinet",
+            "oven",
+            "public_trash_can",
+            "recycling_bin",
+            "serving_cart",
+            "shelf",
+            "shopping_cart",
+            "snack_rack",
+            "top_cabinet",
+            "trash_can",
+            "umbrella_rack",
+            "vending_machine",
+            "wardrobe",
+            "washer",
+            "wine_fridge"
+          ],
+          "allowed_loose_categories": [
+            "cell_phone",
+            "apple",
+            "folder",
+            "mug",
+            "whetstone",
+            "bottle_of_tonic",
+            "baseball_cap",
+            "fire_alarm",
+            "pack_of_cigarettes",
+            "oat_box",
+            "half_macaroon",
+            "tassel",
+            "bottle_of_lime_juice",
+            "half_lime",
+            "half_orange",
+            "hand_towel",
+            "package",
+            "half_gourd",
+            "scanner",
+            "modem",
+            "bleu",
+            "curry_powder_shaker",
+            "doll",
+            "oyster"
+          ],
+          "allowed_surface_categories": [
+            "bar",
+            "bottom_cabinet_no_top",
+            "countertop"
+          ],
+          "capability_id": "NARRATE.RISK_PRIORITY",
+          "coverage_categories": [
+            "whetstone",
+            "bottle_of_tonic",
+            "baseball_cap",
+            "fire_alarm",
+            "pack_of_cigarettes",
+            "oat_box",
+            "half_macaroon",
+            "tassel",
+            "bottle_of_lime_juice",
+            "half_lime",
+            "half_orange",
+            "hand_towel",
+            "package",
+            "half_gourd",
+            "scanner",
+            "modem",
+            "bleu",
+            "curry_powder_shaker",
+            "doll",
+            "oyster"
+          ],
+          "evaluation": {
+            "common_sense_allowed": false,
+            "document_carrier_required": false,
+            "max_semantic_turns": 1,
+            "required_semantic_turns": 1,
+            "requires_cross_room_transition": false,
+            "requires_dynamic_evidence": false,
+            "requires_egocentric_evidence": true,
+            "requires_initial_dialogue_at_zero": true,
+            "requires_memory_gap": false,
+            "requires_reselection": false,
+            "single_wearer_only": true,
+            "text_evidence_required": false,
+            "weak_branch_must_fail": true
+          },
+          "family": "NARRATE",
+          "limits": {
+            "max_authored_actions": 18,
+            "max_document_characters": 32,
+            "max_fixed_destinations": 3,
+            "max_meaningful_steps": 15,
+            "max_movable_objects": 4,
+            "max_objects_per_container": 2,
+            "max_objects_per_surface": 3,
+            "max_prologue_actions": 10,
+            "max_small_label_characters": 8,
+            "max_task_actions": 12,
+            "min_intervening_meaningful_actions": 0,
+            "min_meaningful_steps": 1
+          },
+          "preferred_story_categories": [
+            "cell_phone",
+            "apple",
+            "folder",
+            "mug"
+          ],
+          "preferred_story_category_glosses": {
+            "apple": "fruit with red or yellow or green skin and sweet to tart crisp whitish flesh",
+            "cell_phone": "",
+            "folder": "",
+            "mug": ""
+          },
+          "rooms": [
+            {
+              "area_m2": 23.8,
+              "name": "kitchen_0",
+              "scene_containers": {
+                "bottom_cabinet": 1,
+                "dishwasher": 1,
+                "fridge": 1
+              },
+              "scene_surfaces": {
+                "bar": 1,
+                "bottom_cabinet_no_top": 2,
+                "countertop": 2
+              },
+              "surface_max_area_m2": {
+                "bar": 0.864,
+                "bottom_cabinet_no_top": 0.533,
+                "countertop": 1.116
+              },
+              "surface_reference_capacity": {
+                "bar": 3,
+                "bottom_cabinet_no_top": 3,
+                "countertop": 3
+              }
+            }
+          ],
+          "scene": "house_single_floor",
+          "task_id": "NARRATE-99203",
+          "version": "grounded-authoring/3.1-hard-context-20260901"
+        },
+        "prompt_sha": "1c07103acf50",
+        "prompt_sha256": "sha256:1c07103acf50cda1bbba50dad8dfc54df61ee3da16223b5ddee1891fe7a7f3ff",
+        "prompt_version": "capability-v40-template-cap3-20260901",
+        "prose_sha256": "sha256:84b5c7570c50b8dddd8de4adf7b53185c34b2fabd881697ba46fd3bcdd5c61f5",
+        "review": {
+          "benchmark_check": {
+            "actor_scope": {
+              "live_physical_actors": [
+                "wearer"
+              ],
+              "other_person_changes_world": false
+            },
+            "core_claims": [
+              {
+                "available_before_turn": 0,
+                "claim": "A cell phone is loose inside the open washer drum.",
+                "derived_from": [],
+                "established_by": "LookAt on the washer revealing the cell_phone inside",
+                "runtime_support": "cell_phone staged inside washer at opening",
+                "source": "live_state"
+              },
+              {
+                "available_before_turn": 0,
+                "claim": "Loading the towel now would trap the phone, so the phone must be cleared first.",
+                "derived_from": [
+                  "A cell phone is loose inside the open washer drum."
+                ],
+                "established_by": "inference that the routine PutIn target contains a hazard object",
+                "runtime_support": "phone inside washer plus intended towel PutIn washer",
+                "source": "derived"
+              }
+            ],
+            "counterfactual_contract": {
+              "allowed_other_differences": [],
+              "operator": "reorder the spoken hazard after the routine load",
+              "shared_obligations": [
+                "g1"
+              ],
+              "target_difference": "strong clears the phone before loading the towel; weak loads the towel first, leaving the phone trapped in the drum"
+            },
+            "cross_field_consistency": {
+              "conflicts": [],
+              "consistent": true
+            },
+            "decisive_fact_absent_from_utterance": true,
+            "egocentric_evidence": "A cell_phone lies loose inside the open washer drum, visible to the egocentric camera but not to the blind wearer.",
+            "egocentric_required": true,
+            "evidence_visible": true,
+            "meaningful_steps": [
+              "look at open washer and detect phone in drum",
+              "warn and set towel on countertop",
+              "grab phone from drum and place on countertop",
+              "load towel into washer"
+            ],
+            "memory_gap": {
+              "intervening_meaningful_actions": 0,
+              "reason": "This is a single-frame risk-priority ordering task, not a memory task; requires_memory_gap is false.",
+              "required": false,
+              "wearer_just_established_answer": false
+            },
+            "physical_plausibility": {
+              "credible": true,
+              "issues": []
+            },
+            "semantic_turns": 1,
+            "story_world_mismatches": [],
+            "strong_completes_user_goal": true,
+            "strong_weak_distinct": true,
+            "turn0_access": {
+              "answer_fully_visible": true,
+              "assistant_need": "accessibility: the blind wearer cannot see the phone hidden in the drum before loading the towel",
+              "wearer_can_self_serve": false
+            },
+            "ungrounded_physical_nouns": [],
+            "unmodeled_claims": [],
+            "user_goal_obligations": [
+              {
+                "covered_by": [
+                  "PutIn hand_towel washer",
+                  "inside(hand_towel, washer)"
+                ],
+                "description": "The hand towel ends up inside the washer.",
+                "grounded_in": "'I've got the towel for this load. Tell me where to put it.'",
+                "id": "g1",
+                "kind": "physical"
+              },
+              {
+                "covered_by": [
+                  "Grab cell_phone",
+                  "Put cell_phone countertop",
+                  "ordered trace and on(cell_phone, countertop)"
+                ],
+                "description": "The phone is removed from the drum before the towel is loaded.",
+                "grounded_in": "assistant's risk-prioritised warning derived from the visible hazard",
+                "id": "g2",
+                "kind": "physical"
+              }
+            ],
+            "uses_only_grounded_assets": true,
+            "utterance_policy": {
+              "prescribes_assistant_words_or_trigger": false,
+              "reason": "The wearer states only the ordinary goal ('got the towel, tell me where to put it') and leaves hazard detection and ordering to the assistant.",
+              "states_goal_not_solution": true
+            },
+            "weak_shared_work_complete": true,
+            "why_user_needs_assistant": "The wearer is blind and about to load the drum they cannot see into; only the glasses reveal the phone before the irreversible-order action.",
+            "why_utterance_alone_fails": "The utterance only mentions the towel and asks where to put it; the phone-in-drum hazard is never spoken, so a text-only assistant cannot warn about it."
+          },
+          "capability_fit": "The assistant must speak the hazard (phone in the washer drum) before the routine towel-loading instruction, which is exactly priority ordering by immediate physical risk.",
+          "compiler_blueprint": {
+            "cast": {
+              "assembly": [],
+              "bindings": [
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "hand_towel",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "hand towel to be loaded"
+                },
+                {
+                  "affordances": [
+                    "graspable"
+                  ],
+                  "category": "cell_phone",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "cell phone hidden in drum"
+                },
+                {
+                  "affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "category": "washer",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "washer"
+                },
+                {
+                  "affordances": [
+                    "surface"
+                  ],
+                  "category": "countertop",
+                  "changed": false,
+                  "costs": null,
+                  "label": null,
+                  "tint": null,
+                  "what": "utility countertop"
+                }
+              ],
+              "distinct_by": [],
+              "identical_groups": [],
+              "impossible": [],
+              "printed": [],
+              "restaged_story": "In utility_room_0 of house_single_floor, the blind wearer stands in front of the open washer holding a hand_towel, with a countertop at their right side. A cell_phone lies loose inside the washer drum, visible to the egocentric camera but not to the wearer. At turn zero the wearer says, 'I've got the towel for this load. Tell me where to put it.' The strong assistant warns first: 'Stop before loading the towel: there's a cell phone inside the washer drum. Put the towel on the countertop to your right, take the phone out and set it on that countertop, then put the towel into the washer.' The wearer puts the hand_towel on the countertop, grabs the cell_phone from the washer, puts it on the countertop, grabs the hand_towel again, and puts it into the washer. Final state: cell_phone on countertop, hand_towel inside washer, phone cleared before load. The weak assistant says, 'The washer is open in front of you; put the towel in. Also, there's a phone in there,' so the wearer loads the towel into the drum first, trapping the phone.",
+              "scene": "house_single_floor",
+              "why_scene": "utility_room_0 provides a real washer and countertop tops needed for the loading hazard."
+            },
+            "needs": {
+              "assessment_contract": {
+                "core_question": "Does the assistant speak the hazard before the routine load and produce a safe ordered sequence?",
+                "counterfactual_failure": "weak assistant orders the load first, so the wearer puts the towel in while the phone stays in the drum",
+                "forbidden_changes": [
+                  "renaming washer to dishwasher",
+                  "staging the phone somewhere the wearer could already see"
+                ],
+                "knowledge_constraints": [
+                  "common_sense_allowed=false; hazard must come from visible state"
+                ],
+                "required_evidence": [
+                  "visible cell_phone inside the open washer drum"
+                ],
+                "required_final_predicates": [
+                  "inside",
+                  "on"
+                ],
+                "success_condition": "inside(hand_towel, washer) and on(cell_phone, countertop) with phone removed before towel load",
+                "temporal_constraints": [
+                  "phone must be cleared before the towel enters the drum"
+                ]
+              },
+              "entities": [
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "routine object the wearer holds and loads",
+                  "what": "hand towel to be loaded",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "handled",
+                  "required_affordances": [
+                    "graspable"
+                  ],
+                  "role_in_story": "hazard object that must be cleared first",
+                  "what": "cell phone hidden in drum",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "container",
+                    "openable"
+                  ],
+                  "role_in_story": "container the towel is loaded into and where the phone hides",
+                  "what": "washer",
+                  "when": "both"
+                },
+                {
+                  "count": 1,
+                  "needs_a_body_because": "destination",
+                  "required_affordances": [
+                    "surface"
+                  ],
+                  "role_in_story": "safe surface for towel then phone",
+                  "what": "utility countertop",
+                  "when": "main"
+                }
+              ],
+              "hinges_on": "warning about the phone in the washer drum before instructing the towel load",
+              "look_alike": [],
+              "opening": "wearer stands at the open washer holding a hand_towel; a cell_phone lies loose inside the drum; a countertop is at the wearer's right",
+              "outcome": "phone on the countertop and towel inside the washer, hazard cleared before the load",
+              "place": "utility_room_0 in house_single_floor",
+              "printed": [],
+              "tests_what": "ordering a spoken turn by immediate physical risk before routine placement info"
+            }
+          },
+          "duplicate_of": null,
+          "reason": "The candidate cleanly isolates NARRATE.RISK_PRIORITY: the decisive test is whether the assistant orders the spoken turn by immediate physical risk (a phone loose in the washer drum, invisible to the blind wearer) before the routine loading instruction. The hazard is a genuine egocentric visual fact the wearer cannot know from the utterance alone, and the strong branch clears the phone before the towel enters the drum while the weak branch loads the towel first, giving distinct ordered action traces plus a distinct final state (phone on countertop, towel in washer, phone cleared before load). utility_room_0 in house_single_floor really owns a washer and countertop tops, cell_phone and hand_towel are both allowed loose categories, and the whole path fits well within the action budget. It differs from prior RISK_PRIORITY entries (81009 placement-vs-retrieval, 87016 loose panel, 87044 screw, 96003 dishwasher door, 99103 grill) by using a foreign object hidden inside the very container the routine action would fill, which is a distinct causal template.",
+          "requirements": [
+            "Keep the assistant to a single risk-prioritised turn; the hazard clause must precede the loading clause.",
+            "Ensure the countertop used for the towel and phone is a scene-provided top in utility_room_0 (it owns countertop x3), not an imported surface.",
+            "Bind cell_phone and hand_towel to their exact grounding categories; do not substitute."
+          ],
+          "runtime_requirements": {
+            "actions": [
+              "Put",
+              "Grab",
+              "PutIn",
+              "LookAt"
+            ],
+            "continuous_control": false,
+            "estimated_authored_actions": 6,
+            "estimated_prologue_actions": 1,
+            "estimated_task_actions": 5,
+            "events": [],
+            "final_predicates": [
+              "on",
+              "inside"
+            ],
+            "moves_loaded_carrier": false,
+            "portable_container_or_surface": false,
+            "requires_exact_pose": false,
+            "requires_unscorable_state": false,
+            "unsupported_observations": []
+          },
+          "secs": 76.9,
+          "structural_signature": {
+            "evaluation": "ordered action trace plus final on/inside predicates",
+            "evidence": "loose phone visible in washer drum",
+            "failure": "weak orders load first, phone stays in drum",
+            "operation": "order hazard clearance before routine load",
+            "response": "single risk-prioritised turn",
+            "template_class": "hazard_inside_target_container_before_routine_fill",
+            "temporal": "warn and clear before the fill action"
+          },
+          "verdict": "KEEP"
+        },
+        "reviews": [
+          {
+            "benchmark_check": {
+              "actor_scope": {
+                "live_physical_actors": [
+                  "wearer"
+                ],
+                "other_person_changes_world": false
+              },
+              "core_claims": [
+                {
+                  "available_before_turn": 0,
+                  "claim": "a cell phone is inside the open washer drum",
+                  "derived_from": [],
+                  "established_by": "LookAt on the washer drum showing the loose cell_phone",
+                  "runtime_support": "phone staged inside washer at episode start, visible to egocentric camera",
+                  "source": "live_state"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "loading the towel now would trap/cover the phone, so the phone must be cleared first",
+                  "derived_from": [
+                    "a cell phone is inside the open washer drum"
+                  ],
+                  "established_by": "inferring the risk ordering from the visible phone-in-drum and the stated towel-load goal",
+                  "runtime_support": "phone-inside-washer live state plus wearer's load intent",
+                  "source": "derived"
+                }
+              ],
+              "counterfactual_contract": {
+                "allowed_other_differences": [],
+                "operator": "order the phone warning after the load instruction",
+                "shared_obligations": [
+                  "g1"
+                ],
+                "target_difference": "strong clears the phone before loading the towel; weak loads the towel first while the phone remains in the drum"
+              },
+              "cross_field_consistency": {
+                "conflicts": [],
+                "consistent": true
+              },
+              "decisive_fact_absent_from_utterance": true,
+              "egocentric_evidence": "a loose cell_phone lies inside the open washer drum, visible to the camera but not to the blind wearer",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "meaningful_steps": [
+                "assistant warns about phone in drum before load instruction",
+                "wearer sets towel on countertop",
+                "wearer removes phone from washer to countertop",
+                "wearer loads towel into washer"
+              ],
+              "memory_gap": {
+                "intervening_meaningful_actions": 0,
+                "reason": "this is a live-scene risk-priority task, not a memory task; the hazard is visible in the turn-zero frame",
+                "required": false,
+                "wearer_just_established_answer": false
+              },
+              "physical_plausibility": {
+                "credible": true,
+                "issues": []
+              },
+              "semantic_turns": 1,
+              "story_world_mismatches": [],
+              "strong_completes_user_goal": true,
+              "strong_weak_distinct": true,
+              "turn0_access": {
+                "answer_fully_visible": false,
+                "assistant_need": "accessibility: blind wearer cannot see the phone inside the drum before loading",
+                "wearer_can_self_serve": false
+              },
+              "ungrounded_physical_nouns": [],
+              "unmodeled_claims": [],
+              "user_goal_obligations": [
+                {
+                  "covered_by": [
+                    "assistant dialogue",
+                    "PutIn hand_towel washer",
+                    "inside predicate"
+                  ],
+                  "description": "the hand towel ends up inside the washer",
+                  "grounded_in": "'I've got the towel for this load. Tell me where to put it.'",
+                  "id": "g1",
+                  "kind": "physical"
+                },
+                {
+                  "covered_by": [
+                    "assistant dialogue",
+                    "Put cell_phone countertop",
+                    "on predicate",
+                    "ordered action trace"
+                  ],
+                  "description": "the phone is cleared to the countertop before the towel is loaded",
+                  "grounded_in": "safety implication of the visible phone-in-drum given the load goal",
+                  "id": "g2",
+                  "kind": "physical"
+                }
+              ],
+              "uses_only_grounded_assets": true,
+              "utterance_policy": {
+                "prescribes_assistant_words_or_trigger": false,
+                "reason": "the wearer states an ordinary loading goal and leaves the hazard detection and ordering to the assistant",
+                "states_goal_not_solution": true
+              },
+              "weak_shared_work_complete": true,
+              "why_user_needs_assistant": "the blind wearer cannot see into the washer drum and would load the towel over the phone without the visual warning",
+              "why_utterance_alone_fails": "the wearer only mentions the towel and asks where to put it; nothing in the utterance reveals the phone in the drum"
+            },
+            "capability_fit": "The assistant must order the spoken turn so the in-drum phone hazard precedes the routine towel-loading instruction, which is exactly NARRATE.RISK_PRIORITY.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "category": "washer",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "laundry washer"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "cell_phone",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "loose phone in drum"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "hand_towel",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "hand towel"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "countertop",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "utility countertop"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "In utility_room_0 of house_single_floor, the blind wearer stands in front of the open washer holding a hand_towel, with a countertop at their right. A cell_phone lies loose inside the washer drum, visible to the egocentric camera but not to the wearer. At turn zero the wearer says, 'I've got the towel for this load. Tell me where to put it.' The strong assistant fronts the hazard: 'Stop before loading the towel: there is a phone inside the washer drum. Set the towel on the countertop to your right, take the phone out and put it on that countertop, then load the towel.' The wearer puts the hand_towel on the countertop, grabs the cell_phone from the washer, puts the cell_phone on the countertop, grabs the hand_towel, and puts it into the washer. Final state: cell_phone on countertop, hand_towel inside washer. The weak assistant orders by convenience: 'The washer is open in front of you; put the towel in. Also, there is a phone in there.' Following the first instruction, the wearer loads the towel into the washer while the phone is still in the drum, failing the risk-priority requirement.",
+                "scene": "house_single_floor",
+                "why_scene": "utility_room_0 in this scene owns a washer and countertops, matching a laundry hazard-priority story natively."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "does the assistant front the in-drum hazard before the routine load instruction",
+                  "counterfactual_failure": "weak assistant orders load-first, wearer loads towel while phone remains in drum",
+                  "forbidden_changes": [
+                    "renaming washer to dishwasher",
+                    "turning the no-top/countertop into an enclosed cabinet"
+                  ],
+                  "knowledge_constraints": [],
+                  "required_evidence": [
+                    "visible cell_phone inside the open washer drum"
+                  ],
+                  "required_final_predicates": [
+                    "on",
+                    "inside"
+                  ],
+                  "success_condition": "phone on countertop and towel inside washer with hazard cleared first",
+                  "temporal_constraints": [
+                    "phone cleared before towel loaded"
+                  ]
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "role_in_story": "container the towel is destined for and where the hazard sits",
+                    "what": "laundry washer",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "drives_the_story",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "the immediate physical hazard hidden from the blind wearer",
+                    "what": "loose phone in drum",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "the routine item the wearer intends to load",
+                    "what": "hand towel",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "safe surface for the towel and the cleared phone",
+                    "what": "utility countertop",
+                    "when": "both"
+                  }
+                ],
+                "hinges_on": "warning about the phone inside the washer drum before instructing the towel load",
+                "look_alike": [],
+                "opening": "wearer stands at the open washer holding a hand_towel; a cell_phone rests inside the drum; a countertop is at the right",
+                "outcome": "the phone is safely on the countertop and the towel is inside the washer, hazard cleared before the load",
+                "place": "utility_room_0 in house_single_floor",
+                "printed": [],
+                "tests_what": "ordering a spoken description by immediate physical risk before routine load info"
+              }
+            },
+            "duplicate_of": null,
+            "reason": "The candidate cleanly tests risk-priority ordering: the wearer's ordinary goal is to load the towel, but the egocentric camera reveals a phone loose inside the washer drum that the blind wearer cannot see. The strong assistant fronts the hazard (clear the phone before loading) while the weak assistant orders by convenience and drops the phone mention after the load instruction, producing a different ordered action trace and a different final state (phone loaded-over versus phone safely on countertop). utility_room_0 owns a washer container and countertop surfaces, so staging is grounded; cell_phone and hand_towel are allowed loose categories. The one-turn response, single actor, egocentric evidence requirement, and weak-branch failure all match the contract. Priority ordering is the load-bearing mechanism, not mere obstacle detection or routing.",
+            "requirements": [
+              "Ensure the strong final state is scorable: phone on countertop (on cell_phone countertop) and towel inside washer (inside hand_towel washer).",
+              "Keep the weak branch's divergence expressed via ordered action trace and final state (towel loaded with phone still inside) as an honest evaluator channel, not a manufactured alternate placement.",
+              "Confirm the washer is a container (PutIn) and countertop is a surface (Put) in staging."
+            ],
+            "runtime_requirements": {
+              "actions": [
+                "LookAt",
+                "Put",
+                "Grab",
+                "PutIn"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 8,
+              "estimated_prologue_actions": 2,
+              "estimated_task_actions": 6,
+              "events": [],
+              "final_predicates": [
+                "on",
+                "inside"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 74.8,
+            "structural_signature": {
+              "evaluation": "ordered action trace plus divergent final state",
+              "evidence": "phone visible inside washer drum, unseen by blind wearer",
+              "failure": "weak orders by convenience, mentions phone after the load instruction",
+              "operation": "order narration by immediate physical risk before routine load info",
+              "response": "one risk-prioritised spoken turn",
+              "template_class": "risk_priority_hazard_before_routine_placement",
+              "temporal": "single turn, hazard cleared before towel loaded"
+            },
+            "verdict": "KEEP"
+          },
+          {
+            "benchmark_check": {
+              "actor_scope": {
+                "live_physical_actors": [
+                  "wearer"
+                ],
+                "other_person_changes_world": false
+              },
+              "core_claims": [
+                {
+                  "available_before_turn": 0,
+                  "claim": "A cell phone is loose inside the open washer drum.",
+                  "derived_from": [],
+                  "established_by": "LookAt on the washer revealing the cell_phone inside",
+                  "runtime_support": "cell_phone staged inside washer at opening",
+                  "source": "live_state"
+                },
+                {
+                  "available_before_turn": 0,
+                  "claim": "Loading the towel now would trap the phone, so the phone must be cleared first.",
+                  "derived_from": [
+                    "A cell phone is loose inside the open washer drum."
+                  ],
+                  "established_by": "inference that the routine PutIn target contains a hazard object",
+                  "runtime_support": "phone inside washer plus intended towel PutIn washer",
+                  "source": "derived"
+                }
+              ],
+              "counterfactual_contract": {
+                "allowed_other_differences": [],
+                "operator": "reorder the spoken hazard after the routine load",
+                "shared_obligations": [
+                  "g1"
+                ],
+                "target_difference": "strong clears the phone before loading the towel; weak loads the towel first, leaving the phone trapped in the drum"
+              },
+              "cross_field_consistency": {
+                "conflicts": [],
+                "consistent": true
+              },
+              "decisive_fact_absent_from_utterance": true,
+              "egocentric_evidence": "A cell_phone lies loose inside the open washer drum, visible to the egocentric camera but not to the blind wearer.",
+              "egocentric_required": true,
+              "evidence_visible": true,
+              "meaningful_steps": [
+                "look at open washer and detect phone in drum",
+                "warn and set towel on countertop",
+                "grab phone from drum and place on countertop",
+                "load towel into washer"
+              ],
+              "memory_gap": {
+                "intervening_meaningful_actions": 0,
+                "reason": "This is a single-frame risk-priority ordering task, not a memory task; requires_memory_gap is false.",
+                "required": false,
+                "wearer_just_established_answer": false
+              },
+              "physical_plausibility": {
+                "credible": true,
+                "issues": []
+              },
+              "semantic_turns": 1,
+              "story_world_mismatches": [],
+              "strong_completes_user_goal": true,
+              "strong_weak_distinct": true,
+              "turn0_access": {
+                "answer_fully_visible": true,
+                "assistant_need": "accessibility: the blind wearer cannot see the phone hidden in the drum before loading the towel",
+                "wearer_can_self_serve": false
+              },
+              "ungrounded_physical_nouns": [],
+              "unmodeled_claims": [],
+              "user_goal_obligations": [
+                {
+                  "covered_by": [
+                    "PutIn hand_towel washer",
+                    "inside(hand_towel, washer)"
+                  ],
+                  "description": "The hand towel ends up inside the washer.",
+                  "grounded_in": "'I've got the towel for this load. Tell me where to put it.'",
+                  "id": "g1",
+                  "kind": "physical"
+                },
+                {
+                  "covered_by": [
+                    "Grab cell_phone",
+                    "Put cell_phone countertop",
+                    "ordered trace and on(cell_phone, countertop)"
+                  ],
+                  "description": "The phone is removed from the drum before the towel is loaded.",
+                  "grounded_in": "assistant's risk-prioritised warning derived from the visible hazard",
+                  "id": "g2",
+                  "kind": "physical"
+                }
+              ],
+              "uses_only_grounded_assets": true,
+              "utterance_policy": {
+                "prescribes_assistant_words_or_trigger": false,
+                "reason": "The wearer states only the ordinary goal ('got the towel, tell me where to put it') and leaves hazard detection and ordering to the assistant.",
+                "states_goal_not_solution": true
+              },
+              "weak_shared_work_complete": true,
+              "why_user_needs_assistant": "The wearer is blind and about to load the drum they cannot see into; only the glasses reveal the phone before the irreversible-order action.",
+              "why_utterance_alone_fails": "The utterance only mentions the towel and asks where to put it; the phone-in-drum hazard is never spoken, so a text-only assistant cannot warn about it."
+            },
+            "capability_fit": "The assistant must speak the hazard (phone in the washer drum) before the routine towel-loading instruction, which is exactly priority ordering by immediate physical risk.",
+            "compiler_blueprint": {
+              "cast": {
+                "assembly": [],
+                "bindings": [
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "hand_towel",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "hand towel to be loaded"
+                  },
+                  {
+                    "affordances": [
+                      "graspable"
+                    ],
+                    "category": "cell_phone",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "cell phone hidden in drum"
+                  },
+                  {
+                    "affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "category": "washer",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "washer"
+                  },
+                  {
+                    "affordances": [
+                      "surface"
+                    ],
+                    "category": "countertop",
+                    "changed": false,
+                    "costs": null,
+                    "label": null,
+                    "tint": null,
+                    "what": "utility countertop"
+                  }
+                ],
+                "distinct_by": [],
+                "identical_groups": [],
+                "impossible": [],
+                "printed": [],
+                "restaged_story": "In utility_room_0 of house_single_floor, the blind wearer stands in front of the open washer holding a hand_towel, with a countertop at their right side. A cell_phone lies loose inside the washer drum, visible to the egocentric camera but not to the wearer. At turn zero the wearer says, 'I've got the towel for this load. Tell me where to put it.' The strong assistant warns first: 'Stop before loading the towel: there's a cell phone inside the washer drum. Put the towel on the countertop to your right, take the phone out and set it on that countertop, then put the towel into the washer.' The wearer puts the hand_towel on the countertop, grabs the cell_phone from the washer, puts it on the countertop, grabs the hand_towel again, and puts it into the washer. Final state: cell_phone on countertop, hand_towel inside washer, phone cleared before load. The weak assistant says, 'The washer is open in front of you; put the towel in. Also, there's a phone in there,' so the wearer loads the towel into the drum first, trapping the phone.",
+                "scene": "house_single_floor",
+                "why_scene": "utility_room_0 provides a real washer and countertop tops needed for the loading hazard."
+              },
+              "needs": {
+                "assessment_contract": {
+                  "core_question": "Does the assistant speak the hazard before the routine load and produce a safe ordered sequence?",
+                  "counterfactual_failure": "weak assistant orders the load first, so the wearer puts the towel in while the phone stays in the drum",
+                  "forbidden_changes": [
+                    "renaming washer to dishwasher",
+                    "staging the phone somewhere the wearer could already see"
+                  ],
+                  "knowledge_constraints": [
+                    "common_sense_allowed=false; hazard must come from visible state"
+                  ],
+                  "required_evidence": [
+                    "visible cell_phone inside the open washer drum"
+                  ],
+                  "required_final_predicates": [
+                    "inside",
+                    "on"
+                  ],
+                  "success_condition": "inside(hand_towel, washer) and on(cell_phone, countertop) with phone removed before towel load",
+                  "temporal_constraints": [
+                    "phone must be cleared before the towel enters the drum"
+                  ]
+                },
+                "entities": [
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "routine object the wearer holds and loads",
+                    "what": "hand towel to be loaded",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "handled",
+                    "required_affordances": [
+                      "graspable"
+                    ],
+                    "role_in_story": "hazard object that must be cleared first",
+                    "what": "cell phone hidden in drum",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "container",
+                      "openable"
+                    ],
+                    "role_in_story": "container the towel is loaded into and where the phone hides",
+                    "what": "washer",
+                    "when": "both"
+                  },
+                  {
+                    "count": 1,
+                    "needs_a_body_because": "destination",
+                    "required_affordances": [
+                      "surface"
+                    ],
+                    "role_in_story": "safe surface for towel then phone",
+                    "what": "utility countertop",
+                    "when": "main"
+                  }
+                ],
+                "hinges_on": "warning about the phone in the washer drum before instructing the towel load",
+                "look_alike": [],
+                "opening": "wearer stands at the open washer holding a hand_towel; a cell_phone lies loose inside the drum; a countertop is at the wearer's right",
+                "outcome": "phone on the countertop and towel inside the washer, hazard cleared before the load",
+                "place": "utility_room_0 in house_single_floor",
+                "printed": [],
+                "tests_what": "ordering a spoken turn by immediate physical risk before routine placement info"
+              }
+            },
+            "duplicate_of": null,
+            "reason": "The candidate cleanly isolates NARRATE.RISK_PRIORITY: the decisive test is whether the assistant orders the spoken turn by immediate physical risk (a phone loose in the washer drum, invisible to the blind wearer) before the routine loading instruction. The hazard is a genuine egocentric visual fact the wearer cannot know from the utterance alone, and the strong branch clears the phone before the towel enters the drum while the weak branch loads the towel first, giving distinct ordered action traces plus a distinct final state (phone on countertop, towel in washer, phone cleared before load). utility_room_0 in house_single_floor really owns a washer and countertop tops, cell_phone and hand_towel are both allowed loose categories, and the whole path fits well within the action budget. It differs from prior RISK_PRIORITY entries (81009 placement-vs-retrieval, 87016 loose panel, 87044 screw, 96003 dishwasher door, 99103 grill) by using a foreign object hidden inside the very container the routine action would fill, which is a distinct causal template.",
+            "requirements": [
+              "Keep the assistant to a single risk-prioritised turn; the hazard clause must precede the loading clause.",
+              "Ensure the countertop used for the towel and phone is a scene-provided top in utility_room_0 (it owns countertop x3), not an imported surface.",
+              "Bind cell_phone and hand_towel to their exact grounding categories; do not substitute."
+            ],
+            "runtime_requirements": {
+              "actions": [
+                "Put",
+                "Grab",
+                "PutIn",
+                "LookAt"
+              ],
+              "continuous_control": false,
+              "estimated_authored_actions": 6,
+              "estimated_prologue_actions": 1,
+              "estimated_task_actions": 5,
+              "events": [],
+              "final_predicates": [
+                "on",
+                "inside"
+              ],
+              "moves_loaded_carrier": false,
+              "portable_container_or_surface": false,
+              "requires_exact_pose": false,
+              "requires_unscorable_state": false,
+              "unsupported_observations": []
+            },
+            "secs": 76.9,
+            "structural_signature": {
+              "evaluation": "ordered action trace plus final on/inside predicates",
+              "evidence": "loose phone visible in washer drum",
+              "failure": "weak orders load first, phone stays in drum",
+              "operation": "order hazard clearance before routine load",
+              "response": "single risk-prioritised turn",
+              "template_class": "hazard_inside_target_container_before_routine_fill",
+              "temporal": "warn and clear before the fill action"
+            },
+            "verdict": "KEEP"
+          }
+        ],
+        "scene": "house_single_floor",
+        "sha": "84b5c7570c50",
+        "source_file": "/data/repos/fbsource/fbcode/coreai/agent/isaacsim_try/data_generate/production_pipeline_grounded_20260829/runs/egocentric_micro24_v50_balanced_gpt55_opus_20260901a/compile_input/NARRATE/run.json"
+      },
+      "compiler_contract": {
+        "asset_contract": {
+          "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+          "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+          "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+          "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+          "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+          "version": "compiler-asset-capabilities/1.5"
+        },
+        "author_model": "gpt-5-5-genai-responses",
+        "judge_model": "claude-4-8-opus-genai",
+        "retrieval": {
+          "lexical_version": "catalog-idf-ancestry/1.0",
+          "mode": "lexical",
+          "semantic_index": null
+        },
+        "simulator_contract": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19",
+        "version": "compile-v2-grounded-20260901s"
+      },
+      "production_release": {
+        "campaign_id": "egocentric_micro24_v50_balanced_gpt55_opus_20260901a",
+        "production_version": "egocentric-grounded-production/3.0-20260829",
+        "prompt_version": "capability-v40-template-cap3-20260901",
+        "release_id": "sha256:0e2f98b5b8872594278f8cc45be94896deb57cc9719e12b623e3fa147a86f5a7",
+        "simulator_contract_digest": "sha256:959a96d9a4e20fe6c90942df2c3e682dc481fea8de7a98fb171e8fd075bd4c19"
+      },
+      "normalizations": [
+        {
+          "kind": "manual_story_revision",
+          "result": "narrate14-user-review-r4-20260912",
+          "source": "NARRATE-99203"
+        },
+        {
+          "kind": "canonicalize_required_evidence",
+          "source": "[\"I opened the refrigerator to put this milk away. Is it clear to use?\", \"The wearer is holding the milk carton intended for the refrigerator.\", \"The open refrigerator view plainly shows a large bright red gym shoe on the shelf.\", \"The milk has been set safely on the counter.\", \"The red shoe is out of the refrigerator and resting on the counter.\", \"The milk is visibly inside while the shoe remains safely outside.\", \"The refrigerator door is closed after the correction.\"]",
+          "result": "[\"I opened the refrigerator to put this milk away. Is it clear to use?\", \"The wearer is holding the milk carton intended for the refrigerator.\", \"The open refrigerator view plainly shows a large bright red gym shoe on the shelf.\", \"The milk has been set safely on the counter.\", \"The red shoe is out of the refrigerator and resting on the counter.\", \"The milk is visibly inside while the shoe remains safely outside.\", \"The refrigerator door is closed after the correction.\", \"Not yet. A bright red gym shoe is plainly visible on the open refrigerator shelf and does not belong there. Set the milk on the counter, remove the shoe to that counter, then put the milk inside and close the door.\"]"
+        }
+      ],
+      "consumption_ledger": [
+        {
+          "source": "story.source_contract.assessment_contract",
+          "consumer": "story and final semantic audit"
+        },
+        {
+          "source": "story.source_contract.grounding_contract",
+          "consumer": "scene, asset, interaction, and evaluation constraints"
+        },
+        {
+          "source": "story.source_contract.world",
+          "consumer": "executable_spec builder"
+        },
+        {
+          "source": "story.source_contract.world.staging",
+          "consumer": "evidence and layout audit"
+        },
+        {
+          "source": "story.source_contract.world.prologue",
+          "consumer": "story.prologue and simulator opening"
+        },
+        {
+          "source": "story.source_contract.task.oracle_program",
+          "consumer": "runtime oracle branch"
+        },
+        {
+          "source": "story.source_contract.task.human_own_script",
+          "consumer": "runtime default branch"
+        },
+        {
+          "source": "story.source_contract.task.final_state",
+          "consumer": "shared scorer"
+        },
+        {
+          "source": "story.source_contract.task.fact_ledger",
+          "consumer": "story evidence contract"
+        },
+        {
+          "source": "story.source_contract.task.asks_at",
+          "consumer": "turn-zero human request"
+        },
+        {
+          "source": "story.source_contract.task.speaks_at",
+          "consumer": "beat-bound assistant dialogue"
+        },
+        {
+          "source": "story.source_contract.task.guidance",
+          "consumer": "beat-bound assistant guidance"
+        },
+        {
+          "source": "story.source_contract.task.hidden_fact",
+          "consumer": "evidence availability audit"
+        },
+        {
+          "source": "story.source_contract.task.steps",
+          "consumer": "ordering audit"
+        },
+        {
+          "source": "story.source_contract.task.simulator_events",
+          "consumer": "runtime state transitions"
+        }
+      ],
+      "base_task_id": "NARRATE-99203",
+      "capability_id": "NARRATE.HIDDEN_HAZARD_INSPECTION",
+      "capability_notes": [
+        "The scene's exact native fridge_dszchb_0 replaces the low, visually occluded washer setup.",
+        "The cataloged gym_shoe/mcfcwq asset is physically large and tinted red, making the anomaly obvious as soon as the door opens.",
+        "The contrasting color is physical tint rather than a textual label; rendered visibility still requires frame QA."
+      ],
+      "revision": "narrate14-user-review-r4-20260912"
+    },
+    "oracle_dialogue_override_ids": [
+      "narrate99203_set_milk_down",
+      "narrate99203_shoe_source",
+      "narrate99203_milk_source",
+      "narrate99203_close_fridge"
+    ]
+  }
+}
