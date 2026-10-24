@@ -1,0 +1,92 @@
+{
+  "schema_version": "interactiveworld-simulator-components/1.0",
+  "release_version": "1.0.0",
+  "release_date": "2026-09-29",
+  "tree_integrity": {
+    "algorithm": "sha256 over every regular file recursively under simulator/, sorted by POSIX relative path; for each file hash UTF-8(relative_path), NUL, ASCII(decimal_byte_length), NUL, then raw file bytes",
+    "excluded": [
+      "component_manifest.json",
+      "all .git path components",
+      "all __pycache__ path components",
+      "all .pyc files"
+    ],
+    "file_count": 133,
+    "sha256": "cbdc43a13bcfb89d392defb6abf14a36bff90ed678455673cbd1fa8e79a73a17"
+  },
+  "public_api": {
+    "simulator_facade": "simulator.api:Simulator",
+    "simulator_client": "simulator.client:SimulatorClient",
+    "task_catalog": "simulator.catalog:TaskCatalog",
+    "world_catalog": "simulator.api:available_worlds",
+    "semantic_action": "simulator.actions:Action",
+    "task_preparation": "simulator.api:TaskPreparation",
+    "environment_factory": "simulator.api:create_environment",
+    "taskpack_installer": "simulator.api:install_taskpack",
+    "benchmark_runner": "benchmark.runner.cli:main",
+    "benchmark_report": "benchmark.runner.report:build_suite_report",
+    "benchmark_video": "benchmark.runner.video:build_videos",
+    "evaluation_evidence": "benchmark.evaluation.prepare:prepare_evidence",
+    "taskpack_cli": "launch/run_taskpack.py",
+    "simulator_server_cli": "launch/run_sim_server.py",
+    "simulator_cli": "launch/simulator.py"
+  },
+  "layers": {
+    "public_api": {
+      "entrypoint": "simulator.api:Simulator",
+      "purpose": "Import-safe Python lifecycle for raw physical worlds or TaskPacks, typed semantic actions and observations, process isolation, and local or remote attachment"
+    },
+    "task_catalog": {
+      "entrypoint": "simulator.catalog:TaskCatalog",
+      "purpose": "Discovery, preparation-mode metadata, strict validation, and hash-verified loading of bundled or user-authored structured TaskPacks"
+    },
+    "physical_world": {
+      "entrypoint": "simulator.physical_world.episode_runtime:setup_episode",
+      "purpose": "Isaac scene construction, locomotion, manipulation, rendering, and physical predicates"
+    },
+    "environment": {
+      "entrypoint": "simulator.environment.isaac_env:IsaacEnv",
+      "purpose": "Persistent environment lifecycle, deterministic reset, command execution, observation, and native state score"
+    },
+    "interaction": {
+      "entrypoint": "simulator.interaction.episode_loop:run_episode",
+      "purpose": "Assistant/Human turn protocol, TaskPack completion contract, and episode audit trace"
+    },
+    "transport": {
+      "entrypoint": "simulator.transport.isaac_sim_server:main",
+      "purpose": "Persistent local or remote protocol with raw-world and TaskPack lifecycle operations"
+    },
+    "taskpack_support": {
+      "entrypoint": "simulator.taskpack_support.runtime_adapter:adapt_taskpack",
+      "purpose": "Lossless conversion of frozen bts/1.0 executable specifications"
+    },
+    "world_catalog": {
+      "entrypoint": "simulator.world_catalog.scene_manifest:load",
+      "purpose": "Frozen BEHAVIOR scene admission and container vocabulary"
+    },
+    "human_model": {
+      "entrypoint": "simulator.human_model.smplh_fpv:fwd",
+      "purpose": "SMPL+H body/hand runtime bridge; licensed model, motion, and grasp data are explicit external dependencies"
+    },
+    "benchmark_runner": {
+      "entrypoint": "benchmark.runner.cli:main",
+      "purpose": "One-command task selection, independent Human and Assistant model endpoints, deterministic multi-GPU sharding, reporting, evidence adjudication, and optional post-run video"
+    }
+  },
+  "frozen_contract_versions": {
+    "simulator_protocol": "interactiveworld-sim/1.0",
+    "taskpack": "data-generate-taskpack/1.0",
+    "runtime_adapter": "bts-runtime-view/1.7",
+    "runner_config": "interactiveworld-runner-config/1.0",
+    "report": "interactiveworld-report/1.0",
+    "evaluation_evidence": "interactiveworld-evidence/1.1",
+    "simulator": "Isaac Sim 5.1"
+  },
+  "excluded": [
+    "historical benchmark generators",
+    "experiment launch matrices",
+    "past score reports",
+    "standalone prototype scenes",
+    "diagnostic probes",
+    "rendered outputs"
+  ]
+}

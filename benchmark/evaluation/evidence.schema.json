@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "interactiveworld-evidence/1.1",
+  "title": "InteractiveWorld Balanced120 evaluation evidence",
+  "type": "object",
+  "required": [
+    "evidence_schema_version",
+    "task_id",
+    "taskpack_sha256",
+    "run_evidence_sha256",
+    "validity",
+    "native_taskpack",
+    "release"
+  ],
+  "properties": {
+    "evidence_schema_version": {"const": "interactiveworld-evidence/1.1"},
+    "task_id": {"type": "string", "minLength": 1},
+    "taskpack_sha256": {
+      "type": ["string", "null"],
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "run_evidence_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "validity": {
+      "type": "object",
+      "required": [
+        "scene_setup_ok",
+        "runtime_complete",
+        "trace_complete",
+        "frames_usable",
+        "assistant_transport_ok",
+        "human_executor_ok",
+        "simulator_ok",
+        "no_material_human_leakage"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "scene_setup_ok": {"type": ["boolean", "null"]},
+        "runtime_complete": {"type": ["boolean", "null"]},
+        "trace_complete": {"type": ["boolean", "null"]},
+        "frames_usable": {"type": ["boolean", "null"]},
+        "assistant_transport_ok": {"type": ["boolean", "null"]},
+        "human_executor_ok": {"type": ["boolean", "null"]},
+        "simulator_ok": {"type": ["boolean", "null"]},
+        "no_material_human_leakage": {"type": ["boolean", "null"]}
+      }
+    },
+    "native_taskpack": {
+      "type": "object",
+      "required": [
+        "contract_world_success",
+        "process_requirements_met",
+        "verification_points_met",
+        "assistant_declared_done",
+        "requires_assistant_done"
+      ],
+      "properties": {
+        "contract_world_success": {"type": ["boolean", "null"]},
+        "process_requirements_met": {"type": ["boolean", "null"]},
+        "verification_points_met": {"type": ["boolean", "null"]},
+        "assistant_declared_done": {"type": ["boolean", "null"]},
+        "requires_assistant_done": {"type": ["boolean", "null"]},
+        "reported_goal_met": {"type": ["boolean", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "release": {
+      "type": "object",
+      "required": [
+        "rubric_version",
+        "evidence_mode",
+        "adjudication_required",
+        "adjudication_status"
+      ],
+      "properties": {
+        "rubric_version": {"type": "string"},
+        "evidence_mode": {"const": "trace_adjudicated"},
+        "adjudication_required": {"const": true},
+        "adjudication_status": {"enum": ["PENDING", "COMPLETE"]},
+        "group_results": {"$ref": "#/$defs/numericResults"},
+        "bundle_results": {"$ref": "#/$defs/booleanResults"},
+        "terminal_group_results": {"$ref": "#/$defs/booleanResults"},
+        "atom_results": {"$ref": "#/$defs/booleanResults"},
+        "gate_results": {"$ref": "#/$defs/booleanResults"},
+        "transition_gate_results": {"$ref": "#/$defs/booleanResults"},
+        "condition_results": {"$ref": "#/$defs/booleanResults"},
+        "causal_checks": {
+          "type": "object",
+          "additionalProperties": {"type": ["boolean", "null"]}
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "booleanResults": {
+      "type": "object",
+      "additionalProperties": {"type": ["boolean", "null"]}
+    },
+    "numericResults": {
+      "type": "object",
+      "additionalProperties": {"type": ["number", "null"], "minimum": 0, "maximum": 1}
+    }
+  }
+}

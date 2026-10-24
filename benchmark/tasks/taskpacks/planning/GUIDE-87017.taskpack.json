@@ -1,0 +1,3254 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-87017",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "cut",
+          "subject": "moldy_bread",
+          "target": "moldy_bread"
+        },
+        {
+          "pred": "cut",
+          "subject": "fresh_bread",
+          "target": "fresh_bread"
+        },
+        {
+          "pred": "inside",
+          "subject": "moldy_bread",
+          "target": "trash"
+        },
+        {
+          "pred": "on",
+          "subject": "fresh_bread",
+          "target": "plate"
+        },
+        {
+          "pred": "on",
+          "subject": "cheese",
+          "target": "fresh_bread"
+        },
+        {
+          "pred": "on",
+          "subject": "apple",
+          "target": "plate"
+        },
+        {
+          "pred": "on",
+          "subject": "plate",
+          "target": "service_pass"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "cut",
+          "subject": "moldy_bread",
+          "target": "moldy_bread"
+        },
+        {
+          "pred": "cut",
+          "subject": "fresh_bread",
+          "target": "fresh_bread"
+        },
+        {
+          "pred": "inside",
+          "subject": "moldy_bread",
+          "target": "trash"
+        },
+        {
+          "pred": "on",
+          "subject": "fresh_bread",
+          "target": "plate"
+        },
+        {
+          "pred": "on",
+          "subject": "cheese",
+          "target": "fresh_bread"
+        },
+        {
+          "pred": "on",
+          "subject": "apple",
+          "target": "plate"
+        },
+        {
+          "pred": "on",
+          "subject": "plate",
+          "target": "service_pass"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "trash"
+        ],
+        "nested_containers": [
+          "fresh_bread",
+          "plate"
+        ],
+        "objects": [
+          "apple",
+          "cheese",
+          "fresh_bread",
+          "knife",
+          "moldy_bread",
+          "plate",
+          "recipe"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "Take the first roll to the preparation table and cut it as the checklist requires. Inspect the cut bread before continuing. The close view shows mold, so discard that entire roll. Cut the fresh replacement, put it on the plate, place the cheese on the bread and the apple on the plate, then carry the complete plate to the service pass.",
+        "cue": "I haven't made this snack before. Please use the checklist you read and guide me through the whole preparation one step at a time.",
+        "premise": "A lunch worker first reads a six-line snack-plate safety checklist. The first bread roll carries a small mold patch that is not legible in the opening wide view. Every ingredient, the knife, and the plate are together on one preparation table. After the first cut reveals mold, the replacement is also cut and the fresh components are assembled recursively on a carryable plate."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "I haven't made this snack before. Please use the checklist you read and guide me through the whole preparation one step at a time.",
+        "kind": "authored",
+        "ref": "interactiveworld:GUIDE-87017"
+      },
+      "rule_table": "cut(moldy_bread); cut(fresh_bread); inside(moldy_bread, trash); on(fresh_bread, plate); on(cheese, fresh_bread); on(apple, plate); on(plate, service_pass)",
+      "scene": "restaurant_hotel",
+      "template": "the grounded restaurant_hotel scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 24,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 24,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "recipe"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "recipe"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "recipe"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "prep_table"
+          ]
+        },
+        {
+          "verb": "LookAround",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "knife"
+          ]
+        },
+        {
+          "verb": "Cut",
+          "args": [
+            "moldy_bread",
+            "knife"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "knife",
+            "prep_table"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "moldy_bread"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "moldy_bread"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "moldy_bread",
+            "trash"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "knife"
+          ]
+        },
+        {
+          "verb": "Cut",
+          "args": [
+            "fresh_bread",
+            "knife"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "knife",
+            "prep_table"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "fresh_bread"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "fresh_bread",
+            "plate"
+          ],
+          "place_spot": [
+            -0.3,
+            0.0
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "cheese"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "cheese",
+            "fresh_bread"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "apple"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "apple",
+            "plate"
+          ],
+          "place_spot": [
+            0.35,
+            0.0
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "plate"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "plate",
+            "service_pass"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "interactiveworld.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Grab] <knife> (1), [Cut] <moldy_bread> (1) <knife> (1), [PutOn] <knife> (1) <prep_table> (1), [LookAt] <moldy_bread> (1), [Grab] <moldy_bread> (1), [PutInside] <moldy_bread> (1) <trash> (1), [Grab] <knife> (1), [Cut] <fresh_bread> (1) <knife> (1), [PutOn] <knife> (1) <prep_table> (1), [Grab] <fresh_bread> (1), [PutOn] <fresh_bread> (1) <plate> (1) @place_spot=-0.3:0.0, [Grab] <cheese> (1), [PutOn] <cheese> (1) <fresh_bread> (1), [Grab] <apple> (1), [PutOn] <apple> (1) <plate> (1) @place_spot=0.35:0.0, [Grab] <plate> (1), [PutOn] <plate> (1) <service_pass> (1), [Wait]",
+      "seed": 1111480360,
+      "source_task_id": "GUIDE-87017"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "cut",
+          "label": null,
+          "neg_kind": null,
+          "subject": "moldy_bread",
+          "target": "moldy_bread"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "cut",
+          "label": null,
+          "neg_kind": null,
+          "subject": "fresh_bread",
+          "target": "fresh_bread"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "moldy_bread",
+          "target": "trash"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "fresh_bread",
+          "target": "plate"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 4,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "cheese",
+          "target": "fresh_bread"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 5,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "apple",
+          "target": "plate"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 6,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "plate",
+          "target": "service_pass"
+        }
+      ],
+      "sub_steps": [
+        "cut(moldy_bread)",
+        "cut(fresh_bread)",
+        "inside(moldy_bread, trash)",
+        "on(fresh_bread, plate)",
+        "on(cheese, fresh_bread)",
+        "on(apple, plate)",
+        "on(plate, service_pass)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-87017",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 1111480360,
+      "containers": {
+        "trash": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "trash_can",
+            "model": "wklill",
+            "source": "import"
+          },
+          "door": {
+            "required": false
+          },
+          "kind": "open_bin",
+          "role": "scored",
+          "room": "kitchen_0",
+          "label": "FOOD WASTE"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "recipe_table": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "prep_table": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "service_pass": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_recipe": {
+          "content": {
+            "args": {
+              "renderer": "recipe_card",
+              "rows": [
+                "1|TAKE ONE BREAD ROLL",
+                "2|CUT AND CHECK THE CENTRE",
+                "3|IF MOLDY, DISCARD THE WHOLE ROLL",
+                "4|CUT THE FRESH REPLACEMENT ROLL",
+                "5|FRESH ROLL TO PLATE; CHEESE ON ROLL",
+                "6|APPLE TO PLATE; CARRY PLATE TO PASS"
+              ],
+              "sub": "",
+              "title": "SNACK PLATE SAFETY CHECKLIST"
+            },
+            "lines": [
+              "1|TAKE ONE BREAD ROLL",
+              "2|CUT AND CHECK THE CENTRE",
+              "3|IF MOLDY, DISCARD THE WHOLE ROLL",
+              "4|CUT THE FRESH REPLACEMENT ROLL",
+              "5|FRESH ROLL TO PLATE; CHEESE ON ROLL",
+              "6|APPLE TO PLATE; CARRY PLATE TO PASS"
+            ],
+            "text": "SNACK PLATE SAFETY CHECKLIST"
+          },
+          "kind": "range_card",
+          "mount": {
+            "on": "recipe",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_87017_guide26_story_refine_r2_20260912zl_recipe_3b2c130d5c99"
+        },
+        "label_moldy_bread": {
+          "content": {
+            "args": {
+              "renderer": "mold_patch",
+              "sub": "",
+              "title": ""
+            },
+            "text": "MOLD"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "moldy_bread",
+            "surface": "item_decal",
+            "face": "top"
+          },
+          "per_seed": false,
+          "png": "guide_87017_guide26_story_refine_r2_20260912zl_moldy_bread_21d396abf28c"
+        },
+        "label_trash": {
+          "content": {
+            "args": {
+              "renderer": "short_string",
+              "sub": "",
+              "title": "",
+              "mount_style": "adhesive"
+            },
+            "text": "FOOD WASTE"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "trash",
+            "surface": "container_sign"
+          },
+          "per_seed": false,
+          "png": "guide_87017_guide26_story_refine_r2_20260912zl_trash_fdcf0f95e0b8"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "recipe": {
+          "cat": "clipboard",
+          "model": "gmxyfo",
+          "needs_lookat": true,
+          "place": "on:recipe_table",
+          "room": "kitchen_0",
+          "scored": false,
+          "decal": "SNACK PLATE CHECKLIST"
+        },
+        "moldy_bread": {
+          "cat": "hamburger_bun",
+          "model": "jeygaq",
+          "needs_lookat": true,
+          "place": "on:prep_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.65,
+            0.55
+          ],
+          "decal": "MOLD"
+        },
+        "fresh_bread": {
+          "cat": "hamburger_bun",
+          "model": "jeygaq",
+          "needs_lookat": false,
+          "place": "on:prep_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.25,
+            0.55
+          ],
+          "affordances": [
+            "surface",
+            "container"
+          ]
+        },
+        "knife": {
+          "cat": "table_knife",
+          "model": "jxdfyy",
+          "needs_lookat": false,
+          "place": "on:prep_table",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.15,
+            0.55
+          ]
+        },
+        "cheese": {
+          "cat": "half_swiss_cheese",
+          "model": "ppnaxx",
+          "needs_lookat": false,
+          "place": "on:prep_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.45,
+            0.55
+          ]
+        },
+        "apple": {
+          "cat": "apple",
+          "model": "agveuv",
+          "needs_lookat": false,
+          "place": "on:prep_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.65,
+            0.55
+          ]
+        },
+        "plate": {
+          "cat": "plate",
+          "model": "fhdyrj",
+          "needs_lookat": false,
+          "place": "on:prep_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            -0.45
+          ],
+          "affordances": [
+            "surface",
+            "container"
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "kitchen_0"
+      ],
+      "scene": "restaurant_hotel",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "A lunch worker first reads a six-line snack-plate safety checklist. The first bread roll carries a small mold patch that is not legible in the opening wide view. Every ingredient, the knife, and the plate are together on one preparation table. After the first cut reveals mold, the replacement is also cut and the fresh components are assembled recursively on a carryable plate.",
+    "assistant_goal": "I haven't made this snack before. Please use the checklist you read and guide me through the whole preparation one step at a time.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.DOMAIN_KNOWLEDGE_INJECTION",
+      "assigned_scene": "restaurant_hotel",
+      "core_question": "I haven't made this snack before. Please use the checklist you read and guide me through the whole preparation one step at a time.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "A lunch worker first reads a six-line snack-plate safety checklist. The first bread roll carries a small mold patch that is not legible in the opening wide view. Every ingredient, the knife, and the plate are together on one preparation table. After the first cut reveals mold, the replacement is also cut and the fresh components are assembled recursively on a carryable plate."
+      ],
+      "required_evidence": [
+        "I haven't made this snack before. Please use the checklist you read and guide me through the whole preparation one step at a time.",
+        "The visible checklist requires cutting and inspecting the bread, discarding a moldy roll whole, and replacing it.",
+        "Both rolls, the knife, cheese, apple, and clean plate are visibly grouped on one preparation table.",
+        "The wearer completed the checklist's cut step on the first roll.",
+        "Only the post-cut close view reveals the small organic mold patch.",
+        "The moldy roll is now inside the FOOD WASTE bin.",
+        "The fresh replacement has also been cut as required.",
+        "The fresh bread is on the plate with the cheese on the bread.",
+        "The replacement bread, cheese, and apple are assembled on the plate.",
+        "The wearer carried the complete plate to the service pass.",
+        "Take the first roll to the preparation table and cut it as the checklist requires. Inspect the cut bread before continuing. The close view shows mold, so discard that entire roll. Cut the fresh replacement, put it on the plate, place the cheese on the bread and the apple on the plate, then carry the complete plate to the service pass."
+      ],
+      "required_final_predicates": [
+        "cut",
+        "cut",
+        "inside",
+        "on",
+        "on",
+        "on",
+        "on"
+      ],
+      "success_condition": "cut(moldy_bread); cut(fresh_bread); inside(moldy_bread, trash); on(fresh_bread, plate); on(cheese, fresh_bread); on(apple, plate); on(plate, service_pass)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-87017",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.DOMAIN_KNOWLEDGE_INJECTION",
+        "assigned_scene": "restaurant_hotel",
+        "core_question": "I haven't made this snack before. Please use the checklist you read and guide me through the whole preparation one step at a time.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "A lunch worker first reads a six-line snack-plate safety checklist. The first bread roll carries a small mold patch that is not legible in the opening wide view. Every ingredient, the knife, and the plate are together on one preparation table. After the first cut reveals mold, the replacement is also cut and the fresh components are assembled recursively on a carryable plate."
+        ],
+        "required_evidence": [
+          "I haven't made this snack before. Please use the checklist you read and guide me through the whole preparation one step at a time.",
+          "The visible checklist requires cutting and inspecting the bread, discarding a moldy roll whole, and replacing it.",
+          "Both rolls, the knife, cheese, apple, and clean plate are visibly grouped on one preparation table.",
+          "The wearer completed the checklist's cut step on the first roll.",
+          "Only the post-cut close view reveals the small organic mold patch.",
+          "The moldy roll is now inside the FOOD WASTE bin.",
+          "The fresh replacement has also been cut as required.",
+          "The fresh bread is on the plate with the cheese on the bread.",
+          "The replacement bread, cheese, and apple are assembled on the plate.",
+          "The wearer carried the complete plate to the service pass.",
+          "Take the first roll to the preparation table and cut it as the checklist requires. Inspect the cut bread before continuing. The close view shows mold, so discard that entire roll. Cut the fresh replacement, put it on the plate, place the cheese on the bread and the apple on the plate, then carry the complete plate to the service pass."
+        ],
+        "required_final_predicates": [
+          "cut",
+          "cut",
+          "inside",
+          "on",
+          "on",
+          "on",
+          "on"
+        ],
+        "success_condition": "cut(moldy_bread); cut(fresh_bread); inside(moldy_bread, trash); on(fresh_bread, plate); on(cheese, fresh_bread); on(apple, plate); on(plate, service_pass)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "asparagus",
+          "bag_of_shiitake",
+          "bag_of_yeast",
+          "banana_bread",
+          "batting_gloves",
+          "bottle_of_fruit_punch",
+          "bottle_of_paprika",
+          "bottle_of_water",
+          "box_of_aluminium_foil",
+          "box_of_cereal",
+          "box_of_tissues",
+          "box_of_yogurt",
+          "boxed_router",
+          "bust",
+          "can_of_coffee",
+          "carton_of_soy_milk",
+          "cell_phone",
+          "ceramic_tile",
+          "clipboard",
+          "croissant",
+          "funnel",
+          "granulated_sugar_jar",
+          "half_beet",
+          "half_fried_chicken",
+          "half_meat_loaf",
+          "half_peach",
+          "half_swiss_cheese",
+          "hamburger_bun",
+          "hand_towel",
+          "jar_of_jam",
+          "jigger",
+          "juicer",
+          "liquid_carton",
+          "mint",
+          "mug",
+          "notepad",
+          "paper_sheet",
+          "pastry",
+          "pipe",
+          "plate",
+          "pottable_marigold",
+          "ramen",
+          "saddle_soap_bottle",
+          "seashell",
+          "sliced_chocolate_cake",
+          "soda_cup",
+          "sponge",
+          "syringe",
+          "table_knife",
+          "waffle_maker",
+          "wok"
+        ],
+        "allowed_surface_categories": [
+          "bookcase",
+          "bottom_cabinet_no_top",
+          "commercial_kitchen_table",
+          "countertop",
+          "flat_top_grill",
+          "metal_bottom_cabinet"
+        ],
+        "capability_id": "GUIDE.DOMAIN_KNOWLEDGE_INJECTION",
+        "coverage_categories": [
+          "banana_bread",
+          "bust",
+          "half_beet",
+          "liquid_carton",
+          "jigger",
+          "ceramic_tile",
+          "ramen",
+          "bag_of_shiitake",
+          "carton_of_soy_milk",
+          "funnel",
+          "box_of_aluminium_foil",
+          "bag_of_yeast",
+          "wok",
+          "sliced_chocolate_cake",
+          "syringe",
+          "bottle_of_paprika",
+          "croissant",
+          "boxed_router",
+          "can_of_coffee",
+          "jar_of_jam"
+        ],
+        "evaluation": {
+          "common_sense_allowed": true,
+          "document_carrier_required": true,
+          "max_semantic_turns": 6,
+          "required_semantic_turns": 6,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 28,
+          "max_document_characters": 215,
+          "max_fixed_destinations": 4,
+          "max_meaningful_steps": 24,
+          "max_movable_objects": 7,
+          "max_objects_per_container": 7,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 6,
+          "max_small_label_characters": 40,
+          "max_task_actions": 18,
+          "min_intervening_meaningful_actions": 6,
+          "min_meaningful_steps": 5
+        },
+        "preferred_story_categories": [
+          "bottle_of_water",
+          "mug",
+          "apple",
+          "paper_sheet"
+        ],
+        "preferred_story_category_glosses": {
+          "apple": "fruit with red or yellow or green skin and sweet to tart crisp whitish flesh",
+          "bottle_of_water": "",
+          "mug": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 59.2,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "fridge": 3,
+              "metal_bottom_cabinet": 5,
+              "oven": 1
+            },
+            "scene_surfaces": {
+              "commercial_kitchen_table": 7,
+              "flat_top_grill": 4,
+              "metal_bottom_cabinet": 9
+            },
+            "surface_max_area_m2": {
+              "commercial_kitchen_table": 0.2,
+              "flat_top_grill": 0.265,
+              "metal_bottom_cabinet": 0.253
+            },
+            "surface_reference_capacity": {
+              "commercial_kitchen_table": 3,
+              "flat_top_grill": 3,
+              "metal_bottom_cabinet": 3
+            }
+          }
+        ],
+        "scene": "restaurant_hotel",
+        "task_id": "GUIDE-87017",
+        "version": "grounded-authoring/3.0-validity-20260831"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "clipboard",
+            "changed": false,
+            "costs": null,
+            "label": "SNACK PLATE CHECKLIST",
+            "tint": null,
+            "what": "snack-plate safety checklist"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "hamburger_bun",
+            "changed": false,
+            "costs": null,
+            "label": "MOLD",
+            "tint": null,
+            "what": "first bread roll with a small mold patch"
+          },
+          {
+            "affordances": [
+              "graspable",
+              "surface",
+              "container"
+            ],
+            "category": "hamburger_bun",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "fresh replacement bread roll"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "table_knife",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "table knife"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "half_swiss_cheese",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "small Swiss cheese wedge"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "apple",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "green apple"
+          },
+          {
+            "affordances": [
+              "graspable",
+              "surface",
+              "container"
+            ],
+            "category": "plate",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "large clean serving plate"
+          },
+          {
+            "affordances": [
+              "container"
+            ],
+            "category": "trash_can",
+            "changed": false,
+            "costs": null,
+            "label": "FOOD WASTE",
+            "tint": null,
+            "what": "FOOD WASTE bin"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "recipe table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "sandwich preparation table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "finished-food service pass"
+          }
+        ],
+        "distinct_by": [
+          "the organic mold patch becomes visible only on the inspected first roll"
+        ],
+        "identical_groups": [
+          [
+            "moldy_bread",
+            "fresh_bread"
+          ]
+        ],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "snack-plate safety checklist",
+            "text": "SNACK PLATE CHECKLIST",
+            "what": "document",
+            "which": null
+          },
+          {
+            "rides": "first bread roll with a small mold patch",
+            "text": "MOLD",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "FOOD WASTE bin",
+            "text": "FOOD WASTE",
+            "what": "label",
+            "which": null
+          }
+        ],
+        "restaged_story": "A lunch worker first reads a six-line snack-plate safety checklist. The first bread roll carries a small mold patch that is not legible in the opening wide view. Every ingredient, the knife, and the plate are together on one preparation table. After the first cut reveals mold, the replacement is also cut and the fresh components are assembled recursively on a carryable plate.",
+        "scene": "restaurant_hotel",
+        "why_scene": "restaurant_hotel supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "trash": {
+            "cat": "trash_can",
+            "initially_open": false,
+            "label": "FOOD WASTE",
+            "preload": [],
+            "role": "scored",
+            "room": "kitchen_0"
+          }
+        },
+        "items": {
+          "recipe": {
+            "affordances": [],
+            "cat": "clipboard",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "SNACK PLATE CHECKLIST",
+            "place": "on:recipe_table",
+            "scored": false,
+            "spot": null,
+            "tint": null
+          },
+          "moldy_bread": {
+            "affordances": [],
+            "cat": "hamburger_bun",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "MOLD",
+            "place": "on:prep_table",
+            "scored": true,
+            "spot": [
+              -0.65,
+              0.55
+            ],
+            "tint": null
+          },
+          "fresh_bread": {
+            "affordances": [
+              "surface",
+              "container"
+            ],
+            "cat": "hamburger_bun",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:prep_table",
+            "scored": true,
+            "spot": [
+              -0.25,
+              0.55
+            ],
+            "tint": null
+          },
+          "knife": {
+            "affordances": [],
+            "cat": "table_knife",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:prep_table",
+            "scored": false,
+            "spot": [
+              0.15,
+              0.55
+            ],
+            "tint": null
+          },
+          "cheese": {
+            "affordances": [],
+            "cat": "half_swiss_cheese",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:prep_table",
+            "scored": true,
+            "spot": [
+              0.45,
+              0.55
+            ],
+            "tint": null
+          },
+          "apple": {
+            "affordances": [],
+            "cat": "apple",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:prep_table",
+            "scored": true,
+            "spot": [
+              0.65,
+              0.55
+            ],
+            "tint": null
+          },
+          "plate": {
+            "affordances": [
+              "surface",
+              "container"
+            ],
+            "cat": "plate",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:prep_table",
+            "scored": true,
+            "spot": [
+              0.0,
+              -0.45
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <recipe> (1)",
+          "[Grab] <recipe> (1)",
+          "[LookAt] <recipe> (1)",
+          "[Walk] <prep_table> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0"
+        ],
+        "scene": "restaurant_hotel",
+        "staging": {
+          "groups": "A lunch worker first reads a six-line snack-plate safety checklist. The first bread roll carries a small mold patch that is not legible in the opening wide view. Every ingredient, the knife, and the plate are together on one preparation table. After the first cut reveals mold, the replacement is also cut and the fresh components are assembled recursively on a carryable plate.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "recipe_table": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "prep_table": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "service_pass": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I haven't made this snack before. Please use the checklist you read and guide me through the whole preparation one step at a time."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "I haven't made this snack before. Please use the checklist you read and guide me through the whole preparation one step at a time.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The visible checklist requires cutting and inspecting the bread, discarding a moldy roll whole, and replacing it.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 2,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Both rolls, the knife, cheese, apple, and clean plate are visibly grouped on one preparation table.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 4,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The wearer completed the checklist's cut step on the first roll.",
+            "from": "live",
+            "id": "fact_004",
+            "source_index": 1,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "Only the post-cut close view reveals the small organic mold patch.",
+            "from": "live",
+            "id": "fact_005",
+            "source_index": 3,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The moldy roll is now inside the FOOD WASTE bin.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 5,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The fresh replacement has also been cut as required.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 7,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The fresh bread is on the plate with the cheese on the bread.",
+            "from": "live",
+            "id": "fact_008",
+            "source_index": 12,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The replacement bread, cheese, and apple are assembled on the plate.",
+            "from": "live",
+            "id": "fact_009",
+            "source_index": 14,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The wearer carried the complete plate to the service pass.",
+            "from": "live",
+            "id": "fact_010",
+            "source_index": 16,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007",
+              "fact_008",
+              "fact_009",
+              "fact_010"
+            ],
+            "fact": "Take the first roll to the preparation table and cut it as the checklist requires. Inspect the cut bread before continuing. The close view shows mold, so discard that entire roll. Cut the fresh replacement, put it on the plate, place the cheese on the bread and the apple on the plate, then carry the complete plate to the service pass.",
+            "from": "derived",
+            "id": "fact_011",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "cut",
+            "scorable": true,
+            "subject": "moldy_bread",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "cut",
+            "scorable": true,
+            "subject": "fresh_bread",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "moldy_bread",
+            "target": "trash"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "fresh_bread",
+            "target": "plate"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "cheese",
+            "target": "fresh_bread"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "apple",
+            "target": "plate"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "plate",
+            "target": "service_pass"
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "First walk directly to the prep table using `[Walk] <prep_table> (1)` so the tabletop is centered in view, then look down with `[LookScan]`. The knife (`knife`) and both bread rolls are on that table. Looking across the tabletop, the knife is immediately to the left of the plate, and the bread rolls are between the plate and the cheese. Use the roll closer to the plate—the left-hand roll of the pair. Its simulator control key is `moldy_bread`, an opaque execution handle for the selected roll. Pick up `knife`, cut `moldy_bread`, put `knife` back on `prep_table`, then inspect the cut center of `moldy_bread`.",
+            "referents": [
+              "recipe",
+              "moldy_bread",
+              "knife",
+              "prep_table"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 4,
+            "say": "The cut center shows mold. Take the inspected roll (`moldy_bread`) from `prep_table` and put it inside the open bin labeled FOOD WASTE (`trash`).",
+            "referents": [
+              "moldy_bread",
+              "trash"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ]
+          },
+          {
+            "before_index": 6,
+            "say": "Return to `prep_table`, pick up `knife`, cut the remaining roll (`fresh_bread`), then put `knife` back on `prep_table`.",
+            "referents": [
+              "fresh_bread",
+              "knife",
+              "prep_table"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ]
+          },
+          {
+            "before_index": 9,
+            "say": "At `prep_table`, pick up the cut roll (`fresh_bread`) and put it on the clean plate (`plate`). Then pick up the Swiss cheese (`cheese`) from `prep_table` and put it directly on `fresh_bread`.",
+            "referents": [
+              "fresh_bread",
+              "cheese",
+              "plate"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007"
+            ]
+          },
+          {
+            "before_index": 13,
+            "say": "Take the green apple (`apple`) from `prep_table` and put it on `plate` beside the bread.",
+            "referents": [
+              "apple",
+              "fresh_bread",
+              "plate"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007",
+              "fact_008"
+            ]
+          },
+          {
+            "before_index": 15,
+            "say": "Pick up the completed plate (`plate`) from `prep_table`, carry it to the service pass (`service_pass`), and set it there.",
+            "referents": [
+              "plate",
+              "service_pass"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007",
+              "fact_008",
+              "fact_009"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Grab] <knife> (1), [Cut] <moldy_bread> (1) <knife> (1), [PutOn] <knife> (1) <prep_table> (1), [Grab] <moldy_bread> (1), [PutOn] <moldy_bread> (1) <plate> (1) @place_spot=-0.3:0.0, [Grab] <cheese> (1), [PutOn] <cheese> (1) <moldy_bread> (1), [Grab] <apple> (1), [PutOn] <apple> (1) <plate> (1) @place_spot=0.35:0.0, [Grab] <plate> (1), [PutOn] <plate> (1) <service_pass> (1)",
+        "mates": [],
+        "oracle_program": "[Grab] <knife> (1), [Cut] <moldy_bread> (1) <knife> (1), [PutOn] <knife> (1) <prep_table> (1), [LookAt] <moldy_bread> (1), [Grab] <moldy_bread> (1), [PutInside] <moldy_bread> (1) <trash> (1), [Grab] <knife> (1), [Cut] <fresh_bread> (1) <knife> (1), [PutOn] <knife> (1) <prep_table> (1), [Grab] <fresh_bread> (1), [PutOn] <fresh_bread> (1) <plate> (1) @place_spot=-0.3:0.0, [Grab] <cheese> (1), [PutOn] <cheese> (1) <fresh_bread> (1), [Grab] <apple> (1), [PutOn] <apple> (1) <plate> (1) @place_spot=0.35:0.0, [Grab] <plate> (1), [PutOn] <plate> (1) <service_pass> (1), [Wait]",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "A lunch worker first reads a six-line snack-plate safety checklist. The first bread roll carries a small mold patch that is not legible in the opening wide view. Every ingredient, the knife, and the plate are together on one preparation table. After the first cut reveals mold, the replacement is also cut and the fresh components are assembled recursively on a carryable plate.",
+        "utterance": "I haven't made this snack before. Please use the checklist you read and guide me through the whole preparation one step at a time."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <recipe> (1)",
+        "[Grab] <recipe> (1)",
+        "[LookAt] <recipe> (1)",
+        "[Walk] <prep_table> (1)",
+        "[LookAround]",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "recipe"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "recipe"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "recipe"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "recipe"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "recipe"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The visible checklist requires cutting and inspecting the bread, discarding a moldy roll whole, and replacing it.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_011",
+            "kind": "evidence",
+            "statement": "Take the first roll to the preparation table and cut it as the checklist requires. Inspect the cut bread before continuing. The close view shows mold, so discard that entire roll. Cut the fresh replacement, put it on the plate, place the cheese on the bread and the apple on the plate, then carry the complete plate to the service pass.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "prep_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "prep_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "Both rolls, the knife, cheese, apple, and clean plate are visibly grouped on one preparation table.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_011",
+            "kind": "evidence",
+            "statement": "Take the first roll to the preparation table and cut it as the checklist requires. Inspect the cut bread before continuing. The close view shows mold, so discard that entire roll. Cut the fresh replacement, put it on the plate, place the cheese on the bread and the apple on the plate, then carry the complete plate to the service pass.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "I haven't made this snack before. Please use the checklist you read and guide me through the whole preparation one step at a time.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "I haven't made this snack before. Please use the checklist you read and guide me through the whole preparation one step at a time.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_011",
+            "kind": "evidence",
+            "statement": "Take the first roll to the preparation table and cut it as the checklist requires. Inspect the cut bread before continuing. The close view shows mold, so discard that entire roll. Cut the fresh replacement, put it on the plate, place the cheese on the bread and the apple on the plate, then carry the complete plate to the service pass.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "First walk directly to the prep table using `[Walk] <prep_table> (1)` so the tabletop is centered in view, then look down with `[LookScan]`. The knife (`knife`) and both bread rolls are on that table. Looking across the tabletop, the knife is immediately to the left of the plate, and the bread rolls are between the plate and the cheese. Use the roll closer to the plate—the left-hand roll of the pair. Its simulator control key is `moldy_bread`, an opaque execution handle for the selected roll. Pick up `knife`, cut `moldy_bread`, put `knife` back on `prep_table`, then inspect the cut center of `moldy_bread`.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The cut center shows mold. Take the inspected roll (`moldy_bread`) from `prep_table` and put it inside the open bin labeled FOOD WASTE (`trash`).",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Return to `prep_table`, pick up `knife`, cut the remaining roll (`fresh_bread`), then put `knife` back on `prep_table`.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_003",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "At `prep_table`, pick up the cut roll (`fresh_bread`) and put it on the clean plate (`plate`). Then pick up the Swiss cheese (`cheese`) from `prep_table` and put it directly on `fresh_bread`.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_004",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Take the green apple (`apple`) from `prep_table` and put it on `plate` beside the bread.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_005",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Pick up the completed plate (`plate`) from `prep_table`, carry it to the service pass (`service_pass`), and set it there.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "knife"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "knife"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Cut",
+          "args": [
+            "moldy_bread",
+            "knife"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "knife",
+            "prep_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "moldy_bread"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "moldy_bread"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "moldy_bread",
+            "plate"
+          ],
+          "place_spot": [
+            -0.3,
+            0.0
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "cheese"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "cheese"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "cheese",
+            "moldy_bread"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "apple"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "apple"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "apple",
+            "plate"
+          ],
+          "place_spot": [
+            0.35,
+            0.0
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "plate"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "plate"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h010",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "plate",
+            "service_pass"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "knife"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "knife"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Cut",
+          "args": [
+            "moldy_bread",
+            "knife"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The wearer completed the checklist's cut step on the first roll.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_011",
+            "kind": "evidence",
+            "statement": "Take the first roll to the preparation table and cut it as the checklist requires. Inspect the cut bread before continuing. The close view shows mold, so discard that entire roll. Cut the fresh replacement, put it on the plate, place the cheese on the bread and the apple on the plate, then carry the complete plate to the service pass.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "knife",
+            "prep_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "moldy_bread"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "Only the post-cut close view reveals the small organic mold patch.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_011",
+            "kind": "evidence",
+            "statement": "Take the first roll to the preparation table and cut it as the checklist requires. Inspect the cut bread before continuing. The close view shows mold, so discard that entire roll. Cut the fresh replacement, put it on the plate, place the cheese on the bread and the apple on the plate, then carry the complete plate to the service pass.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "moldy_bread"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "moldy_bread"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "moldy_bread",
+            "trash"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "moldy_bread",
+            "target": "trash"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The moldy roll is now inside the FOOD WASTE bin.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_011",
+            "kind": "evidence",
+            "statement": "Take the first roll to the preparation table and cut it as the checklist requires. Inspect the cut bread before continuing. The close view shows mold, so discard that entire roll. Cut the fresh replacement, put it on the plate, place the cheese on the bread and the apple on the plate, then carry the complete plate to the service pass.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "knife"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "knife"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Cut",
+          "args": [
+            "fresh_bread",
+            "knife"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The fresh replacement has also been cut as required.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_011",
+            "kind": "evidence",
+            "statement": "Take the first roll to the preparation table and cut it as the checklist requires. Inspect the cut bread before continuing. The close view shows mold, so discard that entire roll. Cut the fresh replacement, put it on the plate, place the cheese on the bread and the apple on the plate, then carry the complete plate to the service pass.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "knife",
+            "prep_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "fresh_bread"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "fresh_bread"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o010",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "fresh_bread",
+            "plate"
+          ],
+          "place_spot": [
+            -0.3,
+            0.0
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o011",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "cheese"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "cheese"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o012",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "cheese",
+            "fresh_bread"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The fresh bread is on the plate with the cheese on the bread.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_011",
+            "kind": "evidence",
+            "statement": "Take the first roll to the preparation table and cut it as the checklist requires. Inspect the cut bread before continuing. The close view shows mold, so discard that entire roll. Cut the fresh replacement, put it on the plate, place the cheese on the bread and the apple on the plate, then carry the complete plate to the service pass.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o013",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "apple"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "apple"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o014",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "apple",
+            "plate"
+          ],
+          "place_spot": [
+            0.35,
+            0.0
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The replacement bread, cheese, and apple are assembled on the plate.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_011",
+            "kind": "evidence",
+            "statement": "Take the first roll to the preparation table and cut it as the checklist requires. Inspect the cut bread before continuing. The close view shows mold, so discard that entire roll. Cut the fresh replacement, put it on the plate, place the cheese on the bread and the apple on the plate, then carry the complete plate to the service pass.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o015",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "plate"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "plate"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o016",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "plate",
+            "service_pass"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The wearer carried the complete plate to the service pass.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_011",
+            "kind": "evidence",
+            "statement": "Take the first roll to the preparation table and cut it as the checklist requires. Inspect the cut bread before continuing. The close view shows mold, so discard that entire roll. Cut the fresh replacement, put it on the plate, place the cheese on the bread and the apple on the plate, then carry the complete plate to the service pass.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o017",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "I haven't made this snack before. Please use the checklist you read and guide me through the whole preparation one step at a time.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The visible checklist requires cutting and inspecting the bread, discarding a moldy roll whole, and replacing it.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p002"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 2
+      },
+      {
+        "id": "fact_003",
+        "statement": "Both rolls, the knife, cheese, apple, and clean plate are visibly grouped on one preparation table.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p004"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 4
+      },
+      {
+        "id": "fact_004",
+        "statement": "The wearer completed the checklist's cut step on the first roll.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o001"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 1
+      },
+      {
+        "id": "fact_005",
+        "statement": "Only the post-cut close view reveals the small organic mold patch.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o003"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 3
+      },
+      {
+        "id": "fact_006",
+        "statement": "The moldy roll is now inside the FOOD WASTE bin.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o005"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 5
+      },
+      {
+        "id": "fact_007",
+        "statement": "The fresh replacement has also been cut as required.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o007"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 7
+      },
+      {
+        "id": "fact_008",
+        "statement": "The fresh bread is on the plate with the cheese on the bread.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o012"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 12
+      },
+      {
+        "id": "fact_009",
+        "statement": "The replacement bread, cheese, and apple are assembled on the plate.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o014"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 14
+      },
+      {
+        "id": "fact_010",
+        "statement": "The wearer carried the complete plate to the service pass.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o016"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 16
+      },
+      {
+        "id": "fact_011",
+        "statement": "Take the first roll to the preparation table and cut it as the checklist requires. Inspect the cut bread before continuing. The close view shows mold, so discard that entire roll. Cut the fresh replacement, put it on the plate, place the cheese on the bread and the apple on the plate, then carry the complete plate to the service pass.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p002",
+          "p004",
+          "o001",
+          "o003",
+          "o005",
+          "o007",
+          "o012",
+          "o014",
+          "o016"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007",
+          "fact_008",
+          "fact_009",
+          "fact_010"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the safety checklist and first-person evidence to guide preparation of the snack plate one meaningful step at a time.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <recipe> (1)",
+          "[Grab] <recipe> (1)",
+          "[LookAt] <recipe> (1)",
+          "[Walk] <prep_table> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 5,
+            "say": "Hey, Assistant, I haven't made this snack plate before. Can you use the checklist and walk me through it one step at a time?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, I haven't made this snack plate before. Can you use the checklist and walk me through it one step at a time?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "snack_checklist_request",
+            "required_phrases": [
+              "use the checklist",
+              "one step at a time"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[Cut] <moldy_bread> (1) <knife> (1)",
+          "[PutOn] <knife> (1) <prep_table> (1)",
+          "[LookAt] <moldy_bread> (1)",
+          "[PutInside] <moldy_bread> (1) <trash> (1)",
+          "[Cut] <fresh_bread> (1) <knife> (1)",
+          "[PutOn] <knife> (1) <prep_table> (1)",
+          "[PutOn] <cheese> (1) <fresh_bread> (1)",
+          "[PutOn] <plate> (1) <service_pass> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[PutOn] <moldy_bread> (1) <plate> (1)",
+          "[PutOn] <cheese> (1) <moldy_bread> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[Cut] <moldy_bread> (1) <knife> (1)",
+            "[PutOn] <knife> (1) <prep_table> (1)",
+            "[LookAt] <moldy_bread> (1)",
+            "[PutInside] <moldy_bread> (1) <trash> (1)",
+            "[Cut] <fresh_bread> (1) <knife> (1)",
+            "[PutOn] <knife> (1) <prep_table> (1)",
+            "[PutOn] <cheese> (1) <fresh_bread> (1)",
+            "[PutOn] <plate> (1) <service_pass> (1)"
+          ]
+        ],
+        "verification_points": [
+          {
+            "id": "moldy_bread_cut",
+            "kind": "world_state",
+            "pred": "cut",
+            "subject": "moldy_bread",
+            "target": "moldy_bread"
+          },
+          {
+            "id": "fresh_bread_cut",
+            "kind": "world_state",
+            "pred": "cut",
+            "subject": "fresh_bread",
+            "target": "fresh_bread"
+          },
+          {
+            "id": "moldy_bread_discarded",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "moldy_bread",
+            "target": "trash"
+          },
+          {
+            "id": "fresh_bread_plated",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "fresh_bread",
+            "target": "plate"
+          },
+          {
+            "id": "cheese_on_fresh_bread",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "cheese",
+            "target": "fresh_bread"
+          },
+          {
+            "id": "apple_plated",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "apple",
+            "target": "plate"
+          },
+          {
+            "id": "plate_on_service_pass",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "plate",
+            "target": "service_pass"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "moldy_bread": [
+          "left-hand bread roll",
+          "bread roll closer to the plate"
+        ],
+        "fresh_bread": [
+          "right-hand bread roll",
+          "bread roll farther from the plate"
+        ],
+        "recipe_table": [
+          "checklist table"
+        ],
+        "prep_table": [
+          "prep table"
+        ],
+        "service_pass": [
+          "service pass"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 62,
+    "dialogue_budget": 6,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "prep_table",
+        "held": [
+          "recipe"
+        ],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005",
+        "h006",
+        "h007",
+        "h008",
+        "h009",
+        "h010"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "recipe",
+              "moldy_bread",
+              "knife",
+              "prep_table"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "recipe",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "knife",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "moldy_bread",
+              "trash"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "moldy_bread",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "moldy_bread",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "fresh_bread",
+              "knife",
+              "prep_table"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "moldy_bread",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "knife",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "intervention_beat": "assistant_003",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "fresh_bread",
+              "cheese",
+              "plate"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "moldy_bread",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o009"
+        },
+        {
+          "after_beat": "o009",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "fresh_bread",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o010"
+        },
+        {
+          "after_beat": "o010",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o011"
+        },
+        {
+          "after_beat": "o011",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "cheese",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o012"
+        },
+        {
+          "after_beat": "o012",
+          "intervention_beat": "assistant_004",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "apple",
+              "fresh_bread",
+              "plate"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007",
+              "fact_008"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "moldy_bread",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o013"
+        },
+        {
+          "after_beat": "o013",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "apple",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o014"
+        },
+        {
+          "after_beat": "o014",
+          "intervention_beat": "assistant_005",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "plate",
+              "service_pass"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007",
+              "fact_008",
+              "fact_009"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "moldy_bread",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o015"
+        },
+        {
+          "after_beat": "o015",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "plate",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o016"
+        },
+        {
+          "after_beat": "o016",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o017"
+        }
+      ],
+      "terminal_beats": [
+        "h010",
+        "o017"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "knife"
+        ]
+      },
+      {
+        "verb": "Cut",
+        "args": [
+          "moldy_bread",
+          "knife"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "knife",
+          "prep_table"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "moldy_bread"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "moldy_bread"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "moldy_bread",
+          "trash"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "knife"
+        ]
+      },
+      {
+        "verb": "Cut",
+        "args": [
+          "fresh_bread",
+          "knife"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "knife",
+          "prep_table"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "fresh_bread"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "fresh_bread",
+          "plate"
+        ],
+        "place_spot": [
+          -0.3,
+          0.0
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "cheese"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "cheese",
+          "fresh_bread"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "apple"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "apple",
+          "plate"
+        ],
+        "place_spot": [
+          0.35,
+          0.0
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "plate"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "plate",
+          "service_pass"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "knife"
+        ]
+      },
+      {
+        "verb": "Cut",
+        "args": [
+          "moldy_bread",
+          "knife"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "knife",
+          "prep_table"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "moldy_bread"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "moldy_bread",
+          "plate"
+        ],
+        "place_spot": [
+          -0.3,
+          0.0
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "cheese"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "cheese",
+          "moldy_bread"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "apple"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "apple",
+          "plate"
+        ],
+        "place_spot": [
+          0.35,
+          0.0
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "plate"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "plate",
+          "service_pass"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "First walk directly to the prep table using `[Walk] <prep_table> (1)` so the tabletop is centered in view, then look down with `[LookScan]`. The knife (`knife`) and both bread rolls are on that table. Looking across the tabletop, the knife is immediately to the left of the plate, and the bread rolls are between the plate and the cheese. Use the roll closer to the plate—the left-hand roll of the pair. Its simulator control key is `moldy_bread`, an opaque execution handle for the selected roll. Pick up `knife`, cut `moldy_bread`, put `knife` back on `prep_table`, then inspect the cut center of `moldy_bread`.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The cut center shows mold. Take the inspected roll (`moldy_bread`) from `prep_table` and put it inside the open bin labeled FOOD WASTE (`trash`).",
+        "relation": "before",
+        "anchor_beat_id": "o004",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "Return to `prep_table`, pick up `knife`, cut the remaining roll (`fresh_bread`), then put `knife` back on `prep_table`.",
+        "relation": "before",
+        "anchor_beat_id": "o006",
+        "source": "guidance",
+        "source_index": 2
+      },
+      {
+        "id": "assistant_003",
+        "say": "At `prep_table`, pick up the cut roll (`fresh_bread`) and put it on the clean plate (`plate`). Then pick up the Swiss cheese (`cheese`) from `prep_table` and put it directly on `fresh_bread`.",
+        "relation": "before",
+        "anchor_beat_id": "o009",
+        "source": "guidance",
+        "source_index": 3
+      },
+      {
+        "id": "assistant_004",
+        "say": "Take the green apple (`apple`) from `prep_table` and put it on `plate` beside the bread.",
+        "relation": "before",
+        "anchor_beat_id": "o013",
+        "source": "guidance",
+        "source_index": 4
+      },
+      {
+        "id": "assistant_005",
+        "say": "Pick up the completed plate (`plate`) from `prep_table`, carry it to the service pass (`service_pass`), and set it there.",
+        "relation": "before",
+        "anchor_beat_id": "o015",
+        "source": "guidance",
+        "source_index": 5
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": [
+      {
+        "type": "label_visibility",
+        "objects": [
+          "moldy_bread"
+        ],
+        "visible": true,
+        "initially_visible": false,
+        "after_command": "[Cut] <moldy_bread> (1) <knife> (1)",
+        "occurrence": 1
+      }
+    ]
+  },
+  "lineage": {
+    "release": "InteractiveWorld-Balanced120",
+    "task_id": "GUIDE-87017"
+  }
+}

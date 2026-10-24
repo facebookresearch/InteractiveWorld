@@ -1,0 +1,2329 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-99403",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "inside",
+          "subject": "mug",
+          "target": "dish_cart"
+        },
+        {
+          "pred": "inside",
+          "subject": "paper",
+          "target": "trash"
+        },
+        {
+          "pred": "inside",
+          "subject": "water",
+          "target": "trash"
+        },
+        {
+          "pred": "on",
+          "subject": "pan",
+          "target": "cooktop"
+        },
+        {
+          "pred": "running",
+          "subject": "cooktop",
+          "target": "cooktop"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "inside",
+          "subject": "mug",
+          "target": "dish_cart"
+        },
+        {
+          "pred": "inside",
+          "subject": "paper",
+          "target": "trash"
+        },
+        {
+          "pred": "inside",
+          "subject": "water",
+          "target": "trash"
+        },
+        {
+          "pred": "on",
+          "subject": "pan",
+          "target": "cooktop"
+        },
+        {
+          "pred": "running",
+          "subject": "cooktop",
+          "target": "cooktop"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "dish_cart",
+          "trash"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "cleanup_card",
+          "mug",
+          "pan",
+          "paper",
+          "water"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "The cooktop is obstructed by a used mug, an empty paper bag, and a personal water bottle. Follow the cleanup checklist: move the cup to USED DISHES and put both the bag and water bottle in the open waste bin. Only after the surface is clear should you place the clean pan and start it.",
+        "cue": "I cannot see what is on this cooking station. Please inspect it, remove anything that does not belong, and guide me until the station is ready.",
+        "premise": "A blind kitchen trainee reaches a cooktop without knowing what occupies it. The assistant first inspects the actual station, identifies three unrelated objects, and guides each to a safe destination before allowing the pan to be placed and the appliance started."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "I cannot see what is on this cooking station. Please inspect it, remove anything that does not belong, and guide me until the station is ready.",
+        "kind": "authored",
+        "ref": "interactiveworld:GUIDE-99403"
+      },
+      "rule_table": "inside(mug, dish_cart); inside(paper, trash); inside(water, trash); on(pan, cooktop); running(cooktop)",
+      "scene": "restaurant_hotel",
+      "template": "the grounded restaurant_hotel scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 17,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 17,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "cleanup_card"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "cleanup_card"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "cleanup_card"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "cooktop"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "cooktop"
+          ]
+        },
+        {
+          "verb": "LookAround",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "mug",
+            "dish_cart"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "paper"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "paper",
+            "trash"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "water"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "water",
+            "trash"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "pan"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "pan",
+            "cooktop"
+          ],
+          "place_spot": [
+            -0.55,
+            0.3
+          ]
+        },
+        {
+          "verb": "TurnOn",
+          "args": [
+            "cooktop"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "interactiveworld.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Grab] <mug> (1), [PutInside] <mug> (1) <dish_cart> (1), [Grab] <paper> (1), [PutInside] <paper> (1) <trash> (1), [Grab] <water> (1), [PutInside] <water> (1) <trash> (1), [Grab] <pan> (1), [PutOn] <pan> (1) <cooktop> (1) @place_spot=-0.55:0.3, [TurnOn] <cooktop> (1), [Wait]",
+      "seed": 3375382472,
+      "source_task_id": "GUIDE-99403"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "mug",
+          "target": "dish_cart"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "paper",
+          "target": "trash"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "water",
+          "target": "trash"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "pan",
+          "target": "cooktop"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 4,
+          "kind": "running",
+          "label": null,
+          "neg_kind": null,
+          "subject": "cooktop",
+          "target": "cooktop"
+        }
+      ],
+      "sub_steps": [
+        "inside(mug, dish_cart)",
+        "inside(paper, trash)",
+        "inside(water, trash)",
+        "on(pan, cooktop)",
+        "running(cooktop)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-99403",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 3375382472,
+      "containers": {
+        "dish_cart": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "serving_cart",
+            "model": "vvtcby",
+            "source": "import"
+          },
+          "door": {
+            "required": false
+          },
+          "kind": "open_bin",
+          "role": "scored",
+          "room": "kitchen_0",
+          "label": "USED DISHES"
+        },
+        "trash": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "trash_can",
+            "model": "rbqckd",
+            "source": "import"
+          },
+          "door": {
+            "required": false
+          },
+          "kind": "open_bin",
+          "role": "scored",
+          "room": "kitchen_0"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "cooktop": {
+          "bind": {
+            "cat": "stove",
+            "source": "scene",
+            "pick": {
+              "name": "stove_xspxzg_0",
+              "stage_prim_path": "/World/b_stove_xspxzg_0",
+              "asset_sha256": "sha256:eea959eee1891b74643d9e7d9e047a89d66301263f68883f9b716c28c56ae589",
+              "instance_digest": "sha256:593946f6055e2703a1d1987beabe14ffc915e51c37ff63de01cc66613d04770c",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "prep_table": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_cleanup_card": {
+          "content": {
+            "args": {
+              "renderer": "checklist",
+              "rows": [
+                "1|USED CUP TO USED DISHES",
+                "2|PAPER BAG TO WASTE",
+                "3|WATER BOTTLE TO WASTE",
+                "4|CLEAN PAN ON ONE CLEAR BURNER",
+                "5|TURN ON ONLY AFTER CLEAR"
+              ],
+              "sub": "",
+              "title": "COOKTOP CLEANUP CHECKLIST"
+            },
+            "lines": [
+              "1|USED CUP TO USED DISHES",
+              "2|PAPER BAG TO WASTE",
+              "3|WATER BOTTLE TO WASTE",
+              "4|CLEAN PAN ON ONE CLEAR BURNER",
+              "5|TURN ON ONLY AFTER CLEAR"
+            ],
+            "text": "COOKTOP CLEANUP CHECKLIST"
+          },
+          "kind": "range_card",
+          "mount": {
+            "on": "cleanup_card",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_99403_guide26_story_refine_r2_20260912zl_cleanup_card_49b11eddf409"
+        },
+        "label_dish_cart": {
+          "content": {
+            "args": {
+              "renderer": "short_string",
+              "sub": "",
+              "title": "",
+              "mount_style": "adhesive"
+            },
+            "text": "USED DISHES"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "dish_cart",
+            "surface": "container_sign"
+          },
+          "per_seed": false,
+          "png": "guide_99403_guide26_story_refine_r2_20260912zl_dish_cart_431b0ea0b19f"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "cleanup_card": {
+          "cat": "clipboard",
+          "model": "gmxyfo",
+          "needs_lookat": true,
+          "place": "on:prep_table",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            -0.55,
+            -0.45
+          ],
+          "decal": "COOKTOP CLEANUP"
+        },
+        "mug": {
+          "cat": "mug",
+          "model": "ntgftr",
+          "needs_lookat": false,
+          "place": "on:cooktop",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.45,
+            0.5
+          ]
+        },
+        "paper": {
+          "cat": "paper_bag",
+          "model": "bzsxgw",
+          "needs_lookat": false,
+          "place": "on:cooktop",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            0.5
+          ]
+        },
+        "water": {
+          "cat": "bottle_of_water",
+          "model": "atvnqy",
+          "needs_lookat": false,
+          "place": "on:cooktop",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.45,
+            0.5
+          ]
+        },
+        "pan": {
+          "cat": "griddle_pan",
+          "model": "ryvqep",
+          "needs_lookat": false,
+          "place": "on:prep_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            0.5
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "kitchen_0"
+      ],
+      "scene": "restaurant_hotel",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "A blind kitchen trainee reaches a cooktop without knowing what occupies it. The assistant first inspects the actual station, identifies three unrelated objects, and guides each to a safe destination before allowing the pan to be placed and the appliance started.",
+    "assistant_goal": "I cannot see what is on this cooking station. Please inspect it, remove anything that does not belong, and guide me until the station is ready.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.DOMAIN_KNOWLEDGE_INJECTION",
+      "assigned_scene": "restaurant_hotel",
+      "core_question": "I cannot see what is on this cooking station. Please inspect it, remove anything that does not belong, and guide me until the station is ready.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "A blind kitchen trainee reaches a cooktop without knowing what occupies it. The assistant first inspects the actual station, identifies three unrelated objects, and guides each to a safe destination before allowing the pan to be placed and the appliance started."
+      ],
+      "required_evidence": [
+        "I cannot see what is on this cooking station. Please inspect it, remove anything that does not belong, and guide me until the station is ready.",
+        "The lifted cleanup checklist maps the cup to USED DISHES and both the paper bag and water bottle to waste before heat is used.",
+        "A close inspection shows the used mug, empty paper bag, and water bottle occupying the cooktop.",
+        "The same room visibly provides the USED DISHES cart, open waste bin, and clean pan named by the checklist.",
+        "The used mug has been removed to the dish cart.",
+        "The empty paper bag has been discarded.",
+        "The personal water bottle has been removed to the open waste bin.",
+        "Only the clean pan remains on the cleared cooktop.",
+        "The cooktop is obstructed by a used mug, an empty paper bag, and a personal water bottle. Follow the cleanup checklist: move the cup to USED DISHES and put both the bag and water bottle in the open waste bin. Only after the surface is clear should you place the clean pan and start it."
+      ],
+      "required_final_predicates": [
+        "inside",
+        "inside",
+        "inside",
+        "on",
+        "running"
+      ],
+      "success_condition": "inside(mug, dish_cart); inside(paper, trash); inside(water, trash); on(pan, cooktop); running(cooktop)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-99403",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.DOMAIN_KNOWLEDGE_INJECTION",
+        "assigned_scene": "restaurant_hotel",
+        "core_question": "I cannot see what is on this cooking station. Please inspect it, remove anything that does not belong, and guide me until the station is ready.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "A blind kitchen trainee reaches a cooktop without knowing what occupies it. The assistant first inspects the actual station, identifies three unrelated objects, and guides each to a safe destination before allowing the pan to be placed and the appliance started."
+        ],
+        "required_evidence": [
+          "I cannot see what is on this cooking station. Please inspect it, remove anything that does not belong, and guide me until the station is ready.",
+          "The lifted cleanup checklist maps the cup to USED DISHES and both the paper bag and water bottle to waste before heat is used.",
+          "A close inspection shows the used mug, empty paper bag, and water bottle occupying the cooktop.",
+          "The same room visibly provides the USED DISHES cart, open waste bin, and clean pan named by the checklist.",
+          "The used mug has been removed to the dish cart.",
+          "The empty paper bag has been discarded.",
+          "The personal water bottle has been removed to the open waste bin.",
+          "Only the clean pan remains on the cleared cooktop.",
+          "The cooktop is obstructed by a used mug, an empty paper bag, and a personal water bottle. Follow the cleanup checklist: move the cup to USED DISHES and put both the bag and water bottle in the open waste bin. Only after the surface is clear should you place the clean pan and start it."
+        ],
+        "required_final_predicates": [
+          "inside",
+          "inside",
+          "inside",
+          "on",
+          "running"
+        ],
+        "success_condition": "inside(mug, dish_cart); inside(paper, trash); inside(water, trash); on(pan, cooktop); running(cooktop)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "alarm_clock",
+          "arugula",
+          "asparagus",
+          "batting_gloves",
+          "bottle_of_apple_cider",
+          "bottle_of_fruit_punch",
+          "bottle_of_sunscreen",
+          "bottle_of_water",
+          "box_of_cereal",
+          "box_of_tissues",
+          "box_of_yogurt",
+          "candied_yam",
+          "cd",
+          "cell_phone",
+          "chicken_soup_carton",
+          "chocolate_bar",
+          "clipboard",
+          "fire_alarm",
+          "folder",
+          "gift_box",
+          "granulated_sugar_jar",
+          "griddle_pan",
+          "half_fried_chicken",
+          "half_meat_loaf",
+          "half_peach",
+          "hand_towel",
+          "juicer",
+          "kielbasa",
+          "knife_block",
+          "lollipop",
+          "mint",
+          "mug",
+          "notepad",
+          "paper_bag",
+          "pastry",
+          "patty",
+          "peanut_butter_jar",
+          "pipe",
+          "pottable_marigold",
+          "saddle_soap_bottle",
+          "seashell",
+          "soda_cup",
+          "sponge",
+          "sugar_cookie",
+          "teddy_bear",
+          "tennis_ball",
+          "test_tube_holder",
+          "waffle_maker",
+          "yogurt_carton"
+        ],
+        "allowed_surface_categories": [
+          "commercial_kitchen_table",
+          "flat_top_grill",
+          "metal_bottom_cabinet",
+          "stove"
+        ],
+        "capability_id": "GUIDE.DOMAIN_KNOWLEDGE_INJECTION",
+        "coverage_categories": [
+          "cd",
+          "fire_alarm",
+          "sugar_cookie",
+          "griddle_pan",
+          "candied_yam",
+          "chicken_soup_carton",
+          "kielbasa",
+          "knife_block",
+          "bottle_of_apple_cider",
+          "yogurt_carton",
+          "chocolate_bar",
+          "alarm_clock",
+          "tennis_ball",
+          "bottle_of_sunscreen",
+          "peanut_butter_jar",
+          "arugula",
+          "teddy_bear",
+          "patty",
+          "lollipop",
+          "test_tube_holder"
+        ],
+        "evaluation": {
+          "common_sense_allowed": true,
+          "document_carrier_required": true,
+          "max_semantic_turns": 4,
+          "required_semantic_turns": 4,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 21,
+          "max_document_characters": 150,
+          "max_fixed_destinations": 4,
+          "max_meaningful_steps": 17,
+          "max_movable_objects": 5,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 7,
+          "max_small_label_characters": 40,
+          "max_task_actions": 10,
+          "min_intervening_meaningful_actions": 7,
+          "min_meaningful_steps": 5
+        },
+        "preferred_story_categories": [
+          "bottle_of_water",
+          "mug",
+          "folder",
+          "gift_box"
+        ],
+        "preferred_story_category_glosses": {
+          "bottle_of_water": "",
+          "folder": "",
+          "gift_box": "",
+          "mug": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 59.2,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "fridge": 3,
+              "metal_bottom_cabinet": 5,
+              "oven": 1
+            },
+            "scene_surfaces": {
+              "commercial_kitchen_table": 7,
+              "flat_top_grill": 4,
+              "metal_bottom_cabinet": 9
+            },
+            "surface_max_area_m2": {
+              "commercial_kitchen_table": 0.2,
+              "flat_top_grill": 0.265,
+              "metal_bottom_cabinet": 0.253
+            },
+            "surface_reference_capacity": {
+              "commercial_kitchen_table": 3,
+              "flat_top_grill": 3,
+              "metal_bottom_cabinet": 3
+            }
+          }
+        ],
+        "scene": "restaurant_hotel",
+        "task_id": "GUIDE-99403",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "clipboard",
+            "changed": false,
+            "costs": null,
+            "label": "COOKTOP CLEANUP",
+            "tint": null,
+            "what": "cooktop cleanup checklist"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "mug",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "used mug left on the cooktop"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "paper_bag",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "empty paper lunch bag left on the cooktop"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_water",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "personal water bottle left on the cooktop"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "griddle_pan",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "clean griddle pan"
+          },
+          {
+            "affordances": [
+              "container"
+            ],
+            "category": "serving_cart",
+            "changed": false,
+            "costs": null,
+            "label": "USED DISHES",
+            "tint": null,
+            "what": "USED DISHES cart"
+          },
+          {
+            "affordances": [
+              "container"
+            ],
+            "category": "trash_can",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "plain open trash bin"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "stove",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "scene-native six-burner stove"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "preparation table"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "cooktop cleanup checklist",
+            "text": "COOKTOP CLEANUP",
+            "what": "document",
+            "which": null
+          },
+          {
+            "rides": "USED DISHES cart",
+            "text": "USED DISHES",
+            "what": "label",
+            "which": null
+          }
+        ],
+        "restaged_story": "A blind kitchen trainee reaches a cooktop without knowing what occupies it. The assistant first inspects the actual station, identifies three unrelated objects, and guides each to a safe destination before allowing the pan to be placed and the appliance started.",
+        "scene": "restaurant_hotel",
+        "why_scene": "restaurant_hotel supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "dish_cart": {
+            "cat": "serving_cart",
+            "initially_open": false,
+            "label": "USED DISHES",
+            "preload": [],
+            "role": "scored",
+            "room": "kitchen_0"
+          },
+          "trash": {
+            "cat": "trash_can",
+            "initially_open": false,
+            "label": null,
+            "preload": [],
+            "role": "scored",
+            "room": "kitchen_0"
+          }
+        },
+        "items": {
+          "cleanup_card": {
+            "affordances": [],
+            "cat": "clipboard",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "COOKTOP CLEANUP",
+            "place": "on:prep_table",
+            "scored": false,
+            "spot": [
+              -0.55,
+              -0.45
+            ],
+            "tint": null
+          },
+          "mug": {
+            "affordances": [],
+            "cat": "mug",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:cooktop",
+            "scored": true,
+            "spot": [
+              -0.45,
+              0.5
+            ],
+            "tint": null
+          },
+          "paper": {
+            "affordances": [],
+            "cat": "paper_bag",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:cooktop",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.5
+            ],
+            "tint": null
+          },
+          "water": {
+            "affordances": [],
+            "cat": "bottle_of_water",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:cooktop",
+            "scored": true,
+            "spot": [
+              0.45,
+              0.5
+            ],
+            "tint": null
+          },
+          "pan": {
+            "affordances": [],
+            "cat": "griddle_pan",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:prep_table",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.5
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <cleanup_card> (1)",
+          "[Grab] <cleanup_card> (1)",
+          "[LookAt] <cleanup_card> (1)",
+          "[Walk] <cooktop> (1)",
+          "[LookAt] <cooktop> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0"
+        ],
+        "scene": "restaurant_hotel",
+        "staging": {
+          "groups": "A blind kitchen trainee reaches a cooktop without knowing what occupies it. The assistant first inspects the actual station, identifies three unrelated objects, and guides each to a safe destination before allowing the pan to be placed and the appliance started.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "cooktop": {
+            "cat": "stove",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "prep_table": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I cannot see what is on this cooking station. Please inspect it, remove anything that does not belong, and guide me until the station is ready."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "I cannot see what is on this cooking station. Please inspect it, remove anything that does not belong, and guide me until the station is ready.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The lifted cleanup checklist maps the cup to USED DISHES and both the paper bag and water bottle to waste before heat is used.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 2,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "A close inspection shows the used mug, empty paper bag, and water bottle occupying the cooktop.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 4,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The same room visibly provides the USED DISHES cart, open waste bin, and clean pan named by the checklist.",
+            "from": "prologue",
+            "id": "fact_004",
+            "source_index": 5,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The used mug has been removed to the dish cart.",
+            "from": "live",
+            "id": "fact_005",
+            "source_index": 1,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The empty paper bag has been discarded.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 3,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The personal water bottle has been removed to the open waste bin.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 5,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "Only the clean pan remains on the cleared cooktop.",
+            "from": "live",
+            "id": "fact_008",
+            "source_index": 7,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007",
+              "fact_008"
+            ],
+            "fact": "The cooktop is obstructed by a used mug, an empty paper bag, and a personal water bottle. Follow the cleanup checklist: move the cup to USED DISHES and put both the bag and water bottle in the open waste bin. Only after the surface is clear should you place the clean pan and start it.",
+            "from": "derived",
+            "id": "fact_009",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "mug",
+            "target": "dish_cart"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "paper",
+            "target": "trash"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "water",
+            "target": "trash"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "pan",
+            "target": "cooktop"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "running",
+            "scorable": true,
+            "subject": "cooktop",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "Remove the used mug from the cooktop first and put it in the nearby cart labeled USED DISHES.",
+            "referents": [
+              "mug",
+              "cooktop",
+              "dish_cart"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 2,
+            "say": "Next, take the empty paper bag from the cooktop and put it in the nearby plain open trash bin.",
+            "referents": [
+              "paper",
+              "cooktop",
+              "trash"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_004"
+            ]
+          },
+          {
+            "before_index": 4,
+            "say": "Take the abandoned water bottle from the cooktop and put it in that same open trash bin before using any heat.",
+            "referents": [
+              "cleanup_card",
+              "water",
+              "cooktop",
+              "trash"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_003",
+              "fact_006"
+            ]
+          },
+          {
+            "before_index": 6,
+            "say": "The cooking surface is clear. Take the clean griddle pan from the prep table beside the stove, place it squarely on a clear burner, and then start the stove.",
+            "referents": [
+              "pan",
+              "cooktop"
+            ],
+            "fact_ids": [
+              "fact_003",
+              "fact_006"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Grab] <mug> (1), [PutInside] <mug> (1) <dish_cart> (1), [Wait]",
+        "mates": [],
+        "oracle_program": "[Grab] <mug> (1), [PutInside] <mug> (1) <dish_cart> (1), [Grab] <paper> (1), [PutInside] <paper> (1) <trash> (1), [Grab] <water> (1), [PutInside] <water> (1) <trash> (1), [Grab] <pan> (1), [PutOn] <pan> (1) <cooktop> (1) @place_spot=-0.55:0.3, [TurnOn] <cooktop> (1), [Wait]",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "A blind kitchen trainee reaches a cooktop without knowing what occupies it. The assistant first inspects the actual station, identifies three unrelated objects, and guides each to a safe destination before allowing the pan to be placed and the appliance started.",
+        "utterance": "I cannot see what is on this cooking station. Please inspect it, remove anything that does not belong, and guide me until the station is ready."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <cleanup_card> (1)",
+        "[Grab] <cleanup_card> (1)",
+        "[LookAt] <cleanup_card> (1)",
+        "[Walk] <cooktop> (1)",
+        "[LookAt] <cooktop> (1)",
+        "[LookAround]",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "cleanup_card"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "cleanup_card"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "cleanup_card"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "cleanup_card"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "cleanup_card"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The lifted cleanup checklist maps the cup to USED DISHES and both the paper bag and water bottle to waste before heat is used.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The cooktop is obstructed by a used mug, an empty paper bag, and a personal water bottle. Follow the cleanup checklist: move the cup to USED DISHES and put both the bag and water bottle in the open waste bin. Only after the surface is clear should you place the clean pan and start it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "cooktop"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "cooktop"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "cooktop"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "A close inspection shows the used mug, empty paper bag, and water bottle occupying the cooktop.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The cooktop is obstructed by a used mug, an empty paper bag, and a personal water bottle. Follow the cleanup checklist: move the cup to USED DISHES and put both the bag and water bottle in the open waste bin. Only after the surface is clear should you place the clean pan and start it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The same room visibly provides the USED DISHES cart, open waste bin, and clean pan named by the checklist.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The cooktop is obstructed by a used mug, an empty paper bag, and a personal water bottle. Follow the cleanup checklist: move the cup to USED DISHES and put both the bag and water bottle in the open waste bin. Only after the surface is clear should you place the clean pan and start it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "I cannot see what is on this cooking station. Please inspect it, remove anything that does not belong, and guide me until the station is ready.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "I cannot see what is on this cooking station. Please inspect it, remove anything that does not belong, and guide me until the station is ready.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The cooktop is obstructed by a used mug, an empty paper bag, and a personal water bottle. Follow the cleanup checklist: move the cup to USED DISHES and put both the bag and water bottle in the open waste bin. Only after the surface is clear should you place the clean pan and start it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Remove the used mug from the cooktop first and put it in the nearby cart labeled USED DISHES.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Next, take the empty paper bag from the cooktop and put it in the nearby plain open trash bin.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Take the abandoned water bottle from the cooktop and put it in that same open trash bin before using any heat.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_003",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The cooking surface is clear. Take the clean griddle pan from the prep table beside the stove, place it squarely on a clear burner, and then start the stove.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "mug"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "mug",
+            "dish_cart"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "mug",
+            "target": "dish_cart"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "mug"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "mug",
+            "dish_cart"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "mug",
+            "target": "dish_cart"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The used mug has been removed to the dish cart.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The cooktop is obstructed by a used mug, an empty paper bag, and a personal water bottle. Follow the cleanup checklist: move the cup to USED DISHES and put both the bag and water bottle in the open waste bin. Only after the surface is clear should you place the clean pan and start it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "paper"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "paper"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "paper",
+            "trash"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "paper",
+            "target": "trash"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The empty paper bag has been discarded.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The cooktop is obstructed by a used mug, an empty paper bag, and a personal water bottle. Follow the cleanup checklist: move the cup to USED DISHES and put both the bag and water bottle in the open waste bin. Only after the surface is clear should you place the clean pan and start it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "water"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "water"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "water",
+            "trash"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "water",
+            "target": "trash"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The personal water bottle has been removed to the open waste bin.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The cooktop is obstructed by a used mug, an empty paper bag, and a personal water bottle. Follow the cleanup checklist: move the cup to USED DISHES and put both the bag and water bottle in the open waste bin. Only after the surface is clear should you place the clean pan and start it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "pan"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "pan"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "pan",
+            "cooktop"
+          ],
+          "place_spot": [
+            -0.55,
+            0.3
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Only the clean pan remains on the cleared cooktop.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The cooktop is obstructed by a used mug, an empty paper bag, and a personal water bottle. Follow the cleanup checklist: move the cup to USED DISHES and put both the bag and water bottle in the open waste bin. Only after the surface is clear should you place the clean pan and start it.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "TurnOn",
+          "args": [
+            "cooktop"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "I cannot see what is on this cooking station. Please inspect it, remove anything that does not belong, and guide me until the station is ready.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The lifted cleanup checklist maps the cup to USED DISHES and both the paper bag and water bottle to waste before heat is used.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p002"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 2
+      },
+      {
+        "id": "fact_003",
+        "statement": "A close inspection shows the used mug, empty paper bag, and water bottle occupying the cooktop.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p004"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 4
+      },
+      {
+        "id": "fact_004",
+        "statement": "The same room visibly provides the USED DISHES cart, open waste bin, and clean pan named by the checklist.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p005"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 5
+      },
+      {
+        "id": "fact_005",
+        "statement": "The used mug has been removed to the dish cart.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o001"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 1
+      },
+      {
+        "id": "fact_006",
+        "statement": "The empty paper bag has been discarded.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o003"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 3
+      },
+      {
+        "id": "fact_007",
+        "statement": "The personal water bottle has been removed to the open waste bin.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o005"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 5
+      },
+      {
+        "id": "fact_008",
+        "statement": "Only the clean pan remains on the cleared cooktop.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o007"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 7
+      },
+      {
+        "id": "fact_009",
+        "statement": "The cooktop is obstructed by a used mug, an empty paper bag, and a personal water bottle. Follow the cleanup checklist: move the cup to USED DISHES and put both the bag and water bottle in the open waste bin. Only after the surface is clear should you place the clean pan and start it.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p002",
+          "p004",
+          "p005",
+          "o001",
+          "o003",
+          "o005",
+          "o007"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007",
+          "fact_008"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the cleanup card and visible station state to guide the person through making the cooking station ready.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <cleanup_card> (1)",
+          "[Grab] <cleanup_card> (1)",
+          "[LookAt] <cleanup_card> (1)",
+          "[Walk] <cooktop> (1)",
+          "[LookAt] <cooktop> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 6,
+            "say": "Hey, Assistant, I need to get this cooking station ready. Can you use that card, check what's on the station, and walk me through it?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, I need to get this cooking station ready. Can you use that card, check what's on the station, and walk me through it?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "cooking_station_cleanup_request",
+            "required_phrases": [
+              "get this cooking station ready",
+              "use that card",
+              "check what's on the station"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutInside] <mug> (1) <dish_cart> (1)",
+          "[PutInside] <paper> (1) <trash> (1)",
+          "[PutInside] <water> (1) <trash> (1)",
+          "[TurnOn] <cooktop> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[PutInside] <mug> (1) <dish_cart> (1)",
+            "[PutInside] <paper> (1) <trash> (1)",
+            "[PutInside] <water> (1) <trash> (1)",
+            "[TurnOn] <cooktop> (1)"
+          ]
+        ],
+        "forbidden_before": [
+          {
+            "command": "[TurnOn] <cooktop> (1)",
+            "prerequisite": "[PutInside] <mug> (1) <dish_cart> (1)"
+          },
+          {
+            "command": "[TurnOn] <cooktop> (1)",
+            "prerequisite": "[PutInside] <paper> (1) <trash> (1)"
+          },
+          {
+            "command": "[TurnOn] <cooktop> (1)",
+            "prerequisite": "[PutInside] <water> (1) <trash> (1)"
+          }
+        ],
+        "verification_points": [
+          {
+            "id": "used_mug_in_dish_cart",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "mug",
+            "target": "dish_cart"
+          },
+          {
+            "id": "paper_in_trash",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "paper",
+            "target": "trash"
+          },
+          {
+            "id": "water_bottle_in_trash",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "water",
+            "target": "trash"
+          },
+          {
+            "id": "pan_on_cooktop",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "pan",
+            "target": "cooktop"
+          },
+          {
+            "id": "cooktop_running",
+            "kind": "world_state",
+            "pred": "running",
+            "subject": "cooktop",
+            "target": "cooktop"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "pan": [
+          "clean griddle pan"
+        ],
+        "cooktop": [
+          "cooking surface"
+        ],
+        "prep_table": [
+          "prep table"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 30,
+    "dialogue_budget": 4,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "cooktop",
+        "held": [
+          "cleanup_card"
+        ],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "mug",
+              "cooktop",
+              "dish_cart"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "cleanup_card",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "mug",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "paper",
+              "cooktop",
+              "trash"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "mug",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "paper",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "cleanup_card",
+              "water",
+              "cooktop",
+              "trash"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_003",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "mug",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "water",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "intervention_beat": "assistant_003",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "pan",
+              "cooktop"
+            ],
+            "required_fact_ids": [
+              "fact_003",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "mug",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "pan",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o009"
+        }
+      ],
+      "terminal_beats": [
+        "h002",
+        "o009"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "mug"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "mug",
+          "dish_cart"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "paper"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "paper",
+          "trash"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "water"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "water",
+          "trash"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "pan"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "pan",
+          "cooktop"
+        ],
+        "place_spot": [
+          -0.55,
+          0.3
+        ]
+      },
+      {
+        "verb": "TurnOn",
+        "args": [
+          "cooktop"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "mug"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "mug",
+          "dish_cart"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Remove the used mug from the cooktop first and put it in the nearby cart labeled USED DISHES.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "Next, take the empty paper bag from the cooktop and put it in the nearby plain open trash bin.",
+        "relation": "before",
+        "anchor_beat_id": "o002",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "Take the abandoned water bottle from the cooktop and put it in that same open trash bin before using any heat.",
+        "relation": "before",
+        "anchor_beat_id": "o004",
+        "source": "guidance",
+        "source_index": 2
+      },
+      {
+        "id": "assistant_003",
+        "say": "The cooking surface is clear. Take the clean griddle pan from the prep table beside the stove, place it squarely on a clear burner, and then start the stove.",
+        "relation": "before",
+        "anchor_beat_id": "o006",
+        "source": "guidance",
+        "source_index": 3
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "release": "InteractiveWorld-Balanced120",
+    "task_id": "GUIDE-99403"
+  }
+}

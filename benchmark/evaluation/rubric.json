@@ -1,0 +1,4095 @@
+{
+  "schema_version": "interactiveworld-balanced120-rubric/1.0",
+  "benchmark_id": "InteractiveWorld-Balanced120",
+  "task_count": 120,
+  "assigned_category_counts": {
+    "Guidance": 20,
+    "Planning": 20,
+    "Accessibility": 20,
+    "Decision": 20,
+    "Prevention": 20,
+    "Finding": 20
+  },
+  "source_family_counts": {
+    "GUIDE": 26,
+    "ORCHESTRATE": 16,
+    "NARRATE": 20,
+    "ASK": 19,
+    "WATCH": 22,
+    "FIND": 17
+  },
+  "task_manifest": "../tasks/manifest.json",
+  "task_manifest_version": "interactive-world-task-manifest/1.0",
+  "provenance": {
+    "selection": {
+      "source": "InteractiveWorld Balanced120 selection: six assigned categories of 20 tasks each.",
+      "used_fields": [
+        "task_id",
+        "source_family",
+        "assigned_family",
+        "completion_protocol",
+        "performance_rubric_version"
+      ],
+      "excluded_fields": "All model results, observed-run hashes, and historical adjudication status are excluded from this release rubric."
+    },
+    "runtime_identity": {
+      "path": "benchmark/tasks/manifest.json",
+      "rule": "taskpack_sha256 and taskpack_path are the only runnable TaskPack identity source; files are rehashed during validation.",
+      "interaction_openings_sha256": "sha256:a9c92de7bbc460fc15fcbcf7486dbc37ebda8ba156381d1c29a43f709c8dd485",
+      "asset_manifest_sha256": "sha256:1eb9cf32bd6b08fa908c18a6bd41a84989f2834a8f30a9a63643614099f35d04"
+    },
+    "task_criteria": {
+      "source": "Balanced120 task tables in the InteractiveWorld paper appendix.",
+      "rule": "The final six 20-task tables supply task summary and strict success criterion text."
+    }
+  },
+  "taskpack_identity_policy": "Evidence must name this task and match expected_taskpack_sha256 exactly.",
+  "native_taskpack_contract": {
+    "separate_from_release_rubric": true,
+    "success_formula": "contract_world_success AND process_requirements_met AND verification_points_met AND (assistant_declared_done OR NOT requires_assistant_done)",
+    "note": "Native TaskPack success is reported independently and never substituted for revised release strict_pass."
+  },
+  "release_evidence_workflow": {
+    "runner_scope": "The TaskPack runner records native contract outcome, explicit run-validity evidence, raw state, and interaction traces. It does not infer revised release strict_pass.",
+    "prepare_scope": "The prepare command creates stable criterion-ID keys and leaves every revised criterion null.",
+    "trace_adjudication": "An adjudicator or deterministic evaluator must fill every task-applicable criterion from the recorded trace/state and set adjudication_status to COMPLETE.",
+    "finalization": "The scorer fails closed while evidence is missing or adjudication is pending; complete trace-adjudicated evidence receives a final SCORED result."
+  },
+  "validity_policy": {
+    "required_checks": [
+      "scene_setup_ok",
+      "runtime_complete",
+      "trace_complete",
+      "frames_usable",
+      "assistant_transport_ok",
+      "human_executor_ok",
+      "simulator_ok",
+      "no_material_human_leakage"
+    ],
+    "any_false": "VOID",
+    "missing_or_non_boolean": "UNSCORABLE",
+    "model_behavior_failures": "Assistant silence, wrong guidance, loops, premature done, and incomplete work remain valid model failures."
+  },
+  "protocols": {
+    "StateScore-v2": {
+      "source_family": "GUIDE",
+      "completion_formula": "weighted sum of semantic-group results; gates do not grant partial credit",
+      "strict_pass_formula": "all semantic groups equal 1 and every exact/no-extra/dependency/preservation gate passes",
+      "required_release_evidence": [
+        "group_results",
+        "gate_results"
+      ]
+    },
+    "StateBundle-v1": {
+      "source_family": "ORCHESTRATE",
+      "completion_formula": "A when all gates pass, otherwise 0.75*A; A is completed active-result bundles divided by bundle count",
+      "strict_pass_formula": "all active-result bundles complete and all safety/preservation gates pass",
+      "required_release_evidence": [
+        "bundle_results",
+        "gate_results"
+      ]
+    },
+    "CFSS-StateScore": {
+      "source_family": "NARRATE",
+      "completion_formula": "arithmetic mean of terminal G/S/P semantic-group results",
+      "strict_pass_formula": "all terminal G/S/P semantic groups pass",
+      "secondary_formula": "STG-CFSS is strict_pass AND all applicable transition gates; it is reported separately",
+      "required_release_evidence": [
+        "terminal_group_results",
+        "transition_gate_results when applicable"
+      ]
+    },
+    "ASK-PCS": {
+      "source_family": "ASK",
+      "completion_formula": "satisfied terminal-state atoms divided by authored atom count",
+      "strict_pass_formula": "all authored terminal-state atoms pass",
+      "required_release_evidence": [
+        "atom_results"
+      ]
+    },
+    "WATCH-binary": {
+      "source_family": "WATCH",
+      "completion_formula": "strict_pass",
+      "strict_pass_formula": "the complete revised state_success_v2 physical-state conjunction passes",
+      "required_release_evidence": [
+        "condition_results"
+      ]
+    },
+    "FIND-C-pass-binary": {
+      "source_family": "FIND",
+      "completion_formula": "strict_pass",
+      "strict_pass_formula": "all task-applicable causal physical checks pass",
+      "required_release_evidence": [
+        "causal_checks"
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "GUIDE-102000",
+      "source_family": "GUIDE",
+      "assigned_category": "Planning",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:a6e34980d2b42e0a01b7c80e855b2fd3e1afaf23c352c28ee1c7efcc50f6e1c6",
+      "task_summary": "Pack an exact shipment from nine capacity-labeled packages; tests numerical planning and subset selection.",
+      "strict_success_criterion": "Exact water set {3 L, 3 L, 2 L}, juice set {4 L, 3 L, 2 L}, and 3-L lemonade; seven candidates exactly, excluding water-4 L and juice-5 L.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "water_set",
+            "weight": 0.333333333333,
+            "description": "Exact water set is 3 L, 3 L, and 2 L."
+          },
+          {
+            "id": "juice_set",
+            "weight": 0.333333333333,
+            "description": "Exact juice set is 4 L, 3 L, and 2 L."
+          },
+          {
+            "id": "lemonade",
+            "weight": 0.333333333333,
+            "description": "The 3-L lemonade is selected."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Exact water set {3 L, 3 L, 2 L}, juice set {4 L, 3 L, 2 L}, and 3-L lemonade; seven candidates exactly, excluding water-4 L and juice-5 L."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "GUIDE-108005",
+      "source_family": "GUIDE",
+      "assigned_category": "Planning",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:1773d22532e9be067c1cb3a90b8b126083aa1924f9cfbd371f3d7562c6b5a061",
+      "task_summary": "Execute a complete lunch order with schnitzel, broccolini, sealed sauce, tools, cooking, plating, and delivery.",
+      "strict_success_criterion": "Both foods cooked/browned and plated; cooktop off and spatula returned; exact two-food plate plus sealed sauce delivered to service pass.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "schnitzel_ready",
+            "weight": 0.25,
+            "description": "Schnitzel is cooked, browned, and plated."
+          },
+          {
+            "id": "broccolini_ready",
+            "weight": 0.25,
+            "description": "Broccolini is cooked, browned, and plated."
+          },
+          {
+            "id": "safe_closeout",
+            "weight": 0.15,
+            "description": "Cooktop is off and spatula is returned."
+          },
+          {
+            "id": "delivered_order",
+            "weight": 0.35,
+            "description": "The exact two-food plate and sealed sauce are at the service pass."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Both foods cooked/browned and plated; cooktop off and spatula returned; exact two-food plate plus sealed sauce delivered to service pass."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "GUIDE-109009",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:5c846e89d3962e47e68088998a12889391994c23de14c6626af787d5a8a8991d",
+      "task_summary": "Read seven beverage labels and solve a globally coupled three-box allocation; tests OCR, arithmetic, and global constraint satisfaction.",
+      "strict_success_criterion": "Exact composites: A = milk-500 + water-100; B = milk-500 + juice-200; C = milk-500 + juice-200 + water-100. No wrong categories; all seven bottles form one exact partition.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "order_a",
+            "weight": 0.333333333333,
+            "description": "Order A contains exactly milk-500 and water-100."
+          },
+          {
+            "id": "order_b",
+            "weight": 0.333333333333,
+            "description": "Order B contains exactly milk-500 and juice-200."
+          },
+          {
+            "id": "order_c",
+            "weight": 0.333333333333,
+            "description": "Order C contains exactly milk-500, juice-200, and water-100."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Exact composites: A = milk-500 + water-100; B = milk-500 + juice-200; C = milk-500 + juice-200 + water-100. No wrong categories; all seven bottles form one exact partition."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "GUIDE-110011",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:b6b6e1ad5c4c6ba336aa0a14b6f98f79bd5ed7e96f6e4279fd86c91e3a40ec83",
+      "task_summary": "Recall carton sizes seen before a phone interruption and fill three later-arriving orders; tests episodic visual memory and numerical allocation.",
+      "strict_success_criterion": "Exact size composites A = 500+100, B = 500+250, C = 500+250+100; all seven cartons partitioned once, no wrong sizes, and the phone preserved.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "order_a",
+            "weight": 0.333333333333,
+            "description": "Order A contains exactly the 500 and 100 cartons."
+          },
+          {
+            "id": "order_b",
+            "weight": 0.333333333333,
+            "description": "Order B contains exactly the 500 and 250 cartons."
+          },
+          {
+            "id": "order_c",
+            "weight": 0.333333333333,
+            "description": "Order C contains exactly the 500, 250, and 100 cartons."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Exact size composites A = 500+100, B = 500+250, C = 500+250+100; all seven cartons partitioned once, no wrong sizes, and the phone preserved."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "GUIDE-111004",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:480d7bdca76a825d03497bd128eec451cd68a80693a791d49694b7df05d7856b",
+      "task_summary": "Archive obsolete briefing material before placing a new packet and pen; tests document-grounded ordered guidance.",
+      "strict_success_criterion": "Old material archived; new packet and pen on the reset table; new-item credit depends on removal of the obsolete material.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "obsolete_archived",
+            "weight": 0.4,
+            "description": "The obsolete briefing material is archived."
+          },
+          {
+            "id": "new_packet",
+            "weight": 0.3,
+            "description": "The new packet is on the reset table."
+          },
+          {
+            "id": "new_pen",
+            "weight": 0.3,
+            "description": "The new pen is on the reset table."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Old material archived; new packet and pen on the reset table; new-item credit depends on removal of the obsolete material."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "GUIDE-14003",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:d506820e62b772c2235fb4cc3823e04ad40320fbfa52520e4894199a2f400804",
+      "task_summary": "Use a stocking rule and price cards to arrange bread, candy, chocolate, and their labels in ascending-price order.",
+      "strict_success_criterion": "Three exact two-object composites occupy the low/mid/high promotional slots; none of the six objects remains on the cart.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "low_slot",
+            "weight": 0.34,
+            "description": "Bread and its matching price label form the exact low-slot pair."
+          },
+          {
+            "id": "middle_slot",
+            "weight": 0.33,
+            "description": "Candy and its matching price label form the exact middle-slot pair."
+          },
+          {
+            "id": "high_slot",
+            "weight": 0.33,
+            "description": "Chocolate and its matching price label form the exact high-slot pair."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Three exact two-object composites occupy the low/mid/high promotional slots; none of the six objects remains on the cart."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "GUIDE-14004",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:489484afe51fd3f28a323e58e9ca7d2c091c1018862e85d77fcbb058d5dd6d15",
+      "task_summary": "Follow a tomato recipe through cutting, cooking, plating, and serving.",
+      "strict_success_criterion": "Tomato cut and safely cooked; cooktop off; the cooked form is the sole plated food; completed plate held; knife and spatula returned.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "tomato_cut",
+            "weight": 0.2,
+            "description": "The tomato is cut."
+          },
+          {
+            "id": "tomato_cooked",
+            "weight": 0.35,
+            "description": "The tomato is safely cooked and cooking is closed out."
+          },
+          {
+            "id": "served_plate",
+            "weight": 0.45,
+            "description": "The sole cooked tomato form is plated and the completed plate is held."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Tomato cut and safely cooked; cooktop off; the cooked form is the sole plated food; completed plate held; knife and spatula returned."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "GUIDE-14010",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:55ae2a6b5703840bbb6f458a435c6c08a4294e22246961309633828a49a24592",
+      "task_summary": "Sort four pantry goods by storage requirements; tests rule reading and storage knowledge.",
+      "strict_success_criterion": "Candy/chocolate exactly in the light display; coriander/coffee exactly in the closed dark cabinet.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "light_display",
+            "weight": 0.5,
+            "description": "Candy and chocolate are exactly in the light display."
+          },
+          {
+            "id": "dark_cabinet",
+            "weight": 0.5,
+            "description": "Coriander and coffee are exactly in the closed dark cabinet."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Candy/chocolate exactly in the light display; coriander/coffee exactly in the closed dark cabinet."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "GUIDE-14011",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:f5bcffdb43515e7eea67bbc709735df6cbe7fda5d522e2810aa537caf555cae0",
+      "task_summary": "Choose safe cooling methods for hot lemonade, purée, and an overheated phone.",
+      "strict_success_criterion": "Both foods refrigerated with fridge closed; phone on cooling counter with fan running; phone excluded from fridge.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "foods_cooled",
+            "weight": 0.45,
+            "description": "Lemonade and purée are refrigerated and the fridge is closed."
+          },
+          {
+            "id": "phone_cooled",
+            "weight": 0.55,
+            "description": "The phone is on the cooling counter and the fan is running."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Both foods refrigerated with fridge closed; phone on cooling counter with fan running; phone excluded from fridge."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "GUIDE-14014",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:a9d65a90a0fac58771ff6d4ff19f037202587068186cc699ec70ade1a881dbc1",
+      "task_summary": "Dry a wet towel and boot with material-appropriate equipment.",
+      "strict_success_criterion": "Towel alone in a closed, running dryer cycle; boot on or in the shoe rack and not in the dryer.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "towel_cycle",
+            "weight": 0.5,
+            "description": "The towel alone is in the closed, running dryer cycle."
+          },
+          {
+            "id": "boot_storage",
+            "weight": 0.5,
+            "description": "The boot is on or in the shoe rack and outside the dryer."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Towel alone in a closed, running dryer cycle; boot on or in the shoe rack and not in the dryer."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "GUIDE-14015",
+      "source_family": "GUIDE",
+      "assigned_category": "Finding",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:5d513bd09270f6d1a300b2842701e09dfed2c901d4a74896a6204dafa2a7a41d",
+      "task_summary": "Inspect labels to distinguish freezer from chiller, then classify five cold-delivery items.",
+      "strict_success_criterion": "Ice cream/lolly exactly in closed freezer; milk, yogurt, and lettuce exactly in closed chiller (GUIDE StateScore-v2).",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "freezer_group",
+            "weight": 0.4,
+            "description": "Ice cream and ice lolly are exactly in the closed freezer."
+          },
+          {
+            "id": "chiller_group",
+            "weight": 0.6,
+            "description": "Milk, yogurt, and lettuce are exactly in the closed chiller."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Ice cream/lolly exactly in closed freezer; milk, yogurt, and lettuce exactly in closed chiller (GUIDE StateScore-v2)."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "GUIDE-14018",
+      "source_family": "GUIDE",
+      "assigned_category": "Finding",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:29691cc33aa7c7d23313a2f10243ba08500bbdbcd33cdf650471df4150063738",
+      "task_summary": "Inspect contents of two otherwise ambiguous refrigerators to infer the dairy unit.",
+      "strict_success_criterion": "Cheese in secured dairy fridge; existing milk remains there, chicken in the other unit, and the other fridge remains closed (GUIDE StateScore-v2).",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "cheese_stored",
+            "weight": 0.8,
+            "description": "Cheese is inside the dairy refrigerator."
+          },
+          {
+            "id": "dairy_secured",
+            "weight": 0.2,
+            "description": "The dairy refrigerator is secured."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Cheese in secured dairy fridge; existing milk remains there, chicken in the other unit, and the other fridge remains closed (GUIDE StateScore-v2)."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "GUIDE-17001",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:2bd1c9839c07e8ebea57679d24c15168a84f53d9037b2c4193bb886f6451a25a",
+      "task_summary": "Apply a printed, tool-specific cleaning rule to six objects.",
+      "strict_success_criterion": "Mug and two bottles cleaned with blue sponge; camera/phone with yellow cloth; these five returned to the clean table; paper remains dry/unwiped and is filed.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "blue_sponge_group",
+            "weight": 0.333333333333,
+            "description": "Mug and both bottles are cleaned with the blue sponge and returned."
+          },
+          {
+            "id": "yellow_cloth_group",
+            "weight": 0.333333333333,
+            "description": "Camera and phone are cleaned with the yellow cloth and returned."
+          },
+          {
+            "id": "paper_group",
+            "weight": 0.333333333333,
+            "description": "Paper remains dry and unwiped and is filed."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Mug and two bottles cleaned with blue sponge; camera/phone with yellow cloth; these five returned to the clean table; paper remains dry/unwiped and is filed."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "GUIDE-18001",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:7ba00823c859dc885ed995630a7a34b419622a0d93fb63b3dfcf2e3d230bff27",
+      "task_summary": "Repair a three-object cyclic misplacement from a reset map.",
+      "strict_success_criterion": "Exact partition: phone in secure locker, water in fridge, folder on desk; ordinary door state is not independently scored.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "phone",
+            "weight": 0.333333333333,
+            "description": "Phone is in the secure locker."
+          },
+          {
+            "id": "water",
+            "weight": 0.333333333333,
+            "description": "Water is in the refrigerator."
+          },
+          {
+            "id": "folder",
+            "weight": 0.333333333333,
+            "description": "Folder is on the desk."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Exact partition: phone in secure locker, water in fridge, folder on desk; ordinary door state is not independently scored."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "GUIDE-24003",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:c65174d90cd00ee5b062d122ae58c78ce44efa16e49b3702d6302c7c4da189f8",
+      "task_summary": "Stock a capacity-limited shelf from three equal 800-mL cartons without exceeding capacity.",
+      "strict_success_criterion": "Exactly two cartons moved to the drink shelf and one remains at source; pre-existing milk/orange stock preserved.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "capacity_allocation",
+            "weight": 1.0,
+            "description": "Exactly two of the three cartons are on the drink shelf and one remains at source."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Exactly two cartons moved to the drink shelf and one remains at source; pre-existing milk/orange stock preserved."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "GUIDE-40003",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:3dc17b3c26ae4384cc993e2079e28c83c40e67e1aa8b84e8e4741498b0b9bd2b",
+      "task_summary": "Resume an interrupted breakfast plan after the ham stage.",
+      "strict_success_criterion": "Scone inserted and cooked, oven then closed; previously completed ham placement and burner-off state preserved.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "scone_inserted",
+            "weight": 0.25,
+            "description": "Scone is inserted into the oven."
+          },
+          {
+            "id": "scone_cooked",
+            "weight": 0.55,
+            "description": "Scone is cooked."
+          },
+          {
+            "id": "oven_closed",
+            "weight": 0.2,
+            "description": "The oven is closed after insertion."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Scone inserted and cooked, oven then closed; previously completed ham placement and burner-off state preserved."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "GUIDE-40005",
+      "source_family": "GUIDE",
+      "assigned_category": "Planning",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:a9271c9b6272cfd464f2f810f3ce0845e633edd5a407f91223229ba667cacab3",
+      "task_summary": "Execute an ordered, multi-room housekeeping closeout.",
+      "strict_success_criterion": "Gift inside closed locker; water refrigerated; towel inside washer; washer closed and running with the towel.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "gift",
+            "weight": 0.25,
+            "description": "Gift is in the closed locker."
+          },
+          {
+            "id": "water",
+            "weight": 0.25,
+            "description": "Water is refrigerated."
+          },
+          {
+            "id": "towel",
+            "weight": 0.25,
+            "description": "Towel is inside the washer."
+          },
+          {
+            "id": "washer_cycle",
+            "weight": 0.25,
+            "description": "Washer is closed and running with the towel."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Gift inside closed locker; water refrigerated; towel inside washer; washer closed and running with the towel."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "GUIDE-47002",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:4408760a633d9324a0c3f67de078b873575a07ee131df9f4f45f474d8ed6bd9e",
+      "task_summary": "Pack an IT return kit in dependency order.",
+      "strict_success_criterion": "Pad returned before headset; phone inside closed secure cabinet; exact box contents are pad/headset and exact cabinet content is phone.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "pad",
+            "weight": 0.25,
+            "description": "Pad is returned to the return box."
+          },
+          {
+            "id": "headset",
+            "weight": 0.25,
+            "description": "Headset is returned after the pad."
+          },
+          {
+            "id": "phone",
+            "weight": 0.5,
+            "description": "Phone is inside the closed secure cabinet."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Pad returned before headset; phone inside closed secure cabinet; exact box contents are pad/headset and exact cabinet content is phone."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "GUIDE-87017",
+      "source_family": "GUIDE",
+      "assigned_category": "Planning",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:ad7fa530b29bf043fe3b8cff8765584be18995be901d8d1278c70b01cd38e77b",
+      "task_summary": "Prepare a snack and replan when cutting reveals mold.",
+      "strict_success_criterion": "Moldy bread cut then discarded; fresh bread cut and plated with cheese/apple; safe plate at service pass; negative/exact constraints and knife return hold.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "moldy_bread",
+            "weight": 0.3,
+            "description": "Moldy bread is cut and discarded."
+          },
+          {
+            "id": "fresh_bread",
+            "weight": 0.25,
+            "description": "Fresh bread is cut and plated."
+          },
+          {
+            "id": "safe_foods",
+            "weight": 0.25,
+            "description": "Cheese and apple are safely assembled on the plate."
+          },
+          {
+            "id": "delivery",
+            "weight": 0.2,
+            "description": "The complete safe plate is at the service pass."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Moldy bread cut then discarded; fresh bread cut and plated with cheese/apple; safe plate at service pass; negative/exact constraints and knife return hold."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "GUIDE-90002",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:c05e0276b0a96ab86842c2daa52bd9bebffe6782c84c6ef9a450af2b298ce0f9",
+      "task_summary": "Prepare a visitor table while respecting privacy/security ordering.",
+      "strict_success_criterion": "Staff cabinet closed; sign-in sheet, pen, badges on visitor table; spare folder in closed return locker; setup depends on privacy closure.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "privacy",
+            "weight": 0.2,
+            "description": "The staff cabinet is closed."
+          },
+          {
+            "id": "visitor_materials",
+            "weight": 0.6,
+            "description": "Sign-in sheet, pen, and badges are on the visitor table."
+          },
+          {
+            "id": "spare_folder",
+            "weight": 0.2,
+            "description": "The spare folder is in the closed return locker."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Staff cabinet closed; sign-in sheet, pen, badges on visitor table; spare folder in closed return locker; setup depends on privacy closure."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "GUIDE-94001",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:6d9398be65e0f574212f327ddc9136d79c8c7d4ecb2edd14fee08f24dd817d7f",
+      "task_summary": "Resume an interrupted four-step afternoon-service plan after two completed steps.",
+      "strict_success_criterion": "Apple on setup table and clean mug on the vacated first supply table; completed water/towel states preserved; targets exact.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "apple",
+            "weight": 0.5,
+            "description": "Apple is on the setup table."
+          },
+          {
+            "id": "mug",
+            "weight": 0.5,
+            "description": "Clean mug is on the vacated first supply table."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Apple on setup table and clean mug on the vacated first supply table; completed water/towel states preserved; targets exact."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "GUIDE-97002",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:99d8dc55d1be64f6aa29e093ab3f34fc0177c0fb385f57e786092615965dda8e",
+      "task_summary": "Resume a five-step hotel reset after the first two items.",
+      "strict_success_criterion": "Towel, soap, and toilet roll on bathroom shelf; already completed folder/water destinations preserved.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "towel",
+            "weight": 0.333333333333,
+            "description": "Towel is on the bathroom shelf."
+          },
+          {
+            "id": "soap",
+            "weight": 0.333333333333,
+            "description": "Soap is on the bathroom shelf."
+          },
+          {
+            "id": "toilet_roll",
+            "weight": 0.333333333333,
+            "description": "Toilet roll is on the bathroom shelf."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Towel, soap, and toilet roll on bathroom shelf; already completed folder/water destinations preserved."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "GUIDE-99001",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:534b01f0b1cf95f8646a31d57661885c29c39b180413f2b655980c649530d690",
+      "task_summary": "Close a tea station under storage and hygiene rules.",
+      "strict_success_criterion": "Milk refrigerated, tea dry-stored, paper discarded; station cleaned and cloth returned; mug placed only on the cleaned station with exact service contents.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "milk",
+            "weight": 0.15,
+            "description": "Milk is refrigerated."
+          },
+          {
+            "id": "tea",
+            "weight": 0.15,
+            "description": "Tea is dry-stored."
+          },
+          {
+            "id": "paper",
+            "weight": 0.15,
+            "description": "Used paper is discarded."
+          },
+          {
+            "id": "clean_station",
+            "weight": 0.3,
+            "description": "Station is cleaned and cloth returned."
+          },
+          {
+            "id": "mug_service",
+            "weight": 0.25,
+            "description": "Mug is on the cleaned station."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Milk refrigerated, tea dry-stored, paper discarded; station cleaned and cloth returned; mug placed only on the cleaned station with exact service contents."
+          }
+        ]
+      },
+      "criteria_count": 6
+    },
+    {
+      "task_id": "GUIDE-99403",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:f693b0efd8c2408674811fe1ca8d650ba3a5620122d863cf69e8d610f0d0b7e4",
+      "task_summary": "Clear a cooking station and make it operational.",
+      "strict_success_criterion": "Used mug, paper bag, and bottle cleared to prescribed destinations; pan on cooktop and cooktop running, with activation gated by cleanup and pan placement.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "cleanup",
+            "weight": 0.6,
+            "description": "Used mug, paper bag, and bottle are cleared to prescribed destinations."
+          },
+          {
+            "id": "activation",
+            "weight": 0.4,
+            "description": "Pan is on the cooktop and the cooktop is running after cleanup."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Used mug, paper bag, and bottle cleared to prescribed destinations; pan on cooktop and cooktop running, with activation gated by cleanup and pan placement."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "GUIDE-99502",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:6863fc7f7b366f75fb205121946fee79c8bd3db57eb07741b4f4d07e4f8b13ea",
+      "task_summary": "Clear clutter, prepare and cook two vegetables, plate, and deliver a stir-fry.",
+      "strict_success_criterion": "Cleanup complete; both vegetables cut and cooked in the pan; cooktop off; exact finished contents plated at service table; preparation/cooking dependencies hold.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "cleanup",
+            "weight": 0.2,
+            "description": "Clutter is cleared to prescribed destinations."
+          },
+          {
+            "id": "preparation",
+            "weight": 0.2,
+            "description": "Both vegetables are cut."
+          },
+          {
+            "id": "cooking",
+            "weight": 0.35,
+            "description": "Both vegetables are cooked in the pan and the cooktop is off."
+          },
+          {
+            "id": "delivery",
+            "weight": 0.25,
+            "description": "Exact finished contents are plated at the service table."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Cleanup complete; both vegetables cut and cooked in the pan; cooktop off; exact finished contents plated at service table; preparation/cooking dependencies hold."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "GUIDE-99806",
+      "source_family": "GUIDE",
+      "assigned_category": "Guidance",
+      "protocol": "StateScore-v2",
+      "rubric_version": "2026-09-16/StateScore-v2",
+      "expected_taskpack_sha256": "sha256:693f93b0bf63ae69c22b359bfe17e0179113bced97229063e1ad33ca2d7eecb0",
+      "task_summary": "Select an exact one-litre, three-category tasting order from six labeled bottles.",
+      "strict_success_criterion": "Kit contains exactly GIN-200 mL, RUM-300 mL, and WINE-500 mL; the three larger decoys are excluded.",
+      "score_spec": {
+        "kind": "weighted_groups",
+        "groups": [
+          {
+            "id": "exact_kit",
+            "weight": 1.0,
+            "description": "Kit contains exactly GIN-200 mL, RUM-300 mL, and WINE-500 mL."
+          }
+        ],
+        "gates": [
+          {
+            "id": "strict_constraints",
+            "description": "Kit contains exactly GIN-200 mL, RUM-300 mL, and WINE-500 mL; the three larger decoys are excluded."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "ORCHESTRATE-101003",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:785be88e1cb861174669fce915a70d6475f7da02f4f08328b19021fe459690f8",
+      "task_summary": "Correct a scripted hotel-checkout mistake and finish a four-object reset.",
+      "strict_success_criterion": "Folder to desk, clipboard to wardrobe shelf, welcome box to entry console, and rinse mug to bathroom shelf; opening misplacement must actually occur.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "folder",
+            "description": "Folder is on the desk."
+          },
+          {
+            "id": "clipboard",
+            "description": "Clipboard is on the wardrobe shelf."
+          },
+          {
+            "id": "welcome_box",
+            "description": "Welcome box is on the entry console."
+          },
+          {
+            "id": "mug",
+            "description": "Rinse mug is on the bathroom shelf."
+          }
+        ],
+        "gates": [
+          {
+            "id": "safety_and_preservation",
+            "description": "Folder to desk, clipboard to wardrobe shelf, welcome box to entry console, and rinse mug to bathroom shelf; opening misplacement must actually occur."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "ORCHESTRATE-102006",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:5e7092bbebdea29169fa0ff52bfd1ff88dc2ecb205a476d06cb1b8b2fc3464a4",
+      "task_summary": "Combine two delivery chains across a twelve-zone office map.",
+      "strict_success_criterion": "Folder to meeting room, agenda to copy room, package to reception, towel to bathroom, and phone to reception; one bundle per endpoint.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "folder",
+            "description": "Folder is at the meeting room endpoint."
+          },
+          {
+            "id": "agenda",
+            "description": "Agenda is at the copy room endpoint."
+          },
+          {
+            "id": "package",
+            "description": "Package is at the reception endpoint."
+          },
+          {
+            "id": "towel",
+            "description": "Towel is at the bathroom endpoint."
+          },
+          {
+            "id": "phone",
+            "description": "Phone is at the reception endpoint."
+          }
+        ],
+        "gates": []
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "ORCHESTRATE-107002",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:5452e08fa8252ca5f8949341666d50b42270a4410398a4b626230fb4e36a8f3a",
+      "task_summary": "Infer seasoning order and coordinate chicken/bread roasting.",
+      "strict_success_criterion": "Persistent chicken state exactly soy-then-vinegar; complete chicken and bread plates at service counter; oven off and closed.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "seasoning",
+            "description": "Chicken persistent seasoning state is exactly soy-then-vinegar."
+          },
+          {
+            "id": "chicken_plate",
+            "description": "Complete chicken plate is at the service counter."
+          },
+          {
+            "id": "bread_plate",
+            "description": "Complete bread plate is at the service counter."
+          }
+        ],
+        "gates": [
+          {
+            "id": "safety_and_preservation",
+            "description": "Persistent chicken state exactly soy-then-vinegar; complete chicken and bread plates at service counter; oven off and closed."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "ORCHESTRATE-108005",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:4fe3c8cfacefe91728a4e2d9559cd39a7bd7c7f4107e99c6d37b1137ae9d89d0",
+      "task_summary": "Recover a spoken plan after work and a phone interruption.",
+      "strict_success_criterion": "Phone returned from dining sideboard to living-room table; towel moved to kitchen; incident folder moved to the other living room; opening interference occurred.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "phone",
+            "description": "Phone is returned from dining sideboard to living-room table."
+          },
+          {
+            "id": "towel",
+            "description": "Towel is moved to the kitchen."
+          },
+          {
+            "id": "folder",
+            "description": "Incident folder is moved to the other living room."
+          }
+        ],
+        "gates": [
+          {
+            "id": "safety_and_preservation",
+            "description": "Phone returned from dining sideboard to living-room table; towel moved to kitchen; incident folder moved to the other living room; opening interference occurred."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "ORCHESTRATE-112022",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:ce09a510e5e66defe0019d49814db2f509285474bf37dbaf29dae47a69ea1aea",
+      "task_summary": "Replan when a late spill appears during close-down.",
+      "strict_success_criterion": "Initial grime removed with sponge; apple on return cart; post-apple spill removed with towel and table dry; both tools returned.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "initial_grime",
+            "description": "Initial grime is removed with the sponge."
+          },
+          {
+            "id": "apple",
+            "description": "Apple is on the return cart."
+          },
+          {
+            "id": "late_spill",
+            "description": "The post-apple spill is removed with the towel and the table is dry."
+          },
+          {
+            "id": "tools",
+            "description": "Both cleaning tools are returned."
+          }
+        ],
+        "gates": []
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "ORCHESTRATE-13005",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:431475c48f6ee60fe895f44dec86da58926815249873528d1d378ae82f2f3959",
+      "task_summary": "Balance three classroom desks with one water and one juice each using a short one-hand route.",
+      "strict_success_criterion": "Exact water counts across all three desks form one bundle and exact juice counts another; route length is reported separately.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "water_distribution",
+            "description": "Each of three desks contains exactly one water."
+          },
+          {
+            "id": "juice_distribution",
+            "description": "Each of three desks contains exactly one juice."
+          }
+        ],
+        "gates": []
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "ORCHESTRATE-13006",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:57d97dc4e00be685da2ae55bde7a15b030b2c225e0c8659542af43864e571962",
+      "task_summary": "Repair a three-way grocery misplacement with a continuous short route.",
+      "strict_success_criterion": "Rice to grains, barbecue sauce to sauces, and iced tea to beverages, one complete active-result bundle each.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "rice",
+            "description": "Rice is in grains storage."
+          },
+          {
+            "id": "barbecue_sauce",
+            "description": "Barbecue sauce is in sauces storage."
+          },
+          {
+            "id": "iced_tea",
+            "description": "Iced tea is in beverages storage."
+          }
+        ],
+        "gates": []
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "ORCHESTRATE-14003",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:51b78ca3f4265131e6c63f42e6c1fadb3929e5f3df150e583cce246392407447",
+      "task_summary": "Schedule rice and water before heat, then reset ingredients and tools.",
+      "strict_success_criterion": "Valid cooked porridge in pot on burner; rice bag in closed cabinet; knife in block; burner off; persistent recipe state records correct ingredient order.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "porridge",
+            "description": "Valid cooked porridge is in the pot on the burner."
+          },
+          {
+            "id": "rice_bag",
+            "description": "Rice bag is in the closed cabinet."
+          },
+          {
+            "id": "knife",
+            "description": "Knife is returned to the knife block."
+          }
+        ],
+        "gates": [
+          {
+            "id": "safety_and_preservation",
+            "description": "Valid cooked porridge in pot on burner; rice bag in closed cabinet; knife in block; burner off; persistent recipe state records correct ingredient order."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "ORCHESTRATE-14008",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:54aa8b3a620345f4e69a0d3c7dbdd94b1137b45dfe338e02b474948fb62c725a",
+      "task_summary": "Use a house map to plan folder-to-bed, phone-to-dining-table, and mug-to-kitchen moves with one necessary empty leg.",
+      "strict_success_criterion": "Three destination bundles complete; shortest-route quality is a separate efficiency measure.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "folder",
+            "description": "Folder is on the bed."
+          },
+          {
+            "id": "phone",
+            "description": "Phone is on the dining table."
+          },
+          {
+            "id": "mug",
+            "description": "Mug is in the kitchen destination."
+          }
+        ],
+        "gates": []
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "ORCHESTRATE-16013",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:67973da4c5a6d14f96c35750bbce1c86df1637892a1be960a97b514e038eb7fe",
+      "task_summary": "Select, cut, plate, and deliver two allergy/low-sugar constrained fruit plates.",
+      "strict_success_criterion": "Six cut-fruit bundles on correct plates and two complete plate-delivery bundles; cheesecake, grape, and pineapple remain intact at baseline.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "fruit_1",
+            "description": "The corresponding selected fruit is cut and on its correct guest plate."
+          },
+          {
+            "id": "fruit_2",
+            "description": "The corresponding selected fruit is cut and on its correct guest plate."
+          },
+          {
+            "id": "fruit_3",
+            "description": "The corresponding selected fruit is cut and on its correct guest plate."
+          },
+          {
+            "id": "fruit_4",
+            "description": "The corresponding selected fruit is cut and on its correct guest plate."
+          },
+          {
+            "id": "fruit_5",
+            "description": "The corresponding selected fruit is cut and on its correct guest plate."
+          },
+          {
+            "id": "fruit_6",
+            "description": "The corresponding selected fruit is cut and on its correct guest plate."
+          },
+          {
+            "id": "delivery_1",
+            "description": "The first complete three-fruit guest plate is delivered."
+          },
+          {
+            "id": "delivery_2",
+            "description": "The second complete three-fruit guest plate is delivered."
+          }
+        ],
+        "gates": [
+          {
+            "id": "safety_and_preservation",
+            "description": "Six cut-fruit bundles on correct plates and two complete plate-delivery bundles; cheesecake, grape, and pineapple remain intact at baseline."
+          }
+        ]
+      },
+      "criteria_count": 9
+    },
+    {
+      "task_id": "ORCHESTRATE-28005",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:893acaa7cbd352a267b3425b6082594817e6c64421fbe2b851f07f677dd3ce59",
+      "task_summary": "Minimize makespan for potato, pear, trout, and bread using one oven.",
+      "strict_success_criterion": "Four foods cooked on their own plates at the service table; pear cut; oven off and closed.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "potato",
+            "description": "Cooked potato is on its own plate at the service table."
+          },
+          {
+            "id": "pear",
+            "description": "Cut and cooked pear is on its own plate at the service table."
+          },
+          {
+            "id": "trout",
+            "description": "Cooked trout is on its own plate at the service table."
+          },
+          {
+            "id": "bread",
+            "description": "Cooked bread is on its own plate at the service table."
+          }
+        ],
+        "gates": [
+          {
+            "id": "safety_and_preservation",
+            "description": "Four foods cooked on their own plates at the service table; pear cut; oven off and closed."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "ORCHESTRATE-44001",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:4e5755d678002eec75805f310005d63eb6f1ef222775473c793304f021788cec",
+      "task_summary": "Parallel-schedule pork knuckle, trout, potato, and pear over oven and stove.",
+      "strict_success_criterion": "Four complete cooked own-plate dishes returned to prep table; pear cut; oven off/closed and stove off.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "pork_knuckle",
+            "description": "Cooked pork knuckle is on its own plate at the prep table."
+          },
+          {
+            "id": "trout",
+            "description": "Cooked trout is on its own plate at the prep table."
+          },
+          {
+            "id": "potato",
+            "description": "Cooked potato is on its own plate at the prep table."
+          },
+          {
+            "id": "pear",
+            "description": "Cut and cooked pear is on its own plate at the prep table."
+          }
+        ],
+        "gates": [
+          {
+            "id": "safety_and_preservation",
+            "description": "Four complete cooked own-plate dishes returned to prep table; pear cut; oven off/closed and stove off."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "ORCHESTRATE-44006",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:0693e14b3c66daea5946ea35bd8d53c5d2359ba6cc66d0b99ecef70a6e4060e4",
+      "task_summary": "Detect an incorrectly stored cold brew, repair it, and complete a kitchen reset.",
+      "strict_success_criterion": "Cold brew and pineapple juice in fridge, mug in dishwasher, sponge in sink-side drying zone; fridge and cleaning cabinet closed.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "cold_brew",
+            "description": "Cold brew is in the refrigerator."
+          },
+          {
+            "id": "pineapple_juice",
+            "description": "Pineapple juice is in the refrigerator."
+          },
+          {
+            "id": "mug",
+            "description": "Mug is in the dishwasher."
+          },
+          {
+            "id": "sponge",
+            "description": "Sponge is in the sink-side drying zone."
+          }
+        ],
+        "gates": [
+          {
+            "id": "safety_and_preservation",
+            "description": "Cold brew and pineapple juice in fridge, mug in dishwasher, sponge in sink-side drying zone; fridge and cleaning cabinet closed."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "ORCHESTRATE-46000",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:a5c7de9b040d70b5c2f7410550b741a796a7a7d6fc83f5617c27450e5ba0e042",
+      "task_summary": "Select the maximum feasible four of nine dishes under 30 minutes, one oven, and one stove.",
+      "strict_success_criterion": "Complete cooked plated baguette, pear, zucchini, and steak; pear cut; five unselected dishes unchanged; appliances safely reset.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "baguette",
+            "description": "Baguette is a complete cooked plated dish."
+          },
+          {
+            "id": "pear",
+            "description": "Pear is a complete cut, cooked, plated dish."
+          },
+          {
+            "id": "zucchini",
+            "description": "Zucchini is a complete cooked plated dish."
+          },
+          {
+            "id": "steak",
+            "description": "Steak is a complete cooked plated dish."
+          }
+        ],
+        "gates": [
+          {
+            "id": "safety_and_preservation",
+            "description": "Complete cooked plated baguette, pear, zucchini, and steak; pear cut; five unselected dishes unchanged; appliances safely reset."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "ORCHESTRATE-94001",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:e9d0344fe7bca7adaee71acf4e59841bd44e444ce4abe3e9bd400d8e0cd6b66c",
+      "task_summary": "Plan a short reset route for four objects across a five-room map.",
+      "strict_success_criterion": "Mug to kitchen, towel to bathroom, parcel to entry, and folder to living room, each as one endpoint bundle.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "mug",
+            "description": "Mug reaches the kitchen endpoint."
+          },
+          {
+            "id": "towel",
+            "description": "Towel reaches the bathroom endpoint."
+          },
+          {
+            "id": "parcel",
+            "description": "Parcel reaches the entry endpoint."
+          },
+          {
+            "id": "folder",
+            "description": "Folder reaches the living-room endpoint."
+          }
+        ],
+        "gates": []
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "ORCHESTRATE-99902",
+      "source_family": "ORCHESTRATE",
+      "assigned_category": "Planning",
+      "protocol": "StateBundle-v1",
+      "rubric_version": "2026-09-16/StateBundle-v1",
+      "expected_taskpack_sha256": "sha256:9ed082534c076d523441506e03bcc84683f0f165dc745decd0e6b81c862f83b8",
+      "task_summary": "Filter nine dishes by four allergies, then maximize safe output under time/equipment constraints.",
+      "strict_success_criterion": "Complete cooked plated chicken, pear, zucchini, and steak; pear cut; all unsafe/unselected dishes unchanged; appliances safely reset.",
+      "score_spec": {
+        "kind": "state_bundles",
+        "bundles": [
+          {
+            "id": "chicken",
+            "description": "Chicken is a complete cooked plated dish."
+          },
+          {
+            "id": "pear",
+            "description": "Pear is a complete cut, cooked, plated dish."
+          },
+          {
+            "id": "zucchini",
+            "description": "Zucchini is a complete cooked plated dish."
+          },
+          {
+            "id": "steak",
+            "description": "Steak is a complete cooked plated dish."
+          }
+        ],
+        "gates": [
+          {
+            "id": "safety_and_preservation",
+            "description": "Complete cooked plated chicken, pear, zucchini, and steak; pear cut; all unsafe/unselected dishes unchanged; appliances safely reset."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "NARRATE-104000",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:0fa4687aef92e7a48b664713bbe1c22e7b61a2eb2edf83854314eec5f9b2c5ab",
+      "task_summary": "Recall where a phone was left after a long intervening kitchen activity.",
+      "strict_success_criterion": "Phone on the designated living-room coffee table; source-memory grounding is evaluated separately because endpoint state alone cannot prove recall.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "goal_phone",
+            "description": "Phone is on the designated living-room coffee table."
+          }
+        ],
+        "transition_gates": []
+      },
+      "criteria_count": 1
+    },
+    {
+      "task_id": "NARRATE-109000",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:f5b299fbc0207f2d97300ef09457103a84799fc2197c25130e47940001e7165c",
+      "task_summary": "Infer the remaining checklist items after two have already been completed.",
+      "strict_success_criterion": "Phone on office desk and badge on lobby desk; completed folder/mug endpoints preserved.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "goal_phone",
+            "description": "Phone is on the office desk."
+          },
+          {
+            "id": "goal_badge",
+            "description": "Badge is on the lobby desk."
+          },
+          {
+            "id": "protected_completed",
+            "description": "Completed folder and mug remain at their handoff endpoints."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Completed folder and mug never leave destinations; completed remaining targets stay locked."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "NARRATE-12801",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:d0306ca04adc96e024e25f7d851858b351f71445b908295bab47d5a27d501cde",
+      "task_summary": "Visually identify orange juice among a can, carton, and bottle and give body-anchored guidance.",
+      "strict_success_criterion": "Juice on breakfast table; soda and water remain at baseline (and never move under the transition gate).",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "goal_juice",
+            "description": "Orange juice is on the breakfast table."
+          },
+          {
+            "id": "protected_objects",
+            "description": "Soda and water remain at handoff baseline."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Protected soda and water never leave baseline."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "NARRATE-12802",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:0f4fb86e94c93291190bd3063a20593cca66a45225df285a5abf77d02ce296f7",
+      "task_summary": "Repeatedly reassess a growing gap between a pot and bowl, moving a scale only when it fits.",
+      "strict_success_criterion": "Scale on clearing counter; three bottles on holding counter; pot/bowl at baseline. STG keeps the scale at source until all bottles are cleared.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "goal_scale",
+            "description": "Scale is on the clearing counter."
+          },
+          {
+            "id": "goal_bottle_left",
+            "description": "Left bottle is on the holding counter."
+          },
+          {
+            "id": "goal_bottle_middle",
+            "description": "Middle bottle is on the holding counter."
+          },
+          {
+            "id": "goal_bottle_right",
+            "description": "Right bottle is on the holding counter."
+          },
+          {
+            "id": "protected_anchors",
+            "description": "Pot and bowl remain at baseline."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Scale remains at source until all three bottles clear the gap; pot and bowl never leave baseline."
+          }
+        ]
+      },
+      "criteria_count": 6
+    },
+    {
+      "task_id": "NARRATE-13015",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:0b62140973b38052f02dd8dcef727d785e81ed8eb1e79b6476b14b39ab21b712",
+      "task_summary": "Compare remembered and current table settings and restore only a moved blue bowl.",
+      "strict_success_criterion": "Bowl restored to guest table; added coffee cup, unchanged wineglass/water, and all setting objects remain at handoff baseline.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "goal_bowl",
+            "description": "Moved blue bowl is restored to the guest table."
+          },
+          {
+            "id": "protected_setting",
+            "description": "Coffee cup, wineglass, water, and all other setting objects remain at handoff baseline."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "The protected table-setting set never leaves baseline."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "NARRATE-14004",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:b0bcc9a98887b605a594580eabb3f56ecae59706651418e56ac0a8cefe28e4da",
+      "task_summary": "Interrupt selection of a hazardous cleanser and redirect the wearer to baby oil.",
+      "strict_success_criterion": "Baby oil on side table; cleanser stably returned to cabinet, not held/on floor; bath salt at baseline. STG requires cleanser return before oil acquisition.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "goal_oil",
+            "description": "Baby oil is on the side table."
+          },
+          {
+            "id": "safe_cleanser",
+            "description": "Cleanser is stably returned to the cabinet, not held or on the floor."
+          },
+          {
+            "id": "protected_salt",
+            "description": "Bath salt remains at baseline."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Cleanser is safely returned before baby oil is acquired; bath salt never moves."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "NARRATE-14005",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:25188e4645b5794a844a69de0c5230dc2a581f69cae4121940d118593e578ac5",
+      "task_summary": "Admit that spray is absent from the current view, avoid a cactus, scan, and relocate the spray.",
+      "strict_success_criterion": "Spray on front cabinet; cactus, skin cream, and sponge at baseline; protected objects never move.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "goal_spray",
+            "description": "Spray is on the front cabinet."
+          },
+          {
+            "id": "protected_objects",
+            "description": "Cactus, skin cream, and sponge remain at baseline."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "The protected set never leaves baseline."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "NARRATE-14007",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:ec325a7f541d991c3f036d2408cb0a39fd297719f0db3ef8789f729476b668c4",
+      "task_summary": "Prioritize putting down a carving knife safely before searching for a ringing phone.",
+      "strict_success_criterion": "Knife stably on prep counter and phone held. STG requires knife safety before leaving or acquiring the phone.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "safe_knife",
+            "description": "Knife is stably supported on the prep counter."
+          },
+          {
+            "id": "goal_phone",
+            "description": "Phone is held."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Knife is safely supported before leaving prep or acquiring the phone."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "NARRATE-14008",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:77b6ccb2d7b3741261dee304fba7e193954dfd1769383e335fec6c03409f9426",
+      "task_summary": "Read a NO GLASS sign, prevent wrong disposal, and locate the glass-return counter.",
+      "strict_success_criterion": "Bottle stably on return table, neither held nor in waste/on floor. STG forbids an unsafe intermediate disposal.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "safe_bottle",
+            "description": "Bottle is stably on the return table, not held, in waste, or on the floor."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Bottle never enters waste or an unsupported/floor state."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "NARRATE-16000",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:adb6adce77684b387b1e66c988951c9948551363365b165173cd3368001eb115",
+      "task_summary": "Filter nearby items by the semantic class ``food,'' then compare distance to leaking deicer.",
+      "strict_success_criterion": "Apple in living-room waste bin; deicer, sponge, and salad at baseline.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "goal_apple",
+            "description": "Apple is inside the living-room waste bin."
+          },
+          {
+            "id": "protected_objects",
+            "description": "Deicer, sponge, and salad remain at baseline."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Protected objects never leave baseline."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "NARRATE-18003",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:0ff1cef0786abebddfa2cf101d1128db69077e516bdc763de99ac8ab21f58554",
+      "task_summary": "Identify two food items among a non-food distractor and guide two refrigerator trips.",
+      "strict_success_criterion": "Apple and sandwich in closed fridge; sponge at baseline.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "goal_apple",
+            "description": "Apple is inside the refrigerator."
+          },
+          {
+            "id": "goal_sandwich",
+            "description": "Sandwich is inside the refrigerator."
+          },
+          {
+            "id": "safe_fridge",
+            "description": "Refrigerator is closed."
+          },
+          {
+            "id": "protected_sponge",
+            "description": "Sponge remains at baseline."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Sponge never leaves baseline."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "NARRATE-20004",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:e0878b51136ca30f4d3a950a1ab352773c0064358baef82bbcf2292fa98163ef",
+      "task_summary": "Detect an out-of-view mug/folder swap and distinguish it from wearer-caused changes.",
+      "strict_success_criterion": "Mug and folder restored to their respective baseline supports; phone and completed errand sheet preserved.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "goal_mug",
+            "description": "Mug is restored to its baseline support."
+          },
+          {
+            "id": "goal_folder",
+            "description": "Folder is restored to its baseline support."
+          },
+          {
+            "id": "protected_completed",
+            "description": "Phone and completed errand sheet remain at handoff baseline."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Phone and completed errand sheet never leave their expected states."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "NARRATE-30002",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:ecbee76204112bc173ecffe9e706a43a9ab63627b8e73f8689433726888c9c7e",
+      "task_summary": "Track water-bottle counts across three visually similar tables.",
+      "strict_success_criterion": "Exact counts A=3, B=3, C=3, independent of bottle identity; STG prevents any table from exceeding three.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "count_a",
+            "description": "Table A has exactly three water bottles."
+          },
+          {
+            "id": "count_b",
+            "description": "Table B has exactly three water bottles."
+          },
+          {
+            "id": "count_c",
+            "description": "Table C has exactly three water bottles."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "No table ever exceeds three bottles."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "NARRATE-81009",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:fa68bcf4a7773033b54269844fafa851bba65ed847e4202fe1dd6f312e21a875",
+      "task_summary": "Detect broken-glass danger before placing a new blue cup.",
+      "strict_success_criterion": "New cup on hazard table; broken glass contained and broom returned; original cups unchanged. STG clears hazard before cup placement.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "goal_cup",
+            "description": "New blue cup is on the hazard table."
+          },
+          {
+            "id": "safe_restoration",
+            "description": "Broken glass is contained and the broom is returned."
+          },
+          {
+            "id": "protected_cups",
+            "description": "Original cups remain at baseline."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Hazard is cleared before cup placement; broom returns only after hazard resolution."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "NARRATE-81014",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:22c413a2b68f6055968b41b78f6289c138b808c55bf907b8f0e04b4e6bc53647",
+      "task_summary": "Select safe, genuinely open storage locations in a cluttered kitchen.",
+      "strict_success_criterion": "Apple in fridge or open counter; water in either; blue mug on open counter; fridge closed; six clutter objects preserved.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "goal_apple",
+            "description": "Apple is in the refrigerator or open-counter area."
+          },
+          {
+            "id": "goal_water",
+            "description": "Water is in the refrigerator or open-counter area."
+          },
+          {
+            "id": "goal_mug",
+            "description": "Blue mug is on the open counter."
+          },
+          {
+            "id": "safe_fridge",
+            "description": "Refrigerator is closed."
+          },
+          {
+            "id": "protected_clutter",
+            "description": "All six clutter objects remain at baseline."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Clutter never leaves baseline and targets never occupy the full main-counter area."
+          }
+        ]
+      },
+      "criteria_count": 6
+    },
+    {
+      "task_id": "NARRATE-87016",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:8f0671f78b0e0af84047e3ace39efa62cc85292af5dde67c068bea1928f2ce8d",
+      "task_summary": "Read a cleanup guide and execute nested hazardous-waste disposal and ordinary cleanup.",
+      "strict_success_criterion": "Guide returned; glass inside yellow bag and bag inside red bin; apple/milk refrigerated; cup/bowl at sink; sponge unchanged. STG enforces bag-before-bin and hazard-first.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "guide",
+            "description": "Guide is returned."
+          },
+          {
+            "id": "glass",
+            "description": "Broken glass is inside the yellow bag."
+          },
+          {
+            "id": "bag",
+            "description": "Yellow bag is inside the red bin."
+          },
+          {
+            "id": "apple",
+            "description": "Apple is refrigerated."
+          },
+          {
+            "id": "milk",
+            "description": "Milk is refrigerated."
+          },
+          {
+            "id": "cup",
+            "description": "Cup is at the sink counter."
+          },
+          {
+            "id": "bowl",
+            "description": "Bowl is at the sink counter."
+          },
+          {
+            "id": "protected_sponge",
+            "description": "Sponge remains at baseline."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Guide released before another item is held; bagging order and hazard-first order hold; sponge never moves."
+          }
+        ]
+      },
+      "criteria_count": 9
+    },
+    {
+      "task_id": "NARRATE-88012",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:ac1a4599395a6e3a67a8ad8e386fbd0966c53490b565121502b2c2f62d52af64",
+      "task_summary": "Remember a handwritten, three-item, cross-room note while ignoring distractors.",
+      "strict_success_criterion": "Apple in closed fridge, teapot on tea table, blue mug on side counter; white cup and sponge at baseline.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "goal_apple",
+            "description": "Apple is in the refrigerator."
+          },
+          {
+            "id": "safe_fridge",
+            "description": "Refrigerator is closed."
+          },
+          {
+            "id": "goal_teapot",
+            "description": "Teapot is on the tea table."
+          },
+          {
+            "id": "goal_mug",
+            "description": "Blue mug is on the side counter."
+          },
+          {
+            "id": "protected_objects",
+            "description": "White cup and sponge remain at baseline."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Note released before target acquisition; protected and completed objects remain locked."
+          }
+        ]
+      },
+      "criteria_count": 6
+    },
+    {
+      "task_id": "NARRATE-92002",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:38886d5940a629eb2f8d49da4fdd7e59593445a42dd2db7bcd9c9307a01f0369",
+      "task_summary": "Search three laboratory regions for a phone, folder, and beaker.",
+      "strict_success_criterion": "Phone on instructor desk; folder and beaker each in either allowed native cabinet; coffee, sponge, marker, and water preserved.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "goal_phone",
+            "description": "Phone is on the instructor desk."
+          },
+          {
+            "id": "goal_folder",
+            "description": "Folder is in an allowed native cabinet."
+          },
+          {
+            "id": "goal_beaker",
+            "description": "Beaker is in an allowed native cabinet."
+          },
+          {
+            "id": "protected_objects",
+            "description": "Coffee, sponge, marker, and water remain at baseline."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Protected objects never change."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "NARRATE-98002",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:456bf309458f744c25c50d6666530f889afd80bd14d3ec2bec1515592862e0f8",
+      "task_summary": "Correct three sequential off-ticket picks while completing a catering ticket.",
+      "strict_success_criterion": "Apple, water, and sandwich on conference table; all eight off-ticket items restored. Intended STG returns each wrong pick before progress.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "goal_apple",
+            "description": "Apple is on the conference table."
+          },
+          {
+            "id": "goal_water",
+            "description": "Water is on the conference table."
+          },
+          {
+            "id": "goal_sandwich",
+            "description": "Sandwich is on the conference table."
+          },
+          {
+            "id": "protected_off_ticket",
+            "description": "All eight off-ticket objects are restored to the catering cart."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Each wrong pick is returned before progress; all other off-ticket items never leave the cart."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "NARRATE-99203",
+      "source_family": "NARRATE",
+      "assigned_category": "Accessibility",
+      "protocol": "CFSS-StateScore",
+      "rubric_version": "2026-09-16/CFSS-StateScore",
+      "expected_taskpack_sha256": "sha256:f803e5347f338bd58784ad6e8b2b54a05dd007be830932e5f762f7d8d6271a1a",
+      "task_summary": "Inspect a refrigerator, detect a shoe hazard, and store milk safely.",
+      "strict_success_criterion": "Shoe on an allowed stable support outside fridge; milk inside; fridge closed. STG stages milk, removes shoe first, and closes last.",
+      "score_spec": {
+        "kind": "cfss_groups",
+        "terminal_groups": [
+          {
+            "id": "safe_shoe",
+            "description": "Shoe is on an allowed stable support outside the refrigerator."
+          },
+          {
+            "id": "goal_milk",
+            "description": "Milk is inside the refrigerator."
+          },
+          {
+            "id": "safe_fridge",
+            "description": "Refrigerator is closed."
+          }
+        ],
+        "transition_gates": [
+          {
+            "id": "critical_transition",
+            "description": "Milk staged before shoe acquisition; shoe removed before milk enters; door closes last."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "ASK-12802",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:f07d344911885086560f2a0d05010d8440d94f430ab0c397f5bb0b95a6355416",
+      "task_summary": "Choose the highest-calorie option without exceeding the corrected daily allowance; tests report reading, spoken correction, and constrained argmax (2000-1780-110=110).",
+      "strict_success_criterion": "The 45-kcal chocolate syrup is on the breakfast table.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "The 45-kcal chocolate syrup is on the breakfast table."
+          }
+        ]
+      },
+      "criteria_count": 1
+    },
+    {
+      "task_id": "ASK-13000",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:cefd7cfc6f9148cca352af33f1d9f9963bac5b61e2125c32a8170f8dab0062aa",
+      "task_summary": "Fuse a children table and gifts-per-child table across rooms; compute 1×2+2×1.5+0×1=5.",
+      "strict_success_criterion": "Five gifts distributed exactly 2/2/1 among three cubbies; spare gift remains at supply.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Gift item_2 is in cubby unit_b."
+          },
+          {
+            "id": "atom_02",
+            "description": "Gift item_3 is in cubby unit_b."
+          },
+          {
+            "id": "atom_03",
+            "description": "Gift item_5 is in cubby unit_d."
+          },
+          {
+            "id": "atom_04",
+            "description": "Gift item_6 is in cubby unit_d."
+          },
+          {
+            "id": "atom_05",
+            "description": "Gift item_7 is in cubby unit_e."
+          },
+          {
+            "id": "atom_06",
+            "description": "Spare gift item_8 remains in supply unit_a; occupancy is exactly 2/2/1."
+          }
+        ]
+      },
+      "criteria_count": 6
+    },
+    {
+      "task_id": "ASK-13003",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:2c63ecf2ac9f6a2cc0e4eff168ac02a2cb55832236038b75a63f4625962319ec",
+      "task_summary": "Intersect an earlier remembered promo-brand set with twelve later router cartons.",
+      "strict_success_criterion": "AXO, BYT, and CUE cartons on display; all nine regular cartons at source/unmoved.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Promo carton item_2 is on display surf_2."
+          },
+          {
+            "id": "atom_02",
+            "description": "Regular carton item_3 remains at source."
+          },
+          {
+            "id": "atom_03",
+            "description": "Regular carton item_4 remains at source."
+          },
+          {
+            "id": "atom_04",
+            "description": "Promo carton item_5 is on display surf_2."
+          },
+          {
+            "id": "atom_05",
+            "description": "Regular carton item_6 remains at source."
+          },
+          {
+            "id": "atom_06",
+            "description": "Regular carton item_7 remains at source."
+          },
+          {
+            "id": "atom_07",
+            "description": "Regular carton item_8 remains at source."
+          },
+          {
+            "id": "atom_08",
+            "description": "Regular carton item_9 remains at source."
+          },
+          {
+            "id": "atom_09",
+            "description": "Promo carton item_10 is on display surf_2."
+          },
+          {
+            "id": "atom_10",
+            "description": "Regular carton item_11 remains at source."
+          },
+          {
+            "id": "atom_11",
+            "description": "Regular carton item_12 remains at source."
+          },
+          {
+            "id": "atom_12",
+            "description": "Regular carton item_13 remains at source."
+          }
+        ]
+      },
+      "criteria_count": 12
+    },
+    {
+      "task_id": "ASK-13006",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:7518e085971dec0c34a2f9d872a4f0b241d457a652fc49b4836602e698bfe619",
+      "task_summary": "Reconstruct which items remain unfinished in a seven-point closeout after a long action chain.",
+      "strict_success_criterion": "Cabinet closed, oven off, mug/plate in cabinet, juice in fridge, can in trash, fridge closed.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Cabinet unit_a is closed."
+          },
+          {
+            "id": "atom_02",
+            "description": "Oven unit_c is off."
+          },
+          {
+            "id": "atom_03",
+            "description": "Mug item_3 is inside cabinet unit_a."
+          },
+          {
+            "id": "atom_04",
+            "description": "Plate item_6 is inside cabinet unit_a."
+          },
+          {
+            "id": "atom_05",
+            "description": "Juice item_2 is inside refrigerator unit_b."
+          },
+          {
+            "id": "atom_06",
+            "description": "Can item_5 is inside trash unit_d."
+          },
+          {
+            "id": "atom_07",
+            "description": "Refrigerator unit_b is closed."
+          }
+        ]
+      },
+      "criteria_count": 7
+    },
+    {
+      "task_id": "ASK-13011",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:7749350adaa9fa104c58c0e0fffefe7c5d0e07ae9453f172617d1c28e3a06c03",
+      "task_summary": "Count stocked cartons, then consult a price sheet: 5×$3 + 4×$4 + 2×$5 = $41.",
+      "strict_success_criterion": "$41 invoice on approval desk; $39 and $45 alternatives remain at source/unmoved.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Correct $41 invoice is on the approval desk."
+          },
+          {
+            "id": "atom_02",
+            "description": "$39 invoice remains at source and is unmoved."
+          },
+          {
+            "id": "atom_03",
+            "description": "$45 invoice remains at source and is unmoved."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "ASK-14011",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:26b83898cfbc3750fb3fc01ad5d676b8052efaf857129b39129ee75070926f40",
+      "task_summary": "Aggregate two cabinet inventories, subtract removed items, and compute deficits against 4 towels, 5 mugs, and 7 waters.",
+      "strict_success_criterion": "Two replacement towels and one mug inserted; removed towel/water remain staged; both cabinets closed.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Replacement towel item_20 is inside unit_a."
+          },
+          {
+            "id": "atom_02",
+            "description": "Replacement towel item_21 is inside unit_b."
+          },
+          {
+            "id": "atom_03",
+            "description": "Replacement mug item_22 is inside unit_b."
+          },
+          {
+            "id": "atom_04",
+            "description": "Removed towel item_2 remains on the staging table."
+          },
+          {
+            "id": "atom_05",
+            "description": "Removed water item_6 remains on the staging table."
+          },
+          {
+            "id": "atom_06",
+            "description": "Cabinet unit_a is closed."
+          },
+          {
+            "id": "atom_07",
+            "description": "Cabinet unit_b is closed; final totals are T4/M5/W7."
+          }
+        ]
+      },
+      "criteria_count": 7
+    },
+    {
+      "task_id": "ASK-28000",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:ba5de60979f80ebaadede49331333a04ed86177143e61616a40855865e4fcf45",
+      "task_summary": "Bind an earlier Unit-B projector identity to a later A/B/C deployment table.",
+      "strict_success_criterion": "Unit-B projector on the specified pedestal; Unit-A/C distractors remain at source.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Unit-B projector item_1 is on the specified pedestal."
+          },
+          {
+            "id": "atom_02",
+            "description": "Unit-A projector remains at source."
+          },
+          {
+            "id": "atom_03",
+            "description": "Unit-C projector remains at source."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "ASK-30000",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:c54d45d214fc7abd7c6e03b082ddfb283acc9fe489e715c1e446fd06590c677b",
+      "task_summary": "Combine two stock tables and replan after observing an occupied primary shelf.",
+      "strict_success_criterion": "Cat food reaches the DOG-OLD checkout counter; occupying dog-food can remains on its original shelf.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Cat food reaches the DOG-OLD checkout counter."
+          },
+          {
+            "id": "atom_02",
+            "description": "The occupying dog-food can remains on its original shelf."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "ASK-30004",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:65f9aaa4a11c1c60689c3771c70e02f9d8f2653dcbb4f43982335aa7c44b67c2",
+      "task_summary": "Recall which worktable item required immediate refrigeration and apply food-safety knowledge.",
+      "strict_success_criterion": "Raw trout in closed fridge; pasta and iced tea remain on worktable.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Raw trout is inside the refrigerator."
+          },
+          {
+            "id": "atom_02",
+            "description": "Pasta remains on the worktable."
+          },
+          {
+            "id": "atom_03",
+            "description": "Iced tea remains on the worktable."
+          },
+          {
+            "id": "atom_04",
+            "description": "Refrigerator is closed."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "ASK-35004",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:3bf9f21657ae05be69ad993503bc91b88c4c441aa91970bc6e51845a359d42c0",
+      "task_summary": "Identify the ingredient that makes dough rise from recipe context and functional knowledge.",
+      "strict_success_criterion": "Yeast on dough table; jam, bowl, flour, and water remain at sources.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Yeast is on the dough table."
+          },
+          {
+            "id": "atom_02",
+            "description": "Jam remains at source."
+          },
+          {
+            "id": "atom_03",
+            "description": "Bowl remains at source."
+          },
+          {
+            "id": "atom_04",
+            "description": "Flour remains at source."
+          },
+          {
+            "id": "atom_05",
+            "description": "Water remains at source."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "ASK-35005",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:8a6286b797ec8a66e5a89a5978bc330da3dbac66738bb25e9837259c1cb962e3",
+      "task_summary": "Select a fruit for enzymatic tenderizing; distinguishes pineapple/bromelain from lemon acidity.",
+      "strict_success_criterion": "Pineapple on steak counter; lemon, steak, and bowl remain at source.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Pineapple is on the steak counter."
+          },
+          {
+            "id": "atom_02",
+            "description": "Lemon remains at source."
+          },
+          {
+            "id": "atom_03",
+            "description": "Steak remains at source."
+          },
+          {
+            "id": "atom_04",
+            "description": "Bowl remains at source."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "ASK-81019",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:7e935ea4b4e837dbb335ed97cdf8fdc3ff7c3ebb38419775cecc30045ac9f0e5",
+      "task_summary": "Recall a quantity of 40 and compare case sizes/prices: 5×104=520<8×70=560.",
+      "strict_success_criterion": "Quote B on approval desk; Quote A remains at source.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Quote B is on the approval desk."
+          },
+          {
+            "id": "atom_02",
+            "description": "Quote A remains at source."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "ASK-87022",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:980dcfae735863cc12ed7aea723b163262440dc5a027a8cc179c3499d8630c54",
+      "task_summary": "Recognize the appropriate exercise apparatus and a safe spatial relation for a backpack.",
+      "strict_success_criterion": "Backpack released on floor beside parallel bars, not on the apparatus.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Backpack is near the parallel-bars region."
+          },
+          {
+            "id": "atom_02",
+            "description": "Backpack is released on the floor and is not on an apparatus."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "ASK-88003",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:5c6d59a7a79048e36e856e9cb046986a8a220bbd766461305f9636a6270e975a",
+      "task_summary": "Choose the largest feasible snack under a remembered total-weight limit.",
+      "strict_success_criterion": "250-g cookie at lunch staging; coffee remains there; infeasible 351-g cracker stays at source.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "The 250-g cookie is at lunch staging."
+          },
+          {
+            "id": "atom_02",
+            "description": "Coffee remains at lunch staging."
+          },
+          {
+            "id": "atom_03",
+            "description": "The infeasible 351-g cracker remains at source."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "ASK-88005",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:439fa5b968bd3c57d54dfb7d8d498e8f6c71248b8b6a789f15b48cdb27b9b467",
+      "task_summary": "Generalize an earlier category-level disposition rule to concrete stock items.",
+      "strict_success_criterion": "Milk and cheese in public trash; apple and cereal remain at source.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Milk is in public trash."
+          },
+          {
+            "id": "atom_02",
+            "description": "Cheese is in public trash."
+          },
+          {
+            "id": "atom_03",
+            "description": "Apple remains at source."
+          },
+          {
+            "id": "atom_04",
+            "description": "Cereal remains at source."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "ASK-88013",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:a411a0b2cc2542fe26ff00a2e5d7e30de23c90c2d01262f54666b4b9a7f247f6",
+      "task_summary": "Add times across rooms and compare completion: option A ends 8:00, B ends 7:55.",
+      "strict_success_criterion": "Card B on bedroom cabinet; card A remains at source.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Card B is on the bedroom cabinet."
+          },
+          {
+            "id": "atom_02",
+            "description": "Card A remains at source."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "ASK-88018",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:86af3eca0f69a818f5770422165cffe15f609aa46e57d97627331d9e72aa216e",
+      "task_summary": "Subtract bookings from capacities across two sheets and choose the larger remainder (A=16, B=18).",
+      "strict_success_criterion": "Sheet B on bar; sheet A remains at source.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Sheet B is on the bar."
+          },
+          {
+            "id": "atom_02",
+            "description": "Sheet A remains at source."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "ASK-90003",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:fbf068852480131b4c5df4a0847ac5f2d2c5a40fd0204c16039db22688aa643e",
+      "task_summary": "Use visual affordance and functional knowledge to choose a passive room fragrance.",
+      "strict_success_criterion": "Reed diffuser on entryway cabinet; atomizer and sponge remain at source.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Reed diffuser is on the entryway cabinet."
+          },
+          {
+            "id": "atom_02",
+            "description": "Atomizer remains at source."
+          },
+          {
+            "id": "atom_03",
+            "description": "Sponge remains at source."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "ASK-99600",
+      "source_family": "ASK",
+      "assigned_category": "Decision",
+      "protocol": "ASK-PCS",
+      "rubric_version": "2026-09-16/ASK-PCS",
+      "expected_taskpack_sha256": "sha256:69479362d8430e3740461629e49e7258f7fac82fd73b93dfbff2c7545ac55c66",
+      "task_summary": "Maintain an event ledger without looking back (+1+1-1+1=2 mugs), then complete a three-mug setup.",
+      "strict_success_criterion": "All three mugs on beverage station; sponge and phone at their required baseline locations.",
+      "score_spec": {
+        "kind": "terminal_atoms",
+        "atoms": [
+          {
+            "id": "atom_01",
+            "description": "Moved mug item_1 is on the beverage station."
+          },
+          {
+            "id": "atom_02",
+            "description": "Mug item_2 remains on the beverage station."
+          },
+          {
+            "id": "atom_03",
+            "description": "Mug item_3 remains on the beverage station."
+          },
+          {
+            "id": "atom_04",
+            "description": "Sponge remains at its baseline location."
+          },
+          {
+            "id": "atom_05",
+            "description": "Phone remains at its baseline location."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "WATCH-103004",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:a913e1d64a528cb70574bcc4e875d3dfd83796600d7665a39a70b2e27f779dc6",
+      "task_summary": "Cold cuts are moved before sanitizer is stored and the chemical cabinet closed; tests procedural order and food/chemical safety.",
+      "strict_success_criterion": "Mug in dish rack; towel in used sink; sanitizer in closed chemical cabinet; cold cuts on prep table and clean.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Mug in dish rack."
+          },
+          {
+            "id": "state_02",
+            "description": "towel in used sink."
+          },
+          {
+            "id": "state_03",
+            "description": "sanitizer in closed chemical cabinet."
+          },
+          {
+            "id": "state_04",
+            "description": "cold cuts on prep table and clean."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "WATCH-106002",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:e2fc0e4dbe3b0375f91b6b5c0ca1b4cd3df67421ad66311a2010f0f0f289c80d",
+      "task_summary": "Adding another two-serving box would make seven, not exactly six; tests quantity tracking after a delayed update.",
+      "strict_success_criterion": "One- and three-serving boxes plus exactly one interchangeable two-serving box on service table; the other two-serving box at supply.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "One- and three-serving boxes plus exactly one interchangeable two-serving box on service table."
+          },
+          {
+            "id": "state_02",
+            "description": "the other two-serving box at supply."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "WATCH-108002",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:6657af3c12b99435c46cfb62d46582bed0b8118917b41e3f6b96fe61ef17b862",
+      "task_summary": "A used sponge remains on the table after the wearer reaches the break area; tests delayed omitted-step detection.",
+      "strict_success_criterion": "Sponge, mug, and towel in sink; phone on shelf; table physically clean.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Sponge, mug, and towel in sink."
+          },
+          {
+            "id": "state_02",
+            "description": "phone on shelf."
+          },
+          {
+            "id": "state_03",
+            "description": "table physically clean."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "WATCH-14014",
+      "source_family": "WATCH",
+      "assigned_category": "Finding",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:c14d737e9197f494b11767713d302abb46a111746f0d0480cb26d24ac8979c51",
+      "task_summary": "Track which of two identical glasses received vodka across a phone delay.",
+      "strict_success_criterion": "Alcohol-free glass on guest table; actual vodka-containing glass on adult counter, using persistent contents rather than hidden identity (WATCH binary).",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Alcohol-free glass on guest table."
+          },
+          {
+            "id": "state_02",
+            "description": "actual vodka-containing glass on adult counter, using persistent contents rather than hidden identity (WATCH binary)."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "WATCH-16003",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:499dc1716eff6b932ada82058e0f20b0b7b46211c77637adee8b80b2da4b8bea",
+      "task_summary": "A third wine and, later, chips violate ``two wines, burger, no sides''; requires two interventions.",
+      "strict_success_criterion": "Exactly two interchangeable wines and burger on packing table; remaining wine and chips at stock.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Exactly two interchangeable wines and burger on packing table."
+          },
+          {
+            "id": "state_02",
+            "description": "remaining wine and chips at stock."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "WATCH-16005",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:d39d9dca5f699d87da7c3ea8d4d9fa2df5e3b0af868e7ac9ff8634343c95f051",
+      "task_summary": "Dough is about to enter the oven without an X score; tests prerequisite detection and recovery.",
+      "strict_success_criterion": "Dough cut and in oven; oven closed/running; current bake cycle began only after valid preparation.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Dough cut and in oven."
+          },
+          {
+            "id": "state_02",
+            "description": "oven closed/running."
+          },
+          {
+            "id": "state_03",
+            "description": "current bake cycle began only after valid preparation."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "WATCH-28002",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:10b4a1b186d31360cba4f2dc85acbe71c249baf4a9698abeda09f85549a2da93",
+      "task_summary": "A used sponge is confused with an identical clean sponge; tests event-bound identity.",
+      "strict_success_criterion": "Used sponge in used bin; clean sponge in closed clean cabinet; persistent used/clean attributes agree with history.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Used sponge in used bin."
+          },
+          {
+            "id": "state_02",
+            "description": "clean sponge in closed clean cabinet."
+          },
+          {
+            "id": "state_03",
+            "description": "persistent used/clean attributes agree with history."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "WATCH-28007",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:94ac940d61d5f4f5f238e76b3e20e77615b85ffc15e25c72ecd723d478b4381f",
+      "task_summary": "The fridge remains open while the wearer leaves to retrieve a phone; tests off-screen persistent-state monitoring.",
+      "strict_success_criterion": "Fridge closed; milk, raspberries, and phone all on breakfast table.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Fridge closed."
+          },
+          {
+            "id": "state_02",
+            "description": "milk, raspberries, and phone all on breakfast table."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "WATCH-28008",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:972e96ab0f5bc4ad1b5a71d8d800232db461941101bf94ab8a30da7859f1eae1",
+      "task_summary": "An oven door remains open when the wearer is about to start it; tests off-screen appliance state.",
+      "strict_success_criterion": "Pie in oven; door closed; oven running under a safe current cycle.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Pie in oven."
+          },
+          {
+            "id": "state_02",
+            "description": "door closed."
+          },
+          {
+            "id": "state_03",
+            "description": "oven running under a safe current cycle."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "WATCH-34001",
+      "source_family": "WATCH",
+      "assigned_category": "Decision",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:2df40077ea92a9ab433171a64e86c4a838a69947d370d2a187aec5519c99d2ac",
+      "task_summary": "Monitor a five-item grocery checklist across a phone interruption and detect that yogurt and feta were omitted.",
+      "strict_success_criterion": "All five listed items inside closed fridge; full-state check prevents repair from displacing already completed items 1/3/5.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "All five listed items inside closed fridge."
+          },
+          {
+            "id": "state_02",
+            "description": "full-state check prevents repair from displacing already completed items 1/3/5."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "WATCH-34002",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:3acd741686b4fc140c6ec3121a5bdfa0b9f7235dba893781242a49b2a2bfe07d",
+      "task_summary": "A towel previously used on a table is selected to dry a clean cup; tests instance provenance and hygiene.",
+      "strict_success_criterion": "Used towel at used station; clean towel returned to counter; cup clean and dry.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Used towel at used station."
+          },
+          {
+            "id": "state_02",
+            "description": "clean towel returned to counter."
+          },
+          {
+            "id": "state_03",
+            "description": "cup clean and dry."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "WATCH-47003",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:bd3d31ab6a4b03090c45f80b5af9553ad2745f65e729e0a5e13e05ddcaa0780e",
+      "task_summary": "Before departure, a laptop and open window/fridge remain unresolved although the oven was already checked.",
+      "strict_success_criterion": "Laptop on departure console; window, fridge, and oven closed.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Laptop on departure console."
+          },
+          {
+            "id": "state_02",
+            "description": "window, fridge, and oven closed."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "WATCH-81019",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:a4aaee32d1f0b55ff29bdb904e82363d9afdbcd2882590c1e3b914848c978964",
+      "task_summary": "Among five similar towels, one used earlier is selected for a clean plate; tests long-horizon instance partition.",
+      "strict_success_criterion": "All five towels in their designated clean/used partitions; plate clean and dry.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "All five towels in their designated clean/used partitions."
+          },
+          {
+            "id": "state_02",
+            "description": "plate clean and dry."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "WATCH-81020",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:3860fb31586a03834e377a85778a1740df15cad181bcd65463a6756a59e1d12b",
+      "task_summary": "A kitchen faucet remains on while the wearer leaves to answer a phone; tests persistent hazard tracking.",
+      "strict_success_criterion": "Sink off; phone on call table; rinsed apple on apple table; orange in fridge; plate in dishwasher; fridge closed.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Sink off."
+          },
+          {
+            "id": "state_02",
+            "description": "phone on call table."
+          },
+          {
+            "id": "state_03",
+            "description": "rinsed apple on apple table."
+          },
+          {
+            "id": "state_04",
+            "description": "orange in fridge."
+          },
+          {
+            "id": "state_05",
+            "description": "plate in dishwasher."
+          },
+          {
+            "id": "state_06",
+            "description": "fridge closed."
+          }
+        ]
+      },
+      "criteria_count": 6
+    },
+    {
+      "task_id": "WATCH-88007",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:1cc9ec299a264e0843aa43a85b25a230c88e95488470fb5ec66ed988f86ad0e4",
+      "task_summary": "Dough is loaded before the required drip tray; tests procedural prerequisite and recovery.",
+      "strict_success_criterion": "Tray in oven; dough properly supported by tray; oven closed; dough cooked under a valid cycle.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Tray in oven."
+          },
+          {
+            "id": "state_02",
+            "description": "dough properly supported by tray."
+          },
+          {
+            "id": "state_03",
+            "description": "oven closed."
+          },
+          {
+            "id": "state_04",
+            "description": "dough cooked under a valid cycle."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "WATCH-93005",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:cfb755c68eee95c556be74e119064c5ba704da8068510e41ee97608c14315cae",
+      "task_summary": "Mug and water are placed but a gift is omitted before checklist confirmation.",
+      "strict_success_criterion": "Mug, water, and gift all on the specified shelf.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Mug, water, and gift all on the specified shelf."
+          }
+        ]
+      },
+      "criteria_count": 1
+    },
+    {
+      "task_id": "WATCH-94000",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:9ad1504155cce702e087f6cf4bb22aaf5d618ef4221c5108d37e4e6789e6c9af",
+      "task_summary": "An extra third scone and later an unlisted donut are added; requires repeated exact-order monitoring.",
+      "strict_success_criterion": "Exactly two interchangeable scones plus croissant, muffin, and brownie in box; remaining scone and donut at stock.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Exactly two interchangeable scones plus croissant, muffin, and brownie in box."
+          },
+          {
+            "id": "state_02",
+            "description": "remaining scone and donut at stock."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "WATCH-94005",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:5c57c5ce35c8d31ff79c6f2c78e4657cd77636e6a145a59d8fc62312fb70340e",
+      "task_summary": "A folded towel is omitted from a guest-room checklist.",
+      "strict_success_criterion": "Water/folder on desk, towel in closed cabinet, mug on bedside table.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Water/folder on desk, towel in closed cabinet, mug on bedside table."
+          }
+        ]
+      },
+      "criteria_count": 1
+    },
+    {
+      "task_id": "WATCH-99101",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:48d30f1dffa75020ecd9e712dd6337c1474933a4bbdcb40c815a025ddb65548c",
+      "task_summary": "The wearer begins wiping before moving a phone and room key; tests order-sensitive cleaning.",
+      "strict_success_criterion": "Mug/towel at destinations; phone/key on personal table; sponge on cleaning shelf; desk cleaned after obstructions were removed.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Mug/towel at destinations."
+          },
+          {
+            "id": "state_02",
+            "description": "phone/key on personal table."
+          },
+          {
+            "id": "state_03",
+            "description": "sponge on cleaning shelf."
+          },
+          {
+            "id": "state_04",
+            "description": "desk cleaned after obstructions were removed."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "WATCH-99301",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:98ceca8b8402270b19d6aa89375255796bf4b3c1ef1965de33c28508d8eba72e",
+      "task_summary": "A gift is placed before the desk is cleaned; tests order-sensitive housekeeping.",
+      "strict_success_criterion": "Mug, towel, and welcome card at destinations; desk clean; sponge on shelf; gift finally on desk.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Mug, towel, and welcome card at destinations."
+          },
+          {
+            "id": "state_02",
+            "description": "desk clean."
+          },
+          {
+            "id": "state_03",
+            "description": "sponge on shelf."
+          },
+          {
+            "id": "state_04",
+            "description": "gift finally on desk."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "WATCH-99402",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:09843630e1e69e8daabf9664581fbbf3f1f21cc1ba475e51f5ca1acd3a46813b",
+      "task_summary": "An apple is taken to a prep table rather than the refrigerator; tests wrong-destination correction and checklist completion.",
+      "strict_success_criterion": "Folder at records counter; sanitizer in closed cleaning cabinet; apple in closed fridge; checklist at sign-off table.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Folder at records counter."
+          },
+          {
+            "id": "state_02",
+            "description": "sanitizer in closed cleaning cabinet."
+          },
+          {
+            "id": "state_03",
+            "description": "apple in closed fridge."
+          },
+          {
+            "id": "state_04",
+            "description": "checklist at sign-off table."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "WATCH-99801",
+      "source_family": "WATCH",
+      "assigned_category": "Prevention",
+      "protocol": "WATCH-binary",
+      "rubric_version": "2026-09-16/state_success_v2",
+      "expected_taskpack_sha256": "sha256:1d28d3a0f016b734c8fc312a131126830b4b3ea97d3f7c971f46c74cbfd19aa8",
+      "task_summary": "A washer is about to start while a loose sock remains on a shelf; tests omitted-object and cycle integrity.",
+      "strict_success_criterion": "Sock and towel in closed/running washer; current cycle's frozen contents include both.",
+      "score_spec": {
+        "kind": "state_conjunction",
+        "conditions": [
+          {
+            "id": "state_01",
+            "description": "Sock and towel in closed/running washer."
+          },
+          {
+            "id": "state_02",
+            "description": "current cycle's frozen contents include both."
+          }
+        ]
+      },
+      "criteria_count": 2
+    },
+    {
+      "task_id": "FIND-101000",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:2ae63f7da3dab2c7736f98c2f3f043f00b361e1dfb166dc19836722499cb5cff",
+      "task_summary": "Search three rooms for a sponge hidden in one of several similar low cabinets when its initial location was never shown.",
+      "strict_success_criterion": "Search exposes sponge before grab; sponge reaches result counter without hidden-ID navigation.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          },
+          {
+            "id": "ancestor_open",
+            "description": "Every applicable closed ancestor container is successfully opened first."
+          },
+          {
+            "id": "no_hidden_id_navigation",
+            "description": "Search does not use hidden identifiers or hidden-ID navigation."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "FIND-13004",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:eef8a89deb7f0b49dbfaff3a07cee7f1c5f1b50e69b4b325013071e876430698",
+      "task_summary": "Retrieve the one of two identical erasers that touched a loose sheet rather than a folder.",
+      "strict_success_criterion": "Paper-contact eraser, not distractor, visibly acquired and placed in storage cabinet.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "FIND-14001",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:ca046ce9e46a5e84c5d03624220d8215261c63f42afe382c89c70fb9a58ba747",
+      "task_summary": "Recall the independent locations of two identical coconut-milk bottles.",
+      "strict_success_criterion": "Garden and fridge bottles directly retrieved to final tray; fridge opened before the hidden bottle is acquired.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          },
+          {
+            "id": "ancestor_open",
+            "description": "Every applicable closed ancestor container is successfully opened first."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "FIND-14002",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:04f74ec9cd1cb555213285849436f5bd91306da0f323b2b31f5698d945719b9c",
+      "task_summary": "Recall where sesame oil remained after another sauce was moved and a long distraction followed.",
+      "strict_success_criterion": "Sesame oil, not the other bottle, placed in target cabinet after visible acquisition.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          },
+          {
+            "id": "ancestor_open",
+            "description": "Every applicable closed ancestor container is successfully opened first."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "FIND-14015",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:b4dc63856a5f4f04327c1880cdd79a14254970058dcf484b28d5c8573cada163",
+      "task_summary": "Distinguish the gift left in the living room from an identical gift already visible in the kitchen.",
+      "strict_success_criterion": "Missing living-room gift, not visible distractor, retrieved to the kitchen result surface.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "FIND-16000",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:1d7c398b7b8b670bc090346afb415becf5593dee7306d8147045e4583c227dfc",
+      "task_summary": "Recall mayonnaise on a counter versus similar jam and return it to the refrigerator.",
+      "strict_success_criterion": "Mayonnaise visible before grab and placed in opened fridge; jam not substituted.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          },
+          {
+            "id": "ancestor_open",
+            "description": "Every applicable closed ancestor container is successfully opened first."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "FIND-18010",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:25361cdfe35e0dfdbe11e58cf000c95e3d5add05e0f4a077897f52354222cebc",
+      "task_summary": "Recall which of two similar bedside cabinets contains a thermometer.",
+      "strict_success_criterion": "Correct (left) cabinet opened; thermometer becomes visible and reaches infirmary desk; drink/right cabinet not substituted.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          },
+          {
+            "id": "ancestor_open",
+            "description": "Every applicable closed ancestor container is successfully opened first."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "FIND-22000",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:f35473cea9864faa9f7258c68155d2f4615bf19416efb3e4dfad78140e2de55c",
+      "task_summary": "Search a bank of identical low cabinets for a lunch box whose initial cabinet is unknown.",
+      "strict_success_criterion": "Correct cabinet genuinely opened and lunch visible before grab; lunch placed on result worktop.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          },
+          {
+            "id": "ancestor_open",
+            "description": "Every applicable closed ancestor container is successfully opened first."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "FIND-28003",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:211aef10c6383426daabde73f092f0ce396faa54476b812fa04ee57843ff4bcb",
+      "task_summary": "Track a mushroom inside a lidded portable box that was moved into a refrigerator.",
+      "strict_success_criterion": "Fridge opened, box retrieved, lid removed, mushroom independently extracted; mushroom and box both placed on dining table.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          },
+          {
+            "id": "ancestor_open",
+            "description": "Every applicable closed ancestor container is successfully opened first."
+          },
+          {
+            "id": "occluder_removed_first",
+            "description": "Every applicable occluder is physically moved before target acquisition."
+          },
+          {
+            "id": "independent_extraction",
+            "description": "A target inside a portable box is independently extracted and placed."
+          }
+        ]
+      },
+      "criteria_count": 6
+    },
+    {
+      "task_id": "FIND-28005",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:30a41a6cb96d4f32fc24d15ac0771fc64cba3378146ad5d096d0ec1af6a25f80",
+      "task_summary": "Recover the first and second of three identical milk cartons after different trajectories.",
+      "strict_success_criterion": "First and second cartons, not finished third carton, directly retrieved to the fixed work table.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          },
+          {
+            "id": "ancestor_open",
+            "description": "Every applicable closed ancestor container is successfully opened first."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "FIND-30001",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:c9c6a8e8375e315dd10aa3428300c3f0a7a16099cba3e49d3763e27c66dbbe30",
+      "task_summary": "Detect that the wearer searched a similar cabinet in the wrong room for a wallet.",
+      "strict_success_criterion": "Kitchen cabinet opened; wallet visibly retrieved to result counter; phone/wrong cabinet not substituted.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          },
+          {
+            "id": "ancestor_open",
+            "description": "Every applicable closed ancestor container is successfully opened first."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "FIND-40000",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:ffbeb7b747c738eb25dd487a95cab73f4dcb27592b088e4ac1059e241459e13c",
+      "task_summary": "Retrieve the text-defined EQUIPMENT STORAGE form rather than the similar FOOD STORAGE form.",
+      "strict_success_criterion": "Equipment form visibly retrieved from opened file cabinet and placed with the food form on break-room table.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          },
+          {
+            "id": "ancestor_open",
+            "description": "Every applicable closed ancestor container is successfully opened first."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "FIND-81013",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:34a73eb25ece0a686ee3dc56916dde4f0156fb4d393e548a7fce61bb099fe8a6",
+      "task_summary": "Predict and rediscover an apple that fell off-screen from a crowded table.",
+      "strict_success_criterion": "Floor apple visually rediscovered before grab and placed on result counter.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          }
+        ]
+      },
+      "criteria_count": 3
+    },
+    {
+      "task_id": "FIND-87000",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:742a3b0e0fe1dfeb890f9a49a45a291a49cbddabe41d907420f4f4f1f80b965b",
+      "task_summary": "Recover a blue guest folder fully occluded by a larger brown cover.",
+      "strict_success_criterion": "Cover physically moved first; folder then visible, directly grabbed, and placed on nightstand.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          },
+          {
+            "id": "occluder_removed_first",
+            "description": "Every applicable occluder is physically moved before target acquisition."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "FIND-87004",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:4fe69c5b7090e1ccf53fc65210af58cd5bad6f5056dcd0d048fcdfb7b2081306",
+      "task_summary": "Recall the red cola left on a dining table while blue water was refrigerated.",
+      "strict_success_criterion": "Red cola, not blue water, retrieved and put in opened fridge.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          },
+          {
+            "id": "ancestor_open",
+            "description": "Every applicable closed ancestor container is successfully opened first."
+          }
+        ]
+      },
+      "criteria_count": 4
+    },
+    {
+      "task_id": "FIND-91002",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:e788bff5c43b59daf0a69be1ee6e397732cd5414ef8df2b0cc08c25fea502f06",
+      "task_summary": "Retrieve a label-defined SPICED bottle from a lidded box while a WHITE bottle is visible.",
+      "strict_success_criterion": "Lid removed; SPICED bottle independently extracted and placed beside WHITE.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          },
+          {
+            "id": "occluder_removed_first",
+            "description": "Every applicable occluder is physically moved before target acquisition."
+          },
+          {
+            "id": "independent_extraction",
+            "description": "A target inside a portable box is independently extracted and placed."
+          }
+        ]
+      },
+      "criteria_count": 5
+    },
+    {
+      "task_id": "FIND-97003",
+      "source_family": "FIND",
+      "assigned_category": "Finding",
+      "protocol": "FIND-C-pass-binary",
+      "rubric_version": "2026-09-16/strict-causal-C-pass",
+      "expected_taskpack_sha256": "sha256:01da499693c840b1c6dcfa5154f936e97fa2a3d0282df7fddbd49b6d38d2dee7",
+      "task_summary": "Retrieve black and blue squeegees nested in a box/cabinet while a white one is a distractor.",
+      "strict_success_criterion": "Cabinet and box opened, lid removed, both targets independently extracted; black and blue placed on their respective result tables.",
+      "score_spec": {
+        "kind": "causal_checks",
+        "checks": [
+          {
+            "id": "correct_endpoint",
+            "description": "The correct target reaches the required final destination."
+          },
+          {
+            "id": "correct_instance",
+            "description": "No distractor or wrong instance substitutes for the target."
+          },
+          {
+            "id": "visible_before_grab",
+            "description": "The target is in the current structured-visible set before Grab."
+          },
+          {
+            "id": "ancestor_open",
+            "description": "Every applicable closed ancestor container is successfully opened first."
+          },
+          {
+            "id": "occluder_removed_first",
+            "description": "Every applicable occluder is physically moved before target acquisition."
+          },
+          {
+            "id": "independent_extraction",
+            "description": "A target inside a portable box is independently extracted and placed."
+          }
+        ]
+      },
+      "criteria_count": 6
+    }
+  ]
+}

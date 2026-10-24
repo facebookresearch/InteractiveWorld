@@ -1,0 +1,2483 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "NARRATE-12802",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "kitchen_scale",
+          "target": "clearing_counter"
+        },
+        {
+          "pred": "on",
+          "subject": "bottle_left",
+          "target": "holding_counter"
+        },
+        {
+          "pred": "on",
+          "subject": "bottle_middle",
+          "target": "holding_counter"
+        },
+        {
+          "pred": "on",
+          "subject": "bottle_right",
+          "target": "holding_counter"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "left_anchor",
+          "target": "left_anchor"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "right_anchor",
+          "target": "right_anchor"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "kitchen_scale",
+          "target": "clearing_counter"
+        },
+        {
+          "pred": "on",
+          "subject": "bottle_left",
+          "target": "holding_counter"
+        },
+        {
+          "pred": "on",
+          "subject": "bottle_middle",
+          "target": "holding_counter"
+        },
+        {
+          "pred": "on",
+          "subject": "bottle_right",
+          "target": "holding_counter"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "left_anchor",
+          "target": "left_anchor"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "right_anchor",
+          "target": "right_anchor"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [],
+        "nested_containers": [],
+        "objects": [
+          "bottle_left",
+          "bottle_middle",
+          "bottle_right",
+          "kitchen_scale",
+          "left_anchor",
+          "right_anchor"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer cannot infer the answer from speech alone; the weak branch demonstrates the visible mistake or unsafe continuation.",
+        "assistant_must": "Move the three closely packed bottles from left to right, checking the opening each time. One bottle leaves too little space and two are still clearly too tight; after the third bottle is gone, stop and place the digital bench scale in the cleared gap.",
+        "cue": "Please help me clear a gap between the pot and bowl that is wide enough for this digital bench scale. Tell me after each bottle whether to continue.",
+        "premise": "Three bottles tightly fill the bounded work area between a saucepot and a mixing bowl. The user moves them one at a time while the assistant watches the physical opening grow and says when the whole kitchen scale will fit."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "NARRATE",
+      "grounding": {
+        "cite": "Please help me clear a gap between the pot and bowl that is wide enough for this digital bench scale. Tell me after each bottle whether to continue.",
+        "kind": "authored",
+        "ref": "interactiveworld:NARRATE-12802"
+      },
+      "rule_table": "on(kitchen_scale, clearing_counter); on(bottle_left, holding_counter); on(bottle_middle, holding_counter); on(bottle_right, holding_counter); unmoved(left_anchor); unmoved(right_anchor)",
+      "scene": "school_chemistry",
+      "template": "the grounded school_chemistry scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 17,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 17,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "kitchen_scale"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "kitchen_scale"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "clearing_counter"
+          ]
+        },
+        {
+          "verb": "LookScan",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "bottle_left"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "bottle_left",
+            "holding_counter"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "clearing_counter"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "bottle_middle"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "bottle_middle",
+            "holding_counter"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "clearing_counter"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "bottle_right"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "bottle_right",
+            "holding_counter"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "clearing_counter"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "kitchen_scale"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "kitchen_scale",
+            "clearing_counter"
+          ],
+          "place_spot": [
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "clearing_counter"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "NARRATE",
+      "authored_by": "interactiveworld.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Grab] <bottle_left> (1), [PutOn] <bottle_left> (1) <holding_counter> (1), [LookAt] <clearing_counter> (1), [Grab] <bottle_middle> (1), [PutOn] <bottle_middle> (1) <holding_counter> (1), [LookAt] <clearing_counter> (1), [Grab] <bottle_right> (1), [PutOn] <bottle_right> (1) <holding_counter> (1), [LookAt] <clearing_counter> (1), [Grab] <kitchen_scale> (1), [PutOn] <kitchen_scale> (1) <clearing_counter> (1) @place_spot=0.0:0.5, [LookAt] <clearing_counter> (1)",
+      "seed": 1008489726,
+      "source_task_id": "NARRATE-12802"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "kitchen_scale",
+          "target": "clearing_counter"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "bottle_left",
+          "target": "holding_counter"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "bottle_middle",
+          "target": "holding_counter"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "bottle_right",
+          "target": "holding_counter"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 4,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "left_anchor",
+          "target": "left_anchor"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 5,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "right_anchor",
+          "target": "right_anchor"
+        }
+      ],
+      "sub_steps": [
+        "on(kitchen_scale, clearing_counter)",
+        "on(bottle_left, holding_counter)",
+        "on(bottle_middle, holding_counter)",
+        "on(bottle_right, holding_counter)",
+        "unmoved(left_anchor)",
+        "unmoved(right_anchor)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "NARRATE-12802",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 1008489726,
+      "containers": {},
+      "decor": [],
+      "fixtures": {
+        "clearing_counter": {
+          "bind": {
+            "cat": "desk",
+            "source": "scene"
+          },
+          "room": "chemistry_lab_0",
+          "seatable": false
+        },
+        "holding_counter": {
+          "bind": {
+            "cat": "desk",
+            "source": "scene"
+          },
+          "room": "chemistry_lab_0",
+          "seatable": false
+        },
+        "mix_table": {
+          "bind": {
+            "cat": "desk",
+            "source": "scene"
+          },
+          "room": "chemistry_lab_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {},
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "kitchen_scale": {
+          "cat": "digital_scale",
+          "model": "xwzzen",
+          "needs_lookat": false,
+          "place": "on:mix_table",
+          "room": "chemistry_lab_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            0.45
+          ]
+        },
+        "left_anchor": {
+          "cat": "saucepot",
+          "model": "obuxbe",
+          "needs_lookat": false,
+          "place": "on:clearing_counter",
+          "room": "chemistry_lab_0",
+          "scored": true,
+          "spot": [
+            -0.9,
+            0.52
+          ]
+        },
+        "bottle_left": {
+          "cat": "bottle_of_ginger_beer",
+          "model": "zkocwb",
+          "needs_lookat": false,
+          "place": "on:clearing_counter",
+          "room": "chemistry_lab_0",
+          "scored": true,
+          "spot": [
+            -0.26,
+            0.5
+          ]
+        },
+        "bottle_middle": {
+          "cat": "bottle_of_ginger_beer",
+          "model": "zkocwb",
+          "needs_lookat": false,
+          "place": "on:clearing_counter",
+          "room": "chemistry_lab_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            0.5
+          ]
+        },
+        "bottle_right": {
+          "cat": "bottle_of_ginger_beer",
+          "model": "zkocwb",
+          "needs_lookat": false,
+          "place": "on:clearing_counter",
+          "room": "chemistry_lab_0",
+          "scored": true,
+          "spot": [
+            0.26,
+            0.5
+          ]
+        },
+        "right_anchor": {
+          "cat": "mixing_bowl",
+          "model": "bsgybx",
+          "needs_lookat": false,
+          "place": "on:clearing_counter",
+          "room": "chemistry_lab_0",
+          "scored": true,
+          "spot": [
+            0.9,
+            0.52
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "chemistry_lab_0"
+      ],
+      "scene": "school_chemistry",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "Three bottles tightly fill the bounded work area between a saucepot and a mixing bowl. The user moves them one at a time while the assistant watches the physical opening grow and says when the whole kitchen scale will fit.",
+    "assistant_goal": "Please help me clear a gap between the pot and bowl that is wide enough for this digital bench scale. Tell me after each bottle whether to continue.",
+    "assessment_contract": {
+      "assigned_capability_id": "NARRATE.CLOSED_LOOP_FEEDBACK",
+      "assigned_scene": "school_chemistry",
+      "core_question": "Please help me clear a gap between the pot and bowl that is wide enough for this digital bench scale. Tell me after each bottle whether to continue.",
+      "counterfactual_failure": "The weak branch acts on a mistaken identity, stale layout, unsafe route, or incomplete count and fails at least one scored predicate.",
+      "forbidden_changes": [
+        "Adding toy labels to ordinary furniture",
+        "Putting decisive visual evidence into the wearer's utterance",
+        "Moving an assistant turn after the action it is meant to correct"
+      ],
+      "knowledge_constraints": [
+        "Three bottles tightly fill the bounded work area between a saucepot and a mixing bowl. The user moves them one at a time while the assistant watches the physical opening grow and says when the whole kitchen scale will fit."
+      ],
+      "required_evidence": [
+        "Please help me clear a gap between the pot and bowl that is wide enough for this digital bench scale. Tell me after each bottle whether to continue.",
+        "The square kitchen scale is visibly wider than the opening left after only two bottles are removed.",
+        "Three bottles visibly occupy the entire bounded gap between the saucepot and mixing bowl.",
+        "Removing the left bottle creates only a narrow first opening.",
+        "Removing the adjacent middle bottle makes the opening wider but still tight.",
+        "Removing the third bottle exposes the full continuous gap.",
+        "The kitchen scale now occupies the cleared gap.",
+        "Move the three closely packed bottles from left to right, checking the opening each time. One bottle leaves too little space and two are still clearly too tight; after the third bottle is gone, stop and place the digital bench scale in the cleared gap."
+      ],
+      "required_final_predicates": [
+        "on",
+        "on",
+        "on",
+        "on",
+        "unmoved",
+        "unmoved"
+      ],
+      "success_condition": "on(kitchen_scale, clearing_counter); on(bottle_left, holding_counter); on(bottle_middle, holding_counter); on(bottle_right, holding_counter); unmoved(left_anchor); unmoved(right_anchor)",
+      "temporal_constraints": [
+        "Each intervention follows its evidence and precedes the corresponding action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "NARRATE-12802",
+      "family": "NARRATE",
+      "kind": "grounded egocentric narration",
+      "assessment_contract": {
+        "assigned_capability_id": "NARRATE.CLOSED_LOOP_FEEDBACK",
+        "assigned_scene": "school_chemistry",
+        "core_question": "Please help me clear a gap between the pot and bowl that is wide enough for this digital bench scale. Tell me after each bottle whether to continue.",
+        "counterfactual_failure": "The weak branch acts on a mistaken identity, stale layout, unsafe route, or incomplete count and fails at least one scored predicate.",
+        "forbidden_changes": [
+          "Adding toy labels to ordinary furniture",
+          "Putting decisive visual evidence into the wearer's utterance",
+          "Moving an assistant turn after the action it is meant to correct"
+        ],
+        "knowledge_constraints": [
+          "Three bottles tightly fill the bounded work area between a saucepot and a mixing bowl. The user moves them one at a time while the assistant watches the physical opening grow and says when the whole kitchen scale will fit."
+        ],
+        "required_evidence": [
+          "Please help me clear a gap between the pot and bowl that is wide enough for this digital bench scale. Tell me after each bottle whether to continue.",
+          "The square kitchen scale is visibly wider than the opening left after only two bottles are removed.",
+          "Three bottles visibly occupy the entire bounded gap between the saucepot and mixing bowl.",
+          "Removing the left bottle creates only a narrow first opening.",
+          "Removing the adjacent middle bottle makes the opening wider but still tight.",
+          "Removing the third bottle exposes the full continuous gap.",
+          "The kitchen scale now occupies the cleared gap.",
+          "Move the three closely packed bottles from left to right, checking the opening each time. One bottle leaves too little space and two are still clearly too tight; after the third bottle is gone, stop and place the digital bench scale in the cleared gap."
+        ],
+        "required_final_predicates": [
+          "on",
+          "on",
+          "on",
+          "on",
+          "unmoved",
+          "unmoved"
+        ],
+        "success_condition": "on(kitchen_scale, clearing_counter); on(bottle_left, holding_counter); on(bottle_middle, holding_counter); on(bottle_right, holding_counter); unmoved(left_anchor); unmoved(right_anchor)",
+        "temporal_constraints": [
+          "Each intervention follows its evidence and precedes the corresponding action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "bap",
+          "beaker",
+          "bird_feeder",
+          "blanket",
+          "bottle_of_caulk",
+          "bottle_of_cranberry_juice",
+          "bottle_of_ginger_beer",
+          "bottle_of_liquid_soap",
+          "bottle_of_water",
+          "box_of_baking_mix",
+          "bunch_of_bananas",
+          "can_of_cat_food",
+          "canteen",
+          "cell_phone",
+          "chicken",
+          "chickpea_can",
+          "clipboard",
+          "coffee_cup",
+          "cornstarch_jar",
+          "dental_floss",
+          "digital_scale",
+          "dipper",
+          "folder",
+          "half_agave",
+          "half_buttermilk_pancake",
+          "half_cinnamon_roll",
+          "half_peppermint_candy",
+          "hardback",
+          "inhaler",
+          "lock",
+          "loudspeaker",
+          "mixing_bowl",
+          "mug",
+          "oyster",
+          "paper_sheet",
+          "petri_dish",
+          "pomelo",
+          "portable_game_console",
+          "putty_knife",
+          "rolled_yoga_mat",
+          "sanitary_napkin",
+          "saucepot",
+          "sparkler",
+          "squeegee",
+          "squeeze_bottle",
+          "umbrella",
+          "walker",
+          "whiskey_bottle"
+        ],
+        "allowed_surface_categories": [
+          "breakfast_table",
+          "burner",
+          "countertop",
+          "desk"
+        ],
+        "capability_id": "NARRATE.CLOSED_LOOP_FEEDBACK",
+        "coverage_categories": [
+          "umbrella",
+          "squeeze_bottle",
+          "sparkler",
+          "half_peppermint_candy",
+          "blanket",
+          "loudspeaker",
+          "putty_knife",
+          "bottle_of_ginger_beer",
+          "portable_game_console",
+          "dipper",
+          "bottle_of_liquid_soap",
+          "oyster",
+          "sanitary_napkin",
+          "canteen",
+          "lock",
+          "inhaler",
+          "cornstarch_jar",
+          "box_of_baking_mix",
+          "chickpea_can",
+          "bunch_of_bananas"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 5,
+          "required_semantic_turns": 5,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "NARRATE",
+        "limits": {
+          "max_authored_actions": 21,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 6,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 5,
+          "max_small_label_characters": 40,
+          "max_task_actions": 12,
+          "max_meaningful_steps": 17,
+          "min_intervening_meaningful_actions": 5
+        },
+        "preferred_story_categories": [
+          "umbrella",
+          "squeeze_bottle",
+          "sparkler",
+          "half_peppermint_candy",
+          "blanket",
+          "loudspeaker",
+          "putty_knife",
+          "bottle_of_ginger_beer"
+        ],
+        "preferred_story_category_glosses": {
+          "blanket": "bedding that keeps a person warm in bed",
+          "bottle_of_ginger_beer": "",
+          "half_peppermint_candy": "",
+          "loudspeaker": "electro-acoustic transducer that converts electrical signals into sounds loud enough to be heard at a distance",
+          "putty_knife": "",
+          "sparkler": "",
+          "squeeze_bottle": "",
+          "umbrella": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 98.5,
+            "name": "chemistry_lab_0",
+            "scene_containers": {
+              "bottom_cabinet": 1,
+              "top_cabinet": 2
+            },
+            "scene_surfaces": {
+              "desk": 13
+            },
+            "surface_max_area_m2": {
+              "desk": 0.464
+            },
+            "surface_reference_capacity": {
+              "desk": 3
+            }
+          }
+        ],
+        "scene": "school_chemistry",
+        "task_id": "NARRATE-12802",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "digital_scale",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "wide square digital bench scale"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "saucepot",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "saucepot at the left boundary of the work area"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_ginger_beer",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "left ginger-beer bottle"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_ginger_beer",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "middle ginger-beer bottle"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_ginger_beer",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "right ginger-beer bottle"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "mixing_bowl",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "mixing bowl at the right boundary of the work area"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "desk",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "wide open food-science workbench being cleared"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "desk",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "adjacent holding table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "desk",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "table holding the digital bench scale"
+          }
+        ],
+        "distinct_by": [
+          "the three bottle centers form one tightly spaced, contiguous row",
+          "the saucepot and mixing bowl visibly bound the usable gap"
+        ],
+        "identical_groups": [
+          [
+            "bottle_left",
+            "bottle_middle",
+            "bottle_right"
+          ]
+        ],
+        "impossible": [],
+        "printed": [],
+        "restaged_story": "Three bottles tightly fill the bounded work area between a saucepot and a mixing bowl. The user moves them one at a time while the assistant watches the physical opening grow and says when the whole kitchen scale will fit.",
+        "scene": "school_chemistry",
+        "why_scene": "school_chemistry supplies the rooms and fixtures used by this grounded NARRATE story."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {},
+        "items": {
+          "kitchen_scale": {
+            "affordances": [],
+            "cat": "digital_scale",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:mix_table",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.45
+            ],
+            "tint": null
+          },
+          "left_anchor": {
+            "affordances": [],
+            "cat": "saucepot",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:clearing_counter",
+            "scored": true,
+            "spot": [
+              -0.9,
+              0.52
+            ],
+            "tint": null
+          },
+          "bottle_left": {
+            "affordances": [],
+            "cat": "bottle_of_ginger_beer",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:clearing_counter",
+            "scored": true,
+            "spot": [
+              -0.26,
+              0.5
+            ],
+            "tint": null
+          },
+          "bottle_middle": {
+            "affordances": [],
+            "cat": "bottle_of_ginger_beer",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:clearing_counter",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.5
+            ],
+            "tint": null
+          },
+          "bottle_right": {
+            "affordances": [],
+            "cat": "bottle_of_ginger_beer",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:clearing_counter",
+            "scored": true,
+            "spot": [
+              0.26,
+              0.5
+            ],
+            "tint": null
+          },
+          "right_anchor": {
+            "affordances": [],
+            "cat": "mixing_bowl",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:clearing_counter",
+            "scored": true,
+            "spot": [
+              0.9,
+              0.52
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <kitchen_scale> (1)",
+          "[LookAt] <kitchen_scale> (1)",
+          "[Walk] <clearing_counter> (1)",
+          "[LookScan]",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "chemistry_lab_0"
+        ],
+        "scene": "school_chemistry",
+        "staging": {
+          "groups": "Three bottles tightly fill the bounded work area between a saucepot and a mixing bowl. The user moves them one at a time while the assistant watches the physical opening grow and says when the whole kitchen scale will fit.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "clearing_counter": {
+            "cat": "desk",
+            "label": null,
+            "room": "chemistry_lab_0"
+          },
+          "holding_counter": {
+            "cat": "desk",
+            "label": null,
+            "room": "chemistry_lab_0"
+          },
+          "mix_table": {
+            "cat": "desk",
+            "label": null,
+            "room": "chemistry_lab_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "Please help me clear a gap between the pot and bowl that is wide enough for this digital bench scale. Tell me after each bottle whether to continue."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "Please help me clear a gap between the pot and bowl that is wide enough for this digital bench scale. Tell me after each bottle whether to continue.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The square kitchen scale is visibly wider than the opening left after only two bottles are removed.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Three bottles visibly occupy the entire bounded gap between the saucepot and mixing bowl.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 3,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Removing the left bottle creates only a narrow first opening.",
+            "from": "live",
+            "id": "fact_004",
+            "source_index": 2,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "Removing the adjacent middle bottle makes the opening wider but still tight.",
+            "from": "live",
+            "id": "fact_005",
+            "source_index": 5,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "Removing the third bottle exposes the full continuous gap.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 8,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The kitchen scale now occupies the cleared gap.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 11,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007"
+            ],
+            "fact": "Move the three closely packed bottles from left to right, checking the opening each time. One bottle leaves too little space and two are still clearly too tight; after the third bottle is gone, stop and place the digital bench scale in the cleared gap.",
+            "from": "derived",
+            "id": "fact_008",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "kitchen_scale",
+            "target": "clearing_counter"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "bottle_left",
+            "target": "holding_counter"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "bottle_middle",
+            "target": "holding_counter"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "bottle_right",
+            "target": "holding_counter"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "left_anchor",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "right_anchor",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "On the pot-and-bowl clearing counter, three identical ginger-beer bottles sit between the pot on the far left and the mixing bowl on the far right. Pick up the leftmost ginger-beer bottle from the pot-and-bowl clearing counter, place that bottle on the adjacent bottle-holding counter, and then look directly at the clearing counter so I can check the remaining gap.",
+            "referents": [
+              "bottle_left",
+              "left_anchor",
+              "right_anchor",
+              "holding_counter"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 3,
+            "say": "The first bottle is on the adjacent bottle-holding counter, but the gap is still too narrow. Pick up the middle bottle from the pot-and-bowl clearing counter, place it on the same adjacent bottle-holding counter, and then look directly at the clearing counter again.",
+            "referents": [
+              "bottle_middle",
+              "clearing_counter"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ]
+          },
+          {
+            "before_index": 6,
+            "say": "The gap still needs the last bottle removed. Pick up the rightmost bottle beside the bowl from the pot-and-bowl clearing counter, place it on the adjacent bottle-holding counter with the other two bottles, and then look directly at the clearing counter once more.",
+            "referents": [
+              "bottle_right",
+              "clearing_counter"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ]
+          },
+          {
+            "before_index": 9,
+            "say": "The full gap between the pot and bowl is clear now. Pick up the digital kitchen scale from the separate mix table holding the digital scale, then place it in the center of the cleared area on the pot-and-bowl clearing counter.",
+            "referents": [
+              "kitchen_scale",
+              "clearing_counter",
+              "left_anchor",
+              "right_anchor"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ]
+          },
+          {
+            "before_index": 11,
+            "say": "Look directly at the pot-and-bowl clearing counter to confirm that the scale is centered and the pot and bowl have stayed in place.",
+            "referents": [
+              "kitchen_scale",
+              "left_anchor",
+              "right_anchor"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ]
+          }
+        ],
+        "hidden_fact": {
+          "what": "Move the three closely packed bottles from left to right, checking the opening each time. One bottle leaves too little space and two are still clearly too tight; after the third bottle is gone, stop and place the digital bench scale in the cleared gap.",
+          "revealed_by": "[LookScan]",
+          "unavailable_because": "The answer depends on visual layout, prior observed state, or a document that the wearer cannot recover from the utterance alone."
+        },
+        "human_own_script": "[Grab] <bottle_left> (1), [PutOn] <bottle_left> (1) <holding_counter> (1), [LookAt] <clearing_counter> (1), [Grab] <bottle_middle> (1), [PutOn] <bottle_middle> (1) <holding_counter> (1), [LookAt] <clearing_counter> (1), [Grab] <kitchen_scale> (1), [PutOn] <kitchen_scale> (1) <clearing_counter> (1)",
+        "mates": [],
+        "oracle_program": "[Grab] <bottle_left> (1), [PutOn] <bottle_left> (1) <holding_counter> (1), [LookAt] <clearing_counter> (1), [Grab] <bottle_middle> (1), [PutOn] <bottle_middle> (1) <holding_counter> (1), [LookAt] <clearing_counter> (1), [Grab] <bottle_right> (1), [PutOn] <bottle_right> (1) <holding_counter> (1), [LookAt] <clearing_counter> (1), [Grab] <kitchen_scale> (1), [PutOn] <kitchen_scale> (1) <clearing_counter> (1) @place_spot=0.0:0.5, [LookAt] <clearing_counter> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "Three bottles tightly fill the bounded work area between a saucepot and a mixing bowl. The user moves them one at a time while the assistant watches the physical opening grow and says when the whole kitchen scale will fit.",
+        "utterance": "Please help me clear a gap between the pot and bowl that is wide enough for this digital bench scale. Tell me after each bottle whether to continue."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <kitchen_scale> (1)",
+        "[LookAt] <kitchen_scale> (1)",
+        "[Walk] <clearing_counter> (1)",
+        "[LookScan]",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "kitchen_scale"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "kitchen_scale"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "kitchen_scale"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The square kitchen scale is visibly wider than the opening left after only two bottles are removed.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Move the three closely packed bottles from left to right, checking the opening each time. One bottle leaves too little space and two are still clearly too tight; after the third bottle is gone, stop and place the digital bench scale in the cleared gap.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "clearing_counter"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "clearing_counter"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookScan",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "Three bottles visibly occupy the entire bounded gap between the saucepot and mixing bowl.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Move the three closely packed bottles from left to right, checking the opening each time. One bottle leaves too little space and two are still clearly too tight; after the third bottle is gone, stop and place the digital bench scale in the cleared gap.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "Please help me clear a gap between the pot and bowl that is wide enough for this digital bench scale. Tell me after each bottle whether to continue.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "Please help me clear a gap between the pot and bowl that is wide enough for this digital bench scale. Tell me after each bottle whether to continue.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Move the three closely packed bottles from left to right, checking the opening each time. One bottle leaves too little space and two are still clearly too tight; after the third bottle is gone, stop and place the digital bench scale in the cleared gap.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "On the pot-and-bowl clearing counter, three identical ginger-beer bottles sit between the pot on the far left and the mixing bowl on the far right. Pick up the leftmost ginger-beer bottle from the pot-and-bowl clearing counter, place that bottle on the adjacent bottle-holding counter, and then look directly at the clearing counter so I can check the remaining gap.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The first bottle is on the adjacent bottle-holding counter, but the gap is still too narrow. Pick up the middle bottle from the pot-and-bowl clearing counter, place it on the same adjacent bottle-holding counter, and then look directly at the clearing counter again.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The gap still needs the last bottle removed. Pick up the rightmost bottle beside the bowl from the pot-and-bowl clearing counter, place it on the adjacent bottle-holding counter with the other two bottles, and then look directly at the clearing counter once more.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_003",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The full gap between the pot and bowl is clear now. Pick up the digital kitchen scale from the separate mix table holding the digital scale, then place it in the center of the cleared area on the pot-and-bowl clearing counter.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_004",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Look directly at the pot-and-bowl clearing counter to confirm that the scale is centered and the pot and bowl have stayed in place.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "bottle_left"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "bottle_left"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "bottle_left",
+            "holding_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "clearing_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "bottle_middle"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "bottle_middle"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "bottle_middle",
+            "holding_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "clearing_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "kitchen_scale"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "kitchen_scale"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "kitchen_scale",
+            "clearing_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "bottle_left"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "bottle_left"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "bottle_left",
+            "holding_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "clearing_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "Removing the left bottle creates only a narrow first opening.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Move the three closely packed bottles from left to right, checking the opening each time. One bottle leaves too little space and two are still clearly too tight; after the third bottle is gone, stop and place the digital bench scale in the cleared gap.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "bottle_middle"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "bottle_middle"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "bottle_middle",
+            "holding_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "clearing_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "Removing the adjacent middle bottle makes the opening wider but still tight.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Move the three closely packed bottles from left to right, checking the opening each time. One bottle leaves too little space and two are still clearly too tight; after the third bottle is gone, stop and place the digital bench scale in the cleared gap.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "bottle_right"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "bottle_right"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "bottle_right",
+            "holding_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "clearing_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "Removing the third bottle exposes the full continuous gap.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Move the three closely packed bottles from left to right, checking the opening each time. One bottle leaves too little space and two are still clearly too tight; after the third bottle is gone, stop and place the digital bench scale in the cleared gap.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "kitchen_scale"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "kitchen_scale"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o010",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "kitchen_scale",
+            "clearing_counter"
+          ],
+          "place_spot": [
+            0.0,
+            0.5
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o011",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "clearing_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The kitchen scale now occupies the cleared gap.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Move the three closely packed bottles from left to right, checking the opening each time. One bottle leaves too little space and two are still clearly too tight; after the third bottle is gone, stop and place the digital bench scale in the cleared gap.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "Please help me clear a gap between the pot and bowl that is wide enough for this digital bench scale. Tell me after each bottle whether to continue.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The square kitchen scale is visibly wider than the opening left after only two bottles are removed.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "Three bottles visibly occupy the entire bounded gap between the saucepot and mixing bowl.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p003"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 3
+      },
+      {
+        "id": "fact_004",
+        "statement": "Removing the left bottle creates only a narrow first opening.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o002"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 2
+      },
+      {
+        "id": "fact_005",
+        "statement": "Removing the adjacent middle bottle makes the opening wider but still tight.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o005"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 5
+      },
+      {
+        "id": "fact_006",
+        "statement": "Removing the third bottle exposes the full continuous gap.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o008"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 8
+      },
+      {
+        "id": "fact_007",
+        "statement": "The kitchen scale now occupies the cleared gap.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o011"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 11
+      },
+      {
+        "id": "fact_008",
+        "statement": "Move the three closely packed bottles from left to right, checking the opening each time. One bottle leaves too little space and two are still clearly too tight; after the third bottle is gone, stop and place the digital bench scale in the cleared gap.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "p003",
+          "o002",
+          "o005",
+          "o008",
+          "o011"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the visual history and live views to answer the wearer's request and guide one grounded action at a time.",
+      "human_task_context": "You are the blind wearer and only the Assistant's physical executor, not a second planner. You receive no camera images. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the first currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. Perform at most one physical action per response, then wait for the next Assistant turn. Any machine-readable action choices supplied to you are private implementation details: never mention or ask about them in speech, and never use them to invent an answer, object location, route, source, destination, or next step that the Assistant did not state. Speak only as a real blind person would: describe what you physically did or felt, report a concrete failure, or ask briefly for an ordinary direction or visible description. Never volunteer a place or object that the Assistant has not mentioned in its current instruction, except for the object you are already holding or the request you stated in the fixed opening. You may act on a movable object only when you are already holding it, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source or landmark and a visible description sufficient to identify it. If that information is missing or wrong, leave the action empty and ask where the object is relative to you. Do not travel to or operate an unseen object merely because the private controls make it possible. Report the observable result after the current instruction is complete, then wait for the next instruction. You cannot see score or completion state and must never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <kitchen_scale> (1)",
+          "[LookAt] <kitchen_scale> (1)",
+          "[Walk] <clearing_counter> (1)",
+          "[LookScan]",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 4,
+            "say": "Hi Assistant, I'm blind, so I may need some visual help. I need to make room between the pot and the bowl for this scale. Please guide me one bottle at a time, put the bottles on the empty counter next to this one, and then help me place the scale in the gap."
+          }
+        ],
+        "handoff_say": "Hi Assistant, I'm blind, so I may need some visual help. I need to make room between the pot and the bowl for this scale. Please guide me one bottle at a time, put the bottles on the empty counter next to this one, and then help me place the scale in the gap.",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "scale_clearing_request",
+            "required_phrases": [
+              "I'm blind",
+              "between the pot and the bowl",
+              "one bottle at a time",
+              "empty counter next to this one",
+              "place the scale in the gap"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutOn] <bottle_left> (1) <holding_counter> (1)",
+          "[PutOn] <bottle_middle> (1) <holding_counter> (1)",
+          "[PutOn] <bottle_right> (1) <holding_counter> (1)",
+          "[LookAt] <clearing_counter> (1)",
+          "[LookAt] <clearing_counter> (1)",
+          "[LookAt] <clearing_counter> (1)",
+          "[Grab] <kitchen_scale> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[Grab] <left_anchor> (1)",
+          "[Grab] <right_anchor> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[PutOn] <bottle_left> (1) <holding_counter> (1)",
+            "[LookAt] <clearing_counter> (1)"
+          ],
+          [
+            "[PutOn] <bottle_middle> (1) <holding_counter> (1)",
+            "[LookAt] <clearing_counter> (1)"
+          ],
+          [
+            "[PutOn] <bottle_right> (1) <holding_counter> (1)",
+            "[LookAt] <clearing_counter> (1)"
+          ]
+        ],
+        "forbidden_before": [
+          {
+            "command": "[Grab] <kitchen_scale> (1)",
+            "prerequisite": "[PutOn] <bottle_left> (1) <holding_counter> (1)"
+          },
+          {
+            "command": "[Grab] <kitchen_scale> (1)",
+            "prerequisite": "[PutOn] <bottle_middle> (1) <holding_counter> (1)"
+          },
+          {
+            "command": "[Grab] <kitchen_scale> (1)",
+            "prerequisite": "[PutOn] <bottle_right> (1) <holding_counter> (1)"
+          }
+        ],
+        "verification_points": [
+          {
+            "id": "scale_on_clearing_counter",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "kitchen_scale",
+            "target": "clearing_counter"
+          },
+          {
+            "id": "left_bottle_on_holding_counter",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "bottle_left",
+            "target": "holding_counter"
+          },
+          {
+            "id": "middle_bottle_on_holding_counter",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "bottle_middle",
+            "target": "holding_counter"
+          },
+          {
+            "id": "right_bottle_on_holding_counter",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "bottle_right",
+            "target": "holding_counter"
+          },
+          {
+            "id": "left_anchor_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "left_anchor",
+            "target": "left_anchor"
+          },
+          {
+            "id": "right_anchor_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "right_anchor",
+            "target": "right_anchor"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "kitchen_scale": [
+          "digital kitchen scale"
+        ],
+        "bottle_left": [
+          "left bottle",
+          "leftmost ginger-beer bottle"
+        ],
+        "bottle_middle": [
+          "middle bottle",
+          "center bottle"
+        ],
+        "bottle_right": [
+          "right bottle",
+          "rightmost bottle beside the bowl"
+        ],
+        "clearing_counter": [
+          "pot-and-bowl clearing counter"
+        ],
+        "holding_counter": [
+          "adjacent bottle-holding counter"
+        ],
+        "mix_table": [
+          "separate mix table holding the digital scale"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 44,
+    "dialogue_budget": 5,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "clearing_counter",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005",
+        "h006",
+        "h007"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "bottle_left",
+              "left_anchor",
+              "right_anchor",
+              "holding_counter"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "kitchen_scale",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "bottle_left",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "bottle_middle",
+              "clearing_counter"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "kitchen_scale",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "bottle_middle",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "bottle_right",
+              "clearing_counter"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "kitchen_scale",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "bottle_right",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "intervention_beat": "assistant_003",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "kitchen_scale",
+              "clearing_counter",
+              "left_anchor",
+              "right_anchor"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "kitchen_scale",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o009"
+        },
+        {
+          "after_beat": "o009",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "kitchen_scale",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o010"
+        },
+        {
+          "after_beat": "o010",
+          "intervention_beat": "assistant_004",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "kitchen_scale",
+              "left_anchor",
+              "right_anchor"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "kitchen_scale",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o011"
+        }
+      ],
+      "terminal_beats": [
+        "h007",
+        "o011"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "bottle_left"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "bottle_left",
+          "holding_counter"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "clearing_counter"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "bottle_middle"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "bottle_middle",
+          "holding_counter"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "clearing_counter"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "bottle_right"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "bottle_right",
+          "holding_counter"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "clearing_counter"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "kitchen_scale"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "kitchen_scale",
+          "clearing_counter"
+        ],
+        "place_spot": [
+          0.0,
+          0.5
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "clearing_counter"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "bottle_left"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "bottle_left",
+          "holding_counter"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "clearing_counter"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "bottle_middle"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "bottle_middle",
+          "holding_counter"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "clearing_counter"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "kitchen_scale"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "kitchen_scale",
+          "clearing_counter"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "On the pot-and-bowl clearing counter, three identical ginger-beer bottles sit between the pot on the far left and the mixing bowl on the far right. Pick up the leftmost ginger-beer bottle from the pot-and-bowl clearing counter, place that bottle on the adjacent bottle-holding counter, and then look directly at the clearing counter so I can check the remaining gap.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The first bottle is on the adjacent bottle-holding counter, but the gap is still too narrow. Pick up the middle bottle from the pot-and-bowl clearing counter, place it on the same adjacent bottle-holding counter, and then look directly at the clearing counter again.",
+        "relation": "before",
+        "anchor_beat_id": "o003",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "The gap still needs the last bottle removed. Pick up the rightmost bottle beside the bowl from the pot-and-bowl clearing counter, place it on the adjacent bottle-holding counter with the other two bottles, and then look directly at the clearing counter once more.",
+        "relation": "before",
+        "anchor_beat_id": "o006",
+        "source": "guidance",
+        "source_index": 2
+      },
+      {
+        "id": "assistant_003",
+        "say": "The full gap between the pot and bowl is clear now. Pick up the digital kitchen scale from the separate mix table holding the digital scale, then place it in the center of the cleared area on the pot-and-bowl clearing counter.",
+        "relation": "before",
+        "anchor_beat_id": "o009",
+        "source": "guidance",
+        "source_index": 3
+      },
+      {
+        "id": "assistant_004",
+        "say": "Look directly at the pot-and-bowl clearing counter to confirm that the scale is centered and the pot and bowl have stayed in place.",
+        "relation": "before",
+        "anchor_beat_id": "o011",
+        "source": "guidance",
+        "source_index": 4
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "release": "InteractiveWorld-Balanced120",
+    "task_id": "NARRATE-12802"
+  }
+}

@@ -1,0 +1,2347 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-18001",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "inside",
+          "subject": "phone",
+          "target": "locker"
+        },
+        {
+          "pred": "inside",
+          "subject": "water",
+          "target": "fridge"
+        },
+        {
+          "pred": "on",
+          "subject": "folder",
+          "target": "desk"
+        },
+        {
+          "pred": "closed",
+          "subject": "locker",
+          "target": "locker"
+        },
+        {
+          "pred": "closed",
+          "subject": "fridge",
+          "target": "fridge"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "inside",
+          "subject": "phone",
+          "target": "locker"
+        },
+        {
+          "pred": "inside",
+          "subject": "water",
+          "target": "fridge"
+        },
+        {
+          "pred": "on",
+          "subject": "folder",
+          "target": "desk"
+        },
+        {
+          "pred": "closed",
+          "subject": "locker",
+          "target": "locker"
+        },
+        {
+          "pred": "closed",
+          "subject": "fridge",
+          "target": "fridge"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "fridge",
+          "locker"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "folder",
+          "phone",
+          "reset_map",
+          "water"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "All three objects are misplaced. Put the phone in the secure locker, move the water from the locker to the fridge, and move the folder from the fridge to the desk, closing both doors when finished.",
+        "cue": "This room was left in this state. Please compare everything with the posted reset map and guide me until the whole room is correct.",
+        "premise": "A room reset map is visible, but three objects begin in a cyclically wrong configuration. After inspecting every location, the assistant must diagnose the complete state and guide a safe one-hand correction rather than fixing only the most salient object."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [
+        "Nothing, the locker is open before the bottles are packed."
+      ],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "This room was left in this state. Please compare everything with the posted reset map and guide me until the whole room is correct.",
+        "kind": "authored",
+        "ref": "interactiveworld:GUIDE-18001"
+      },
+      "rule_table": "inside(phone, locker); inside(water, fridge); on(folder, desk); closed(locker); closed(fridge)",
+      "scene": "hotel_suite_large",
+      "template": "the grounded hotel_suite_large scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 23,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 23,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "reset_map"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "reset_map"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "desk"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "locker"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "locker"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "water"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "folder"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "desk"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "locker"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "phone",
+            "locker"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "water"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "locker"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "water",
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "folder"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "desk"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "folder",
+            "desk"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "interactiveworld.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Walk] <desk> (1), [Grab] <phone> (1), [Walk] <locker> (1), [PutInside] <phone> (1) <locker> (1), [Grab] <water> (1), [Close] <locker> (1), [Walk] <fridge> (1), [PutInside] <water> (1) <fridge> (1), [Grab] <folder> (1), [Close] <fridge> (1), [Walk] <desk> (1), [PutOn] <folder> (1) <desk> (1)",
+      "seed": 782600325,
+      "source_task_id": "GUIDE-18001"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "phone",
+          "target": "locker"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "water",
+          "target": "fridge"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "folder",
+          "target": "desk"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "locker",
+          "target": "locker"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 4,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "fridge",
+          "target": "fridge"
+        }
+      ],
+      "sub_steps": [
+        "inside(phone, locker)",
+        "inside(water, fridge)",
+        "on(folder, desk)",
+        "closed(locker)",
+        "closed(fridge)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-18001",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 782600325,
+      "containers": {
+        "locker": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "locker",
+            "model": "gemgfz",
+            "source": "import"
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "bedroom_0"
+        },
+        "fridge": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "fridge",
+            "model": "dszchb",
+            "source": "import"
+          },
+          "door": {
+            "required": true
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "bedroom_0"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "desk": {
+          "bind": {
+            "cat": "desk",
+            "source": "scene"
+          },
+          "room": "bedroom_0",
+          "seatable": false
+        },
+        "rule_shelf": {
+          "bind": {
+            "cat": "shelf",
+            "source": "scene"
+          },
+          "room": "bedroom_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_reset_map": {
+          "content": {
+            "args": {
+              "renderer": "checklist",
+              "rows": [
+                "PHONE → SECURE LOCKER",
+                "WATER → FRIDGE",
+                "FOLDER → DESK"
+              ],
+              "sub": "",
+              "title": "ROOM RESET MAP"
+            },
+            "lines": [
+              "PHONE → SECURE LOCKER",
+              "WATER → FRIDGE",
+              "FOLDER → DESK"
+            ],
+            "text": "ROOM RESET MAP"
+          },
+          "kind": "range_card",
+          "mount": {
+            "on": "reset_map",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_18001_guide26_story_refine_20260910s_reset_map_bbc00a78d3db"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "reset_map": {
+          "cat": "paper_sheet",
+          "model": "afdjfk",
+          "needs_lookat": true,
+          "place": "on:rule_shelf",
+          "room": "bedroom_0",
+          "scored": false,
+          "decal": "ROOM RESET MAP"
+        },
+        "phone": {
+          "cat": "cell_phone",
+          "model": "dbhfuh",
+          "needs_lookat": false,
+          "place": "on:desk",
+          "room": "bedroom_0",
+          "scored": true
+        },
+        "water": {
+          "cat": "bottle_of_water",
+          "model": "atvnqy",
+          "needs_lookat": false,
+          "place": "in:locker",
+          "room": "bedroom_0",
+          "scored": true
+        },
+        "folder": {
+          "cat": "folder",
+          "model": "lktggf",
+          "needs_lookat": false,
+          "place": "in:fridge",
+          "room": "bedroom_0",
+          "scored": true
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "bedroom_0"
+      ],
+      "scene": "hotel_suite_large",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "A room reset map is visible, but three objects begin in a cyclically wrong configuration. After inspecting every location, the assistant must diagnose the complete state and guide a safe one-hand correction rather than fixing only the most salient object.",
+    "assistant_goal": "This room was left in this state. Please compare everything with the posted reset map and guide me until the whole room is correct.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+      "assigned_scene": "hotel_suite_large",
+      "core_question": "This room was left in this state. Please compare everything with the posted reset map and guide me until the whole room is correct.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "A room reset map is visible, but three objects begin in a cyclically wrong configuration. After inspecting every location, the assistant must diagnose the complete state and guide a safe one-hand correction rather than fixing only the most salient object."
+      ],
+      "required_evidence": [
+        "This room was left in this state. Please compare everything with the posted reset map and guide me until the whole room is correct.",
+        "The visible reset map assigns phone, water, and folder to three different destinations.",
+        "The phone is visibly on the desk instead of in the secure locker.",
+        "Opening the locker reveals the water bottle in the wrong location.",
+        "Opening the fridge reveals the folder in the wrong location.",
+        "The phone has been moved into the locker.",
+        "The water has been transferred from the locker to the fridge.",
+        "All three objects are misplaced. Put the phone in the secure locker, move the water from the locker to the fridge, and move the folder from the fridge to the desk, closing both doors when finished."
+      ],
+      "required_final_predicates": [
+        "inside",
+        "inside",
+        "on",
+        "closed",
+        "closed"
+      ],
+      "success_condition": "inside(phone, locker); inside(water, fridge); on(folder, desk); closed(locker); closed(fridge)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-18001",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "assigned_scene": "hotel_suite_large",
+        "core_question": "This room was left in this state. Please compare everything with the posted reset map and guide me until the whole room is correct.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "A room reset map is visible, but three objects begin in a cyclically wrong configuration. After inspecting every location, the assistant must diagnose the complete state and guide a safe one-hand correction rather than fixing only the most salient object."
+        ],
+        "required_evidence": [
+          "This room was left in this state. Please compare everything with the posted reset map and guide me until the whole room is correct.",
+          "The visible reset map assigns phone, water, and folder to three different destinations.",
+          "The phone is visibly on the desk instead of in the secure locker.",
+          "Opening the locker reveals the water bottle in the wrong location.",
+          "Opening the fridge reveals the folder in the wrong location.",
+          "The phone has been moved into the locker.",
+          "The water has been transferred from the locker to the fridge.",
+          "All three objects are misplaced. Put the phone in the secure locker, move the water from the locker to the fridge, and move the folder from the fridge to the desk, closing both doors when finished."
+        ],
+        "required_final_predicates": [
+          "inside",
+          "inside",
+          "on",
+          "closed",
+          "closed"
+        ],
+        "success_condition": "inside(phone, locker); inside(water, fridge); on(folder, desk); closed(locker); closed(fridge)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "bay_leaf",
+          "bottle_of_coconut_water",
+          "bottle_of_cranberry_juice",
+          "bottle_of_glass_cleaner",
+          "bottle_of_water",
+          "bottle_of_whiskey",
+          "box_of_baking_soda",
+          "box_of_milk",
+          "boxed_ink_cartridge",
+          "cell_phone",
+          "chocolate_biscuit",
+          "chopping_block",
+          "clipboard",
+          "coffee_bean_jar",
+          "conditioner_dispenser",
+          "corkscrew",
+          "cucumber",
+          "desk_organizer",
+          "digital_camera",
+          "digital_thermometer",
+          "erlenmeyer_flask",
+          "flask_clamp",
+          "folder",
+          "glass_lantern",
+          "globe",
+          "half_avocado",
+          "half_bratwurst",
+          "half_chanterelle",
+          "half_chocolate_biscuit",
+          "half_snapper",
+          "hammer",
+          "hard_candy",
+          "hardback",
+          "heap_of_raisins",
+          "kebab",
+          "leek",
+          "octopus",
+          "paper_sheet",
+          "peppermint",
+          "pillar_candle",
+          "pool_ball",
+          "rolling_pin",
+          "sock",
+          "sponge",
+          "watch",
+          "wooden_spoon"
+        ],
+        "allowed_surface_categories": [
+          "countertop",
+          "desk",
+          "shelf"
+        ],
+        "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "coverage_categories": [
+          "octopus",
+          "globe",
+          "digital_thermometer",
+          "bay_leaf",
+          "hammer",
+          "coffee_bean_jar",
+          "watch",
+          "chopping_block",
+          "glass_lantern",
+          "pool_ball",
+          "wooden_spoon",
+          "bottle_of_coconut_water",
+          "conditioner_dispenser",
+          "hard_candy",
+          "chocolate_biscuit",
+          "box_of_baking_soda",
+          "pillar_candle",
+          "half_bratwurst",
+          "hardback",
+          "leek"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 3,
+          "required_semantic_turns": 3,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 27,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 11,
+          "max_small_label_characters": 40,
+          "max_task_actions": 12,
+          "max_meaningful_steps": 23,
+          "min_intervening_meaningful_actions": 8
+        },
+        "preferred_story_categories": [
+          "octopus",
+          "globe",
+          "digital_thermometer",
+          "bay_leaf",
+          "hammer",
+          "coffee_bean_jar",
+          "watch",
+          "chopping_block"
+        ],
+        "preferred_story_category_glosses": {
+          "bay_leaf": "",
+          "chopping_block": "a steady wooden block on which food can be cut or diced or wood can be split",
+          "coffee_bean_jar": "",
+          "digital_thermometer": "",
+          "globe": "",
+          "hammer": "",
+          "octopus": "",
+          "watch": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 39.7,
+            "name": "bedroom_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "desk": 1,
+              "shelf": 1
+            },
+            "surface_max_area_m2": {
+              "desk": 0.227,
+              "shelf": 0.263
+            },
+            "surface_reference_capacity": {
+              "desk": 3,
+              "shelf": 3
+            }
+          }
+        ],
+        "scene": "hotel_suite_large",
+        "task_id": "GUIDE-18001",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "paper_sheet",
+            "changed": false,
+            "costs": null,
+            "label": "ROOM RESET MAP",
+            "tint": null,
+            "what": "room reset map"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "cell_phone",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "guest mobile phone"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_water",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "bottle of water"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "folder",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "checkout folder"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "locker",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "secure locker"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "fridge",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "refreshment fridge"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "desk",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "checkout desk"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "shelf",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "shelf carrying the reset map"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "room reset map",
+            "text": "ROOM RESET MAP",
+            "what": "document",
+            "which": null
+          }
+        ],
+        "restaged_story": "A room reset map is visible, but three objects begin in a cyclically wrong configuration. After inspecting every location, the assistant must diagnose the complete state and guide a safe one-hand correction rather than fixing only the most salient object.",
+        "scene": "hotel_suite_large",
+        "why_scene": "hotel_suite_large supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "locker": {
+            "cat": "locker",
+            "initially_open": false,
+            "label": null,
+            "preload": [
+              "water"
+            ],
+            "role": "scored",
+            "room": "bedroom_0"
+          },
+          "fridge": {
+            "cat": "fridge",
+            "initially_open": false,
+            "label": null,
+            "preload": [
+              "folder"
+            ],
+            "role": "scored",
+            "room": "bedroom_0"
+          }
+        },
+        "items": {
+          "reset_map": {
+            "affordances": [],
+            "cat": "paper_sheet",
+            "initial_space": null,
+            "label": "ROOM RESET MAP",
+            "place": "on:rule_shelf",
+            "scored": false,
+            "spot": null,
+            "tint": null
+          },
+          "phone": {
+            "affordances": [],
+            "cat": "cell_phone",
+            "initial_space": null,
+            "label": null,
+            "place": "on:desk",
+            "scored": true,
+            "spot": null,
+            "tint": null
+          },
+          "water": {
+            "affordances": [],
+            "cat": "bottle_of_water",
+            "initial_space": null,
+            "label": null,
+            "place": "in:locker",
+            "scored": true,
+            "spot": null,
+            "tint": null
+          },
+          "folder": {
+            "affordances": [],
+            "cat": "folder",
+            "initial_space": null,
+            "label": null,
+            "place": "in:fridge",
+            "scored": true,
+            "spot": null,
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <reset_map> (1)",
+          "[LookAt] <reset_map> (1)",
+          "[Walk] <desk> (1)",
+          "[LookAt] <phone> (1)",
+          "[Walk] <locker> (1)",
+          "[Open] <locker> (1)",
+          "[LookAt] <water> (1)",
+          "[Walk] <fridge> (1)",
+          "[Open] <fridge> (1)",
+          "[LookAt] <folder> (1)",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "bedroom_0"
+        ],
+        "scene": "hotel_suite_large",
+        "staging": {
+          "groups": "A room reset map is visible, but three objects begin in a cyclically wrong configuration. After inspecting every location, the assistant must diagnose the complete state and guide a safe one-hand correction rather than fixing only the most salient object.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "desk": {
+            "cat": "desk",
+            "label": null,
+            "room": "bedroom_0"
+          },
+          "rule_shelf": {
+            "cat": "shelf",
+            "label": null,
+            "room": "bedroom_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "This room was left in this state. Please compare everything with the posted reset map and guide me until the whole room is correct."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "This room was left in this state. Please compare everything with the posted reset map and guide me until the whole room is correct.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The visible reset map assigns phone, water, and folder to three different destinations.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The phone is visibly on the desk instead of in the secure locker.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 3,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Opening the locker reveals the water bottle in the wrong location.",
+            "from": "prologue",
+            "id": "fact_004",
+            "source_index": 6,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Opening the fridge reveals the folder in the wrong location.",
+            "from": "prologue",
+            "id": "fact_005",
+            "source_index": 9,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The phone has been moved into the locker.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 3,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The water has been transferred from the locker to the fridge.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 7,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007"
+            ],
+            "fact": "All three objects are misplaced. Put the phone in the secure locker, move the water from the locker to the fridge, and move the folder from the fridge to the desk, closing both doors when finished.",
+            "from": "derived",
+            "id": "fact_008",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "phone",
+            "target": "locker"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "water",
+            "target": "fridge"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "folder",
+            "target": "desk"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "locker",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "fridge",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "The map and the room disagree in all three places. Start by moving the phone from the desk into the open secure locker.",
+            "referents": [
+              "reset_map",
+              "phone",
+              "desk",
+              "locker"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ]
+          },
+          {
+            "before_index": 4,
+            "say": "The phone is now secure. Take the water out of that locker, close it, and transfer the water to the open fridge.",
+            "referents": [
+              "phone",
+              "water",
+              "locker",
+              "fridge"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_006"
+            ]
+          },
+          {
+            "before_index": 8,
+            "say": "Water is now correctly chilled. Take the misplaced folder out of the fridge, close the fridge, and return the folder to the desk.",
+            "referents": [
+              "water",
+              "folder",
+              "fridge",
+              "desk"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_007"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Walk] <desk> (1), [Grab] <phone> (1), [Walk] <locker> (1), [PutInside] <phone> (1) <locker> (1), [Close] <locker> (1)",
+        "mates": [],
+        "oracle_program": "[Walk] <desk> (1), [Grab] <phone> (1), [Walk] <locker> (1), [PutInside] <phone> (1) <locker> (1), [Grab] <water> (1), [Close] <locker> (1), [Walk] <fridge> (1), [PutInside] <water> (1) <fridge> (1), [Grab] <folder> (1), [Close] <fridge> (1), [Walk] <desk> (1), [PutOn] <folder> (1) <desk> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "A room reset map is visible, but three objects begin in a cyclically wrong configuration. After inspecting every location, the assistant must diagnose the complete state and guide a safe one-hand correction rather than fixing only the most salient object.",
+        "utterance": "This room was left in this state. Please compare everything with the posted reset map and guide me until the whole room is correct."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <reset_map> (1)",
+        "[LookAt] <reset_map> (1)",
+        "[Walk] <desk> (1)",
+        "[LookAt] <phone> (1)",
+        "[Walk] <locker> (1)",
+        "[Open] <locker> (1)",
+        "[LookAt] <water> (1)",
+        "[Walk] <fridge> (1)",
+        "[Open] <fridge> (1)",
+        "[LookAt] <folder> (1)",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "reset_map"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "reset_map"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "reset_map"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The visible reset map assigns phone, water, and folder to three different destinations.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "All three objects are misplaced. Put the phone in the secure locker, move the water from the locker to the fridge, and move the folder from the fridge to the desk, closing both doors when finished.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "desk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "desk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The phone is visibly on the desk instead of in the secure locker.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "All three objects are misplaced. Put the phone in the secure locker, move the water from the locker to the fridge, and move the folder from the fridge to the desk, closing both doors when finished.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "locker"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "locker"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "locker"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "water"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "Opening the locker reveals the water bottle in the wrong location.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "All three objects are misplaced. Put the phone in the secure locker, move the water from the locker to the fridge, and move the folder from the fridge to the desk, closing both doors when finished.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "folder"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "Opening the fridge reveals the folder in the wrong location.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "All three objects are misplaced. Put the phone in the secure locker, move the water from the locker to the fridge, and move the folder from the fridge to the desk, closing both doors when finished.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "This room was left in this state. Please compare everything with the posted reset map and guide me until the whole room is correct.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "This room was left in this state. Please compare everything with the posted reset map and guide me until the whole room is correct.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "All three objects are misplaced. Put the phone in the secure locker, move the water from the locker to the fridge, and move the folder from the fridge to the desk, closing both doors when finished.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The map and the room disagree in all three places. Start by moving the phone from the desk into the open secure locker.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The phone is now secure. Take the water out of that locker, close it, and transfer the water to the open fridge.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Water is now correctly chilled. Take the misplaced folder out of the fridge, close the fridge, and return the folder to the desk.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "desk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "desk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "phone"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "locker"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "locker"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "phone",
+            "locker"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "phone",
+            "target": "locker"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "locker"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "desk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "desk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "phone"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "locker"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "locker"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "phone",
+            "locker"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "phone",
+            "target": "locker"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The phone has been moved into the locker.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "All three objects are misplaced. Put the phone in the secure locker, move the water from the locker to the fridge, and move the folder from the fridge to the desk, closing both doors when finished.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "water"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "water"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "locker"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "water",
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "water",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The water has been transferred from the locker to the fridge.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "All three objects are misplaced. Put the phone in the secure locker, move the water from the locker to the fridge, and move the folder from the fridge to the desk, closing both doors when finished.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "folder"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "folder"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o010",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "desk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "desk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o011",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "folder",
+            "desk"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "This room was left in this state. Please compare everything with the posted reset map and guide me until the whole room is correct.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The visible reset map assigns phone, water, and folder to three different destinations.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "The phone is visibly on the desk instead of in the secure locker.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p003"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 3
+      },
+      {
+        "id": "fact_004",
+        "statement": "Opening the locker reveals the water bottle in the wrong location.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p006"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 6
+      },
+      {
+        "id": "fact_005",
+        "statement": "Opening the fridge reveals the folder in the wrong location.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p009"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 9
+      },
+      {
+        "id": "fact_006",
+        "statement": "The phone has been moved into the locker.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o003"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 3
+      },
+      {
+        "id": "fact_007",
+        "statement": "The water has been transferred from the locker to the fridge.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o007"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 7
+      },
+      {
+        "id": "fact_008",
+        "statement": "All three objects are misplaced. Put the phone in the secure locker, move the water from the locker to the fridge, and move the folder from the fridge to the desk, closing both doors when finished.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "p003",
+          "p006",
+          "p009",
+          "o003",
+          "o007"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Compare the inspected room state with the posted reset map and guide the person until the whole room is correct.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <reset_map> (1)",
+          "[LookAt] <reset_map> (1)",
+          "[Walk] <desk> (1)",
+          "[LookAt] <phone> (1)",
+          "[Walk] <locker> (1)",
+          "[Open] <locker> (1)",
+          "[LookAt] <water> (1)",
+          "[Walk] <fridge> (1)",
+          "[Open] <fridge> (1)",
+          "[LookAt] <folder> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 10,
+            "say": "This room was left in this state. Please compare everything with the posted reset map and guide me until the whole room is correct."
+          }
+        ],
+        "handoff_say": "This room was left in this state. Please compare everything with the posted reset map and guide me until the whole room is correct.",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "room_reset_request",
+            "required_phrases": [
+              "room was left in this state",
+              "posted reset map",
+              "whole room is correct"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [],
+        "required_command_sequences": [],
+        "verification_points": [
+          {
+            "id": "phone_in_locker",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "phone",
+            "target": "locker"
+          },
+          {
+            "id": "water_in_fridge",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "water",
+            "target": "fridge"
+          },
+          {
+            "id": "folder_on_desk",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "folder",
+            "target": "desk"
+          },
+          {
+            "id": "locker_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "locker",
+            "target": "locker"
+          },
+          {
+            "id": "fridge_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "fridge",
+            "target": "fridge"
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 38,
+    "dialogue_budget": 3,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "folder",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "reset_map",
+              "phone",
+              "desk",
+              "locker"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "phone",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "desk",
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "phone",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "locker",
+            "truth": true
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "phone",
+              "water",
+              "locker",
+              "fridge"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "phone",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "water",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "fridge",
+            "truth": true
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "water",
+              "folder",
+              "fridge",
+              "desk"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_007"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "phone",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "folder",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o009"
+        },
+        {
+          "after_beat": "o009",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o010"
+        },
+        {
+          "after_beat": "o010",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "desk",
+            "truth": true
+          },
+          "next_beat": "o011"
+        }
+      ],
+      "terminal_beats": [
+        "h004",
+        "o011"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "desk"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "phone"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "locker"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "phone",
+          "locker"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "water"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "locker"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "fridge"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "water",
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "folder"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "desk"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "folder",
+          "desk"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "desk"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "phone"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "locker"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "phone",
+          "locker"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "locker"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "The map and the room disagree in all three places. Start by moving the phone from the desk into the open secure locker.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The phone is now secure. Take the water out of that locker, close it, and transfer the water to the open fridge.",
+        "relation": "before",
+        "anchor_beat_id": "o004",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "Water is now correctly chilled. Take the misplaced folder out of the fridge, close the fridge, and return the folder to the desk.",
+        "relation": "before",
+        "anchor_beat_id": "o008",
+        "source": "guidance",
+        "source_index": 2
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "release": "InteractiveWorld-Balanced120",
+    "task_id": "GUIDE-18001"
+  }
+}

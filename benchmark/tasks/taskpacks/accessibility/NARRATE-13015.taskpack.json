@@ -1,0 +1,2031 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "NARRATE-13015",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "moved_bowl",
+          "target": "guest_table"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "new_coffee",
+          "target": "new_coffee"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "unchanged_glass",
+          "target": "unchanged_glass"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "neighbor_water",
+          "target": "neighbor_water"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "guest_fork",
+          "target": "guest_fork"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "guest_knife",
+          "target": "guest_knife"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "neighbor_fork",
+          "target": "neighbor_fork"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "neighbor_knife",
+          "target": "neighbor_knife"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "neighbor_pepper",
+          "target": "neighbor_pepper"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "moved_bowl",
+          "target": "guest_table"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "new_coffee",
+          "target": "new_coffee"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "unchanged_glass",
+          "target": "unchanged_glass"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "neighbor_water",
+          "target": "neighbor_water"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "guest_fork",
+          "target": "guest_fork"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "guest_knife",
+          "target": "guest_knife"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "neighbor_fork",
+          "target": "neighbor_fork"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "neighbor_knife",
+          "target": "neighbor_knife"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "neighbor_pepper",
+          "target": "neighbor_pepper"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [],
+        "nested_containers": [],
+        "objects": [
+          "guest_fork",
+          "guest_knife",
+          "moved_bowl",
+          "neighbor_fork",
+          "neighbor_knife",
+          "neighbor_pepper",
+          "neighbor_water",
+          "new_coffee",
+          "unchanged_glass"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer cannot infer the answer from speech alone; the weak branch demonstrates the visible mistake or unsafe continuation.",
+        "assistant_must": "The blue bowl moved to the neighboring guest table, and a coffee cup was added to this table's setting. The wineglass did not move. Bring only the blue bowl back to the one open place in the original setting.",
+        "cue": "Before I stepped away, the blue bowl was in the one open place on this guest table, there was no coffee cup in this setting, and the wineglass was already in this setting. What changed among all these place settings, and can you restore the moved item?",
+        "premise": "A blind restaurant worker compares a remembered guest-table arrangement with two adjacent, fully set dining tables. The glasses must find one moved blue bowl among realistic place-setting clutter, identify a newly added coffee cup, preserve the unchanged wineglass, and restore only the bowl."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "NARRATE",
+      "grounding": {
+        "cite": "Before I stepped away, the blue bowl was in the one open place on this guest table, there was no coffee cup in this setting, and the wineglass was already in this setting. What changed among all these place settings, and can you restore the moved item?",
+        "kind": "authored",
+        "ref": "interactiveworld:NARRATE-13015"
+      },
+      "rule_table": "on(moved_bowl, guest_table); unmoved(new_coffee); unmoved(unchanged_glass); unmoved(neighbor_water); unmoved(guest_fork); unmoved(guest_knife); unmoved(neighbor_fork); unmoved(neighbor_knife); unmoved(neighbor_pepper)",
+      "scene": "restaurant_hotel",
+      "template": "the grounded restaurant_hotel scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 9,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 9,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "guest_table"
+          ]
+        },
+        {
+          "verb": "LookScan",
+          "args": []
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "neighbor_table"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "moved_bowl"
+          ]
+        },
+        {
+          "verb": "LookScan",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "moved_bowl"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "guest_table"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "moved_bowl",
+            "guest_table"
+          ],
+          "place_spot": [
+            -0.62,
+            0.45
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "guest_table"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "NARRATE",
+      "authored_by": "interactiveworld.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Grab] <moved_bowl> (1), [Walk] <guest_table> (1), [PutOn] <moved_bowl> (1) <guest_table> (1) @place_spot=-0.62:0.45, [LookAt] <guest_table> (1)",
+      "seed": 3002504224,
+      "source_task_id": "NARRATE-13015"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "moved_bowl",
+          "target": "guest_table"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "new_coffee",
+          "target": "new_coffee"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "unchanged_glass",
+          "target": "unchanged_glass"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "neighbor_water",
+          "target": "neighbor_water"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 4,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "guest_fork",
+          "target": "guest_fork"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 5,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "guest_knife",
+          "target": "guest_knife"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 6,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "neighbor_fork",
+          "target": "neighbor_fork"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 7,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "neighbor_knife",
+          "target": "neighbor_knife"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 8,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "neighbor_pepper",
+          "target": "neighbor_pepper"
+        }
+      ],
+      "sub_steps": [
+        "on(moved_bowl, guest_table)",
+        "unmoved(new_coffee)",
+        "unmoved(unchanged_glass)",
+        "unmoved(neighbor_water)",
+        "unmoved(guest_fork)",
+        "unmoved(guest_knife)",
+        "unmoved(neighbor_fork)",
+        "unmoved(neighbor_knife)",
+        "unmoved(neighbor_pepper)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "NARRATE-13015",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 3002504224,
+      "containers": {},
+      "decor": [],
+      "fixtures": {
+        "guest_table": {
+          "bind": {
+            "cat": "pedestal_table",
+            "source": "scene",
+            "pick": {
+              "name": "pedestal_table_jdilum_0",
+              "stage_prim_path": "/World/b_pedestal_table_jdilum_0",
+              "asset_sha256": "sha256:bc6b7f80b96966c18afb9f3e69fea9e3ba87fc04f2e6a12fb0917449962b021f",
+              "instance_digest": "sha256:278eed1a9f206615d10ab9a8894db07fbe655f3c06e696f81e02635ca458a2bb",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "dining_room_0",
+          "seatable": false
+        },
+        "neighbor_table": {
+          "bind": {
+            "cat": "pedestal_table",
+            "source": "scene",
+            "pick": {
+              "name": "pedestal_table_jdilum_1",
+              "stage_prim_path": "/World/b_pedestal_table_jdilum_1",
+              "asset_sha256": "sha256:bc6b7f80b96966c18afb9f3e69fea9e3ba87fc04f2e6a12fb0917449962b021f",
+              "instance_digest": "sha256:2081210c8873630602659c1409e8d49a91de278a29732d110dd36da36d78d9e1",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "dining_room_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {},
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "moved_bowl": {
+          "cat": "bowl",
+          "model": "aspeds",
+          "needs_lookat": false,
+          "place": "on:neighbor_table",
+          "room": "dining_room_0",
+          "scored": true,
+          "spot": [
+            -0.42,
+            0.45
+          ],
+          "tint": "blue"
+        },
+        "new_coffee": {
+          "cat": "coffee_cup",
+          "model": "ykuftq",
+          "needs_lookat": false,
+          "place": "on:guest_table",
+          "room": "dining_room_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            0.0
+          ]
+        },
+        "unchanged_glass": {
+          "cat": "wineglass",
+          "model": "aakcyj",
+          "needs_lookat": false,
+          "place": "on:guest_table",
+          "room": "dining_room_0",
+          "scored": true,
+          "spot": [
+            0.62,
+            0.5
+          ]
+        },
+        "neighbor_water": {
+          "cat": "water_glass",
+          "model": "bbpraa",
+          "needs_lookat": false,
+          "place": "on:neighbor_table",
+          "room": "dining_room_0",
+          "scored": true,
+          "spot": [
+            0.62,
+            0.42
+          ]
+        },
+        "guest_fork": {
+          "cat": "tablefork",
+          "model": "flexrc",
+          "needs_lookat": false,
+          "place": "on:guest_table",
+          "room": "dining_room_0",
+          "scored": true,
+          "spot": [
+            -0.72,
+            0.05
+          ],
+          "scale": 0.8
+        },
+        "guest_knife": {
+          "cat": "table_knife",
+          "model": "jxdfyy",
+          "needs_lookat": false,
+          "place": "on:guest_table",
+          "room": "dining_room_0",
+          "scored": true,
+          "spot": [
+            0.72,
+            0.05
+          ],
+          "scale": 0.8
+        },
+        "neighbor_fork": {
+          "cat": "tablefork",
+          "model": "flexrc",
+          "needs_lookat": false,
+          "place": "on:neighbor_table",
+          "room": "dining_room_0",
+          "scored": true,
+          "spot": [
+            -0.72,
+            0.05
+          ],
+          "scale": 0.8
+        },
+        "neighbor_knife": {
+          "cat": "table_knife",
+          "model": "jxdfyy",
+          "needs_lookat": false,
+          "place": "on:neighbor_table",
+          "room": "dining_room_0",
+          "scored": true,
+          "spot": [
+            0.72,
+            0.05
+          ],
+          "scale": 0.8
+        },
+        "neighbor_pepper": {
+          "cat": "pepper_shaker",
+          "model": "stbqbt",
+          "needs_lookat": false,
+          "place": "on:neighbor_table",
+          "room": "dining_room_0",
+          "scored": true,
+          "spot": [
+            0.55,
+            -0.55
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "dining_room_0"
+      ],
+      "scene": "restaurant_hotel",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "A blind restaurant worker compares a remembered guest-table arrangement with two adjacent, fully set dining tables. The glasses must find one moved blue bowl among realistic place-setting clutter, identify a newly added coffee cup, preserve the unchanged wineglass, and restore only the bowl.",
+    "assistant_goal": "Before I stepped away, the blue bowl was in the one open place on this guest table, there was no coffee cup in this setting, and the wineglass was already in this setting. What changed among all these place settings, and can you restore the moved item?",
+    "assessment_contract": {
+      "assigned_capability_id": "NARRATE.CHANGE_DESCRIPTION",
+      "assigned_scene": "restaurant_hotel",
+      "core_question": "Before I stepped away, the blue bowl was in the one open place on this guest table, there was no coffee cup in this setting, and the wineglass was already in this setting. What changed among all these place settings, and can you restore the moved item?",
+      "counterfactual_failure": "The weak branch acts on a mistaken identity, stale layout, unsafe route, or incomplete count and fails at least one scored predicate.",
+      "forbidden_changes": [
+        "Adding toy labels to ordinary furniture",
+        "Putting decisive visual evidence into the wearer's utterance",
+        "Moving an assistant turn after the action it is meant to correct"
+      ],
+      "knowledge_constraints": [
+        "A blind restaurant worker compares a remembered guest-table arrangement with two adjacent, fully set dining tables. The glasses must find one moved blue bowl among realistic place-setting clutter, identify a newly added coffee cup, preserve the unchanged wineglass, and restore only the bowl."
+      ],
+      "required_evidence": [
+        "Before I stepped away, the blue bowl was in the one open place on this guest table, there was no coffee cup in this setting, and the wineglass was already in this setting. What changed among all these place settings, and can you restore the moved item?",
+        "The set guest table visibly has one bowl-sized gap and a new coffee cup among the remembered wineglass and cutlery.",
+        "The blue bowl is visibly mixed into the neighboring table's water-glass, cutlery, and pepper-shaker setting.",
+        "The blue bowl is visibly restored to the guest table's one open place.",
+        "The blue bowl moved to the neighboring guest table, and a coffee cup was added to this table's setting. The wineglass did not move. Bring only the blue bowl back to the one open place in the original setting."
+      ],
+      "required_final_predicates": [
+        "on",
+        "unmoved",
+        "unmoved",
+        "unmoved",
+        "unmoved",
+        "unmoved",
+        "unmoved",
+        "unmoved",
+        "unmoved"
+      ],
+      "success_condition": "on(moved_bowl, guest_table); unmoved(new_coffee); unmoved(unchanged_glass); unmoved(neighbor_water); unmoved(guest_fork); unmoved(guest_knife); unmoved(neighbor_fork); unmoved(neighbor_knife); unmoved(neighbor_pepper)",
+      "temporal_constraints": [
+        "Each intervention follows its evidence and precedes the corresponding action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "NARRATE-13015",
+      "family": "NARRATE",
+      "kind": "grounded egocentric narration",
+      "assessment_contract": {
+        "assigned_capability_id": "NARRATE.CHANGE_DESCRIPTION",
+        "assigned_scene": "restaurant_hotel",
+        "core_question": "Before I stepped away, the blue bowl was in the one open place on this guest table, there was no coffee cup in this setting, and the wineglass was already in this setting. What changed among all these place settings, and can you restore the moved item?",
+        "counterfactual_failure": "The weak branch acts on a mistaken identity, stale layout, unsafe route, or incomplete count and fails at least one scored predicate.",
+        "forbidden_changes": [
+          "Adding toy labels to ordinary furniture",
+          "Putting decisive visual evidence into the wearer's utterance",
+          "Moving an assistant turn after the action it is meant to correct"
+        ],
+        "knowledge_constraints": [
+          "A blind restaurant worker compares a remembered guest-table arrangement with two adjacent, fully set dining tables. The glasses must find one moved blue bowl among realistic place-setting clutter, identify a newly added coffee cup, preserve the unchanged wineglass, and restore only the bowl."
+        ],
+        "required_evidence": [
+          "Before I stepped away, the blue bowl was in the one open place on this guest table, there was no coffee cup in this setting, and the wineglass was already in this setting. What changed among all these place settings, and can you restore the moved item?",
+          "The set guest table visibly has one bowl-sized gap and a new coffee cup among the remembered wineglass and cutlery.",
+          "The blue bowl is visibly mixed into the neighboring table's water-glass, cutlery, and pepper-shaker setting.",
+          "The blue bowl is visibly restored to the guest table's one open place.",
+          "The blue bowl moved to the neighboring guest table, and a coffee cup was added to this table's setting. The wineglass did not move. Bring only the blue bowl back to the one open place in the original setting."
+        ],
+        "required_final_predicates": [
+          "on",
+          "unmoved",
+          "unmoved",
+          "unmoved",
+          "unmoved",
+          "unmoved",
+          "unmoved",
+          "unmoved",
+          "unmoved"
+        ],
+        "success_condition": "on(moved_bowl, guest_table); unmoved(new_coffee); unmoved(unchanged_glass); unmoved(neighbor_water); unmoved(guest_fork); unmoved(guest_knife); unmoved(neighbor_fork); unmoved(neighbor_knife); unmoved(neighbor_pepper)",
+        "temporal_constraints": [
+          "Each intervention follows its evidence and precedes the corresponding action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "asparagus",
+          "bap",
+          "batting_gloves",
+          "beaker",
+          "bird_feeder",
+          "bottle_of_caulk",
+          "bottle_of_cranberry_juice",
+          "bottle_of_fruit_punch",
+          "bottle_of_water",
+          "bowl",
+          "box_of_cereal",
+          "box_of_tissues",
+          "box_of_yogurt",
+          "can_of_cat_food",
+          "cell_phone",
+          "chicken",
+          "clipboard",
+          "coffee_cup",
+          "dental_floss",
+          "granulated_sugar_jar",
+          "half_agave",
+          "half_buttermilk_pancake",
+          "half_cinnamon_roll",
+          "half_fried_chicken",
+          "half_meat_loaf",
+          "half_peach",
+          "hand_towel",
+          "hardback",
+          "juicer",
+          "mint",
+          "mixing_bowl",
+          "mug",
+          "notepad",
+          "paper_sheet",
+          "pastry",
+          "pepper_shaker",
+          "petri_dish",
+          "pipe",
+          "pomelo",
+          "pottable_marigold",
+          "rolled_yoga_mat",
+          "saddle_soap_bottle",
+          "seashell",
+          "soda_cup",
+          "sponge",
+          "squeegee",
+          "table_knife",
+          "tablefork",
+          "waffle_maker",
+          "walker",
+          "water_glass",
+          "whiskey_bottle",
+          "wineglass"
+        ],
+        "allowed_surface_categories": [
+          "commercial_kitchen_table",
+          "desk",
+          "flat_top_grill",
+          "metal_bottom_cabinet",
+          "pedestal_table"
+        ],
+        "capability_id": "NARRATE.CHANGE_DESCRIPTION",
+        "coverage_categories": [
+          "bap",
+          "can_of_cat_food",
+          "half_cinnamon_roll",
+          "mixing_bowl",
+          "half_agave",
+          "petri_dish",
+          "whiskey_bottle",
+          "bird_feeder",
+          "beaker",
+          "bottle_of_caulk",
+          "half_buttermilk_pancake",
+          "dental_floss",
+          "chicken",
+          "hardback",
+          "pomelo",
+          "coffee_cup",
+          "bottle_of_cranberry_juice",
+          "squeegee",
+          "rolled_yoga_mat",
+          "walker"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 2,
+          "required_semantic_turns": 2,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "NARRATE",
+        "limits": {
+          "max_authored_actions": 14,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 9,
+          "max_objects_per_container": 9,
+          "max_objects_per_surface": 9,
+          "max_prologue_actions": 5,
+          "max_small_label_characters": 40,
+          "max_task_actions": 5,
+          "max_meaningful_steps": 9,
+          "min_intervening_meaningful_actions": 5
+        },
+        "preferred_story_categories": [
+          "bap",
+          "can_of_cat_food",
+          "half_cinnamon_roll",
+          "mixing_bowl",
+          "half_agave",
+          "petri_dish",
+          "whiskey_bottle",
+          "bird_feeder"
+        ],
+        "preferred_story_category_glosses": {
+          "bap": "",
+          "bird_feeder": "",
+          "can_of_cat_food": "",
+          "half_agave": "",
+          "half_cinnamon_roll": "",
+          "mixing_bowl": "",
+          "petri_dish": "",
+          "whiskey_bottle": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 59.2,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "fridge": 3,
+              "metal_bottom_cabinet": 5,
+              "oven": 1
+            },
+            "scene_surfaces": {
+              "commercial_kitchen_table": 7,
+              "flat_top_grill": 4,
+              "metal_bottom_cabinet": 9
+            },
+            "surface_max_area_m2": {
+              "commercial_kitchen_table": 0.2,
+              "flat_top_grill": 0.265,
+              "metal_bottom_cabinet": 0.253
+            },
+            "surface_reference_capacity": {
+              "commercial_kitchen_table": 3,
+              "flat_top_grill": 3,
+              "metal_bottom_cabinet": 3
+            }
+          }
+        ],
+        "scene": "restaurant_hotel",
+        "task_id": "NARRATE-13015",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bowl",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": "blue",
+            "what": "blue bowl that used to be on the guest table"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "coffee_cup",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "new coffee cup in the guest-table setting"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "wineglass",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "wineglass that stayed in the original place setting"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "water_glass",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "water glass on the neighboring table"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "tablefork",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "fork at the guest place setting"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "table_knife",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "table knife at the guest place setting"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "tablefork",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "fork at the neighboring place setting"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "table_knife",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "table knife at the neighboring place setting"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "pepper_shaker",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "pepper shaker on the neighboring table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "pedestal_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "set guest table in the restaurant dining room"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "pedestal_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "neighboring set guest table"
+          }
+        ],
+        "distinct_by": [
+          "the blue bowl, coffee cup, and wineglass remain distinguishable amid two realistic restaurant place settings"
+        ],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [],
+        "restaged_story": "A blind restaurant worker compares a remembered guest-table arrangement with two adjacent, fully set dining tables. The glasses must find one moved blue bowl among realistic place-setting clutter, identify a newly added coffee cup, preserve the unchanged wineglass, and restore only the bowl.",
+        "scene": "restaurant_hotel",
+        "why_scene": "restaurant_hotel supplies the rooms and fixtures used by this grounded NARRATE story."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {},
+        "items": {
+          "moved_bowl": {
+            "affordances": [],
+            "cat": "bowl",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:neighbor_table",
+            "scored": true,
+            "spot": [
+              -0.42,
+              0.45
+            ],
+            "tint": "blue"
+          },
+          "new_coffee": {
+            "affordances": [],
+            "cat": "coffee_cup",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:guest_table",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.0
+            ],
+            "tint": null
+          },
+          "unchanged_glass": {
+            "affordances": [],
+            "cat": "wineglass",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:guest_table",
+            "scored": true,
+            "spot": [
+              0.62,
+              0.5
+            ],
+            "tint": null
+          },
+          "neighbor_water": {
+            "affordances": [],
+            "cat": "water_glass",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:neighbor_table",
+            "scored": true,
+            "spot": [
+              0.62,
+              0.42
+            ],
+            "tint": null
+          },
+          "guest_fork": {
+            "affordances": [],
+            "cat": "tablefork",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:guest_table",
+            "scored": true,
+            "spot": [
+              -0.72,
+              0.05
+            ],
+            "tint": null
+          },
+          "guest_knife": {
+            "affordances": [],
+            "cat": "table_knife",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:guest_table",
+            "scored": true,
+            "spot": [
+              0.72,
+              0.05
+            ],
+            "tint": null
+          },
+          "neighbor_fork": {
+            "affordances": [],
+            "cat": "tablefork",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:neighbor_table",
+            "scored": true,
+            "spot": [
+              -0.72,
+              0.05
+            ],
+            "tint": null
+          },
+          "neighbor_knife": {
+            "affordances": [],
+            "cat": "table_knife",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:neighbor_table",
+            "scored": true,
+            "spot": [
+              0.72,
+              0.05
+            ],
+            "tint": null
+          },
+          "neighbor_pepper": {
+            "affordances": [],
+            "cat": "pepper_shaker",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:neighbor_table",
+            "scored": true,
+            "spot": [
+              0.55,
+              -0.55
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <guest_table> (1)",
+          "[LookScan]",
+          "[Walk] <neighbor_table> (1)",
+          "[LookAt] <moved_bowl> (1)",
+          "[LookScan]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "dining_room_0"
+        ],
+        "scene": "restaurant_hotel",
+        "staging": {
+          "groups": "A blind restaurant worker compares a remembered guest-table arrangement with two adjacent, fully set dining tables. The glasses must find one moved blue bowl among realistic place-setting clutter, identify a newly added coffee cup, preserve the unchanged wineglass, and restore only the bowl.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "guest_table": {
+            "cat": "pedestal_table",
+            "label": null,
+            "room": "dining_room_0"
+          },
+          "neighbor_table": {
+            "cat": "pedestal_table",
+            "label": null,
+            "room": "dining_room_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "Before I stepped away, the blue bowl was in the one open place on this guest table, there was no coffee cup in this setting, and the wineglass was already in this setting. What changed among all these place settings, and can you restore the moved item?"
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "Before I stepped away, the blue bowl was in the one open place on this guest table, there was no coffee cup in this setting, and the wineglass was already in this setting. What changed among all these place settings, and can you restore the moved item?",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The set guest table visibly has one bowl-sized gap and a new coffee cup among the remembered wineglass and cutlery.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The blue bowl is visibly mixed into the neighboring table's water-glass, cutlery, and pepper-shaker setting.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 3,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The blue bowl is visibly restored to the guest table's one open place.",
+            "from": "live",
+            "id": "fact_004",
+            "source_index": 2,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "fact": "The blue bowl moved to the neighboring guest table, and a coffee cup was added to this table's setting. The wineglass did not move. Bring only the blue bowl back to the one open place in the original setting.",
+            "from": "derived",
+            "id": "fact_005",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "moved_bowl",
+            "target": "guest_table"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "new_coffee",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "unchanged_glass",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "neighbor_water",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "guest_fork",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "guest_knife",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "neighbor_fork",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "neighbor_knife",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "neighbor_pepper",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "Two things changed. The blue bowl is on the neighbor table, and a coffee cup appeared in the original guest-table setting. The wineglass and the rest stayed put. Pick up the blue bowl from the neighbor table, then walk back to the original guest table while holding it.",
+            "referents": [
+              "moved_bowl",
+              "new_coffee",
+              "unchanged_glass",
+              "guest_table",
+              "neighbor_table"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 2,
+            "say": "Place the blue bowl in the open spot on the original guest table. Then look directly at that table to confirm the bowl is resting there.",
+            "referents": [
+              "moved_bowl",
+              "guest_table"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          }
+        ],
+        "hidden_fact": {
+          "what": "The blue bowl moved to the neighboring guest table, and a coffee cup was added to this table's setting. The wineglass did not move. Bring only the blue bowl back to the one open place in the original setting.",
+          "revealed_by": "[LookAt] <moved_bowl> (1)",
+          "unavailable_because": "The answer depends on visual layout, prior observed state, or a document that the wearer cannot recover from the utterance alone."
+        },
+        "human_own_script": "[Grab] <new_coffee> (1), [PutOn] <new_coffee> (1) <neighbor_table> (1), [LookAt] <neighbor_table> (1), [Walk] <guest_table> (1), [LookScan]",
+        "mates": [],
+        "oracle_program": "[Grab] <moved_bowl> (1), [Walk] <guest_table> (1), [PutOn] <moved_bowl> (1) <guest_table> (1) @place_spot=-0.62:0.45, [LookAt] <guest_table> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "A blind restaurant worker compares a remembered guest-table arrangement with two adjacent, fully set dining tables. The glasses must find one moved blue bowl among realistic place-setting clutter, identify a newly added coffee cup, preserve the unchanged wineglass, and restore only the bowl.",
+        "utterance": "Before I stepped away, the blue bowl was in the one open place on this guest table, there was no coffee cup in this setting, and the wineglass was already in this setting. What changed among all these place settings, and can you restore the moved item?"
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <guest_table> (1)",
+        "[LookScan]",
+        "[Walk] <neighbor_table> (1)",
+        "[LookAt] <moved_bowl> (1)",
+        "[LookScan]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "guest_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "guest_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookScan",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The set guest table visibly has one bowl-sized gap and a new coffee cup among the remembered wineglass and cutlery.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The blue bowl moved to the neighboring guest table, and a coffee cup was added to this table's setting. The wineglass did not move. Bring only the blue bowl back to the one open place in the original setting.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "neighbor_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "neighbor_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "moved_bowl"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The blue bowl is visibly mixed into the neighboring table's water-glass, cutlery, and pepper-shaker setting.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The blue bowl moved to the neighboring guest table, and a coffee cup was added to this table's setting. The wineglass did not move. Bring only the blue bowl back to the one open place in the original setting.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookScan",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "Before I stepped away, the blue bowl was in the one open place on this guest table, there was no coffee cup in this setting, and the wineglass was already in this setting. What changed among all these place settings, and can you restore the moved item?",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "Before I stepped away, the blue bowl was in the one open place on this guest table, there was no coffee cup in this setting, and the wineglass was already in this setting. What changed among all these place settings, and can you restore the moved item?",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The blue bowl moved to the neighboring guest table, and a coffee cup was added to this table's setting. The wineglass did not move. Bring only the blue bowl back to the one open place in the original setting.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Two things changed. The blue bowl is on the neighbor table, and a coffee cup appeared in the original guest-table setting. The wineglass and the rest stayed put. Pick up the blue bowl from the neighbor table, then walk back to the original guest table while holding it.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Place the blue bowl in the open spot on the original guest table. Then look directly at that table to confirm the bowl is resting there.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "new_coffee"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "new_coffee"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "new_coffee",
+            "neighbor_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "neighbor_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "guest_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "guest_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookScan",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "moved_bowl"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "moved_bowl"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "guest_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "guest_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "moved_bowl",
+            "guest_table"
+          ],
+          "place_spot": [
+            -0.62,
+            0.45
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The blue bowl is visibly restored to the guest table's one open place.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The blue bowl moved to the neighboring guest table, and a coffee cup was added to this table's setting. The wineglass did not move. Bring only the blue bowl back to the one open place in the original setting.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "guest_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "Before I stepped away, the blue bowl was in the one open place on this guest table, there was no coffee cup in this setting, and the wineglass was already in this setting. What changed among all these place settings, and can you restore the moved item?",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The set guest table visibly has one bowl-sized gap and a new coffee cup among the remembered wineglass and cutlery.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "The blue bowl is visibly mixed into the neighboring table's water-glass, cutlery, and pepper-shaker setting.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p003"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 3
+      },
+      {
+        "id": "fact_004",
+        "statement": "The blue bowl is visibly restored to the guest table's one open place.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o002"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 2
+      },
+      {
+        "id": "fact_005",
+        "statement": "The blue bowl moved to the neighboring guest table, and a coffee cup was added to this table's setting. The wineglass did not move. Bring only the blue bowl back to the one open place in the original setting.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "p003",
+          "o002"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the visual history and live views to answer the wearer's request and guide one grounded action at a time.",
+      "human_task_context": "You are the blind wearer and only the Assistant's physical executor, not a second planner. You receive no camera images. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the first currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. Perform at most one physical action per response, then wait for the next Assistant turn. Any machine-readable action choices supplied to you are private implementation details: never mention or ask about them in speech, and never use them to invent an answer, object location, route, source, destination, or next step that the Assistant did not state. Speak only as a real blind person would: describe what you physically did or felt, report a concrete failure, or ask briefly for an ordinary direction or visible description. Never volunteer a place or object that the Assistant has not mentioned in its current instruction, except for the object you are already holding or the request you stated in the fixed opening. You may act on a movable object only when you are already holding it, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source or landmark and a visible description sufficient to identify it. If that information is missing or wrong, leave the action empty and ask where the object is relative to you. Do not travel to or operate an unseen object merely because the private controls make it possible. Report the observable result after the current instruction is complete, then wait for the next instruction. You cannot see score or completion state and must never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <guest_table> (1)",
+          "[LookScan]",
+          "[Walk] <neighbor_table> (1)",
+          "[LookAt] <moved_bowl> (1)",
+          "[LookScan]",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 5,
+            "say": "Hi Assistant, I'm blind, so I may need some visual help. Before I stepped away, the blue bowl was in the open spot on this table, and the wineglass was already part of the setting. What changed while I was gone? If something was moved, please help me put it back."
+          }
+        ],
+        "handoff_say": "Hi Assistant, I'm blind, so I may need some visual help. Before I stepped away, the blue bowl was in the open spot on this table, and the wineglass was already part of the setting. What changed while I was gone? If something was moved, please help me put it back.",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "table_change_request",
+            "required_phrases": [
+              "I'm blind",
+              "blue bowl was in the open spot",
+              "wineglass was already part",
+              "What changed"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[Grab] <moved_bowl> (1)",
+          "[Walk] <guest_table> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[Grab] <new_coffee> (1)",
+          "[Grab] <unchanged_glass> (1)",
+          "[Grab] <neighbor_water> (1)",
+          "[Grab] <guest_fork> (1)",
+          "[Grab] <guest_knife> (1)",
+          "[Grab] <neighbor_fork> (1)",
+          "[Grab] <neighbor_knife> (1)",
+          "[Grab] <neighbor_pepper> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[Grab] <moved_bowl> (1)",
+            "[Walk] <guest_table> (1)"
+          ]
+        ],
+        "verification_points": [
+          {
+            "id": "bowl_returned_to_guest_table",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "moved_bowl",
+            "target": "guest_table"
+          },
+          {
+            "id": "new_coffee_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "new_coffee",
+            "target": "new_coffee"
+          },
+          {
+            "id": "wineglass_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "unchanged_glass",
+            "target": "unchanged_glass"
+          },
+          {
+            "id": "neighbor_water_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "neighbor_water",
+            "target": "neighbor_water"
+          },
+          {
+            "id": "guest_fork_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "guest_fork",
+            "target": "guest_fork"
+          },
+          {
+            "id": "guest_knife_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "guest_knife",
+            "target": "guest_knife"
+          },
+          {
+            "id": "neighbor_fork_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "neighbor_fork",
+            "target": "neighbor_fork"
+          },
+          {
+            "id": "neighbor_knife_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "neighbor_knife",
+            "target": "neighbor_knife"
+          },
+          {
+            "id": "neighbor_pepper_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "neighbor_pepper",
+            "target": "neighbor_pepper"
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 22,
+    "dialogue_budget": 2,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "moved_bowl",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "moved_bowl",
+              "new_coffee",
+              "unchanged_glass",
+              "guest_table",
+              "neighbor_table"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "moved_bowl",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "moved_bowl",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "moved_bowl",
+              "guest_table"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "moved_bowl",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o003"
+        }
+      ],
+      "terminal_beats": [
+        "h004",
+        "o003"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "moved_bowl"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "guest_table"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "moved_bowl",
+          "guest_table"
+        ],
+        "place_spot": [
+          -0.62,
+          0.45
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "guest_table"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "new_coffee"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "new_coffee",
+          "neighbor_table"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "neighbor_table"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "guest_table"
+        ]
+      },
+      {
+        "verb": "LookScan",
+        "args": []
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Two things changed. The blue bowl is on the neighbor table, and a coffee cup appeared in the original guest-table setting. The wineglass and the rest stayed put. Pick up the blue bowl from the neighbor table, then walk back to the original guest table while holding it.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "Place the blue bowl in the open spot on the original guest table. Then look directly at that table to confirm the bowl is resting there.",
+        "relation": "before",
+        "anchor_beat_id": "o002",
+        "source": "guidance",
+        "source_index": 1
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "release": "InteractiveWorld-Balanced120",
+    "task_id": "NARRATE-13015"
+  }
+}

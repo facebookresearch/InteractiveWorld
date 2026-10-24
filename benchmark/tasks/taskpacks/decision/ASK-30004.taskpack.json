@@ -1,0 +1,1686 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "ASK-30004",
+  "executable_spec": {
+    "spec_version": "bts/1.0",
+    "task_id": "ASK-30004",
+    "variant": null,
+    "meta": {
+      "family": "ASK",
+      "template": "a detached family house",
+      "scene": "office_bike",
+      "wave": 1,
+      "difficulty": "hard",
+      "rule_table": "inside(raw trout, refrigerator) and closed(refrigerator)",
+      "grounding": {
+        "kind": "authored",
+        "ref": "interactiveworld:ASK-30004",
+        "cite": "Was there anything on that worktable that needed to go in the fridge immediately?"
+      },
+      "design": {
+        "premise": "The wearer starts in a shared office with a pasta box, canned iced tea, and raw trout arranged together on one desk. They walk up and take one regional look over the whole desktop, then go to the break room, sit on the sofa, and pause there. While still seated and without rechecking the table, they ask whether anything seen earlier needs immediate refrigeration. The assistant identifies the raw trout; the wearer stands, returns to the shared office, puts only the trout into the imported refrigerator, and closes it.",
+        "cue": "Was there anything on that worktable that needed to go in the fridge immediately?",
+        "assistant_must": "inside(raw trout, refrigerator) and closed(refrigerator)",
+        "anti_shortcut": "[StandUp], [Walk] <surf_1> (1), [Grab] <item_2> (1), [Walk] <unit_a> (1), [Open] <unit_a> (1), [PutInside] <item_2> (1) <unit_a> (1), [Close] <unit_a> (1)"
+      },
+      "engine_deltas": []
+    },
+    "world": {
+      "scene": "office_bike",
+      "instance": 0,
+      "layout": "frozen",
+      "authoring_seed": 742206805,
+      "seed_scope": "model",
+      "rooms": [
+        "shared_office_0",
+        "break_room_0"
+      ],
+      "roles": {},
+      "fixtures": {
+        "surf_1": {
+          "bind": {
+            "source": "scene",
+            "cat": "desk"
+          },
+          "room": "shared_office_0",
+          "seatable": false,
+          "look_region": {
+            "kind": "surface"
+          }
+        },
+        "seat_lounge": {
+          "bind": {
+            "cat": "sofa",
+            "pick": {
+              "name": "sofa_kupqto_0",
+              "stage_prim_path": "/World/b_sofa_kupqto_0",
+              "asset_sha256": "sha256:608bb96630c39b1890dd2a6a81b44c82594019edf95d556d68523d3cfcc6f51d",
+              "instance_digest": "sha256:5eda770c4d95a99008277a63c8a788eefb5e752ccf82e861da15d717cfae10bd",
+              "by": "scene_instance",
+              "rank": 0
+            },
+            "source": "scene"
+          },
+          "room": "break_room_0",
+          "seatable": true
+        }
+      },
+      "containers": {
+        "unit_a": {
+          "room": "shared_office_0",
+          "role": "scored",
+          "bind": {
+            "source": "import",
+            "cat": "fridge",
+            "model": "dszchb"
+          },
+          "kind": "front_opening",
+          "door": {
+            "required": true,
+            "action_standoff_m": 0.8,
+            "content_standoff_m": 0.4,
+            "action_operator_lateral_offset_m": 0.95,
+            "content_operator_lateral_offset_m": 0.2,
+            "close_operator_lateral_offset_m": -1.05,
+            "action_lateral_limit_m": 1.05,
+            "sweep_standoff_m": 0.85
+          },
+          "alt_cats": [
+            "clothes_dryer",
+            "commercial_kitchen_sink",
+            "oven",
+            "metal_bottom_cabinet",
+            "bottom_cabinet_no_top"
+          ]
+        }
+      },
+      "objects": {
+        "item_1": {
+          "cat": "pasta_box",
+          "model": "jaypjo",
+          "place": "on:surf_1",
+          "room": "shared_office_0",
+          "scored": true,
+          "needs_lookat": false,
+          "spot": [
+            -0.5,
+            0.5
+          ]
+        },
+        "item_2": {
+          "cat": "can_of_icetea",
+          "model": "ifrjsc",
+          "place": "on:surf_1",
+          "room": "shared_office_0",
+          "scored": true,
+          "needs_lookat": false,
+          "spot": [
+            0.0,
+            0.5
+          ]
+        },
+        "part_1": {
+          "cat": "trout",
+          "model": "kqpeke",
+          "place": "on:surf_1",
+          "room": "shared_office_0",
+          "scored": true,
+          "needs_lookat": false,
+          "spot": [
+            0.5,
+            0.5
+          ]
+        }
+      },
+      "parts": {},
+      "labels": {},
+      "initial_attachments": [],
+      "object_groups": [],
+      "preload": {},
+      "permutations": [],
+      "start": {
+        "policy": "seeded_grid",
+        "forbid_rooms": [],
+        "forbid_near": [],
+        "resample_ladder": true
+      },
+      "initially_open_room_doors": true,
+      "decor": [],
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "decoys_constrained": true,
+        "permutation_within_model": true,
+        "key_is_derived": true
+      },
+      "auto_support_labels": false
+    },
+    "goal": {
+      "roster": {
+        "containers": [
+          "unit_a"
+        ],
+        "objects": [
+          "item_1",
+          "item_2",
+          "part_1"
+        ],
+        "nested_containers": []
+      },
+      "goals": [
+        {
+          "pred": "inside",
+          "subject": "part_1",
+          "target": "unit_a"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "item_1",
+          "target": "item_1"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "item_2",
+          "target": "item_2"
+        },
+        {
+          "pred": "closed",
+          "subject": "unit_a",
+          "target": "unit_a"
+        }
+      ],
+      "answer_key": [
+        {
+          "pred": "inside",
+          "subject": "part_1",
+          "target": "unit_a"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "item_1",
+          "target": "item_1"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "item_2",
+          "target": "item_2"
+        },
+        {
+          "pred": "closed",
+          "subject": "unit_a",
+          "target": "unit_a"
+        }
+      ],
+      "aggregate_goals": [],
+      "negatives": [],
+      "trace_outcomes": [],
+      "rule_table": null,
+      "arms": null
+    },
+    "program": {
+      "generator": "explicit",
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "surf_1"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "seat_lounge"
+          ]
+        },
+        {
+          "verb": "Sit",
+          "args": [
+            "seat_lounge"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "StandUp",
+          "args": []
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "part_1"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "unit_a"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "unit_a"
+          ]
+        },
+        {
+          "verb": "PutIn",
+          "args": [
+            "part_1",
+            "unit_a"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "unit_a"
+          ]
+        }
+      ],
+      "budget": {
+        "grammar_cmds": 12,
+        "grammar_source": "from_program",
+        "expanded_cmds": 12,
+        "expanded_source": "oracle_cmds",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      }
+    },
+    "report": {
+      "sub_goals": [
+        {
+          "id": 0,
+          "kind": "inside",
+          "subject": "part_1",
+          "target": "unit_a",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        },
+        {
+          "id": 1,
+          "kind": "unmoved",
+          "subject": "item_1",
+          "target": "item_1",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        },
+        {
+          "id": 2,
+          "kind": "unmoved",
+          "subject": "item_2",
+          "target": "item_2",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        },
+        {
+          "id": 3,
+          "kind": "closed",
+          "subject": "unit_a",
+          "target": "unit_a",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        }
+      ],
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "sub_steps": [
+        "inside part_1 unit_a",
+        "unmoved item_1 item_1",
+        "unmoved item_2 item_2",
+        "closed unit_a unit_a"
+      ],
+      "control": null,
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "human_frames_withheld": false,
+      "arms_reporting": null
+    },
+    "provenance": {
+      "source_task_id": "ASK-30004",
+      "human_program_raw": "[StandUp], [Walk] <surf_1> (1), [Grab] <part_1> (1), [Walk] <unit_a> (1), [Open] <unit_a> (1), [PutInside] <part_1> (1) <unit_a> (1), [Close] <unit_a> (1)",
+      "authored_by": "interactiveworld.compile_v2",
+      "compiled_from": "emit/2.6",
+      "seed": 742206805,
+      "arm": "ASK"
+    }
+  },
+  "story": {
+    "premise": "The wearer starts in a shared office with a pasta box, canned iced tea, and raw trout arranged together on one desk. They walk up and take one regional look over the whole desktop, then go to the break room, sit on the sofa, and pause there. While still seated and without rechecking the table, they ask whether anything seen earlier needs immediate refrigeration. The assistant identifies the raw trout; the wearer stands, returns to the shared office, puts only the trout into the imported refrigerator, and closes it.",
+    "assistant_goal": "Was there anything on that worktable that needed to go in the fridge immediately?",
+    "assessment_contract": {
+      "core_question": "Was there anything on that worktable that needed to go in the fridge immediately?",
+      "counterfactual_failure": "[StandUp], [Walk] <surf_1> (1), [Grab] <item_2> (1), [Walk] <unit_a> (1), [Open] <unit_a> (1), [PutInside] <item_2> (1) <unit_a> (1), [Close] <unit_a> (1)",
+      "forbidden_changes": [
+        "changing the items to ones with ambiguous storage requirements"
+      ],
+      "knowledge_constraints": [
+        "raw meat requires refrigeration",
+        "dry pasta and canned beverages are shelf-stable"
+      ],
+      "required_evidence": [
+        "The table has a pasta box.",
+        "The table has a can of iced tea.",
+        "The table has raw trout.",
+        "The wearer sits on a break-room sofa before asking.",
+        "The wearer waits briefly while seated in the break room before asking.",
+        "Pasta and canned iced tea are shelf-stable.",
+        "Raw trout requires immediate refrigeration."
+      ],
+      "required_final_predicates": [
+        "closed",
+        "inside",
+        "unmoved"
+      ],
+      "success_condition": "inside(raw trout, refrigerator) and closed(refrigerator)",
+      "temporal_constraints": [],
+      "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+      "assigned_scene": "office_bike"
+    },
+    "source_contract": {
+      "task_id": "ASK-30004",
+      "family": "ASK",
+      "kind": "a detached family house",
+      "assessment_contract": {
+        "core_question": "Was there anything on that worktable that needed to go in the fridge immediately?",
+        "counterfactual_failure": "[StandUp], [Walk] <surf_1> (1), [Grab] <item_2> (1), [Walk] <unit_a> (1), [Open] <unit_a> (1), [PutInside] <item_2> (1) <unit_a> (1), [Close] <unit_a> (1)",
+        "forbidden_changes": [
+          "changing the items to ones with ambiguous storage requirements"
+        ],
+        "knowledge_constraints": [
+          "raw meat requires refrigeration",
+          "dry pasta and canned beverages are shelf-stable"
+        ],
+        "required_evidence": [
+          "The table has a pasta box.",
+          "The table has a can of iced tea.",
+          "The table has raw trout.",
+          "The wearer sits on a break-room sofa before asking.",
+          "The wearer waits briefly while seated in the break room before asking.",
+          "Pasta and canned iced tea are shelf-stable.",
+          "Raw trout requires immediate refrigeration."
+        ],
+        "required_final_predicates": [
+          "closed",
+          "inside",
+          "unmoved"
+        ],
+        "success_condition": "inside(raw trout, refrigerator) and closed(refrigerator)",
+        "temporal_constraints": [],
+        "assigned_capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "assigned_scene": "office_bike"
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "fridge"
+        ],
+        "allowed_loose_categories": [
+          "can_of_icetea",
+          "pasta_box",
+          "trout"
+        ],
+        "allowed_surface_categories": [
+          "desk",
+          "sofa"
+        ],
+        "capability_id": "ASK.FUNCTIONAL_WORLD_KNOWLEDGE",
+        "coverage_categories": [
+          "half_cheesecake",
+          "half_fruitcake",
+          "bag_of_tea",
+          "pack_of_ramen",
+          "teaspoon",
+          "trout",
+          "bottle_of_disinfectant",
+          "pasta_box",
+          "can_of_icetea",
+          "glass_lantern",
+          "box_of_chocolates",
+          "soda_water_bottle",
+          "box_of_whiskey",
+          "teacup",
+          "half_quiche",
+          "jar_of_spaghetti_sauce",
+          "scraper",
+          "bicycle_chain",
+          "green_bean",
+          "lemon"
+        ],
+        "evaluation": {
+          "common_sense_allowed": true,
+          "document_carrier_required": false,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": true,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "ASK",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 32,
+          "max_fixed_destinations": 3,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 8,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "half_cheesecake",
+          "half_fruitcake",
+          "bag_of_tea",
+          "pack_of_ramen",
+          "teaspoon",
+          "trout",
+          "bottle_of_disinfectant",
+          "pasta_box"
+        ],
+        "preferred_story_category_glosses": {
+          "bag_of_tea": "",
+          "bottle_of_disinfectant": "",
+          "half_cheesecake": "",
+          "half_fruitcake": "",
+          "pack_of_ramen": "",
+          "pasta_box": "",
+          "teaspoon": "",
+          "trout": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 36.8,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "dishwasher": 1,
+              "fridge": 1,
+              "microwave": 1
+            },
+            "scene_surfaces": {
+              "bar": 2,
+              "breakfast_table": 1,
+              "burner": 1
+            },
+            "surface_max_area_m2": {
+              "bar": 0.379,
+              "breakfast_table": 0.347,
+              "burner": 0.102
+            },
+            "surface_reference_capacity": {
+              "bar": 3,
+              "breakfast_table": 3,
+              "burner": 3
+            }
+          }
+        ],
+        "scene": "office_bike",
+        "task_id": "ASK-30004",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "pasta_box",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_1 pasta_box"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "can_of_icetea",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_2 can_of_icetea"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "trout",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "part_1 trout"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "desk",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_1 desk"
+          },
+          {
+            "affordances": [
+              "surface",
+              "seatable"
+            ],
+            "category": "sofa",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "seat_lounge sofa"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "fridge",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "unit_a fridge"
+          }
+        ],
+        "distinct_by": [
+          "perishable versus shelf-stable food identity"
+        ],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [],
+        "restaged_story": "The wearer starts in a shared office with a pasta box, canned iced tea, and raw trout arranged together on one desk. They walk up and take one regional look over the whole desktop, then go to the break room, sit on the sofa, and pause there. While still seated and without rechecking the table, they ask whether anything seen earlier needs immediate refrigeration. The assistant identifies the raw trout; the wearer stands, returns to the shared office, puts only the trout into the imported refrigerator, and closes it.",
+        "scene": "office_bike",
+        "why_scene": "Provides office worktables, a separate break room, and room for an imported refrigerator."
+      },
+      "world": {
+        "rooms": [
+          "shared_office_0",
+          "break_room_0"
+        ],
+        "surfaces": {
+          "surf_1": {
+            "cat": "desk",
+            "label": null,
+            "room": "shared_office_0",
+            "look_region": {
+              "kind": "surface"
+            }
+          },
+          "seat_lounge": {
+            "cat": "sofa",
+            "label": null,
+            "room": "break_room_0",
+            "seatable": true
+          }
+        },
+        "containers": {
+          "unit_a": {
+            "cat": "fridge",
+            "label": null,
+            "model": "dszchb",
+            "preload": [],
+            "role": "target",
+            "room": "shared_office_0",
+            "door": {
+              "action_standoff_m": 0.8,
+              "content_standoff_m": 0.4,
+              "sweep_standoff_m": 0.85,
+              "action_operator_lateral_offset_m": 0.95,
+              "content_operator_lateral_offset_m": 0.2,
+              "close_operator_lateral_offset_m": -1.05,
+              "action_lateral_limit_m": 1.05
+            }
+          }
+        },
+        "items": {
+          "item_1": {
+            "affordances": [
+              "graspable"
+            ],
+            "cat": "pasta_box",
+            "label": null,
+            "model": "jaypjo",
+            "place": "on:surf_1",
+            "scored": true,
+            "spot": [
+              -0.5,
+              0.5
+            ],
+            "tint": null
+          },
+          "item_2": {
+            "affordances": [
+              "graspable"
+            ],
+            "cat": "can_of_icetea",
+            "label": null,
+            "model": "ifrjsc",
+            "place": "on:surf_1",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.5
+            ],
+            "tint": null
+          },
+          "part_1": {
+            "affordances": [
+              "graspable"
+            ],
+            "cat": "trout",
+            "label": null,
+            "model": "kqpeke",
+            "place": "on:surf_1",
+            "scored": true,
+            "spot": [
+              0.5,
+              0.5
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "boards": {},
+        "prologue": [
+          "[Walk] <surf_1> (1)",
+          "[LookAt] <surf_1> (1)",
+          "[Walk] <seat_lounge> (1)",
+          "[Sit] <seat_lounge> (1)",
+          "[Wait]"
+        ],
+        "staging": {
+          "groups": "Manual group-B repair defines explicit spatial groups in the prologue.",
+          "labels_at_t0": "Only intentionally printed object labels are used.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "prologue_gaps": [],
+        "scene": "office_bike",
+        "initially_open_room_doors": true,
+        "auto_support_labels": false
+      },
+      "task": {
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "utterance": "Was there anything on that worktable that needed to go in the fridge immediately?",
+        "oracle_program": "[StandUp], [Walk] <surf_1> (1), [Grab] <part_1> (1), [Walk] <unit_a> (1), [Open] <unit_a> (1), [PutInside] <part_1> (1) <unit_a> (1), [Close] <unit_a> (1)",
+        "human_own_script": "[StandUp], [Walk] <surf_1> (1), [Grab] <item_2> (1), [Walk] <unit_a> (1), [Open] <unit_a> (1), [PutInside] <item_2> (1) <unit_a> (1), [Close] <unit_a> (1)",
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "part_1",
+            "target": "unit_a"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "item_1",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "item_2",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "unit_a",
+            "target": null
+          }
+        ],
+        "simulator_events": [],
+        "fact_ledger": [
+          {
+            "fact": "The table has a pasta box.",
+            "from": "prologue",
+            "id": "fact_001",
+            "source_phase": "opening",
+            "source_index": 1
+          },
+          {
+            "fact": "The table has a can of iced tea.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_phase": "opening",
+            "source_index": 1
+          },
+          {
+            "fact": "The table has raw trout.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_phase": "opening",
+            "source_index": 1
+          },
+          {
+            "fact": "The wearer sits on a break-room sofa before asking.",
+            "from": "prologue",
+            "id": "fact_004",
+            "source_phase": "opening",
+            "source_index": 3
+          },
+          {
+            "fact": "The wearer waits briefly while seated in the break room before asking.",
+            "from": "prologue",
+            "id": "fact_005",
+            "source_phase": "opening",
+            "source_index": 4
+          },
+          {
+            "fact": "Pasta and canned iced tea are shelf-stable.",
+            "from": "common_sense",
+            "id": "fact_006",
+            "source_phase": "compiler_knowledge",
+            "source_index": null
+          },
+          {
+            "fact": "Raw trout requires immediate refrigeration.",
+            "from": "common_sense",
+            "id": "fact_007",
+            "source_phase": "compiler_knowledge",
+            "source_index": null
+          }
+        ],
+        "asks_at": {
+          "index": 0,
+          "question": "Was there anything on that worktable that needed to go in the fridge immediately?"
+        },
+        "speaks_at": [
+          {
+            "fact_ids": [
+              "fact_003",
+              "fact_007"
+            ],
+            "index": 0,
+            "referents": [
+              "part_1",
+              "unit_a"
+            ],
+            "say": "Yes. Put the raw trout in the fridge now; leave the pasta and iced tea on the table."
+          }
+        ],
+        "guidance": [],
+        "hidden_fact": null,
+        "steps": null,
+        "mates": [],
+        "story_check": "Manually repaired after review."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <surf_1> (1)",
+        "[LookAt] <surf_1> (1)",
+        "[Walk] <seat_lounge> (1)",
+        "[Sit] <seat_lounge> (1)",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "Pasta and canned iced tea are shelf-stable.",
+            "channel": "common_sense"
+          },
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "Raw trout requires immediate refrigeration.",
+            "channel": "common_sense"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "surf_1"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "The table has a pasta box.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The table has a can of iced tea.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The table has raw trout.",
+            "channel": "prologue"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "seat_lounge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "seat_lounge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Sit",
+          "args": [
+            "seat_lounge"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The wearer sits on a break-room sofa before asking.",
+            "channel": "prologue"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The wearer waits briefly while seated in the break room before asking.",
+            "channel": "prologue"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "Was there anything on that worktable that needed to go in the fridge immediately?",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Yes. Put the raw trout in the fridge now; leave the pasta and iced tea on the table.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "StandUp",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "unit_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "unit_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "unit_a"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutIn",
+          "args": [
+            "item_2",
+            "unit_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "item_2",
+            "target": "unit_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "unit_a"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "StandUp",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "part_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "part_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "unit_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "unit_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "unit_a"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutIn",
+          "args": [
+            "part_1",
+            "unit_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "part_1",
+            "target": "unit_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "unit_a"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "The table has a pasta box.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_002",
+        "statement": "The table has a can of iced tea.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "The table has raw trout.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_004",
+        "statement": "The wearer sits on a break-room sofa before asking.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p003"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 3
+      },
+      {
+        "id": "fact_005",
+        "statement": "The wearer waits briefly while seated in the break room before asking.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p004"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 4
+      },
+      {
+        "id": "fact_006",
+        "statement": "Pasta and canned iced tea are shelf-stable.",
+        "channel": "common_sense",
+        "source_beat_ids": [
+          "reset"
+        ],
+        "grounding": "compiler_knowledge",
+        "source_phase": "compiler_knowledge",
+        "source_index": null
+      },
+      {
+        "id": "fact_007",
+        "statement": "Raw trout requires immediate refrigeration.",
+        "channel": "common_sense",
+        "source_beat_ids": [
+          "reset"
+        ],
+        "grounding": "compiler_knowledge",
+        "source_phase": "compiler_knowledge",
+        "source_index": null
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Answer the person's delayed food-storage question from the preceding first-person view, then observe whether the selected item is refrigerated.",
+      "human_task_context": "Stay seated until the Assistant explicitly selects an item. Do not return for another look before that choice. Then refrigerate only the selected item, close the refrigerator, and leave the other items on the worktable.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <surf_1> (1)",
+          "[LookAt] <surf_1> (1)",
+          "[Walk] <seat_lounge> (1)",
+          "[Sit] <seat_lounge> (1)",
+          "[Wait]",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 5,
+            "say": "Hey, Assistant, was there anything on that worktable that needed to go straight into the fridge?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, was there anything on that worktable that needed to go straight into the fridge?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "delayed_refrigeration_question",
+            "required_phrases": [
+              "anything on that worktable",
+              "go straight into the fridge"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "forbidden_successful_commands": [
+          "[Grab] <item_1> (1)",
+          "[Grab] <item_2> (1)"
+        ],
+        "verification_points": [
+          {
+            "id": "selected_food_refrigerated",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "part_1",
+            "target": "unit_a"
+          },
+          {
+            "id": "pasta_stays_on_worktable",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "item_1",
+            "target": "surf_1"
+          },
+          {
+            "id": "iced_tea_stays_on_worktable",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "item_2",
+            "target": "surf_1"
+          },
+          {
+            "id": "pasta_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "item_1",
+            "target": "item_1"
+          },
+          {
+            "id": "iced_tea_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "item_2",
+            "target": "item_2"
+          },
+          {
+            "id": "fridge_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "unit_a"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "item_1": [
+          "pasta box on the left side of the shared office desk"
+        ],
+        "item_2": [
+          "iced tea can in the middle of the shared office desk"
+        ],
+        "part_1": [
+          "trout on the right side of the shared office desk",
+          "raw trout"
+        ],
+        "surf_1": [
+          "shared office desk holding pasta iced tea and trout",
+          "worktable"
+        ],
+        "unit_a": [
+          "shared office fridge"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 32,
+    "dialogue_budget": 1,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "seat_lounge",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005",
+        "h006"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "part_1",
+              "unit_a"
+            ],
+            "required_fact_ids": [
+              "fact_003",
+              "fact_007"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "part_1",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "surf_1",
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "part_1",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "unit_a",
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "part_1",
+            "target": "unit_a",
+            "truth": true
+          },
+          "next_beat": "o006"
+        }
+      ],
+      "terminal_beats": [
+        "h006",
+        "o006"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "StandUp",
+        "args": []
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_1"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "part_1"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "unit_a"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "unit_a"
+        ]
+      },
+      {
+        "verb": "PutIn",
+        "args": [
+          "part_1",
+          "unit_a"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "unit_a"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "StandUp",
+        "args": []
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_1"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "item_2"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "unit_a"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "unit_a"
+        ]
+      },
+      {
+        "verb": "PutIn",
+        "args": [
+          "item_2",
+          "unit_a"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "unit_a"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Yes. Put the raw trout in the fridge now; leave the pasta and iced tea on the table.",
+        "relation": "at",
+        "anchor_beat_id": "o000",
+        "source": "speaks_at",
+        "source_index": 0
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    }
+  },
+  "lineage": {
+    "release": "InteractiveWorld-Balanced120",
+    "task_id": "ASK-30004"
+  }
+}

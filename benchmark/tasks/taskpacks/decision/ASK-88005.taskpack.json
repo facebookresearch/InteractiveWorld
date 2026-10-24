@@ -1,0 +1,2017 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "ASK-88005",
+  "executable_spec": {
+    "spec_version": "bts/1.0",
+    "task_id": "ASK-88005",
+    "variant": null,
+    "meta": {
+      "family": "ASK",
+      "template": "a grocery shop or convenience store",
+      "scene": "grocery_store_convenience",
+      "wave": 1,
+      "difficulty": "hard",
+      "rule_table": "inside(carton_of_milk, public_trash_can) and inside(swiss_cheese, public_trash_can)",
+      "grounding": {
+        "kind": "authored",
+        "ref": "interactiveworld:ASK-88005",
+        "cite": "According to the disposition sheet I read earlier, which of these stock items should I throw away?"
+      },
+      "design": {
+        "premise": "During grocery opening, the wearer reads a formal returns disposition sheet: 'DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY'. They then walk to another stock surface and inspect an apple and a cereal box while checking the produce and dry-goods inventory. After that natural interruption, they move to the dairy stock counter and inspect a carton of milk and swiss cheese. At turn zero they ask which stock items should be thrown away under the earlier sheet. The assistant remembers the category rule, selects the milk and cheese as dairy, and tells the wearer to discard those two while leaving the produce and dry goods out.",
+        "cue": "According to the disposition sheet I read earlier, which of these stock items should I throw away?",
+        "assistant_must": "inside(carton_of_milk, public_trash_can) and inside(swiss_cheese, public_trash_can)",
+        "anti_shortcut": "[Walk] <item_4> (1), [Grab] <item_4> (1), [Walk] <unit_a> (1), [PutInside] <item_4> (1) <unit_a> (1), [Walk] <item_5> (1), [Grab] <item_5> (1), [Walk] <unit_a> (1), [PutInside] <item_5> (1) <unit_a> (1)"
+      },
+      "engine_deltas": []
+    },
+    "world": {
+      "scene": "grocery_store_convenience",
+      "instance": 0,
+      "layout": "frozen",
+      "authoring_seed": 1532654888,
+      "seed_scope": "model",
+      "rooms": [
+        "grocery_store_0"
+      ],
+      "roles": {},
+      "fixtures": {
+        "surf_1": {
+          "bind": {
+            "source": "scene",
+            "cat": "pedestal_table"
+          },
+          "room": "grocery_store_0",
+          "seatable": false
+        },
+        "surf_2": {
+          "bind": {
+            "source": "scene",
+            "cat": "checkout_counter"
+          },
+          "room": "grocery_store_0",
+          "seatable": false
+        },
+        "surf_3": {
+          "bind": {
+            "source": "scene",
+            "cat": "reception_desk"
+          },
+          "room": "grocery_store_0",
+          "seatable": false
+        }
+      },
+      "containers": {
+        "unit_a": {
+          "room": "grocery_store_0",
+          "role": "scored",
+          "bind": {
+            "source": "import",
+            "cat": "public_trash_can",
+            "model": "duugbb"
+          },
+          "kind": "open_bin",
+          "door": {
+            "required": false
+          },
+          "alt_cats": [
+            "trash_can",
+            "wardrobe",
+            "grocery_shelf",
+            "freezer",
+            "locker"
+          ]
+        }
+      },
+      "objects": {
+        "item_1": {
+          "cat": "clipboard",
+          "model": "gmxyfo",
+          "place": "on:surf_1",
+          "room": "grocery_store_0",
+          "scored": false,
+          "needs_lookat": true,
+          "decal": "RETURNS DISPOSITION | DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY",
+          "spot": [
+            0.0,
+            0.5
+          ]
+        },
+        "item_2": {
+          "cat": "carton_of_milk",
+          "model": "atyqub",
+          "place": "on:surf_2",
+          "room": "grocery_store_0",
+          "scored": true,
+          "needs_lookat": false,
+          "spot": [
+            -0.55,
+            0.55
+          ]
+        },
+        "item_3": {
+          "cat": "swiss_cheese",
+          "model": "hwxeto",
+          "place": "on:surf_2",
+          "room": "grocery_store_0",
+          "scored": true,
+          "needs_lookat": false,
+          "spot": [
+            -0.18,
+            0.55
+          ]
+        },
+        "item_4": {
+          "cat": "apple",
+          "model": "agveuv",
+          "place": "on:surf_3",
+          "room": "grocery_store_0",
+          "scored": false,
+          "needs_lookat": true,
+          "tint": "red",
+          "spot": [
+            -0.25,
+            0.55
+          ]
+        },
+        "item_5": {
+          "cat": "box_of_cereal",
+          "model": "dkhgxn",
+          "place": "on:surf_3",
+          "room": "grocery_store_0",
+          "scored": false,
+          "needs_lookat": false,
+          "spot": [
+            0.25,
+            0.55
+          ]
+        }
+      },
+      "parts": {},
+      "labels": {
+        "label_item_1": {
+          "png": "ask_88005_returns_disposition",
+          "kind": "short_string",
+          "content": {
+            "text": "RETURNS DISPOSITION | DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY",
+            "args": {
+              "renderer": "document_scan",
+              "source": "ask17/ask_88005_returns_disposition.png",
+              "primary_glyph_height_ratio": 0.026,
+              "primary_line_count": 4,
+              "primary_text_bbox_norm_xyxy": [
+                0.06,
+                0.12,
+                0.94,
+                0.9
+              ]
+            }
+          },
+          "per_seed": false,
+          "mount": {
+            "surface": "item_decal",
+            "on": "item_1",
+            "face": "top"
+          }
+        }
+      },
+      "initial_attachments": [],
+      "object_groups": [],
+      "preload": {},
+      "permutations": [],
+      "start": {
+        "policy": "seeded_grid",
+        "forbid_rooms": [],
+        "forbid_near": [],
+        "resample_ladder": true
+      },
+      "decor": [],
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "decoys_constrained": true,
+        "permutation_within_model": true,
+        "key_is_derived": true
+      },
+      "auto_support_labels": false
+    },
+    "goal": {
+      "roster": {
+        "containers": [
+          "unit_a"
+        ],
+        "objects": [
+          "item_1",
+          "item_2",
+          "item_3",
+          "item_4",
+          "item_5"
+        ],
+        "nested_containers": []
+      },
+      "goals": [
+        {
+          "pred": "inside",
+          "subject": "item_2",
+          "target": "unit_a"
+        },
+        {
+          "pred": "inside",
+          "subject": "item_3",
+          "target": "unit_a"
+        }
+      ],
+      "answer_key": [
+        {
+          "pred": "inside",
+          "subject": "item_2",
+          "target": "unit_a"
+        },
+        {
+          "pred": "inside",
+          "subject": "item_3",
+          "target": "unit_a"
+        }
+      ],
+      "aggregate_goals": [],
+      "negatives": [],
+      "trace_outcomes": [],
+      "rule_table": null,
+      "arms": null
+    },
+    "program": {
+      "generator": "explicit",
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "item_1"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_1"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_3"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_4"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_5"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_2"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_3"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_2"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "unit_a"
+          ]
+        },
+        {
+          "verb": "PutIn",
+          "args": [
+            "item_2",
+            "unit_a"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "item_3"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_3"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "unit_a"
+          ]
+        },
+        {
+          "verb": "PutIn",
+          "args": [
+            "item_3",
+            "unit_a"
+          ]
+        }
+      ],
+      "budget": {
+        "grammar_cmds": 15,
+        "grammar_source": "from_program",
+        "expanded_cmds": 15,
+        "expanded_source": "oracle_cmds",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      }
+    },
+    "report": {
+      "sub_goals": [
+        {
+          "id": 0,
+          "kind": "inside",
+          "subject": "item_2",
+          "target": "unit_a",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        },
+        {
+          "id": 1,
+          "kind": "inside",
+          "subject": "item_3",
+          "target": "unit_a",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        }
+      ],
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "sub_steps": [
+        "inside item_2 unit_a",
+        "inside item_3 unit_a"
+      ],
+      "control": null,
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "human_frames_withheld": false,
+      "arms_reporting": null
+    },
+    "provenance": {
+      "source_task_id": "ASK-88005",
+      "human_program_raw": "[Grab] <item_2> (1), [Walk] <unit_a> (1), [PutInside] <item_2> (1) <unit_a> (1), [Walk] <item_3> (1), [Grab] <item_3> (1), [Walk] <unit_a> (1), [PutInside] <item_3> (1) <unit_a> (1)",
+      "authored_by": "interactiveworld.compile_v2",
+      "compiled_from": "emit/2.6",
+      "seed": 1532654888,
+      "arm": "ASK"
+    }
+  },
+  "story": {
+    "premise": "During grocery opening, the wearer reads a formal returns disposition sheet: 'DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY'. They then walk to another stock surface and inspect an apple and a cereal box while checking the produce and dry-goods inventory. After that natural interruption, they move to the dairy stock counter and inspect a carton of milk and swiss cheese. At turn zero they ask which stock items should be thrown away under the earlier sheet. The assistant remembers the category rule, selects the milk and cheese as dairy, and tells the wearer to discard those two while leaving the produce and dry goods out.",
+    "assistant_goal": "According to the disposition sheet I read earlier, which of these stock items should I throw away?",
+    "assessment_contract": {
+      "assigned_capability_id": "ASK.TEXT_FIELD_EXTRACTION",
+      "assigned_scene": "grocery_store_convenience",
+      "core_question": "According to the disposition sheet I read earlier, which of these stock items should I throw away?",
+      "counterfactual_failure": "[Walk] <item_4> (1), [Grab] <item_4> (1), [Walk] <unit_a> (1), [PutInside] <item_4> (1) <unit_a> (1), [Walk] <item_5> (1), [Grab] <item_5> (1), [Walk] <unit_a> (1), [PutInside] <item_5> (1) <unit_a> (1)",
+      "forbidden_changes": [
+        "Changing the disposition rule text",
+        "Removing the produce and dry-goods distractors"
+      ],
+      "knowledge_constraints": [
+        "The assistant must remember the read disposition rule after the non-dairy stock-inspection gap.",
+        "The assistant must classify visible stock items by category, not by position."
+      ],
+      "required_evidence": [
+        "The returns disposition sheet says 'DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY'.",
+        "The wearer checks an apple in the produce stock after reading the sheet.",
+        "The wearer checks a cereal box in the dry-goods stock.",
+        "The next stock counter includes a carton of milk.",
+        "The next stock counter includes swiss cheese.",
+        "The produce and dry-goods inspection separates the earlier rule from the dairy stock decision.",
+        "The wearer asks which stock items should be discarded under the note's category rule.",
+        "The discard category is dairy.",
+        "The milk and cheese are dairy stock items.",
+        "The apple and cereal are not dairy items to discard."
+      ],
+      "required_final_predicates": [
+        "inside"
+      ],
+      "success_condition": "inside(carton_of_milk, public_trash_can) and inside(swiss_cheese, public_trash_can)",
+      "temporal_constraints": [
+        "The wearer reads the rule before inspecting the produce and dry-goods stock.",
+        "The wearer observes both stock surfaces before asking which items to discard."
+      ]
+    },
+    "source_contract": {
+      "task_id": "ASK-88005",
+      "family": "ASK",
+      "kind": "a grocery shop or convenience store",
+      "assessment_contract": {
+        "assigned_capability_id": "ASK.TEXT_FIELD_EXTRACTION",
+        "assigned_scene": "grocery_store_convenience",
+        "core_question": "According to the disposition sheet I read earlier, which of these stock items should I throw away?",
+        "counterfactual_failure": "[Walk] <item_4> (1), [Grab] <item_4> (1), [Walk] <unit_a> (1), [PutInside] <item_4> (1) <unit_a> (1), [Walk] <item_5> (1), [Grab] <item_5> (1), [Walk] <unit_a> (1), [PutInside] <item_5> (1) <unit_a> (1)",
+        "forbidden_changes": [
+          "Changing the disposition rule text",
+          "Removing the produce and dry-goods distractors"
+        ],
+        "knowledge_constraints": [
+          "The assistant must remember the read disposition rule after the non-dairy stock-inspection gap.",
+          "The assistant must classify visible stock items by category, not by position."
+        ],
+        "required_evidence": [
+          "The returns disposition sheet says 'DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY'.",
+          "The wearer checks an apple in the produce stock after reading the sheet.",
+          "The wearer checks a cereal box in the dry-goods stock.",
+          "The next stock counter includes a carton of milk.",
+          "The next stock counter includes swiss cheese.",
+          "The produce and dry-goods inspection separates the earlier rule from the dairy stock decision.",
+          "The wearer asks which stock items should be discarded under the note's category rule.",
+          "The discard category is dairy.",
+          "The milk and cheese are dairy stock items.",
+          "The apple and cereal are not dairy items to discard."
+        ],
+        "required_final_predicates": [
+          "inside"
+        ],
+        "success_condition": "inside(carton_of_milk, public_trash_can) and inside(swiss_cheese, public_trash_can)",
+        "temporal_constraints": [
+          "The wearer reads the rule before inspecting the produce and dry-goods stock.",
+          "The wearer observes both stock surfaces before asking which items to discard."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "public_trash_can"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "box_of_cereal",
+          "carton_of_milk",
+          "clipboard",
+          "swiss_cheese"
+        ],
+        "allowed_surface_categories": [
+          "checkout_counter",
+          "pedestal_table",
+          "reception_desk"
+        ],
+        "capability_id": "ASK.TEXT_FIELD_EXTRACTION",
+        "coverage_categories": [
+          "apple",
+          "box_of_cereal",
+          "carton_of_milk",
+          "clipboard",
+          "swiss_cheese"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "ASK",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_meaningful_steps": 15,
+          "max_movable_objects": 5,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 10,
+          "max_small_label_characters": 64,
+          "max_task_actions": 12,
+          "min_intervening_meaningful_actions": 0,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "apple",
+          "box_of_cereal",
+          "carton_of_milk",
+          "clipboard",
+          "swiss_cheese"
+        ],
+        "preferred_story_category_glosses": {
+          "apple": "",
+          "box_of_cereal": "",
+          "carton_of_milk": "",
+          "clipboard": "",
+          "swiss_cheese": ""
+        },
+        "rooms": [
+          {
+            "name": "grocery_store_0"
+          }
+        ],
+        "scene": "grocery_store_convenience",
+        "task_id": "ASK-88005",
+        "version": "grounded-authoring/3.0-validity-20260831"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "clipboard",
+            "changed": true,
+            "costs": null,
+            "label": "RETURNS DISPOSITION | DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY",
+            "tint": null,
+            "what": "item_1 clipboard labeled RETURNS DISPOSITION | DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "carton_of_milk",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_2 carton_of_milk"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "swiss_cheese",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_3 swiss_cheese"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "apple",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": "red",
+            "what": "item_4 apple"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "box_of_cereal",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_5 box_of_cereal"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "pedestal_table",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_1 pedestal_table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "checkout_counter",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_2 checkout_counter"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "reception_desk",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_3 reception_desk"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "public_trash_can",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "unit_a public_trash_can"
+          }
+        ],
+        "distinct_by": [
+          "category rule and dairy versus non-dairy stock"
+        ],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "item_1 clipboard labeled RETURNS DISPOSITION | DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY",
+            "text": "RETURNS DISPOSITION | DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY",
+            "what": "readable printed object label",
+            "which": "item_1"
+          }
+        ],
+        "restaged_story": "During grocery opening, the wearer reads a formal returns disposition sheet: 'DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY'. They then walk to another stock surface and inspect an apple and a cereal box while checking the produce and dry-goods inventory. After that natural interruption, they move to the dairy stock counter and inspect a carton of milk and swiss cheese. At turn zero they ask which stock items should be thrown away under the earlier sheet. The assistant remembers the category rule, selects the milk and cheese as dairy, and tells the wearer to discard those two while leaving the produce and dry goods out.",
+        "scene": "grocery_store_convenience",
+        "why_scene": "Provides store counters and trash disposal."
+      },
+      "world": {
+        "boards": {},
+        "containers": {
+          "unit_a": {
+            "cat": "public_trash_can",
+            "label": null,
+            "preload": [],
+            "role": "target",
+            "room": "grocery_store_0"
+          }
+        },
+        "items": {
+          "item_1": {
+            "affordances": [],
+            "cat": "clipboard",
+            "label": "RETURNS DISPOSITION | DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY",
+            "place": "on:surf_1",
+            "scored": false,
+            "spot": [
+              0.0,
+              0.5
+            ],
+            "tint": null,
+            "model": "gmxyfo"
+          },
+          "item_2": {
+            "affordances": [],
+            "cat": "carton_of_milk",
+            "label": null,
+            "place": "on:surf_2",
+            "scored": true,
+            "spot": [
+              -0.55,
+              0.55
+            ],
+            "tint": null
+          },
+          "item_3": {
+            "affordances": [],
+            "cat": "swiss_cheese",
+            "label": null,
+            "place": "on:surf_2",
+            "scored": true,
+            "spot": [
+              -0.18,
+              0.55
+            ],
+            "tint": null
+          },
+          "item_4": {
+            "affordances": [],
+            "cat": "apple",
+            "label": null,
+            "place": "on:surf_3",
+            "scored": false,
+            "spot": [
+              -0.25,
+              0.55
+            ],
+            "tint": "red"
+          },
+          "item_5": {
+            "affordances": [],
+            "cat": "box_of_cereal",
+            "label": null,
+            "place": "on:surf_3",
+            "scored": false,
+            "spot": [
+              0.25,
+              0.55
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <item_1> (1)",
+          "[LookAt] <item_1> (1)",
+          "[Walk] <surf_3> (1)",
+          "[LookAt] <item_4> (1)",
+          "[LookAt] <item_5> (1)",
+          "[Walk] <surf_2> (1)",
+          "[LookAt] <item_2> (1)",
+          "[LookAt] <item_3> (1)"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "grocery_store_0"
+        ],
+        "scene": "grocery_store_convenience",
+        "staging": {
+          "groups": "on:surf_1 holds item_1 clipboard labeled RETURNS DISPOSITION | DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY. on:surf_2 holds item_2 carton_of_milk, item_3 swiss_cheese. on:surf_3 holds item_4 apple, item_5 box_of_cereal.",
+          "labels_at_t0": "item_1 clipboard labeled RETURNS DISPOSITION | DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY reads 'RETURNS DISPOSITION | DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY'.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "surf_1": {
+            "cat": "pedestal_table",
+            "label": null,
+            "room": "grocery_store_0"
+          },
+          "surf_2": {
+            "cat": "checkout_counter",
+            "label": null,
+            "room": "grocery_store_0"
+          },
+          "surf_3": {
+            "cat": "reception_desk",
+            "label": null,
+            "room": "grocery_store_0"
+          }
+        },
+        "auto_support_labels": false
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "According to the disposition sheet I read earlier, which of these stock items should I throw away?"
+        },
+        "fact_ledger": [
+          {
+            "id": "fact_001",
+            "fact": "The returns disposition sheet says 'DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY'.",
+            "from": "prologue",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "id": "fact_002",
+            "fact": "The wearer checks an apple in the produce stock after reading the sheet.",
+            "from": "prologue",
+            "source_index": 3,
+            "source_phase": "opening"
+          },
+          {
+            "id": "fact_003",
+            "fact": "The wearer checks a cereal box in the dry-goods stock.",
+            "from": "prologue",
+            "source_index": 4,
+            "source_phase": "opening"
+          },
+          {
+            "id": "fact_004",
+            "fact": "The next stock counter includes a carton of milk.",
+            "from": "prologue",
+            "source_index": 6,
+            "source_phase": "opening"
+          },
+          {
+            "id": "fact_005",
+            "fact": "The next stock counter includes swiss cheese.",
+            "from": "prologue",
+            "source_index": 7,
+            "source_phase": "opening"
+          },
+          {
+            "id": "fact_006",
+            "fact": "The produce and dry-goods inspection separates the earlier rule from the dairy stock decision.",
+            "from": "prologue",
+            "source_index": 5,
+            "source_phase": "opening"
+          },
+          {
+            "id": "fact_007",
+            "fact": "The wearer asks which stock items should be discarded under the note's category rule.",
+            "from": "utterance",
+            "source_phase": "turn0"
+          },
+          {
+            "id": "fact_008",
+            "fact": "The discard category is dairy.",
+            "from": "derived",
+            "derived_from": [
+              "fact_001"
+            ],
+            "source_phase": "derived"
+          },
+          {
+            "id": "fact_009",
+            "fact": "The milk and cheese are dairy stock items.",
+            "from": "derived",
+            "derived_from": [
+              "fact_004",
+              "fact_005",
+              "fact_008"
+            ],
+            "source_phase": "derived"
+          },
+          {
+            "id": "fact_010",
+            "fact": "The apple and cereal are not dairy items to discard.",
+            "from": "derived",
+            "derived_from": [
+              "fact_002",
+              "fact_003",
+              "fact_008"
+            ],
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "item_2",
+            "target": "unit_a"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "item_3",
+            "target": "unit_a"
+          }
+        ],
+        "guidance": null,
+        "hidden_fact": null,
+        "human_own_script": "[Walk] <item_4> (1), [Grab] <item_4> (1), [Walk] <unit_a> (1), [PutInside] <item_4> (1) <unit_a> (1), [Walk] <item_5> (1), [Grab] <item_5> (1), [Walk] <unit_a> (1), [PutInside] <item_5> (1) <unit_a> (1)",
+        "mates": [],
+        "oracle_program": "[Grab] <item_2> (1), [Walk] <unit_a> (1), [PutInside] <item_2> (1) <unit_a> (1), [Walk] <item_3> (1), [Grab] <item_3> (1), [Walk] <unit_a> (1), [PutInside] <item_3> (1) <unit_a> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": [
+          {
+            "fact_ids": [
+              "fact_008",
+              "fact_009",
+              "fact_010"
+            ],
+            "index": 0,
+            "referents": [
+              "item_2",
+              "item_3"
+            ],
+            "say": "Discard the dairy items: the milk and the cheese. The apple is produce and the cereal is dry goods."
+          }
+        ],
+        "steps": null,
+        "story_check": "Everything fits perfectly. The task is fully stageable with the provided objects and actions.",
+        "utterance": "According to the disposition sheet I read earlier, which of these stock items should I throw away?"
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "physical_preflight": {
+          "diagnostics": [],
+          "physical": {
+            "failures": [],
+            "ok": true,
+            "sited": true,
+            "staged": true,
+            "start": true,
+            "why_sited": "grocery_store_0",
+            "why_staged": "Manual group-C repaired staging.",
+            "why_start": ""
+          },
+          "report_version": "manual-group-c-metadata-sync/1.0",
+          "resolved": {
+            "objects": [
+              {
+                "category": "clipboard",
+                "key": "item_1",
+                "model": "gmxyfo"
+              },
+              {
+                "category": "carton_of_milk",
+                "key": "item_2",
+                "model": ""
+              },
+              {
+                "category": "swiss_cheese",
+                "key": "item_3",
+                "model": ""
+              },
+              {
+                "category": "apple",
+                "key": "item_4",
+                "model": ""
+              },
+              {
+                "category": "box_of_cereal",
+                "key": "item_5",
+                "model": ""
+              }
+            ],
+            "parts": [],
+            "room": "grocery_store_0",
+            "scene": "grocery_store_convenience",
+            "surfaces": [
+              {
+                "category": "pedestal_table",
+                "key": "surf_1",
+                "model": ""
+              },
+              {
+                "category": "checkout_counter",
+                "key": "surf_2",
+                "model": ""
+              },
+              {
+                "category": "reception_desk",
+                "key": "surf_3",
+                "model": ""
+              }
+            ],
+            "units": [
+              {
+                "category": "public_trash_can",
+                "key": "unit_a",
+                "model": ""
+              }
+            ]
+          },
+          "seconds": 0.0,
+          "status": "PASS",
+          "task_id": "ASK-88005"
+        },
+        "sim_debt": [],
+        "soft": [],
+        "traces": {}
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <item_1> (1)",
+        "[LookAt] <item_1> (1)",
+        "[Walk] <surf_3> (1)",
+        "[LookAt] <item_4> (1)",
+        "[LookAt] <item_5> (1)",
+        "[Walk] <surf_2> (1)",
+        "[LookAt] <item_2> (1)",
+        "[LookAt] <item_3> (1)"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "item_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "item_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_1"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "The returns disposition sheet says 'DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY'.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The discard category is dairy.",
+            "channel": "derived"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The milk and cheese are dairy stock items.",
+            "channel": "derived"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The apple and cereal are not dairy items to discard.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_3"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_3"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_4"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The wearer checks an apple in the produce stock after reading the sheet.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The apple and cereal are not dairy items to discard.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_5"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The wearer checks a cereal box in the dry-goods stock.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_010",
+            "kind": "evidence",
+            "statement": "The apple and cereal are not dairy items to discard.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The produce and dry-goods inspection separates the earlier rule from the dairy stock decision.",
+            "channel": "prologue"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The next stock counter includes a carton of milk.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The milk and cheese are dairy stock items.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_3"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The next stock counter includes swiss cheese.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The milk and cheese are dairy stock items.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "According to the disposition sheet I read earlier, which of these stock items should I throw away?",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The wearer asks which stock items should be discarded under the note's category rule.",
+            "channel": "utterance"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Discard the dairy items: the milk and the cheese. The apple is produce and the cereal is dry goods.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "item_4"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "item_4"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_4"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_4"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "unit_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "unit_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutIn",
+          "args": [
+            "item_4",
+            "unit_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "item_4",
+            "target": "unit_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "item_5"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "item_5"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_5"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_5"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "unit_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "unit_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutIn",
+          "args": [
+            "item_5",
+            "unit_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "item_5",
+            "target": "unit_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "unit_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "unit_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutIn",
+          "args": [
+            "item_2",
+            "unit_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "item_2",
+            "target": "unit_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "item_3"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "item_3"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_3"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_3"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "unit_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "unit_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutIn",
+          "args": [
+            "item_3",
+            "unit_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "item_3",
+            "target": "unit_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "The returns disposition sheet says 'DISCARD: DAIRY | HOLD: PRODUCE | KEEP: DRY'.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_002",
+        "statement": "The wearer checks an apple in the produce stock after reading the sheet.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p003"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 3
+      },
+      {
+        "id": "fact_003",
+        "statement": "The wearer checks a cereal box in the dry-goods stock.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p004"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 4
+      },
+      {
+        "id": "fact_004",
+        "statement": "The next stock counter includes a carton of milk.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p006"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 6
+      },
+      {
+        "id": "fact_005",
+        "statement": "The next stock counter includes swiss cheese.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p007"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 7
+      },
+      {
+        "id": "fact_006",
+        "statement": "The produce and dry-goods inspection separates the earlier rule from the dairy stock decision.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p005"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 5
+      },
+      {
+        "id": "fact_007",
+        "statement": "The wearer asks which stock items should be discarded under the note's category rule.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0"
+      },
+      {
+        "id": "fact_008",
+        "statement": "The discard category is dairy.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "derived_from": [
+          "fact_001"
+        ]
+      },
+      {
+        "id": "fact_009",
+        "statement": "The milk and cheese are dairy stock items.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "p006",
+          "p007",
+          "p001"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "derived_from": [
+          "fact_004",
+          "fact_005",
+          "fact_008"
+        ]
+      },
+      {
+        "id": "fact_010",
+        "statement": "The apple and cereal are not dairy items to discard.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "p003",
+          "p004",
+          "p001"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "derived_from": [
+          "fact_002",
+          "fact_003",
+          "fact_008"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Apply the earlier disposition rule to the subsequently inspected stock and independently identify the complete set of items the person should discard. Then direct the person one physical step at a time to put only those selected stock items into the public trash can, finishing one item before starting the next and leaving every unselected item on its original stock surface.",
+      "human_task_context": "Wait for the Assistant's complete explicit selection. Discard all and only the selected stock items, leaving every other checked item at its original stock surface. Do not classify the items yourself.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <item_1> (1)",
+          "[LookAt] <item_1> (1)",
+          "[Walk] <surf_3> (1)",
+          "[LookAt] <item_4> (1)",
+          "[LookAt] <item_5> (1)",
+          "[Walk] <surf_2> (1)",
+          "[LookAt] <item_2> (1)",
+          "[LookAt] <item_3> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 8,
+            "say": "Hey, Assistant, going by that returns sheet, which of the stock items I checked should I throw out?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, going by that returns sheet, which of the stock items I checked should I throw out?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "returns_rule_question",
+            "required_phrases": [
+              "going by that returns sheet",
+              "stock items I checked",
+              "should I throw out"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "forbidden_successful_commands": [
+          "[Grab] <item_4> (1)",
+          "[Grab] <item_5> (1)"
+        ],
+        "verification_points": [
+          {
+            "id": "selected_stock_2_discarded",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "item_2",
+            "target": "unit_a"
+          },
+          {
+            "id": "selected_stock_3_discarded",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "item_3",
+            "target": "unit_a"
+          },
+          {
+            "id": "produce_stays_on_stock_surface",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "item_4",
+            "target": "surf_3"
+          },
+          {
+            "id": "dry_good_stays_on_stock_surface",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "item_5",
+            "target": "surf_3"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "unit_a": [
+          "public trash can",
+          "returns trash can"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 34,
+    "dialogue_budget": 1,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "item_3",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005",
+        "h006",
+        "h007"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "item_2",
+              "item_3"
+            ],
+            "required_fact_ids": [
+              "fact_008",
+              "fact_009",
+              "fact_010"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "item_2",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "item_2",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "unit_a",
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "item_2",
+            "target": "unit_a",
+            "truth": true
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "item_3",
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "item_3",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "unit_a",
+            "truth": true
+          },
+          "next_beat": "o006"
+        }
+      ],
+      "terminal_beats": [
+        "h007",
+        "o006"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "item_2"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "unit_a"
+        ]
+      },
+      {
+        "verb": "PutIn",
+        "args": [
+          "item_2",
+          "unit_a"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "item_3"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "item_3"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "unit_a"
+        ]
+      },
+      {
+        "verb": "PutIn",
+        "args": [
+          "item_3",
+          "unit_a"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "item_4"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "item_4"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "unit_a"
+        ]
+      },
+      {
+        "verb": "PutIn",
+        "args": [
+          "item_4",
+          "unit_a"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "item_5"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "item_5"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "unit_a"
+        ]
+      },
+      {
+        "verb": "PutIn",
+        "args": [
+          "item_5",
+          "unit_a"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Discard the dairy items: the milk and the cheese. The apple is produce and the cereal is dry goods.",
+        "relation": "at",
+        "anchor_beat_id": "o000",
+        "source": "speaks_at",
+        "source_index": 0
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    }
+  },
+  "lineage": {
+    "release": "InteractiveWorld-Balanced120",
+    "task_id": "ASK-88005"
+  }
+}

@@ -1,0 +1,3024 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "WATCH-99301",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "gift",
+          "target": "desk"
+        },
+        {
+          "pred": "on",
+          "subject": "sponge",
+          "target": "cleaning_shelf"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "gift",
+          "target": "desk"
+        },
+        {
+          "pred": "on",
+          "subject": "sponge",
+          "target": "cleaning_shelf"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [],
+        "nested_containers": [],
+        "objects": [
+          "checklist",
+          "gift",
+          "mug",
+          "sponge",
+          "towel",
+          "welcome_card"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The weak branch continues the imminent mistake instead of applying the earlier evidence.",
+        "assistant_must": "Not yet—set the gift back on the guest bed, take the sponge from the staging bed, wipe the bare desk, return the sponge to the cleaning shelf, then place the gift.",
+        "cue": "The first three items are complete; I'll place the welcome gift now.",
+        "premise": "The wearer reads a multi-step housekeeping checklist and correctly completes the first three visible moves by moving the mug to the drinks shelf, the used linen to the staging bed, and the welcome card to the guest bed. They then carry the gift from the guest bed to the still-unwiped desk, skipping cleaning."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [
+        "The cross-room bathroom trip and bathroom shelf are lost. The important evidence is unchanged: the card text was read, the desk was cleared but not wiped, and the sponge became available before the gift box return attempt.",
+        "The wearer is no longer continuously holding the sponge at the moment of distraction."
+      ],
+      "family": "WATCH",
+      "grounding": {
+        "cite": "The first three items are complete; I'll place the welcome gift now.",
+        "kind": "authored",
+        "ref": "interactiveworld:WATCH-99301"
+      },
+      "rule_table": "on(gift, desk); on(sponge, cleaning_shelf)",
+      "scene": "hotel_suite_large",
+      "template": "the grounded hotel_suite_large scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 23,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 23,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "checklist"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "checklist"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "mug",
+            "drinks_shelf"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "towel"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "towel",
+            "staging_bed"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "welcome_card"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "welcome_card",
+            "bed"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "bed"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "gift"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "desk"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "bed"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "gift",
+            "bed"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "staging_bed"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "sponge"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "desk"
+          ]
+        },
+        {
+          "verb": "Wipe",
+          "args": [
+            "desk",
+            "sponge"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "cleaning_shelf"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "sponge",
+            "cleaning_shelf"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "bed"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "gift"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "desk"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "gift",
+            "desk"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "WATCH",
+      "authored_by": "interactiveworld.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Walk] <bed> (1), [PutOn] <gift> (1) <bed> (1), [Walk] <staging_bed> (1), [Grab] <sponge> (1), [Walk] <desk> (1), [Wipe] <desk> (1) <sponge> (1), [Walk] <cleaning_shelf> (1), [PutOn] <sponge> (1) <cleaning_shelf> (1), [Walk] <bed> (1), [Grab] <gift> (1), [Walk] <desk> (1), [PutOn] <gift> (1) <desk> (1)",
+      "seed": 4098427598,
+      "source_task_id": "WATCH-99301"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "gift",
+          "target": "desk"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "sponge",
+          "target": "cleaning_shelf"
+        }
+      ],
+      "sub_steps": [
+        "on gift desk",
+        "on sponge cleaning_shelf"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "WATCH-99301",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 4098427598,
+      "containers": {},
+      "decor": [],
+      "fixtures": {
+        "desk": {
+          "bind": {
+            "cat": "desk",
+            "source": "scene",
+            "pick": {
+              "name": "desk_ohjotf_0",
+              "stage_prim_path": "/World/b_desk_ohjotf_0",
+              "asset_sha256": "sha256:7854f013d5703692ad0e972a2a3a85a4c8bf1d3e03be61c15824651d30510c2d",
+              "instance_digest": "sha256:810df95523e2baacc3c16f6b4fbdf40b808b3e3631fa89e346ec7086a1091418",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "bedroom_0",
+          "seatable": false
+        },
+        "drinks_shelf": {
+          "bind": {
+            "cat": "shelf",
+            "source": "scene",
+            "pick": {
+              "name": "shelf_aqtmhm_0",
+              "stage_prim_path": "/World/b_shelf_aqtmhm_0",
+              "asset_sha256": "sha256:1facff74f8a5a95f9cfc795420f7453f5c85a4e007130fddaa57ab4d8de6c937",
+              "instance_digest": "sha256:8e5fbca5f673cb86f5926bb046977805e500ddd3114d0d23a62b0aa31efb6b16",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "bedroom_0",
+          "seatable": false
+        },
+        "bed": {
+          "bind": {
+            "cat": "bed",
+            "source": "scene",
+            "pick": {
+              "name": "bed_kddswt_0",
+              "stage_prim_path": "/World/b_bed_kddswt_0",
+              "asset_sha256": "sha256:e5635575f8bb73323c2be765be482918e9efe02d2e366225cf5dba096cbfba69",
+              "instance_digest": "sha256:969c4e7117e50b19976ef17207fbf164e3a2c5a6820f7be355221bece4f22108",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "bedroom_0",
+          "seatable": false
+        },
+        "staging_bed": {
+          "bind": {
+            "cat": "bed",
+            "source": "scene",
+            "pick": {
+              "name": "bed_kddswt_1",
+              "stage_prim_path": "/World/b_bed_kddswt_1",
+              "asset_sha256": "sha256:e5635575f8bb73323c2be765be482918e9efe02d2e366225cf5dba096cbfba69",
+              "instance_digest": "sha256:b2d30b819603400e8e3b3313f70a43f5587a6399b568c466665500434eeaf229",
+              "by": "scene_instance",
+              "rank": 1
+            }
+          },
+          "room": "bedroom_0",
+          "seatable": false
+        },
+        "cleaning_shelf": {
+          "bind": {
+            "cat": "shelf",
+            "source": "scene",
+            "pick": {
+              "name": "shelf_nbmidu_0",
+              "stage_prim_path": "/World/b_shelf_nbmidu_0",
+              "asset_sha256": "sha256:289661e0150705f8e7fb992e2b4e9fdfa301fdf5c1c94321bacf20e83e363188",
+              "instance_digest": "sha256:021814f975888ba22f36e88d068d5ccbc79b38a84d7d73afb0e655ab5d7f5d04",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "room": "bedroom_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_checklist": {
+          "content": {
+            "text": "HOUSEKEEPING FINISH",
+            "args": {
+              "renderer": "document_scan",
+              "source": "watch20/watch_99301_checklist.png",
+              "primary_glyph_height_ratio": 0.026,
+              "primary_line_count": 6,
+              "primary_text_bbox_norm_xyxy": [
+                0.08,
+                0.2,
+                0.76,
+                0.91
+              ]
+            },
+            "lines": [
+              "1 | MUG TO BEDROOM DRINKS SHELF",
+              "2 | USED LINEN TO STAGING BED",
+              "3 | WELCOME CARD TO GUEST BED",
+              "4 | WIPE BARE DESK",
+              "5 | RETURN SPONGE TO CLEANING SHELF",
+              "6 | PLACE GIFT CENTERED ON DESK"
+            ]
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "checklist",
+            "surface": "item_decal",
+            "face": "top"
+          },
+          "per_seed": false,
+          "png": "watch_99301_watch20_story_refine_20260909z_checklist_c85cbe13b966"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "checklist": {
+          "cat": "clipboard",
+          "model": "envjqe",
+          "needs_lookat": true,
+          "place": "on:staging_bed",
+          "room": "bedroom_0",
+          "scored": false,
+          "decal": "ROOM FINISH"
+        },
+        "mug": {
+          "cat": "mug",
+          "model": "dhnxww",
+          "needs_lookat": false,
+          "place": "on:desk",
+          "room": "bedroom_0",
+          "scored": false
+        },
+        "towel": {
+          "cat": "hand_towel",
+          "model": "klevhj",
+          "needs_lookat": false,
+          "place": "on:desk",
+          "room": "bedroom_0",
+          "scored": false
+        },
+        "welcome_card": {
+          "cat": "paper_sheet",
+          "model": "uqbipw",
+          "needs_lookat": false,
+          "place": "on:desk",
+          "room": "bedroom_0",
+          "scored": false
+        },
+        "gift": {
+          "cat": "gift_box",
+          "model": "mfalrc",
+          "needs_lookat": false,
+          "place": "on:bed",
+          "room": "bedroom_0",
+          "scored": true
+        },
+        "sponge": {
+          "cat": "sponge",
+          "model": "aewrov",
+          "needs_lookat": false,
+          "place": "on:staging_bed",
+          "room": "bedroom_0",
+          "scored": true
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "bedroom_0"
+      ],
+      "scene": "hotel_suite_large",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "The wearer reads a multi-step housekeeping checklist and correctly completes the first three visible moves by moving the mug to the drinks shelf, the used linen to the staging bed, and the welcome card to the guest bed. They then carry the gift from the guest bed to the still-unwiped desk, skipping cleaning.",
+    "assistant_goal": "The first three items are complete; I'll place the welcome gift now.",
+    "assessment_contract": {
+      "assigned_capability_id": "WATCH.ORDER_VIOLATION",
+      "assigned_scene": "hotel_suite_large",
+      "core_question": "The first three items are complete; I'll place the welcome gift now.",
+      "counterfactual_failure": "The weak branch continues the stated mistaken action and violates at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the decisive observed history or printed instruction",
+        "Making an identity-memory target visually unique",
+        "Moving an assistant turn away from its impending-error boundary"
+      ],
+      "knowledge_constraints": [
+        "The wearer reads a multi-step housekeeping checklist and correctly completes the first three visible moves by moving the mug to the drinks shelf, the used linen to the staging bed, and the welcome card to the guest bed. They then carry the gift from the guest bed to the still-unwiped desk, skipping cleaning."
+      ],
+      "required_evidence": [
+        "The first three items are complete; I'll place the welcome gift now.",
+        "The checklist on the staging bed visibly orders wiping before gift placement.",
+        "The mug, used linen, and welcome card were moved to the two listed beds and shelf correctly.",
+        "The wearer carried the gift from the bed to the desk before wiping it.",
+        "Not yet—set the gift back on the guest bed, take the sponge from the staging bed, wipe the bare desk, return the sponge to the cleaning shelf, then place the gift."
+      ],
+      "required_final_predicates": [
+        "on",
+        "on"
+      ],
+      "success_condition": "on(gift, desk); on(sponge, cleaning_shelf)",
+      "temporal_constraints": [
+        "Every assistant intervention occurs after its evidence and before the corresponding invalid state transition."
+      ]
+    },
+    "source_contract": {
+      "task_id": "WATCH-99301",
+      "family": "WATCH",
+      "kind": "a flat or apartment: kitchen, living room, bedrooms, utility",
+      "assessment_contract": {
+        "assigned_capability_id": "WATCH.ORDER_VIOLATION",
+        "assigned_scene": "hotel_suite_large",
+        "core_question": "The first three items are complete; I'll place the welcome gift now.",
+        "counterfactual_failure": "The weak branch continues the stated mistaken action and violates at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the decisive observed history or printed instruction",
+          "Making an identity-memory target visually unique",
+          "Moving an assistant turn away from its impending-error boundary"
+        ],
+        "knowledge_constraints": [
+          "The wearer reads a multi-step housekeeping checklist and correctly completes the first three visible moves by moving the mug to the drinks shelf, the used linen to the staging bed, and the welcome card to the guest bed. They then carry the gift from the guest bed to the still-unwiped desk, skipping cleaning."
+        ],
+        "required_evidence": [
+          "The first three items are complete; I'll place the welcome gift now.",
+          "The checklist on the staging bed visibly orders wiping before gift placement.",
+          "The mug, used linen, and welcome card were moved to the two listed beds and shelf correctly.",
+          "The wearer carried the gift from the bed to the desk before wiping it.",
+          "Not yet—set the gift back on the guest bed, take the sponge from the staging bed, wipe the bare desk, return the sponge to the cleaning shelf, then place the gift."
+        ],
+        "required_final_predicates": [
+          "on",
+          "on"
+        ],
+        "success_condition": "on(gift, desk); on(sponge, cleaning_shelf)",
+        "temporal_constraints": [
+          "Every assistant intervention occurs after its evidence and before the corresponding invalid state transition."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "bag_of_yeast",
+          "banana",
+          "bikini",
+          "bottle_of_chili_pepper",
+          "bottle_of_cologne",
+          "bottle_of_cranberry_juice",
+          "bottle_of_glass_cleaner",
+          "bottle_of_strawberry_juice",
+          "bottle_of_tomato_juice",
+          "bottle_of_whiskey",
+          "box_of_milk",
+          "box_of_raspberries",
+          "boxed_ink_cartridge",
+          "clipboard",
+          "corkscrew",
+          "cucumber",
+          "desk_organizer",
+          "digital_camera",
+          "erlenmeyer_flask",
+          "feather",
+          "flask_clamp",
+          "folder",
+          "gift_box",
+          "granola_box",
+          "half_avocado",
+          "half_burrito",
+          "half_chanterelle",
+          "half_chocolate_biscuit",
+          "half_enchilada",
+          "half_fennel",
+          "half_french_fries",
+          "half_snapper",
+          "half_turkey",
+          "hand_towel",
+          "heap_of_raisins",
+          "jigsaw_puzzle_piece",
+          "kebab",
+          "legal_document",
+          "mug",
+          "paper_sheet",
+          "peppermint",
+          "pineapple_juice_carton",
+          "quiche",
+          "rolling_pin",
+          "sock",
+          "sponge",
+          "tortilla"
+        ],
+        "allowed_surface_categories": [
+          "bed",
+          "desk",
+          "shelf"
+        ],
+        "capability_id": "WATCH.ORDER_VIOLATION",
+        "coverage_categories": [
+          "half_french_fries",
+          "bottle_of_cologne",
+          "tortilla",
+          "banana",
+          "half_turkey",
+          "quiche",
+          "pineapple_juice_carton",
+          "bottle_of_tomato_juice",
+          "bag_of_yeast",
+          "box_of_raspberries",
+          "jigsaw_puzzle_piece",
+          "bottle_of_chili_pepper",
+          "bikini",
+          "feather",
+          "bottle_of_strawberry_juice",
+          "legal_document",
+          "half_fennel",
+          "half_burrito",
+          "half_enchilada",
+          "granola_box"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 1,
+          "required_semantic_turns": 1,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": false,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "WATCH",
+        "limits": {
+          "max_authored_actions": 27,
+          "max_document_characters": 192,
+          "max_fixed_destinations": 5,
+          "max_meaningful_steps": 23,
+          "max_movable_objects": 6,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 11,
+          "max_small_label_characters": 40,
+          "max_task_actions": 12,
+          "min_intervening_meaningful_actions": 8,
+          "min_meaningful_steps": 1
+        },
+        "preferred_story_categories": [
+          "paper_sheet",
+          "mug",
+          "sponge",
+          "gift_box"
+        ],
+        "preferred_story_category_glosses": {
+          "gift_box": "",
+          "mug": "",
+          "paper_sheet": "",
+          "sponge": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 39.7,
+            "name": "bedroom_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "desk": 1,
+              "shelf": 1
+            },
+            "surface_max_area_m2": {
+              "desk": 0.227,
+              "shelf": 0.263
+            },
+            "surface_reference_capacity": {
+              "desk": 3,
+              "shelf": 3
+            }
+          }
+        ],
+        "scene": "hotel_suite_large",
+        "task_id": "WATCH-99301",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "what": "housekeeping finish checklist",
+            "category": "clipboard",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": "ROOM FINISH",
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "guest mug",
+            "category": "mug",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "used linen",
+            "category": "hand_towel",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "welcome card",
+            "category": "paper_sheet",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "welcome gift",
+            "category": "gift_box",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          },
+          {
+            "what": "cleaning sponge",
+            "category": "sponge",
+            "affordances": [
+              "graspable"
+            ],
+            "tint": null,
+            "label": null,
+            "changed": false,
+            "costs": null
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "housekeeping finish checklist",
+            "text": "ROOM FINISH",
+            "what": "document",
+            "which": null
+          }
+        ],
+        "restaged_story": "The wearer reads a multi-step housekeeping checklist and correctly completes the first three visible moves by moving the mug to the drinks shelf, the used linen to the staging bed, and the welcome card to the guest bed. They then carry the gift from the guest bed to the still-unwiped desk, skipping cleaning.",
+        "scene": "hotel_suite_large",
+        "why_scene": "hotel_suite_large supplies the exact rooms and fixtures used by this revised WATCH story."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {},
+        "items": {
+          "checklist": {
+            "affordances": [],
+            "cat": "clipboard",
+            "label": "ROOM FINISH",
+            "place": "on:staging_bed",
+            "scored": false,
+            "spot": null,
+            "tint": null
+          },
+          "mug": {
+            "affordances": [],
+            "cat": "mug",
+            "label": null,
+            "place": "on:desk",
+            "scored": false,
+            "spot": null,
+            "tint": null
+          },
+          "towel": {
+            "affordances": [],
+            "cat": "hand_towel",
+            "label": null,
+            "place": "on:desk",
+            "scored": false,
+            "spot": null,
+            "tint": null
+          },
+          "welcome_card": {
+            "affordances": [],
+            "cat": "paper_sheet",
+            "label": null,
+            "place": "on:desk",
+            "scored": false,
+            "spot": null,
+            "tint": null
+          },
+          "gift": {
+            "affordances": [],
+            "cat": "gift_box",
+            "label": null,
+            "place": "on:bed",
+            "scored": true,
+            "spot": null,
+            "tint": null
+          },
+          "sponge": {
+            "affordances": [],
+            "cat": "sponge",
+            "label": null,
+            "place": "on:staging_bed",
+            "scored": true,
+            "spot": null,
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <checklist> (1)",
+          "[LookAt] <checklist> (1)",
+          "[Grab] <mug> (1)",
+          "[PutOn] <mug> (1) <drinks_shelf> (1)",
+          "[Grab] <towel> (1)",
+          "[PutOn] <towel> (1) <staging_bed> (1)",
+          "[Grab] <welcome_card> (1)",
+          "[PutOn] <welcome_card> (1) <bed> (1)",
+          "[Walk] <bed> (1)",
+          "[Grab] <gift> (1)",
+          "[Walk] <desk> (1)"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "bedroom_0"
+        ],
+        "scene": "hotel_suite_large",
+        "staging": {
+          "groups": "The wearer reads a multi-step housekeeping checklist and correctly completes the first three visible moves by moving the mug to the drinks shelf, the used linen to the staging bed, and the welcome card to the guest bed. They then carry the gift from the guest bed to the still-unwiped desk, skipping cleaning.",
+          "labels_at_t0": "All task documents and routing labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "desk": {
+            "cat": "desk",
+            "label": null,
+            "room": "bedroom_0"
+          },
+          "drinks_shelf": {
+            "cat": "shelf",
+            "label": null,
+            "room": "bedroom_0"
+          },
+          "bed": {
+            "cat": "bed",
+            "label": null,
+            "room": "bedroom_0"
+          },
+          "staging_bed": {
+            "cat": "bed",
+            "label": null,
+            "room": "bedroom_0"
+          },
+          "cleaning_shelf": {
+            "cat": "shelf",
+            "label": null,
+            "room": "bedroom_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "The first three items are complete; I'll place the welcome gift now."
+        },
+        "fact_ledger": [
+          {
+            "id": "fact_001",
+            "fact": "The first three items are complete; I'll place the welcome gift now.",
+            "from": "utterance",
+            "source_phase": "turn0",
+            "source_index": null,
+            "derived_from": null
+          },
+          {
+            "id": "fact_002",
+            "fact": "The checklist on the staging bed visibly orders wiping before gift placement.",
+            "from": "prologue",
+            "source_phase": "opening",
+            "source_index": 1,
+            "derived_from": null
+          },
+          {
+            "id": "fact_003",
+            "fact": "The mug, used linen, and welcome card were moved to the two listed beds and shelf correctly.",
+            "from": "prologue",
+            "source_phase": "opening",
+            "source_index": 7,
+            "derived_from": null
+          },
+          {
+            "id": "fact_004",
+            "fact": "The wearer carried the gift from the bed to the desk before wiping it.",
+            "from": "prologue",
+            "source_phase": "opening",
+            "source_index": 10,
+            "derived_from": null
+          },
+          {
+            "id": "fact_005",
+            "fact": "Not yet—set the gift back on the guest bed, take the sponge from the staging bed, wipe the bare desk, return the sponge to the cleaning shelf, then place the gift.",
+            "from": "derived",
+            "source_phase": "derived",
+            "source_index": null,
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ]
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "gift",
+            "target": "desk"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "sponge",
+            "target": "cleaning_shelf"
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "Not yet—set the gift back on the guest bed, take the sponge from the staging bed, wipe the bare desk, return the sponge to the cleaning shelf, then retrieve and place the gift.",
+            "referents": [
+              "checklist",
+              "desk",
+              "sponge",
+              "staging_bed",
+              "cleaning_shelf",
+              "bed",
+              "gift"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ]
+          }
+        ],
+        "hidden_fact": {
+          "what": "Not yet—set the gift back on the guest bed, take the sponge from the staging bed, wipe the bare desk, return the sponge to the cleaning shelf, then place the gift.",
+          "revealed_by": "[Walk] <desk> (1)",
+          "unavailable_because": "The decisive earlier event or persistent state is no longer in the current view."
+        },
+        "human_own_script": "[PutOn] <gift> (1) <desk> (1)",
+        "mates": [],
+        "oracle_program": "[Walk] <bed> (1), [PutOn] <gift> (1) <bed> (1), [Walk] <staging_bed> (1), [Grab] <sponge> (1), [Walk] <desk> (1), [Wipe] <desk> (1) <sponge> (1), [Walk] <cleaning_shelf> (1), [PutOn] <sponge> (1) <cleaning_shelf> (1), [Walk] <bed> (1), [Grab] <gift> (1), [Walk] <desk> (1), [PutOn] <gift> (1) <desk> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "The wearer reads a multi-step housekeeping checklist and correctly completes the first three visible moves by moving the mug to the drinks shelf, the used linen to the staging bed, and the welcome card to the guest bed. They then carry the gift from the guest bed to the still-unwiped desk, skipping cleaning.",
+        "utterance": "The first three items are complete; I'll place the welcome gift now."
+      },
+      "checks": {
+        "diagnostics": [
+          {
+            "authoring_fixable": false,
+            "capability_status": "PARTIAL",
+            "code": "MISSING_TRACE_SCORER",
+            "message": "the default branch reaches the same final state but violates the declared action order; execution is valid, while arbitrary temporal order remains an evaluation gap",
+            "phase": "gate7",
+            "severity": "warning"
+          }
+        ],
+        "hard": [],
+        "physical_preflight": {
+          "diagnostics": [],
+          "physical": {
+            "failures": [],
+            "ok": true,
+            "sited": true,
+            "staged": true,
+            "start": true,
+            "why_sited": "no imported container layout is required",
+            "why_staged": "",
+            "why_start": ""
+          },
+          "report_version": "compiler-physical-preflight/1.6",
+          "resolved": {
+            "binding_contract": {
+              "asset_index": "sha256:ba9b6b3e579a653782317e8332e2243e2e8f29ce143bfc6aa7fea60224f4a4e3",
+              "clearance_index": "sha256:22aa0f240517b4ac124cc046a028b2dfcb6eedfeb2029a3365e6553daac23138",
+              "connector_index": "sha256:10b4d9472d4c2e0f7df4a42378e73d8daf01d6f84157815f8aff2be45e10b3f4",
+              "exact_asset_models": true,
+              "floor_support_index": "sha256:0bd5e3edc1a02cf061d6e2317874cadcbf3562de2582954b96433ef516c46825",
+              "layout": "frozen",
+              "scene_reconstruction": "sha256:599ff2b3598ce1ea7e314f7c5f4d5a29a4864ac7faf70194ab29642f70051370",
+              "version": "compiler-asset-capabilities/1.5"
+            },
+            "objects": [
+              {
+                "category": "gift_box",
+                "key": "item_4",
+                "model": "mfalrc"
+              },
+              {
+                "category": "paper_sheet",
+                "key": "item_1",
+                "model": "afdjfk"
+              },
+              {
+                "category": "mug",
+                "key": "item_2",
+                "model": "yxaapv"
+              },
+              {
+                "category": "sponge",
+                "key": "item_3",
+                "model": "aewrov"
+              }
+            ],
+            "parts": [],
+            "room": "bedroom_0",
+            "scene": "hotel_suite_large",
+            "units": []
+          },
+          "seconds": 1.67,
+          "status": "PASS",
+          "task_id": "WATCH-99301",
+          "taskpack_digest": "sha256:affc9b92265e03aec2799b80ebb3566b708fcb936695af30245e7f2eb4fd1d42"
+        },
+        "sim_debt": [],
+        "soft": [
+          {
+            "authoring_fixable": false,
+            "capability_status": "PARTIAL",
+            "code": "MISSING_TRACE_SCORER",
+            "message": "the default branch reaches the same final state but violates the declared action order; execution is valid, while arbitrary temporal order remains an evaluation gap",
+            "phase": "gate7",
+            "severity": "warning"
+          }
+        ],
+        "traces": {
+          "human": [
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_4> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": "item_4",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor",
+                  "item_4": "held"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 0
+            },
+            {
+              "primitive": "place",
+              "source": "[Put] <item_4> (1) <surf_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": "item_4",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor",
+                  "item_4": "held"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 1
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_3> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 2
+            },
+            {
+              "primitive": "wipe",
+              "source": "[Wipe] <surf_1> (1) <item_3> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 3
+            },
+            {
+              "primitive": "release",
+              "source": "[Drop]",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 4
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_3> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 5
+            },
+            {
+              "primitive": "place",
+              "source": "[Put] <item_3> (1) <surf_2> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "on:surf_2",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 6
+            }
+          ],
+          "opening": [
+            {
+              "primitive": "look_at",
+              "source": "[LookAt] <item_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "item_3": "floor:bedroom_0",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "item_3": "floor:bedroom_0",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 0
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "on:surf_1",
+                  "item_3": "floor:bedroom_0",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_1",
+                  "item_2": "on:surf_1",
+                  "item_3": "floor:bedroom_0",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 1
+            },
+            {
+              "primitive": "place",
+              "source": "[Put] <item_1> (1) <surf_2> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_1",
+                  "item_3": "floor:bedroom_0",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": "item_1",
+                "locations": {
+                  "item_1": "held",
+                  "item_2": "on:surf_1",
+                  "item_3": "floor:bedroom_0",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 2
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_2> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": "item_2",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "held",
+                  "item_3": "floor:bedroom_0",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_1",
+                  "item_3": "floor:bedroom_0",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 3
+            },
+            {
+              "primitive": "place",
+              "source": "[Put] <item_2> (1) <surf_2> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor:bedroom_0",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": "item_2",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "held",
+                  "item_3": "floor:bedroom_0",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 4
+            },
+            {
+              "primitive": "navigate_to",
+              "source": "[Walk] <surf_2> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor:bedroom_0",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor:bedroom_0",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 5
+            },
+            {
+              "primitive": "look_scan",
+              "source": "[LookScan]",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor:bedroom_0",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor:bedroom_0",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 6
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_3> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor:bedroom_0",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 7
+            },
+            {
+              "primitive": "navigate_to",
+              "source": "[Walk] <surf_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 8
+            },
+            {
+              "primitive": "release",
+              "source": "[Drop]",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 9
+            }
+          ],
+          "oracle": [
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_3> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 0
+            },
+            {
+              "primitive": "wipe",
+              "source": "[Wipe] <surf_1> (1) <item_3> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 1
+            },
+            {
+              "primitive": "release",
+              "source": "[Drop]",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 2
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_4> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": "item_4",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor",
+                  "item_4": "held"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor",
+                  "item_4": "on:surf_2"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 3
+            },
+            {
+              "primitive": "place",
+              "source": "[Put] <item_4> (1) <surf_1> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": "item_4",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor",
+                  "item_4": "held"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 4
+            },
+            {
+              "primitive": "pick",
+              "source": "[Grab] <item_3> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "floor",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 5
+            },
+            {
+              "primitive": "place",
+              "source": "[Put] <item_3> (1) <surf_2> (1)",
+              "state_after": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": null,
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "on:surf_2",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "state_before": {
+                "attached": {},
+                "ever_moved": [
+                  "item_1",
+                  "item_2",
+                  "item_3",
+                  "item_4"
+                ],
+                "held": "item_3",
+                "locations": {
+                  "item_1": "on:surf_2",
+                  "item_2": "on:surf_2",
+                  "item_3": "held",
+                  "item_4": "on:surf_1"
+                },
+                "open": [],
+                "raised": [],
+                "running": [],
+                "sitting": null
+              },
+              "step_index": 6
+            }
+          ]
+        }
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <checklist> (1)",
+        "[LookAt] <checklist> (1)",
+        "[Grab] <mug> (1)",
+        "[PutOn] <mug> (1) <drinks_shelf> (1)",
+        "[Grab] <towel> (1)",
+        "[PutOn] <towel> (1) <staging_bed> (1)",
+        "[Grab] <welcome_card> (1)",
+        "[PutOn] <welcome_card> (1) <bed> (1)",
+        "[Walk] <bed> (1)",
+        "[Grab] <gift> (1)",
+        "[Walk] <desk> (1)"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "checklist"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "checklist"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "checklist"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The checklist on the staging bed visibly orders wiping before gift placement.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "Not yet—set the gift back on the guest bed, take the sponge from the staging bed, wipe the bare desk, return the sponge to the cleaning shelf, then place the gift.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "mug"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "mug",
+            "drinks_shelf"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "towel"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "towel"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "towel",
+            "staging_bed"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "welcome_card"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "welcome_card"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "welcome_card",
+            "bed"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The mug, used linen, and welcome card were moved to the two listed beds and shelf correctly.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "Not yet—set the gift back on the guest bed, take the sponge from the staging bed, wipe the bare desk, return the sponge to the cleaning shelf, then place the gift.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "bed"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "bed"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "gift"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "gift"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "desk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "desk"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The wearer carried the gift from the bed to the desk before wiping it.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "Not yet—set the gift back on the guest bed, take the sponge from the staging bed, wipe the bare desk, return the sponge to the cleaning shelf, then place the gift.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "The first three items are complete; I'll place the welcome gift now.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "The first three items are complete; I'll place the welcome gift now.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "Not yet—set the gift back on the guest bed, take the sponge from the staging bed, wipe the bare desk, return the sponge to the cleaning shelf, then place the gift.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Not yet—set the gift back on the guest bed, take the sponge from the staging bed, wipe the bare desk, return the sponge to the cleaning shelf, then retrieve and place the gift.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "gift",
+            "desk"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "bed"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "bed"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "gift",
+            "bed"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "staging_bed"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "staging_bed"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "sponge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "sponge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "desk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "desk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wipe",
+          "args": [
+            "desk",
+            "sponge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "cleaning_shelf"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "cleaning_shelf"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "sponge",
+            "cleaning_shelf"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "bed"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "bed"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "gift"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "gift"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o010",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "desk"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "desk"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o011",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "gift",
+            "desk"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "The first three items are complete; I'll place the welcome gift now.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The checklist on the staging bed visibly orders wiping before gift placement.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "The mug, used linen, and welcome card were moved to the two listed beds and shelf correctly.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p007"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 7
+      },
+      {
+        "id": "fact_004",
+        "statement": "The wearer carried the gift from the bed to the desk before wiping it.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p010"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 10
+      },
+      {
+        "id": "fact_005",
+        "statement": "Not yet—set the gift back on the guest bed, take the sponge from the staging bed, wipe the bare desk, return the sponge to the cleaning shelf, then place the gift.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "p007",
+          "p010"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004"
+        ]
+      }
+    ]
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "public_preparation": {
+      "mode": "continuous_watch"
+    },
+    "tick_budget": 30,
+    "dialogue_budget": 1,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "desk",
+        "held": [
+          "gift"
+        ],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "halt",
+            "expected_referents": [
+              "checklist",
+              "desk",
+              "sponge",
+              "staging_bed",
+              "cleaning_shelf",
+              "bed",
+              "gift"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "gift",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "bed",
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "staging_bed",
+            "truth": true
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "sponge",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "desk",
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "cleaning_shelf",
+            "truth": true
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "bed",
+            "truth": true
+          },
+          "next_beat": "o009"
+        },
+        {
+          "after_beat": "o009",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "gift",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o010"
+        },
+        {
+          "after_beat": "o010",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "desk",
+            "truth": true
+          },
+          "next_beat": "o011"
+        }
+      ],
+      "terminal_beats": [
+        "h000",
+        "o011"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "bed"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "gift",
+          "bed"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "staging_bed"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "sponge"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "desk"
+        ]
+      },
+      {
+        "verb": "Wipe",
+        "args": [
+          "desk",
+          "sponge"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "cleaning_shelf"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "sponge",
+          "cleaning_shelf"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "bed"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "gift"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "desk"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "gift",
+          "desk"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "PutOn",
+        "args": [
+          "gift",
+          "desk"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Not yet—set the gift back on the guest bed, take the sponge from the staging bed, wipe the bare desk, return the sponge to the cleaning shelf, then retrieve and place the gift.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    }
+  },
+  "lineage": {
+    "release": "InteractiveWorld-Balanced120",
+    "task_id": "WATCH-99301"
+  }
+}

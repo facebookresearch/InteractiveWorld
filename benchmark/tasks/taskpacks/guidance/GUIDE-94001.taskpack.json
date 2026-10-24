@@ -1,0 +1,2186 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-94001",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "apple",
+          "target": "setup_table"
+        },
+        {
+          "pred": "on",
+          "subject": "mug",
+          "target": "supply_a"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "apple",
+          "target": "setup_table"
+        },
+        {
+          "pred": "on",
+          "subject": "mug",
+          "target": "supply_a"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [],
+        "nested_containers": [],
+        "objects": [
+          "apple",
+          "mug",
+          "phone",
+          "plan",
+          "towel",
+          "water"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+        "cue": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+        "premise": "The wearer reads a four-step afternoon service plan and completes its first half by staging the water and towel. A real mobile-phone call at the planning table interrupts the sequence. After returning to the supply area, the assistant reconstructs progress and guides only the apple and mug steps."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [
+        "No audible incoming ring is simulated."
+      ],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+        "kind": "authored",
+        "ref": "interactiveworld:GUIDE-94001"
+      },
+      "rule_table": "on(apple, setup_table); on(mug, supply_a)",
+      "scene": "restaurant_hotel",
+      "template": "the grounded restaurant_hotel scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 24,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 24,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "plan"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "plan"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "supply_a"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "water"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "setup_table"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "water",
+            "setup_table"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "supply_a"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "towel"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "setup_table"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "towel",
+            "setup_table"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "AnswerPhone",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "plan_table"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "supply_b"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "apple"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "setup_table"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "apple",
+            "setup_table"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "supply_a"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "mug",
+            "supply_a"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "interactiveworld.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Grab] <apple> (1), [Walk] <setup_table> (1), [PutOn] <apple> (1) <setup_table> (1), [Grab] <mug> (1), [Walk] <supply_a> (1), [PutOn] <mug> (1) <supply_a> (1), [Wait]",
+      "seed": 1509420924,
+      "source_task_id": "GUIDE-94001"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "apple",
+          "target": "setup_table"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "mug",
+          "target": "supply_a"
+        }
+      ],
+      "sub_steps": [
+        "on(apple, setup_table)",
+        "on(mug, supply_a)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-94001",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 1509420924,
+      "containers": {},
+      "decor": [],
+      "fixtures": {
+        "plan_table": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "supply_a": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "supply_b": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "setup_table": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_plan": {
+          "content": {
+            "args": {
+              "renderer": "instruction_sheet",
+              "rows": [
+                "1|WATER TO SETUP TABLE",
+                "2|TOWEL TO SETUP TABLE",
+                "3|APPLE BESIDE THE WATER",
+                "4|MUG TO CLEARED SUPPLY TABLE"
+              ],
+              "sub": "",
+              "title": "AFTERNOON PLAN"
+            },
+            "lines": [
+              "1|WATER TO SETUP TABLE",
+              "2|TOWEL TO SETUP TABLE",
+              "3|APPLE BESIDE THE WATER",
+              "4|MUG TO CLEARED SUPPLY TABLE"
+            ],
+            "text": "AFTERNOON PLAN"
+          },
+          "kind": "range_card",
+          "mount": {
+            "on": "plan",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_94001_guide26_story_refine_20260910s_plan_96352b232249"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "plan": {
+          "cat": "clipboard",
+          "model": "gmxyfo",
+          "needs_lookat": true,
+          "place": "on:plan_table",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            -0.35,
+            0.5
+          ],
+          "decal": "AFTERNOON PLAN"
+        },
+        "water": {
+          "cat": "bottle_of_water",
+          "model": "atvnqy",
+          "needs_lookat": false,
+          "place": "on:supply_a",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            -0.35,
+            0.5
+          ]
+        },
+        "towel": {
+          "cat": "hand_towel",
+          "model": "klevhj",
+          "needs_lookat": false,
+          "place": "on:supply_a",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.35,
+            0.5
+          ]
+        },
+        "apple": {
+          "cat": "apple",
+          "model": "agveuv",
+          "needs_lookat": false,
+          "place": "on:supply_b",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.35,
+            0.5
+          ],
+          "tint": "red"
+        },
+        "mug": {
+          "cat": "mug",
+          "model": "ntgftr",
+          "needs_lookat": false,
+          "place": "on:supply_b",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.35,
+            0.5
+          ]
+        },
+        "phone": {
+          "cat": "cell_phone",
+          "model": "dbhfuh",
+          "needs_lookat": false,
+          "place": "on:plan_table",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.35,
+            0.5
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "kitchen_0"
+      ],
+      "scene": "restaurant_hotel",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "The wearer reads a four-step afternoon service plan and completes its first half by staging the water and towel. A real mobile-phone call at the planning table interrupts the sequence. After returning to the supply area, the assistant reconstructs progress and guides only the apple and mug steps.",
+    "assistant_goal": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+      "assigned_scene": "restaurant_hotel",
+      "core_question": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "The wearer reads a four-step afternoon service plan and completes its first half by staging the water and towel. A real mobile-phone call at the planning table interrupts the sequence. After returning to the supply area, the assistant reconstructs progress and guides only the apple and mug steps."
+      ],
+      "required_evidence": [
+        "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+        "The plan visibly fixes the four ordered placements for the water, towel, apple, and mug.",
+        "The water was placed on the setup table.",
+        "The towel joined it there, completing the plan's first half.",
+        "A real phone-to-ear interruption occurred and the phone was returned to the planning table.",
+        "The apple has joined the water and towel on the setup table.",
+        "The mug is on the supply table cleared by the completed first half.",
+        "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared."
+      ],
+      "required_final_predicates": [
+        "on",
+        "on"
+      ],
+      "success_condition": "on(apple, setup_table); on(mug, supply_a)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-94001",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "assigned_scene": "restaurant_hotel",
+        "core_question": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "The wearer reads a four-step afternoon service plan and completes its first half by staging the water and towel. A real mobile-phone call at the planning table interrupts the sequence. After returning to the supply area, the assistant reconstructs progress and guides only the apple and mug steps."
+        ],
+        "required_evidence": [
+          "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+          "The plan visibly fixes the four ordered placements for the water, towel, apple, and mug.",
+          "The water was placed on the setup table.",
+          "The towel joined it there, completing the plan's first half.",
+          "A real phone-to-ear interruption occurred and the phone was returned to the planning table.",
+          "The apple has joined the water and towel on the setup table.",
+          "The mug is on the supply table cleared by the completed first half.",
+          "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared."
+        ],
+        "required_final_predicates": [
+          "on",
+          "on"
+        ],
+        "success_condition": "on(apple, setup_table); on(mug, supply_a)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "asparagus",
+          "batting_gloves",
+          "bottle_of_aspirin",
+          "bottle_of_fruit_punch",
+          "bottle_of_poppy_seeds",
+          "bottle_of_water",
+          "box_of_cereal",
+          "box_of_tissues",
+          "box_of_yogurt",
+          "burlap_bag",
+          "carafe",
+          "cell_phone",
+          "clipboard",
+          "cream_of_tartar_shaker",
+          "credit_card_terminal",
+          "desk_phone",
+          "folder",
+          "granulated_sugar_jar",
+          "half_apple_pie",
+          "half_butter_cookie",
+          "half_doughnut",
+          "half_fried_chicken",
+          "half_meat_loaf",
+          "half_peach",
+          "hamster_wheel",
+          "hand_towel",
+          "hard_drive",
+          "heap_of_gravel",
+          "jade_roller",
+          "juicer",
+          "mint",
+          "mug",
+          "notepad",
+          "orange",
+          "paper_sheet",
+          "pasta_server",
+          "pastry",
+          "petri_dish",
+          "pillar_candle",
+          "pipe",
+          "pottable_marigold",
+          "saddle_soap_bottle",
+          "seashell",
+          "sliced_lemon",
+          "soda_cup",
+          "soy_sauce_bottle",
+          "sponge",
+          "vidalia_onion",
+          "waffle_maker"
+        ],
+        "allowed_surface_categories": [
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "breakfast_table",
+          "commercial_kitchen_table",
+          "countertop",
+          "desk",
+          "flat_top_grill",
+          "metal_bottom_cabinet"
+        ],
+        "capability_id": "GUIDE.PROGRESS_RECONSTRUCTION",
+        "coverage_categories": [
+          "pillar_candle",
+          "credit_card_terminal",
+          "petri_dish",
+          "desk_phone",
+          "soy_sauce_bottle",
+          "bottle_of_poppy_seeds",
+          "half_doughnut",
+          "half_apple_pie",
+          "jade_roller",
+          "burlap_bag",
+          "sliced_lemon",
+          "bottle_of_aspirin",
+          "hard_drive",
+          "pasta_server",
+          "hamster_wheel",
+          "cream_of_tartar_shaker",
+          "heap_of_gravel",
+          "vidalia_onion",
+          "orange",
+          "half_butter_cookie"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 2,
+          "required_semantic_turns": 2,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": true,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 28,
+          "max_document_characters": 111,
+          "max_fixed_destinations": 4,
+          "max_meaningful_steps": 24,
+          "max_movable_objects": 6,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 17,
+          "max_small_label_characters": 40,
+          "max_task_actions": 7,
+          "min_intervening_meaningful_actions": 8,
+          "min_meaningful_steps": 5
+        },
+        "preferred_story_categories": [
+          "apple",
+          "bottle_of_water",
+          "carafe",
+          "pasta_server",
+          "paper_sheet",
+          "folder"
+        ],
+        "preferred_story_category_glosses": {
+          "apple": "fruit with red or yellow or green skin and sweet to tart crisp whitish flesh",
+          "bottle_of_water": "",
+          "folder": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 59.2,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "fridge": 3,
+              "metal_bottom_cabinet": 5,
+              "oven": 1
+            },
+            "scene_surfaces": {
+              "commercial_kitchen_table": 7,
+              "flat_top_grill": 4,
+              "metal_bottom_cabinet": 9
+            },
+            "surface_max_area_m2": {
+              "commercial_kitchen_table": 0.2,
+              "flat_top_grill": 0.265,
+              "metal_bottom_cabinet": 0.253
+            },
+            "surface_reference_capacity": {
+              "commercial_kitchen_table": 3,
+              "flat_top_grill": 3,
+              "metal_bottom_cabinet": 3
+            }
+          }
+        ],
+        "scene": "restaurant_hotel",
+        "task_id": "GUIDE-94001",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "clipboard",
+            "changed": false,
+            "costs": null,
+            "label": "AFTERNOON PLAN",
+            "tint": null,
+            "what": "afternoon service plan"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_water",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "water bottle"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "hand_towel",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "folded service towel"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "apple",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": "red",
+            "what": "red apple"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "mug",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "clean service mug"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "cell_phone",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "mobile phone"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "planning table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "first service supply table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "remaining-item supply table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "afternoon setup table"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "afternoon service plan",
+            "text": "AFTERNOON PLAN",
+            "what": "document",
+            "which": null
+          }
+        ],
+        "restaged_story": "The wearer reads a four-step afternoon service plan and completes its first half by staging the water and towel. A real mobile-phone call at the planning table interrupts the sequence. After returning to the supply area, the assistant reconstructs progress and guides only the apple and mug steps.",
+        "scene": "restaurant_hotel",
+        "why_scene": "restaurant_hotel supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {},
+        "items": {
+          "plan": {
+            "affordances": [],
+            "cat": "clipboard",
+            "initial_space": null,
+            "label": "AFTERNOON PLAN",
+            "place": "on:plan_table",
+            "scored": false,
+            "spot": [
+              -0.35,
+              0.5
+            ],
+            "tint": null
+          },
+          "water": {
+            "affordances": [],
+            "cat": "bottle_of_water",
+            "initial_space": null,
+            "label": null,
+            "place": "on:supply_a",
+            "scored": false,
+            "spot": [
+              -0.35,
+              0.5
+            ],
+            "tint": null
+          },
+          "towel": {
+            "affordances": [],
+            "cat": "hand_towel",
+            "initial_space": null,
+            "label": null,
+            "place": "on:supply_a",
+            "scored": false,
+            "spot": [
+              0.35,
+              0.5
+            ],
+            "tint": null
+          },
+          "apple": {
+            "affordances": [],
+            "cat": "apple",
+            "initial_space": null,
+            "label": null,
+            "place": "on:supply_b",
+            "scored": true,
+            "spot": [
+              -0.35,
+              0.5
+            ],
+            "tint": "red"
+          },
+          "mug": {
+            "affordances": [],
+            "cat": "mug",
+            "initial_space": null,
+            "label": null,
+            "place": "on:supply_b",
+            "scored": true,
+            "spot": [
+              0.35,
+              0.5
+            ],
+            "tint": null
+          },
+          "phone": {
+            "affordances": [],
+            "cat": "cell_phone",
+            "initial_space": null,
+            "label": null,
+            "place": "on:plan_table",
+            "scored": false,
+            "spot": [
+              0.35,
+              0.5
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <plan> (1)",
+          "[LookAt] <plan> (1)",
+          "[Walk] <supply_a> (1)",
+          "[Grab] <water> (1)",
+          "[Walk] <setup_table> (1)",
+          "[PutOn] <water> (1) <setup_table> (1)",
+          "[Walk] <supply_a> (1)",
+          "[Grab] <towel> (1)",
+          "[Walk] <setup_table> (1)",
+          "[PutOn] <towel> (1) <setup_table> (1)",
+          "[Walk] <phone> (1)",
+          "[Grab] <phone> (1)",
+          "[AnswerPhone] <phone> (1)",
+          "[Wait]",
+          "[PutOn] <phone> (1) <plan_table> (1)",
+          "[Walk] <supply_b> (1)",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0"
+        ],
+        "scene": "restaurant_hotel",
+        "staging": {
+          "groups": "The wearer reads a four-step afternoon service plan and completes its first half by staging the water and towel. A real mobile-phone call at the planning table interrupts the sequence. After returning to the supply area, the assistant reconstructs progress and guides only the apple and mug steps.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "plan_table": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "supply_a": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "supply_b": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "setup_table": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The plan visibly fixes the four ordered placements for the water, towel, apple, and mug.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The water was placed on the setup table.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 5,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The towel joined it there, completing the plan's first half.",
+            "from": "prologue",
+            "id": "fact_004",
+            "source_index": 9,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "A real phone-to-ear interruption occurred and the phone was returned to the planning table.",
+            "from": "prologue",
+            "id": "fact_005",
+            "source_index": 14,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The apple has joined the water and towel on the setup table.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 2,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The mug is on the supply table cleared by the completed first half.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 5,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007"
+            ],
+            "fact": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "from": "derived",
+            "id": "fact_008",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "apple",
+            "target": "setup_table"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "mug",
+            "target": "supply_a"
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "You completed steps one and two before the call: the water and towel are on the setup table. Resume at step three by placing the apple beside the water.",
+            "referents": [
+              "plan",
+              "water",
+              "towel",
+              "apple",
+              "setup_table"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ]
+          },
+          {
+            "before_index": 3,
+            "say": "The apple step is complete. Finish with the clean mug: move it to the supply table cleared by the water and towel, then stop.",
+            "referents": [
+              "apple",
+              "mug",
+              "water",
+              "towel",
+              "supply_a"
+            ],
+            "fact_ids": [
+              "fact_002",
+              "fact_006"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Grab] <apple> (1), [Walk] <supply_a> (1), [PutOn] <apple> (1) <supply_a> (1), [Wait]",
+        "mates": [],
+        "oracle_program": "[Grab] <apple> (1), [Walk] <setup_table> (1), [PutOn] <apple> (1) <setup_table> (1), [Grab] <mug> (1), [Walk] <supply_a> (1), [PutOn] <mug> (1) <supply_a> (1), [Wait]",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "The wearer reads a four-step afternoon service plan and completes its first half by staging the water and towel. A real mobile-phone call at the planning table interrupts the sequence. After returning to the supply area, the assistant reconstructs progress and guides only the apple and mug steps.",
+        "utterance": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <plan> (1)",
+        "[LookAt] <plan> (1)",
+        "[Walk] <supply_a> (1)",
+        "[Grab] <water> (1)",
+        "[Walk] <setup_table> (1)",
+        "[PutOn] <water> (1) <setup_table> (1)",
+        "[Walk] <supply_a> (1)",
+        "[Grab] <towel> (1)",
+        "[Walk] <setup_table> (1)",
+        "[PutOn] <towel> (1) <setup_table> (1)",
+        "[Walk] <phone> (1)",
+        "[Grab] <phone> (1)",
+        "[AnswerPhone] <phone> (1)",
+        "[Wait]",
+        "[PutOn] <phone> (1) <plan_table> (1)",
+        "[Walk] <supply_b> (1)",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "plan"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "plan"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "plan"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The plan visibly fixes the four ordered placements for the water, towel, apple, and mug.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "supply_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "supply_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "water"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "water"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "setup_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "setup_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "water",
+            "setup_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The water was placed on the setup table.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "supply_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "supply_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "towel"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "towel"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "setup_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "setup_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "towel",
+            "setup_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The towel joined it there, completing the plan's first half.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "phone"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p011",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "phone"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p012",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "AnswerPhone",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p013",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p014",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "plan_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "A real phone-to-ear interruption occurred and the phone was returned to the planning table.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p015",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "supply_b"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "supply_b"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p016",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "You completed steps one and two before the call: the water and towel are on the setup table. Resume at step three by placing the apple beside the water.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The apple step is complete. Finish with the clean mug: move it to the supply table cleared by the water and towel, then stop.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "apple"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "apple"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "supply_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "supply_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "apple",
+            "supply_a"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "apple"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "apple"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "setup_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "setup_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "apple",
+            "setup_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The apple has joined the water and towel on the setup table.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "mug"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "mug"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "supply_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "supply_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "mug",
+            "supply_a"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The mug is on the supply table cleared by the completed first half.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The plan visibly fixes the four ordered placements for the water, towel, apple, and mug.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "The water was placed on the setup table.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p005"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 5
+      },
+      {
+        "id": "fact_004",
+        "statement": "The towel joined it there, completing the plan's first half.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p009"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 9
+      },
+      {
+        "id": "fact_005",
+        "statement": "A real phone-to-ear interruption occurred and the phone was returned to the planning table.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p014"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 14
+      },
+      {
+        "id": "fact_006",
+        "statement": "The apple has joined the water and towel on the setup table.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o002"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 2
+      },
+      {
+        "id": "fact_007",
+        "statement": "The mug is on the supply table cleared by the completed first half.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o005"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 5
+      },
+      {
+        "id": "fact_008",
+        "statement": "The water and towel are already on the setup table. Resume at step three: place the apple beside the water, then move the clean mug to the supply table that those first two items cleared.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "p005",
+          "p009",
+          "p014",
+          "o002",
+          "o005"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Reconstruct the person's progress after the phone interruption and guide the unfinished service-plan steps to completion.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <plan> (1)",
+          "[LookAt] <plan> (1)",
+          "[Walk] <supply_a> (1)",
+          "[Grab] <water> (1)",
+          "[Walk] <setup_table> (1)",
+          "[PutOn] <water> (1) <setup_table> (1)",
+          "[Walk] <supply_a> (1)",
+          "[Grab] <towel> (1)",
+          "[Walk] <setup_table> (1)",
+          "[PutOn] <towel> (1) <setup_table> (1)",
+          "[Walk] <phone> (1)",
+          "[Grab] <phone> (1)",
+          "[AnswerPhone] <phone> (1)",
+          "[Wait]",
+          "[PutOn] <phone> (1) <plan_table> (1)",
+          "[Walk] <supply_b> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 16,
+            "say": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end."
+          }
+        ],
+        "handoff_say": "That call broke my place in the plan. Please tell me what is already done and guide me from the next unfinished step to the end.",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "service_plan_recovery_request",
+            "required_phrases": [
+              "call broke my place",
+              "what is already done",
+              "next unfinished step"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [],
+        "required_command_sequences": [],
+        "verification_points": [
+          {
+            "id": "apple_on_setup_table",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "apple",
+            "target": "setup_table"
+          },
+          {
+            "id": "mug_on_supply_a",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "mug",
+            "target": "supply_a"
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 26,
+    "dialogue_budget": 2,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "supply_b",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "plan",
+              "water",
+              "towel",
+              "apple",
+              "setup_table"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "apple",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "apple",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "setup_table",
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "apple",
+              "mug",
+              "water",
+              "towel",
+              "supply_a"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "apple",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "mug",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "supply_a",
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o006"
+        }
+      ],
+      "terminal_beats": [
+        "h003",
+        "o006"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "apple"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "setup_table"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "apple",
+          "setup_table"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "mug"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "supply_a"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "mug",
+          "supply_a"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "apple"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "supply_a"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "apple",
+          "supply_a"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "You completed steps one and two before the call: the water and towel are on the setup table. Resume at step three by placing the apple beside the water.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The apple step is complete. Finish with the clean mug: move it to the supply table cleared by the water and towel, then stop.",
+        "relation": "before",
+        "anchor_beat_id": "o003",
+        "source": "guidance",
+        "source_index": 1
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "release": "InteractiveWorld-Balanced120",
+    "task_id": "GUIDE-94001"
+  }
+}

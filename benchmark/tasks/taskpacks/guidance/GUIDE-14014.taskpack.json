@@ -1,0 +1,1933 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-14014",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "inside",
+          "subject": "towel",
+          "target": "dryer"
+        },
+        {
+          "pred": "closed",
+          "subject": "dryer",
+          "target": "dryer"
+        },
+        {
+          "pred": "running",
+          "subject": "dryer",
+          "target": "dryer"
+        },
+        {
+          "pred": "inside",
+          "subject": "boot",
+          "target": "shoe_rack"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "inside",
+          "subject": "towel",
+          "target": "dryer"
+        },
+        {
+          "pred": "closed",
+          "subject": "dryer",
+          "target": "dryer"
+        },
+        {
+          "pred": "running",
+          "subject": "dryer",
+          "target": "dryer"
+        },
+        {
+          "pred": "inside",
+          "subject": "boot",
+          "target": "shoe_rack"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "dryer",
+          "shoe_rack"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "boot",
+          "towel"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "Put the towel in the tumble dryer, close it, and start the cycle. Do not tumble-dry the hiking boot because heat can damage its foam and adhesives; place the boot on the open shoe rack to air-dry instead.",
+        "cue": "These are both damp after the trip. There are several drying options here; please identify the safe one for each and guide me.",
+        "premise": "A damp towel and hiking boot wait at a real utility-room sorting counter. The assistant must distinguish a dryer-safe textile from heat-sensitive footwear and complete the dryer lifecycle rather than merely loading it."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "These are both damp after the trip. There are several drying options here; please identify the safe one for each and guide me.",
+        "kind": "authored",
+        "ref": "interactiveworld:GUIDE-14014"
+      },
+      "rule_table": "inside(towel, dryer); closed(dryer); running(dryer); inside(boot, shoe_rack)",
+      "scene": "house_single_floor",
+      "template": "the grounded house_single_floor scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 15,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 15,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "laundry_counter"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "towel"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "boot"
+          ]
+        },
+        {
+          "verb": "LookAround",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "towel"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "dryer"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "dryer"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "towel",
+            "dryer"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "dryer"
+          ]
+        },
+        {
+          "verb": "TurnOn",
+          "args": [
+            "dryer"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "boot"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "shoe_rack"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "boot",
+            "shoe_rack"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "boot"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "interactiveworld.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Grab] <towel> (1), [Walk] <dryer> (1), [Open] <dryer> (1), [PutInside] <towel> (1) <dryer> (1), [Close] <dryer> (1), [TurnOn] <dryer> (1), [Grab] <boot> (1), [Walk] <shoe_rack> (1), [PutInside] <boot> (1) <shoe_rack> (1), [LookAt] <boot> (1)",
+      "seed": 3061503064,
+      "source_task_id": "GUIDE-14014"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "towel",
+          "target": "dryer"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "dryer",
+          "target": "dryer"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "running",
+          "label": null,
+          "neg_kind": null,
+          "subject": "dryer",
+          "target": "dryer"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "boot",
+          "target": "shoe_rack"
+        }
+      ],
+      "sub_steps": [
+        "inside(towel, dryer)",
+        "closed(dryer)",
+        "running(dryer)",
+        "inside(boot, shoe_rack)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-14014",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 3061503064,
+      "containers": {
+        "dryer": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "clothes_dryer",
+            "source": "scene",
+            "pick": {
+              "name": "clothes_dryer_xsuyua_0",
+              "stage_prim_path": "/World/b_clothes_dryer_xsuyua_0",
+              "asset_sha256": "sha256:b7d309f834af2120274ed52e85ae3fef18f561b7fe8237023cd52215c89099fe",
+              "instance_digest": "sha256:ebd261bf28e3f172cc8a702143042be2dab6f8eda00553b6a86a4e2b8c845ad7",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "door": {
+            "required": true,
+            "action_standoff_m": 0.95,
+            "content_standoff_m": 0.7
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "utility_room_0"
+        },
+        "shoe_rack": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "shoe_rack",
+            "model": "spdrzb",
+            "source": "import"
+          },
+          "door": {
+            "required": false
+          },
+          "kind": "open_bin",
+          "role": "scored",
+          "room": "utility_room_0"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "laundry_counter": {
+          "bind": {
+            "cat": "countertop",
+            "source": "scene"
+          },
+          "room": "utility_room_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {},
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "towel": {
+          "cat": "hand_towel",
+          "model": "klevhj",
+          "needs_lookat": false,
+          "place": "on:laundry_counter",
+          "room": "utility_room_0",
+          "scored": true,
+          "spot": [
+            -0.35,
+            0.5
+          ]
+        },
+        "boot": {
+          "cat": "hiking_boot",
+          "model": "ljiila",
+          "needs_lookat": false,
+          "place": "on:laundry_counter",
+          "room": "utility_room_0",
+          "scored": true,
+          "spot": [
+            0.35,
+            0.5
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "utility_room_0"
+      ],
+      "scene": "house_single_floor",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "A damp towel and hiking boot wait at a real utility-room sorting counter. The assistant must distinguish a dryer-safe textile from heat-sensitive footwear and complete the dryer lifecycle rather than merely loading it.",
+    "assistant_goal": "These are both damp after the trip. There are several drying options here; please identify the safe one for each and guide me.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.DOMAIN_KNOWLEDGE_INJECTION",
+      "assigned_scene": "house_single_floor",
+      "core_question": "These are both damp after the trip. There are several drying options here; please identify the safe one for each and guide me.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "A damp towel and hiking boot wait at a real utility-room sorting counter. The assistant must distinguish a dryer-safe textile from heat-sensitive footwear and complete the dryer lifecycle rather than merely loading it."
+      ],
+      "required_evidence": [
+        "These are both damp after the trip. There are several drying options here; please identify the safe one for each and guide me.",
+        "The laundry counter visibly holds a damp towel and a hiking boot.",
+        "The room offers a tumble dryer and a separate open shoe rack for air-drying footwear.",
+        "The towel is inside the closed, running dryer.",
+        "The hiking boot is visibly resting on the open shoe rack.",
+        "Put the towel in the tumble dryer, close it, and start the cycle. Do not tumble-dry the hiking boot because heat can damage its foam and adhesives; place the boot on the open shoe rack to air-dry instead."
+      ],
+      "required_final_predicates": [
+        "inside",
+        "closed",
+        "running",
+        "inside"
+      ],
+      "success_condition": "inside(towel, dryer); closed(dryer); running(dryer); inside(boot, shoe_rack)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-14014",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.DOMAIN_KNOWLEDGE_INJECTION",
+        "assigned_scene": "house_single_floor",
+        "core_question": "These are both damp after the trip. There are several drying options here; please identify the safe one for each and guide me.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "A damp towel and hiking boot wait at a real utility-room sorting counter. The assistant must distinguish a dryer-safe textile from heat-sensitive footwear and complete the dryer lifecycle rather than merely loading it."
+        ],
+        "required_evidence": [
+          "These are both damp after the trip. There are several drying options here; please identify the safe one for each and guide me.",
+          "The laundry counter visibly holds a damp towel and a hiking boot.",
+          "The room offers a tumble dryer and a separate open shoe rack for air-drying footwear.",
+          "The towel is inside the closed, running dryer.",
+          "The hiking boot is visibly resting on the open shoe rack.",
+          "Put the towel in the tumble dryer, close it, and start the cycle. Do not tumble-dry the hiking boot because heat can damage its foam and adhesives; place the boot on the open shoe rack to air-dry instead."
+        ],
+        "required_final_predicates": [
+          "inside",
+          "closed",
+          "running",
+          "inside"
+        ],
+        "success_condition": "inside(towel, dryer); closed(dryer); running(dryer); inside(boot, shoe_rack)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shoe_rack",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "birdcage",
+          "bleaching_agent_atomizer",
+          "bottle_of_deicer",
+          "bottle_of_solvent",
+          "bottle_of_tonic",
+          "box_of_corn_flakes",
+          "can_of_oatmeal",
+          "can_of_sardines",
+          "can_of_tomato_paste",
+          "cell_phone",
+          "chicken_breast",
+          "clipboard",
+          "clout_nail",
+          "cucumber",
+          "dvd",
+          "folder",
+          "gift_box",
+          "half_artichoke",
+          "half_bell_pepper",
+          "half_bok_choy",
+          "half_chocolate_cake",
+          "half_kiwi",
+          "half_shiitake",
+          "half_shrimp",
+          "half_tenderloin",
+          "hand_towel",
+          "hiking_boot",
+          "jar_of_tumeric",
+          "lampshade",
+          "lint_screen",
+          "maillot",
+          "modem",
+          "octopus",
+          "orange_juice_carton",
+          "outline_vase",
+          "pattypan_squash",
+          "peach",
+          "peanut_butter_jar",
+          "pipe_cleaner",
+          "pork",
+          "postcard",
+          "poster_roll",
+          "pottable_beefsteak_tomato",
+          "roasting_pan",
+          "sponge",
+          "stockpot"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "bottom_cabinet_no_top",
+          "countertop",
+          "desk"
+        ],
+        "capability_id": "GUIDE.DOMAIN_KNOWLEDGE_INJECTION",
+        "coverage_categories": [
+          "bleaching_agent_atomizer",
+          "half_tenderloin",
+          "can_of_tomato_paste",
+          "dvd",
+          "pipe_cleaner",
+          "half_artichoke",
+          "box_of_corn_flakes",
+          "half_chocolate_cake",
+          "peanut_butter_jar",
+          "stockpot",
+          "bottle_of_tonic",
+          "half_shrimp",
+          "bottle_of_deicer",
+          "can_of_sardines",
+          "half_bell_pepper",
+          "poster_roll",
+          "octopus",
+          "hiking_boot",
+          "pork",
+          "can_of_oatmeal"
+        ],
+        "evaluation": {
+          "common_sense_allowed": true,
+          "document_carrier_required": false,
+          "max_semantic_turns": 2,
+          "required_semantic_turns": 2,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 19,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 5,
+          "max_small_label_characters": 40,
+          "max_task_actions": 10,
+          "max_meaningful_steps": 15,
+          "min_intervening_meaningful_actions": 5
+        },
+        "preferred_story_categories": [
+          "bleaching_agent_atomizer",
+          "half_tenderloin",
+          "can_of_tomato_paste",
+          "dvd",
+          "pipe_cleaner",
+          "half_artichoke",
+          "box_of_corn_flakes",
+          "half_chocolate_cake"
+        ],
+        "preferred_story_category_glosses": {
+          "bleaching_agent_atomizer": "",
+          "box_of_corn_flakes": "",
+          "can_of_tomato_paste": "",
+          "dvd": "",
+          "half_artichoke": "",
+          "half_chocolate_cake": "",
+          "half_tenderloin": "",
+          "pipe_cleaner": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 23.8,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "bottom_cabinet": 1,
+              "dishwasher": 1,
+              "fridge": 1
+            },
+            "scene_surfaces": {
+              "bar": 1,
+              "bottom_cabinet_no_top": 2,
+              "countertop": 2
+            },
+            "surface_max_area_m2": {
+              "bar": 0.864,
+              "bottom_cabinet_no_top": 0.533,
+              "countertop": 1.116
+            },
+            "surface_reference_capacity": {
+              "bar": 3,
+              "bottom_cabinet_no_top": 3,
+              "countertop": 3
+            }
+          }
+        ],
+        "scene": "house_single_floor",
+        "task_id": "GUIDE-14014",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "hand_towel",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "damp hand towel"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "hiking_boot",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "damp hiking boot"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "clothes_dryer",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "front-loading tumble dryer"
+          },
+          {
+            "affordances": [
+              "container"
+            ],
+            "category": "shoe_rack",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "open shoe-drying rack"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "countertop",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "laundry sorting counter"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [],
+        "restaged_story": "A damp towel and hiking boot wait at a real utility-room sorting counter. The assistant must distinguish a dryer-safe textile from heat-sensitive footwear and complete the dryer lifecycle rather than merely loading it.",
+        "scene": "house_single_floor",
+        "why_scene": "house_single_floor supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "dryer": {
+            "cat": "clothes_dryer",
+            "initially_open": false,
+            "label": null,
+            "preload": [],
+            "role": "scored",
+            "room": "utility_room_0"
+          },
+          "shoe_rack": {
+            "cat": "shoe_rack",
+            "initially_open": false,
+            "label": null,
+            "preload": [],
+            "role": "scored",
+            "room": "utility_room_0"
+          }
+        },
+        "items": {
+          "towel": {
+            "affordances": [],
+            "cat": "hand_towel",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:laundry_counter",
+            "scored": true,
+            "spot": [
+              -0.35,
+              0.5
+            ],
+            "tint": null
+          },
+          "boot": {
+            "affordances": [],
+            "cat": "hiking_boot",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:laundry_counter",
+            "scored": true,
+            "spot": [
+              0.35,
+              0.5
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <laundry_counter> (1)",
+          "[LookAt] <towel> (1)",
+          "[LookAt] <boot> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "utility_room_0"
+        ],
+        "scene": "house_single_floor",
+        "staging": {
+          "groups": "A damp towel and hiking boot wait at a real utility-room sorting counter. The assistant must distinguish a dryer-safe textile from heat-sensitive footwear and complete the dryer lifecycle rather than merely loading it.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "laundry_counter": {
+            "cat": "countertop",
+            "label": null,
+            "room": "utility_room_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "These are both damp after the trip. There are several drying options here; please identify the safe one for each and guide me."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "These are both damp after the trip. There are several drying options here; please identify the safe one for each and guide me.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The laundry counter visibly holds a damp towel and a hiking boot.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 2,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The room offers a tumble dryer and a separate open shoe rack for air-drying footwear.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 3,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The towel is inside the closed, running dryer.",
+            "from": "live",
+            "id": "fact_004",
+            "source_index": 5,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The hiking boot is visibly resting on the open shoe rack.",
+            "from": "live",
+            "id": "fact_005",
+            "source_index": 9,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ],
+            "fact": "Put the towel in the tumble dryer, close it, and start the cycle. Do not tumble-dry the hiking boot because heat can damage its foam and adhesives; place the boot on the open shoe rack to air-dry instead.",
+            "from": "derived",
+            "id": "fact_006",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "towel",
+            "target": "dryer"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "dryer",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "running",
+            "scorable": true,
+            "subject": "dryer",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "boot",
+            "target": "shoe_rack"
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "Take the damp towel from the utility-room counter to the tumble dryer in this room. Open the dryer, load the towel, close the door, and start the cycle.",
+            "referents": [
+              "towel",
+              "dryer"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 6,
+            "say": "The towel cycle is running. Take the hiking boot from the utility-room counter, put it inside the open shoe rack in this room to air-dry, and inspect it there; keep it out of the dryer heat.",
+            "referents": [
+              "boot",
+              "shoe_rack",
+              "dryer"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_004"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Grab] <towel> (1), [Walk] <dryer> (1), [Open] <dryer> (1), [PutInside] <towel> (1) <dryer> (1), [Close] <dryer> (1), [Grab] <boot> (1), [Open] <dryer> (1), [PutInside] <boot> (1) <dryer> (1), [Close] <dryer> (1), [TurnOn] <dryer> (1)",
+        "mates": [],
+        "oracle_program": "[Grab] <towel> (1), [Walk] <dryer> (1), [Open] <dryer> (1), [PutInside] <towel> (1) <dryer> (1), [Close] <dryer> (1), [TurnOn] <dryer> (1), [Grab] <boot> (1), [Walk] <shoe_rack> (1), [PutInside] <boot> (1) <shoe_rack> (1), [LookAt] <boot> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "A damp towel and hiking boot wait at a real utility-room sorting counter. The assistant must distinguish a dryer-safe textile from heat-sensitive footwear and complete the dryer lifecycle rather than merely loading it.",
+        "utterance": "These are both damp after the trip. There are several drying options here; please identify the safe one for each and guide me."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <laundry_counter> (1)",
+        "[LookAt] <towel> (1)",
+        "[LookAt] <boot> (1)",
+        "[LookAround]",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "laundry_counter"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "laundry_counter"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "towel"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "boot"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The laundry counter visibly holds a damp towel and a hiking boot.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "Put the towel in the tumble dryer, close it, and start the cycle. Do not tumble-dry the hiking boot because heat can damage its foam and adhesives; place the boot on the open shoe rack to air-dry instead.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The room offers a tumble dryer and a separate open shoe rack for air-drying footwear.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "Put the towel in the tumble dryer, close it, and start the cycle. Do not tumble-dry the hiking boot because heat can damage its foam and adhesives; place the boot on the open shoe rack to air-dry instead.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "These are both damp after the trip. There are several drying options here; please identify the safe one for each and guide me.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "These are both damp after the trip. There are several drying options here; please identify the safe one for each and guide me.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "Put the towel in the tumble dryer, close it, and start the cycle. Do not tumble-dry the hiking boot because heat can damage its foam and adhesives; place the boot on the open shoe rack to air-dry instead.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Take the damp towel from the utility-room counter to the tumble dryer in this room. Open the dryer, load the towel, close the door, and start the cycle.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The towel cycle is running. Take the hiking boot from the utility-room counter, put it inside the open shoe rack in this room to air-dry, and inspect it there; keep it out of the dryer heat.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "towel"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "towel"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "dryer"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "dryer"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "dryer"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "towel",
+            "dryer"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "towel",
+            "target": "dryer"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "dryer"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "boot"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "boot"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "dryer"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "boot",
+            "dryer"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "boot",
+            "target": "dryer"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "dryer"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "TurnOn",
+          "args": [
+            "dryer"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "towel"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "towel"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "dryer"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "dryer"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "dryer"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "towel",
+            "dryer"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "towel",
+            "target": "dryer"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "dryer"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "TurnOn",
+          "args": [
+            "dryer"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The towel is inside the closed, running dryer.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "Put the towel in the tumble dryer, close it, and start the cycle. Do not tumble-dry the hiking boot because heat can damage its foam and adhesives; place the boot on the open shoe rack to air-dry instead.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "boot"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "boot"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "shoe_rack"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "shoe_rack"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "boot",
+            "shoe_rack"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "boot",
+            "target": "shoe_rack"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "boot"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The hiking boot is visibly resting on the open shoe rack.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "Put the towel in the tumble dryer, close it, and start the cycle. Do not tumble-dry the hiking boot because heat can damage its foam and adhesives; place the boot on the open shoe rack to air-dry instead.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "These are both damp after the trip. There are several drying options here; please identify the safe one for each and guide me.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The laundry counter visibly holds a damp towel and a hiking boot.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p002"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 2
+      },
+      {
+        "id": "fact_003",
+        "statement": "The room offers a tumble dryer and a separate open shoe rack for air-drying footwear.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p003"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 3
+      },
+      {
+        "id": "fact_004",
+        "statement": "The towel is inside the closed, running dryer.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o005"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 5
+      },
+      {
+        "id": "fact_005",
+        "statement": "The hiking boot is visibly resting on the open shoe rack.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o009"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 9
+      },
+      {
+        "id": "fact_006",
+        "statement": "Put the towel in the tumble dryer, close it, and start the cycle. Do not tumble-dry the hiking boot because heat can damage its foam and adhesives; place the boot on the open shoe rack to air-dry instead.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p002",
+          "p003",
+          "o005",
+          "o009"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the inspected damp items and available drying equipment to guide the person through drying each item safely.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <laundry_counter> (1)",
+          "[LookAt] <towel> (1)",
+          "[LookAt] <boot> (1)",
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 4,
+            "say": "Hey, Assistant, these both got damp on the trip. Can you help me dry each one safely and walk me through it?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, these both got damp on the trip. Can you help me dry each one safely and walk me through it?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "damp_items_request",
+            "required_phrases": [
+              "both got damp on the trip",
+              "dry each one safely"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": false,
+        "verification_points": [
+          {
+            "id": "towel_in_dryer",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "towel",
+            "target": "dryer"
+          },
+          {
+            "id": "dryer_running",
+            "kind": "world_state",
+            "pred": "running",
+            "subject": "dryer",
+            "target": "dryer"
+          },
+          {
+            "id": "boot_on_shoe_rack",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "boot",
+            "target": "shoe_rack"
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 44,
+    "dialogue_budget": 2,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "boot",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005",
+        "h006",
+        "h007",
+        "h008",
+        "h009"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "towel",
+              "dryer"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "towel",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "towel",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "dryer",
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "towel",
+            "target": "dryer",
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "boot",
+              "shoe_rack",
+              "dryer"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "towel",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "boot",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "shoe_rack",
+            "truth": true
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "boot",
+            "target": "shoe_rack",
+            "truth": true
+          },
+          "next_beat": "o009"
+        }
+      ],
+      "terminal_beats": [
+        "h009",
+        "o009"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "towel"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "dryer"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "dryer"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "towel",
+          "dryer"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "dryer"
+        ]
+      },
+      {
+        "verb": "TurnOn",
+        "args": [
+          "dryer"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "boot"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "shoe_rack"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "boot",
+          "shoe_rack"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "boot"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "towel"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "dryer"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "dryer"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "towel",
+          "dryer"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "dryer"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "boot"
+        ]
+      },
+      {
+        "verb": "Open",
+        "args": [
+          "dryer"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "boot",
+          "dryer"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "dryer"
+        ]
+      },
+      {
+        "verb": "TurnOn",
+        "args": [
+          "dryer"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Take the damp towel from the utility-room counter to the tumble dryer in this room. Open the dryer, load the towel, close the door, and start the cycle.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The towel cycle is running. Take the hiking boot from the utility-room counter, put it inside the open shoe rack in this room to air-dry, and inspect it there; keep it out of the dryer heat.",
+        "relation": "before",
+        "anchor_beat_id": "o006",
+        "source": "guidance",
+        "source_index": 1
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "release": "InteractiveWorld-Balanced120",
+    "task_id": "GUIDE-14014"
+  }
+}

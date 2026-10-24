@@ -1,0 +1,1915 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "ASK-30000",
+  "executable_spec": {
+    "spec_version": "bts/1.0",
+    "task_id": "ASK-30000",
+    "variant": null,
+    "meta": {
+      "family": "ASK",
+      "template": "a grocery shop or convenience store",
+      "scene": "grocery_store_cafe",
+      "wave": 1,
+      "difficulty": "hard",
+      "rule_table": "on(cat food can, dog-old checkout counter)",
+      "grounding": {
+        "kind": "authored",
+        "ref": "interactiveworld:ASK-30000",
+        "cite": "I read both stock tables earlier. Where should I take this can of cat food first?"
+      },
+      "design": {
+        "premise": "On the grocery floor, the wearer reads a formal cat-stock clipboard beside a can of cat food. It lists NEW: AISLE SHELF, OLD: RECEIVING TABLE, and IF THE NEW SHELF HAS ANY ITEM: USE DOG OLD. They cross into the separate staff bar, open a stock cabinet, read a second clipboard listing DOG NEW: CAFE CUBBY and DOG OLD: CHECKOUT COUNTER, then pick it up by the edge, close the cabinet, and carry it to that checkout counter, setting it down by the edge with the DOG OLD row still clear. There they answer a work call and put the phone down before asking where to take the cat-food can first. The assistant first directs them to the cat-new aisle shelf. The wearer picks up the cat food, carries it to that shelf, and sees in one shelf-level view that a can of dog food already occupies it. Without setting the cat food down, the assistant applies the exception and the remembered dog table: the wearer carries the cat food onward to the dog-old checkout counter.",
+        "cue": "I read both stock tables earlier. Where should I take this can of cat food first?",
+        "assistant_must": "on(cat food can, dog-old checkout counter)",
+        "anti_shortcut": "[Walk] <surf_1> (1), [Grab] <part_1> (1), [Walk] <surf_2> (1), [PutOn] <part_1> (1) <surf_2> (1)"
+      },
+      "engine_deltas": []
+    },
+    "world": {
+      "scene": "grocery_store_cafe",
+      "instance": 0,
+      "layout": "frozen",
+      "authoring_seed": 2894305440,
+      "seed_scope": "model",
+      "rooms": [
+        "grocery_store_0",
+        "bar_0"
+      ],
+      "roles": {},
+      "fixtures": {
+        "surf_1": {
+          "bind": {
+            "source": "scene",
+            "cat": "breakfast_table"
+          },
+          "room": "grocery_store_0",
+          "seatable": false
+        },
+        "surf_2": {
+          "bind": {
+            "cat": "grocery_shelf",
+            "pick": {
+              "name": "grocery_shelf_rowulr_0",
+              "stage_prim_path": "/World/b_grocery_shelf_rowulr_0",
+              "asset_sha256": "sha256:34cfe5311c5a1512fd28ac7c69b80335cd02504ddf263df9147e3a7e7517c384",
+              "instance_digest": "sha256:87e33272bfbe0893461390f016babc64e5665322b7dab4c110800a66ab926f66",
+              "by": "scene_instance",
+              "rank": 5
+            },
+            "source": "scene"
+          },
+          "room": "grocery_store_0",
+          "seatable": false,
+          "look_region": {
+            "kind": "surface"
+          }
+        },
+        "surf_3": {
+          "bind": {
+            "source": "scene",
+            "cat": "checkout_counter"
+          },
+          "room": "grocery_store_0",
+          "seatable": false
+        }
+      },
+      "containers": {
+        "unit_a": {
+          "room": "bar_0",
+          "role": "hold",
+          "bind": {
+            "cat": "bottom_cabinet",
+            "pick": {
+              "name": "bottom_cabinet_plccav_2",
+              "stage_prim_path": "/World/b_bottom_cabinet_plccav_2",
+              "asset_sha256": "sha256:bfbd02f41c7c0576642dc690f583032aadd898c382f2b1ad983a63c117285b31",
+              "instance_digest": "sha256:0f49df72e9f501720fb32f80e412a17e21a91ff55581497aa9b2fbc2e9fd52a0",
+              "by": "scene_instance",
+              "rank": 1
+            },
+            "source": "scene"
+          },
+          "kind": "front_opening",
+          "door": {
+            "required": true
+          },
+          "alt_cats": [
+            "metal_bottom_cabinet",
+            "bottom_cabinet_no_top",
+            "clothes_dryer",
+            "fridge",
+            "commercial_kitchen_sink"
+          ]
+        }
+      },
+      "objects": {
+        "item_1": {
+          "cat": "clipboard",
+          "model": "gmxyfo",
+          "place": "on:surf_1",
+          "room": "grocery_store_0",
+          "scored": false,
+          "needs_lookat": true,
+          "decal": "CAT STOCK | NEW: AISLE SHELF | OLD: RECEIVING TABLE | IF NEW SHELF HAS ANY ITEM: USE DOG OLD",
+          "spot": [
+            -0.62,
+            0.3
+          ],
+          "grasp_hint": {
+            "target": "edge",
+            "family": "pinch",
+            "edge": "nearest",
+            "height_fraction": 0.2
+          }
+        },
+        "item_2": {
+          "cat": "clipboard",
+          "model": "gmxyfo",
+          "place": "in:unit_a",
+          "room": "bar_0",
+          "scored": false,
+          "needs_lookat": true,
+          "decal": "DOG STOCK | NEW: CAFE CUBBY | OLD: CHECKOUT COUNTER",
+          "spot": [
+            -0.35,
+            0.48
+          ],
+          "grasp_hint": {
+            "target": "edge",
+            "family": "pinch",
+            "edge": "nearest",
+            "height_fraction": 0.2
+          }
+        },
+        "item_3": {
+          "cat": "can_of_dog_food",
+          "model": "rgwfxq",
+          "place": "on:surf_2",
+          "room": "grocery_store_0",
+          "scored": false,
+          "needs_lookat": false,
+          "spot": [
+            0.0,
+            0.0
+          ],
+          "grasp_hint": {
+            "target": "body",
+            "family": "wrap",
+            "height_fraction": 0.5
+          }
+        },
+        "item_4": {
+          "cat": "cell_phone",
+          "model": "dbhfuh",
+          "place": "on:surf_3",
+          "room": "grocery_store_0",
+          "scored": false,
+          "needs_lookat": false,
+          "spot": [
+            0.0,
+            0.45
+          ],
+          "grasp_hint": {
+            "target": "body",
+            "family": "wrap",
+            "height_fraction": 0.5
+          }
+        },
+        "part_1": {
+          "cat": "can_of_cat_food",
+          "model": "omiuox",
+          "place": "on:surf_1",
+          "room": "grocery_store_0",
+          "scored": true,
+          "needs_lookat": false,
+          "spot": [
+            0.62,
+            0.72
+          ],
+          "grasp_hint": {
+            "target": "body",
+            "family": "wrap",
+            "height_fraction": 0.5
+          }
+        }
+      },
+      "parts": {},
+      "labels": {
+        "label_item_1": {
+          "png": "ask_30000_cat_stock_locations",
+          "kind": "short_string",
+          "content": {
+            "text": "CAT STOCK | NEW: AISLE SHELF | OLD: RECEIVING TABLE | IF NEW SHELF HAS ANY ITEM: USE DOG OLD",
+            "args": {
+              "renderer": "document_scan",
+              "source": "ask17/ask_30000_cat_stock_locations.png",
+              "primary_glyph_height_ratio": 0.026,
+              "primary_line_count": 4,
+              "primary_text_bbox_norm_xyxy": [
+                0.06,
+                0.12,
+                0.94,
+                0.9
+              ]
+            }
+          },
+          "per_seed": false,
+          "mount": {
+            "surface": "item_decal",
+            "on": "item_1",
+            "face": "top"
+          }
+        },
+        "label_item_2": {
+          "png": "ask_30000_dog_stock_locations",
+          "kind": "short_string",
+          "content": {
+            "text": "DOG STOCK | NEW: CAFE CUBBY | OLD: CHECKOUT COUNTER",
+            "args": {
+              "renderer": "document_scan",
+              "source": "ask17/ask_30000_dog_stock_locations.png",
+              "primary_glyph_height_ratio": 0.026,
+              "primary_line_count": 2,
+              "primary_text_bbox_norm_xyxy": [
+                0.06,
+                0.12,
+                0.94,
+                0.9
+              ]
+            }
+          },
+          "per_seed": false,
+          "mount": {
+            "surface": "item_decal",
+            "on": "item_2",
+            "face": "top"
+          }
+        }
+      },
+      "initial_attachments": [],
+      "object_groups": [],
+      "preload": {},
+      "permutations": [],
+      "start": {
+        "policy": "seeded_grid",
+        "forbid_rooms": [],
+        "forbid_near": [],
+        "resample_ladder": true
+      },
+      "initially_open_room_doors": true,
+      "decor": [],
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "decoys_constrained": true,
+        "permutation_within_model": true,
+        "key_is_derived": true
+      },
+      "auto_support_labels": false
+    },
+    "goal": {
+      "roster": {
+        "containers": [
+          "unit_a"
+        ],
+        "objects": [
+          "item_1",
+          "item_2",
+          "item_3",
+          "item_4",
+          "part_1"
+        ],
+        "nested_containers": []
+      },
+      "goals": [
+        {
+          "pred": "on",
+          "subject": "part_1",
+          "target": "surf_3"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "item_3",
+          "target": "item_3"
+        }
+      ],
+      "answer_key": [
+        {
+          "pred": "on",
+          "subject": "part_1",
+          "target": "surf_3"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "item_3",
+          "target": "item_3"
+        }
+      ],
+      "aggregate_goals": [],
+      "negatives": [],
+      "trace_outcomes": [],
+      "rule_table": null,
+      "arms": null
+    },
+    "program": {
+      "generator": "explicit",
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_1"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "part_1"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "unit_a"
+          ]
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "unit_a"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "item_2"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_2"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "unit_a"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_3"
+          ]
+        },
+        {
+          "verb": "Put",
+          "args": [
+            "item_2",
+            "surf_3"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "item_4"
+          ]
+        },
+        {
+          "verb": "AnswerPhone",
+          "args": [
+            "item_4"
+          ]
+        },
+        {
+          "verb": "Put",
+          "args": [
+            "item_4",
+            "surf_3"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "part_1"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "surf_2"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "surf_3"
+          ]
+        },
+        {
+          "verb": "Put",
+          "args": [
+            "part_1",
+            "surf_3"
+          ]
+        }
+      ],
+      "budget": {
+        "grammar_cmds": 19,
+        "grammar_source": "from_program",
+        "expanded_cmds": 19,
+        "expanded_source": "oracle_cmds",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      }
+    },
+    "report": {
+      "sub_goals": [
+        {
+          "id": 0,
+          "kind": "on",
+          "subject": "part_1",
+          "target": "surf_3",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        },
+        {
+          "id": 1,
+          "kind": "unmoved",
+          "subject": "item_3",
+          "target": "item_3",
+          "neg_kind": null,
+          "label": null,
+          "cap": "C9",
+          "cap_source": "declared",
+          "cap_dropped": []
+        }
+      ],
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "sub_steps": [
+        "on part_1 surf_3",
+        "unmoved item_3 item_3"
+      ],
+      "control": null,
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "human_frames_withheld": false,
+      "arms_reporting": null
+    },
+    "provenance": {
+      "source_task_id": "ASK-30000",
+      "human_program_raw": "[Walk] <surf_1> (1), [Grab] <part_1> (1), [Walk] <surf_2> (1), [LookAt] <surf_2> (1), [Walk] <surf_3> (1), [PutOn] <part_1> (1) <surf_3> (1)",
+      "authored_by": "interactiveworld.compile_v2",
+      "compiled_from": "emit/2.6",
+      "seed": 2894305440,
+      "arm": "ASK"
+    }
+  },
+  "story": {
+    "premise": "On the grocery floor, the wearer reads a formal cat-stock clipboard beside a can of cat food. It lists NEW: AISLE SHELF, OLD: RECEIVING TABLE, and IF THE NEW SHELF HAS ANY ITEM: USE DOG OLD. They cross into the separate staff bar, open a stock cabinet, read a second clipboard listing DOG NEW: CAFE CUBBY and DOG OLD: CHECKOUT COUNTER, then pick it up by the edge, close the cabinet, and carry it to that checkout counter, setting it down by the edge with the DOG OLD row still clear. There they answer a work call and put the phone down before asking where to take the cat-food can first. The assistant first directs them to the cat-new aisle shelf. The wearer picks up the cat food, carries it to that shelf, and sees in one shelf-level view that a can of dog food already occupies it. Without setting the cat food down, the assistant applies the exception and the remembered dog table: the wearer carries the cat food onward to the dog-old checkout counter.",
+    "assistant_goal": "I read both stock tables earlier. Where should I take this can of cat food first?",
+    "assessment_contract": {
+      "core_question": "I read both stock tables earlier. Where should I take this can of cat food first?",
+      "counterfactual_failure": "[Walk] <surf_1> (1), [Grab] <part_1> (1), [Walk] <surf_2> (1), [PutOn] <part_1> (1) <surf_2> (1)",
+      "forbidden_changes": [],
+      "knowledge_constraints": [],
+      "required_evidence": [
+        "The cat stock table says NEW=AISLE SHELF, OLD=RECEIVING TABLE, and IF THE NEW SHELF HAS ANY ITEM=USE DOG OLD.",
+        "The dog stock table says NEW=CAFE CUBBY and OLD=CHECKOUT COUNTER.",
+        "The wearer asks where to take this cat food first.",
+        "The cat-new shelf is occupied by dog food."
+      ],
+      "required_final_predicates": [
+        "on",
+        "unmoved"
+      ],
+      "success_condition": "on(cat food can, dog-old checkout counter)",
+      "temporal_constraints": [],
+      "assigned_capability_id": "ASK.TEXT_FIELD_EXTRACTION",
+      "assigned_scene": "grocery_store_cafe"
+    },
+    "source_contract": {
+      "task_id": "ASK-30000",
+      "family": "ASK",
+      "kind": "a grocery shop or convenience store",
+      "assessment_contract": {
+        "core_question": "I read both stock tables earlier. Where should I take this can of cat food first?",
+        "counterfactual_failure": "[Walk] <surf_1> (1), [Grab] <part_1> (1), [Walk] <surf_2> (1), [PutOn] <part_1> (1) <surf_2> (1)",
+        "forbidden_changes": [],
+        "knowledge_constraints": [],
+        "required_evidence": [
+          "The cat stock table says NEW=AISLE SHELF, OLD=RECEIVING TABLE, and IF THE NEW SHELF HAS ANY ITEM=USE DOG OLD.",
+          "The dog stock table says NEW=CAFE CUBBY and OLD=CHECKOUT COUNTER.",
+          "The wearer asks where to take this cat food first.",
+          "The cat-new shelf is occupied by dog food."
+        ],
+        "required_final_predicates": [
+          "on",
+          "unmoved"
+        ],
+        "success_condition": "on(cat food can, dog-old checkout counter)",
+        "temporal_constraints": [],
+        "assigned_capability_id": "ASK.TEXT_FIELD_EXTRACTION",
+        "assigned_scene": "grocery_store_cafe"
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bottom_cabinet"
+        ],
+        "allowed_loose_categories": [
+          "can_of_cat_food",
+          "can_of_dog_food",
+          "cell_phone",
+          "clipboard"
+        ],
+        "allowed_surface_categories": [
+          "breakfast_table",
+          "checkout_counter",
+          "grocery_shelf"
+        ],
+        "capability_id": "ASK.TEXT_FIELD_EXTRACTION",
+        "coverage_categories": [
+          "pizza_box",
+          "chicken_wing",
+          "pebble",
+          "half_peach",
+          "half_green_onion",
+          "balloon",
+          "hair_dryer",
+          "sweet_corn",
+          "firewood_grate",
+          "jug_of_milk",
+          "pumpkin",
+          "orange",
+          "half_broccolini",
+          "yeast_shaker",
+          "cat_food_tin",
+          "beet",
+          "tulip",
+          "pitcher",
+          "disinfectant_bottle",
+          "china"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": true,
+          "max_semantic_turns": 2,
+          "required_semantic_turns": 2,
+          "requires_cross_room_transition": true,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": true,
+          "text_evidence_required": true,
+          "weak_branch_must_fail": true
+        },
+        "family": "ASK",
+        "limits": {
+          "max_authored_actions": 18,
+          "max_document_characters": 92,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 5,
+          "max_objects_per_container": 2,
+          "max_objects_per_surface": 3,
+          "max_prologue_actions": 13,
+          "max_small_label_characters": 92,
+          "max_task_actions": 10
+        },
+        "preferred_story_categories": [
+          "pizza_box",
+          "chicken_wing",
+          "pebble",
+          "half_peach",
+          "half_green_onion",
+          "balloon",
+          "hair_dryer",
+          "sweet_corn"
+        ],
+        "preferred_story_category_glosses": {
+          "balloon": "",
+          "chicken_wing": "",
+          "hair_dryer": "",
+          "half_green_onion": "",
+          "half_peach": "",
+          "pebble": "a small smooth rounded rock",
+          "pizza_box": "",
+          "sweet_corn": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 123.9,
+            "name": "grocery_store_0",
+            "scene_containers": {},
+            "scene_surfaces": {
+              "countertop": 1,
+              "shelf": 2,
+              "snack_rack": 1
+            },
+            "surface_max_area_m2": {
+              "countertop": 1.256,
+              "shelf": 0.573,
+              "snack_rack": 1.659
+            },
+            "surface_reference_capacity": {
+              "countertop": 3,
+              "shelf": 3,
+              "snack_rack": 3
+            }
+          }
+        ],
+        "scene": "grocery_store_cafe",
+        "task_id": "ASK-30000",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "clipboard",
+            "changed": true,
+            "costs": null,
+            "label": "CAT STOCK | NEW: AISLE SHELF | OLD: RECEIVING TABLE | IF NEW SHELF HAS ANY ITEM: USE DOG OLD",
+            "tint": null,
+            "what": "item_1 clipboard labeled CAT STOCK | NEW: AISLE SHELF | OLD: RECEIVING TABLE | IF NEW SHELF HAS ANY ITEM: USE DOG OLD"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "clipboard",
+            "changed": true,
+            "costs": null,
+            "label": "DOG STOCK | NEW: CAFE CUBBY | OLD: CHECKOUT COUNTER",
+            "tint": null,
+            "what": "item_2 clipboard labeled DOG STOCK | NEW: CAFE CUBBY | OLD: CHECKOUT COUNTER"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "can_of_dog_food",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_3 can_of_dog_food"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "cell_phone",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "item_4 cell_phone"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "can_of_cat_food",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "part_1 can_of_cat_food"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "breakfast_table",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_1 breakfast_table"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "grocery_shelf",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_2 grocery_shelf"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "checkout_counter",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "surf_3 checkout_counter"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "bottom_cabinet",
+            "changed": true,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "unit_a bottom_cabinet"
+          }
+        ],
+        "distinct_by": [
+          "two separate printed stock tables and live shelf occupancy"
+        ],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "item_1 clipboard labeled CAT STOCK | NEW: AISLE SHELF | OLD: RECEIVING TABLE | IF NEW SHELF HAS ANY ITEM: USE DOG OLD",
+            "text": "CAT STOCK | NEW: AISLE SHELF | OLD: RECEIVING TABLE | IF NEW SHELF HAS ANY ITEM: USE DOG OLD",
+            "what": "readable printed object label",
+            "which": "item_1"
+          },
+          {
+            "rides": "item_2 clipboard labeled DOG STOCK | NEW: CAFE CUBBY | OLD: CHECKOUT COUNTER",
+            "text": "DOG STOCK | NEW: CAFE CUBBY | OLD: CHECKOUT COUNTER",
+            "what": "readable printed object label",
+            "which": "item_2"
+          }
+        ],
+        "restaged_story": "On the grocery floor, the wearer reads a formal cat-stock clipboard beside a can of cat food. It lists NEW: AISLE SHELF, OLD: RECEIVING TABLE, and IF THE NEW SHELF HAS ANY ITEM: USE DOG OLD. They cross into the separate staff bar, open a stock cabinet, read a second clipboard listing DOG NEW: CAFE CUBBY and DOG OLD: CHECKOUT COUNTER, then pick it up by the edge, close the cabinet, and carry it to that checkout counter, setting it down by the edge with the DOG OLD row still clear. There they answer a work call and put the phone down before asking where to take the cat-food can first. The assistant first directs them to the cat-new aisle shelf. The wearer picks up the cat food, carries it to that shelf, and sees in one shelf-level view that a can of dog food already occupies it. Without setting the cat food down, the assistant applies the exception and the remembered dog table: the wearer carries the cat food onward to the dog-old checkout counter.",
+        "scene": "grocery_store_cafe",
+        "why_scene": "Provides a grocery floor and a separate staff bar area."
+      },
+      "world": {
+        "rooms": [
+          "grocery_store_0",
+          "bar_0"
+        ],
+        "surfaces": {
+          "surf_1": {
+            "cat": "breakfast_table",
+            "label": null,
+            "room": "grocery_store_0"
+          },
+          "surf_2": {
+            "cat": "grocery_shelf",
+            "label": null,
+            "room": "grocery_store_0",
+            "look_region": {
+              "kind": "surface"
+            }
+          },
+          "surf_3": {
+            "cat": "checkout_counter",
+            "label": null,
+            "room": "grocery_store_0"
+          }
+        },
+        "containers": {
+          "unit_a": {
+            "cat": "bottom_cabinet",
+            "label": null,
+            "model": "plccav",
+            "preload": [
+              "item_2"
+            ],
+            "role": "hold",
+            "room": "bar_0"
+          }
+        },
+        "items": {
+          "item_1": {
+            "affordances": [
+              "graspable"
+            ],
+            "cat": "clipboard",
+            "label": "CAT STOCK | NEW: AISLE SHELF | OLD: RECEIVING TABLE | IF NEW SHELF HAS ANY ITEM: USE DOG OLD",
+            "model": "gmxyfo",
+            "place": "on:surf_1",
+            "scored": false,
+            "spot": [
+              -0.62,
+              0.3
+            ],
+            "tint": null,
+            "grasp_hint": {
+              "target": "edge",
+              "family": "pinch",
+              "edge": "nearest",
+              "height_fraction": 0.2
+            }
+          },
+          "item_2": {
+            "affordances": [
+              "graspable"
+            ],
+            "cat": "clipboard",
+            "label": "DOG STOCK | NEW: CAFE CUBBY | OLD: CHECKOUT COUNTER",
+            "model": "gmxyfo",
+            "place": "in:unit_a",
+            "scored": false,
+            "spot": [
+              -0.35,
+              0.48
+            ],
+            "tint": null,
+            "grasp_hint": {
+              "target": "edge",
+              "family": "pinch",
+              "edge": "nearest",
+              "height_fraction": 0.2
+            }
+          },
+          "item_3": {
+            "affordances": [
+              "graspable"
+            ],
+            "cat": "can_of_dog_food",
+            "label": null,
+            "model": "rgwfxq",
+            "place": "on:surf_2",
+            "scored": false,
+            "spot": [
+              0.0,
+              0.0
+            ],
+            "tint": null,
+            "grasp_hint": {
+              "target": "body",
+              "family": "wrap",
+              "height_fraction": 0.5
+            }
+          },
+          "item_4": {
+            "affordances": [
+              "graspable"
+            ],
+            "cat": "cell_phone",
+            "label": null,
+            "model": "dbhfuh",
+            "place": "on:surf_3",
+            "scored": false,
+            "spot": [
+              0.0,
+              0.45
+            ],
+            "tint": null,
+            "grasp_hint": {
+              "target": "body",
+              "family": "wrap",
+              "height_fraction": 0.5
+            }
+          },
+          "part_1": {
+            "affordances": [
+              "graspable"
+            ],
+            "cat": "can_of_cat_food",
+            "label": null,
+            "model": "omiuox",
+            "place": "on:surf_1",
+            "scored": true,
+            "spot": [
+              0.62,
+              0.72
+            ],
+            "tint": null,
+            "grasp_hint": {
+              "target": "body",
+              "family": "wrap",
+              "height_fraction": 0.5
+            }
+          }
+        },
+        "parts": {},
+        "boards": {},
+        "prologue": [
+          "[Walk] <surf_1> (1)",
+          "[LookAt] <item_1> (1)",
+          "[LookAt] <part_1> (1)",
+          "[Walk] <unit_a> (1)",
+          "[Open] <unit_a> (1)",
+          "[LookAt] <item_2> (1)",
+          "[Grab] <item_2> (1)",
+          "[Close] <unit_a> (1)",
+          "[Walk] <surf_3> (1)",
+          "[PutOn] <item_2> (1) <surf_3> (1)",
+          "[Grab] <item_4> (1)",
+          "[AnswerPhone] <item_4> (1)",
+          "[PutOn] <item_4> (1) <surf_3> (1)"
+        ],
+        "staging": {
+          "groups": "Manual group-B repair defines explicit spatial groups in the prologue.",
+          "labels_at_t0": "Only intentionally printed object labels are used.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "prologue_gaps": [],
+        "scene": "grocery_store_cafe",
+        "initially_open_room_doors": true,
+        "auto_support_labels": false
+      },
+      "task": {
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "utterance": "I read both stock tables earlier. Where should I take this can of cat food first?",
+        "oracle_program": "[Walk] <surf_1> (1), [Grab] <part_1> (1), [Walk] <surf_2> (1), [LookAt] <surf_2> (1), [Walk] <surf_3> (1), [PutOn] <part_1> (1) <surf_3> (1)",
+        "human_own_script": "[Walk] <surf_1> (1), [Grab] <part_1> (1), [Walk] <surf_2> (1), [PutOn] <part_1> (1) <surf_2> (1)",
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "part_1",
+            "target": "surf_3"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "item_3",
+            "target": null
+          }
+        ],
+        "simulator_events": [],
+        "fact_ledger": [
+          {
+            "fact": "The cat stock table says NEW=AISLE SHELF, OLD=RECEIVING TABLE, and IF THE NEW SHELF HAS ANY ITEM=USE DOG OLD.",
+            "from": "prologue",
+            "id": "fact_001",
+            "source_phase": "opening",
+            "source_index": 1
+          },
+          {
+            "fact": "The dog stock table says NEW=CAFE CUBBY and OLD=CHECKOUT COUNTER.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_phase": "opening",
+            "source_index": 5
+          },
+          {
+            "fact": "The wearer asks where to take this cat food first.",
+            "from": "utterance",
+            "id": "fact_003",
+            "source_phase": "turn0",
+            "source_index": null
+          },
+          {
+            "fact": "The cat-new shelf is occupied by dog food.",
+            "from": "live",
+            "id": "fact_004",
+            "source_phase": "live",
+            "source_index": 3
+          }
+        ],
+        "asks_at": {
+          "index": 0,
+          "question": "I read both stock tables earlier. Where should I take this can of cat food first?"
+        },
+        "speaks_at": [
+          {
+            "fact_ids": [
+              "fact_001",
+              "fact_003"
+            ],
+            "index": 0,
+            "referents": [
+              "part_1",
+              "surf_2"
+            ],
+            "say": "Take the cat food to the cat-new shelf first."
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 4,
+            "fact_ids": [
+              "fact_002",
+              "fact_004"
+            ],
+            "referents": [
+              "item_3",
+              "part_1",
+              "surf_3"
+            ],
+            "say": "The cat-new shelf is already occupied by dog food. Use the dog-old checkout counter as the fallback and put the cat food there."
+          }
+        ],
+        "hidden_fact": null,
+        "steps": null,
+        "mates": [],
+        "story_check": "Manually repaired after review."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <surf_1> (1)",
+        "[LookAt] <item_1> (1)",
+        "[LookAt] <part_1> (1)",
+        "[Walk] <unit_a> (1)",
+        "[Open] <unit_a> (1)",
+        "[LookAt] <item_2> (1)",
+        "[Grab] <item_2> (1)",
+        "[Close] <unit_a> (1)",
+        "[Walk] <surf_3> (1)",
+        "[Put] <item_2> (1) <surf_3> (1)",
+        "[Grab] <item_4> (1)",
+        "[AnswerPhone] <item_4> (1)",
+        "[Put] <item_4> (1) <surf_3> (1)"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_1"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "The cat stock table says NEW=AISLE SHELF, OLD=RECEIVING TABLE, and IF THE NEW SHELF HAS ANY ITEM=USE DOG OLD.",
+            "channel": "prologue"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "part_1"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "unit_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "unit_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "unit_a"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The dog stock table says NEW=CAFE CUBBY and OLD=CHECKOUT COUNTER.",
+            "channel": "prologue"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "unit_a"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_3"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_3"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "item_2",
+            "surf_3"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "item_4"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "item_4"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p011",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "AnswerPhone",
+          "args": [
+            "item_4"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p012",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "item_4",
+            "surf_3"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "I read both stock tables earlier. Where should I take this can of cat food first?",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The wearer asks where to take this cat food first.",
+            "channel": "utterance"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Take the cat food to the cat-new shelf first.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The cat-new shelf is already occupied by dog food. Use the dog-old checkout counter as the fallback and put the cat food there.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "part_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "part_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "part_1",
+            "surf_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "part_1"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "part_1"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_2"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "surf_2"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The cat-new shelf is occupied by dog food.",
+            "channel": "live"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "surf_3"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "surf_3"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Put",
+          "args": [
+            "part_1",
+            "surf_3"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "The cat stock table says NEW=AISLE SHELF, OLD=RECEIVING TABLE, and IF THE NEW SHELF HAS ANY ITEM=USE DOG OLD.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_002",
+        "statement": "The dog stock table says NEW=CAFE CUBBY and OLD=CHECKOUT COUNTER.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p005"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 5
+      },
+      {
+        "id": "fact_003",
+        "statement": "The wearer asks where to take this cat food first.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_004",
+        "statement": "The cat-new shelf is occupied by dog food.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o003"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 3
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the two earlier stock sheets to direct the person's first move. Remain attentive to the new view at that location and update the instruction if the visible condition requires it.",
+      "human_task_context": "Wait for the Assistant's first destination, carry the cat-food can there, and inspect the destination without putting the can down. Report what is visibly there and wait for the Assistant's updated instruction before making the final placement. Do not apply the fallback rule yourself.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <surf_1> (1)",
+          "[LookAt] <item_1> (1)",
+          "[LookAt] <part_1> (1)",
+          "[Walk] <unit_a> (1)",
+          "[Open] <unit_a> (1)",
+          "[LookAt] <item_2> (1)",
+          "[Grab] <item_2> (1)",
+          "[Close] <unit_a> (1)",
+          "[Walk] <surf_3> (1)",
+          "[Put] <item_2> (1) <surf_3> (1)",
+          "[Grab] <item_4> (1)",
+          "[AnswerPhone] <item_4> (1)",
+          "[Put] <item_4> (1) <surf_3> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 13,
+            "say": "Hey, Assistant, I checked both stock sheets earlier. Where should I take the cat food first?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, I checked both stock sheets earlier. Where should I take the cat food first?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "first_destination_question",
+            "required_phrases": [
+              "checked both stock sheets earlier",
+              "where should I take the cat food first"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[LookAt] <surf_2> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[Put] <part_1> (1) <surf_2> (1)",
+          "[PutOn] <part_1> (1) <surf_2> (1)",
+          "[Grab] <item_3> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[Grab] <part_1> (1)",
+            "[Walk] <surf_2> (1)",
+            "[LookAt] <surf_2> (1)",
+            "[Walk] <surf_3> (1)"
+          ]
+        ],
+        "forbidden_before": [
+          {
+            "command": "[Walk] <surf_3> (1)",
+            "prerequisite": "[LookAt] <surf_2> (1)"
+          },
+          {
+            "command": "[Put] <part_1> (1) <surf_3> (1)",
+            "prerequisite": "[LookAt] <surf_2> (1)"
+          },
+          {
+            "command": "[PutOn] <part_1> (1) <surf_3> (1)",
+            "prerequisite": "[LookAt] <surf_2> (1)"
+          }
+        ],
+        "verification_points": [
+          {
+            "id": "cat_food_on_final_counter",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "part_1",
+            "target": "surf_3"
+          },
+          {
+            "id": "occupying_dog_food_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "item_3",
+            "target": "item_3"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "item_1": [
+          "CAT STOCK clipboard on the breakfast table"
+        ],
+        "item_2": [
+          "DOG STOCK clipboard placed on the checkout counter at handoff"
+        ],
+        "item_3": [
+          "dog food can on the grocery shelf"
+        ],
+        "part_1": [
+          "cat food can beside the CAT STOCK clipboard"
+        ],
+        "surf_1": [
+          "breakfast table holding the CAT STOCK clipboard"
+        ],
+        "surf_2": [
+          "only grocery shelf in the grocery store",
+          "cat-new shelf"
+        ],
+        "surf_3": [
+          "checkout counter holding the DOG STOCK clipboard at handoff",
+          "dog-old checkout counter"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 24,
+    "dialogue_budget": 2,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "surf_3",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "part_1",
+              "surf_2"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "part_1",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "surf_1",
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "part_1",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "surf_2",
+            "truth": true
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "item_3",
+              "part_1",
+              "surf_3"
+            ],
+            "required_fact_ids": [
+              "fact_002",
+              "fact_004"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "part_1",
+              "target": null,
+              "truth": true
+            }
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "surf_3",
+            "truth": true
+          },
+          "next_beat": "o005"
+        }
+      ],
+      "terminal_beats": [
+        "h003",
+        "o005"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_1"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "part_1"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_2"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "surf_2"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_3"
+        ]
+      },
+      {
+        "verb": "Put",
+        "args": [
+          "part_1",
+          "surf_3"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_1"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "part_1"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "surf_2"
+        ]
+      },
+      {
+        "verb": "Put",
+        "args": [
+          "part_1",
+          "surf_2"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Take the cat food to the cat-new shelf first.",
+        "relation": "at",
+        "anchor_beat_id": "o000",
+        "source": "speaks_at",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The cat-new shelf is already occupied by dog food. Use the dog-old checkout counter as the fallback and put the cat food there.",
+        "relation": "before",
+        "anchor_beat_id": "o004",
+        "source": "guidance",
+        "source_index": 0
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "runtime_compatibility": {
+      "allow_legacy_close_navigation_preview": true,
+      "allow_legacy_multi_shelf_preload_spots": true
+    }
+  },
+  "lineage": {
+    "release": "InteractiveWorld-Balanced120",
+    "task_id": "ASK-30000"
+  }
+}

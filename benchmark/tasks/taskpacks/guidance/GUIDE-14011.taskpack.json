@@ -1,0 +1,2065 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-14011",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "inside",
+          "subject": "lemonade",
+          "target": "fridge"
+        },
+        {
+          "pred": "inside",
+          "subject": "puree",
+          "target": "fridge"
+        },
+        {
+          "pred": "closed",
+          "subject": "fridge",
+          "target": "fridge"
+        },
+        {
+          "pred": "on",
+          "subject": "phone",
+          "target": "cooling_counter"
+        },
+        {
+          "pred": "running",
+          "subject": "fan",
+          "target": "fan"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "inside",
+          "subject": "lemonade",
+          "target": "fridge"
+        },
+        {
+          "pred": "inside",
+          "subject": "puree",
+          "target": "fridge"
+        },
+        {
+          "pred": "closed",
+          "subject": "fridge",
+          "target": "fridge"
+        },
+        {
+          "pred": "on",
+          "subject": "phone",
+          "target": "cooling_counter"
+        },
+        {
+          "pred": "running",
+          "subject": "fan",
+          "target": "fan"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "fridge"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "fan",
+          "lemonade",
+          "phone",
+          "puree"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "Refrigerate the lemonade and puree, but do not put the hot phone in the fridge because rapid cooling can cause condensation, and do not leave it on the sofa because that provides no cooling. Close the fridge, place the phone on the dry counter directly in the fan's airflow, and turn the fan on.",
+        "cue": "These items all sat in a hot car. With the refrigerator, nearby sofa, and fan station available, I don't know which cooling option is safe for each item. Please guide me.",
+        "premise": "Food and a heat-stressed phone arrive together on a kitchen table in an open-plan room where the refrigerator, a sofa, and a counter-mounted fan are visible. The assistant must apply domain knowledge to choose refrigeration for the food, reject the sofa as a non-cooling surface, and use dry room-temperature airflow for the electronic device."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "These items all sat in a hot car. With the refrigerator, nearby sofa, and fan station available, I don't know which cooling option is safe for each item. Please guide me.",
+        "kind": "authored",
+        "ref": "interactiveworld:GUIDE-14011"
+      },
+      "rule_table": "inside(lemonade, fridge); inside(puree, fridge); closed(fridge); on(phone, cooling_counter); running(fan)",
+      "scene": "house_single_floor",
+      "template": "the grounded house_single_floor scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 12,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 12,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "LookAround",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Open",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "lemonade"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "lemonade",
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "puree"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "puree",
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Close",
+          "args": [
+            "fridge"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "cooling_counter"
+          ]
+        },
+        {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "cooling_counter"
+          ]
+        },
+        {
+          "verb": "TurnOn",
+          "args": [
+            "fan"
+          ]
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "interactiveworld.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Open] <fridge> (1), [Grab] <lemonade> (1), [PutInside] <lemonade> (1) <fridge> (1), [Grab] <puree> (1), [PutInside] <puree> (1) <fridge> (1), [Close] <fridge> (1), [Grab] <phone> (1), [Walk] <cooling_counter> (1), [PutOn] <phone> (1) <cooling_counter> (1), [TurnOn] <fan> (1)",
+      "seed": 2598981849,
+      "source_task_id": "GUIDE-14011"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "lemonade",
+          "target": "fridge"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "puree",
+          "target": "fridge"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "closed",
+          "label": null,
+          "neg_kind": null,
+          "subject": "fridge",
+          "target": "fridge"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "on",
+          "label": null,
+          "neg_kind": null,
+          "subject": "phone",
+          "target": "cooling_counter"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 4,
+          "kind": "running",
+          "label": null,
+          "neg_kind": null,
+          "subject": "fan",
+          "target": "fan"
+        }
+      ],
+      "sub_steps": [
+        "inside(lemonade, fridge)",
+        "inside(puree, fridge)",
+        "closed(fridge)",
+        "on(phone, cooling_counter)",
+        "running(fan)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-14011",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 2598981849,
+      "containers": {
+        "fridge": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "fridge",
+            "source": "scene",
+            "pick": {
+              "name": "fridge_dszchb_0",
+              "stage_prim_path": "/World/b_fridge_dszchb_0",
+              "asset_sha256": "sha256:ffcdc68d33e823239a36c64e293e9e4ed2f6de870a4859ddbb5e3dc51e6b27cf",
+              "instance_digest": "sha256:36288ad94c3c6c274b365899671d37ad2d827bce7ed77ba66f4f6fad0fb156b6",
+              "by": "scene_instance",
+              "rank": 0
+            }
+          },
+          "door": {
+            "required": true,
+            "action_standoff_m": 0.95,
+            "content_standoff_m": 0.65
+          },
+          "kind": "front_opening",
+          "role": "scored",
+          "room": "kitchen_0"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "hot_table": {
+          "bind": {
+            "cat": "countertop",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "cooling_counter": {
+          "bind": {
+            "cat": "bar",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {},
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "lemonade": {
+          "cat": "bottle_of_lemonade",
+          "model": "hqobwj",
+          "needs_lookat": false,
+          "place": "on:hot_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.55,
+            0.5
+          ]
+        },
+        "puree": {
+          "cat": "jar_of_puree",
+          "model": "raagvm",
+          "needs_lookat": false,
+          "place": "on:hot_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            0.5
+          ]
+        },
+        "phone": {
+          "cat": "cell_phone",
+          "model": "dbhfuh",
+          "needs_lookat": false,
+          "place": "on:hot_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.55,
+            0.5
+          ]
+        },
+        "fan": {
+          "cat": "electric_fan",
+          "model": "lclkju",
+          "needs_lookat": false,
+          "place": "on:cooling_counter",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.35,
+            0.55
+          ],
+          "affordances": [
+            "toggleable"
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "kitchen_0"
+      ],
+      "scene": "house_single_floor",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "Food and a heat-stressed phone arrive together on a kitchen table in an open-plan room where the refrigerator, a sofa, and a counter-mounted fan are visible. The assistant must apply domain knowledge to choose refrigeration for the food, reject the sofa as a non-cooling surface, and use dry room-temperature airflow for the electronic device.",
+    "assistant_goal": "These items all sat in a hot car. With the refrigerator, nearby sofa, and fan station available, I don't know which cooling option is safe for each item. Please guide me.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.DOMAIN_KNOWLEDGE_INJECTION",
+      "assigned_scene": "house_single_floor",
+      "core_question": "These items all sat in a hot car. With the refrigerator, nearby sofa, and fan station available, I don't know which cooling option is safe for each item. Please guide me.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "Food and a heat-stressed phone arrive together on a kitchen table in an open-plan room where the refrigerator, a sofa, and a counter-mounted fan are visible. The assistant must apply domain knowledge to choose refrigeration for the food, reject the sofa as a non-cooling surface, and use dry room-temperature airflow for the electronic device."
+      ],
+      "required_evidence": [
+        "These items all sat in a hot car. With the refrigerator, nearby sofa, and fan station available, I don't know which cooling option is safe for each item. Please guide me.",
+        "The table visibly holds two sealed foods and one mobile phone.",
+        "The kitchen's built-in refrigerator is available for the food.",
+        "A dry counter with an electric fan is available for the phone.",
+        "A nearby sofa is visible but provides neither refrigeration nor active airflow.",
+        "Both food items are inside the closed refrigerator.",
+        "The phone is resting on the dry cooling counter in front of the fan.",
+        "Refrigerate the lemonade and puree, but do not put the hot phone in the fridge because rapid cooling can cause condensation, and do not leave it on the sofa because that provides no cooling. Close the fridge, place the phone on the dry counter directly in the fan's airflow, and turn the fan on."
+      ],
+      "required_final_predicates": [
+        "inside",
+        "inside",
+        "closed",
+        "on",
+        "running"
+      ],
+      "success_condition": "inside(lemonade, fridge); inside(puree, fridge); closed(fridge); on(phone, cooling_counter); running(fan)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-14011",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.DOMAIN_KNOWLEDGE_INJECTION",
+        "assigned_scene": "house_single_floor",
+        "core_question": "These items all sat in a hot car. With the refrigerator, nearby sofa, and fan station available, I don't know which cooling option is safe for each item. Please guide me.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "Food and a heat-stressed phone arrive together on a kitchen table in an open-plan room where the refrigerator, a sofa, and a counter-mounted fan are visible. The assistant must apply domain knowledge to choose refrigeration for the food, reject the sofa as a non-cooling surface, and use dry room-temperature airflow for the electronic device."
+        ],
+        "required_evidence": [
+          "These items all sat in a hot car. With the refrigerator, nearby sofa, and fan station available, I don't know which cooling option is safe for each item. Please guide me.",
+          "The table visibly holds two sealed foods and one mobile phone.",
+          "The kitchen's built-in refrigerator is available for the food.",
+          "A dry counter with an electric fan is available for the phone.",
+          "A nearby sofa is visible but provides neither refrigeration nor active airflow.",
+          "Both food items are inside the closed refrigerator.",
+          "The phone is resting on the dry cooling counter in front of the fan.",
+          "Refrigerate the lemonade and puree, but do not put the hot phone in the fridge because rapid cooling can cause condensation, and do not leave it on the sofa because that provides no cooling. Close the fridge, place the phone on the dry counter directly in the fan's airflow, and turn the fan on."
+        ],
+        "required_final_predicates": [
+          "inside",
+          "inside",
+          "closed",
+          "on",
+          "running"
+        ],
+        "success_condition": "inside(lemonade, fridge); inside(puree, fridge); closed(fridge); on(phone, cooling_counter); running(fan)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "apple_pie",
+          "bag_of_tea",
+          "birdcage",
+          "bottle_of_lemonade",
+          "bottle_of_solvent",
+          "bottle_of_water",
+          "broken_glass",
+          "carton_of_pineapple_juice",
+          "carving_knife",
+          "cell_phone",
+          "chicken_breast",
+          "clout_nail",
+          "crayon",
+          "cucumber",
+          "electric_fan",
+          "gift_box",
+          "grater",
+          "half_bok_choy",
+          "half_coconut_fruit",
+          "half_kiwi",
+          "half_pickle",
+          "half_shiitake",
+          "half_sourdough",
+          "hand_towel",
+          "jar_of_grains",
+          "jar_of_puree",
+          "jar_of_tumeric",
+          "lampshade",
+          "lint_screen",
+          "maillot",
+          "meat_thermometer",
+          "modem",
+          "orange_juice_carton",
+          "outline_tray",
+          "outline_vase",
+          "paprika_shaker",
+          "pattypan_squash",
+          "paving_stone",
+          "peach",
+          "pewter_teapot",
+          "postcard",
+          "pottable_beefsteak_tomato",
+          "roasting_pan",
+          "shaker",
+          "sponge"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "bottom_cabinet_no_top",
+          "breakfast_table",
+          "countertop"
+        ],
+        "capability_id": "GUIDE.DOMAIN_KNOWLEDGE_INJECTION",
+        "coverage_categories": [
+          "crayon",
+          "jar_of_puree",
+          "broken_glass",
+          "meat_thermometer",
+          "carving_knife",
+          "outline_tray",
+          "half_coconut_fruit",
+          "pewter_teapot",
+          "half_sourdough",
+          "apple_pie",
+          "carton_of_pineapple_juice",
+          "half_pickle",
+          "paprika_shaker",
+          "jar_of_grains",
+          "paving_stone",
+          "grater",
+          "bottle_of_lemonade",
+          "pattypan_squash",
+          "bag_of_tea",
+          "shaker"
+        ],
+        "evaluation": {
+          "common_sense_allowed": true,
+          "document_carrier_required": false,
+          "max_semantic_turns": 3,
+          "required_semantic_turns": 3,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 16,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 2,
+          "max_small_label_characters": 40,
+          "max_task_actions": 10,
+          "max_meaningful_steps": 12,
+          "min_intervening_meaningful_actions": 2
+        },
+        "preferred_story_categories": [
+          "crayon",
+          "jar_of_puree",
+          "broken_glass",
+          "meat_thermometer",
+          "carving_knife",
+          "outline_tray",
+          "half_coconut_fruit",
+          "pewter_teapot"
+        ],
+        "preferred_story_category_glosses": {
+          "broken_glass": "",
+          "carving_knife": "",
+          "crayon": "",
+          "half_coconut_fruit": "",
+          "jar_of_puree": "",
+          "meat_thermometer": "",
+          "outline_tray": "",
+          "pewter_teapot": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 23.8,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "bottom_cabinet": 1,
+              "dishwasher": 1,
+              "fridge": 1
+            },
+            "scene_surfaces": {
+              "bar": 1,
+              "bottom_cabinet_no_top": 2,
+              "countertop": 2
+            },
+            "surface_max_area_m2": {
+              "bar": 0.864,
+              "bottom_cabinet_no_top": 0.533,
+              "countertop": 1.116
+            },
+            "surface_reference_capacity": {
+              "bar": 3,
+              "bottom_cabinet_no_top": 3,
+              "countertop": 3
+            }
+          }
+        ],
+        "scene": "house_single_floor",
+        "task_id": "GUIDE-14011",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_lemonade",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "bottle of lemonade"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "jar_of_puree",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "sealed jar of puree"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "cell_phone",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "hot mobile phone"
+          },
+          {
+            "affordances": [
+              "graspable",
+              "toggleable"
+            ],
+            "category": "electric_fan",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "electric cooling fan"
+          },
+          {
+            "affordances": [
+              "container",
+              "openable"
+            ],
+            "category": "fridge",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "food refrigerator"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "countertop",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "kitchen table holding the hot items"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "bar",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "dry counter in front of the fan"
+          }
+        ],
+        "distinct_by": [],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [],
+        "restaged_story": "Food and a heat-stressed phone arrive together on a kitchen table in an open-plan room where the refrigerator, a sofa, and a counter-mounted fan are visible. The assistant must apply domain knowledge to choose refrigeration for the food, reject the sofa as a non-cooling surface, and use dry room-temperature airflow for the electronic device.",
+        "scene": "house_single_floor",
+        "why_scene": "house_single_floor supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "fridge": {
+            "cat": "fridge",
+            "initially_open": false,
+            "label": null,
+            "preload": [],
+            "role": "scored",
+            "room": "kitchen_0"
+          }
+        },
+        "items": {
+          "lemonade": {
+            "affordances": [],
+            "cat": "bottle_of_lemonade",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:hot_table",
+            "scored": true,
+            "spot": [
+              -0.55,
+              0.5
+            ],
+            "tint": null
+          },
+          "puree": {
+            "affordances": [],
+            "cat": "jar_of_puree",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:hot_table",
+            "scored": true,
+            "spot": [
+              0.0,
+              0.5
+            ],
+            "tint": null
+          },
+          "phone": {
+            "affordances": [],
+            "cat": "cell_phone",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:hot_table",
+            "scored": true,
+            "spot": [
+              0.55,
+              0.5
+            ],
+            "tint": null
+          },
+          "fan": {
+            "affordances": [
+              "toggleable"
+            ],
+            "cat": "electric_fan",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:cooling_counter",
+            "scored": true,
+            "spot": [
+              -0.35,
+              0.55
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0"
+        ],
+        "scene": "house_single_floor",
+        "staging": {
+          "groups": "Food and a heat-stressed phone arrive together on a kitchen table in an open-plan room where the refrigerator, a sofa, and a counter-mounted fan are visible. The assistant must apply domain knowledge to choose refrigeration for the food, reject the sofa as a non-cooling surface, and use dry room-temperature airflow for the electronic device.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "hot_table": {
+            "cat": "countertop",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "cooling_counter": {
+            "cat": "bar",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "These items all sat in a hot car. With the refrigerator, nearby sofa, and fan station available, I don't know which cooling option is safe for each item. Please guide me."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "These items all sat in a hot car. With the refrigerator, nearby sofa, and fan station available, I don't know which cooling option is safe for each item. Please guide me.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The table visibly holds two sealed foods and one mobile phone.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 0,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The kitchen's built-in refrigerator is available for the food.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 0,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "A dry counter with an electric fan is available for the phone.",
+            "from": "prologue",
+            "id": "fact_004",
+            "source_index": 0,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "A nearby sofa is visible but provides neither refrigeration nor active airflow.",
+            "from": "prologue",
+            "id": "fact_005",
+            "source_index": 0,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Both food items are inside the closed refrigerator.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 5,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The phone is resting on the dry cooling counter in front of the fan.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 8,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007"
+            ],
+            "fact": "Refrigerate the lemonade and puree, but do not put the hot phone in the fridge because rapid cooling can cause condensation, and do not leave it on the sofa because that provides no cooling. Close the fridge, place the phone on the dry counter directly in the fan's airflow, and turn the fan on.",
+            "from": "derived",
+            "id": "fact_008",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "lemonade",
+            "target": "fridge"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "puree",
+            "target": "fridge"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "closed",
+            "scorable": true,
+            "subject": "fridge",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "on",
+            "scorable": true,
+            "subject": "phone",
+            "target": "cooling_counter"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "running",
+            "scorable": true,
+            "subject": "fan",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "Open the built-in refrigerator in the kitchen, then return to the hot-item counter. Refrigerate the lemonade first and the sealed puree second, and close the refrigerator. Do not rapidly chill the hot phone; condensation can damage it.",
+            "referents": [
+              "lemonade",
+              "puree",
+              "phone",
+              "fridge"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 6,
+            "say": "The food is safely refrigerated and the door is closed. Take the phone from the hot-item counter to the dry bar counter directly in front of the electric fan.",
+            "referents": [
+              "phone",
+              "cooling_counter",
+              "fan"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ]
+          },
+          {
+            "before_index": 9,
+            "say": "The phone is stable on the dry counter. Turn on the electric fan on that same counter and let the phone cool at room temperature.",
+            "referents": [
+              "phone",
+              "fan"
+            ],
+            "fact_ids": [
+              "fact_007"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Open] <fridge> (1), [Grab] <lemonade> (1), [PutInside] <lemonade> (1) <fridge> (1), [Grab] <puree> (1), [PutInside] <puree> (1) <fridge> (1), [Grab] <phone> (1), [PutInside] <phone> (1) <fridge> (1), [Close] <fridge> (1)",
+        "mates": [],
+        "oracle_program": "[Open] <fridge> (1), [Grab] <lemonade> (1), [PutInside] <lemonade> (1) <fridge> (1), [Grab] <puree> (1), [PutInside] <puree> (1) <fridge> (1), [Close] <fridge> (1), [Grab] <phone> (1), [Walk] <cooling_counter> (1), [PutOn] <phone> (1) <cooling_counter> (1), [TurnOn] <fan> (1)",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "Food and a heat-stressed phone arrive together on a kitchen table in an open-plan room where the refrigerator, a sofa, and a counter-mounted fan are visible. The assistant must apply domain knowledge to choose refrigeration for the food, reject the sofa as a non-cooling surface, and use dry room-temperature airflow for the electronic device.",
+        "utterance": "These items all sat in a hot car. With the refrigerator, nearby sofa, and fan station available, I don't know which cooling option is safe for each item. Please guide me."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[LookAround]",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The table visibly holds two sealed foods and one mobile phone.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The kitchen's built-in refrigerator is available for the food.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "A dry counter with an electric fan is available for the phone.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "A nearby sofa is visible but provides neither refrigeration nor active airflow.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Refrigerate the lemonade and puree, but do not put the hot phone in the fridge because rapid cooling can cause condensation, and do not leave it on the sofa because that provides no cooling. Close the fridge, place the phone on the dry counter directly in the fan's airflow, and turn the fan on.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "These items all sat in a hot car. With the refrigerator, nearby sofa, and fan station available, I don't know which cooling option is safe for each item. Please guide me.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "These items all sat in a hot car. With the refrigerator, nearby sofa, and fan station available, I don't know which cooling option is safe for each item. Please guide me.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Refrigerate the lemonade and puree, but do not put the hot phone in the fridge because rapid cooling can cause condensation, and do not leave it on the sofa because that provides no cooling. Close the fridge, place the phone on the dry counter directly in the fan's airflow, and turn the fan on.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Open the built-in refrigerator in the kitchen, then return to the hot-item counter. Refrigerate the lemonade first and the sealed puree second, and close the refrigerator. Do not rapidly chill the hot phone; condensation can damage it.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The food is safely refrigerated and the door is closed. Take the phone from the hot-item counter to the dry bar counter directly in front of the electric fan.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The phone is stable on the dry counter. Turn on the electric fan on that same counter and let the phone cool at room temperature.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "lemonade"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "lemonade"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "lemonade",
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "lemonade",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "puree"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "puree"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "puree",
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "puree",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "phone"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "phone",
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "phone",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Open",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "lemonade"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "lemonade"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "lemonade",
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "lemonade",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "puree"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "puree"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "puree",
+            "fridge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "puree",
+            "target": "fridge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Close",
+          "args": [
+            "fridge"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "Both food items are inside the closed refrigerator.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Refrigerate the lemonade and puree, but do not put the hot phone in the fridge because rapid cooling can cause condensation, and do not leave it on the sofa because that provides no cooling. Close the fridge, place the phone on the dry counter directly in the fan's airflow, and turn the fan on.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "phone"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "phone"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "cooling_counter"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "cooling_counter"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutOn",
+          "args": [
+            "phone",
+            "cooling_counter"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "The phone is resting on the dry cooling counter in front of the fan.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "Refrigerate the lemonade and puree, but do not put the hot phone in the fridge because rapid cooling can cause condensation, and do not leave it on the sofa because that provides no cooling. Close the fridge, place the phone on the dry counter directly in the fan's airflow, and turn the fan on.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "TurnOn",
+          "args": [
+            "fan"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "These items all sat in a hot car. With the refrigerator, nearby sofa, and fan station available, I don't know which cooling option is safe for each item. Please guide me.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The table visibly holds two sealed foods and one mobile phone.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p000"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 0
+      },
+      {
+        "id": "fact_003",
+        "statement": "The kitchen's built-in refrigerator is available for the food.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p000"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 0
+      },
+      {
+        "id": "fact_004",
+        "statement": "A dry counter with an electric fan is available for the phone.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p000"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 0
+      },
+      {
+        "id": "fact_005",
+        "statement": "A nearby sofa is visible but provides neither refrigeration nor active airflow.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p000"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 0
+      },
+      {
+        "id": "fact_006",
+        "statement": "Both food items are inside the closed refrigerator.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o005"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 5
+      },
+      {
+        "id": "fact_007",
+        "statement": "The phone is resting on the dry cooling counter in front of the fan.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o008"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 8
+      },
+      {
+        "id": "fact_008",
+        "statement": "Refrigerate the lemonade and puree, but do not put the hot phone in the fridge because rapid cooling can cause condensation, and do not leave it on the sofa because that provides no cooling. Close the fridge, place the phone on the dry counter directly in the fan's airflow, and turn the fan on.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p000",
+          "o005",
+          "o008"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the visible items and setting to guide the person through safely cooling every affected item.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[LookAround]",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 1,
+            "say": "Hey, Assistant, these were all sitting in a hot car. What's the safest way to cool each one down? Can you walk me through it?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, these were all sitting in a hot car. What's the safest way to cool each one down? Can you walk me through it?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "hot_car_cooling_request",
+            "required_phrases": [
+              "sitting in a hot car",
+              "safest way to cool each one down"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[PutInside] <lemonade> (1) <fridge> (1)",
+          "[PutInside] <puree> (1) <fridge> (1)",
+          "[Close] <fridge> (1)",
+          "[PutOn] <phone> (1) <cooling_counter> (1)",
+          "[TurnOn] <fan> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[PutInside] <phone> (1) <fridge> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[PutInside] <lemonade> (1) <fridge> (1)",
+            "[PutInside] <puree> (1) <fridge> (1)",
+            "[Close] <fridge> (1)",
+            "[PutOn] <phone> (1) <cooling_counter> (1)",
+            "[TurnOn] <fan> (1)"
+          ]
+        ],
+        "verification_points": [
+          {
+            "id": "lemonade_refrigerated",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "lemonade",
+            "target": "fridge"
+          },
+          {
+            "id": "puree_refrigerated",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "puree",
+            "target": "fridge"
+          },
+          {
+            "id": "fridge_closed",
+            "kind": "world_state",
+            "pred": "closed",
+            "subject": "fridge",
+            "target": "fridge"
+          },
+          {
+            "id": "phone_on_cooling_counter",
+            "kind": "world_state",
+            "pred": "on",
+            "subject": "phone",
+            "target": "cooling_counter"
+          },
+          {
+            "id": "fan_running",
+            "kind": "world_state",
+            "pred": "running",
+            "subject": "fan",
+            "target": "fan"
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 40,
+    "dialogue_budget": 3,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": null,
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005",
+        "h006",
+        "h007"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "lemonade",
+              "puree",
+              "phone",
+              "fridge"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "lemonade",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "lemonade",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "lemonade",
+            "target": "fridge",
+            "truth": true
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "puree",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "puree",
+            "target": "fridge",
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "phone",
+              "cooling_counter",
+              "fan"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "lemonade",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "phone",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "cooling_counter",
+            "truth": true
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "phone",
+              "fan"
+            ],
+            "required_fact_ids": [
+              "fact_007"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "lemonade",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o009"
+        }
+      ],
+      "terminal_beats": [
+        "h007",
+        "o009"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Open",
+        "args": [
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "lemonade"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "lemonade",
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "puree"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "puree",
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "phone"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "cooling_counter"
+        ]
+      },
+      {
+        "verb": "PutOn",
+        "args": [
+          "phone",
+          "cooling_counter"
+        ]
+      },
+      {
+        "verb": "TurnOn",
+        "args": [
+          "fan"
+        ]
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Open",
+        "args": [
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "lemonade"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "lemonade",
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "puree"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "puree",
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "phone"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "phone",
+          "fridge"
+        ]
+      },
+      {
+        "verb": "Close",
+        "args": [
+          "fridge"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "Open the built-in refrigerator in the kitchen, then return to the hot-item counter. Refrigerate the lemonade first and the sealed puree second, and close the refrigerator. Do not rapidly chill the hot phone; condensation can damage it.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "The food is safely refrigerated and the door is closed. Take the phone from the hot-item counter to the dry bar counter directly in front of the electric fan.",
+        "relation": "before",
+        "anchor_beat_id": "o006",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "The phone is stable on the dry counter. Turn on the electric fan on that same counter and let the phone cool at room temperature.",
+        "relation": "before",
+        "anchor_beat_id": "o009",
+        "source": "guidance",
+        "source_index": 2
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "release": "InteractiveWorld-Balanced120",
+    "task_id": "GUIDE-14011"
+  }
+}

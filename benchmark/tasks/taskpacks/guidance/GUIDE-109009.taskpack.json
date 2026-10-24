@@ -1,0 +1,4147 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "GUIDE-109009",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [
+        {
+          "kind": "exact_count_inside",
+          "label": "order_a_milk_500_count",
+          "candidates": [
+            "milk_a",
+            "milk_b",
+            "milk_c"
+          ],
+          "target": "order_a",
+          "count": 1,
+          "candidate_descriptor": "the three drinks labeled MILK 500 mL",
+          "target_descriptor": "the open box labeled A 600 mL"
+        },
+        {
+          "kind": "exact_count_inside",
+          "label": "order_a_water_100_count",
+          "candidates": [
+            "water_a",
+            "water_c"
+          ],
+          "target": "order_a",
+          "count": 1,
+          "candidate_descriptor": "the two drinks labeled WATER 100 mL",
+          "target_descriptor": "the open box labeled A 600 mL"
+        },
+        {
+          "kind": "exact_count_inside",
+          "label": "order_b_milk_500_count",
+          "candidates": [
+            "milk_a",
+            "milk_b",
+            "milk_c"
+          ],
+          "target": "order_b",
+          "count": 1,
+          "candidate_descriptor": "the three drinks labeled MILK 500 mL",
+          "target_descriptor": "the open box labeled B 700 mL"
+        },
+        {
+          "kind": "exact_count_inside",
+          "label": "order_b_juice_200_count",
+          "candidates": [
+            "juice_b",
+            "juice_c"
+          ],
+          "target": "order_b",
+          "count": 1,
+          "candidate_descriptor": "the two drinks labeled JUICE 200 mL",
+          "target_descriptor": "the open box labeled B 700 mL"
+        },
+        {
+          "kind": "exact_count_inside",
+          "label": "order_c_milk_500_count",
+          "candidates": [
+            "milk_a",
+            "milk_b",
+            "milk_c"
+          ],
+          "target": "order_c",
+          "count": 1,
+          "candidate_descriptor": "the three drinks labeled MILK 500 mL",
+          "target_descriptor": "the open box labeled C 800 mL"
+        },
+        {
+          "kind": "exact_count_inside",
+          "label": "order_c_juice_200_count",
+          "candidates": [
+            "juice_b",
+            "juice_c"
+          ],
+          "target": "order_c",
+          "count": 1,
+          "candidate_descriptor": "the two drinks labeled JUICE 200 mL",
+          "target_descriptor": "the open box labeled C 800 mL"
+        },
+        {
+          "kind": "exact_count_inside",
+          "label": "order_c_water_100_count",
+          "candidates": [
+            "water_a",
+            "water_c"
+          ],
+          "target": "order_c",
+          "count": 1,
+          "candidate_descriptor": "the two drinks labeled WATER 100 mL",
+          "target_descriptor": "the open box labeled C 800 mL"
+        }
+      ],
+      "answer_key": [],
+      "arms": null,
+      "goals": [],
+      "negatives": [],
+      "roster": {
+        "containers": [],
+        "nested_containers": [
+          "order_a",
+          "order_b",
+          "order_c"
+        ],
+        "objects": [
+          "juice_b",
+          "juice_c",
+          "milk_a",
+          "milk_b",
+          "milk_c",
+          "order_a",
+          "order_b",
+          "order_c",
+          "water_a",
+          "water_c"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer requests guidance without reciting the governing rule; the assistant must use visible instructions and live task state.",
+        "assistant_must": "The drinks are 100, 200, and 500 mL. Fill A to 600 with 500+100, B to 700 with 500+200, and C to 800 with 500+200+100.",
+        "cue": "Please inspect every drink's own capacity label and the three large order labels, then guide me through filling every order with the exact total.",
+        "premise": "Each sealed drink carries its own 100, 200, or 500 mL front label, and all seven sit in a consistent two-row layout on one stainless worktable. Three open storage boxes sit at eye-friendly height on separate wide scene-native cabinet counters and carry top-mounted shipping labels for ORDER A 600 mL, ORDER B 700 mL, and ORDER C 800 mL. The assistant guides the three capacity combinations order by order; packages with the same visible type and capacity label are interchangeable."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "GUIDE",
+      "grounding": {
+        "cite": "Please inspect every drink's own capacity label and the three large order labels, then guide me through filling every order with the exact total.",
+        "kind": "authored",
+        "ref": "interactiveworld:GUIDE-109009"
+      },
+      "rule_table": "exact_count_inside(1 of [milk_a, milk_b, milk_c], order_a); exact_count_inside(1 of [water_a, water_c], order_a); exact_count_inside(1 of [milk_a, milk_b, milk_c], order_b); exact_count_inside(1 of [juice_b, juice_c], order_b); exact_count_inside(1 of [milk_a, milk_b, milk_c], order_c); exact_count_inside(1 of [juice_b, juice_c], order_c); exact_count_inside(1 of [water_a, water_c], order_c)",
+      "scene": "restaurant_hotel",
+      "template": "the grounded restaurant_hotel scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 48,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 48,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "water_a"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "water_a"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "water_c"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "water_c"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "juice_b"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "juice_b"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "juice_c"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "juice_c"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "milk_a"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "milk_a"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "milk_b"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "milk_b"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "milk_c"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "milk_c"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "order_a"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "order_a"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "order_b"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "order_b"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "order_c"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "order_c"
+          ]
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "milk_a"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "order_a"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "milk_a",
+            "order_a"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "water_a"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "order_a"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "water_a",
+            "order_a"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "supply_table"
+          ]
+        },
+        {
+          "verb": "LookAround",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "milk_b"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "order_b"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "milk_b",
+            "order_b"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "juice_b"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "order_b"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "juice_b",
+            "order_b"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "supply_table"
+          ]
+        },
+        {
+          "verb": "LookAround",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "milk_c"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "order_c"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "milk_c",
+            "order_c"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "juice_c"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "order_c"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "juice_c",
+            "order_c"
+          ]
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "water_c"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "order_c"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "water_c",
+            "order_c"
+          ]
+        },
+        {
+          "verb": "LookAround",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "GUIDE",
+      "authored_by": "interactiveworld.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Grab] <milk_a> (1), [Walk] <order_a> (1), [PutInside] <milk_a> (1) <order_a> (1), [Grab] <water_a> (1), [Walk] <order_a> (1), [PutInside] <water_a> (1) <order_a> (1), [Walk] <supply_table> (1), [LookAround], [Grab] <milk_b> (1), [Walk] <order_b> (1), [PutInside] <milk_b> (1) <order_b> (1), [Grab] <juice_b> (1), [Walk] <order_b> (1), [PutInside] <juice_b> (1) <order_b> (1), [Walk] <supply_table> (1), [LookAround], [Grab] <milk_c> (1), [Walk] <order_c> (1), [PutInside] <milk_c> (1) <order_c> (1), [Grab] <juice_c> (1), [Walk] <order_c> (1), [PutInside] <juice_c> (1) <order_c> (1), [Grab] <water_c> (1), [Walk] <order_c> (1), [PutInside] <water_c> (1) <order_c> (1), [LookAround], [Wait]",
+      "seed": 1090199114,
+      "source_task_id": "GUIDE-109009"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "exact_count_inside",
+          "label": "order_a_milk_500_count",
+          "neg_kind": null,
+          "subject": null,
+          "target": "order_a"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "exact_count_inside",
+          "label": "order_a_water_100_count",
+          "neg_kind": null,
+          "subject": null,
+          "target": "order_a"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "exact_count_inside",
+          "label": "order_b_milk_500_count",
+          "neg_kind": null,
+          "subject": null,
+          "target": "order_b"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "exact_count_inside",
+          "label": "order_b_juice_200_count",
+          "neg_kind": null,
+          "subject": null,
+          "target": "order_b"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 4,
+          "kind": "exact_count_inside",
+          "label": "order_c_milk_500_count",
+          "neg_kind": null,
+          "subject": null,
+          "target": "order_c"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 5,
+          "kind": "exact_count_inside",
+          "label": "order_c_juice_200_count",
+          "neg_kind": null,
+          "subject": null,
+          "target": "order_c"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 6,
+          "kind": "exact_count_inside",
+          "label": "order_c_water_100_count",
+          "neg_kind": null,
+          "subject": null,
+          "target": "order_c"
+        }
+      ],
+      "sub_steps": [
+        "exact_count_inside(1 of [milk_a, milk_b, milk_c], order_a)",
+        "exact_count_inside(1 of [water_a, water_c], order_a)",
+        "exact_count_inside(1 of [milk_a, milk_b, milk_c], order_b)",
+        "exact_count_inside(1 of [juice_b, juice_c], order_b)",
+        "exact_count_inside(1 of [milk_a, milk_b, milk_c], order_c)",
+        "exact_count_inside(1 of [juice_b, juice_c], order_c)",
+        "exact_count_inside(1 of [water_a, water_c], order_c)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "GUIDE-109009",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 1090199114,
+      "containers": {},
+      "decor": [],
+      "fixtures": {
+        "supply_table": {
+          "bind": {
+            "cat": "commercial_kitchen_table",
+            "source": "scene"
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "order_table_a": {
+          "bind": {
+            "cat": "metal_bottom_cabinet",
+            "source": "scene",
+            "pick": {
+              "name": "metal_bottom_cabinet_yfycfx_1",
+              "stage_prim_path": "/World/b_metal_bottom_cabinet_yfycfx_1",
+              "asset_sha256": "sha256:2643999eee50a14c8dbc37171e9f00e791b738e48878f030a04a908828a1b613",
+              "instance_digest": "sha256:944f250be06bea71920d21344f2c5050d3b1a62df53294a9e484d4024700812d",
+              "by": "scene_instance",
+              "rank": 8
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "order_table_b": {
+          "bind": {
+            "cat": "metal_bottom_cabinet",
+            "source": "scene",
+            "pick": {
+              "name": "metal_bottom_cabinet_jqyhjy_0",
+              "stage_prim_path": "/World/b_metal_bottom_cabinet_jqyhjy_0",
+              "asset_sha256": "sha256:63726bb8af31a1c6b38821656bdb5770b6329b0dfe9538d01d603885172a04eb",
+              "instance_digest": "sha256:69e31cf002b4974e33cd9c498e85c80f2fadb5ddffd87a0c6b1847f364c779d3",
+              "by": "scene_instance",
+              "rank": 2
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        },
+        "order_table_c": {
+          "bind": {
+            "cat": "metal_bottom_cabinet",
+            "source": "scene",
+            "pick": {
+              "name": "metal_bottom_cabinet_yfycfx_0",
+              "stage_prim_path": "/World/b_metal_bottom_cabinet_yfycfx_0",
+              "asset_sha256": "sha256:2643999eee50a14c8dbc37171e9f00e791b738e48878f030a04a908828a1b613",
+              "instance_digest": "sha256:f62a92a6e4fc4e217ac404d84739dd3d4ce8fed72d638cc959d6d36219523802",
+              "by": "scene_instance",
+              "rank": 7
+            }
+          },
+          "room": "kitchen_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {
+        "label_order_a": {
+          "content": {
+            "args": {
+              "renderer": "short_string",
+              "sub": "",
+              "title": ""
+            },
+            "text": "A 600 mL"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "order_a",
+            "surface": "item_decal",
+            "face": "top"
+          },
+          "per_seed": false,
+          "png": "guide_109009_guide26_story_refine_r2_20260912zl_order_a_d69dc6f7628d"
+        },
+        "label_order_b": {
+          "content": {
+            "args": {
+              "renderer": "short_string",
+              "sub": "",
+              "title": ""
+            },
+            "text": "B 700 mL"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "order_b",
+            "surface": "item_decal",
+            "face": "top"
+          },
+          "per_seed": false,
+          "png": "guide_109009_guide26_story_refine_r2_20260912zl_order_b_6a5e674938fe"
+        },
+        "label_order_c": {
+          "content": {
+            "args": {
+              "renderer": "short_string",
+              "sub": "",
+              "title": ""
+            },
+            "text": "C 800 mL"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "order_c",
+            "surface": "item_decal",
+            "face": "top"
+          },
+          "per_seed": false,
+          "png": "guide_109009_guide26_story_refine_r2_20260912zl_order_c_48c520d93a8e"
+        },
+        "label_water_a": {
+          "content": {
+            "args": {
+              "renderer": "capacity_label",
+              "sub": "",
+              "title": ""
+            },
+            "text": "WATER 100 mL"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "water_a",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_109009_guide26_story_refine_r2_20260912zl_water_a_943d3574de6c"
+        },
+        "label_water_c": {
+          "content": {
+            "args": {
+              "renderer": "capacity_label",
+              "sub": "",
+              "title": ""
+            },
+            "text": "WATER 100 mL"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "water_c",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_109009_guide26_story_refine_r2_20260912zl_water_c_943d3574de6c"
+        },
+        "label_juice_b": {
+          "content": {
+            "args": {
+              "renderer": "capacity_label",
+              "sub": "",
+              "title": ""
+            },
+            "text": "JUICE 200 mL"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "juice_b",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_109009_guide26_story_refine_r2_20260912zl_juice_b_92007d0924cc"
+        },
+        "label_juice_c": {
+          "content": {
+            "args": {
+              "renderer": "capacity_label",
+              "sub": "",
+              "title": ""
+            },
+            "text": "JUICE 200 mL"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "juice_c",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_109009_guide26_story_refine_r2_20260912zl_juice_c_92007d0924cc"
+        },
+        "label_milk_a": {
+          "content": {
+            "args": {
+              "renderer": "capacity_label",
+              "sub": "",
+              "title": ""
+            },
+            "text": "MILK 500 mL"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "milk_a",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_109009_guide26_story_refine_r2_20260912zl_milk_a_b83da1b6f229"
+        },
+        "label_milk_b": {
+          "content": {
+            "args": {
+              "renderer": "capacity_label",
+              "sub": "",
+              "title": ""
+            },
+            "text": "MILK 500 mL"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "milk_b",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_109009_guide26_story_refine_r2_20260912zl_milk_b_b83da1b6f229"
+        },
+        "label_milk_c": {
+          "content": {
+            "args": {
+              "renderer": "capacity_label",
+              "sub": "",
+              "title": ""
+            },
+            "text": "MILK 500 mL"
+          },
+          "kind": "short_string",
+          "mount": {
+            "on": "milk_c",
+            "surface": "item_decal"
+          },
+          "per_seed": false,
+          "png": "guide_109009_guide26_story_refine_r2_20260912zl_milk_c_b83da1b6f229"
+        }
+      },
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "order_a": {
+          "cat": "storage_box",
+          "model": "izcglf",
+          "needs_lookat": true,
+          "place": "on:order_table_a",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.45,
+            0.45
+          ],
+          "decal": "A 600 mL",
+          "affordances": [
+            "surface",
+            "container"
+          ]
+        },
+        "order_b": {
+          "cat": "storage_box",
+          "model": "izcglf",
+          "needs_lookat": true,
+          "place": "on:order_table_b",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.45,
+            0.45
+          ],
+          "decal": "B 700 mL",
+          "affordances": [
+            "surface",
+            "container"
+          ]
+        },
+        "order_c": {
+          "cat": "storage_box",
+          "model": "izcglf",
+          "needs_lookat": true,
+          "place": "on:order_table_c",
+          "room": "kitchen_0",
+          "scored": false,
+          "spot": [
+            0.45,
+            0.45
+          ],
+          "decal": "C 800 mL",
+          "affordances": [
+            "surface",
+            "container"
+          ]
+        },
+        "water_a": {
+          "cat": "bottle_of_water",
+          "model": "atvnqy",
+          "needs_lookat": true,
+          "place": "on:supply_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.6,
+            0.55
+          ],
+          "decal": "WATER 100 mL"
+        },
+        "water_c": {
+          "cat": "bottle_of_water",
+          "model": "atvnqy",
+          "needs_lookat": true,
+          "place": "on:supply_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.2,
+            0.55
+          ],
+          "decal": "WATER 100 mL"
+        },
+        "juice_b": {
+          "cat": "bottle_of_orange_juice",
+          "model": "edltwh",
+          "needs_lookat": true,
+          "place": "on:supply_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.2,
+            0.55
+          ],
+          "decal": "JUICE 200 mL"
+        },
+        "juice_c": {
+          "cat": "bottle_of_orange_juice",
+          "model": "edltwh",
+          "needs_lookat": true,
+          "place": "on:supply_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.6,
+            0.55
+          ],
+          "decal": "JUICE 200 mL"
+        },
+        "milk_a": {
+          "cat": "carton_of_milk",
+          "model": "atyqub",
+          "needs_lookat": true,
+          "place": "on:supply_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            -0.45,
+            -0.3
+          ],
+          "decal": "MILK 500 mL"
+        },
+        "milk_b": {
+          "cat": "carton_of_milk",
+          "model": "atyqub",
+          "needs_lookat": true,
+          "place": "on:supply_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.0,
+            -0.3
+          ],
+          "decal": "MILK 500 mL"
+        },
+        "milk_c": {
+          "cat": "carton_of_milk",
+          "model": "atyqub",
+          "needs_lookat": true,
+          "place": "on:supply_table",
+          "room": "kitchen_0",
+          "scored": true,
+          "spot": [
+            0.45,
+            -0.3
+          ],
+          "decal": "MILK 500 mL"
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "kitchen_0"
+      ],
+      "scene": "restaurant_hotel",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "Each sealed drink carries its own 100, 200, or 500 mL front label, and all seven sit in a consistent two-row layout on one stainless worktable. Three open storage boxes sit at eye-friendly height on separate wide scene-native cabinet counters and carry top-mounted shipping labels for ORDER A 600 mL, ORDER B 700 mL, and ORDER C 800 mL. The assistant guides the three capacity combinations order by order; packages with the same visible type and capacity label are interchangeable.",
+    "assistant_goal": "Please inspect every drink's own capacity label and the three large order labels, then guide me through filling every order with the exact total.",
+    "assessment_contract": {
+      "assigned_capability_id": "GUIDE.NUMERIC_CONVERSION_AND_COUNT_CONTROL",
+      "assigned_scene": "restaurant_hotel",
+      "core_question": "Please inspect every drink's own capacity label and the three large order labels, then guide me through filling every order with the exact total.",
+      "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+      "forbidden_changes": [
+        "Removing the visible instruction or decisive egocentric evidence",
+        "Putting the complete procedure into the wearer's utterance",
+        "Moving an assistant turn away from its next-action boundary"
+      ],
+      "knowledge_constraints": [
+        "Each sealed drink carries its own 100, 200, or 500 mL front label, and all seven sit in a consistent two-row layout on one stainless worktable. Three open storage boxes sit at eye-friendly height on separate wide scene-native cabinet counters and carry top-mounted shipping labels for ORDER A 600 mL, ORDER B 700 mL, and ORDER C 800 mL. The assistant guides the three capacity combinations order by order; packages with the same visible type and capacity label are interchangeable."
+      ],
+      "required_evidence": [
+        "Please inspect every drink's own capacity label and the three large order labels, then guide me through filling every order with the exact total.",
+        "Self-contained lift-to-camera views read the 100 mL water, 200 mL juice, and 500 mL milk labels on all seven drinks at one supply table.",
+        "The top shipping label on the tabletop ORDER A box visibly gives the 600 mL target.",
+        "The top shipping label on the tabletop ORDER B box visibly gives the 700 mL target.",
+        "The top shipping label on the tabletop ORDER C box visibly gives the 800 mL target.",
+        "ORDER A box visibly contains 500+100 mL, exactly 600 mL.",
+        "ORDER B box visibly contains 500+200 mL, exactly 700 mL.",
+        "ORDER C box visibly contains 500+200+100 mL, exactly 800 mL.",
+        "The drinks are 100, 200, and 500 mL. Fill A to 600 with 500+100, B to 700 with 500+200, and C to 800 with 500+200+100."
+      ],
+      "required_final_predicates": [
+        "exact_count_inside",
+        "exact_count_inside",
+        "exact_count_inside",
+        "exact_count_inside",
+        "exact_count_inside",
+        "exact_count_inside",
+        "exact_count_inside"
+      ],
+      "success_condition": "exact_count_inside(1 of [milk_a, milk_b, milk_c], order_a); exact_count_inside(1 of [water_a, water_c], order_a); exact_count_inside(1 of [milk_a, milk_b, milk_c], order_b); exact_count_inside(1 of [juice_b, juice_c], order_b); exact_count_inside(1 of [milk_a, milk_b, milk_c], order_c); exact_count_inside(1 of [juice_b, juice_c], order_c); exact_count_inside(1 of [water_a, water_c], order_c)",
+      "temporal_constraints": [
+        "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "GUIDE-109009",
+      "family": "GUIDE",
+      "kind": "grounded procedural guidance",
+      "assessment_contract": {
+        "assigned_capability_id": "GUIDE.NUMERIC_CONVERSION_AND_COUNT_CONTROL",
+        "assigned_scene": "restaurant_hotel",
+        "core_question": "Please inspect every drink's own capacity label and the three large order labels, then guide me through filling every order with the exact total.",
+        "counterfactual_failure": "The weak branch omits or violates the posted procedure and fails at least one scored final predicate.",
+        "forbidden_changes": [
+          "Removing the visible instruction or decisive egocentric evidence",
+          "Putting the complete procedure into the wearer's utterance",
+          "Moving an assistant turn away from its next-action boundary"
+        ],
+        "knowledge_constraints": [
+          "Each sealed drink carries its own 100, 200, or 500 mL front label, and all seven sit in a consistent two-row layout on one stainless worktable. Three open storage boxes sit at eye-friendly height on separate wide scene-native cabinet counters and carry top-mounted shipping labels for ORDER A 600 mL, ORDER B 700 mL, and ORDER C 800 mL. The assistant guides the three capacity combinations order by order; packages with the same visible type and capacity label are interchangeable."
+        ],
+        "required_evidence": [
+          "Please inspect every drink's own capacity label and the three large order labels, then guide me through filling every order with the exact total.",
+          "Self-contained lift-to-camera views read the 100 mL water, 200 mL juice, and 500 mL milk labels on all seven drinks at one supply table.",
+          "The top shipping label on the tabletop ORDER A box visibly gives the 600 mL target.",
+          "The top shipping label on the tabletop ORDER B box visibly gives the 700 mL target.",
+          "The top shipping label on the tabletop ORDER C box visibly gives the 800 mL target.",
+          "ORDER A box visibly contains 500+100 mL, exactly 600 mL.",
+          "ORDER B box visibly contains 500+200 mL, exactly 700 mL.",
+          "ORDER C box visibly contains 500+200+100 mL, exactly 800 mL.",
+          "The drinks are 100, 200, and 500 mL. Fill A to 600 with 500+100, B to 700 with 500+200, and C to 800 with 500+200+100."
+        ],
+        "required_final_predicates": [
+          "exact_count_inside",
+          "exact_count_inside",
+          "exact_count_inside",
+          "exact_count_inside",
+          "exact_count_inside",
+          "exact_count_inside",
+          "exact_count_inside"
+        ],
+        "success_condition": "exact_count_inside(1 of [milk_a, milk_b, milk_c], order_a); exact_count_inside(1 of [water_a, water_c], order_a); exact_count_inside(1 of [milk_a, milk_b, milk_c], order_b); exact_count_inside(1 of [juice_b, juice_c], order_b); exact_count_inside(1 of [milk_a, milk_b, milk_c], order_c); exact_count_inside(1 of [juice_b, juice_c], order_c); exact_count_inside(1 of [water_a, water_c], order_c)",
+        "temporal_constraints": [
+          "Each assistant turn occurs after its evidence and immediately before the corresponding guided action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "asparagus",
+          "batting_gloves",
+          "bird_feeder",
+          "bottle_of_fruit_punch",
+          "bottle_of_orange_juice",
+          "bottle_of_water",
+          "box_of_cereal",
+          "box_of_tissues",
+          "box_of_yogurt",
+          "boxed_cpu_board",
+          "can_of_coffee",
+          "carton_of_milk",
+          "cell_phone",
+          "clipboard",
+          "drill",
+          "fillet",
+          "fire_alarm",
+          "granulated_sugar_jar",
+          "half_cauliflower",
+          "half_fried_chicken",
+          "half_ham_hock",
+          "half_meat_loaf",
+          "half_peach",
+          "hand_towel",
+          "hardback",
+          "jar_of_chilli_powder",
+          "juicer",
+          "lace",
+          "map",
+          "mint",
+          "mug",
+          "notepad",
+          "pack_of_ground_beef",
+          "packing_box",
+          "paper_cup",
+          "paper_sheet",
+          "pastry",
+          "pepperoni",
+          "pipe",
+          "pizza_box",
+          "pottable_marigold",
+          "saddle_soap_bottle",
+          "salsa_bottle",
+          "seashell",
+          "soda_cup",
+          "sponge",
+          "squeegee",
+          "storage_box",
+          "tablet",
+          "waffle_maker",
+          "wine_bottle"
+        ],
+        "allowed_surface_categories": [
+          "commercial_kitchen_table",
+          "flat_top_grill",
+          "freezer",
+          "metal_bottom_cabinet"
+        ],
+        "capability_id": "GUIDE.NUMERIC_CONVERSION_AND_COUNT_CONTROL",
+        "coverage_categories": [
+          "squeegee",
+          "pizza_box",
+          "hardback",
+          "map",
+          "boxed_cpu_board",
+          "half_cauliflower",
+          "can_of_coffee",
+          "bird_feeder",
+          "salsa_bottle",
+          "fillet",
+          "pepperoni",
+          "tablet",
+          "jar_of_chilli_powder",
+          "wine_bottle",
+          "lace",
+          "drill",
+          "paper_cup",
+          "fire_alarm",
+          "half_ham_hock",
+          "pack_of_ground_beef"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 3,
+          "required_semantic_turns": 3,
+          "requires_cross_room_transition": false,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_memory_gap": false,
+          "requires_reselection": false,
+          "single_wearer_only": true,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "GUIDE",
+        "limits": {
+          "max_authored_actions": 52,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_meaningful_steps": 48,
+          "max_movable_objects": 10,
+          "max_objects_per_container": 10,
+          "max_objects_per_surface": 10,
+          "max_prologue_actions": 21,
+          "max_small_label_characters": 40,
+          "max_task_actions": 27,
+          "min_intervening_meaningful_actions": 8,
+          "min_meaningful_steps": 5
+        },
+        "preferred_story_categories": [
+          "clipboard",
+          "packing_box",
+          "paper_sheet",
+          "hand_towel"
+        ],
+        "preferred_story_category_glosses": {
+          "clipboard": "",
+          "hand_towel": "",
+          "packing_box": "",
+          "paper_sheet": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 59.2,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "fridge": 3,
+              "metal_bottom_cabinet": 5,
+              "oven": 1
+            },
+            "scene_surfaces": {
+              "commercial_kitchen_table": 7,
+              "flat_top_grill": 4,
+              "metal_bottom_cabinet": 9
+            },
+            "surface_max_area_m2": {
+              "commercial_kitchen_table": 0.2,
+              "flat_top_grill": 0.265,
+              "metal_bottom_cabinet": 0.253
+            },
+            "surface_reference_capacity": {
+              "commercial_kitchen_table": 3,
+              "flat_top_grill": 3,
+              "metal_bottom_cabinet": 3
+            }
+          }
+        ],
+        "scene": "restaurant_hotel",
+        "task_id": "GUIDE-109009",
+        "version": "grounded-authoring/3.1-hard-context-20260901"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable",
+              "surface",
+              "container"
+            ],
+            "category": "storage_box",
+            "changed": false,
+            "costs": null,
+            "label": "A 600 mL",
+            "tint": null,
+            "what": "open tabletop storage box labeled ORDER A 600 mL"
+          },
+          {
+            "affordances": [
+              "graspable",
+              "surface",
+              "container"
+            ],
+            "category": "storage_box",
+            "changed": false,
+            "costs": null,
+            "label": "B 700 mL",
+            "tint": null,
+            "what": "open tabletop storage box labeled ORDER B 700 mL"
+          },
+          {
+            "affordances": [
+              "graspable",
+              "surface",
+              "container"
+            ],
+            "category": "storage_box",
+            "changed": false,
+            "costs": null,
+            "label": "C 800 mL",
+            "tint": null,
+            "what": "open tabletop storage box labeled ORDER C 800 mL"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_water",
+            "changed": false,
+            "costs": null,
+            "label": "WATER 100 mL",
+            "tint": null,
+            "what": "first sealed 100 mL water drink"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_water",
+            "changed": false,
+            "costs": null,
+            "label": "WATER 100 mL",
+            "tint": null,
+            "what": "second sealed 100 mL water drink"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_orange_juice",
+            "changed": false,
+            "costs": null,
+            "label": "JUICE 200 mL",
+            "tint": null,
+            "what": "first sealed 200 mL juice drink"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_orange_juice",
+            "changed": false,
+            "costs": null,
+            "label": "JUICE 200 mL",
+            "tint": null,
+            "what": "second sealed 200 mL juice drink"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "carton_of_milk",
+            "changed": false,
+            "costs": null,
+            "label": "MILK 500 mL",
+            "tint": null,
+            "what": "first sealed 500 mL milk drink"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "carton_of_milk",
+            "changed": false,
+            "costs": null,
+            "label": "MILK 500 mL",
+            "tint": null,
+            "what": "second sealed 500 mL milk drink"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "carton_of_milk",
+            "changed": false,
+            "costs": null,
+            "label": "MILK 500 mL",
+            "tint": null,
+            "what": "third sealed 500 mL milk drink"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "commercial_kitchen_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "single large labeled drink-supply worktable"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "metal_bottom_cabinet",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "first wide scene-native order counter"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "metal_bottom_cabinet",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "second wide scene-native order counter"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "metal_bottom_cabinet",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "third wide scene-native order counter"
+          }
+        ],
+        "distinct_by": [
+          "direct package capacity label and assigned order"
+        ],
+        "identical_groups": [
+          [
+            "order_a",
+            "order_b",
+            "order_c"
+          ],
+          [
+            "water_a",
+            "water_c"
+          ],
+          [
+            "juice_b",
+            "juice_c"
+          ],
+          [
+            "milk_a",
+            "milk_b",
+            "milk_c"
+          ]
+        ],
+        "impossible": [],
+        "printed": [
+          {
+            "rides": "open tabletop storage box labeled ORDER A 600 mL",
+            "text": "A 600 mL",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "open tabletop storage box labeled ORDER B 700 mL",
+            "text": "B 700 mL",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "open tabletop storage box labeled ORDER C 800 mL",
+            "text": "C 800 mL",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "first sealed 100 mL water drink",
+            "text": "WATER 100 mL",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "second sealed 100 mL water drink",
+            "text": "WATER 100 mL",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "first sealed 200 mL juice drink",
+            "text": "JUICE 200 mL",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "second sealed 200 mL juice drink",
+            "text": "JUICE 200 mL",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "first sealed 500 mL milk drink",
+            "text": "MILK 500 mL",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "second sealed 500 mL milk drink",
+            "text": "MILK 500 mL",
+            "what": "label",
+            "which": null
+          },
+          {
+            "rides": "third sealed 500 mL milk drink",
+            "text": "MILK 500 mL",
+            "what": "label",
+            "which": null
+          }
+        ],
+        "restaged_story": "Each sealed drink carries its own 100, 200, or 500 mL front label, and all seven sit in a consistent two-row layout on one stainless worktable. Three open storage boxes sit at eye-friendly height on separate wide scene-native cabinet counters and carry top-mounted shipping labels for ORDER A 600 mL, ORDER B 700 mL, and ORDER C 800 mL. The assistant guides the three capacity combinations order by order; packages with the same visible type and capacity label are interchangeable.",
+        "scene": "restaurant_hotel",
+        "why_scene": "restaurant_hotel supplies the rooms and fixtures used by this grounded GUIDE procedure."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {},
+        "items": {
+          "order_a": {
+            "affordances": [
+              "surface",
+              "container"
+            ],
+            "cat": "storage_box",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "A 600 mL",
+            "place": "on:order_table_a",
+            "scored": false,
+            "spot": [
+              0.45,
+              0.45
+            ],
+            "tint": null
+          },
+          "order_b": {
+            "affordances": [
+              "surface",
+              "container"
+            ],
+            "cat": "storage_box",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "B 700 mL",
+            "place": "on:order_table_b",
+            "scored": false,
+            "spot": [
+              0.45,
+              0.45
+            ],
+            "tint": null
+          },
+          "order_c": {
+            "affordances": [
+              "surface",
+              "container"
+            ],
+            "cat": "storage_box",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "C 800 mL",
+            "place": "on:order_table_c",
+            "scored": false,
+            "spot": [
+              0.45,
+              0.45
+            ],
+            "tint": null
+          },
+          "water_a": {
+            "affordances": [],
+            "cat": "bottle_of_water",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "WATER 100 mL",
+            "place": "on:supply_table",
+            "scored": true,
+            "spot": [
+              -0.6,
+              0.55
+            ],
+            "tint": null
+          },
+          "water_c": {
+            "affordances": [],
+            "cat": "bottle_of_water",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "WATER 100 mL",
+            "place": "on:supply_table",
+            "scored": true,
+            "spot": [
+              -0.2,
+              0.55
+            ],
+            "tint": null
+          },
+          "juice_b": {
+            "affordances": [],
+            "cat": "bottle_of_orange_juice",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "JUICE 200 mL",
+            "place": "on:supply_table",
+            "scored": true,
+            "spot": [
+              0.2,
+              0.55
+            ],
+            "tint": null
+          },
+          "juice_c": {
+            "affordances": [],
+            "cat": "bottle_of_orange_juice",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "JUICE 200 mL",
+            "place": "on:supply_table",
+            "scored": true,
+            "spot": [
+              0.6,
+              0.55
+            ],
+            "tint": null
+          },
+          "milk_a": {
+            "affordances": [],
+            "cat": "carton_of_milk",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "MILK 500 mL",
+            "place": "on:supply_table",
+            "scored": true,
+            "spot": [
+              -0.45,
+              -0.3
+            ],
+            "tint": null
+          },
+          "milk_b": {
+            "affordances": [],
+            "cat": "carton_of_milk",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "MILK 500 mL",
+            "place": "on:supply_table",
+            "scored": true,
+            "spot": [
+              0.0,
+              -0.3
+            ],
+            "tint": null
+          },
+          "milk_c": {
+            "affordances": [],
+            "cat": "carton_of_milk",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": "MILK 500 mL",
+            "place": "on:supply_table",
+            "scored": true,
+            "spot": [
+              0.45,
+              -0.3
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <water_a> (1)",
+          "[LookAt] <water_a> (1)",
+          "[Walk] <water_c> (1)",
+          "[LookAt] <water_c> (1)",
+          "[Walk] <juice_b> (1)",
+          "[LookAt] <juice_b> (1)",
+          "[Walk] <juice_c> (1)",
+          "[LookAt] <juice_c> (1)",
+          "[Walk] <milk_a> (1)",
+          "[LookAt] <milk_a> (1)",
+          "[Walk] <milk_b> (1)",
+          "[LookAt] <milk_b> (1)",
+          "[Walk] <milk_c> (1)",
+          "[LookAt] <milk_c> (1)",
+          "[Walk] <order_a> (1)",
+          "[LookAt] <order_a> (1)",
+          "[Walk] <order_b> (1)",
+          "[LookAt] <order_b> (1)",
+          "[Walk] <order_c> (1)",
+          "[LookAt] <order_c> (1)",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "kitchen_0"
+        ],
+        "scene": "restaurant_hotel",
+        "staging": {
+          "groups": "Each sealed drink carries its own 100, 200, or 500 mL front label, and all seven sit in a consistent two-row layout on one stainless worktable. Three open storage boxes sit at eye-friendly height on separate wide scene-native cabinet counters and carry top-mounted shipping labels for ORDER A 600 mL, ORDER B 700 mL, and ORDER C 800 mL. The assistant guides the three capacity combinations order by order; packages with the same visible type and capacity label are interchangeable.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "supply_table": {
+            "cat": "commercial_kitchen_table",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "order_table_a": {
+            "cat": "metal_bottom_cabinet",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "order_table_b": {
+            "cat": "metal_bottom_cabinet",
+            "label": null,
+            "room": "kitchen_0"
+          },
+          "order_table_c": {
+            "cat": "metal_bottom_cabinet",
+            "label": null,
+            "room": "kitchen_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "Please inspect every drink's own capacity label and the three large order labels, then guide me through filling every order with the exact total."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "Please inspect every drink's own capacity label and the three large order labels, then guide me through filling every order with the exact total.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "Self-contained lift-to-camera views read the 100 mL water, 200 mL juice, and 500 mL milk labels on all seven drinks at one supply table.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 13,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The top shipping label on the tabletop ORDER A box visibly gives the 600 mL target.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 15,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The top shipping label on the tabletop ORDER B box visibly gives the 700 mL target.",
+            "from": "prologue",
+            "id": "fact_004",
+            "source_index": 17,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The top shipping label on the tabletop ORDER C box visibly gives the 800 mL target.",
+            "from": "prologue",
+            "id": "fact_005",
+            "source_index": 19,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "ORDER A box visibly contains 500+100 mL, exactly 600 mL.",
+            "from": "live",
+            "id": "fact_006",
+            "source_index": 5,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "ORDER B box visibly contains 500+200 mL, exactly 700 mL.",
+            "from": "live",
+            "id": "fact_007",
+            "source_index": 13,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "ORDER C box visibly contains 500+200+100 mL, exactly 800 mL.",
+            "from": "live",
+            "id": "fact_008",
+            "source_index": 24,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007",
+              "fact_008"
+            ],
+            "fact": "The drinks are 100, 200, and 500 mL. Fill A to 600 with 500+100, B to 700 with 500+200, and C to 800 with 500+200+100.",
+            "from": "derived",
+            "id": "fact_009",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "scorable": true,
+            "kind": "exact_count_inside",
+            "label": "order_a_milk_500_count",
+            "candidates": [
+              "milk_a",
+              "milk_b",
+              "milk_c"
+            ],
+            "target": "order_a",
+            "count": 1,
+            "candidate_descriptor": "the three drinks labeled MILK 500 mL",
+            "target_descriptor": "the open box labeled A 600 mL"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "scorable": true,
+            "kind": "exact_count_inside",
+            "label": "order_a_water_100_count",
+            "candidates": [
+              "water_a",
+              "water_c"
+            ],
+            "target": "order_a",
+            "count": 1,
+            "candidate_descriptor": "the two drinks labeled WATER 100 mL",
+            "target_descriptor": "the open box labeled A 600 mL"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "scorable": true,
+            "kind": "exact_count_inside",
+            "label": "order_b_milk_500_count",
+            "candidates": [
+              "milk_a",
+              "milk_b",
+              "milk_c"
+            ],
+            "target": "order_b",
+            "count": 1,
+            "candidate_descriptor": "the three drinks labeled MILK 500 mL",
+            "target_descriptor": "the open box labeled B 700 mL"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "scorable": true,
+            "kind": "exact_count_inside",
+            "label": "order_b_juice_200_count",
+            "candidates": [
+              "juice_b",
+              "juice_c"
+            ],
+            "target": "order_b",
+            "count": 1,
+            "candidate_descriptor": "the two drinks labeled JUICE 200 mL",
+            "target_descriptor": "the open box labeled B 700 mL"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "scorable": true,
+            "kind": "exact_count_inside",
+            "label": "order_c_milk_500_count",
+            "candidates": [
+              "milk_a",
+              "milk_b",
+              "milk_c"
+            ],
+            "target": "order_c",
+            "count": 1,
+            "candidate_descriptor": "the three drinks labeled MILK 500 mL",
+            "target_descriptor": "the open box labeled C 800 mL"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "scorable": true,
+            "kind": "exact_count_inside",
+            "label": "order_c_juice_200_count",
+            "candidates": [
+              "juice_b",
+              "juice_c"
+            ],
+            "target": "order_c",
+            "count": 1,
+            "candidate_descriptor": "the two drinks labeled JUICE 200 mL",
+            "target_descriptor": "the open box labeled C 800 mL"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "scorable": true,
+            "kind": "exact_count_inside",
+            "label": "order_c_water_100_count",
+            "candidates": [
+              "water_a",
+              "water_c"
+            ],
+            "target": "order_c",
+            "count": 1,
+            "candidate_descriptor": "the two drinks labeled WATER 100 mL",
+            "target_descriptor": "the open box labeled C 800 mL"
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "At the drink-supply table (`supply_table`), for ORDER A 600 mL (`order_a`), use the farthest of the three 500 mL milk cartons (`milk_a`) and the farther of the two 100 mL water bottles (`water_a`). Move `milk_a` from `supply_table` into `order_a`, then move `water_a` from `supply_table` into `order_a`.",
+            "referents": [
+              "milk_a",
+              "water_a",
+              "order_a"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ]
+          },
+          {
+            "before_index": 6,
+            "say": "Return to the same side of the drink-supply table (`supply_table`) and take a quick look around before handling the next order. For ORDER B 700 mL (`order_b`), use the farther of the two remaining 500 mL milk cartons (`milk_b`) and the farther of the two 200 mL juice bottles (`juice_b`). Move `milk_b` from `supply_table` into `order_b`, then move `juice_b` from `supply_table` into `order_b`.",
+            "referents": [
+              "milk_b",
+              "juice_b",
+              "order_b"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ]
+          },
+          {
+            "before_index": 14,
+            "say": "Return to that same viewpoint at `supply_table` and take a quick look around before handling the final order. For ORDER C 800 mL (`order_c`), use the remaining 500 mL milk carton (`milk_c`), the nearer 200 mL juice bottle (`juice_c`), and the remaining 100 mL water bottle (`water_c`). Move `milk_c`, `juice_c`, and `water_c` from `supply_table` into `order_c`, one at a time. After all three are inside, take one final look around to confirm the boxes, then pause.",
+            "referents": [
+              "milk_c",
+              "juice_c",
+              "water_c",
+              "order_c"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007"
+            ]
+          }
+        ],
+        "hidden_fact": null,
+        "human_own_script": "[Grab] <milk_a> (1), [Walk] <order_a> (1), [PutInside] <milk_a> (1) <order_a> (1), [Grab] <milk_b> (1), [Walk] <order_a> (1), [PutInside] <milk_b> (1) <order_a> (1), [Grab] <milk_c> (1), [Walk] <order_a> (1), [PutInside] <milk_c> (1) <order_a> (1)",
+        "mates": [],
+        "oracle_program": "[Grab] <milk_a> (1), [Walk] <order_a> (1), [PutInside] <milk_a> (1) <order_a> (1), [Grab] <water_a> (1), [Walk] <order_a> (1), [PutInside] <water_a> (1) <order_a> (1), [Walk] <supply_table> (1), [LookAround], [Grab] <milk_b> (1), [Walk] <order_b> (1), [PutInside] <milk_b> (1) <order_b> (1), [Grab] <juice_b> (1), [Walk] <order_b> (1), [PutInside] <juice_b> (1) <order_b> (1), [Walk] <supply_table> (1), [LookAround], [Grab] <milk_c> (1), [Walk] <order_c> (1), [PutInside] <milk_c> (1) <order_c> (1), [Grab] <juice_c> (1), [Walk] <order_c> (1), [PutInside] <juice_c> (1) <order_c> (1), [Grab] <water_c> (1), [Walk] <order_c> (1), [PutInside] <water_c> (1) <order_c> (1), [LookAround], [Wait]",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "Each sealed drink carries its own 100, 200, or 500 mL front label, and all seven sit in a consistent two-row layout on one stainless worktable. Three open storage boxes sit at eye-friendly height on separate wide scene-native cabinet counters and carry top-mounted shipping labels for ORDER A 600 mL, ORDER B 700 mL, and ORDER C 800 mL. The assistant guides the three capacity combinations order by order; packages with the same visible type and capacity label are interchangeable.",
+        "utterance": "Please inspect every drink's own capacity label and the three large order labels, then guide me through filling every order with the exact total."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <water_a> (1)",
+        "[LookAt] <water_a> (1)",
+        "[Walk] <water_c> (1)",
+        "[LookAt] <water_c> (1)",
+        "[Walk] <juice_b> (1)",
+        "[LookAt] <juice_b> (1)",
+        "[Walk] <juice_c> (1)",
+        "[LookAt] <juice_c> (1)",
+        "[Walk] <milk_a> (1)",
+        "[LookAt] <milk_a> (1)",
+        "[Walk] <milk_b> (1)",
+        "[LookAt] <milk_b> (1)",
+        "[Walk] <milk_c> (1)",
+        "[LookAt] <milk_c> (1)",
+        "[Walk] <order_a> (1)",
+        "[LookAt] <order_a> (1)",
+        "[Walk] <order_b> (1)",
+        "[LookAt] <order_b> (1)",
+        "[Walk] <order_c> (1)",
+        "[LookAt] <order_c> (1)",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "water_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "water_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "water_a"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "water_c"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "water_c"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "water_c"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p004",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "juice_b"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "juice_b"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p005",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "juice_b"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p006",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "juice_c"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "juice_c"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p007",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "juice_c"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p008",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "milk_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "milk_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p009",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "milk_a"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p010",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "milk_b"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "milk_b"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p011",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "milk_b"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p012",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "milk_c"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "milk_c"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p013",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "milk_c"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "Self-contained lift-to-camera views read the 100 mL water, 200 mL juice, and 500 mL milk labels on all seven drinks at one supply table.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The drinks are 100, 200, and 500 mL. Fill A to 600 with 500+100, B to 700 with 500+200, and C to 800 with 500+200+100.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p014",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "order_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "order_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p015",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "order_a"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The top shipping label on the tabletop ORDER A box visibly gives the 600 mL target.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The drinks are 100, 200, and 500 mL. Fill A to 600 with 500+100, B to 700 with 500+200, and C to 800 with 500+200+100.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p016",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "order_b"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "order_b"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p017",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "order_b"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "The top shipping label on the tabletop ORDER B box visibly gives the 700 mL target.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The drinks are 100, 200, and 500 mL. Fill A to 600 with 500+100, B to 700 with 500+200, and C to 800 with 500+200+100.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p018",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "order_c"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "order_c"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p019",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "order_c"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The top shipping label on the tabletop ORDER C box visibly gives the 800 mL target.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The drinks are 100, 200, and 500 mL. Fill A to 600 with 500+100, B to 700 with 500+200, and C to 800 with 500+200+100.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p020",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "Please inspect every drink's own capacity label and the three large order labels, then guide me through filling every order with the exact total.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "Please inspect every drink's own capacity label and the three large order labels, then guide me through filling every order with the exact total.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The drinks are 100, 200, and 500 mL. Fill A to 600 with 500+100, B to 700 with 500+200, and C to 800 with 500+200+100.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "At the drink-supply table (`supply_table`), for ORDER A 600 mL (`order_a`), use the farthest of the three 500 mL milk cartons (`milk_a`) and the farther of the two 100 mL water bottles (`water_a`). Move `milk_a` from `supply_table` into `order_a`, then move `water_a` from `supply_table` into `order_a`.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Return to the same side of the drink-supply table (`supply_table`) and take a quick look around before handling the next order. For ORDER B 700 mL (`order_b`), use the farther of the two remaining 500 mL milk cartons (`milk_b`) and the farther of the two 200 mL juice bottles (`juice_b`). Move `milk_b` from `supply_table` into `order_b`, then move `juice_b` from `supply_table` into `order_b`.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Return to that same viewpoint at `supply_table` and take a quick look around before handling the final order. For ORDER C 800 mL (`order_c`), use the remaining 500 mL milk carton (`milk_c`), the nearer 200 mL juice bottle (`juice_c`), and the remaining 100 mL water bottle (`water_c`). Move `milk_c`, `juice_c`, and `water_c` from `supply_table` into `order_c`, one at a time. After all three are inside, take one final look around to confirm the boxes, then pause.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "milk_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "milk_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "order_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "order_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "milk_a",
+            "order_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "milk_a",
+            "target": "order_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "milk_b"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "milk_b"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "order_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "order_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "milk_b",
+            "order_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "milk_b",
+            "target": "order_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "milk_c"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "milk_c"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "order_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "order_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "milk_c",
+            "order_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "milk_c",
+            "target": "order_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "milk_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "milk_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "order_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "order_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "milk_a",
+            "order_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "milk_a",
+            "target": "order_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "water_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "water_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "order_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "order_a"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "water_a",
+            "order_a"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "water_a",
+            "target": "order_a"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "ORDER A box visibly contains 500+100 mL, exactly 600 mL.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The drinks are 100, 200, and 500 mL. Fill A to 600 with 500+100, B to 700 with 500+200, and C to 800 with 500+200+100.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "supply_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "supply_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "milk_b"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "milk_b"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o009",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "order_b"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "order_b"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o010",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "milk_b",
+            "order_b"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "milk_b",
+            "target": "order_b"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o011",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "juice_b"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "juice_b"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o012",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "order_b"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "order_b"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o013",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "juice_b",
+            "order_b"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "juice_b",
+            "target": "order_b"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_007",
+            "kind": "evidence",
+            "statement": "ORDER B box visibly contains 500+200 mL, exactly 700 mL.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The drinks are 100, 200, and 500 mL. Fill A to 600 with 500+100, B to 700 with 500+200, and C to 800 with 500+200+100.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o014",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "supply_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "supply_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o015",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o016",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "milk_c"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "milk_c"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o017",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "order_c"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "order_c"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o018",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "milk_c",
+            "order_c"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "milk_c",
+            "target": "order_c"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o019",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "juice_c"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "juice_c"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o020",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "order_c"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "order_c"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o021",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "juice_c",
+            "order_c"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "juice_c",
+            "target": "order_c"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o022",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "water_c"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "water_c"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o023",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "order_c"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "order_c"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o024",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "water_c",
+            "order_c"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "water_c",
+            "target": "order_c"
+          }
+        ],
+        "establishes": [
+          {
+            "id": "fact_008",
+            "kind": "evidence",
+            "statement": "ORDER C box visibly contains 500+200+100 mL, exactly 800 mL.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_009",
+            "kind": "evidence",
+            "statement": "The drinks are 100, 200, and 500 mL. Fill A to 600 with 500+100, B to 700 with 500+200, and C to 800 with 500+200+100.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o025",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAround",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o026",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "Please inspect every drink's own capacity label and the three large order labels, then guide me through filling every order with the exact total.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "Self-contained lift-to-camera views read the 100 mL water, 200 mL juice, and 500 mL milk labels on all seven drinks at one supply table.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p013"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 13
+      },
+      {
+        "id": "fact_003",
+        "statement": "The top shipping label on the tabletop ORDER A box visibly gives the 600 mL target.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p015"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 15
+      },
+      {
+        "id": "fact_004",
+        "statement": "The top shipping label on the tabletop ORDER B box visibly gives the 700 mL target.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p017"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 17
+      },
+      {
+        "id": "fact_005",
+        "statement": "The top shipping label on the tabletop ORDER C box visibly gives the 800 mL target.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p019"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 19
+      },
+      {
+        "id": "fact_006",
+        "statement": "ORDER A box visibly contains 500+100 mL, exactly 600 mL.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o005"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 5
+      },
+      {
+        "id": "fact_007",
+        "statement": "ORDER B box visibly contains 500+200 mL, exactly 700 mL.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o013"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 13
+      },
+      {
+        "id": "fact_008",
+        "statement": "ORDER C box visibly contains 500+200+100 mL, exactly 800 mL.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o024"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 24
+      },
+      {
+        "id": "fact_009",
+        "statement": "The drinks are 100, 200, and 500 mL. Fill A to 600 with 500+100, B to 700 with 500+200, and C to 800 with 500+200+100.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p013",
+          "p015",
+          "p017",
+          "p019",
+          "o005",
+          "o013",
+          "o024"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005",
+          "fact_006",
+          "fact_007",
+          "fact_008"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the inspected drink labels and three order labels to guide exact packing one order at a time.",
+      "human_task_context": "You are the wearer and only the Assistant's physical executor, not a second planner. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. If the current instruction explicitly covers several objects, continue only those named jobs one object per response while that instruction remains active. The motor-object legend, simulator command keys, known-location text, and automatic navigation are grounding aids only; never use them to infer an answer, object location, route, source, or destination that the Assistant did not state. You may directly target a movable only when it is in your current view, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source location. Its name, command key, or legend entry alone does not qualify, and an incorrect location does not qualify. Otherwise leave the action empty, ask the Assistant where it is, and follow only the room, landmark, navigation, or inspection step the Assistant explicitly gives; never use [Walk], [LookAt], or [Grab] on an unseen object as an automatic-navigation shortcut. Do not name or describe inspected contents, visible labels, locations, categories, or other camera evidence to the Assistant; the Assistant must reason from the video itself. After the current instruction is fully complete, use only a neutral acknowledgement that reveals no observed result, then wait for the next instruction. Never infer completion from score or world state and never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <water_a> (1)",
+          "[LookAt] <water_a> (1)",
+          "[Walk] <water_c> (1)",
+          "[LookAt] <water_c> (1)",
+          "[Walk] <juice_b> (1)",
+          "[LookAt] <juice_b> (1)",
+          "[Walk] <juice_c> (1)",
+          "[LookAt] <juice_c> (1)",
+          "[Walk] <milk_a> (1)",
+          "[LookAt] <milk_a> (1)",
+          "[Walk] <milk_b> (1)",
+          "[LookAt] <milk_b> (1)",
+          "[Walk] <milk_c> (1)",
+          "[LookAt] <milk_c> (1)",
+          "[Walk] <order_a> (1)",
+          "[LookAt] <order_a> (1)",
+          "[Walk] <order_b> (1)",
+          "[LookAt] <order_b> (1)",
+          "[Walk] <order_c> (1)",
+          "[LookAt] <order_c> (1)",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 20,
+            "say": "Hey, Assistant, I've checked all the drink labels and the three orders. Can you help me fill each box exactly, one order at a time?"
+          }
+        ],
+        "handoff_say": "Hey, Assistant, I've checked all the drink labels and the three orders. Can you help me fill each box exactly, one order at a time?",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "three_drink_orders_request",
+            "required_phrases": [
+              "all the drink labels",
+              "the three orders",
+              "fill each box exactly"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "verification_points": [
+          {
+            "id": "order_a_milk_500_count",
+            "kind": "exact_count_inside",
+            "label": "order_a_milk_500_count",
+            "candidates": [
+              "milk_a",
+              "milk_b",
+              "milk_c"
+            ],
+            "target": "order_a",
+            "count": 1,
+            "candidate_descriptor": "the three drinks labeled MILK 500 mL",
+            "target_descriptor": "the open box labeled A 600 mL"
+          },
+          {
+            "id": "order_a_water_100_count",
+            "kind": "exact_count_inside",
+            "label": "order_a_water_100_count",
+            "candidates": [
+              "water_a",
+              "water_c"
+            ],
+            "target": "order_a",
+            "count": 1,
+            "candidate_descriptor": "the two drinks labeled WATER 100 mL",
+            "target_descriptor": "the open box labeled A 600 mL"
+          },
+          {
+            "id": "order_b_milk_500_count",
+            "kind": "exact_count_inside",
+            "label": "order_b_milk_500_count",
+            "candidates": [
+              "milk_a",
+              "milk_b",
+              "milk_c"
+            ],
+            "target": "order_b",
+            "count": 1,
+            "candidate_descriptor": "the three drinks labeled MILK 500 mL",
+            "target_descriptor": "the open box labeled B 700 mL"
+          },
+          {
+            "id": "order_b_juice_200_count",
+            "kind": "exact_count_inside",
+            "label": "order_b_juice_200_count",
+            "candidates": [
+              "juice_b",
+              "juice_c"
+            ],
+            "target": "order_b",
+            "count": 1,
+            "candidate_descriptor": "the two drinks labeled JUICE 200 mL",
+            "target_descriptor": "the open box labeled B 700 mL"
+          },
+          {
+            "id": "order_c_milk_500_count",
+            "kind": "exact_count_inside",
+            "label": "order_c_milk_500_count",
+            "candidates": [
+              "milk_a",
+              "milk_b",
+              "milk_c"
+            ],
+            "target": "order_c",
+            "count": 1,
+            "candidate_descriptor": "the three drinks labeled MILK 500 mL",
+            "target_descriptor": "the open box labeled C 800 mL"
+          },
+          {
+            "id": "order_c_juice_200_count",
+            "kind": "exact_count_inside",
+            "label": "order_c_juice_200_count",
+            "candidates": [
+              "juice_b",
+              "juice_c"
+            ],
+            "target": "order_c",
+            "count": 1,
+            "candidate_descriptor": "the two drinks labeled JUICE 200 mL",
+            "target_descriptor": "the open box labeled C 800 mL"
+          },
+          {
+            "id": "order_c_water_100_count",
+            "kind": "exact_count_inside",
+            "label": "order_c_water_100_count",
+            "candidates": [
+              "water_a",
+              "water_c"
+            ],
+            "target": "order_c",
+            "count": 1,
+            "candidate_descriptor": "the two drinks labeled WATER 100 mL",
+            "target_descriptor": "the open box labeled C 800 mL"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "milk_a": [
+          "farthest 500 mL milk carton"
+        ],
+        "milk_b": [
+          "farther 500 mL milk carton"
+        ],
+        "milk_c": [
+          "nearest 500 mL milk carton"
+        ],
+        "water_a": [
+          "farther 100 mL water bottle"
+        ],
+        "water_c": [
+          "nearer 100 mL water bottle"
+        ],
+        "juice_b": [
+          "farther 200 mL juice bottle"
+        ],
+        "juice_c": [
+          "nearer 200 mL juice bottle"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 76,
+    "dialogue_budget": 3,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "order_c",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005",
+        "h006",
+        "h007",
+        "h008"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "milk_a",
+              "water_a",
+              "order_a"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "milk_a",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "milk_a",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "order_a",
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "milk_a",
+            "target": "order_a",
+            "truth": true
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "water_a",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "order_a",
+            "truth": true
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "milk_b",
+              "juice_b",
+              "order_b"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "milk_a",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "supply_table",
+            "truth": true
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o008"
+        },
+        {
+          "after_beat": "o008",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "milk_b",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o009"
+        },
+        {
+          "after_beat": "o009",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "order_b",
+            "truth": true
+          },
+          "next_beat": "o010"
+        },
+        {
+          "after_beat": "o010",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "milk_b",
+            "target": "order_b",
+            "truth": true
+          },
+          "next_beat": "o011"
+        },
+        {
+          "after_beat": "o011",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "juice_b",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o012"
+        },
+        {
+          "after_beat": "o012",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "order_b",
+            "truth": true
+          },
+          "next_beat": "o013"
+        },
+        {
+          "after_beat": "o013",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "milk_c",
+              "juice_c",
+              "water_c",
+              "order_c"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005",
+              "fact_006",
+              "fact_007"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "milk_a",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o014"
+        },
+        {
+          "after_beat": "o014",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "supply_table",
+            "truth": true
+          },
+          "next_beat": "o015"
+        },
+        {
+          "after_beat": "o015",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o016"
+        },
+        {
+          "after_beat": "o016",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "milk_c",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o017"
+        },
+        {
+          "after_beat": "o017",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "order_c",
+            "truth": true
+          },
+          "next_beat": "o018"
+        },
+        {
+          "after_beat": "o018",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "milk_c",
+            "target": "order_c",
+            "truth": true
+          },
+          "next_beat": "o019"
+        },
+        {
+          "after_beat": "o019",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "juice_c",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o020"
+        },
+        {
+          "after_beat": "o020",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "order_c",
+            "truth": true
+          },
+          "next_beat": "o021"
+        },
+        {
+          "after_beat": "o021",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "juice_c",
+            "target": "order_c",
+            "truth": true
+          },
+          "next_beat": "o022"
+        },
+        {
+          "after_beat": "o022",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "water_c",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o023"
+        },
+        {
+          "after_beat": "o023",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "order_c",
+            "truth": true
+          },
+          "next_beat": "o024"
+        },
+        {
+          "after_beat": "o024",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "water_c",
+            "target": "order_c",
+            "truth": true
+          },
+          "next_beat": "o025"
+        },
+        {
+          "after_beat": "o025",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o026"
+        }
+      ],
+      "terminal_beats": [
+        "h008",
+        "o026"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "milk_a"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "order_a"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "milk_a",
+          "order_a"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "water_a"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "order_a"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "water_a",
+          "order_a"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "supply_table"
+        ]
+      },
+      {
+        "verb": "LookAround",
+        "args": []
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "milk_b"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "order_b"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "milk_b",
+          "order_b"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "juice_b"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "order_b"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "juice_b",
+          "order_b"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "supply_table"
+        ]
+      },
+      {
+        "verb": "LookAround",
+        "args": []
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "milk_c"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "order_c"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "milk_c",
+          "order_c"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "juice_c"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "order_c"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "juice_c",
+          "order_c"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "water_c"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "order_c"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "water_c",
+          "order_c"
+        ]
+      },
+      {
+        "verb": "LookAround",
+        "args": []
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Grab",
+        "args": [
+          "milk_a"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "order_a"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "milk_a",
+          "order_a"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "milk_b"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "order_a"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "milk_b",
+          "order_a"
+        ]
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "milk_c"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "order_a"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "milk_c",
+          "order_a"
+        ]
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "At the drink-supply table (`supply_table`), for ORDER A 600 mL (`order_a`), use the farthest of the three 500 mL milk cartons (`milk_a`) and the farther of the two 100 mL water bottles (`water_a`). Move `milk_a` from `supply_table` into `order_a`, then move `water_a` from `supply_table` into `order_a`.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "Return to the same side of the drink-supply table (`supply_table`) and take a quick look around before handling the next order. For ORDER B 700 mL (`order_b`), use the farther of the two remaining 500 mL milk cartons (`milk_b`) and the farther of the two 200 mL juice bottles (`juice_b`). Move `milk_b` from `supply_table` into `order_b`, then move `juice_b` from `supply_table` into `order_b`.",
+        "relation": "before",
+        "anchor_beat_id": "o006",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "Return to that same viewpoint at `supply_table` and take a quick look around before handling the final order. For ORDER C 800 mL (`order_c`), use the remaining 500 mL milk carton (`milk_c`), the nearer 200 mL juice bottle (`juice_c`), and the remaining 100 mL water bottle (`water_c`). Move `milk_c`, `juice_c`, and `water_c` from `supply_table` into `order_c`, one at a time. After all three are inside, take one final look around to confirm the boxes, then pause.",
+        "relation": "before",
+        "anchor_beat_id": "o014",
+        "source": "guidance",
+        "source_index": 2
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "release": "InteractiveWorld-Balanced120",
+    "task_id": "GUIDE-109009"
+  }
+}

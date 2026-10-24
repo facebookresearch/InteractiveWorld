@@ -1,0 +1,187 @@
+{
+  "schema_version": "interactiveworld-external-dependencies/1.0",
+  "runtime": {
+    "isaac_sim": "5.1",
+    "python": "3.11 (Isaac Sim environment)",
+    "launcher_environment": {
+      "ISAAC_ENV_DIR": "optional environment root used to prepend lib/",
+      "ISAAC_PYTHON": "required absolute path to the Isaac Sim Python executable"
+    }
+  },
+  "python_packages": [
+    "numpy",
+    "Pillow",
+    "scipy",
+    "torch",
+    "trimesh",
+    "opencv-python",
+    "imageio",
+    "imageio-ffmpeg",
+    "smplx",
+    "cryptography"
+  ],
+  "isaac_provided_modules": [
+    "carb",
+    "isaacsim",
+    "omni",
+    "pxr"
+  ],
+  "optional_system_tools": [
+    {
+      "name": "ffmpeg",
+      "command": "ffmpeg",
+      "bundled": false,
+      "required_for": [
+        "benchmark video mode failures",
+        "benchmark video mode all"
+      ],
+      "purpose": "Post-process existing FPV video or captured observation frames into an MP4; it is not required when video mode is off."
+    }
+  ],
+  "model_api_configuration": {
+    "credential_values_bundled": false,
+    "api_key_environment_variable_names": [
+      "INTERACTIVEWORLD_ASSISTANT_API_KEY",
+      "INTERACTIVEWORLD_HUMAN_API_KEY",
+      "OPENAI_API_KEY",
+      "ANTHROPIC_API_KEY",
+      "GEMINI_API_KEY",
+      "GOOGLE_API_KEY"
+    ],
+    "api_key_name_fields": [
+      "assistant.api_key_env",
+      "human.api_key_env"
+    ],
+    "endpoint_fields": [
+      "assistant.base_url",
+      "human.base_url"
+    ],
+    "endpoint_policy": "Remote endpoints require HTTPS; cleartext HTTP is accepted only for loopback self-hosted endpoints.",
+    "provider_endpoints": {
+      "http-json": "Role-specific base_url using the provider-neutral /generate contract; loopback defaults are available.",
+      "openai-compatible": "Role-specific base_url for a self-hosted OpenAI-compatible Chat Completions endpoint.",
+      "openai": "Hosted OpenAI endpoint, or an explicit compatible base_url.",
+      "anthropic": "Hosted Anthropic Messages endpoint, or an explicit base_url.",
+      "gemini": "Hosted Google Gemini generateContent endpoint, or an explicit base_url."
+    }
+  },
+  "required_external_assets": [
+    {
+      "name": "BEHAVIOR-1K baked USD cache",
+      "environment_variable": "INTERACTIVEWORLD_BEHAVIOR_CACHE",
+      "default_path": "/opt/interactiveworld/behavior-cache",
+      "required_subdirectories": [
+        "usd",
+        "spec",
+        "materials"
+      ],
+      "bundled": false,
+      "reason": "Baked locally from BEHAVIOR-1K 3.9.0 by launch/prepare_assets.sh; the decrypted assets are separately licensed and never redistributed."
+    },
+    {
+      "name": "BEHAVIOR-1K source data",
+      "environment_variable": "INTERACTIVEWORLD_BEHAVIOR_DATA",
+      "default_path": "/opt/interactiveworld/behavior-data",
+      "required_subdirectories": [
+        "behavior-1k-assets/scenes",
+        "behavior-1k-assets/objects"
+      ],
+      "bundled": false,
+      "reason": "BEHAVIOR-1K 3.9.0 dataset and key, obtained by accepting the BEHAVIOR data license.",
+      "required_files": [
+        "omnigibson.key",
+        "behavior-1k-assets/VERSION"
+      ]
+    },
+    {
+      "name": "MANO Python software",
+      "environment_variable": "INTERACTIVEWORLD_MANO_PYTHON",
+      "default_path": "",
+      "required_subdirectories": [
+        "mano"
+      ],
+      "bundled": false,
+      "license_policy": "No Distribution; each user must obtain it from the licensor.",
+      "optional": true,
+      "reason": "Optional; the smplx Python package provides identical skinning when unset."
+    },
+    {
+      "name": "SMPL+H male body model",
+      "environment_variable": "INTERACTIVEWORLD_SMPLH_MODEL",
+      "default_path": "",
+      "required_sha256": "769f26557ec36cf09518feacc9801740d7ea38a3f992366532fcfd8180128cba",
+      "bundled": false,
+      "license_policy": "No Distribution; each user must obtain it from the licensor."
+    },
+    {
+      "name": "ACCAD/AMASS forward walk clip",
+      "environment_variable": "INTERACTIVEWORLD_WALK_CLIP",
+      "default_path": "",
+      "required_sha256": "fbe0bb5edd4e72c711777c00fee107e6038830659a8097f1ca53bbe449a3eedf",
+      "bundled": false,
+      "license_policy": "No Distribution; each user must obtain it from the licensor."
+    }
+  ],
+  "bundled_human_assets": [
+    {
+      "path": "human_model/assets/atlas/objects/ball.npz",
+      "sha256": "f536aa0cdb032c4f6f7de51e5a073739f759db08315576d5e67a35d4788f4f03",
+      "kind": "grasp object definition"
+    },
+    {
+      "path": "human_model/assets/atlas/objects/box.npz",
+      "sha256": "dbf34c2e76d14bdd1be3f0237a1da13e452500ec14ec8213a6e497ef8f580439",
+      "kind": "grasp object definition"
+    },
+    {
+      "path": "human_model/assets/atlas/objects/cup.npz",
+      "sha256": "c71ffe950496e41be8180fe65de3722a8a6241e19ec626e9397749ba08c3c73d",
+      "kind": "grasp object definition"
+    },
+    {
+      "path": "human_model/assets/atlas/objects/pen.npz",
+      "sha256": "d540a1ecb0d8ff45ed489b4b86eb711151ee414d2663a9794a3b9f965d2602d5",
+      "kind": "grasp object definition"
+    },
+    {
+      "path": "human_model/assets/atlas/objects/plate.npz",
+      "sha256": "49cb75fd2ded549044263986f0c01210cb263f8de6ed489038ae1d844ba01e47",
+      "kind": "grasp object definition"
+    },
+    {
+      "path": "human_model/assets/atlas/objects/tool.npz",
+      "sha256": "e35af18fd3cb55211311286b2f72bc7ecaedfca5cc16d7d9206f73dbea00c907",
+      "kind": "grasp object definition"
+    },
+    {
+      "path": "human_model/assets/atlas/pinch_family.npz",
+      "sha256": "98edc74e9f82dd111208b2d3164c98da190d97a3e6e7e9c85ddc9bd42e5609db",
+      "kind": "grasp family"
+    },
+    {
+      "path": "human_model/assets/atlas/round_wrap_family.npz",
+      "sha256": "2a016391a4b7f319b9619e72010af3bff4b2f70b8d1f20423616a6756ff297bd",
+      "kind": "grasp family"
+    },
+    {
+      "path": "human_model/assets/atlas/side_wrap_family.npz",
+      "sha256": "91c2052069cc3a2794e04f16d3a901921c4e683d36016334bbe7717eb3734023",
+      "kind": "grasp family"
+    }
+  ],
+  "optional_environment": {
+    "ISAAC_FRAMES_PER_SEG": "Number of rendered observations sampled across each semantic action; SimulatorConfig.frames_per_action defaults to 4",
+    "ISAAC_RENDER_SELECTED_ONLY": "Render only selected observation frames instead of rendering a dense trajectory and discarding frames",
+    "ISAAC_VIS_GATE": "Restrict actionable object keys to the measured egocentric visible set",
+    "ISAAC_VISCHECK": "Enable observation-only visibility diagnostics",
+    "INTERACTIVEWORLD_RUN_ROOT": "Optional benchmark-run parent directory; defaults to the platform temporary directory/interactiveworld-runs",
+    "INTERACTIVEWORLD_OUTPUT_DIR": "Low-level TaskPack runner output directory; defaults to /tmp/interactiveworld-output",
+    "INTERACTIVEWORLD_LABEL_ASSET_ROOT": "Optional absolute override for benchmark/tasks/assets/labels",
+    "INTERACTIVEWORLD_GENERATED_LABEL_CACHE": "/tmp/interactiveworld-output/labels",
+    "INTERACTIVEWORLD_ISAAC_ASSET_ROOT": "/opt/isaac-sim/Assets/Isaac/5.1/Isaac (only needed by non-TaskPack procedural scenes)",
+    "INTERACTIVEWORLD_FONT_BOLD": "/usr/share/fonts/dejavu-sans-fonts/DejaVuSans-Bold.ttf",
+    "INTERACTIVEWORLD_FONT_REG": "/usr/share/fonts/dejavu-sans-fonts/DejaVuSans.ttf",
+    "INTERACTIVEWORLD_HUMAN_ASSET_ROOT": "Optional override for the bundled grasp atlas (simulator/human_model/assets)",
+    "INTERACTIVEWORLD_MDL_PATH": "Optional override for the OmniGibson MDL materials; defaults to <INTERACTIVEWORLD_BEHAVIOR_CACHE>/materials"
+  }
+}

@@ -1,0 +1,1903 @@
+{
+  "taskpack_version": "data-generate-taskpack/1.0",
+  "task_id": "NARRATE-16000",
+  "executable_spec": {
+    "goal": {
+      "aggregate_goals": [],
+      "answer_key": [
+        {
+          "pred": "inside",
+          "subject": "apple",
+          "target": "waste_bin"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "deicer",
+          "target": "deicer"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "sponge",
+          "target": "sponge"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "salad",
+          "target": "salad"
+        }
+      ],
+      "arms": null,
+      "goals": [
+        {
+          "pred": "inside",
+          "subject": "apple",
+          "target": "waste_bin"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "deicer",
+          "target": "deicer"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "sponge",
+          "target": "sponge"
+        },
+        {
+          "pred": "unmoved",
+          "subject": "salad",
+          "target": "salad"
+        }
+      ],
+      "negatives": [],
+      "roster": {
+        "containers": [
+          "waste_bin"
+        ],
+        "nested_containers": [],
+        "objects": [
+          "apple",
+          "deicer",
+          "salad",
+          "sponge"
+        ]
+      },
+      "rule_table": null,
+      "trace_outcomes": []
+    },
+    "meta": {
+      "design": {
+        "anti_shortcut": "The wearer cannot infer the answer from speech alone; the weak branch demonstrates the visible mistake or unsafe continuation.",
+        "assistant_must": "The red apple is the nearest food to the deicer. The sponge is physically closer but is not food, and the salad is farther away. Take only the apple to the discard bin.",
+        "cue": "I need to throw away the food that is closest to this leaking deicer container. Which item is it? Please leave everything else alone.",
+        "premise": "A dining-room breakfast table holds a leaking deicer container, two foods, and a nonfood object. The closest object overall is a sponge, so the assistant must first filter by the user's food category and only then compare visible distance before taking the selected food to the adjoining living-room wastebasket."
+      },
+      "difficulty": "hard",
+      "engine_deltas": [],
+      "family": "NARRATE",
+      "grounding": {
+        "cite": "I need to throw away the food that is closest to this leaking deicer container. Which item is it? Please leave everything else alone.",
+        "kind": "authored",
+        "ref": "interactiveworld:NARRATE-16000"
+      },
+      "rule_table": "inside(apple, waste_bin); unmoved(deicer); unmoved(sponge); unmoved(salad)",
+      "scene": "house_single_floor",
+      "template": "the grounded house_single_floor scene",
+      "wave": 1
+    },
+    "program": {
+      "budget": {
+        "expanded_cmds": 13,
+        "expanded_source": "oracle_cmds",
+        "grammar_cmds": 13,
+        "grammar_source": "from_program",
+        "k": null,
+        "k_applies_to": "grammar",
+        "k_source": null
+      },
+      "commands": [
+        {
+          "verb": "Walk",
+          "args": [
+            "inspection_table"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "inspection_table"
+          ]
+        },
+        {
+          "verb": "LookScan",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        },
+        {
+          "verb": "Grab",
+          "args": [
+            "apple"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "waste_bin"
+          ]
+        },
+        {
+          "verb": "PutInside",
+          "args": [
+            "apple",
+            "waste_bin"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "waste_bin"
+          ]
+        },
+        {
+          "verb": "Walk",
+          "args": [
+            "inspection_table"
+          ]
+        },
+        {
+          "verb": "LookAt",
+          "args": [
+            "inspection_table"
+          ]
+        },
+        {
+          "verb": "LookScan",
+          "args": []
+        },
+        {
+          "verb": "Wait",
+          "args": []
+        }
+      ],
+      "generator": "explicit"
+    },
+    "provenance": {
+      "arm": "NARRATE",
+      "authored_by": "interactiveworld.compile_v2",
+      "compiled_from": "emit/2.6",
+      "human_program_raw": "[Wait], [Grab] <apple> (1), [Walk] <waste_bin> (1), [PutInside] <apple> (1) <waste_bin> (1), [LookAt] <waste_bin> (1), [Walk] <inspection_table> (1), [LookAt] <inspection_table> (1), [LookScan], [Wait]",
+      "seed": 4276661132,
+      "source_task_id": "NARRATE-16000"
+    },
+    "report": {
+      "arms_reporting": null,
+      "caps_by_sub_step": [
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ],
+        [
+          "C9"
+        ]
+      ],
+      "chance": {
+        "status": "pending_measurement"
+      },
+      "control": null,
+      "human_frames_withheld": false,
+      "sub_goals": [
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 0,
+          "kind": "inside",
+          "label": null,
+          "neg_kind": null,
+          "subject": "apple",
+          "target": "waste_bin"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 1,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "deicer",
+          "target": "deicer"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 2,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "sponge",
+          "target": "sponge"
+        },
+        {
+          "cap": "C9",
+          "cap_dropped": [],
+          "cap_source": "declared",
+          "id": 3,
+          "kind": "unmoved",
+          "label": null,
+          "neg_kind": null,
+          "subject": "salad",
+          "target": "salad"
+        }
+      ],
+      "sub_steps": [
+        "inside(apple, waste_bin)",
+        "unmoved(deicer)",
+        "unmoved(sponge)",
+        "unmoved(salad)"
+      ]
+    },
+    "spec_version": "bts/1.0",
+    "task_id": "NARRATE-16000",
+    "variant": null,
+    "world": {
+      "assertions": {
+        "aabb_disjoint": true,
+        "containers_registered": true,
+        "decoys_constrained": true,
+        "key_is_derived": true,
+        "labels_present": true,
+        "no_pre_satisfied": true,
+        "permutation_within_model": true
+      },
+      "authoring_seed": 4276661132,
+      "containers": {
+        "waste_bin": {
+          "alt_cats": [],
+          "bind": {
+            "cat": "trash_can",
+            "model": "rbqckd",
+            "source": "import"
+          },
+          "door": {
+            "required": false
+          },
+          "kind": "open_bin",
+          "role": "scored",
+          "room": "living_room_0",
+          "tint": "gray"
+        }
+      },
+      "decor": [],
+      "fixtures": {
+        "inspection_table": {
+          "bind": {
+            "cat": "breakfast_table",
+            "source": "scene"
+          },
+          "room": "dining_room_0",
+          "seatable": false
+        }
+      },
+      "initial_attachments": [],
+      "instance": 0,
+      "labels": {},
+      "layout": "frozen",
+      "object_groups": [],
+      "objects": {
+        "deicer": {
+          "cat": "bottle_of_deicer",
+          "model": "xepoez",
+          "needs_lookat": false,
+          "place": "on:inspection_table",
+          "room": "dining_room_0",
+          "scored": true,
+          "spot": [
+            -0.78,
+            0.5
+          ]
+        },
+        "sponge": {
+          "cat": "sponge",
+          "model": "aewrov",
+          "needs_lookat": false,
+          "place": "on:inspection_table",
+          "room": "dining_room_0",
+          "scored": true,
+          "spot": [
+            -0.52,
+            0.5
+          ]
+        },
+        "apple": {
+          "cat": "apple",
+          "model": "agveuv",
+          "needs_lookat": false,
+          "place": "on:inspection_table",
+          "room": "dining_room_0",
+          "scored": true,
+          "spot": [
+            -0.18,
+            0.5
+          ],
+          "tint": "red"
+        },
+        "salad": {
+          "cat": "salad",
+          "model": "nffvob",
+          "needs_lookat": false,
+          "place": "on:inspection_table",
+          "room": "dining_room_0",
+          "scored": true,
+          "spot": [
+            0.72,
+            0.5
+          ]
+        }
+      },
+      "parts": {},
+      "permutations": [],
+      "preload": {},
+      "roles": {},
+      "rooms": [
+        "dining_room_0",
+        "living_room_0"
+      ],
+      "scene": "house_single_floor",
+      "seed_scope": "model",
+      "start": {
+        "forbid_near": [],
+        "forbid_rooms": [],
+        "policy": "seeded_grid",
+        "resample_ladder": true
+      },
+      "auto_support_labels": false
+    }
+  },
+  "story": {
+    "premise": "A dining-room breakfast table holds a leaking deicer container, two foods, and a nonfood object. The closest object overall is a sponge, so the assistant must first filter by the user's food category and only then compare visible distance before taking the selected food to the adjoining living-room wastebasket.",
+    "assistant_goal": "I need to throw away the food that is closest to this leaking deicer container. Which item is it? Please leave everything else alone.",
+    "assessment_contract": {
+      "assigned_capability_id": "NARRATE.GOAL_FILTERED_DESCRIPTION",
+      "assigned_scene": "house_single_floor",
+      "core_question": "I need to throw away the food that is closest to this leaking deicer container. Which item is it? Please leave everything else alone.",
+      "counterfactual_failure": "The weak branch acts on a mistaken identity, stale layout, unsafe route, or incomplete count and fails at least one scored predicate.",
+      "forbidden_changes": [
+        "Adding toy labels to ordinary furniture",
+        "Putting decisive visual evidence into the wearer's utterance",
+        "Moving an assistant turn after the action it is meant to correct"
+      ],
+      "knowledge_constraints": [
+        "A dining-room breakfast table holds a leaking deicer container, two foods, and a nonfood object. The closest object overall is a sponge, so the assistant must first filter by the user's food category and only then compare visible distance before taking the selected food to the adjoining living-room wastebasket."
+      ],
+      "required_evidence": [
+        "I need to throw away the food that is closest to this leaking deicer container. Which item is it? Please leave everything else alone.",
+        "The breakfast table visibly holds, from the deicer outward, a sponge, a red apple, and a distant salad.",
+        "The sponge is closest overall, but the apple is visibly the closest item in the food subset.",
+        "Only the apple has been placed into the discard bin.",
+        "The deicer, sponge, and salad remain on the breakfast table.",
+        "The red apple is the nearest food to the deicer. The sponge is physically closer but is not food, and the salad is farther away. Take only the apple to the discard bin."
+      ],
+      "required_final_predicates": [
+        "inside",
+        "unmoved",
+        "unmoved",
+        "unmoved"
+      ],
+      "success_condition": "inside(apple, waste_bin); unmoved(deicer); unmoved(sponge); unmoved(salad)",
+      "temporal_constraints": [
+        "Each intervention follows its evidence and precedes the corresponding action."
+      ]
+    },
+    "source_contract": {
+      "task_id": "NARRATE-16000",
+      "family": "NARRATE",
+      "kind": "grounded egocentric narration",
+      "assessment_contract": {
+        "assigned_capability_id": "NARRATE.GOAL_FILTERED_DESCRIPTION",
+        "assigned_scene": "house_single_floor",
+        "core_question": "I need to throw away the food that is closest to this leaking deicer container. Which item is it? Please leave everything else alone.",
+        "counterfactual_failure": "The weak branch acts on a mistaken identity, stale layout, unsafe route, or incomplete count and fails at least one scored predicate.",
+        "forbidden_changes": [
+          "Adding toy labels to ordinary furniture",
+          "Putting decisive visual evidence into the wearer's utterance",
+          "Moving an assistant turn after the action it is meant to correct"
+        ],
+        "knowledge_constraints": [
+          "A dining-room breakfast table holds a leaking deicer container, two foods, and a nonfood object. The closest object overall is a sponge, so the assistant must first filter by the user's food category and only then compare visible distance before taking the selected food to the adjoining living-room wastebasket."
+        ],
+        "required_evidence": [
+          "I need to throw away the food that is closest to this leaking deicer container. Which item is it? Please leave everything else alone.",
+          "The breakfast table visibly holds, from the deicer outward, a sponge, a red apple, and a distant salad.",
+          "The sponge is closest overall, but the apple is visibly the closest item in the food subset.",
+          "Only the apple has been placed into the discard bin.",
+          "The deicer, sponge, and salad remain on the breakfast table.",
+          "The red apple is the nearest food to the deicer. The sponge is physically closer but is not food, and the salad is farther away. Take only the apple to the discard bin."
+        ],
+        "required_final_predicates": [
+          "inside",
+          "unmoved",
+          "unmoved",
+          "unmoved"
+        ],
+        "success_condition": "inside(apple, waste_bin); unmoved(deicer); unmoved(sponge); unmoved(salad)",
+        "temporal_constraints": [
+          "Each intervention follows its evidence and precedes the corresponding action."
+        ]
+      },
+      "grounding_contract": {
+        "allowed_container_categories": [
+          "bookcase",
+          "bottom_cabinet",
+          "bottom_cabinet_no_top",
+          "candy_dispenser_shelf",
+          "clothes_dryer",
+          "commercial_kitchen_sink",
+          "compost_bin",
+          "dessert_stand",
+          "dish_rack_cart",
+          "dishwasher",
+          "display_case",
+          "display_fridge",
+          "dry_food_dispenser_shelf",
+          "free_weight_rack",
+          "freezer",
+          "fridge",
+          "grocery_fridge",
+          "grocery_shelf",
+          "locker",
+          "magazine_stand",
+          "metal_bottom_cabinet",
+          "oven",
+          "public_trash_can",
+          "recycling_bin",
+          "serving_cart",
+          "shelf",
+          "shopping_cart",
+          "snack_rack",
+          "top_cabinet",
+          "trash_can",
+          "umbrella_rack",
+          "vending_machine",
+          "wardrobe",
+          "washer",
+          "wine_fridge"
+        ],
+        "allowed_loose_categories": [
+          "apple",
+          "backpack",
+          "bag_of_breadcrumbs",
+          "balloon",
+          "beaker",
+          "birdcage",
+          "bottle_of_coconut_oil",
+          "bottle_of_deicer",
+          "bottle_of_solvent",
+          "can_of_corn",
+          "canteen",
+          "carton_of_soy_milk",
+          "chicken_breast",
+          "clipboard",
+          "clout_nail",
+          "coffee_maker",
+          "crock_pot",
+          "cucumber",
+          "gift_box",
+          "hair_dryer",
+          "half_bok_choy",
+          "half_fruitcake",
+          "half_kiwi",
+          "half_meat_loaf",
+          "half_shiitake",
+          "half_watermelon",
+          "hand_towel",
+          "jar_of_tumeric",
+          "lampshade",
+          "lint_screen",
+          "maillot",
+          "modem",
+          "orange_juice_carton",
+          "outline_vase",
+          "paperback_book",
+          "pattypan_squash",
+          "peach",
+          "postcard",
+          "pottable_beefsteak_tomato",
+          "putty_knife",
+          "roasting_pan",
+          "salad",
+          "sponge",
+          "water_glass",
+          "white_turnip"
+        ],
+        "allowed_surface_categories": [
+          "bar",
+          "bottom_cabinet_no_top",
+          "breakfast_table",
+          "checkout_counter",
+          "countertop",
+          "freezer",
+          "grocery_shelf"
+        ],
+        "capability_id": "NARRATE.GOAL_FILTERED_DESCRIPTION",
+        "coverage_categories": [
+          "half_fruitcake",
+          "balloon",
+          "can_of_corn",
+          "salad",
+          "bottle_of_deicer",
+          "carton_of_soy_milk",
+          "backpack",
+          "half_watermelon",
+          "beaker",
+          "hair_dryer",
+          "putty_knife",
+          "half_meat_loaf",
+          "white_turnip",
+          "crock_pot",
+          "coffee_maker",
+          "water_glass",
+          "paperback_book",
+          "bag_of_breadcrumbs",
+          "canteen",
+          "bottle_of_coconut_oil"
+        ],
+        "evaluation": {
+          "common_sense_allowed": false,
+          "document_carrier_required": false,
+          "max_semantic_turns": 3,
+          "required_semantic_turns": 3,
+          "requires_cross_room_transition": true,
+          "requires_dynamic_evidence": true,
+          "requires_egocentric_evidence": true,
+          "requires_initial_dialogue_at_zero": true,
+          "requires_reselection": false,
+          "text_evidence_required": false,
+          "weak_branch_must_fail": true
+        },
+        "family": "NARRATE",
+        "limits": {
+          "max_authored_actions": 17,
+          "max_document_characters": 64,
+          "max_fixed_destinations": 4,
+          "max_movable_objects": 4,
+          "max_objects_per_container": 6,
+          "max_objects_per_surface": 8,
+          "max_prologue_actions": 4,
+          "max_small_label_characters": 40,
+          "max_task_actions": 9,
+          "max_meaningful_steps": 13,
+          "min_intervening_meaningful_actions": 4
+        },
+        "preferred_story_categories": [
+          "half_fruitcake",
+          "balloon",
+          "can_of_corn",
+          "salad",
+          "bottle_of_deicer",
+          "carton_of_soy_milk",
+          "backpack",
+          "half_watermelon"
+        ],
+        "preferred_story_category_glosses": {
+          "backpack": "",
+          "balloon": "",
+          "bottle_of_deicer": "",
+          "can_of_corn": "",
+          "carton_of_soy_milk": "",
+          "half_fruitcake": "",
+          "half_watermelon": "",
+          "salad": ""
+        },
+        "rooms": [
+          {
+            "area_m2": 23.8,
+            "name": "kitchen_0",
+            "scene_containers": {
+              "bottom_cabinet": 1,
+              "dishwasher": 1,
+              "fridge": 1
+            },
+            "scene_surfaces": {
+              "bar": 1,
+              "bottom_cabinet_no_top": 2,
+              "countertop": 2
+            },
+            "surface_max_area_m2": {
+              "bar": 0.864,
+              "bottom_cabinet_no_top": 0.533,
+              "countertop": 1.116
+            },
+            "surface_reference_capacity": {
+              "bar": 3,
+              "bottom_cabinet_no_top": 3,
+              "countertop": 3
+            }
+          }
+        ],
+        "scene": "house_single_floor",
+        "task_id": "NARRATE-16000",
+        "version": "grounded-authoring/2.5-20260829"
+      },
+      "cast": {
+        "assembly": [],
+        "bindings": [
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "bottle_of_deicer",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "leaking deicer container"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "sponge",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "cleaning sponge"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "apple",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": "red",
+            "what": "red apple nearest among the food"
+          },
+          {
+            "affordances": [
+              "graspable"
+            ],
+            "category": "salad",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "salad at the far end of the table"
+          },
+          {
+            "affordances": [
+              "container"
+            ],
+            "category": "trash_can",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "open gray household wastebasket in the adjoining living room"
+          },
+          {
+            "affordances": [
+              "surface"
+            ],
+            "category": "breakfast_table",
+            "changed": false,
+            "costs": null,
+            "label": null,
+            "tint": null,
+            "what": "dining-room breakfast table"
+          }
+        ],
+        "distinct_by": [
+          "the nearest physical object is deliberately nonfood while the nearest food is the apple"
+        ],
+        "identical_groups": [],
+        "impossible": [],
+        "printed": [],
+        "restaged_story": "A dining-room breakfast table holds a leaking deicer container, two foods, and a nonfood object. The closest object overall is a sponge, so the assistant must first filter by the user's food category and only then compare visible distance before taking the selected food to the adjoining living-room wastebasket.",
+        "scene": "house_single_floor",
+        "why_scene": "house_single_floor supplies the rooms and fixtures used by this grounded NARRATE story."
+      },
+      "world": {
+        "auto_support_labels": false,
+        "boards": {},
+        "containers": {
+          "waste_bin": {
+            "cat": "trash_can",
+            "initially_open": false,
+            "label": null,
+            "preload": [],
+            "role": "scored",
+            "room": "living_room_0"
+          }
+        },
+        "items": {
+          "deicer": {
+            "affordances": [],
+            "cat": "bottle_of_deicer",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:inspection_table",
+            "scored": true,
+            "spot": [
+              -0.78,
+              0.5
+            ],
+            "tint": null
+          },
+          "sponge": {
+            "affordances": [],
+            "cat": "sponge",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:inspection_table",
+            "scored": true,
+            "spot": [
+              -0.52,
+              0.5
+            ],
+            "tint": null
+          },
+          "apple": {
+            "affordances": [],
+            "cat": "apple",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:inspection_table",
+            "scored": true,
+            "spot": [
+              -0.18,
+              0.5
+            ],
+            "tint": "red"
+          },
+          "salad": {
+            "affordances": [],
+            "cat": "salad",
+            "front_facing": false,
+            "front_show_back": false,
+            "initial_space": null,
+            "label": null,
+            "place": "on:inspection_table",
+            "scored": true,
+            "spot": [
+              0.72,
+              0.5
+            ],
+            "tint": null
+          }
+        },
+        "parts": {},
+        "prologue": [
+          "[Walk] <inspection_table> (1)",
+          "[LookAt] <inspection_table> (1)",
+          "[LookScan]",
+          "[Wait]"
+        ],
+        "prologue_gaps": [],
+        "rooms": [
+          "dining_room_0",
+          "living_room_0"
+        ],
+        "scene": "house_single_floor",
+        "staging": {
+          "groups": "A dining-room breakfast table holds a leaking deicer container, two foods, and a nonfood object. The closest object overall is a sponge, so the assistant must first filter by the user's food category and only then compare visible distance before taking the selected food to the adjoining living-room wastebasket.",
+          "labels_at_t0": "All task documents and item labels are mounted and readable.",
+          "labels_gone": null,
+          "why_gone_holds": null
+        },
+        "surfaces": {
+          "inspection_table": {
+            "cat": "breakfast_table",
+            "label": null,
+            "room": "dining_room_0"
+          }
+        }
+      },
+      "task": {
+        "asks_at": {
+          "index": 0,
+          "question": "I need to throw away the food that is closest to this leaking deicer container. Which item is it? Please leave everything else alone."
+        },
+        "fact_ledger": [
+          {
+            "derived_from": null,
+            "fact": "I need to throw away the food that is closest to this leaking deicer container. Which item is it? Please leave everything else alone.",
+            "from": "utterance",
+            "id": "fact_001",
+            "source_index": null,
+            "source_phase": "turn0"
+          },
+          {
+            "derived_from": null,
+            "fact": "The breakfast table visibly holds, from the deicer outward, a sponge, a red apple, and a distant salad.",
+            "from": "prologue",
+            "id": "fact_002",
+            "source_index": 1,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "The sponge is closest overall, but the apple is visibly the closest item in the food subset.",
+            "from": "prologue",
+            "id": "fact_003",
+            "source_index": 2,
+            "source_phase": "opening"
+          },
+          {
+            "derived_from": null,
+            "fact": "Only the apple has been placed into the discard bin.",
+            "from": "live",
+            "id": "fact_004",
+            "source_index": 4,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": null,
+            "fact": "The deicer, sponge, and salad remain on the breakfast table.",
+            "from": "live",
+            "id": "fact_005",
+            "source_index": 7,
+            "source_phase": "live"
+          },
+          {
+            "derived_from": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ],
+            "fact": "The red apple is the nearest food to the deicer. The sponge is physically closer but is not food, and the salad is farther away. Take only the apple to the discard bin.",
+            "from": "derived",
+            "id": "fact_006",
+            "source_index": null,
+            "source_phase": "derived"
+          }
+        ],
+        "final_state": [
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "inside",
+            "scorable": true,
+            "subject": "apple",
+            "target": "waste_bin"
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "deicer",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "sponge",
+            "target": null
+          },
+          {
+            "capability_status": "IMPLEMENTED",
+            "pred": "unmoved",
+            "scorable": true,
+            "subject": "salad",
+            "target": null
+          }
+        ],
+        "guidance": [
+          {
+            "before_index": 0,
+            "say": "The nearest food is the red apple immediately right of the sponge on the dining-room breakfast table. The sponge is closer to the leaking de-icer but is not food, and the salad is farther away. Leave all three items where they are for this moment and wait.",
+            "referents": [
+              "apple",
+              "sponge",
+              "deicer",
+              "salad"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 1,
+            "say": "Pick up only the red apple from the dining-room inspection table. It is immediately right of the sponge. Walk to the gray open discard bin in the living room and put the apple inside it. Look directly into that gray bin to confirm the apple is inside. Then return to the dining-room inspection table, look directly at that table, and look down to scan the area so I can verify that the de-icer, sponge, and salad were not moved.",
+            "referents": [
+              "apple",
+              "waste_bin"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ]
+          },
+          {
+            "before_index": 8,
+            "say": "The apple is inside the gray discard bin, and the de-icer, sponge, and salad remain on the breakfast table. Stay where you are and wait.",
+            "referents": [
+              "apple",
+              "deicer",
+              "sponge",
+              "salad"
+            ],
+            "fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ]
+          }
+        ],
+        "hidden_fact": {
+          "what": "The red apple is the nearest food to the deicer. The sponge is physically closer but is not food, and the salad is farther away. Take only the apple to the discard bin.",
+          "revealed_by": "[LookScan]",
+          "unavailable_because": "The answer depends on visual layout, prior observed state, or a document that the wearer cannot recover from the utterance alone."
+        },
+        "human_own_script": "[Wait], [Grab] <sponge> (1), [Walk] <waste_bin> (1), [PutInside] <sponge> (1) <waste_bin> (1), [Walk] <inspection_table> (1), [LookAt] <inspection_table> (1), [Wait]",
+        "mates": [],
+        "oracle_program": "[Wait], [Grab] <apple> (1), [Walk] <waste_bin> (1), [PutInside] <apple> (1) <waste_bin> (1), [LookAt] <waste_bin> (1), [Walk] <inspection_table> (1), [LookAt] <inspection_table> (1), [LookScan], [Wait]",
+        "runtime_contract_version": "compiled-runtime/1.1",
+        "simulator_events": [],
+        "speaks_at": null,
+        "steps": null,
+        "story_check": "A dining-room breakfast table holds a leaking deicer container, two foods, and a nonfood object. The closest object overall is a sponge, so the assistant must first filter by the user's food category and only then compare visible distance before taking the selected food to the adjoining living-room wastebasket.",
+        "utterance": "I need to throw away the food that is closest to this leaking deicer container. Which item is it? Please leave everything else alone."
+      },
+      "checks": {
+        "diagnostics": [],
+        "hard": [],
+        "sim_debt": [],
+        "soft": []
+      }
+    },
+    "prologue": {
+      "actions": [
+        "[Walk] <inspection_table> (1)",
+        "[LookAt] <inspection_table> (1)",
+        "[LookScan]",
+        "[Wait]"
+      ],
+      "say": ""
+    },
+    "beats": [
+      {
+        "id": "reset",
+        "phase": "reset",
+        "actor": "world",
+        "effects": [
+          {
+            "op": "assert_reset_from_executable_spec"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p000",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "inspection_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "inspection_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "p001",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "inspection_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_002",
+            "kind": "evidence",
+            "statement": "The breakfast table visibly holds, from the deicer outward, a sponge, a red apple, and a distant salad.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The red apple is the nearest food to the deicer. The sponge is physically closer but is not food, and the salad is farther away. Take only the apple to the discard bin.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p002",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "LookScan",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_003",
+            "kind": "evidence",
+            "statement": "The sponge is closest overall, but the apple is visibly the closest item in the food subset.",
+            "channel": "prologue"
+          },
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The red apple is the nearest food to the deicer. The sponge is physically closer but is not food, and the salad is farther away. Take only the apple to the discard bin.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "p003",
+        "phase": "before_turn0",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "turn0",
+        "phase": "during",
+        "actor": "human",
+        "say": "I need to throw away the food that is closest to this leaking deicer container. Which item is it? Please leave everything else alone.",
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_001",
+            "kind": "evidence",
+            "statement": "I need to throw away the food that is closest to this leaking deicer container. Which item is it? Please leave everything else alone.",
+            "channel": "utterance"
+          },
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The red apple is the nearest food to the deicer. The sponge is physically closer but is not food, and the salad is farther away. Take only the apple to the discard bin.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "assistant_intervention",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The nearest food is the red apple immediately right of the sponge on the dining-room breakfast table. The sponge is closer to the leaking de-icer but is not food, and the salad is farther away. Leave all three items where they are for this moment and wait.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_001",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "Pick up only the red apple from the dining-room inspection table. It is immediately right of the sponge. Walk to the gray open discard bin in the living room and put the apple inside it. Look directly into that gray bin to confirm the apple is inside. Then return to the dining-room inspection table, look directly at that table, and look down to scan the area so I can verify that the de-icer, sponge, and salad were not moved.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "assistant_002",
+        "phase": "during",
+        "actor": "assistant",
+        "say": "The apple is inside the gray discard bin, and the de-icer, sponge, and salad remain on the breakfast table. Stay where you are and wait.",
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "sponge"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "sponge"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "waste_bin"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "waste_bin"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "sponge",
+            "waste_bin"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "sponge",
+            "target": "waste_bin"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "inspection_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "inspection_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "inspection_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "h006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o000",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o001",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Grab",
+          "args": [
+            "apple"
+          ]
+        },
+        "effects": [
+          {
+            "op": "held",
+            "subject": "apple"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o002",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "waste_bin"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "waste_bin"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o003",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "PutInside",
+          "args": [
+            "apple",
+            "waste_bin"
+          ]
+        },
+        "effects": [
+          {
+            "op": "inside",
+            "subject": "apple",
+            "target": "waste_bin"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o004",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "waste_bin"
+          ]
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_004",
+            "kind": "evidence",
+            "statement": "Only the apple has been placed into the discard bin.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The red apple is the nearest food to the deicer. The sponge is physically closer but is not food, and the salad is farther away. Take only the apple to the discard bin.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o005",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Walk",
+          "args": [
+            "inspection_table"
+          ]
+        },
+        "effects": [
+          {
+            "op": "at",
+            "subject": "human",
+            "target": "inspection_table"
+          }
+        ],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o006",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookAt",
+          "args": [
+            "inspection_table"
+          ]
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      },
+      {
+        "id": "o007",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "LookScan",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [
+          {
+            "id": "fact_005",
+            "kind": "evidence",
+            "statement": "The deicer, sponge, and salad remain on the breakfast table.",
+            "channel": "live"
+          },
+          {
+            "id": "fact_006",
+            "kind": "evidence",
+            "statement": "The red apple is the nearest food to the deicer. The sponge is physically closer but is not food, and the salad is farther away. Take only the apple to the discard bin.",
+            "channel": "derived"
+          }
+        ],
+        "requires": []
+      },
+      {
+        "id": "o008",
+        "phase": "during",
+        "actor": "human",
+        "action": {
+          "verb": "Wait",
+          "args": []
+        },
+        "effects": [],
+        "establishes": [],
+        "requires": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "fact_001",
+        "statement": "I need to throw away the food that is closest to this leaking deicer container. Which item is it? Please leave everything else alone.",
+        "channel": "utterance",
+        "source_beat_ids": [
+          "turn0"
+        ],
+        "grounding": "derived_from_channel",
+        "source_phase": "turn0",
+        "source_index": null
+      },
+      {
+        "id": "fact_002",
+        "statement": "The breakfast table visibly holds, from the deicer outward, a sponge, a red apple, and a distant salad.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p001"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 1
+      },
+      {
+        "id": "fact_003",
+        "statement": "The sponge is closest overall, but the apple is visibly the closest item in the food subset.",
+        "channel": "prologue",
+        "source_beat_ids": [
+          "p002"
+        ],
+        "grounding": "explicit_phase_index",
+        "source_phase": "opening",
+        "source_index": 2
+      },
+      {
+        "id": "fact_004",
+        "statement": "Only the apple has been placed into the discard bin.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o004"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 4
+      },
+      {
+        "id": "fact_005",
+        "statement": "The deicer, sponge, and salad remain on the breakfast table.",
+        "channel": "live",
+        "source_beat_ids": [
+          "o007"
+        ],
+        "grounding": "explicit_action_index",
+        "source_phase": "live",
+        "source_index": 7
+      },
+      {
+        "id": "fact_006",
+        "statement": "The red apple is the nearest food to the deicer. The sponge is physically closer but is not food, and the salad is farther away. Take only the apple to the discard bin.",
+        "channel": "derived",
+        "source_beat_ids": [
+          "turn0",
+          "p001",
+          "p002",
+          "o004",
+          "o007"
+        ],
+        "grounding": "derived_from_fact_ledger",
+        "source_phase": "derived",
+        "source_index": null,
+        "derived_from": [
+          "fact_001",
+          "fact_002",
+          "fact_003",
+          "fact_004",
+          "fact_005"
+        ]
+      }
+    ],
+    "interaction": {
+      "public_task_context": "Use the visual history and live views to answer the wearer's request and guide one grounded action at a time.",
+      "human_task_context": "You are the blind wearer and only the Assistant's physical executor, not a second planner. You receive no camera images. Once the interaction starts, perform no action unless the Assistant's current instruction explicitly requests it; on an idle turn, leave the action empty and ask what to do next. Follow only the first currently actionable, single-object step and do exactly what the Assistant says, without choosing, correcting, improving, reordering, or extending its plan. Perform at most one physical action per response, then wait for the next Assistant turn. Any machine-readable action choices supplied to you are private implementation details: never mention or ask about them in speech, and never use them to invent an answer, object location, route, source, destination, or next step that the Assistant did not state. Speak only as a real blind person would: describe what you physically did or felt, report a concrete failure, or ask briefly for an ordinary direction or visible description. Never volunteer a place or object that the Assistant has not mentioned in its current instruction, except for the object you are already holding or the request you stated in the fixed opening. You may act on a movable object only when you are already holding it, it was established by a dedicated earlier inspection, or the Assistant explicitly states its concrete current source or landmark and a visible description sufficient to identify it. If that information is missing or wrong, leave the action empty and ask where the object is relative to you. Do not travel to or operate an unseen object merely because the private controls make it possible. Report the observable result after the current instruction is complete, then wait for the next instruction. You cannot see score or completion state and must never end the episode yourself; only the Assistant's dedicated completion token or the action limit ends it.",
+      "opening": {
+        "prelude_say": "",
+        "actions": [
+          "[Walk] <inspection_table> (1)",
+          "[LookAt] <inspection_table> (1)",
+          "[LookScan]",
+          "[Wait]"
+        ],
+        "utterances": [
+          {
+            "before_action_index": 3,
+            "say": "Hi Assistant, I'm blind, so I may need some visual help. I need to throw away the food closest to the leaking de-icer. Please help me identify it and put it in the waste bin in the living room."
+          }
+        ],
+        "handoff_say": "Hi Assistant, I'm blind, so I may need some visual help. I need to throw away the food closest to the leaking de-icer. Please help me identify it and put it in the waste bin in the living room.",
+        "frame_selection": {
+          "policy": "all_actions_budgeted",
+          "recent_intervals": 2
+        }
+      },
+      "information_contract": {
+        "spoken_cues": [
+          {
+            "id": "nearest_food_request",
+            "required_phrases": [
+              "I'm blind",
+              "food closest",
+              "leaking de-icer",
+              "waste bin in the living room"
+            ]
+          }
+        ]
+      },
+      "completion_contract": {
+        "requires_assistant_done": true,
+        "required_successful_commands": [
+          "[Grab] <apple> (1)",
+          "[Walk] <waste_bin> (1)",
+          "[PutInside] <apple> (1) <waste_bin> (1)"
+        ],
+        "forbidden_successful_commands": [
+          "[Grab] <deicer> (1)",
+          "[Grab] <sponge> (1)",
+          "[Grab] <salad> (1)",
+          "[PutInside] <deicer> (1) <waste_bin> (1)",
+          "[PutInside] <sponge> (1) <waste_bin> (1)",
+          "[PutInside] <salad> (1) <waste_bin> (1)"
+        ],
+        "required_command_sequences": [
+          [
+            "[Grab] <apple> (1)",
+            "[Walk] <waste_bin> (1)",
+            "[PutInside] <apple> (1) <waste_bin> (1)"
+          ]
+        ],
+        "verification_points": [
+          {
+            "id": "apple_inside_waste_bin",
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "apple",
+            "target": "waste_bin"
+          },
+          {
+            "id": "deicer_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "deicer",
+            "target": "deicer"
+          },
+          {
+            "id": "sponge_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "sponge",
+            "target": "sponge"
+          },
+          {
+            "id": "salad_unmoved",
+            "kind": "world_state",
+            "pred": "unmoved",
+            "subject": "salad",
+            "target": "salad"
+          }
+        ]
+      },
+      "motor_aliases": {
+        "apple": [
+          "red apple"
+        ],
+        "inspection_table": [
+          "dining-room inspection table"
+        ],
+        "waste_bin": [
+          "gray open discard bin in the living room"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "contract_version": "compiled-runtime-contract/1.8",
+    "tick_budget": 36,
+    "dialogue_budget": 3,
+    "human_policy": {
+      "version": "human-policy/1.0",
+      "initial_state": {
+        "facing": "inspection_table",
+        "held": [],
+        "posture": "standing"
+      },
+      "default_plan": [
+        "turn0",
+        "h000",
+        "h001",
+        "h002",
+        "h003",
+        "h004",
+        "h005",
+        "h006"
+      ],
+      "intervention_window": {
+        "after_beat": "turn0",
+        "before_beat": "h000"
+      },
+      "transitions": [
+        {
+          "after_beat": "turn0",
+          "intervention_beat": "assistant_intervention",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "apple",
+              "sponge",
+              "deicer",
+              "salad"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "apple",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o000"
+        },
+        {
+          "after_beat": "o000",
+          "intervention_beat": "assistant_001",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "apple",
+              "waste_bin"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "apple",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o001"
+        },
+        {
+          "after_beat": "o001",
+          "condition": {
+            "kind": "world_state",
+            "pred": "held",
+            "subject": "apple",
+            "target": null,
+            "truth": true
+          },
+          "next_beat": "o002"
+        },
+        {
+          "after_beat": "o002",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "waste_bin",
+            "truth": true
+          },
+          "next_beat": "o003"
+        },
+        {
+          "after_beat": "o003",
+          "condition": {
+            "kind": "world_state",
+            "pred": "inside",
+            "subject": "apple",
+            "target": "waste_bin",
+            "truth": true
+          },
+          "next_beat": "o004"
+        },
+        {
+          "after_beat": "o004",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o005"
+        },
+        {
+          "after_beat": "o005",
+          "condition": {
+            "kind": "world_state",
+            "pred": "at",
+            "subject": "human",
+            "target": "inspection_table",
+            "truth": true
+          },
+          "next_beat": "o006"
+        },
+        {
+          "after_beat": "o006",
+          "condition": {
+            "kind": "timeout",
+            "after_ticks": 1
+          },
+          "next_beat": "o007"
+        },
+        {
+          "after_beat": "o007",
+          "intervention_beat": "assistant_002",
+          "condition": {
+            "kind": "semantic_and_world",
+            "expected_act": "correct",
+            "expected_referents": [
+              "apple",
+              "deicer",
+              "sponge",
+              "salad"
+            ],
+            "required_fact_ids": [
+              "fact_001",
+              "fact_002",
+              "fact_003",
+              "fact_004",
+              "fact_005"
+            ],
+            "verifier": "human_model_then_world",
+            "world_check": {
+              "pred": "held",
+              "subject": "apple",
+              "target": null,
+              "truth": false
+            }
+          },
+          "next_beat": "o008"
+        }
+      ],
+      "terminal_beats": [
+        "h006",
+        "o008"
+      ]
+    },
+    "oracle_commands": [
+      {
+        "verb": "Wait",
+        "args": []
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "apple"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "waste_bin"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "apple",
+          "waste_bin"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "waste_bin"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "inspection_table"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "inspection_table"
+        ]
+      },
+      {
+        "verb": "LookScan",
+        "args": []
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "default_commands": [
+      {
+        "verb": "Wait",
+        "args": []
+      },
+      {
+        "verb": "Grab",
+        "args": [
+          "sponge"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "waste_bin"
+        ]
+      },
+      {
+        "verb": "PutInside",
+        "args": [
+          "sponge",
+          "waste_bin"
+        ]
+      },
+      {
+        "verb": "Walk",
+        "args": [
+          "inspection_table"
+        ]
+      },
+      {
+        "verb": "LookAt",
+        "args": [
+          "inspection_table"
+        ]
+      },
+      {
+        "verb": "Wait",
+        "args": []
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "assistant_intervention",
+        "say": "The nearest food is the red apple immediately right of the sponge on the dining-room breakfast table. The sponge is closer to the leaking de-icer but is not food, and the salad is farther away. Leave all three items where they are for this moment and wait.",
+        "relation": "before",
+        "anchor_beat_id": "o000",
+        "source": "guidance",
+        "source_index": 0
+      },
+      {
+        "id": "assistant_001",
+        "say": "Pick up only the red apple from the dining-room inspection table. It is immediately right of the sponge. Walk to the gray open discard bin in the living room and put the apple inside it. Look directly into that gray bin to confirm the apple is inside. Then return to the dining-room inspection table, look directly at that table, and look down to scan the area so I can verify that the de-icer, sponge, and salad were not moved.",
+        "relation": "before",
+        "anchor_beat_id": "o001",
+        "source": "guidance",
+        "source_index": 1
+      },
+      {
+        "id": "assistant_002",
+        "say": "The apple is inside the gray discard bin, and the de-icer, sponge, and salad remain on the breakfast table. Stay where you are and wait.",
+        "relation": "before",
+        "anchor_beat_id": "o008",
+        "source": "guidance",
+        "source_index": 2
+      }
+    ],
+    "constraints": {
+      "human_must_remain_on_scene_floor": true,
+      "no_task_id_overrides": true
+    },
+    "visual_state_events": []
+  },
+  "lineage": {
+    "release": "InteractiveWorld-Balanced120",
+    "task_id": "NARRATE-16000"
+  }
+}
