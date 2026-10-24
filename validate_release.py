@@ -16,7 +16,8 @@ sys.dont_write_bytecode = True
 
 ROOT = Path(__file__).resolve().parent
 MANIFEST_PATH = ROOT / "release_manifest.json"
-FORBIDDEN_FILE_SUFFIXES = {".md", ".markdown", ".pyc", ".pyo"}
+FORBIDDEN_FILE_SUFFIXES = {".pyc", ".pyo"}
+ALLOWED_DOCUMENTATION_FILES = {Path("README.md")}
 FORBIDDEN_PATH_PARTS = {"__pycache__"}
 REPOSITORY_METADATA_PATH_PARTS = {".git"}
 FORBIDDEN_FILE_FRAGMENTS = {".partial."}
@@ -226,6 +227,11 @@ def _validate_tree_hygiene(
         if allow_bytecode_cache and suffix in {".pyc", ".pyo"}:
             continue
         files += 1
+        if suffix in {".md", ".markdown"}:
+            _require(
+                relative in ALLOWED_DOCUMENTATION_FILES,
+                f"unexpected documentation file: {relative}",
+            )
         _require(
             suffix not in FORBIDDEN_FILE_SUFFIXES, f"forbidden file type: {relative}"
         )
