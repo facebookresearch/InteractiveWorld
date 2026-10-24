@@ -1,12 +1,12 @@
 <div align="center">
 
-# <img src="assets/logo.svg" alt="" height="64"> InteractiveWorld
+# InteractiveWorld
 
 ### A Verifiable Human-Centric Environment for Building Better Interactive MLLM Assistants
 
-<a href="https://meta-interactiveworld.github.io/"><img src="assets/buttons/website.svg" alt="Project Page" height="40"></a>&nbsp;&nbsp;
-<img src="assets/buttons/paper.svg" alt="Paper (coming soon)" height="40">&nbsp;&nbsp;
-<a href="https://github.com/facebookresearch/InteractiveWorld"><img src="assets/buttons/code.svg" alt="Code" height="40"></a>
+<a href="https://meta-interactiveworld.github.io/"><img src="assets/badges/website.svg" alt="Website: Project Page"></a>&nbsp;
+<img src="assets/badges/paper.svg" alt="Paper: Coming Soon">&nbsp;
+<a href="https://github.com/facebookresearch/InteractiveWorld"><img src="assets/badges/code.svg" alt="Code: GitHub"></a>
 
 **[Overview](#-overview) · [InteractiveWorld](#-interactiveworld) · [InteractiveBench](#-interactivebench) · [Citation](#-citation)**
 
@@ -57,7 +57,7 @@ InteractiveWorld/
 | [`docs/BENCHMARK.md`](docs/BENCHMARK.md) | Evaluating models: providers, task selection, GPUs, outputs and scoring |
 | [`docs/TASKPACK.md`](docs/TASKPACK.md) | The TaskPack format and how to build and run your own tasks |
 
-## 🧭 InteractiveWorld
+## 🌍 InteractiveWorld
 
 ### 1. Preparation
 
@@ -189,7 +189,7 @@ with Simulator.launch(scene="Rs_int", config=config) as world:
 Everything else (observation fields, configuration, errors, the server protocol) is in
 [`docs/SIMULATOR.md`](docs/SIMULATOR.md).
 
-## 🧪 InteractiveBench
+## 📊 InteractiveBench
 
 InteractiveBench freezes **120 multi-turn tasks**, 20 in each of six categories:
 **Guidance**, **Planning**, **Accessibility**, **Decision**, **Prevention** and

@@ -24,7 +24,11 @@ sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parent
 MANIFEST_PATH = ROOT / "release_manifest.json"
 FORBIDDEN_FILE_SUFFIXES = {".pyc", ".pyo"}
-ALLOWED_DOCUMENTATION_FILES = {Path("README.md")}
+ALLOWED_DOCUMENTATION_FILES = {
+    Path("README.md"),
+    Path("CODE_OF_CONDUCT.md"),
+    Path("CONTRIBUTING.md"),
+}
 DOCUMENTATION_DIRECTORY = Path("docs")
 FORBIDDEN_PATH_PARTS = {"__pycache__"}
 REPOSITORY_METADATA_PATH_PARTS = {".git"}
