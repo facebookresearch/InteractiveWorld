@@ -279,3 +279,9 @@ TaskPack field and the rules a task must satisfy.
   year   = {2026}
 }
 ```
+
+## ⚖️ License
+
+InteractiveWorld is released under the [CC BY-NC 4.0](LICENSE) license. The BEHAVIOR-1K
+dataset, the SMPL+H/MANO body model and the AMASS motion data are distributed by their
+owners under their own licenses; obtain and use them according to those terms.
