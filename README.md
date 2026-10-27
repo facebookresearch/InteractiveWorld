@@ -5,7 +5,7 @@
 ### A Verifiable Human-Centric Environment for Building Better Interactive MLLM Assistants
 
 <a href="https://meta-interactiveworld.github.io/"><img src="assets/badges/website.svg" alt="Website: Project Page"></a>&nbsp;
-<a href="https://arxiv.org/abs/2610.33966"><img src="assets/badges/paper.svg" alt="Paper: arXiv"></a>&nbsp;
+<a href="https://arxiv.org/abs/2610.33966"><img src="assets/badges/paper.svg" alt="Paper: ArXiv"></a>&nbsp;
 <a href="https://github.com/facebookresearch/InteractiveWorld"><img src="assets/badges/code.svg" alt="Code: GitHub"></a>
 
 **[Overview](#-overview) · [InteractiveWorld](#-interactiveworld) · [InteractiveBench](#-interactivebench) · [Citation](#-citation)**
