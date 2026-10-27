@@ -5,7 +5,7 @@
 ### A Verifiable Human-Centric Environment for Building Better Interactive MLLM Assistants
 
 <a href="https://meta-interactiveworld.github.io/"><img src="assets/badges/website.svg" alt="Website: Project Page"></a>&nbsp;
-<a href="https://arxiv.org/abs/2610.33966"><img src="assets/badges/paper.svg" alt="Paper: ArXiv"></a>&nbsp;
+<a href="https://arxiv.org/abs/2610.33966"><img src="assets/badges/paper.svg" alt="Paper: arXiv"></a>&nbsp;
 <a href="https://github.com/facebookresearch/InteractiveWorld"><img src="assets/badges/code.svg" alt="Code: GitHub"></a>
 
 **[Overview](#-overview) · [InteractiveWorld](#-interactiveworld) · [InteractiveBench](#-interactivebench) · [Citation](#-citation)**
@@ -274,9 +274,13 @@ TaskPack field and the rules a task must satisfy.
 
 ```bibtex
 @misc{wang2026interactiveworld,
-  title  = {InteractiveWorld: A Verifiable Human-Centric Environment for Building Better Interactive MLLM Assistants},
-  author = {Wang, Qinsi and Wen, Wei and Zhou, Chong and Suri, Saksham and Liu, Zechun and Wu, Lemeng and Li, Hai Helen and Chen, Yiran and Krishnamoorthi, Raghuraman and Qian, Qi},
-  year   = {2026}
+  title         = {InteractiveWorld: A Verifiable Human-Centric Environment for Building Better Interactive MLLM Assistants},
+  author        = {Wang, Qinsi and Wen, Wei and Zhou, Chong and Suri, Saksham and Liu, Zechun and Wu, Lemeng and Li, Hai Helen and Chen, Yiran and Krishnamoorthi, Raghuraman and Qian, Qi},
+  year          = {2026},
+  eprint        = {2610.33966},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.HC},
+  url           = {https://arxiv.org/abs/2610.33966}
 }
 ```
 
