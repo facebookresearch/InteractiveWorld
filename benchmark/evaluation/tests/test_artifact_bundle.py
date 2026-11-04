@@ -6,8 +6,10 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import tempfile
+import tracemalloc
 import unittest
 from pathlib import Path
 
@@ -39,6 +41,47 @@ class ArtifactBundleTest(unittest.TestCase):
         frame = capture / "frame.png"
         frame.write_bytes(b"png evidence")
         return frame
+
+    def test_binary_evidence_is_hashed_without_loading_the_whole_file(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            tag = "TP_ASK-12802_model_s0"
+            self._write_bundle(root, tag)
+            video = root / f"{tag}_fpv.mp4"
+            with video.open("wb") as handle:
+                handle.truncate(8 * 1024 * 1024)
+
+            # Independent oracle for the existing versioned wire framing.
+            expected = hashlib.sha256(b"interactiveworld-run-evidence/1.0\x00")
+            for path in sorted(root.rglob("*")):
+                if not path.is_file():
+                    continue
+                content = path.read_bytes()
+                if path.suffix == ".json":
+                    content = json.dumps(
+                        json.loads(content),
+                        ensure_ascii=False,
+                        allow_nan=False,
+                        separators=(",", ":"),
+                        sort_keys=True,
+                    ).encode("utf-8")
+                expected.update(path.relative_to(root).as_posix().encode() + b"\x00")
+                expected.update(str(len(content)).encode() + b"\x00")
+                expected.update(content)
+            del content
+
+            tracemalloc.start()
+            try:
+                actual = compute_run_evidence_sha256(root, tag)
+                _, peak = tracemalloc.get_traced_memory()
+            finally:
+                tracemalloc.stop()
+            self.assertEqual(actual, "sha256:" + expected.hexdigest())
+            self.assertLess(peak, 4 * 1024 * 1024)
+            with video.open("r+b") as handle:
+                handle.seek(-1, 2)
+                handle.write(b"x")
+            self.assertNotEqual(actual, compute_run_evidence_sha256(root, tag))
 
     def test_digest_binds_all_files_and_is_stable_after_embedding_it(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

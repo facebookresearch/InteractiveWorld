@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re
 import shutil
 from collections.abc import Mapping
@@ -71,10 +72,23 @@ def compute_run_evidence_sha256(artifact_dir: str | Path, tag: str) -> str:
     digest.update(RUN_EVIDENCE_BINDING_VERSION.encode("ascii") + b"\x00")
     for path in paths:
         relative = path.relative_to(root).as_posix()
-        content = _content_bytes(path)
         digest.update(relative.encode("utf-8") + b"\x00")
-        digest.update(str(len(content)).encode("ascii") + b"\x00")
-        digest.update(content)
+        if path.suffix == ".json":
+            content = _content_bytes(path)
+            digest.update(str(len(content)).encode("ascii") + b"\x00")
+            digest.update(content)
+        else:
+            with path.open("rb") as handle:
+                size = os.fstat(handle.fileno()).st_size
+                digest.update(str(size).encode("ascii") + b"\x00")
+                consumed = 0
+                for block in iter(lambda: handle.read(1024 * 1024), b""):
+                    digest.update(block)
+                    consumed += len(block)
+                if consumed != size:
+                    raise ArtifactBundleError(
+                        f"task evidence changed size while hashing: {relative}"
+                    )
     return "sha256:" + digest.hexdigest()
 
 
