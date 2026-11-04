@@ -101,6 +101,24 @@ class _StubServer:
 
 
 class SimulatorClientTest(unittest.TestCase):
+    def test_invalid_tcp_ports_do_not_spawn_processes(self) -> None:
+        for port in (0, -1, 65536, True, "invalid"):
+            with (
+                self.subTest(port=port),
+                mock.patch.object(
+                    SimulatorClient,
+                    "_spawn_process",
+                    side_effect=AssertionError("external resource acquired"),
+                ) as acquire,
+            ):
+                with self.assertRaises(ValueError):
+                    SimulatorClient.spawn(
+                        [sys.executable, "-c", "pass"],
+                        host="127.0.0.1",
+                        port=port,
+                    )
+                acquire.assert_not_called()
+
     def test_invalid_timeouts_do_not_acquire_external_resources(self) -> None:
         factories = (
             ("connect_unix", {"path": "/unused/sim.sock"}, "_connect_unix_socket"),

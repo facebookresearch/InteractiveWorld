@@ -192,8 +192,11 @@ class SimulatorClient:
             raise ValueError(
                 "provide exactly one endpoint: unix_socket or both host and port"
             )
-        if use_tcp and (not host or port is None):
-            raise ValueError("TCP spawning requires both host and port")
+        if use_tcp:
+            if not host or port is None:
+                raise ValueError("TCP spawning requires both host and port")
+            if isinstance(port, bool) or not 1 <= int(port) <= 65535:
+                raise ValueError("port must be between 1 and 65535")
 
         owned_socket_path = (
             Path(unix_socket).expanduser() if unix_socket is not None else None
