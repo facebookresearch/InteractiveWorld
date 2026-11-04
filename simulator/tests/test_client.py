@@ -101,6 +101,39 @@ class _StubServer:
 
 
 class SimulatorClientTest(unittest.TestCase):
+    def test_invalid_timeouts_do_not_acquire_external_resources(self) -> None:
+        factories = (
+            ("connect_unix", {"path": "/unused/sim.sock"}, "_connect_unix_socket"),
+            (
+                "connect_tcp",
+                {"host": "127.0.0.1", "port": 12345},
+                "_connect_tcp_socket",
+            ),
+            (
+                "spawn",
+                {
+                    "command": [sys.executable, "-c", "pass"],
+                    "host": "127.0.0.1",
+                    "port": 12345,
+                },
+                "_spawn_process",
+            ),
+        )
+        for factory, arguments, acquisition in factories:
+            for name in ("request_timeout_s", "open_timeout_s", "shutdown_timeout_s"):
+                for value in (0, -1, float("nan"), float("inf")):
+                    with self.subTest(factory=factory, timeout=name, value=value):
+                        with mock.patch.object(
+                            SimulatorClient,
+                            acquisition,
+                            side_effect=AssertionError("external resource acquired"),
+                        ) as acquire:
+                            with self.assertRaisesRegex(ValueError, name):
+                                getattr(SimulatorClient, factory)(
+                                    **arguments, **{name: value}
+                                )
+                            acquire.assert_not_called()
+
     def test_rejects_unknown_observation_profile_before_transport(self) -> None:
         first, second = socket.socketpair()
         self.addCleanup(first.close)

@@ -118,6 +118,9 @@ class SimulatorClient:
         """Attach to an existing Unix-domain simulator endpoint."""
         socket_path = Path(path).expanduser()
         timeout = _positive_timeout("connect_timeout_s", connect_timeout_s)
+        _positive_timeout("request_timeout_s", request_timeout_s)
+        _positive_timeout("open_timeout_s", open_timeout_s)
+        _positive_timeout("shutdown_timeout_s", shutdown_timeout_s)
         connection = cls._connect_unix_socket(socket_path, timeout=timeout)
         return cls(
             connection,
@@ -144,6 +147,9 @@ class SimulatorClient:
         if isinstance(port, bool) or not 1 <= int(port) <= 65535:
             raise ValueError("port must be between 1 and 65535")
         timeout = _positive_timeout("connect_timeout_s", connect_timeout_s)
+        _positive_timeout("request_timeout_s", request_timeout_s)
+        _positive_timeout("open_timeout_s", open_timeout_s)
+        _positive_timeout("shutdown_timeout_s", shutdown_timeout_s)
         connection = cls._connect_tcp_socket(host, int(port), timeout=timeout)
         return cls(
             connection,
@@ -197,6 +203,9 @@ class SimulatorClient:
                 f"refusing to spawn over existing endpoint {owned_socket_path}"
             )
         timeout = _positive_timeout("connect_timeout_s", connect_timeout_s)
+        _positive_timeout("request_timeout_s", request_timeout_s)
+        _positive_timeout("open_timeout_s", open_timeout_s)
+        _positive_timeout("shutdown_timeout_s", shutdown_timeout_s)
         process = cls._spawn_process(argv, cwd=cwd, env=env)
         try:
             connection, endpoint = cls._connect_spawned_endpoint(
