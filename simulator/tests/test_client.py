@@ -101,6 +101,45 @@ class _StubServer:
 
 
 class SimulatorClientTest(unittest.TestCase):
+    def test_startup_failures_reap_owned_process_and_preserve_error(self) -> None:
+        for error in (
+            KeyboardInterrupt("cancel startup"),
+            SystemExit(2),
+            RuntimeError("unexpected handshake failure"),
+            SimulatorConnectionError("connection failed"),
+        ):
+            with self.subTest(error=type(error).__name__):
+                processes = []
+                original_spawn = SimulatorClient._spawn_process
+
+                def spawn_process(*args, **kwargs):
+                    process = original_spawn(*args, **kwargs)
+                    processes.append(process)
+                    self.addCleanup(
+                        SimulatorClient._stop_process,
+                        process,
+                        graceful_timeout_s=0.0,
+                    )
+                    return process
+
+                with (
+                    mock.patch.object(
+                        SimulatorClient, "_spawn_process", side_effect=spawn_process
+                    ),
+                    mock.patch.object(
+                        SimulatorClient, "_connect_spawned_endpoint", side_effect=error
+                    ),
+                    self.assertRaises(type(error)) as raised,
+                ):
+                    SimulatorClient.spawn(
+                        [sys.executable, "-c", "import time; time.sleep(60)"],
+                        host="127.0.0.1",
+                        port=12345,
+                    )
+                self.assertIs(raised.exception, error)
+                self.assertEqual(len(processes), 1)
+                self.assertIsNotNone(processes[0].poll())
+
     def test_rejects_unknown_observation_profile_before_transport(self) -> None:
         first, second = socket.socketpair()
         self.addCleanup(first.close)
