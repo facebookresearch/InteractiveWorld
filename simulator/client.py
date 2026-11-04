@@ -206,7 +206,9 @@ class SimulatorClient:
                 port=port,
                 timeout=timeout,
             )
-        except SimulatorConnectionError:
+        except BaseException:
+            # Startup cancellation and unexpected handshake errors still leave
+            # this process owned by the factory; reap it before propagating.
             cls._stop_process(process, graceful_timeout_s=0.0)
             raise
 
